@@ -1,0 +1,44 @@
+# The IG's FHIR AST cache, refreshed by fhir-harness's reusable workflow
+# (template: fhir-harness templates/ig-repo-site/ig-ast-refresh.yml): it runs
+# the IG Publisher when the cache on cat/fhir-harness/fhir-ast/<package id>
+# is not valid for the commit, and seeds it from main only. The agent then
+# publishes the site from that cache (AGENTS.md: gh-pages is agent-published).
+#
+# Pinned by commit SHA, like every action here, at the fhir-harness commit
+# whose own third-party actions are pinned by SHA (litlfred/fhir-harness#132).
+# On a pull request it builds the IG and reports, without seeding.
+name: IG AST refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - sushi-config.yaml
+      - ig.ini
+      - "input/**"
+  pull_request:
+    paths:
+      - sushi-config.yaml
+      - ig.ini
+      - "input/**"
+      - .github/workflows/ig-ast-refresh.yml
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "The ref to build (only a commit on main with its inputs seeds the cache)"
+        type: string
+        default: main
+      force:
+        description: "Rebuild even when the cache is valid for the ref"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    uses: litlfred/fhir-harness/.github/workflows/ig-ast-refresh.yml@a42f98c89162cac55b963b7417d342ed48f5ad3c
+    with:
+      ref: ${{ inputs.ref || github.sha }}
+      force: ${{ inputs.force || false }}
