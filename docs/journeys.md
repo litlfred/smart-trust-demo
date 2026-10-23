@@ -80,9 +80,18 @@ Everything syncs that evening.
 
 ### J3 — Clinic verification and schedule generation (Country B)
 
-Tomas ALVES opens the referral and scans the QRs. The EHR loaded the GDHCN
-DEV trust list when it was last online, including XXR's DSC DID document
-(STT-TRU-001, STT-TRU-002, STT-VER-006). It **verifies** each DVC offline
+**Precondition: the DID documents are already loaded.** Loading them is not
+a step of this visit. The clinic may be offline all day, so the EHR fetches
+nothing during it: its trust store holds the GDHCN DEV trust list as it was
+last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002,
+STT-TRU-005). A clinic with no connection of its own refreshes it on its last
+visit to the district health office, where Country B retrieves the list the
+GDHCN trust anchor distributes. A DSC published after that refresh is not in
+the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until
+the next refresh.
+
+Tomas ALVES opens the referral and scans the QRs. The EHR **verifies** each
+DVC offline against that copy
 (STT-VER-001…009, STT-KID-002). Both verify, so it imports them as FHIR
 `Immunization`s with provenance (STT-VER-007, STT-VER-008). The national
 schedule then runs: the birth doses count, and birth-dose OPV is due.

@@ -119,7 +119,7 @@
         "ehr-import-immunization",
         "schedule-evaluate"
       ],
-      "persona": "Holds a trust list refreshed when online; verifies offline at the point of care.",
+      "persona": "Holds the DID trust list from its last refresh, which for a clinic without its own connection is the last visit to the district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.",
       "otherNames": [
         "Receiver (SMART Trust)",
         "HCERT verifying system"
