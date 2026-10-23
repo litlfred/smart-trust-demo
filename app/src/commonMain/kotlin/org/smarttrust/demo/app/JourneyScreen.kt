@@ -34,6 +34,9 @@ fun JourneyScreen(journeys: HcertJourneys) {
                 Button(onClick = { views = views.zip(examples).map { (v, e) -> journeys.verify(v, e.second) } }) {
                     Text("J3: verify")
                 }
+                Button(onClick = { views = views.mapIndexed { i, v -> journeys.import(v, i) } }) {
+                    Text("J3: import")
+                }
             }
             LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 items(views) { v -> DvcCard(v) }
@@ -53,6 +56,7 @@ private fun DvcCard(v: DvcView) {
             }
             Text(v.readOffline)
             v.verified?.let { Text(it, style = MaterialTheme.typography.bodyLarge) }
+            v.imported?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
         }
     }
 }

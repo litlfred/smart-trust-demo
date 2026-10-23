@@ -29,4 +29,21 @@ class AndroidHcertJourneysTest {
             assertTrue(assertNotNull(v.verified).startsWith("Verified"), v.verified)
         }
     }
+
+    @Test fun j3ImportsOnlyVerifiedDvcsAsImmunizationWithProvenance() {
+        val (label, hc1) = journeys.examples().first()
+        val read = journeys.readOffline(label, hc1)
+        assertNull(journeys.import(read, 0).imported, "an unverified DVC is not imported")
+        val json = assertNotNull(journeys.import(journeys.verify(read, hc1), 0).imported)
+        val dose = assertNotNull(read.dose)
+        for (part in listOf(
+            "\"resourceType\": \"Immunization\"",
+            "\"lotNumber\": \"${dose.batch}\"",
+            "\"occurrenceDateTime\": \"${dose.date}\"",
+            "\"code\": \"${dose.product}\"",
+            "\"primarySource\": false",
+            "\"resourceType\": \"Provenance\"",
+            "\"value\": \"916ffa567c0f44a2\"",
+        )) assertTrue(part in json, "missing $part in\n$json")
+    }
 }

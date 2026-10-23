@@ -11,7 +11,14 @@ data class DvcView(
     val readOffline: String,
     /** J3: verified against the trust list held on the device, or the step and reason it failed (STT-VER-008). */
     val verified: String?,
+    /** J3: the DSC that signed it, once verified; only a verified DVC is imported. */
+    val signer: Signer? = null,
+    /** J3: the FHIR R4 Immunization and Provenance the clinic records, as JSON. */
+    val imported: String? = null,
 )
+
+/** The trust list entry a DVC verified against. */
+data class Signer(val kidHex: String, val country: String?)
 
 /** The library, as the journeys use it; implemented per platform. */
 interface HcertJourneys {
@@ -21,4 +28,7 @@ interface HcertJourneys {
     fun readOffline(label: String, hc1: String): DvcView
 
     fun verify(view: DvcView, hc1: String): DvcView
+
+    /** J3: records a verified DVC as FHIR; an unverified one is left as it is. */
+    fun import(view: DvcView, index: Int): DvcView
 }

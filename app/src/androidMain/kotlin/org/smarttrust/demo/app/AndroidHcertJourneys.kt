@@ -38,7 +38,18 @@ class AndroidHcertJourneys(private val read: (String) -> String, private val now
 
     override fun verify(view: DvcView, hc1: String): DvcView =
         when (val r = HcertVerifier.verify(hc1, store, reg, now(), options)) {
-            is VerificationResult.Verified -> view.copy(verified = "Verified: signed by ${r.value.dsc.country}'s DSC on the trust list")
+            is VerificationResult.Verified -> view.copy(
+                verified = "Verified: signed by ${r.value.dsc.country}'s DSC on the trust list",
+                signer = Signer(r.value.dsc.kid.joinToString("") { "%02x".format(it) }, r.value.dsc.country),
+            )
             is VerificationResult.Failed -> view.copy(verified = "Not verified at ${r.value.step}: ${r.value.reason}")
         }
+
+    override fun import(view: DvcView, index: Int): DvcView {
+        val dose = view.dose ?: return view
+        val signer = view.signer ?: return view
+        // The clinic's own record for the child; matching holder to record is the clinic's step.
+        val imported = ImmunizationImport.import(dose, "dvc-${index + 1}", "Patient/chanthala", signer.kidHex, signer.country, now() * 1000)
+        return view.copy(imported = ImmunizationImport.toJson(imported))
+    }
 }
