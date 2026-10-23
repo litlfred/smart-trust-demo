@@ -29,9 +29,15 @@ J4.1.
 
 - Who: the `Point-of-care receiver` lane (role `poc-receiver`).
 - Skill: `hcert-verify`.
-- What: STT-VER-001 against Country B's DSC on the trust list; VHL expiry (STT-VHL-009).
+- What: STT-VER-001 against Country B's DSC on the trust list the preconditions establish; VHL expiry (STT-VHL-009).
 - Record it: `workflow_complete` with `node: "Task_Verify"`.
-- next: → `Task_Fetch` (Request the manifest (ITI-YY5), signed)
+- next: → `Gateway_Verified` (HCERT verified?)
+
+### Decide — HCERT verified? (`Gateway_Verified`)
+
+- Call `workflow_complete` with `node: "Gateway_Verified"` and `outcome` set to the label that holds:
+  - «yes» → `Task_Fetch` (Request the manifest (ITI-YY5), signed)
+  - «no» → `Task_Unverified` (No digital verification: treat the records like paper)
 
 ### 4. Request the manifest (ITI-YY5), signed (`Task_Fetch`)
 
@@ -41,7 +47,14 @@ J4.1.
 - Record it: `workflow_complete` with `node: "Task_Fetch"`.
 - next: → `Task_Decrypt` (Decrypt the IPS and DVCs)
 
-### 5. Decrypt the IPS and DVCs (`Task_Decrypt`)
+### 5. No digital verification: treat the records like paper (`Task_Unverified`)
+
+- Who: the `Point-of-care provider` lane (role `poc-provider`).
+- What: The HCERT failed verification.
+- Record it: `workflow_complete` with `node: "Task_Unverified"`.
+- next: → `Task_Review` (Review history, allergies and vaccinations)
+
+### 6. Decrypt the IPS and DVCs (`Task_Decrypt`)
 
 - Who: the `Point-of-care receiver` lane (role `poc-receiver`).
 - Skill: `vhl-receive`.
@@ -49,7 +62,7 @@ J4.1.
 - Record it: `workflow_complete` with `node: "Task_Decrypt"`.
 - next: → `Task_Review` (Review history, allergies and vaccinations)
 
-### 6. Review history, allergies and vaccinations (`Task_Review`)
+### 7. Review history, allergies and vaccinations (`Task_Review`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
 - Record it: `workflow_complete` with `node: "Task_Review"`.

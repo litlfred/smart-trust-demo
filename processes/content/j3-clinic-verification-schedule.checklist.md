@@ -10,31 +10,15 @@ J3, Clinic verification and schedule generation, in Country B.
 
 - Begin here.
 - Call `workflow_start` with `process: "Process_J3ClinicVerification"` and the subject this run is about; keep the instance id it returns.
-- next: → `Task_TrustList` (Distribute participants' DSCs as DID trust lists)
-
-### 1. Distribute participants' DSCs as DID trust lists (`Task_TrustList`)
-
-- Who: the `GDHCN trust anchor` lane (role `gdhcn-trust-anchor`).
-- Skill: `hcert-trust-list`.
-- What: did:web:tng-cdn-dev.who.int:v2:trustlist:-:XXR:DSC, as the DEV host serves it; the guide prints the production host, smart-trust-tools OI-34 (GDHCN DID trustlist v2, STT-TRU-002); fetched by the EHR when it was last online.
-- Record it: `workflow_complete` with `node: "Task_TrustList"`.
-- next: → `Task_Load` (Load the DID documents into the trust store)
-
-### 2. Load the DID documents into the trust store (`Task_Load`)
-
-- Who: the `Home clinic EHR` lane (role `home-clinic-ehr`).
-- Skill: `hcert-trust-list`.
-- What: HcertTrustStore.addDidDocument (STT-TRU-001, STT-TRU-005); trust-list presence is the DSC validity check (STT-VER-006).
-- Record it: `workflow_complete` with `node: "Task_Load"`.
 - next: → `Task_Scan` (Scan the QRs and open the referral)
 
-### 3. Scan the QRs and open the referral (`Task_Scan`)
+### 1. Scan the QRs and open the referral (`Task_Scan`)
 
 - Who: the `Home clinic provider` lane (role `home-clinic-provider`).
 - Record it: `workflow_complete` with `node: "Task_Scan"`.
 - next: → `Task_Verify` (Verify each HCERT against the trust list)
 
-### 4. Verify each HCERT against the trust list (`Task_Verify`)
+### 2. Verify each HCERT against the trust list (`Task_Verify`)
 
 - Who: the `Home clinic EHR` lane (role `home-clinic-ehr`).
 - Skill: `hcert-verify`.
@@ -48,20 +32,20 @@ J3, Clinic verification and schedule generation, in Country B.
   - «yes» → `Task_Import` (Import the doses as FHIR Immunization resources)
   - «no» → `Task_Unverified` (Record the failure reason; decide doses by national policy)
 
-### 5. Import the doses as FHIR Immunization resources (`Task_Import`)
+### 3. Import the doses as FHIR Immunization resources (`Task_Import`)
 
 - Who: the `Home clinic EHR` lane (role `home-clinic-ehr`).
 - Skill: `ehr-import-immunization`.
 - Record it: `workflow_complete` with `node: "Task_Import"`.
 - next: → `Task_Schedule` (Evaluate the national schedule)
 
-### 6. Record the failure reason; decide doses by national policy (`Task_Unverified`)
+### 4. Record the failure reason; decide doses by national policy (`Task_Unverified`)
 
 - Who: the `Home clinic provider` lane (role `home-clinic-provider`).
 - Record it: `workflow_complete` with `node: "Task_Unverified"`.
 - next: → `Task_Plan` (Give due doses and book the next visit)
 
-### 7. Evaluate the national schedule (`Task_Schedule`)
+### 5. Evaluate the national schedule (`Task_Schedule`)
 
 - Who: the `Home clinic EHR` lane (role `home-clinic-ehr`).
 - Skill: `schedule-evaluate`.
@@ -69,7 +53,7 @@ J3, Clinic verification and schedule generation, in Country B.
 - Record it: `workflow_complete` with `node: "Task_Schedule"`.
 - next: → `Task_Plan` (Give due doses and book the next visit)
 
-### 8. Give due doses and book the next visit (`Task_Plan`)
+### 6. Give due doses and book the next visit (`Task_Plan`)
 
 - Who: the `Home clinic provider` lane (role `home-clinic-provider`).
 - Record it: `workflow_complete` with `node: "Task_Plan"`.
