@@ -19,7 +19,7 @@ FHIR R5 (5.0.0), as smart-trust and smart-trust-phw are. IG id `smart.who.int.tr
 ## Open
 
 - Publish: mount smart-base, add the fhir-harness `ig-ast-refresh` caller pinned by SHA (after litlfred/fhir-harness#132 pins its own actions), publish under gh-pages.
-- L3 content beyond actors: example resources for each journey (the J1 DVCs as `Immunization`s, the J2 referral `ServiceRequest`, the J3 schedule `PlanDefinition`, the J4 IPS bundle).
+- L3 content beyond actors: example resources for each journey (the J1 DVCs as `Immunization`s, the J2 referral `ServiceRequest`, the J3 schedule `PlanDefinition`, the J4 IPS bundle). Blocked for the J1 DVCs: the only published smart.who.int.trust-phw package (0.1.0, the one SUSHI can pin) has an older DVCMinPreQual than the guide's §12 example at af75be2 (`ntl`, `v[]`, `dt` against the wire's `nt`, `vx`, `dv` and a version `v`), so instances of it would not match the signed certificates. Needs a newer trust-phw package (built from litlfred/smart-trust-phw main) pinned by sha256.
 - BPMN diagrams as SVG in the IG pages (now linked to the harness site's viewer).
 
 ## Done when
