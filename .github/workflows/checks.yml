@@ -40,3 +40,24 @@ jobs:
           gradle-version: "8.14.3"
       - name: Build the pinned HCERT jars and check their sha256
         run: python3 lib/hcert/build.py
+
+  ig-sushi:
+    # The L2 DAK and L3 IG: the generated L2 files match their harness
+    # sources, and SUSHI builds the IG with no errors. SUSHI is pinned by
+    # tools/ig-gen/package-lock.json and the FHIR packages by
+    # tools/ig-gen/fhir-packages.lock.json, so nothing is resolved at run
+    # time. Node is the runner's own.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Generated L2 files are current
+        run: python3 tools/ig-gen/ig_gen.py --check
+      - name: Install SUSHI from the lockfile, install scripts off
+        run: npm ci --ignore-scripts --no-audit --no-fund --prefix tools/ig-gen
+      - name: Lay down the pinned FHIR packages
+        run: python3 tools/ig-gen/fhir_cache.py
+      - name: SUSHI, no errors
+        run: tools/ig-gen/node_modules/.bin/sushi build .

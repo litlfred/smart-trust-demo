@@ -1,0 +1,1 @@
+The [system actors](system-actors.html) of the journeys and the actor definitions of WHO SMART Trust, WHO SMART Trust PHW and IHE ITI VHL each is derived from. The data the journeys exchange (DVCs as HCERTs, VHL manifests, IPS documents) is defined by those guides.
