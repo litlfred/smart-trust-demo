@@ -1,0 +1,20 @@
+{
+  "id": "chw-app",
+  "title": "CHW app, Country B",
+  "kind": "system",
+  "description": "The OHS app on the community health worker's phone in Country B (J2): triage-reads a foreign DVC offline without verifying it (STT-VER-011), registers the child and records a referral. A Receiver that deliberately stops before trust.",
+  "roles": [
+    "chw-app"
+  ],
+  "capabilities": [],
+  "meta": {
+    "definedBy": [
+      "http://smart.who.int/trust/ActorDefinition/Receiver",
+      "http://smart.who.int/trust-phw/ActorDefinition/Receiver",
+      "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver"
+    ],
+    "playsActor": [
+      "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-receiver"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "national-portal-xxh",
+  "title": "National health portal, Country B (XXH)",
+  "kind": "system",
+  "description": "Country B's portal (J4.0): assembles each family member's IPS and DVCs and issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC; hosts the manifests (ITI-YY5).",
+  "roles": [
+    "national-portal"
+  ],
+  "capabilities": [],
+  "meta": {
+    "definedBy": [
+      "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLSharer",
+      "http://smart.who.int/trust/ActorDefinition/Issuer",
+      "http://smart.who.int/trust-phw/ActorDefinition/Issuer",
+      "http://smart.who.int/trust/ActorDefinition/TrustNetworkParticipant"
+    ],
+    "playsActor": [
+      "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-sharer",
+      "https://litlfred.github.io/smart-trust-tools/scenarios/actors/trust-network-participant"
+    ]
+  }
+}
