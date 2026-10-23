@@ -44,7 +44,7 @@
         "hcert-prefix-context",
         "hcert-trust-list"
       ],
-      "persona": "Software that calls the library once per dose and never holds the private key.",
+      "persona": "Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.",
       "otherNames": [
         "Issuer of the birth-dose DVCs (SMART Trust Issuer)"
       ]
@@ -118,7 +118,7 @@
         "ehr-import-immunization",
         "schedule-evaluate"
       ],
-      "persona": "Holds a trust list refreshed when online; verifies offline at the point of care.",
+      "persona": "Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.",
       "otherNames": [
         "Verifier at the home clinic (SMART Trust Receiver)"
       ]
@@ -159,7 +159,7 @@
         "hcert-trust-list",
         "portal-assemble-records"
       ],
-      "persona": "A government service signing with the national DSC; hosts manifests and encrypted documents for a limited time.",
+      "persona": "A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.",
       "otherNames": [
         "VHL Sharer (IHE ITI VHL)",
         "Issuer of the family's VHLs (SMART Trust Issuer)"
@@ -192,7 +192,7 @@
         "hcert-trust-list",
         "vhl-receive"
       ],
-      "persona": "A hospital system on a trust network, online, with its own receiver key.",
+      "persona": "A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.",
       "otherNames": [
         "VHL Receiver (IHE ITI VHL)",
         "Receiver of the family's VHLs (SMART Trust Receiver)"

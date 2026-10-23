@@ -4,13 +4,18 @@
   <bpmn:resource id="caregiver" name="Caregiver"/>
   <bpmn:resource id="home-clinic-provider" name="Home clinic provider"/>
   <bpmn:resource id="home-clinic-ehr" name="Home clinic EHR"/>
-  <bpmn:resource id="gdhcn-trust-anchor" name="GDHCN trust anchor"/>
   <bpmn:collaboration id="Collaboration_Process_J3ClinicVerification">
     <bpmn:participant id="Participant_Process_J3ClinicVerification" name="J3 Verify, import and schedule at the home clinic" processRef="Process_J3ClinicVerification"/>
   </bpmn:collaboration>
   <bpmn:process id="Process_J3ClinicVerification" name="J3 Verify, import and schedule at the home clinic" isExecutable="false">
-    <bpmn:documentation>J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses and evaluates the national schedule, which finds birth-dose OPV due.</bpmn:documentation>
-    <bpmn:extensionElements><cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/></bpmn:extensionElements>
+    <bpmn:documentation>J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses and evaluates the national schedule, which finds birth-dose OPV due.</bpmn:documentation>
+    <bpmn:extensionElements>
+      <bootstrap.processes:precondition id="did-documents-loaded" kind="stated"
+        text="Before the family arrives, the clinic EHR's trust store already holds the GDHCN trust list's DID documents, including XXR's DSC DID document (did:web:tng-cdn-dev.who.int:v2:trustlist:-:XXR:DSC as the DEV host serves it; the guide prints the production host, smart-trust-tools OI-34), loaded with HcertTrustStore.addDidDocument (STT-TRU-001, STT-TRU-002, STT-TRU-005). Trust-list presence is the DSC validity check (STT-VER-006). Loading DIDs is not a step of this visit."/>
+      <bootstrap.processes:precondition id="did-list-from-last-refresh" kind="stated"
+        text="The clinic may be offline for the whole visit and fetches nothing during it. Its DID list is the copy refreshed at its last connection, about weekly: for a clinic with no connection of its own, the CHW's last visit to the base clinic or district health office, where Country B, a Trust Network Participant, retrieves the list the GDHCN trust anchor distributes (smart-trust-phw retrieve-pki-material)."/>
+      <cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/>
+    </bpmn:extensionElements>
     <bpmn:laneSet id="LaneSet_Process_J3ClinicVerification">
       <bpmn:lane id="Lane_caregiver" name="Caregiver" partitionElementRef="caregiver">
         <bpmn:flowNodeRef>Start</bpmn:flowNodeRef>
@@ -22,30 +27,22 @@
         <bpmn:flowNodeRef>Task_Plan</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_home-clinic-ehr" name="Home clinic EHR" partitionElementRef="home-clinic-ehr">
-        <bpmn:flowNodeRef>Task_Load</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_Verify</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_Verified</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_Import</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_Schedule</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_gdhcn-trust-anchor" name="GDHCN trust anchor" partitionElementRef="gdhcn-trust-anchor">
-        <bpmn:flowNodeRef>Task_TrustList</bpmn:flowNodeRef>
-      </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:startEvent id="Start" name="Family arrives with the referral and the paper DVCs"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent>
-    <bpmn:serviceTask id="Task_TrustList" name="Distribute participants&#x27; DSCs as DID trust lists"><bpmn:documentation>did:web:tng-cdn-dev.who.int:v2:trustlist:-:XXR:DSC, as the DEV host serves it; the guide prints the production host, smart-trust-tools OI-34 (GDHCN DID trustlist v2, STT-TRU-002); fetched by the EHR when it was last online.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-trust-list"/></bpmn:extensionElements><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_Load" name="Load the DID documents into the trust store"><bpmn:documentation>HcertTrustStore.addDidDocument (STT-TRU-001, STT-TRU-005); trust-list presence is the DSC validity check (STT-VER-006).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-trust-list"/></bpmn:extensionElements><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:serviceTask>
-    <bpmn:userTask id="Task_Scan" name="Scan the QRs and open the referral"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:userTask>
-    <bpmn:serviceTask id="Task_Verify" name="Verify each HCERT against the trust list"><bpmn:documentation>HcertVerifier.verify: STT-VER-001 order, no payload before the signature (STT-VER-002), every DSC with the kid tried (STT-KID-002), EKU (STT-VER-004), time with an injected clock (STT-VER-005), typed result naming step and reason (STT-VER-008), fully offline (STT-VER-009); several payloads per HCERT (STT-SEL-004).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-verify"/></bpmn:extensionElements><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:userTask id="Task_Scan" name="Scan the QRs and open the referral"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:userTask>
+    <bpmn:serviceTask id="Task_Verify" name="Verify each HCERT against the trust list"><bpmn:documentation>HcertVerifier.verify: STT-VER-001 order, no payload before the signature (STT-VER-002), every DSC with the kid tried (STT-KID-002), EKU (STT-VER-004), time with an injected clock (STT-VER-005), typed result naming step and reason (STT-VER-008), fully offline (STT-VER-009); several payloads per HCERT (STT-SEL-004). It checks against the DID list the preconditions establish: a DSC added to the GDHCN list after the clinic&#x27;s last refresh is not in that copy, so its DVC fails at the trust-list step (STT-VER-006) and takes the &quot;no&quot; path, with that reason, until the next refresh.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-verify"/></bpmn:extensionElements><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:serviceTask>
     <bpmn:exclusiveGateway id="Gateway_Verified" name="Every DVC verified?"><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:exclusiveGateway>
     <bpmn:userTask id="Task_Unverified" name="Record the failure reason; decide doses by national policy"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:userTask>
     <bpmn:serviceTask id="Task_Import" name="Import the doses as FHIR Immunization resources"><bpmn:extensionElements><bootstrap.processes:skill ref="ehr-import-immunization"/></bpmn:extensionElements><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing></bpmn:serviceTask>
     <bpmn:serviceTask id="Task_Schedule" name="Evaluate the national schedule"><bpmn:documentation>PlanDefinition/$apply over the imported Immunizations: Hep B and BCG birth doses count; birth-dose OPV is due.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="schedule-evaluate"/></bpmn:extensionElements><bpmn:incoming>Flow_8</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:serviceTask>
     <bpmn:userTask id="Task_Plan" name="Give due doses and book the next visit"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:incoming>Flow_10</bpmn:incoming><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:userTask>
     <bpmn:endEvent id="End" name="Chanthala is on Country B&#x27;s schedule"><bpmn:incoming>Flow_11</bpmn:incoming></bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start" targetRef="Task_TrustList"/>
-    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_TrustList" targetRef="Task_Load"/>
-    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_Load" targetRef="Task_Scan"/>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start" targetRef="Task_Scan"/>
     <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_Scan" targetRef="Task_Verify"/>
     <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_Verify" targetRef="Gateway_Verified"/>
     <bpmn:sequenceFlow id="Flow_6" name="yes" sourceRef="Gateway_Verified" targetRef="Task_Import"/>
@@ -57,33 +54,28 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Process_J3ClinicVerification">
-      <bpmndi:BPMNShape id="Participant_Process_J3ClinicVerification_di" bpmnElement="Participant_Process_J3ClinicVerification" isHorizontal="true"><dc:Bounds x="100" y="60" width="1920" height="680"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_home-clinic-provider_di" bpmnElement="Lane_home-clinic-provider" isHorizontal="true"><dc:Bounds x="130" y="230" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_home-clinic-ehr_di" bpmnElement="Lane_home-clinic-ehr" isHorizontal="true"><dc:Bounds x="130" y="400" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_gdhcn-trust-anchor_di" bpmnElement="Lane_gdhcn-trust-anchor" isHorizontal="true"><dc:Bounds x="130" y="570" width="1890" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_Process_J3ClinicVerification_di" bpmnElement="Participant_Process_J3ClinicVerification" isHorizontal="true"><dc:Bounds x="100" y="60" width="1570" height="510"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1540" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_home-clinic-provider_di" bpmnElement="Lane_home-clinic-provider" isHorizontal="true"><dc:Bounds x="130" y="230" width="1540" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_home-clinic-ehr_di" bpmnElement="Lane_home-clinic-ehr" isHorizontal="true"><dc:Bounds x="130" y="400" width="1540" height="170"/></bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="277" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="235" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_TrustList_di" bpmnElement="Task_TrustList"><dc:Bounds x="405" y="615" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Load_di" bpmnElement="Task_Load"><dc:Bounds x="580" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Scan_di" bpmnElement="Task_Scan"><dc:Bounds x="755" y="275" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Verify_di" bpmnElement="Task_Verify"><dc:Bounds x="930" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_Verified_di" bpmnElement="Gateway_Verified" isMarkerVisible="true"><dc:Bounds x="1145" y="460" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="1110" y="516" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Unverified_di" bpmnElement="Task_Unverified"><dc:Bounds x="1280" y="275" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Import_di" bpmnElement="Task_Import"><dc:Bounds x="1280" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Schedule_di" bpmnElement="Task_Schedule"><dc:Bounds x="1455" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Plan_di" bpmnElement="Task_Plan"><dc:Bounds x="1630" y="275" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1852" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1810" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="313" y="145"/><di:waypoint x="359" y="145"/><di:waypoint x="359" y="655"/><di:waypoint x="405" y="655"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"><di:waypoint x="535" y="655"/><di:waypoint x="557" y="655"/><di:waypoint x="557" y="485"/><di:waypoint x="580" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"><di:waypoint x="710" y="485"/><di:waypoint x="732" y="485"/><di:waypoint x="732" y="315"/><di:waypoint x="755" y="315"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"><di:waypoint x="885" y="315"/><di:waypoint x="907" y="315"/><di:waypoint x="907" y="485"/><di:waypoint x="930" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"><di:waypoint x="1060" y="485"/><di:waypoint x="1145" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"><di:waypoint x="1195" y="485"/><di:waypoint x="1280" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"><di:waypoint x="1170" y="460"/><di:waypoint x="1170" y="315"/><di:waypoint x="1280" y="315"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8"><di:waypoint x="1410" y="485"/><di:waypoint x="1455" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9"><di:waypoint x="1410" y="315"/><di:waypoint x="1630" y="315"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10"><di:waypoint x="1585" y="485"/><di:waypoint x="1607" y="485"/><di:waypoint x="1607" y="315"/><di:waypoint x="1630" y="315"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11"><di:waypoint x="1760" y="315"/><di:waypoint x="1806" y="315"/><di:waypoint x="1806" y="145"/><di:waypoint x="1852" y="145"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_Scan_di" bpmnElement="Task_Scan"><dc:Bounds x="405" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Verify_di" bpmnElement="Task_Verify"><dc:Bounds x="580" y="445" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Verified_di" bpmnElement="Gateway_Verified" isMarkerVisible="true"><dc:Bounds x="795" y="460" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="760" y="516" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Unverified_di" bpmnElement="Task_Unverified"><dc:Bounds x="930" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Import_di" bpmnElement="Task_Import"><dc:Bounds x="930" y="445" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Schedule_di" bpmnElement="Task_Schedule"><dc:Bounds x="1105" y="445" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Plan_di" bpmnElement="Task_Plan"><dc:Bounds x="1280" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1502" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1460" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="313" y="145"/><di:waypoint x="359" y="145"/><di:waypoint x="359" y="315"/><di:waypoint x="405" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"><di:waypoint x="535" y="315"/><di:waypoint x="557" y="315"/><di:waypoint x="557" y="485"/><di:waypoint x="580" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"><di:waypoint x="710" y="485"/><di:waypoint x="795" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"><di:waypoint x="845" y="485"/><di:waypoint x="930" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"><di:waypoint x="820" y="460"/><di:waypoint x="820" y="315"/><di:waypoint x="930" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8"><di:waypoint x="1060" y="485"/><di:waypoint x="1105" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9"><di:waypoint x="1060" y="315"/><di:waypoint x="1280" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10"><di:waypoint x="1235" y="485"/><di:waypoint x="1257" y="485"/><di:waypoint x="1257" y="315"/><di:waypoint x="1280" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11"><di:waypoint x="1410" y="315"/><di:waypoint x="1456" y="315"/><di:waypoint x="1456" y="145"/><di:waypoint x="1502" y="145"/></bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

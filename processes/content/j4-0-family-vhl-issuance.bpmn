@@ -10,7 +10,11 @@
   </bpmn:collaboration>
   <bpmn:process id="Process_J40FamilyVhl" name="J4.0 Issue the family&#x27;s records to one phone as VHLs" isExecutable="false">
     <bpmn:documentation>J4.0, Outbound family travel, "One Family, One Phone". Before travelling, Mali asks Country B's national portal for each family member's records. The portal, a VHL Sharer (IHE ITI VHL) and Issuer (SMART Trust, smart-trust-phw), issues one passcode-protected Verifiable Health Link per member: the documents (IPS, DVCs) encrypted as JWE (STT-VHL-007) behind an ITI-YY5 manifest, the link in the SMART Health Links payload format at HCERT key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC. The shared phone holds the QRs for Mali, the VHL Holder.</bpmn:documentation>
-    <bpmn:extensionElements><cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/></bpmn:extensionElements>
+    <bpmn:extensionElements>
+      <bootstrap.processes:precondition id="dsc-shared-with-trust-anchor" kind="stated"
+        text="Before the portal issues anything, Country B's document signer certificate (DSC), issued under Country B's Country Signing CA (CSCA), has already been shared with the GDHCN, the Trust Anchor (Trust Network Anchor in SMART Trust and smart-trust-phw; Trust Anchor in IHE ITI VHL), which publishes it on the trust list. That is what lets the hospital abroad (J4.1) verify the VHL HCERT. Sharing the DSC is not a step of issuing. A DVC signed with a key whose DSC was never shared verifies nowhere: every receiver's trust-list check (STT-VER-006) rejects it."/>
+      <cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/>
+    </bpmn:extensionElements>
     <bpmn:laneSet id="LaneSet_Process_J40FamilyVhl">
       <bpmn:lane id="Lane_caregiver" name="Caregiver" partitionElementRef="caregiver">
         <bpmn:flowNodeRef>Start</bpmn:flowNodeRef>

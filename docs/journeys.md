@@ -56,6 +56,13 @@ it exercises. The stories are in [`scenarios/stories.json`](../scenarios/stories
 
 ### J1 — Cross-border birth and initial vaccination (Country A)
 
+**Precondition: the issuer's DSC is on the trust list.** XXR's document
+signer certificate (DSC), issued under XXR's Country Signing CA (CSCA), was
+shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN
+publishes it as a DID document. Sharing it is not a step of issuing. A DVC
+signed with a key whose DSC was never shared fails every receiver's
+trust-list check (STT-VER-006).
+
 Mali gives birth to Chanthala on 2026-10-21 at a provincial hospital in
 Country A, while visiting relatives. Dr Pimchanok WATTANA gives the Hep B
 and BCG birth doses and records them. For each dose, the hospital system
@@ -67,7 +74,8 @@ does three things:
 
 Mali leaves with two paper DVCs.
 *In the demo:* the guide's two signed HC1 strings stand in for the hospital's
-output. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003).
+output. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC
+is not on the GDHCN list, so its DVCs do not verify in J3.
 
 ### J2 — Return home, CHW discovery and referral (Country B)
 
@@ -80,9 +88,18 @@ Everything syncs that evening.
 
 ### J3 — Clinic verification and schedule generation (Country B)
 
-Tomas ALVES opens the referral and scans the QRs. The EHR loaded the GDHCN
-DEV trust list when it was last online, including XXR's DSC DID document
-(STT-TRU-001, STT-TRU-002, STT-VER-006). It **verifies** each DVC offline
+**Precondition: the DID documents are already loaded.** Loading them is not
+a step of this visit. The clinic may be offline all day, so the EHR fetches
+nothing during it: its trust store holds the GDHCN DEV trust list as it was
+last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002,
+STT-TRU-005). A clinic with no connection of its own refreshes it about weekly,
+when the CHW visits the base clinic or district health office, where Country
+B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in
+the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until
+the next refresh.
+
+Tomas ALVES opens the referral and scans the QRs. The EHR **verifies** each
+DVC offline against that copy
 (STT-VER-001…009, STT-KID-002). Both verify, so it imports them as FHIR
 `Immunization`s with provenance (STT-VER-007, STT-VER-008). The national
 schedule then runs: the birth doses count, and birth-dose OPV is due.
@@ -90,6 +107,10 @@ Tomas gives it. If a DVC fails, the EHR names the step and the reason, and
 Tomas decides by national policy.
 
 ### J4.0 — "One Family, One Phone" (Country B)
+
+**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is
+already shared with the GDHCN, the Trust Anchor. That is what lets the
+hospital abroad verify the link in J4.1.
 
 The family plans a trip. On the national portal, Mali asks for each member's
 records. For each member, the portal does three things:
@@ -102,11 +123,24 @@ The shared phone holds one QR per member.
 
 ### J4.1 — Point of care abroad
 
+**Precondition, as in J3: the DID documents are already loaded.** The
+hospital system's trust store is a cached copy of the GDHCN trust list,
+including Country B's DSC DID document (STT-TRU-001, STT-TRU-002,
+STT-TRU-005). The hospital refreshes it nightly or hourly, against about
+weekly at the offline J3 clinic. It does not need to be online to verify:
+verifying reads the cache and never fetches the list. A DSC published after
+the last refresh fails the trust-list check (STT-VER-006), naming that reason.
+
 Abroad, Chanthala has a fever. Mali shows Chanthala's QR on the family
 phone and tells Dr Ana MOREIRA the passcode. The hospital system takes
 four steps:
 
-1. It verifies the HCERT against Country B's DSC.
+1. It verifies the HCERT against Country B's DSC in that copy of the trust list.
 2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).
 3. It decrypts the IPS and DVCs (STT-VHL-007).
 4. It shows them to Dr Ana MOREIRA.
+
+If the HCERT does not verify (for example, Country B's DSC is missing from
+the cached list), there is no digital verification. The hospital names the
+step and the reason (STT-VER-008), does not follow the VHL, and Dr Ana
+MOREIRA treats whatever the family can show as she would a paper record.
