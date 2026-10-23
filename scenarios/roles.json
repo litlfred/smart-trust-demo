@@ -119,7 +119,7 @@
         "ehr-import-immunization",
         "schedule-evaluate"
       ],
-      "persona": "Holds the DID trust list from its last refresh, which for a clinic without its own connection is the last visit to the district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.",
+      "persona": "Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.",
       "otherNames": [
         "Receiver (SMART Trust)",
         "HCERT verifying system"
@@ -194,7 +194,7 @@
         "hcert-trust-list",
         "vhl-receive"
       ],
-      "persona": "A hospital system on a trust network, online, with its own receiver key; its DID trust list is loaded before a visit, from its last refresh, so verifying never waits on a fetch.",
+      "persona": "A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.",
       "otherNames": [
         "VHL Receiver (IHE ITI VHL)",
         "Receiver (SMART Trust)"

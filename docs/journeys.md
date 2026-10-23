@@ -92,9 +92,9 @@ Everything syncs that evening.
 a step of this visit. The clinic may be offline all day, so the EHR fetches
 nothing during it: its trust store holds the GDHCN DEV trust list as it was
 last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002,
-STT-TRU-005). A clinic with no connection of its own refreshes it on its last
-visit to the district health office, where Country B retrieves the list the
-GDHCN trust anchor distributes. A DSC published after that refresh is not in
+STT-TRU-005). A clinic with no connection of its own refreshes it about weekly,
+when the CHW visits the base clinic or district health office, where Country
+B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in
 the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until
 the next refresh.
 
@@ -124,11 +124,12 @@ The shared phone holds one QR per member.
 ### J4.1 — Point of care abroad
 
 **Precondition, as in J3: the DID documents are already loaded.** The
-hospital system's trust store holds the GDHCN trust list from its last
-refresh, including Country B's DSC DID document (STT-TRU-001, STT-TRU-002,
-STT-TRU-005). It is online for the manifest request, but verifying does not
-fetch the list. A DSC published after that refresh fails the trust-list check
-(STT-VER-006), naming that reason.
+hospital system's trust store is a cached copy of the GDHCN trust list,
+including Country B's DSC DID document (STT-TRU-001, STT-TRU-002,
+STT-TRU-005). The hospital refreshes it nightly or hourly, against about
+weekly at the offline J3 clinic. It does not need to be online to verify:
+verifying reads the cache and never fetches the list. A DSC published after
+the last refresh fails the trust-list check (STT-VER-006), naming that reason.
 
 Abroad, Chanthala has a fever. Mali shows Chanthala's QR on the family
 phone and tells Dr Ana MOREIRA the passcode. The hospital system takes

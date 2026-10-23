@@ -2,7 +2,7 @@
   "id": "home-clinic-ehr",
   "title": "Home clinic EHR, Country B",
   "kind": "system",
-  "description": "The district clinic's OHS-based record system in Country B (J3): verifies DVCs against the GDHCN trust list, imports them and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, at its last visit to the district health office); it fetches nothing during J3.",
+  "description": "The district clinic's OHS-based record system in Country B (J3): verifies DVCs against the GDHCN trust list, imports them and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly, when the CHW visits the base clinic or district health office); it fetches nothing during J3.",
   "roles": [
     "home-clinic-ehr"
   ],
