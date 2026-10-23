@@ -1,0 +1,17 @@
+# The IG build recipe this repository's site publish mirrors. It is read by
+# `stage-local.ts` (fhir-harness's site-publisher-ig slot) to find the IG
+# route: the folio site with the IG composed at its root, built from the
+# AST cache that ig-ast-refresh.yml keeps. It is never run on push or pull
+# request (owner decision, 2026-10-06, as for every IG repository's build):
+# run it from the Actions tab when a bare IG Publisher build is wanted.
+name: IG build (by hand)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  call_build:
+    uses: litlfred/smart-base/.github/workflows/ghbuild.yml@9c610e7dd0cf3c3ac9f7ba919e4068f91064ab11
