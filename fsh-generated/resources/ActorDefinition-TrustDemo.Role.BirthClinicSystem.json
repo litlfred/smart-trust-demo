@@ -1,0 +1,17 @@
+{
+  "resourceType": "ActorDefinition",
+  "id": "TrustDemo.Role.BirthClinicSystem",
+  "url": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicSystem",
+  "name": "BirthClinicSystem",
+  "title": "Birth clinic issuing system",
+  "status": "draft",
+  "experimental": true,
+  "type": "system",
+  "description": "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by**: Provincial hospital system, Country A (XXR) (fictional).",
+  "documentation": "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
+  "derivedFrom": [
+    "http://smart.who.int/trust/ActorDefinition/Issuer",
+    "http://smart.who.int/trust-phw/ActorDefinition/Issuer",
+    "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLSharer"
+  ]
+}

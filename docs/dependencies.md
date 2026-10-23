@@ -18,11 +18,14 @@ pull request.
 | `actions/setup-python` | `a26af69be951a213d495a4c3e4e4022e16d87065` | v5.6.0 | Python 3.12 for the repository checks (standard library only). |
 | `actions/setup-java` | `cf277c60eb25467037889841efdb72551f06f6c3` | v4.9.1 | Temurin JDK 17 to build the HCERT library; the same pin smart-trust-tools uses. |
 | `gradle/actions/setup-gradle` | `748248ddd2a24f49513d8f472f81c3a07d4d50e1` | v4.4.4 | Gradle 8.14.3, the version smart-trust-tools builds with. |
+| `ReactiveCircus/android-emulator-runner` | `a421e43855164a8197daf9d8d40fe71c6996bb0d` | v2.38.0 (2026-07-05) | Boots the Android emulators (API 26 and 35) the HCERT library's instrumented tests run on. The emulator system images it installs come from the runner's Android SDK manager, not from Gradle. |
+| `actions/upload-artifact` | `ea165f8d65b6e75b540449e92b4886f43607fa02` | v4.6.2 | Keeps the emulator test reports. |
 
 ## Runtime and build dependencies
 
 | Dependency | Pin | Why |
 |---|---|---|
 | Kotlin HCERT library (`hcert-api`, `hcert-core`, JVM jars) | litlfred/smart-trust-tools at the commit and jar sha256 in [`lib/hcert/hcert.lock.json`](https://github.com/litlfred/smart-trust-demo/blob/main/lib/hcert/hcert.lock.json) | The library this demonstrator exists to exercise. Built from source by [`lib/hcert/build.py`](https://github.com/litlfred/smart-trust-demo/blob/main/lib/hcert/build.py) with smart-trust-tools' own `verification-metadata.xml` (Kotlin 2.0.21 Gradle plugin and its graph); no third-party runtime dependency beyond the Kotlin standard library. |
+| Android Gradle Plugin 8.10.1, Kotlin Android plugin 2.0.21, `androidx.test:runner` 1.6.2, `androidx.test.ext:junit` 1.2.1, `kotlin-test-junit` 2.0.21, and their graphs | sha256 in `android-test/gradle/verification-metadata.xml` | The Android emulator test of the HCERT library (plan step 4, STT-GEN-004). Test-only: nothing here ships. The metadata is written once on GitHub's runner, because this sandbox cannot reach Google Maven, and committed for review (trust on first use, over TLS). |
 
-The Android and OHS artifacts arrive in steps 4 and 5 of the [plan](plan.html).
+The OHS artifacts arrive in step 5 of the [plan](plan.html).

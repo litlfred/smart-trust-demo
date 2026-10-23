@@ -1,0 +1,16 @@
+{
+  "resourceType": "ActorDefinition",
+  "id": "TrustDemo.Role.IssuerKey",
+  "url": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.IssuerKey",
+  "name": "IssuerKey",
+  "title": "Issuer signing key",
+  "status": "draft",
+  "experimental": true,
+  "type": "system",
+  "description": "The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, STT-ISS-004).\n\n**Persona**: A key that signs what it is given and reveals nothing else.\n\n**Also known as**: Document signer (DSC) key\n\n**Played in the journeys by**: XXR document signer key (Country A) (fictional).",
+  "documentation": "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
+  "derivedFrom": [
+    "http://smart.who.int/trust/ActorDefinition/TrustNetworkParticipant",
+    "http://smart.who.int/trust-phw/ActorDefinition/TrustNetworkParticipant"
+  ]
+}
