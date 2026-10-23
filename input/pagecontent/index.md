@@ -16,4 +16,6 @@ The journeys exercise the HCERT and VHL libraries of [smart-trust-tools](https:/
 - [Business processes](business-processes.html): one BPMN process per journey.
 - [Functional requirements](functional-requirements.html): where the journeys' requirements are defined.
 
+The project: the [journeys J1 to J4](journeys.html) in full, the [plan](plan.html), the [app-platform proposal](proposal-app-platform.html) and the [dependency register](dependencies.html).
+
 The source is [litlfred/smart-trust-demo](https://github.com/litlfred/smart-trust-demo). This guide is a demonstrator, not WHO guidance.
