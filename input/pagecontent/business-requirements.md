@@ -1,0 +1,1 @@
+The business requirements of the journeys: who takes part ([generic personas](personas.html)), what they want ([user scenarios](scenarios.html)), how the work flows ([business processes](business-processes.html)), and what the systems must do ([functional requirements](functional-requirements.html)).

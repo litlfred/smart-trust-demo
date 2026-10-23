@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bootstrap.processes="https://litlfred.github.io/bootstrap/0.1.0/processes/ns#" xmlns:cat-harness.processes="https://litlfred.github.io/cat-harness/0.1.0/processes/ns#"
+                  id="Definitions_Process_J40FamilyVhl" targetNamespace="https://litlfred.github.io/smart-trust-demo/processes" exporter="smart-trust-demo" exporterVersion="1">
+  <bpmn:resource id="caregiver" name="Caregiver"/>
+  <bpmn:resource id="national-portal" name="National health portal"/>
+  <bpmn:resource id="issuer-key" name="Issuer signing key"/>
+  <bpmn:resource id="family-phone" name="Family phone"/>
+  <bpmn:collaboration id="Collaboration_Process_J40FamilyVhl">
+    <bpmn:participant id="Participant_Process_J40FamilyVhl" name="J4.0 Issue the family&#x27;s records to one phone as VHLs" processRef="Process_J40FamilyVhl"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_J40FamilyVhl" name="J4.0 Issue the family&#x27;s records to one phone as VHLs" isExecutable="false">
+    <bpmn:documentation>J4.0, Outbound family travel, "One Family, One Phone". Before travelling, Mali asks Country B's national portal for each family member's records. The portal, a VHL Sharer (IHE ITI VHL) and Issuer (SMART Trust, smart-trust-phw), issues one passcode-protected Verifiable Health Link per member: the documents (IPS, DVCs) encrypted as JWE (STT-VHL-007) behind an ITI-YY5 manifest, the link in the SMART Health Links payload format at HCERT key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC. The shared phone holds the QRs for Mali, the VHL Holder.</bpmn:documentation>
+    <bpmn:extensionElements>
+      <bootstrap.processes:precondition id="dsc-shared-with-trust-anchor" kind="stated"
+        text="Before the portal issues anything, Country B's document signer certificate (DSC), issued under Country B's Country Signing CA (CSCA), has already been shared with the GDHCN, the Trust Anchor (Trust Network Anchor in SMART Trust and smart-trust-phw; Trust Anchor in IHE ITI VHL), which publishes it on the trust list. That is what lets the hospital abroad (J4.1) verify the VHL HCERT. Sharing the DSC is not a step of issuing. A DVC signed with a key whose DSC was never shared verifies nowhere: every receiver's trust-list check (STT-VER-006) rejects it."/>
+      <cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/>
+    </bpmn:extensionElements>
+    <bpmn:laneSet id="LaneSet_Process_J40FamilyVhl">
+      <bpmn:lane id="Lane_caregiver" name="Caregiver" partitionElementRef="caregiver">
+        <bpmn:flowNodeRef>Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Request</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_national-portal" name="National health portal" partitionElementRef="national-portal">
+        <bpmn:flowNodeRef>Task_Assemble</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Share</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Prepare</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Finish</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_issuer-key" name="Issuer signing key" partitionElementRef="issuer-key">
+        <bpmn:flowNodeRef>Task_Sign</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_family-phone" name="Family phone" partitionElementRef="family-phone">
+        <bpmn:flowNodeRef>Task_Store</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start" name="Family plans to travel abroad"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent>
+    <bpmn:userTask id="Task_Request" name="Request travel records for each family member"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:userTask>
+    <bpmn:serviceTask id="Task_Assemble" name="Assemble each member&#x27;s IPS and DVCs"><bpmn:extensionElements><bootstrap.processes:skill ref="portal-assemble-records"/></bpmn:extensionElements><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Share" name="Encrypt the documents and publish a passcode-protected manifest"><bpmn:documentation>VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="vhl-share"/></bpmn:extensionElements><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Prepare" name="Prepare the HCERT carrying the VHL at key 5"><bpmn:documentation>VHL payload as a CBOR map at key 5 (STT-VHL-002); two-phase signing (STT-ISS-004).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-build-cwt"/></bpmn:extensionElements><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Sign" name="Sign with Country B&#x27;s DSC key"><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-sign-cose"/></bpmn:extensionElements><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Finish" name="Finish the HC1 QR text"><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-prefix-context"/></bpmn:extensionElements><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Store" name="Store one VHL QR per member on the shared phone"><bpmn:extensionElements><bootstrap.processes:skill ref="wallet-hold-vhl"/></bpmn:extensionElements><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:endEvent id="End" name="One phone, one QR per family member"><bpmn:incoming>Flow_8</bpmn:incoming></bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start" targetRef="Task_Request"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_Request" targetRef="Task_Assemble"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_Assemble" targetRef="Task_Share"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_Share" targetRef="Task_Prepare"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_Prepare" targetRef="Task_Sign"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_Sign" targetRef="Task_Finish"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_Finish" targetRef="Task_Store"/>
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_Store" targetRef="End"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Process_J40FamilyVhl">
+      <bpmndi:BPMNShape id="Participant_Process_J40FamilyVhl_di" bpmnElement="Participant_Process_J40FamilyVhl" isHorizontal="true"><dc:Bounds x="100" y="60" width="1745" height="680"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1715" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_national-portal_di" bpmnElement="Lane_national-portal" isHorizontal="true"><dc:Bounds x="130" y="230" width="1715" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_issuer-key_di" bpmnElement="Lane_issuer-key" isHorizontal="true"><dc:Bounds x="130" y="400" width="1715" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_family-phone_di" bpmnElement="Lane_family-phone" isHorizontal="true"><dc:Bounds x="130" y="570" width="1715" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="277" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="235" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Request_di" bpmnElement="Task_Request"><dc:Bounds x="405" y="105" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Assemble_di" bpmnElement="Task_Assemble"><dc:Bounds x="580" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Share_di" bpmnElement="Task_Share"><dc:Bounds x="755" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Prepare_di" bpmnElement="Task_Prepare"><dc:Bounds x="930" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Sign_di" bpmnElement="Task_Sign"><dc:Bounds x="1105" y="445" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Finish_di" bpmnElement="Task_Finish"><dc:Bounds x="1280" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Store_di" bpmnElement="Task_Store"><dc:Bounds x="1455" y="615" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1677" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1635" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="313" y="145"/><di:waypoint x="405" y="145"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"><di:waypoint x="535" y="145"/><di:waypoint x="557" y="145"/><di:waypoint x="557" y="315"/><di:waypoint x="580" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"><di:waypoint x="710" y="315"/><di:waypoint x="755" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"><di:waypoint x="885" y="315"/><di:waypoint x="930" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"><di:waypoint x="1060" y="315"/><di:waypoint x="1082" y="315"/><di:waypoint x="1082" y="485"/><di:waypoint x="1105" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"><di:waypoint x="1235" y="485"/><di:waypoint x="1257" y="485"/><di:waypoint x="1257" y="315"/><di:waypoint x="1280" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"><di:waypoint x="1410" y="315"/><di:waypoint x="1432" y="315"/><di:waypoint x="1432" y="655"/><di:waypoint x="1455" y="655"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8"><di:waypoint x="1585" y="655"/><di:waypoint x="1631" y="655"/><di:waypoint x="1631" y="145"/><di:waypoint x="1677" y="145"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
