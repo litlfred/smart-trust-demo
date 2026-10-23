@@ -45,7 +45,8 @@ kotlin {
 
 android {
     namespace = "org.smarttrust.demo.app"
-    compileSdk = 35
+    // 36: dev.ohs.fhir:fhir-model-r4-android asks for it in its AAR metadata.
+    compileSdk = 36
     defaultConfig {
         applicationId = "org.smarttrust.demo.app"
         minSdk = 26
