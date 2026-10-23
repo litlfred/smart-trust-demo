@@ -8,3 +8,20 @@ node_modules/
 __pycache__/
 /site/
 /lib/hcert/build/
+
+# BEGIN index mounts (generated from index.config.json — do not edit)
+/fhir-harness/
+/folio-assistant-core/
+/cat-harness/
+/cat-harness-tools/
+/bootstrap/
+/bootstrap-tools/
+/smart-trust-tools/
+# END index mounts
+
+# agent surface written by mount:remote / mount:lock from the mounted layers
+/.agents/
+/.claude/commands/
+
+# written at publish
+/docs/_data/

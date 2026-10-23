@@ -1,0 +1,216 @@
+{
+  "$schema": "folio-index-config/v1",
+  "_comment": "smart-trust-demo pins the layers smart-trust-tools pins (fhir-harness and everything below it), unchanged, and smart-trust-tools itself, whose req: nodes, skills and actors the journeys name. The mounts are laid down from index.lock.json and gitignored. The site is agent-run.",
+  "site": {
+    "landing": "smart-trust-demo",
+    "agentRun": true
+  },
+  "instances": [
+    {
+      "name": "fhir-harness",
+      "source": {
+        "remote": {
+          "repository": "litlfred/fhir-harness",
+          "ref": "a46e9f017a22cb6ec319c7bb9951acac9f2ba273",
+          "overrides": {
+            "fhir-harness": {
+              "whole": true
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-20",
+              "ref": "a46e9f017a22cb6ec319c7bb9951acac9f2ba273",
+              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "folio-assistant-core",
+      "source": {
+        "remote": {
+          "repository": "litlfred/folio-assistant-core",
+          "ref": "651c1ead3608db36014a7a960cefa60ac7b9830d",
+          "overrides": {
+            "folio-assistant-core": {
+              "whole": true
+            },
+            "cat-harness": {
+              "skip": true
+            },
+            "cat-harness-tools": {
+              "skip": true
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-20",
+              "ref": "651c1ead3608db36014a7a960cefa60ac7b9830d",
+              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "cat-harness",
+      "source": {
+        "remote": {
+          "repository": "litlfred/cat-harness",
+          "ref": "643c7880812bd499d9f1a9dc17ef97937ddb0c59",
+          "overrides": {
+            "cat-harness": {
+              "whole": true
+            },
+            "bootstrap": {
+              "skip": true
+            },
+            "bootstrap-tools": {
+              "skip": true
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-21",
+              "ref": "643c7880812bd499d9f1a9dc17ef97937ddb0c59",
+              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-21: \"It really needs to look at all of the actors and the dependency of the loaded harness\" and \"Merge when green\". Repinned to main after merging litlfred/cat-harness#391 (neededActors: the actors an instance may name are the platform's, every needed instance's and its own)."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "cat-harness-tools",
+      "source": {
+        "remote": {
+          "repository": "litlfred/cat-harness-tools",
+          "ref": "137a56a9028446cd24ba02b237b84109c8c4622b",
+          "overrides": {
+            "cat-harness-tools": {
+              "whole": true
+            },
+            "cat-harness": {
+              "skip": true
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-21",
+              "ref": "137a56a9028446cd24ba02b237b84109c8c4622b",
+              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-21: \"It really needs to look at all of the actors and the dependency of the loaded harness\" and \"Merge when green\". Repinned to main after merging litlfred/cat-harness-tools#507 (kg-audit --instance resolves actors with neededActors)."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "bootstrap",
+      "source": {
+        "remote": {
+          "repository": "litlfred/bootstrap",
+          "ref": "0d442b3811991e5a0c19d8f619848fb4a5f8aa5f",
+          "overrides": {
+            "bootstrap": {
+              "whole": true
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-20",
+              "ref": "0d442b3811991e5a0c19d8f619848fb4a5f8aa5f",
+              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "bootstrap-tools",
+      "source": {
+        "remote": {
+          "repository": "litlfred/bootstrap-tools",
+          "ref": "157dacf74b6fc3e86c28e123904d4b2d4a16ae61",
+          "overrides": {
+            "bootstrap-tools": {
+              "whole": true
+            },
+            "bootstrap": {
+              "skip": true
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-20",
+              "ref": "157dacf74b6fc3e86c28e123904d4b2d4a16ae61",
+              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "smart-trust-tools",
+      "source": {
+        "remote": {
+          "repository": "litlfred/smart-trust-tools",
+          "ref": "f862552c4e7c272d28055027f805dd84a78f44d0",
+          "overrides": {
+            "smart-trust-tools": {
+              "whole": false,
+              "directories": [
+                "stt-skills",
+                "library",
+                "external-schemas",
+                "references",
+                "memory",
+                "beans",
+                "processes",
+                "scenarios",
+                "smart-trust-tools-typologies",
+                "hcert-contract-wit",
+                "hcert-contract-cddl",
+                "hcert-contract-ts",
+                "fhir-logical-models",
+                "payload-models",
+                "hcert-test-vectors",
+                "upstream-patches",
+                "test-plans"
+              ]
+            }
+          },
+          "trust": {
+            "consent": {
+              "by": "litlfred",
+              "on": "2026-10-23",
+              "ref": "f862552c4e7c272d28055027f805dd84a78f44d0",
+              "evidence": "Owner (litlfred), 2026-10-23, in the smart-trust-demo session: \"Full downstream\" (smart-trust-demo is a full cat-harness downstream of smart-trust-tools). The ref is smart-trust-tools main as the library session reported it on 2026-10-23, the same commit lib/hcert/hcert.lock.json pins."
+            }
+          }
+        }
+      },
+      "_comment": "Every declared directory but tools/ and toolchain/: smart-trust-tools' tools/index.ts imports the harness by a path relative to its own root (../cat-harness/), which does not resolve when it is mounted one level down. The library itself is built from the same commit by lib/hcert/build.py."
+    },
+    {
+      "name": "smart-trust-demo",
+      "source": {
+        "local": {
+          "at": "."
+        }
+      },
+      "site": {
+        "build": {
+          "home": "docs/index.md",
+          "profile": "folio"
+        }
+      }
+    }
+  ]
+}

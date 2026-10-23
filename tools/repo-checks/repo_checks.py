@@ -13,9 +13,11 @@
 
 Run from anywhere: python3 tools/repo-checks/repo_checks.py
 """
+import fnmatch
 import json
 import pathlib
 import re
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
@@ -25,10 +27,20 @@ USES = re.compile(r"^\s*-?\s*uses:\s*([^\s#]+)")
 PINNED = re.compile(r"^[^@\s]+@[0-9a-f]{40}$")
 
 
+def tracked():
+    # Only this repository's own files: the mounted harness layers are
+    # gitignored and checked by their own repositories.
+    out = subprocess.run(["git", "ls-files", "-co", "--exclude-standard"], cwd=ROOT,
+                         check=True, capture_output=True, text=True).stdout
+    return [ROOT / line for line in out.splitlines() if line]
+
+
 def files(pattern):
-    for p in ROOT.rglob(pattern):
-        if not SKIP.intersection(p.relative_to(ROOT).parts):
-            yield p
+    for p in tracked():
+        rel = p.relative_to(ROOT)
+        if fnmatch.fnmatch(str(rel), pattern) or fnmatch.fnmatch(rel.name, pattern):
+            if not SKIP.intersection(rel.parts) and p.exists():
+                yield p
 
 
 def main():
@@ -65,6 +77,13 @@ def journey_errors():
     if not roles_file.exists():
         return errors
     roles = {r["id"]: r for r in json.loads(roles_file.read_text())["roles"]}
+    # A title or other name names one role (cat-harness role-graph).
+    names = {}
+    for rid, r in roles.items():
+        for n in [r["title"], *r.get("otherNames", [])]:
+            prev = names.setdefault(n.casefold(), rid)
+            if prev != rid:
+                errors.append(f"scenarios/roles.json: the name {n!r} belongs to both role {prev} and role {rid}")
     own_skills = set()
     for m in (ROOT / "skills").glob("*/package-manifest.json"):
         own_skills.update(json.loads(m.read_text())["skills"])
@@ -88,7 +107,7 @@ def journey_errors():
         for st in json.loads(stories.read_text())["stories"]:
             if st["role"]["role"] not in roles:
                 errors.append(f"scenarios/stories.json: story {st['id']} names unknown role {st['role']['role']}")
-    for b in sorted((ROOT / "processes").rglob("*.bpmn")):
+    for b in sorted(files("processes/*.bpmn")):
         rel = b.relative_to(ROOT)
         tree = ET.parse(b).getroot()
         for lane in tree.iter(BPMN + "lane"):
