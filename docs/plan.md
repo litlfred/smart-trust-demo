@@ -45,6 +45,17 @@ SHA and every JSON file parses.
 - Beans for gaps found on the way (in this repository, or tagged upstream
   for smart-trust-tools, smart-trust or smart-trust-phw).
 
+### 2c. L2 DAK and L3 FHIR IG
+
+The journeys as a WHO SMART Guidelines DAK and FHIR IG, shaped as
+litlfred/smart-immunizations (`sushi-config.yaml`, `ig.ini`, `dak.json`,
+`input/`). The L2 content is generated from the harness sources by
+`tools/ig-gen/ig_gen.py`: roles become `ActorDefinition`s, the BPMN is
+copied to `input/business-processes/`, stories and scenarios become pages.
+CI checks the generated files are current and that SUSHI builds with no
+errors. Then: publish the IG on gh-pages and add example resources per
+journey (bean IG-01).
+
 ### 3. The HCERT library at a pinned commit
 
 `lib/hcert/`: a script and Gradle wiring that checks out smart-trust-tools
