@@ -1,0 +1,68 @@
+{
+  "_comment": "User stories of the journeys J1 to J4: what a reader acting in a role wants. Schema: cat-harness/schemas/user-story.ts.",
+  "name": "smart-trust-demo",
+  "stories": [
+    {
+      "id": "caregiver-1",
+      "role": {
+        "role": "caregiver"
+      },
+      "want": "Have my daughter's birth doses recognised at home",
+      "soThat": "they are not repeated and she stays on schedule"
+    },
+    {
+      "id": "caregiver-2",
+      "role": {
+        "role": "caregiver"
+      },
+      "want": "Show every family member's records abroad from one phone with one passcode each",
+      "soThat": "a doctor abroad can treat us without paper or an app"
+    },
+    {
+      "id": "birth-clinic-vaccinator-1",
+      "role": {
+        "role": "birth-clinic-vaccinator"
+      },
+      "want": "Print a signed record of each birth dose the family can carry anywhere"
+    },
+    {
+      "id": "community-health-worker-1",
+      "role": {
+        "role": "community-health-worker"
+      },
+      "want": "Read a foreign vaccination QR offline and register the child with it",
+      "soThat": "the clinic sees what was given before the family arrives"
+    },
+    {
+      "id": "community-health-worker-2",
+      "role": {
+        "role": "community-health-worker"
+      },
+      "want": "Refer a child whose foreign record needs checking",
+      "soThat": "verification is done by someone who can"
+    },
+    {
+      "id": "home-clinic-provider-1",
+      "role": {
+        "role": "home-clinic-provider"
+      },
+      "want": "Know whether a foreign certificate is genuine, and why not when it is not"
+    },
+    {
+      "id": "home-clinic-provider-2",
+      "role": {
+        "role": "home-clinic-provider"
+      },
+      "want": "See which doses are due once the foreign doses are imported",
+      "soThat": "I give only what is missing"
+    },
+    {
+      "id": "poc-provider-1",
+      "role": {
+        "role": "poc-provider"
+      },
+      "want": "Read a visiting child's summary and vaccinations from a QR the parent shows",
+      "soThat": "without installing anything or calling another country"
+    }
+  ]
+}

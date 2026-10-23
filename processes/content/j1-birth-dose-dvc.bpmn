@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bootstrap.processes="https://litlfred.github.io/bootstrap/0.1.0/processes/ns#" xmlns:cat-harness.processes="https://litlfred.github.io/cat-harness/0.1.0/processes/ns#"
+                  id="Definitions_Process_J1BirthDoseDvc" targetNamespace="https://litlfred.github.io/smart-trust-demo/processes" exporter="smart-trust-demo" exporterVersion="1">
+  <bpmn:resource id="caregiver" name="Caregiver"/>
+  <bpmn:resource id="birth-clinic-vaccinator" name="Birth clinic vaccinator"/>
+  <bpmn:resource id="birth-clinic-system" name="Birth clinic issuing system"/>
+  <bpmn:resource id="issuer-key" name="Issuer signing key"/>
+  <bpmn:collaboration id="Collaboration_Process_J1BirthDoseDvc">
+    <bpmn:participant id="Participant_Process_J1BirthDoseDvc" name="J1 Issue the newborn&#x27;s birth-dose DVCs in Country A" processRef="Process_J1BirthDoseDvc"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_J1BirthDoseDvc" name="J1 Issue the newborn&#x27;s birth-dose DVCs in Country A" isExecutable="false">
+    <bpmn:documentation>J1, Cross-border birth and initial vaccination. In Country A (XXR, the birth country) the provincial hospital gives Chanthala's Hep B and BCG birth doses and issues one signed DVC per dose (DVCMinPreQual at subclaim -6) as a paper QR: the guide's QR Code Generation section 12 example. The hospital system is the Issuer (SMART Trust) and the HCERT side of the VHL Sharer; the private key stays with the key holder (two-phase signing, STT-ISS-004, STT-COS-006). Mali is the Holder (SMART Trust, smart-trust-phw) and VHL Holder (IHE ITI VHL).</bpmn:documentation>
+    <bpmn:extensionElements><cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/></bpmn:extensionElements>
+    <bpmn:laneSet id="LaneSet_Process_J1BirthDoseDvc">
+      <bpmn:lane id="Lane_caregiver" name="Caregiver" partitionElementRef="caregiver">
+        <bpmn:flowNodeRef>Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_birth-clinic-vaccinator" name="Birth clinic vaccinator" partitionElementRef="birth-clinic-vaccinator">
+        <bpmn:flowNodeRef>Task_Vaccinate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Print</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_birth-clinic-system" name="Birth clinic issuing system" partitionElementRef="birth-clinic-system">
+        <bpmn:flowNodeRef>Task_Payload</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Prepare</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Finish</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_issuer-key" name="Issuer signing key" partitionElementRef="issuer-key">
+        <bpmn:flowNodeRef>Task_Sign</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start" name="Chanthala is born in Country A"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent>
+    <bpmn:userTask id="Task_Vaccinate" name="Give Hep B and BCG birth doses and record them"><bpmn:documentation>Dr Pimchanok WATTANA records each dose (vaccine product, date, batch) in the hospital system.</bpmn:documentation><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:userTask>
+    <bpmn:serviceTask id="Task_Payload" name="Build one DVCMinPreQual payload per dose"><bpmn:documentation>One immunization event per DVC (STT-PAY-003), typed DVCMin models (STT-PAY-001, STT-PAY-002), nationality alpha-3 LAO (STT-PAY-007), subject with no identity document (STT-PAY-005); subclaim -6 in the development range, opted into explicitly (STT-SEL-003).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-select-payload"/></bpmn:extensionElements><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Prepare" name="Prepare: CWT claims and the COSE Sig_structure"><bpmn:documentation>iss XR, iat, exp inside the DSC validity (STT-CWT-001 to 005); kid from the DSC (STT-KID-001); the library returns the bytes to sign (STT-ISS-004).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-build-cwt"/></bpmn:extensionElements><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Sign" name="Sign the bytes with XXR&#x27;s DSC key"><bpmn:documentation>ES256 or PS256 (STT-COS-002) in the HSM, KMS or Keystore; the library never holds the private key (STT-COS-006).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-sign-cose"/></bpmn:extensionElements><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Finish" name="Finish: COSE_Sign1, deflate, Base45, HC1:"><bpmn:documentation>STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001; QR-ready text, no QR encoding in the library (STT-QR-001).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-prefix-context"/></bpmn:extensionElements><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:userTask id="Task_Print" name="Print the paper DVC, one QR per dose"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:userTask>
+    <bpmn:endEvent id="End" name="Mali holds two signed paper DVCs"><bpmn:incoming>Flow_7</bpmn:incoming></bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start" targetRef="Task_Vaccinate"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_Vaccinate" targetRef="Task_Payload"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_Payload" targetRef="Task_Prepare"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_Prepare" targetRef="Task_Sign"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_Sign" targetRef="Task_Finish"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_Finish" targetRef="Task_Print"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_Print" targetRef="End"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Process_J1BirthDoseDvc">
+      <bpmndi:BPMNShape id="Participant_Process_J1BirthDoseDvc_di" bpmnElement="Participant_Process_J1BirthDoseDvc" isHorizontal="true"><dc:Bounds x="100" y="60" width="1570" height="680"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1540" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_birth-clinic-vaccinator_di" bpmnElement="Lane_birth-clinic-vaccinator" isHorizontal="true"><dc:Bounds x="130" y="230" width="1540" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_birth-clinic-system_di" bpmnElement="Lane_birth-clinic-system" isHorizontal="true"><dc:Bounds x="130" y="400" width="1540" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_issuer-key_di" bpmnElement="Lane_issuer-key" isHorizontal="true"><dc:Bounds x="130" y="570" width="1540" height="170"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="277" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="235" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Vaccinate_di" bpmnElement="Task_Vaccinate"><dc:Bounds x="405" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Payload_di" bpmnElement="Task_Payload"><dc:Bounds x="580" y="445" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Prepare_di" bpmnElement="Task_Prepare"><dc:Bounds x="755" y="445" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Sign_di" bpmnElement="Task_Sign"><dc:Bounds x="930" y="615" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Finish_di" bpmnElement="Task_Finish"><dc:Bounds x="1105" y="445" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Print_di" bpmnElement="Task_Print"><dc:Bounds x="1280" y="275" width="130" height="80"/></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1502" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1460" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="313" y="145"/><di:waypoint x="359" y="145"/><di:waypoint x="359" y="315"/><di:waypoint x="405" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"><di:waypoint x="535" y="315"/><di:waypoint x="557" y="315"/><di:waypoint x="557" y="485"/><di:waypoint x="580" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"><di:waypoint x="710" y="485"/><di:waypoint x="755" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"><di:waypoint x="885" y="485"/><di:waypoint x="907" y="485"/><di:waypoint x="907" y="655"/><di:waypoint x="930" y="655"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"><di:waypoint x="1060" y="655"/><di:waypoint x="1082" y="655"/><di:waypoint x="1082" y="485"/><di:waypoint x="1105" y="485"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"><di:waypoint x="1235" y="485"/><di:waypoint x="1257" y="485"/><di:waypoint x="1257" y="315"/><di:waypoint x="1280" y="315"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"><di:waypoint x="1410" y="315"/><di:waypoint x="1456" y="315"/><di:waypoint x="1456" y="145"/><di:waypoint x="1502" y="145"/></bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -31,7 +31,7 @@ SHA and every JSON file parses.
   personas: the mother and newborn (J1's IG example), the J1 clinic nurse,
   the CHW (J2), the home clinic provider (J3), the national portal and the
   border/clinic receiver abroad (J4).
-- `processes/content/`: one BPMN per journey (J1 issuance, J2 CHW discovery
+- `processes/content/`: one BPMN per journey (done in step 2a; checklists and the harness mount in 2b) (J1 issuance, J2 CHW discovery
   and referral, J3 verification, import and schedule, J4.0 VHL issuance to a
   shared phone, J4.1 VHL fetch at the point of care), lanes naming roles,
   tasks naming smart-trust-tools skills; checklists generated.

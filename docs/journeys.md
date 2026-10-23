@@ -1,0 +1,112 @@
+# Journeys J1–J4
+
+One family, two countries, and a trip:
+
+- **Country A** (birth country) is **XXR**, a GDHCN DEV participant. Chanthala is born there while her mother visits relatives, and gets her birth doses there (J1).
+- **Country B** (country of residence, "home") is a fictional GDHCN DEV participant, written **XXH**. The family lives there (J2, J3, J4.0).
+- J4.1 takes place in a third country the family travels to.
+
+The family are Lao nationals. Nationality `LAO` is a field of the signed
+certificates, not a country in the journeys. Every person is fictional. Chanthala, Mali and Dr Pimchanok
+WATTANA come from the WHO guide's
+[QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)
+example, whose two signed DVCs (Hep B, BCG) verify against the live GDHCN DEV
+trust list.
+
+| | Process | Where |
+|---|---|---|
+| J1 | [Issue the newborn's birth-dose DVCs](../processes/content/j1-birth-dose-dvc.bpmn) | Country A |
+| J2 | [Discover and refer an unregistered infant](../processes/content/j2-chw-discovery-referral.bpmn) | Country B |
+| J3 | [Verify, import and schedule at the home clinic](../processes/content/j3-clinic-verification-schedule.bpmn) | Country B |
+| J4.0 | [Issue the family's records to one phone as VHLs](../processes/content/j4-0-family-vhl-issuance.bpmn) | Country B |
+| J4.1 | [Read a family member's records at the point of care abroad](../processes/content/j4-1-vhl-point-of-care.bpmn) | abroad |
+
+## Roles, actors and the guides' actor definitions
+
+Each lane is a role in [`scenarios/roles.json`](../scenarios/roles.json).
+Each actor in [`scenarios/actors/`](../scenarios/actors/) names the role it
+plays. Its `meta.definedBy` gives the ActorDefinitions it is an instance of,
+and its `meta.playsActor` gives the smart-trust-tools actor. On the role, the
+guides' names appear as `otherNames` (also known as).
+
+| Role (lane) | Actor here | WHO SMART Trust | WHO smart-trust-phw | IHE ITI VHL | smart-trust-tools |
+|---|---|---|---|---|---|
+| caregiver | Mali SOUVANNALATH | [Holder](http://smart.who.int/trust/ActorDefinition/Holder) | [Holder](http://smart.who.int/trust-phw/ActorDefinition/Holder) | [VHLHolder](https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLHolder) | vhl-holder |
+| family-phone | the family's shared phone | (Holder's device) | (Holder's device: the personal health wallet) | (VHLHolder's device) | vhl-holder |
+| birth-clinic-system | provincial hospital, Country A | [Issuer](http://smart.who.int/trust/ActorDefinition/Issuer) | [Issuer](http://smart.who.int/trust-phw/ActorDefinition/Issuer) | [VHLSharer](https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLSharer) (HCERT side) | vhl-sharer / hcert-issuing-system |
+| issuer-key | XXR's DSC key | [Trust Network Participant](http://smart.who.int/trust/ActorDefinition/TrustNetworkParticipant) (its PKI) | [Trust Network Participant](http://smart.who.int/trust-phw/ActorDefinition/TrustNetworkParticipant) | — | trust-network-participant / hcert-key-holder |
+| chw-app | CHW app, Country B | [Receiver](http://smart.who.int/trust/ActorDefinition/Receiver) (triage read only) | [Receiver](http://smart.who.int/trust-phw/ActorDefinition/Receiver) | [VHLReceiver](https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver) | vhl-receiver / hcert-verifying-system |
+| home-clinic-ehr | home clinic EHR, Country B | Receiver | Receiver | VHLReceiver | vhl-receiver / hcert-verifying-system |
+| gdhcn-trust-anchor | GDHCN DEV (WHO) | [Trust Network Anchor](http://smart.who.int/trust/ActorDefinition/TrustNetworkAnchor) | [Trust Network Anchor](http://smart.who.int/trust-phw/ActorDefinition/TrustNetworkAnchor) | [TrustAnchor](https://profiles.ihe.net/ITI/VHL/ActorDefinition/TrustAnchor) | trust-anchor |
+| national-portal | national portal, Country B | Issuer; Trust Network Participant | Issuer; Trust Network Participant | [VHLSharer](https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLSharer) | vhl-sharer |
+| poc-receiver | hospital system abroad | Receiver | Receiver | VHLReceiver | vhl-receiver |
+| birth-clinic-vaccinator, community-health-worker, home-clinic-provider, poc-provider | Dr Pimchanok WATTANA, Sita RAI, Tomas ALVES, Dr Ana MOREIRA | — (the people operating the systems; no ActorDefinition in either guide) | — | — | — |
+
+smart-trust-phw's requirements map onto the journeys as follows:
+
+- `provide-a-vhl-to-a-receiver` (Holder) is J2, J3 and J4.1.
+- `receive-a-vhl` is J2, J3 and J4.1 too. It names the Issuer as its actor, which looks wrong: [OI-01](../beans/defs/smart-trust-demo-oi01--trust-phw-receive-a-vhl-names-the-issuer.md).
+- `publish-`, `receive-`, `distribute-` and `retrieve-pki-material` are the trust anchor and the participants in J3.
+
+## User scenarios
+
+Each step names the requirements of
+[smart-trust-tools](https://github.com/litlfred/smart-trust-tools/tree/main/skills/requirements)
+it exercises. The stories are in [`scenarios/stories.json`](../scenarios/stories.json).
+
+### J1 — Cross-border birth and initial vaccination (Country A)
+
+Mali gives birth to Chanthala on 2026-10-21 at a provincial hospital in
+Country A, while visiting relatives. Dr Pimchanok WATTANA gives the Hep B
+and BCG birth doses and records them. For each dose, the hospital system
+does three things:
+
+1. It builds a DVCMinPreQual payload: STT-PAY-001…005 and STT-PAY-007, with subclaim −6 (STT-SEL-003).
+2. It prepares the CWT and the bytes to sign: STT-CWT-001…005, STT-ISS-004.
+3. It has XXR's key sign them (STT-COS-002, STT-COS-006), then finishes the HC1 text: STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001, STT-QR-001.
+
+Mali leaves with two paper DVCs.
+*In the demo:* the guide's two signed HC1 strings stand in for the hospital's
+output. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003).
+
+### J2 — Return home, CHW discovery and referral (Country B)
+
+Back in Country B, Sita RAI finds Chanthala missing from the household
+register on a home visit. Sita has no signal. She scans both QRs. The CHW
+app reads them with **read-unverified** (STT-VER-011; STT-B45-002,
+STT-ZIP-002, STT-CBR-003), which needs no trust list. It shows the doses,
+marked unverified. Sita registers Chanthala and refers her to the clinic.
+Everything syncs that evening.
+
+### J3 — Clinic verification and schedule generation (Country B)
+
+Tomas ALVES opens the referral and scans the QRs. The EHR loaded the GDHCN
+DEV trust list when it was last online, including XXR's DSC DID document
+(STT-TRU-001, STT-TRU-002, STT-VER-006). It **verifies** each DVC offline
+(STT-VER-001…009, STT-KID-002). Both verify, so it imports them as FHIR
+`Immunization`s with provenance (STT-VER-007, STT-VER-008). The national
+schedule then runs: the birth doses count, and birth-dose OPV is due.
+Tomas gives it. If a DVC fails, the EHR names the step and the reason, and
+Tomas decides by national policy.
+
+### J4.0 — "One Family, One Phone" (Country B)
+
+The family plans a trip. On the national portal, Mali asks for each member's
+records. For each member, the portal does three things:
+
+1. It assembles an IPS and that member's DVCs.
+2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).
+3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.
+
+The shared phone holds one QR per member.
+
+### J4.1 — Point of care abroad
+
+Abroad, Chanthala has a fever. Mali shows Chanthala's QR on the family
+phone and tells Dr Ana MOREIRA the passcode. The hospital system takes
+four steps:
+
+1. It verifies the HCERT against Country B's DSC.
+2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).
+3. It decrypts the IPS and DVCs (STT-VHL-007).
+4. It shows them to Dr Ana MOREIRA.
