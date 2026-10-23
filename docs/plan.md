@@ -44,10 +44,11 @@ SHA and every JSON file parses.
 
 `lib/hcert/`: a script and Gradle wiring that checks out smart-trust-tools
 at a pinned SHA, builds `hcert-api` and `hcert-core` (JVM) with that
-repository's own Gradle and `verification-metadata.xml`, publishes them to a
-build-local Maven directory, and records the jars' sha256. The app and the
-Android tests depend on fixed coordinates from that directory. Bumping the
-library is one line (the SHA) plus the recorded hashes.
+repository's own Gradle and `verification-metadata.xml`, and copies the jars
+to `lib/hcert/build/libs/`, failing if a jar's sha256 differs from the one
+recorded in `lib/hcert/hcert.lock.json` (the build is reproducible). The app
+and the Android tests depend on those files. Bumping the library is the
+commit in the lock plus `build.py --update`.
 
 ### 4. Android emulator test of the library (STT-GEN-004)
 
