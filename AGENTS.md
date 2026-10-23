@@ -47,7 +47,7 @@ step traces to smart-trust-tools' `req:` nodes by id.
 ## Cold start
 
 The harness layers and smart-trust-tools are mounted from `index.lock.json`
-(gitignored). In a fresh container:
+(the mounts are gitignored; the lock is committed). In a fresh container:
 
 ```sh
 python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness']!='smart-trust-tools']" > /tmp/mounts.txt

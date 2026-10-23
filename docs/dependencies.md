@@ -1,3 +1,8 @@
+---
+title: Dependency register
+nav_order: 5
+---
+
 # Dependency register
 
 Every dependency of this repository, with its reason. A new or bumped
@@ -18,6 +23,6 @@ pull request.
 
 | Dependency | Pin | Why |
 |---|---|---|
-| Kotlin HCERT library (`hcert-api`, `hcert-core`, JVM jars) | litlfred/smart-trust-tools at the commit and jar sha256 in [`lib/hcert/hcert.lock.json`](../lib/hcert/hcert.lock.json) | The library this demonstrator exists to exercise. Built from source by [`lib/hcert/build.py`](../lib/hcert/build.py) with smart-trust-tools' own `verification-metadata.xml` (Kotlin 2.0.21 Gradle plugin and its graph); no third-party runtime dependency beyond the Kotlin standard library. |
+| Kotlin HCERT library (`hcert-api`, `hcert-core`, JVM jars) | litlfred/smart-trust-tools at the commit and jar sha256 in [`lib/hcert/hcert.lock.json`](https://github.com/litlfred/smart-trust-demo/blob/main/lib/hcert/hcert.lock.json) | The library this demonstrator exists to exercise. Built from source by [`lib/hcert/build.py`](https://github.com/litlfred/smart-trust-demo/blob/main/lib/hcert/build.py) with smart-trust-tools' own `verification-metadata.xml` (Kotlin 2.0.21 Gradle plugin and its graph); no third-party runtime dependency beyond the Kotlin standard library. |
 
-The Android and OHS artifacts arrive in steps 4 and 5 of the [plan](plan.md).
+The Android and OHS artifacts arrive in steps 4 and 5 of the [plan](plan.html).
