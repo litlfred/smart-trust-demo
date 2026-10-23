@@ -92,6 +92,10 @@ unverified artifacts.
 
 ### 5. The app
 
+(Started: `app/`, J2's offline read and J3's verification of the guide's
+DVCs on Android, workflow `app.yml`. Next: J3's import as FHIR
+`Immunization`s with `dev.ohs.fhir`.)
+
 On the base the owner chooses from the proposal (recommended: a lean
 Compose Multiplatform app on the OHS KMP libraries, Android first):
 

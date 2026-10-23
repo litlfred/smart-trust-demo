@@ -1,0 +1,91 @@
+name: Demonstrator app (Android)
+
+# Plan step 5 (option B, memory/dir-app-platform.md): the demonstrator app in
+# app/ builds, its journey logic's unit tests pass on the pinned HCERT jars,
+# and the debug APK is kept as an artifact to install on a phone.
+#
+# Every Gradle artifact is pinned by sha256 in
+# app/gradle/verification-metadata.xml. This sandbox cannot reach
+# Google Maven, so the first run on a branch without that file writes it
+# here, on GitHub's runner (trust on first use, over TLS from
+# dl.google.com and Maven Central), and commits it to the branch for review.
+# From then on a different byte fails the build. Actions are pinned by SHA.
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths: ["app/**", "lib/hcert/**", ".github/workflows/app.yml"]
+  pull_request:
+    paths: ["app/**", "lib/hcert/**", ".github/workflows/app.yml"]
+
+jobs:
+  verification-metadata:
+    # Only on a push to a branch of this repository that has no metadata yet.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      written: ${{ steps.write.outputs.written }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - id: need
+        run: |
+          if [ -f app/gradle/verification-metadata.xml ]; then echo "need=false" >> "$GITHUB_OUTPUT"; else echo "need=true" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.need.outputs.need == 'true'
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - if: steps.need.outputs.need == 'true'
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4.9.1
+        with:
+          distribution: temurin
+          java-version: "17"
+      - if: steps.need.outputs.need == 'true'
+        uses: gradle/actions/setup-gradle@748248ddd2a24f49513d8f472f81c3a07d4d50e1 # v4.4.4
+        with:
+          gradle-version: "8.14.3"
+      - id: write
+        if: steps.need.outputs.need == 'true'
+        run: |
+          python3 lib/hcert/build.py
+          gradle -p app --no-daemon --write-verification-metadata sha256 assembleDebug testDebugUnitTest
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/gradle/verification-metadata.xml
+          git commit -m "app: Gradle verification metadata, written on the runner (trust on first use)"
+          git push
+          echo "written=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: [verification-metadata]
+    # Skipped when the metadata was only just written: that push needs a review
+    # and a new commit to build against it.
+    if: always() && needs.verification-metadata.outputs.written != 'true' && needs.verification-metadata.result != 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: The metadata exists
+        run: test -f app/gradle/verification-metadata.xml
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4.9.1
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@748248ddd2a24f49513d8f472f81c3a07d4d50e1 # v4.4.4
+        with:
+          gradle-version: "8.14.3"
+      - name: Build the pinned HCERT jars and check their sha256
+        run: python3 lib/hcert/build.py
+      - name: Build the app and run its unit tests against the verification metadata
+        run: gradle -p app --no-daemon assembleDebug testDebugUnitTest
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: smart-trust-demo-app-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
