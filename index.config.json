@@ -161,42 +161,22 @@
       "source": {
         "remote": {
           "repository": "litlfred/smart-trust-tools",
-          "ref": "f862552c4e7c272d28055027f805dd84a78f44d0",
+          "ref": "3e1c3e38df736984daa2f5bdc41d633cd9886f65",
           "overrides": {
             "smart-trust-tools": {
-              "whole": false,
-              "directories": [
-                "stt-skills",
-                "library",
-                "external-schemas",
-                "references",
-                "memory",
-                "beans",
-                "processes",
-                "scenarios",
-                "smart-trust-tools-typologies",
-                "hcert-contract-wit",
-                "hcert-contract-cddl",
-                "hcert-contract-ts",
-                "fhir-logical-models",
-                "payload-models",
-                "hcert-test-vectors",
-                "upstream-patches",
-                "test-plans"
-              ]
+              "whole": true
             }
           },
           "trust": {
             "consent": {
               "by": "litlfred",
               "on": "2026-10-23",
-              "ref": "f862552c4e7c272d28055027f805dd84a78f44d0",
-              "evidence": "Owner (litlfred), 2026-10-23, in the smart-trust-demo session: \"Full downstream\" (smart-trust-demo is a full cat-harness downstream of smart-trust-tools). The ref is smart-trust-tools main as the library session reported it on 2026-10-23, the same commit lib/hcert/hcert.lock.json pins."
+              "ref": "3e1c3e38df736984daa2f5bdc41d633cd9886f65",
+              "evidence": "Owner (litlfred), 2026-10-23, in the smart-trust-demo session: \"Full downstream\" (smart-trust-demo is a full cat-harness downstream of smart-trust-tools) and \"do the library session import fix\". Repinned to smart-trust-tools main after merging litlfred/smart-trust-tools#26 (tools import the harness by package name), so the whole instance mounts."
             }
           }
         }
-      },
-      "_comment": "Every declared directory but tools/ and toolchain/: smart-trust-tools' tools/index.ts imports the harness by a path relative to its own root (../cat-harness/), which does not resolve when it is mounted one level down. The library itself is built from the same commit by lib/hcert/build.py."
+      }
     },
     {
       "name": "smart-trust-demo",
