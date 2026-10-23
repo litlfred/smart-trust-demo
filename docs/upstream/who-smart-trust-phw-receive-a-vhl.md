@@ -1,4 +1,6 @@
-# Draft issue for WorldHealthOrganization/smart-trust-phw
+# Issue for WorldHealthOrganization/smart-trust-phw
+
+Filed as [smart-trust-phw#18](https://github.com/WorldHealthOrganization/smart-trust-phw/issues/18); fix offered as [smart-trust-phw#19](https://github.com/WorldHealthOrganization/smart-trust-phw/pull/19).
 
 **Title:** Requirement `receive-a-vhl` names the Issuer as its actor; it should be the Receiver
 
