@@ -20,3 +20,23 @@ jobs:
           python-version: "3.12"
       - name: Actions pinned, JSON parses, memory front matter
         run: python3 tools/repo-checks/repo_checks.py
+
+  hcert-jars:
+    # The Kotlin HCERT library at the commit lib/hcert/hcert.lock.json pins,
+    # built by its own Gradle build and verification metadata; the jars must
+    # match the recorded sha256. Same toolchain pins as smart-trust-tools.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4.9.1
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@748248ddd2a24f49513d8f472f81c3a07d4d50e1 # v4.4.4
+        with:
+          gradle-version: "8.14.3"
+      - name: Build the pinned HCERT jars and check their sha256
+        run: python3 lib/hcert/build.py
