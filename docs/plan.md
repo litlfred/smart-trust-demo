@@ -92,6 +92,11 @@ unverified artifacts.
 
 ### 5. The app
 
+(Started: `app/`, J2's offline read, and J3's verification and import of
+the guide's DVCs on Android, workflow `app.yml`. A verified DVC becomes a
+FHIR R4 `Immunization` with its `Provenance` (`dev.ohs.fhir:fhir-model-r4`);
+an unverified one is not imported. Next: J3's schedule, then J1 issuance.)
+
 On the base the owner chooses from the proposal (recommended: a lean
 Compose Multiplatform app on the OHS KMP libraries, Android first):
 
