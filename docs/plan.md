@@ -69,6 +69,10 @@ commit in the lock plus `build.py --update`.
 
 ### 4. Android emulator test of the library (STT-GEN-004)
 
+(In progress: `android-test/` and `.github/workflows/android.yml`. The
+Gradle verification metadata is written on GitHub's runner, since this
+session cannot reach Google Maven.)
+
 `android-test/`: an Android library module whose instrumented tests run on
 an emulator in CI (Android API levels to be chosen: one current, one old
 enough to matter for clinics, e.g. 26 and 35):
