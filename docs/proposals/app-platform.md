@@ -5,7 +5,7 @@ nav_order: 4
 
 # Proposal: which Open Health Stack base for the demonstrator app
 
-**Status:** for the owner's decision. Researched 2026-10-23.
+**Status:** decided 2026-10-23: option B, staged, with the Rust/wasm library for the web meanwhile ([memory/dir-app-platform.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-app-platform.md)). Researched 2026-10-23.
 **Question:** on what should the J1–J4 app be built, so that it runs the
 Kotlin HCERT library on Android (and, ideally, the web) on the most recent,
 most Kotlin-native Open Health Stack?

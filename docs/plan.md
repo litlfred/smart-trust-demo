@@ -15,7 +15,8 @@ owner's are asked before the step that needs them and recorded in `memory/`.
 | Library consumption | Build the JVM jars in CI from a pinned smart-trust-tools commit | [memory/dir-library-consumption.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-library-consumption.md) |
 | Harness | Full cat-harness downstream of smart-trust-tools | [memory/dir-downstream.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-downstream.md) |
 | Home country (J2–J4) | A fictional GDHCN DEV participant; J1's issuer stays `XXR` | [memory/dir-journeys-demo.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-journeys-demo.md) |
-| OHS base for the app | **Open** — options with pros and cons in [proposals/app-platform.md](proposals/app-platform.html) | — |
+| OHS base for the app | Option B, staged; Rust/wasm for the web meanwhile ([proposals/app-platform.md](proposals/app-platform.html)) | [memory/dir-app-platform.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-app-platform.md) |
+| IG identity | `smart.who.int.trust-demo`, `http://smart.who.int/trust-demo` | [memory/dir-ig-identity.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-ig-identity.md) |
 
 ## Steps
 
