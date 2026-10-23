@@ -19,7 +19,7 @@ Also: smart-trust-phw's personas.md and scenarios.md are template placeholders (
 
 ## Resolution
 
-To fix in litlfred/smart-trust-phw (the working copy) and offer upstream to WorldHealthOrganization/smart-trust-phw when the owner asks.
+Fixed and pre-adopted in litlfred/smart-trust-phw#1 (merged 2026-10-23: actor = Canonical(Receiver)). A WHO issue on WorldHealthOrganization/smart-trust-phw is drafted in docs/upstream/who-smart-trust-phw-receive-a-vhl.md for the owner to file; the PR to WHO follows when the owner asks.
 
 ## Sources
 

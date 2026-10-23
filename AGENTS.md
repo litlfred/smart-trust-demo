@@ -43,3 +43,21 @@ step traces to smart-trust-tools' `req:` nodes by id.
 - **Test keys are test keys.** Signing keys in this repository are throw-away
   and marked TEST-ONLY; production keys never enter it.
 - No model identifiers in commits, PRs or code.
+
+## Cold start
+
+The harness layers and smart-trust-tools are mounted from `index.lock.json`
+(gitignored). In a fresh container:
+
+```sh
+python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness']!='smart-trust-tools']" > /tmp/mounts.txt
+while read h r ref; do git clone -q --filter=blob:none --no-checkout https://github.com/$r $h && git -C $h checkout -q $ref && rm -rf $h/.git; done < /tmp/mounts.txt
+bun install --frozen-lockfile
+bun run cat mount:lock            # lays down every pinned layer, smart-trust-tools included
+bun run cat mount:remote:check
+```
+
+Generators that write below a mounted layer (for example `bpmn:checklist`,
+which also writes into `cat-harness/`) leave that mount "modified"; re-lay it
+with `rm -rf <layer>` and the clone line above, then `mount:lock`. Publish
+gh-pages with `bun cat-harness-tools/scripts/stage-local.ts --repo .`.

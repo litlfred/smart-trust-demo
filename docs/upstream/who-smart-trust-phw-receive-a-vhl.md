@@ -1,0 +1,29 @@
+# Draft issue for WorldHealthOrganization/smart-trust-phw
+
+**Title:** Requirement `receive-a-vhl` names the Issuer as its actor; it should be the Receiver
+
+In `input/fsh/requirements/requirements.fsh`, the Requirements instance
+`receive-a-vhl` ("Receive VHL or VDHC") reads:
+
+```
+* description = "Is able to receive a VHL authorization mechanism or a VDHC from a Holder"
+* actor[+] = Canonical(Issuer)
+```
+
+The capability described, receiving a VHL or VDHC from a Holder, is the
+**Receiver**'s (`ActorDefinition/Receiver`: "Receiver (system) of Verifiable
+Health Certificate or Verifiable Health Link"). Its counterpart
+`provide-a-vhl-to-a-receiver` names the Holder. Proposed fix:
+
+```diff
+-* actor[+] = Canonical(Issuer)
++* actor[+] = Canonical(Receiver)
+```
+
+The same change is applied in litlfred/smart-trust-phw
+(https://github.com/litlfred/smart-trust-phw/pull/1) and can be offered as a
+pull request here.
+
+Found while mapping the user journeys of litlfred/smart-trust-demo (a CHW
+app, a clinic EHR and a hospital system abroad each receive a VDHC or VHL
+from the Holder) to the guide's actors.

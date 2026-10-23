@@ -23,7 +23,7 @@ SHA and every JSON file parses.
 
 ### 2. Journeys as cat-harness content
 
-- `smart-trust-demo.json` declaration and `index.config.json` pinning the
+- (done) `smart-trust-demo.json` declaration and `index.config.json` pinning the
   harness layers smart-trust-tools pins (fhir-harness and below) plus
   smart-trust-tools itself, so `req:` ids resolve; `index.lock.json`.
 - `scenarios/`: the actors (reusing smart-trust-tools' VHL Holder, Sharer,

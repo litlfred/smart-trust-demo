@@ -1,0 +1,75 @@
+{
+  "$schema": "cat-harness-declaration/1.0.0",
+  "name": "smart-trust-demo",
+  "version": "0.1.0",
+  "repository": "litlfred/smart-trust-demo",
+  "iriBase": "https://litlfred.github.io/smart-trust-demo/",
+  "title": "SMART Trust demonstrator",
+  "description": "The user journeys J1 to J4 of one cross-border family (birth-dose DVCs abroad, CHW triage read, clinic verification and schedule, family VHLs on one phone) as BPMN processes, personas and user scenarios, an Open Health Stack app that runs them with the Kotlin HCERT library, and the Android test of that library.",
+  "needs": [
+    "smart-trust-tools"
+  ],
+  "mountApprovers": [
+    "litlfred"
+  ],
+  "assets": [
+    {
+      "id": "agent-instructions",
+      "src": "AGENTS.md",
+      "role": "agent-instructions",
+      "title": "AGENTS.md — smart-trust-demo",
+      "description": "Cold start for work here: the rules, where the journeys live, and how the HCERT library is consumed."
+    },
+    {
+      "id": "instance-readme",
+      "src": "README.md",
+      "role": "instance-readme",
+      "title": "SMART Trust demonstrator",
+      "description": "The four journeys, the library call each exercises, and the related repositories."
+    }
+  ],
+  "directories": [
+    {
+      "id": "demo-skills",
+      "path": "skills/",
+      "graphTypologies": ["skills"],
+      "description": "The journeys' own skills (package journeys): CHW registration and referral, Immunization import, schedule evaluation, record assembly for a VHL, and holding VHLs on a shared phone. The HCERT and VHL skills are smart-trust-tools'."
+    },
+    {
+      "id": "processes",
+      "path": "processes/",
+      "graphTypologies": ["processes"],
+      "description": "One BPMN process per journey (J1, J2, J3, J4.0, J4.1) in the content concern group. Lanes are roles from scenarios/roles.json; tasks name skills."
+    },
+    {
+      "id": "scenarios",
+      "path": "scenarios/",
+      "graphTypologies": ["scenarios"],
+      "description": "The roles that play the journeys' lanes, the personas and systems that play them (each naming the WHO SMART Trust, smart-trust-phw and IHE ITI VHL ActorDefinitions it instantiates), and the user stories. Every person is fictional."
+    },
+    {
+      "id": "memory",
+      "path": "memory/",
+      "graphTypologies": ["memory"],
+      "description": "Owner directives: the journeys and their two countries, consuming the library from a pinned commit, and being a full downstream."
+    },
+    {
+      "id": "beans",
+      "path": "beans/",
+      "graphTypologies": ["beans"],
+      "description": "The open issues of this project, one bean each under beans/defs/; tagged upstream when the fix belongs in another repository."
+    },
+    {
+      "id": "tools",
+      "path": "tools/",
+      "graphTypologies": ["code"],
+      "description": "repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency)."
+    },
+    {
+      "id": "hcert-library-pin",
+      "path": "lib/hcert/",
+      "graphTypologies": ["code"],
+      "description": "The Kotlin HCERT library at a pinned smart-trust-tools commit: the lock (commit and jar sha256) and the script that builds and checks the jars."
+    }
+  ]
+}

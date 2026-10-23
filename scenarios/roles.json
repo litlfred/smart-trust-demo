@@ -46,8 +46,7 @@
       ],
       "persona": "Software that calls the library once per dose and never holds the private key.",
       "otherNames": [
-        "Issuer (SMART Trust)",
-        "HCERT issuing system"
+        "Issuer of the birth-dose DVCs (SMART Trust Issuer)"
       ]
     },
     {
@@ -93,7 +92,7 @@
       ],
       "persona": "Offline-first Android app; must never present an unverified record as verified.",
       "otherNames": [
-        "Receiver (SMART Trust), triage read only"
+        "Triage reader (SMART Trust Receiver, read-unverified)"
       ]
     },
     {
@@ -121,8 +120,7 @@
       ],
       "persona": "Holds a trust list refreshed when online; verifies offline at the point of care.",
       "otherNames": [
-        "Receiver (SMART Trust)",
-        "HCERT verifying system"
+        "Verifier at the home clinic (SMART Trust Receiver)"
       ]
     },
     {
@@ -164,7 +162,7 @@
       "persona": "A government service signing with the national DSC; hosts manifests and encrypted documents for a limited time.",
       "otherNames": [
         "VHL Sharer (IHE ITI VHL)",
-        "Issuer (SMART Trust)"
+        "Issuer of the family's VHLs (SMART Trust Issuer)"
       ]
     },
     {
@@ -197,7 +195,7 @@
       "persona": "A hospital system on a trust network, online, with its own receiver key.",
       "otherNames": [
         "VHL Receiver (IHE ITI VHL)",
-        "Receiver (SMART Trust)"
+        "Receiver of the family's VHLs (SMART Trust Receiver)"
       ]
     },
     {
