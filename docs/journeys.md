@@ -56,6 +56,13 @@ it exercises. The stories are in [`scenarios/stories.json`](../scenarios/stories
 
 ### J1 — Cross-border birth and initial vaccination (Country A)
 
+**Precondition: the issuer's DSC is on the trust list.** XXR's document
+signer certificate (DSC), issued under XXR's Country Signing CA (CSCA), was
+shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN
+publishes it as a DID document. Sharing it is not a step of issuing. A DVC
+signed with a key whose DSC was never shared fails every receiver's
+trust-list check (STT-VER-006).
+
 Mali gives birth to Chanthala on 2026-10-21 at a provincial hospital in
 Country A, while visiting relatives. Dr Pimchanok WATTANA gives the Hep B
 and BCG birth doses and records them. For each dose, the hospital system
@@ -67,7 +74,8 @@ does three things:
 
 Mali leaves with two paper DVCs.
 *In the demo:* the guide's two signed HC1 strings stand in for the hospital's
-output. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003).
+output. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC
+is not on the GDHCN list, so its DVCs do not verify in J3.
 
 ### J2 — Return home, CHW discovery and referral (Country B)
 
@@ -99,6 +107,10 @@ Tomas gives it. If a DVC fails, the EHR names the step and the reason, and
 Tomas decides by national policy.
 
 ### J4.0 — "One Family, One Phone" (Country B)
+
+**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is
+already shared with the GDHCN, the Trust Anchor. That is what lets the
+hospital abroad verify the link in J4.1.
 
 The family plans a trip. On the national portal, Mali asks for each member's
 records. For each member, the portal does three things:

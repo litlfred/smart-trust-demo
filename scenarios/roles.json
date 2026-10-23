@@ -44,7 +44,7 @@
         "hcert-prefix-context",
         "hcert-trust-list"
       ],
-      "persona": "Software that calls the library once per dose and never holds the private key.",
+      "persona": "Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.",
       "otherNames": [
         "Issuer (SMART Trust)",
         "HCERT issuing system"
@@ -161,7 +161,7 @@
         "hcert-trust-list",
         "portal-assemble-records"
       ],
-      "persona": "A government service signing with the national DSC; hosts manifests and encrypted documents for a limited time.",
+      "persona": "A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.",
       "otherNames": [
         "VHL Sharer (IHE ITI VHL)",
         "Issuer (SMART Trust)"
