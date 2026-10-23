@@ -1,3 +1,8 @@
+---
+title: Plan
+nav_order: 3
+---
+
 # Plan
 
 Each step is one pull request, merged when CI is green. Decisions that are the
@@ -7,10 +12,10 @@ owner's are asked before the step that needs them and recorded in `memory/`.
 
 | Decision | Choice | Record |
 |---|---|---|
-| Library consumption | Build the JVM jars in CI from a pinned smart-trust-tools commit | [memory/dir-library-consumption.md](../memory/dir-library-consumption.md) |
-| Harness | Full cat-harness downstream of smart-trust-tools | [memory/dir-downstream.md](../memory/dir-downstream.md) |
-| Home country (J2–J4) | A fictional GDHCN DEV participant; J1's issuer stays `XXR` | [memory/dir-journeys-demo.md](../memory/dir-journeys-demo.md) |
-| OHS base for the app | **Open** — options with pros and cons in [proposals/app-platform.md](proposals/app-platform.md) | — |
+| Library consumption | Build the JVM jars in CI from a pinned smart-trust-tools commit | [memory/dir-library-consumption.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-library-consumption.md) |
+| Harness | Full cat-harness downstream of smart-trust-tools | [memory/dir-downstream.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-downstream.md) |
+| Home country (J2–J4) | A fictional GDHCN DEV participant; J1's issuer stays `XXR` | [memory/dir-journeys-demo.md](https://github.com/litlfred/smart-trust-demo/blob/main/memory/dir-journeys-demo.md) |
+| OHS base for the app | **Open** — options with pros and cons in [proposals/app-platform.md](proposals/app-platform.html) | — |
 
 ## Steps
 

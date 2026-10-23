@@ -1,3 +1,8 @@
+---
+title: Proposal: Open Health Stack base
+nav_order: 4
+---
+
 # Proposal: which Open Health Stack base for the demonstrator app
 
 **Status:** for the owner's decision. Researched 2026-10-23.

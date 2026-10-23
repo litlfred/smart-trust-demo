@@ -1,3 +1,8 @@
+---
+title: Journeys J1–J4
+nav_order: 2
+---
+
 # Journeys J1–J4
 
 One family, two countries, and a trip:
@@ -15,16 +20,16 @@ trust list.
 
 | | Process | Where |
 |---|---|---|
-| J1 | [Issue the newborn's birth-dose DVCs](../processes/content/j1-birth-dose-dvc.bpmn) | Country A |
-| J2 | [Discover and refer an unregistered infant](../processes/content/j2-chw-discovery-referral.bpmn) | Country B |
-| J3 | [Verify, import and schedule at the home clinic](../processes/content/j3-clinic-verification-schedule.bpmn) | Country B |
-| J4.0 | [Issue the family's records to one phone as VHLs](../processes/content/j4-0-family-vhl-issuance.bpmn) | Country B |
-| J4.1 | [Read a family member's records at the point of care abroad](../processes/content/j4-1-vhl-point-of-care.bpmn) | abroad |
+| J1 | [Issue the newborn's birth-dose DVCs](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j1-birth-dose-dvc.bpmn) | Country A |
+| J2 | [Discover and refer an unregistered infant](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j2-chw-discovery-referral.bpmn) | Country B |
+| J3 | [Verify, import and schedule at the home clinic](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j3-clinic-verification-schedule.bpmn) | Country B |
+| J4.0 | [Issue the family's records to one phone as VHLs](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j4-0-family-vhl-issuance.bpmn) | Country B |
+| J4.1 | [Read a family member's records at the point of care abroad](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j4-1-vhl-point-of-care.bpmn) | abroad |
 
 ## Roles, actors and the guides' actor definitions
 
-Each lane is a role in [`scenarios/roles.json`](../scenarios/roles.json).
-Each actor in [`scenarios/actors/`](../scenarios/actors/) names the role it
+Each lane is a role in [`scenarios/roles.json`](https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json).
+Each actor in [`scenarios/actors/`](https://github.com/litlfred/smart-trust-demo/tree/main/scenarios/actors/) names the role it
 plays. Its `meta.definedBy` gives the ActorDefinitions it is an instance of,
 and its `meta.playsActor` gives the smart-trust-tools actor. On the role, the
 guides' names appear as `otherNames` (also known as).
@@ -45,14 +50,14 @@ guides' names appear as `otherNames` (also known as).
 smart-trust-phw's requirements map onto the journeys as follows:
 
 - `provide-a-vhl-to-a-receiver` (Holder) is J2, J3 and J4.1.
-- `receive-a-vhl` is J2, J3 and J4.1 too. It names the Issuer as its actor, which looks wrong: [OI-01](../beans/defs/smart-trust-demo-oi01--trust-phw-receive-a-vhl-names-the-issuer.md).
+- `receive-a-vhl` is J2, J3 and J4.1 too. It names the Issuer as its actor, which looks wrong: [OI-01](https://github.com/litlfred/smart-trust-demo/blob/main/beans/defs/smart-trust-demo-oi01--trust-phw-receive-a-vhl-names-the-issuer.md).
 - `publish-`, `receive-`, `distribute-` and `retrieve-pki-material` are the trust anchor and the participants in J3.
 
 ## User scenarios
 
 Each step names the requirements of
 [smart-trust-tools](https://github.com/litlfred/smart-trust-tools/tree/main/skills/requirements)
-it exercises. The stories are in [`scenarios/stories.json`](../scenarios/stories.json).
+it exercises. The stories are in [`scenarios/stories.json`](https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/stories.json).
 
 ### J1 — Cross-border birth and initial vaccination (Country A)
 

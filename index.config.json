@@ -161,7 +161,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/smart-trust-tools",
-          "ref": "3e1c3e38df736984daa2f5bdc41d633cd9886f65",
+          "ref": "1a483f0d5845cbb597fec2ff81d4acafa42fb618",
           "overrides": {
             "smart-trust-tools": {
               "whole": true
@@ -171,8 +171,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-10-23",
-              "ref": "3e1c3e38df736984daa2f5bdc41d633cd9886f65",
-              "evidence": "Owner (litlfred), 2026-10-23, in the smart-trust-demo session: \"Full downstream\" (smart-trust-demo is a full cat-harness downstream of smart-trust-tools) and \"do the library session import fix\". Repinned to smart-trust-tools main after merging litlfred/smart-trust-tools#26 (tools import the harness by package name), so the whole instance mounts."
+              "ref": "1a483f0d5845cbb597fec2ff81d4acafa42fb618",
+              "evidence": "Owner (litlfred), 2026-10-23, in the smart-trust-demo session: \"Full downstream\" (smart-trust-demo is a full cat-harness downstream of smart-trust-tools) and \"do the library session import fix\". Repinned to smart-trust-tools main after merging litlfred/smart-trust-tools#26 (tools import the harness by package name) and #29 (workspaces as globs), so the whole instance mounts and installs."
             }
           }
         }
@@ -188,7 +188,10 @@
       "site": {
         "build": {
           "home": "docs/index.md",
-          "profile": "folio"
+          "profile": "folio",
+          "sourceSteps": [
+            "site:docs"
+          ]
         }
       }
     }
