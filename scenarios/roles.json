@@ -194,7 +194,7 @@
         "hcert-trust-list",
         "vhl-receive"
       ],
-      "persona": "A hospital system on a trust network, online, with its own receiver key.",
+      "persona": "A hospital system on a trust network, online, with its own receiver key; its DID trust list is loaded before a visit, from its last refresh, so verifying never waits on a fetch.",
       "otherNames": [
         "VHL Receiver (IHE ITI VHL)",
         "Receiver (SMART Trust)"

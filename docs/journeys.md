@@ -111,11 +111,18 @@ The shared phone holds one QR per member.
 
 ### J4.1 — Point of care abroad
 
+**Precondition, as in J3: the DID documents are already loaded.** The
+hospital system's trust store holds the GDHCN trust list from its last
+refresh, including Country B's DSC DID document (STT-TRU-001, STT-TRU-002,
+STT-TRU-005). It is online for the manifest request, but verifying does not
+fetch the list. A DSC published after that refresh fails the trust-list check
+(STT-VER-006), naming that reason.
+
 Abroad, Chanthala has a fever. Mali shows Chanthala's QR on the family
 phone and tells Dr Ana MOREIRA the passcode. The hospital system takes
 four steps:
 
-1. It verifies the HCERT against Country B's DSC.
+1. It verifies the HCERT against Country B's DSC in that copy of the trust list.
 2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).
 3. It decrypts the IPS and DVCs (STT-VHL-007).
 4. It shows them to Dr Ana MOREIRA.
