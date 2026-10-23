@@ -2,7 +2,7 @@
   "id": "poc-hospital-system",
   "title": "Hospital system abroad (J4.1)",
   "kind": "system",
-  "description": "The emergency department system in the country the family travels to: verifies the VHL, fetches the manifest with an HTTP Message Signature and decrypts the documents (J4.1).",
+  "description": "The emergency department system in the country the family travels to: verifies the VHL, fetches the manifest with an HTTP Message Signature and decrypts the documents (J4.1). Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection.",
   "roles": [
     "poc-receiver"
   ],

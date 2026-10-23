@@ -9,8 +9,12 @@
     <bpmn:participant id="Participant_Process_J1BirthDoseDvc" name="J1 Issue the newborn&#x27;s birth-dose DVCs in Country A" processRef="Process_J1BirthDoseDvc"/>
   </bpmn:collaboration>
   <bpmn:process id="Process_J1BirthDoseDvc" name="J1 Issue the newborn&#x27;s birth-dose DVCs in Country A" isExecutable="false">
-    <bpmn:documentation>J1, Cross-border birth and initial vaccination. In Country A (XXR, the birth country) the provincial hospital gives Chanthala's Hep B and BCG birth doses and issues one signed DVC per dose (DVCMinPreQual at subclaim -6) as a paper QR: the guide's QR Code Generation section 12 example. The hospital system is the Issuer (SMART Trust) and the HCERT side of the VHL Sharer; the private key stays with the key holder (two-phase signing, STT-ISS-004, STT-COS-006). Mali is the Holder (SMART Trust, smart-trust-phw) and VHL Holder (IHE ITI VHL).</bpmn:documentation>
-    <bpmn:extensionElements><cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/></bpmn:extensionElements>
+    <bpmn:documentation>J1, Cross-border birth and initial vaccination. In Country A (XXR, the birth country) the provincial hospital gives Chanthala's Hep B and BCG birth doses and issues one signed DVC per dose (DVCMinPreQual at subclaim -6) as a paper QR: the guide's QR Code Generation section 12 example. The hospital system is the Issuer (SMART Trust) and the HCERT side of the VHL Sharer; the private key stays with the key holder (two-phase signing, STT-ISS-004, STT-COS-006). XXR's DSC, under its CSCA, being on the GDHCN trust list is a PRECONDITION of issuing, declared below, not a step. Mali is the Holder (SMART Trust, smart-trust-phw) and VHL Holder (IHE ITI VHL).</bpmn:documentation>
+    <bpmn:extensionElements>
+      <bootstrap.processes:precondition id="dsc-shared-with-trust-anchor" kind="stated"
+        text="Before the birth, XXR's document signer certificate (DSC, kid kW/6VnwPRKI=), issued under XXR's Country Signing CA (CSCA), has already been shared with the GDHCN, the Trust Anchor (Trust Network Anchor in SMART Trust and smart-trust-phw; Trust Anchor in IHE ITI VHL), which publishes it on the trust list as did:web:tng-cdn-dev.who.int:v2:trustlist:-:XXR:DSC (DEV). Sharing the DSC is not a step of issuing. A DVC signed with a key whose DSC was never shared verifies nowhere: every receiver's trust-list check (STT-VER-006) rejects it. The demo app's TEST-ONLY key (STT-ISS-003) is such a key: its DVCs do not verify against the GDHCN list."/>
+      <cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/>
+    </bpmn:extensionElements>
     <bpmn:laneSet id="LaneSet_Process_J1BirthDoseDvc">
       <bpmn:lane id="Lane_caregiver" name="Caregiver" partitionElementRef="caregiver">
         <bpmn:flowNodeRef>Start</bpmn:flowNodeRef>
