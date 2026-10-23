@@ -11,6 +11,9 @@ The harness sources stay the single source of truth:
                                     and systems that play each role)
 - scenarios/stories.json and the "User scenarios" section of
   docs/journeys.md               -> input/pagecontent/scenarios.md
+- docs/*.md and docs/*/*.md      -> input/pagecontent/<page>.md (DOC_PAGES),
+                                    so the IG site carries the project pages
+                                    and is the one site at the root
 
 Run:   python3 tools/ig-gen/ig_gen.py          (write)
        python3 tools/ig-gen/ig_gen.py --check  (fail if a file is stale)
@@ -193,6 +196,31 @@ def gen_scenarios(roles):
     return "\n".join(out) + "\n"
 
 
+# The project's own pages, carried into the IG so its site is the one site.
+# A page in a docs/ subdirectory becomes a flat IG page (the IG Publisher has
+# no subdirectories); the old address forwards to it (FORWARDS).
+DOC_PAGES = {
+    "docs/journeys.md": "journeys",
+    "docs/plan.md": "plan",
+    "docs/dependencies.md": "dependencies",
+    "docs/proposals/app-platform.md": "proposal-app-platform",
+    "docs/upstream/who-smart-trust-phw-receive-a-vhl.md": "upstream-who-smart-trust-phw-receive-a-vhl",
+}
+
+
+def doc_page(src):
+    """One docs page as an IG page: no front matter, no H1 (the IG gives the
+    title), headings one level down, links to moved pages at their IG names."""
+    text = (ROOT / src).read_text()
+    text = re.sub(r"\A---\n.*?\n---\n", "", text, flags=re.S)
+    text = re.sub(r"\A\s*# [^\n]*\n", "", text)
+    text = re.sub(r"^(#{2,5}) ", lambda m: "#" + m.group(1) + " ", text, flags=re.M)
+    for other, name in DOC_PAGES.items():
+        old = other[len("docs/"):-len(".md")] + ".html"
+        text = re.sub(r"\]\((?:\.\./)?" + re.escape(old) + r"(#[^)]*)?\)", lambda m: f"]({name}.html{m.group(1) or ''})", text)
+    return HEADER.format(src=src) + text.lstrip("\n")
+
+
 def build():
     roles = load("scenarios/roles.json")["roles"]
     by_role = {}
@@ -205,6 +233,8 @@ def build():
     files["input/pagecontent/system-actors.md"] = gen_system_actors(roles, by_role)
     files["input/pagecontent/business-processes.md"] = gen_processes(procs, roles)
     files["input/pagecontent/scenarios.md"] = gen_scenarios(roles)
+    for src, name in DOC_PAGES.items():
+        files[f"input/pagecontent/{name}.md"] = doc_page(src)
     for p in procs:
         files[f"input/business-processes/{p['file'].name}"] = p["file"].read_text()
     return files
