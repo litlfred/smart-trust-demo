@@ -139,3 +139,8 @@ four steps:
 2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).
 3. It decrypts the IPS and DVCs (STT-VHL-007).
 4. It shows them to Dr Ana MOREIRA.
+
+If the HCERT does not verify (for example, Country B's DSC is missing from
+the cached list), there is no digital verification. The hospital names the
+step and the reason (STT-VER-008), does not follow the VHL, and Dr Ana
+MOREIRA treats whatever the family can show as she would a paper record.
