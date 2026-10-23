@@ -29,7 +29,7 @@ Open Health Stack options awaiting the owner's choice.
 | Repository | Role here |
 |---|---|
 | [litlfred/smart-trust-tools](https://github.com/litlfred/smart-trust-tools) | The HCERT requirements (`req:` nodes), the WIT contract, the Kotlin library (`tools/hcert-kotlin`), the Rust/wasm library and the shared test vectors. Consumed at a pinned commit (see the plan). |
-| [litlfred/smart-trust-phw](https://github.com/litlfred/smart-trust-phw) | The logical models (DVCMin, DVCMinPreQual, HealthLinkPayload …). **This is the working copy; [WorldHealthOrganization/smart-trust-phw](https://github.com/WorldHealthOrganization/smart-trust-phw) is upstream** (git remote `upstream`). GitHub currently records the fork the other way round; a re-root is being considered. |
+| [litlfred/smart-trust-phw](https://github.com/litlfred/smart-trust-phw) | The logical models (DVCMin, DVCMinPreQual, HealthLinkPayload …). **This is the working copy; [WorldHealthOrganization/smart-trust-phw](https://github.com/WorldHealthOrganization/smart-trust-phw) is upstream** (git remote `upstream`); GitHub records it so (litlfred's is the fork, WHO's is not, checked 2026-10-23). |
 | [WorldHealthOrganization/smart-trust](https://github.com/WorldHealthOrganization/smart-trust) | The WHO SMART Trust implementation guide. Read-only from here. |
 | [ohs-foundation](https://github.com/ohs-foundation) | Open Health Stack: the FHIR engine, data capture, workflow libraries and the OHS Player reference app the demonstrator builds on. Read-only from here. |
 
