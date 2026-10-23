@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.jsonld",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.BirthClinicVaccinator",
+  "schema:name": "BirthClinicVaccinator",
+  "dcterms:title": "Birth clinic vaccinator",
+  "dcterms:description": "The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1).\n\n**Persona**: A maternity-ward clinician who records doses in the hospital system and prints what it produces.\n\n**Played in the journeys by**: Dr Pimchanok WATTANA (birth clinic, abroad) (fictional).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicVaccinator"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/ActorDefinition/TrustDemo.Role.BirthClinicVaccinator--f9a86320.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "591fa9f3b8f7b05029a5b77717d511031eeb0362"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

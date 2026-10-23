@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.FamilyPhone.jsonld",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.FamilyPhone",
+  "schema:name": "FamilyPhone",
+  "dcterms:title": "Family phone",
+  "dcterms:description": "The one smartphone the family shares, holding one VHL QR per member (J4); holds links, not keys to anyone's records beyond what each link grants.\n\n**Persona**: A shared Android phone, sometimes offline; whoever holds it can show any member's QR, the passcode protects the records.\n\n**Also known as**: Personal health wallet\n\n**Played in the journeys by**: The family's shared phone (fictional).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.FamilyPhone"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/ActorDefinition/TrustDemo.Role.FamilyPhone--23f5fd1b.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "591fa9f3b8f7b05029a5b77717d511031eeb0362"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

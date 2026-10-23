@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.HomeClinicProvider.jsonld",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.HomeClinicProvider",
+  "schema:name": "HomeClinicProvider",
+  "dcterms:title": "Home clinic provider",
+  "dcterms:description": "The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3).\n\n**Persona**: Trusts the system's verdict and needs a reason when a certificate fails.\n\n**Played in the journeys by**: Tomas ALVES (nurse, home clinic) (fictional).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicProvider"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/ActorDefinition/TrustDemo.Role.HomeClinicProvider--a9a94426.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "591fa9f3b8f7b05029a5b77717d511031eeb0362"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}
