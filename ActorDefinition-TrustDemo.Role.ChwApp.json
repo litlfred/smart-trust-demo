@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ActorDefinition",
+  "id" : "TrustDemo.Role.ChwApp",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.ChwApp</b></p><a name=\"TrustDemo.Role.ChwApp\"> </a><a name=\"hcTrustDemo.Role.ChwApp\"> </a><table class=\"grid\"><tr><td><b>Actor: ChwApp </b></td><td>CHW app</td><td>Type: system </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td><td>Derived From</td><td colspan=\"2\"/></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.ChwApp",
+  "version" : "0.1.0",
+  "name" : "ChwApp",
+  "title" : "CHW app",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-10-23T19:30:44+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, STT-VER-011), registers the child and records a referral, all offline, syncing later.\n\n**Persona**: Offline-first Android app; must never present an unverified record as verified.\n\n**Also known as**: Triage reader (SMART Trust Receiver, read-unverified)\n\n**Played in the journeys by**: CHW app, Country B (fictional).",
+  "type" : "system",
+  "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
+  "derivedFrom" : ["http://smart.who.int/trust/ActorDefinition/Receiver",
+  "http://smart.who.int/trust-phw/ActorDefinition/Receiver",
+  "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver"]
+}

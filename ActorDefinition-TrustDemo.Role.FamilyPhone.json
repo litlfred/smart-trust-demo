@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ActorDefinition",
+  "id" : "TrustDemo.Role.FamilyPhone",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.FamilyPhone</b></p><a name=\"TrustDemo.Role.FamilyPhone\"> </a><a name=\"hcTrustDemo.Role.FamilyPhone\"> </a><table class=\"grid\"><tr><td><b>Actor: FamilyPhone </b></td><td>Family phone</td><td>Type: system </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td><td>Derived From</td><td colspan=\"2\"/></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.FamilyPhone",
+  "version" : "0.1.0",
+  "name" : "FamilyPhone",
+  "title" : "Family phone",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-10-23T19:30:44+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The one smartphone the family shares, holding one VHL QR per member (J4); holds links, not keys to anyone's records beyond what each link grants.\n\n**Persona**: A shared Android phone, sometimes offline; whoever holds it can show any member's QR, the passcode protects the records.\n\n**Also known as**: Personal health wallet\n\n**Played in the journeys by**: The family's shared phone (fictional).",
+  "type" : "system",
+  "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
+  "derivedFrom" : ["https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLHolder",
+  "http://smart.who.int/trust/ActorDefinition/Holder",
+  "http://smart.who.int/trust-phw/ActorDefinition/Holder"]
+}

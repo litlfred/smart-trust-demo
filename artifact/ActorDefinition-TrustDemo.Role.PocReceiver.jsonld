@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.PocReceiver.jsonld",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.PocReceiver",
+  "schema:name": "PocReceiver",
+  "dcterms:title": "Point-of-care receiver",
+  "dcterms:description": "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Hospital system abroad (J4.1) (fictional).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.PocReceiver"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/ActorDefinition/TrustDemo.Role.PocReceiver--7618a158.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "6379af350004dceddd4227c911032c1c139e0601"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

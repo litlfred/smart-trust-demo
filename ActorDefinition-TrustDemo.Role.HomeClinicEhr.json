@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ActorDefinition",
+  "id" : "TrustDemo.Role.HomeClinicEhr",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.HomeClinicEhr</b></p><a name=\"TrustDemo.Role.HomeClinicEhr\"> </a><a name=\"hcTrustDemo.Role.HomeClinicEhr\"> </a><table class=\"grid\"><tr><td><b>Actor: HomeClinicEhr </b></td><td>Home clinic EHR</td><td>Type: system </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td><td>Derived From</td><td colspan=\"2\"/></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicEhr",
+  "version" : "0.1.0",
+  "name" : "HomeClinicEhr",
+  "title" : "Home clinic EHR",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-10-23T19:30:44+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3).\n\n**Persona**: Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.\n\n**Also known as**: Verifier at the home clinic (SMART Trust Receiver)\n\n**Played in the journeys by**: Home clinic EHR, Country B (fictional).",
+  "type" : "system",
+  "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
+  "derivedFrom" : ["http://smart.who.int/trust/ActorDefinition/Receiver",
+  "http://smart.who.int/trust-phw/ActorDefinition/Receiver",
+  "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver"]
+}
