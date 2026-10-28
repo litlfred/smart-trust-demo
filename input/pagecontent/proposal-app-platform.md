@@ -44,7 +44,7 @@ generation**, with or without the Player template.
 
 ### 2. Constraints every option must meet
 
-1. **The Android emulator test of the HCERT library** (STT-GEN-004) must run
+1. **The Android emulator test of the HCERT library** ([STT-GEN-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004)) must run
    in CI on an Android runtime, platform crypto included. This is
    independent of the app: it is a small Android test module that depends
    only on the HCERT jar (plan step 4). It can land before the app decision.
@@ -106,7 +106,7 @@ A plain Android app on `com.google.android.fhir` Engine + SDC (+ Workflow).
 
 A static page on gh-pages running J1–J4 in the browser with the Rust/wasm
 library (or a future browser build of hcert-core), plus only the Android test
-module for STT-GEN-004.
+module for [STT-GEN-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004).
 
 | Pros | Cons |
 |---|---|
@@ -117,7 +117,7 @@ module for STT-GEN-004.
 
 **Option B**, staged:
 
-1. Android test module for STT-GEN-004 first (independent of this choice).
+1. Android test module for [STT-GEN-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004) first (independent of this choice).
 2. The B app, Android target, offline, J1–J4, on `dev.ohs.fhir`
    engine + data capture + workflow.
 3. The web target of the same app once hcert-core has a browser target (to
