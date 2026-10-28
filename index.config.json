@@ -1,10 +1,6 @@
 {
   "$schema": "folio-index-config/v1",
   "_comment": "smart-trust-demo pins the layers smart-trust-tools pins (fhir-harness and everything below it), unchanged, and smart-trust-tools itself, whose req: nodes, skills and actors the journeys name. The mounts are laid down from index.lock.json and gitignored. The site is agent-run.",
-  "site": {
-    "landing": "smart-trust-demo",
-    "agentRun": true
-  },
   "instances": [
     {
       "name": "fhir-harness",
@@ -161,7 +157,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/smart-trust-tools",
-          "ref": "1a483f0d5845cbb597fec2ff81d4acafa42fb618",
+          "ref": "bad1e36a98c3746dc9ddbac2b045ba9201a8f236",
           "overrides": {
             "smart-trust-tools": {
               "whole": true
@@ -170,9 +166,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-23",
-              "ref": "1a483f0d5845cbb597fec2ff81d4acafa42fb618",
-              "evidence": "Owner (litlfred), 2026-10-23, in the smart-trust-demo session: \"Full downstream\" (smart-trust-demo is a full cat-harness downstream of smart-trust-tools) and \"do the library session import fix\". Repinned to smart-trust-tools main after merging litlfred/smart-trust-tools#26 (tools import the harness by package name) and #29 (workspaces as globs), so the whole instance mounts and installs."
+              "on": "2026-10-28",
+              "ref": "bad1e36a98c3746dc9ddbac2b045ba9201a8f236",
+              "evidence": "Owner (litlfred), 2026-10-28 11:55Z, in the smart-trust-demo thread \"Show BPMN diagrams on smart-trust-demo\": \"reping merge when green and ready over next 2 hours\". Repinned to smart-trust-tools main (bad1e36, after #40). Earlier consent: 2026-10-23, \"Full downstream\" (smart-trust-demo is a full cat-harness downstream of smart-trust-tools)."
             }
           }
         }
@@ -195,5 +191,9 @@
         }
       }
     }
-  ]
+  ],
+  "site": {
+    "landing": "smart-trust-demo",
+    "agentRun": true
+  }
 }
