@@ -28,28 +28,28 @@ signer certificate (DSC), issued under XXR's Country Signing CA (CSCA), was
 shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN
 publishes it as a DID document. Sharing it is not a step of issuing. A DVC
 signed with a key whose DSC was never shared fails every receiver's
-trust-list check (STT-VER-006).
+trust-list check ([STT-VER-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006)).
 
 Mali gives birth to Chanthala on 2026-10-21 at a provincial hospital in
 Country A, while visiting relatives. Dr Pimchanok WATTANA gives the Hep B
 and BCG birth doses and records them. For each dose, the hospital system
 does three things:
 
-1. It builds a DVCMinPreQual payload: STT-PAY-001…005 and STT-PAY-007, with subclaim −6 (STT-SEL-003).
-2. It prepares the CWT and the bytes to sign: STT-CWT-001…005, STT-ISS-004.
-3. It has XXR's key sign them (STT-COS-002, STT-COS-006), then finishes the HC1 text: STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001, STT-QR-001.
+1. It builds a DVCMinPreQual payload: [STT-PAY-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-001)…[005](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005) and [STT-PAY-007](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-007), with subclaim −6 ([STT-SEL-003](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-sel-003)).
+2. It prepares the CWT and the bytes to sign: [STT-CWT-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cwt-001)…[005](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cwt-005), [STT-ISS-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004).
+3. It has XXR's key sign them ([STT-COS-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-002), [STT-COS-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-006)), then finishes the HC1 text: [STT-COS-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-001), [STT-ZIP-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-001), [STT-B45-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-001), [STT-HC1-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-hc1-001), [STT-QR-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-qr-001).
 
 Mali leaves with two paper DVCs.
 *In the demo:* the guide's two signed HC1 strings stand in for the hospital's
-output. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC
+output. Live issuance in the app uses a TEST-ONLY key ([STT-ISS-003](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-003)), whose DSC
 is not on the GDHCN list, so its DVCs do not verify in J3.
 
 #### J2 — Return home, CHW discovery and referral (Country B)
 
 Back in Country B, Sita RAI finds Chanthala missing from the household
 register on a home visit. Sita has no signal. She scans both QRs. The CHW
-app reads them with **read-unverified** (STT-VER-011; STT-B45-002,
-STT-ZIP-002, STT-CBR-003), which needs no trust list. It shows the doses,
+app reads them with **read-unverified** ([STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011); [STT-B45-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002),
+[STT-ZIP-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-002), [STT-CBR-003](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003)), which needs no trust list. It shows the doses,
 marked unverified. Sita registers Chanthala and refers her to the clinic.
 Everything syncs that evening.
 
@@ -58,17 +58,17 @@ Everything syncs that evening.
 **Precondition: the DID documents are already loaded.** Loading them is not
 a step of this visit. The clinic may be offline all day, so the EHR fetches
 nothing during it: its trust store holds the GDHCN DEV trust list as it was
-last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002,
-STT-TRU-005). A clinic with no connection of its own refreshes it about weekly,
+last refreshed, including XXR's DSC DID document ([STT-TRU-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001), [STT-TRU-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002),
+[STT-TRU-005](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-005)). A clinic with no connection of its own refreshes it about weekly,
 when the CHW visits the base clinic or district health office, where Country
 B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in
-the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until
+the clinic's copy, so its DVC fails the trust-list check ([STT-VER-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006)) until
 the next refresh.
 
 Tomas ALVES opens the referral and scans the QRs. The EHR **verifies** each
 DVC offline against that copy
-(STT-VER-001…009, STT-KID-002). Both verify, so it imports them as FHIR
-`Immunization`s with provenance (STT-VER-007, STT-VER-008). The national
+([STT-VER-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001)…[009](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-009), [STT-KID-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-kid-002)). Both verify, so it imports them as FHIR
+`Immunization`s with provenance ([STT-VER-007](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-007), [STT-VER-008](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008)). The national
 schedule then runs: the birth doses count, and birth-dose OPV is due.
 Tomas gives it. If a DVC fails, the EHR names the step and the reason, and
 Tomas decides by national policy.
@@ -83,8 +83,8 @@ The family plans a trip. On the national portal, Mali asks for each member's
 records. For each member, the portal does three things:
 
 1. It assembles an IPS and that member's DVCs.
-2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).
-3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.
+2. It encrypts them ([STT-VHL-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-004), [STT-VHL-007](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007)) behind a passcode-protected manifest with an expiry ([STT-VHL-009](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009)).
+3. It issues the link as an HCERT, with the VHL at key 5 ([STT-VHL-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-001), [STT-VHL-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-002)), signed with Country B's DSC.
 
 The shared phone holds one QR per member.
 
@@ -92,22 +92,22 @@ The shared phone holds one QR per member.
 
 **Precondition, as in J3: the DID documents are already loaded.** The
 hospital system's trust store is a cached copy of the GDHCN trust list,
-including Country B's DSC DID document (STT-TRU-001, STT-TRU-002,
-STT-TRU-005). The hospital refreshes it nightly or hourly, against about
+including Country B's DSC DID document ([STT-TRU-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001), [STT-TRU-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002),
+[STT-TRU-005](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-005)). The hospital refreshes it nightly or hourly, against about
 weekly at the offline J3 clinic. It does not need to be online to verify:
 verifying reads the cache and never fetches the list. A DSC published after
-the last refresh fails the trust-list check (STT-VER-006), naming that reason.
+the last refresh fails the trust-list check ([STT-VER-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006)), naming that reason.
 
 Abroad, Chanthala has a fever. Mali shows Chanthala's QR on the family
 phone and tells Dr Ana MOREIRA the passcode. The hospital system takes
 four steps:
 
 1. It verifies the HCERT against Country B's DSC in that copy of the trust list.
-2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).
-3. It decrypts the IPS and DVCs (STT-VHL-007).
+2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures ([STT-VHL-005](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005), [STT-VHL-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-006), [STT-VHL-008](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008)).
+3. It decrypts the IPS and DVCs ([STT-VHL-007](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007)).
 4. It shows them to Dr Ana MOREIRA.
 
 If the HCERT does not verify (for example, Country B's DSC is missing from
 the cached list), there is no digital verification. The hospital names the
-step and the reason (STT-VER-008), does not follow the VHL, and Dr Ana
+step and the reason ([STT-VER-008](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008)), does not follow the VHL, and Dr Ana
 MOREIRA treats whatever the family can show as she would a paper record.

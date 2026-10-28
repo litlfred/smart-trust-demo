@@ -37,7 +37,7 @@ SHA and every JSON file parses.
   shared phone, J4.1 VHL fetch at the point of care), lanes naming roles,
   tasks naming smart-trust-tools skills; checklists generated.
 - User scenarios: one per journey, each step tracing to `req:` nodes
-  (e.g. J2 → STT-VER-011, J3 → STT-VER-001…, J4 → the VHL requirements).
+  (e.g. J2 → [STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011), J3 → [STT-VER-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001)…, J4 → the VHL requirements).
 - Beans for gaps found on the way (in this repository, or tagged upstream
   for smart-trust-tools, smart-trust or smart-trust-phw).
 
@@ -62,7 +62,7 @@ recorded in `lib/hcert/hcert.lock.json` (the build is reproducible). The app
 and the Android tests depend on those files. Bumping the library is the
 commit in the lock plus `build.py --update`.
 
-#### 4. Android emulator test of the library (STT-GEN-004)
+#### 4. Android emulator test of the library ([STT-GEN-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004))
 
 (In progress: `android-test/` and `.github/workflows/android.yml`. The
 Gradle verification metadata is written on GitHub's runner, since this
@@ -79,7 +79,7 @@ enough to matter for clinics, e.g. 26 and 35):
   verify it, ES256, and PS256 where the platform offers it;
 - VHL: build and read a `vhlink:/`, decrypt the JWE fixture.
 
-Results are reported back to smart-trust-tools as evidence for STT-GEN-004
+Results are reported back to smart-trust-tools as evidence for [STT-GEN-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004)
 (and as beans there for anything Android refuses, e.g. algorithm names).
 Google Maven artifacts (AGP, AndroidX test) are pinned with sha256 like every
 other. The emulator job uses a pinned action by SHA and caches no

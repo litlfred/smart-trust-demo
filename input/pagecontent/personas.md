@@ -20,7 +20,7 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
 | [Birth clinic issuing system](ActorDefinition-TrustDemo.Role.BirthClinicSystem.html) | The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR). | Provincial hospital system, Country A (XXR) | Issuer of the birth-dose DVCs (SMART Trust Issuer) |
-| [CHW app](ActorDefinition-TrustDemo.Role.ChwApp.html) | The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, STT-VER-011), registers the child and records a referral, all offline, syncing later. | CHW app, Country B | Triage reader (SMART Trust Receiver, read-unverified) |
+| [CHW app](ActorDefinition-TrustDemo.Role.ChwApp.html) | The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, [STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011)), registers the child and records a referral, all offline, syncing later. | CHW app, Country B | Triage reader (SMART Trust Receiver, read-unverified) |
 | [Home clinic EHR](ActorDefinition-TrustDemo.Role.HomeClinicEhr.html) | The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3). | Home clinic EHR, Country B | Verifier at the home clinic (SMART Trust Receiver) |
 | [National health portal](ActorDefinition-TrustDemo.Role.NationalPortal.html) | The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0): the VHL Sharer. | National health portal, Country B (XXH) | VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer) |
 | [Family phone](ActorDefinition-TrustDemo.Role.FamilyPhone.html) | The one smartphone the family shares, holding one VHL QR per member (J4); holds links, not keys to anyone's records beyond what each link grants. | The family's shared phone | Personal health wallet |
@@ -31,7 +31,7 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
-| [Issuer signing key](ActorDefinition-TrustDemo.Role.IssuerKey.html) | The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, STT-ISS-004). | XXR document signer key (Country A) | Document signer (DSC) key |
+| [Issuer signing key](ActorDefinition-TrustDemo.Role.IssuerKey.html) | The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, [STT-ISS-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004)). | XXR document signer key (Country A) | Document signer (DSC) key |
 | [GDHCN trust anchor](ActorDefinition-TrustDemo.Role.GdhcnTrustAnchor.html) | WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL). | GDHCN DEV trust network (WHO) | Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL) |
 {: .grid }
 
