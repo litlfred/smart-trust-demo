@@ -3,7 +3,9 @@
 
 The harness sources stay the single source of truth:
 - processes/content/*.bpmn       -> input/business-processes/*.bpmn (copies)
-                                    and input/pagecontent/business-processes.md
+                                    and input/pagecontent/business-processes.md,
+                                    which embeds processes/content/*.svg (drawn
+                                    by tools/render-bpmn/render_bpmn.ts)
 - scenarios/roles.json           -> input/fsh/actors/*.fsh (one ActorDefinition
                                     per role) and the personas and system
                                     actors pages
@@ -18,6 +20,7 @@ The harness sources stay the single source of truth:
 Run:   python3 tools/ig-gen/ig_gen.py          (write)
        python3 tools/ig-gen/ig_gen.py --check  (fail if a file is stale)
 """
+import base64
 import json
 import pathlib
 import re
@@ -205,10 +208,15 @@ def gen_processes(procs, roles):
         stem = p["file"].stem
         viewer = f"cat-harness/processes/{stem}.html"
         out.append(f"\n### {p['name']}\n")
-        # The SVG is drawn from the .bpmn at publish (render:bpmn) into the
-        # site's assets/img/workflows/, beside the harness's own diagrams.
+        # The SVG is drawn beside its source by tools/render-bpmn/render_bpmn.ts
+        # and carried in the page as a data URI, so the page shows it whichever
+        # route publishes the site (the IG's AST route copies no image files).
+        svg = p["file"].with_suffix(".svg")
+        if not svg.exists():
+            sys.exit(f"ig-gen: {svg.relative_to(ROOT)} is missing: run bun tools/render-bpmn/render_bpmn.ts")
+        data = base64.b64encode(svg.read_bytes()).decode("ascii")
         out.append(f'<figure class="bpmn-figure"><a href="{viewer}">'
-                   f'<img src="assets/img/workflows/{stem}.svg" alt="BPMN diagram: {html_attr(p["name"])}" loading="lazy">'
+                   f'<img src="data:image/svg+xml;base64,{data}" alt="BPMN diagram: {html_attr(p["name"])}" />'
                    f"</a></figure>\n")
         out.append(f"Process id `{p['id']}`. [Open in the process viewer]({viewer}).\n")
         if p["doc"]:
