@@ -580,33 +580,33 @@
   them: those are versioned in their own URLs already.
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/navbar-row.css?v=1793189894">
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/docs-ui.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/navbar-row.css?v=1793190930">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/docs-ui.css?v=1793190930">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/narrow-viewport.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/narrow-viewport.css?v=1793190930">
 
 <!--
   The work-plan dashboard's styles, split from docs-ui.css so that
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/work-plan.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/work-plan.css?v=1793190930">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/themes.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/themes.css?v=1793190930">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/uml.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/uml.css?v=1793190930">
 <!-- Kind avatars. GENERATED from `schemas/avatars.ts` by `bun run cat avatars:css`;
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/avatars.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/avatars.css?v=1793190930">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -627,12 +627,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="/smart-trust-demo/assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="/smart-trust-demo/assets/js/navbar-row.js?v=1793189894" defer></script>
-<script src="/smart-trust-demo/assets/js/docs-ui.js?v=1793189894" defer></script>
+<script src="/smart-trust-demo/assets/js/navbar-row.js?v=1793190930" defer></script>
+<script src="/smart-trust-demo/assets/js/docs-ui.js?v=1793190930" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="/smart-trust-demo/assets/js/edit-links.js?v=1793189894" defer></script>
+<script src="/smart-trust-demo/assets/js/edit-links.js?v=1793190930" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -835,9 +835,9 @@
 
 <p>Candidate terms extracted from every Tool node: <code class="language-plaintext highlighter-rouge">title</code> as the label, <code class="language-plaintext highlighter-rouge">description</code> as the definition, the Tool id as the code. Each is the asset’s own text, verbatim and not curated, and carries the badge “candidate, extracted”. A person promotes one by authoring it. Authored terms are on their owning instance’s page, and those pages, the counts and the sources are linked from the <a href="/smart-trust-demo/en/folio-assistant-core/glossary/">glossary index</a>.</p>
 
-<p>From: cat-harness 172 (<a href="/smart-trust-demo/assets/glossary/cat-harness--kg-tools.skos.jsonld">SKOS</a>) · cat-harness-tools 1 (<a href="/smart-trust-demo/assets/glossary/cat-harness-tools--kg-tools.skos.jsonld">SKOS</a>) · fhir-harness 32 (<a href="/smart-trust-demo/assets/glossary/fhir-harness--kg-tools.skos.jsonld">SKOS</a>) · folio-assistant-core 12 (<a href="/smart-trust-demo/assets/glossary/folio-assistant-core--kg-tools.skos.jsonld">SKOS</a>) · smart-trust-tools 14 (<a href="/smart-trust-demo/assets/glossary/smart-trust-tools--kg-tools.skos.jsonld">SKOS</a>).</p>
+<p>From: cat-harness 172 (<a href="/smart-trust-demo/assets/glossary/cat-harness--kg-tools.skos.jsonld">SKOS</a>) · cat-harness-tools 1 (<a href="/smart-trust-demo/assets/glossary/cat-harness-tools--kg-tools.skos.jsonld">SKOS</a>) · fhir-harness 32 (<a href="/smart-trust-demo/assets/glossary/fhir-harness--kg-tools.skos.jsonld">SKOS</a>) · folio-assistant-core 12 (<a href="/smart-trust-demo/assets/glossary/folio-assistant-core--kg-tools.skos.jsonld">SKOS</a>) · smart-trust-tools 16 (<a href="/smart-trust-demo/assets/glossary/smart-trust-tools--kg-tools.skos.jsonld">SKOS</a>).</p>
 
-<p><strong>Size:</strong> this page holds 231 terms and is 187 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
+<p><strong>Size:</strong> this page holds 233 terms and is 189 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
 
 <div class="table-wrapper"><table class="fa-gloss-mapping">
 <caption>Already somebody else's concept? — <code>check:term-mapping</code>, bean <code>7wou</code></caption>
@@ -852,7 +852,7 @@ be a term this corpus is right to coin.</p>
 
 <p><label for="fa-gloss-q">Filter terms</label>
 <input id="fa-gloss-q" type="search" autocomplete="off" style="min-height:44px;width:100%;max-width:32rem" /></p>
-<p aria-live="polite"><span id="fa-gloss-n">231</span> shown</p>
+<p aria-live="polite"><span id="fa-gloss-n">233</span> shown</p>
 
 <nav aria-label="Letters"><a href="#letter-A">A</a> <a href="#letter-B">B</a> <a href="#letter-C">C</a> <a href="#letter-D">D</a> <a href="#letter-E">E</a> <a href="#letter-F">F</a> <a href="#letter-G">G</a> <a href="#letter-H">H</a> <a href="#letter-I">I</a> <a href="#letter-J">J</a> <a href="#letter-K">K</a> <a href="#letter-L">L</a> <a href="#letter-M">M</a> <a href="#letter-N">N</a> <a href="#letter-O">O</a> <a href="#letter-P">P</a> <a href="#letter-Q">Q</a> <a href="#letter-R">R</a> <a href="#letter-S">S</a> <a href="#letter-T">T</a> <a href="#letter-U">U</a> <a href="#letter-V">V</a> <a href="#letter-W">W</a></nav>
 <h2 id="letter-A">
@@ -1056,7 +1056,7 @@ Check declared credential needs against workflow use and expiry, by name <span c
 Check the requirement graph <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
 <dd>
-<p>Check every node of this instance's requirement graph: each skills/requirements/*.json parses as a bootstrap requirement with id req:&lt;file&gt;; every derivedFrom names a requirement and every reference a node that exists (a library section or entry, an external schema, a reference, a directive, a test vector, or a smart-trust FHIR Requirements canonical); every statement has a success criterion; every skill's satisfies and tested-by, every bean's requirements and sources, and every test plan resolve; and every external schema and reference parses against its typology's schema.</p>
+<p>Check every node of this instance's requirement graph: each skills/requirements/*.json parses as a bootstrap requirement with id req:&lt;file&gt;; every derivedFrom names a requirement and every reference a node that exists (a library section or entry, an external schema, a reference, a directive, a test vector, or a smart-trust FHIR Requirements canonical); every statement has a success criterion; every skill's satisfies and tested-by, every bean's requirements and sources, and every test plan resolve; every external schema and reference parses against its typology's schema; every code list parses as folio-code-list/v1, with every requirement's area a code of requirement-area; and the shared negative vectors parse against their schema, each expected step and reason a case of the WIT failure taxonomy.</p>
 <p class="fa-gloss-meta">Tools of smart-trust-tools · source <a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/check-req-nodes/check-req-nodes.ts"><code>smart-trust-tools/tools/check-req-nodes/check-req-nodes.ts#check-req-nodes</code></a></p>
 </dd>
 <dt id="smart-trust-tools--kg-tools--check-models" data-fa-state="extracted" data-fa-gloss="">
@@ -2409,6 +2409,13 @@ Sync generated README sections <span class="fa-gloss-status">candidate, extracte
 <p>Rewrite each generated README region, and only where the README already carries that section's marker pair. Nothing outside a marked region is touched.</p>
 <p class="fa-gloss-meta">Tools of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/tools/readme-sync/readme-sync.ts"><code>cat-harness/tools/readme-sync/readme-sync.ts#readme-sync</code></a></p>
 </dd>
+<dt id="smart-trust-tools--kg-tools--test-systems" data-fa-state="extracted" data-fa-gloss="">
+Systems under test and their bindings <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Write the bindings and uncovered lists of each test/systems/&lt;id&gt;.system.json (system/v1) from the tags in its tests: the requirement ids a Kotlin, Rust or TypeScript test's name starts with, or a script's &quot;Verifies&quot; sentence. Each assertion of a plan the system claims gets the tests that verify it, with the surface and target each runs on; each required assertion a declared target leaves unverified, and no <code>unbound</code> entry explains, is listed as uncovered.</p>
+<p class="fa-gloss-meta">Tools of smart-trust-tools · source <a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/test-systems/test-systems.ts"><code>smart-trust-tools/tools/test-systems/test-systems.ts#test-systems</code></a></p>
+</dd>
 </dl>
 <h2 id="letter-T">
   
@@ -2571,6 +2578,13 @@ Validate a translation <span class="fa-gloss-status">candidate, extracted</span>
 <dd>
 <p>Check a .po against its .pot — every msgid present, none obsolete, placeholders preserved.</p>
 <p class="fa-gloss-meta">Tools of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/tools/translation-validate/translation-validate.ts"><code>cat-harness/tools/translation-validate/translation-validate.ts#translation-validate</code></a></p>
+</dd>
+<dt id="smart-trust-tools--kg-tools--fhir-validate" data-fa-state="extracted" data-fa-gloss="">
+Validate the FHIR logical models <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Run the HL7 FHIR Validator (validator_cli.jar) on the StructureDefinitions in models/fhir against the FHIR version they declare, with the jar and every FHIR package pinned by sha256 in toolchain/fhir-validator/validator.json, verified before use, and no fetch at run time (-no-http-access, -tx n/a). The site's pre step: it runs when the site is published to main and says it is not run for a staging preview.</p>
+<p class="fa-gloss-meta">Tools of smart-trust-tools · source <a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/fhir-validate/fhir-validate.ts"><code>smart-trust-tools/tools/fhir-validate/fhir-validate.ts#fhir-validate</code></a></p>
 </dd>
 <dt id="fhir-harness--kg-tools--jsonld-vocabularies" data-fa-state="extracted" data-fa-gloss="">
 ValueSet expansions → JSON-LD <span class="fa-gloss-status">candidate, extracted</span>

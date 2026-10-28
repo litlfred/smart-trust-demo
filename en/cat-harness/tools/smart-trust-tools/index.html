@@ -577,33 +577,33 @@
   them: those are versioned in their own URLs already.
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/navbar-row.css?v=1793189894">
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/docs-ui.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/navbar-row.css?v=1793190930">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/docs-ui.css?v=1793190930">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/narrow-viewport.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/narrow-viewport.css?v=1793190930">
 
 <!--
   The work-plan dashboard's styles, split from docs-ui.css so that
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/work-plan.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/work-plan.css?v=1793190930">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/themes.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/themes.css?v=1793190930">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/uml.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/uml.css?v=1793190930">
 <!-- Kind avatars. GENERATED from `schemas/avatars.ts` by `bun run cat avatars:css`;
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/avatars.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/avatars.css?v=1793190930">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -624,12 +624,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="/smart-trust-demo/assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="/smart-trust-demo/assets/js/navbar-row.js?v=1793189894" defer></script>
-<script src="/smart-trust-demo/assets/js/docs-ui.js?v=1793189894" defer></script>
+<script src="/smart-trust-demo/assets/js/navbar-row.js?v=1793190930" defer></script>
+<script src="/smart-trust-demo/assets/js/docs-ui.js?v=1793190930" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="/smart-trust-demo/assets/js/edit-links.js?v=1793189894" defer></script>
+<script src="/smart-trust-demo/assets/js/edit-links.js?v=1793190930" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -872,9 +872,9 @@ is <code class="language-plaintext highlighter-rouge">satisfies</code>, and it r
 to do that</em>, never <em>this skill is a tool</em>.</p>
 
 <div class="tg-grid">
-<a class="tg-stat" href="#every-tool"><b>14</b><span>Tool nodes</span></a>
+<a class="tg-stat" href="#every-tool"><b>16</b><span>Tool nodes</span></a>
 <a class="tg-stat" href="#does-every-satisfies-name-a-skill-that-exists"><b>16</b><span>skills satisfied</span></a>
-<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>14</b><span>invoked as a shell command</span></a>
+<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>16</b><span>invoked as a shell command</span></a>
 <a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>0</b><span>reachable over MCP</span></a>
 </div>
 
@@ -899,7 +899,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><span class="tg-tag tg-shell">shell</span></td>
-      <td>14</td>
+      <td>16</td>
     </tr>
   </tbody>
 </table></div>
@@ -914,7 +914,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">none</code></td>
-      <td>14</td>
+      <td>16</td>
     </tr>
   </tbody>
 </table></div>
@@ -927,7 +927,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
 </h2>
     
 
-<p>Yes — all <strong>16</strong> skills named across <strong>14</strong> tools resolve to a
+<p>Yes — all <strong>16</strong> skills named across <strong>16</strong> tools resolve to a
 skill document in this checkout. A <code class="language-plaintext highlighter-rouge">satisfies</code> pointing at nothing would be a
 tool advertising a capability the graph cannot locate.</p>
 <h2 id="every-tool">
@@ -966,7 +966,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="check-req-nodes"></a><a href="#check-req-nodes"><code class="language-plaintext highlighter-rouge">check-req-nodes</code></a><br />Check the requirement graph</td>
-      <td>Check every node of this instance’s requirement graph: each skills/requirements/*.json parses as a bootstrap requirement with id req:<file>; every derivedFrom names a requirement and every reference a node that exists (a library section or entry, an external schema, a reference, a directive, a test vector, or a smart-trust FHIR Requirements canonical); every statement has a success criterion; every skill's satisfies and tested-by, every bean's requirements and sources, and every test plan resolve; and every external schema and reference parses against its typology's schema.</file></td>
+      <td>Check every node of this instance’s requirement graph: each skills/requirements/*.json parses as a bootstrap requirement with id req:<file>; every derivedFrom names a requirement and every reference a node that exists (a library section or entry, an external schema, a reference, a directive, a test vector, or a smart-trust FHIR Requirements canonical); every statement has a success criterion; every skill's satisfies and tested-by, every bean's requirements and sources, and every test plan resolve; every external schema and reference parses against its typology's schema; every code list parses as folio-code-list/v1, with every requirement's area a code of requirement-area; and the shared negative vectors parse against their schema, each expected step and reason a case of the WIT failure taxonomy.</file></td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">hcert-kg-publication</code></td>
       <td>0 in / 1 out</td>
@@ -984,6 +984,13 @@ tool advertising a capability the graph cannot locate.</p>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">hcert-contract-maintenance</code></td>
       <td>0 in / 1 out</td>
+    </tr>
+    <tr>
+      <td><a id="fhir-validate"></a><a href="#fhir-validate"><code class="language-plaintext highlighter-rouge">fhir-validate</code></a><br />Validate the FHIR logical models</td>
+      <td>Run the HL7 FHIR Validator (validator_cli.jar) on the StructureDefinitions in models/fhir against the FHIR version they declare, with the jar and every FHIR package pinned by sha256 in toolchain/fhir-validator/validator.json, verified before use, and no fetch at run time (-no-http-access, -tx n/a). The site’s pre step: it runs when the site is published to main and says it is not run for a staging preview.</td>
+      <td><span class="tg-tag tg-shell">shell</span></td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-contract-maintenance</code></td>
+      <td>2 in / 1 out</td>
     </tr>
     <tr>
       <td><a id="gen-api-types"></a><a href="#gen-api-types"><code class="language-plaintext highlighter-rouge">gen-api-types</code></a><br />TypeScript declarations from the WIT contract</td>
@@ -1030,6 +1037,13 @@ tool advertising a capability the graph cannot locate.</p>
     <tr>
       <td><a id="test-plan"></a><a href="#test-plan"><code class="language-plaintext highlighter-rouge">test-plan</code></a><br />Library conformance test plan</td>
       <td>Write test/plans/hcert-library-conformance.test-plan.json (test-plan/v1) from the skills and the requirements’ success criteria: one case per skill, one assertion per criterion verified by test. The plan any implementation of the library, Kotlin or Rust, runs.</td>
+      <td><span class="tg-tag tg-shell">shell</span></td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-conformance-testing</code></td>
+      <td>1 in / 1 out</td>
+    </tr>
+    <tr>
+      <td><a id="test-systems"></a><a href="#test-systems"><code class="language-plaintext highlighter-rouge">test-systems</code></a><br />Systems under test and their bindings</td>
+      <td>Write the bindings and uncovered lists of each test/systems/<id>.system.json (system/v1) from the tags in its tests: the requirement ids a Kotlin, Rust or TypeScript test's name starts with, or a script's "Verifies" sentence. Each assertion of a plan the system claims gets the tests that verify it, with the surface and target each runs on; each required assertion a declared target leaves unverified, and no `unbound` entry explains, is listed as uncovered.</id></td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">hcert-conformance-testing</code></td>
       <td>1 in / 1 out</td>

@@ -561,33 +561,33 @@
   them: those are versioned in their own URLs already.
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/navbar-row.css?v=1793189894">
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/docs-ui.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/navbar-row.css?v=1793190930">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/docs-ui.css?v=1793190930">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/narrow-viewport.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/narrow-viewport.css?v=1793190930">
 
 <!--
   The work-plan dashboard's styles, split from docs-ui.css so that
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/work-plan.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/work-plan.css?v=1793190930">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/themes.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/themes.css?v=1793190930">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/uml.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/uml.css?v=1793190930">
 <!-- Kind avatars. GENERATED from `schemas/avatars.ts` by `bun run cat avatars:css`;
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/avatars.css?v=1793189894">
+<link rel="stylesheet" href="/smart-trust-demo/assets/css/avatars.css?v=1793190930">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -608,12 +608,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="/smart-trust-demo/assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="/smart-trust-demo/assets/js/navbar-row.js?v=1793189894" defer></script>
-<script src="/smart-trust-demo/assets/js/docs-ui.js?v=1793189894" defer></script>
+<script src="/smart-trust-demo/assets/js/navbar-row.js?v=1793190930" defer></script>
+<script src="/smart-trust-demo/assets/js/docs-ui.js?v=1793190930" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="/smart-trust-demo/assets/js/edit-links.js?v=1793189894" defer></script>
+<script src="/smart-trust-demo/assets/js/edit-links.js?v=1793190930" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -837,7 +837,7 @@
   
   
 </h2>
-    <div style="overflow-x:auto"><div class="table-wrapper"><table class="sv-table"><thead><tr><th>id</th><th>summary</th><th>label</th><th>$schema</th><th>file</th></tr></thead><tbody><tr><td><code>dir-journeys</code></td><td>Owner directive: the library must carry the workshop user journeys</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/1a483f0d5845cbb597fec2ff81d4acafa42fb618/memory/dir-journeys.md"><code>dir-journeys.md</code></a></td></tr><tr><td><code>dir-languages</code></td><td>Owner directive: Kotlin library first, Rust library second</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/1a483f0d5845cbb597fec2ff81d4acafa42fb618/memory/dir-languages.md"><code>dir-languages.md</code></a></td></tr><tr><td><code>dir-open-standards</code></td><td>Owner directive: open standards for types and schemas</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/1a483f0d5845cbb597fec2ff81d4acafa42fb618/memory/dir-open-standards.md"><code>dir-open-standards.md</code></a></td></tr><tr><td><code>dir-targets</code></td><td>Owner directive: transpile targets and API-first</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/1a483f0d5845cbb597fec2ff81d4acafa42fb618/memory/dir-targets.md"><code>dir-targets.md</code></a></td></tr><tr><td><code>dir-vhl</code></td><td>Owner directive: Verifiable Health Links follow IHE VHL, CBOR map at key 5</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/1a483f0d5845cbb597fec2ff81d4acafa42fb618/memory/dir-vhl.md"><code>dir-vhl.md</code></a></td></tr></tbody></table></div></div>
+    <div style="overflow-x:auto"><div class="table-wrapper"><table class="sv-table"><thead><tr><th>id</th><th>summary</th><th>label</th><th>$schema</th><th>file</th></tr></thead><tbody><tr><td><code>dir-journeys</code></td><td>Owner directive: the library must carry the workshop user journeys</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/bad1e36a98c3746dc9ddbac2b045ba9201a8f236/memory/dir-journeys.md"><code>dir-journeys.md</code></a></td></tr><tr><td><code>dir-languages</code></td><td>Owner directive: Kotlin library first, Rust library second</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/bad1e36a98c3746dc9ddbac2b045ba9201a8f236/memory/dir-languages.md"><code>dir-languages.md</code></a></td></tr><tr><td><code>dir-open-standards</code></td><td>Owner directive: open standards for types and schemas</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/bad1e36a98c3746dc9ddbac2b045ba9201a8f236/memory/dir-open-standards.md"><code>dir-open-standards.md</code></a></td></tr><tr><td><code>dir-targets</code></td><td>Owner directive: transpile targets and API-first</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/bad1e36a98c3746dc9ddbac2b045ba9201a8f236/memory/dir-targets.md"><code>dir-targets.md</code></a></td></tr><tr><td><code>dir-vhl</code></td><td>Owner directive: Verifiable Health Links follow IHE VHL, CBOR map at key 5</td><td>stable</td><td><code>folio-memory/v1</code></td><td><a href="https://github.com/litlfred/smart-trust-tools/blob/bad1e36a98c3746dc9ddbac2b045ba9201a8f236/memory/dir-vhl.md"><code>dir-vhl.md</code></a></td></tr></tbody></table></div></div>
 <h2 class="sv-h2">
   
   

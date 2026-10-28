@@ -66,7 +66,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Check every node of this instance's requirement graph: each skills/requirements/*.json parses as a bootstrap requirement with id req:<file>; every derivedFrom names a requirement and every reference a node that exists (a library section or entry, an external schema, a reference, a directive, a test vector, or a smart-trust FHIR Requirements canonical); every statement has a success criterion; every skill's satisfies and tested-by, every bean's requirements and sources, and every test plan resolve; and every external schema and reference parses against its typology's schema."
+          "@value": "Check every node of this instance's requirement graph: each skills/requirements/*.json parses as a bootstrap requirement with id req:<file>; every derivedFrom names a requirement and every reference a node that exists (a library section or entry, an external schema, a reference, a directive, a test vector, or a smart-trust FHIR Requirements canonical); every statement has a success criterion; every skill's satisfies and tested-by, every bean's requirements and sources, and every test plan resolve; every external schema and reference parses against its typology's schema; every code list parses as folio-code-list/v1, with every requirement's area a code of requirement-area; and the shared negative vectors parse against their schema, each expected step and reason a case of the WIT failure taxonomy."
         }
       ],
       "skos:notation": "check-req-nodes",
@@ -111,6 +111,26 @@
       ],
       "skos:notation": "fetch-lms",
       "dcterms:source": "smart-trust-tools/tools/fetch-lms/fetch-lms.ts#fetch-lms",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-tools/0.1.0/ns#glossary/kg-tools/fhir-validate",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Validate the FHIR logical models"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Run the HL7 FHIR Validator (validator_cli.jar) on the StructureDefinitions in models/fhir against the FHIR version they declare, with the jar and every FHIR package pinned by sha256 in toolchain/fhir-validator/validator.json, verified before use, and no fetch at run time (-no-http-access, -tx n/a). The site's pre step: it runs when the site is published to main and says it is not run for a staging preview."
+        }
+      ],
+      "skos:notation": "fhir-validate",
+      "dcterms:source": "smart-trust-tools/tools/fhir-validate/fhir-validate.ts#fhir-validate",
       "skos:note": "candidate"
     },
     {
@@ -251,6 +271,26 @@
       ],
       "skos:notation": "test-plan",
       "dcterms:source": "smart-trust-tools/tools/test-plan/test-plan.ts#test-plan",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-tools/0.1.0/ns#glossary/kg-tools/test-systems",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/0.1.0/ns#glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Systems under test and their bindings"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Write the bindings and uncovered lists of each test/systems/<id>.system.json (system/v1) from the tags in its tests: the requirement ids a Kotlin, Rust or TypeScript test's name starts with, or a script's \"Verifies\" sentence. Each assertion of a plan the system claims gets the tests that verify it, with the surface and target each runs on; each required assertion a declared target leaves unverified, and no `unbound` entry explains, is listed as uncovered."
+        }
+      ],
+      "skos:notation": "test-systems",
+      "dcterms:source": "smart-trust-tools/tools/test-systems/test-systems.ts#test-systems",
       "skos:note": "candidate"
     },
     {
