@@ -92,7 +92,7 @@ generation</strong>, with or without the Player template.</p>
 <h3 id="2-constraints-every-option-must-meet">2. Constraints every option must meet</h3>
 
 <ol>
-  <li><strong>The Android emulator test of the HCERT library</strong> (STT-GEN-004) must run
+  <li><strong>The Android emulator test of the HCERT library</strong> (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004">STT-GEN-004</a>) must run
 in CI on an Android runtime, platform crypto included. This is
 independent of the app: it is a small Android test module that depends
 only on the HCERT jar (plan step 4). It can land before the app decision.</li>
@@ -212,7 +212,7 @@ optionally, <code class="language-plaintext highlighter-rouge">dev.ohs.player:cl
 
 <p>A static page on gh-pages running J1–J4 in the browser with the Rust/wasm
 library (or a future browser build of hcert-core), plus only the Android test
-module for STT-GEN-004.</p>
+module for <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004">STT-GEN-004</a>.</p>
 
 <table>
   <thead>
@@ -238,7 +238,7 @@ module for STT-GEN-004.</p>
 <p><strong>Option B</strong>, staged:</p>
 
 <ol>
-  <li>Android test module for STT-GEN-004 first (independent of this choice).</li>
+  <li>Android test module for <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004">STT-GEN-004</a> first (independent of this choice).</li>
   <li>The B app, Android target, offline, J1–J4, on <code class="language-plaintext highlighter-rouge">dev.ohs.fhir</code>
 engine + data capture + workflow.</li>
   <li>The web target of the same app once hcert-core has a browser target (to

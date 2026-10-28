@@ -89,7 +89,7 @@ and referral, J3 verification, import and schedule, J4.0 VHL issuance to a
 shared phone, J4.1 VHL fetch at the point of care), lanes naming roles,
 tasks naming smart-trust-tools skills; checklists generated.</li>
   <li>User scenarios: one per journey, each step tracing to <code class="language-plaintext highlighter-rouge">req:</code> nodes
-(e.g. J2 → STT-VER-011, J3 → STT-VER-001…, J4 → the VHL requirements).</li>
+(e.g. J2 → <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>, J3 → <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>…, J4 → the VHL requirements).</li>
   <li>Beans for gaps found on the way (in this repository, or tagged upstream
 for smart-trust-tools, smart-trust or smart-trust-phw).</li>
 </ul>
@@ -115,7 +115,7 @@ recorded in <code class="language-plaintext highlighter-rouge">lib/hcert/hcert.l
 and the Android tests depend on those files. Bumping the library is the
 commit in the lock plus <code class="language-plaintext highlighter-rouge">build.py --update</code>.</p>
 
-<h4 id="4-android-emulator-test-of-the-library-stt-gen-004">4. Android emulator test of the library (STT-GEN-004)</h4>
+<h4 id="4-android-emulator-test-of-the-library-stt-gen-004">4. Android emulator test of the library (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004">STT-GEN-004</a>)</h4>
 
 <p>(In progress: <code class="language-plaintext highlighter-rouge">android-test/</code> and <code class="language-plaintext highlighter-rouge">.github/workflows/android.yml</code>. The
 Gradle verification metadata is written on GitHub’s runner, since this
@@ -134,7 +134,7 @@ verify it, ES256, and PS256 where the platform offers it;</li>
   <li>VHL: build and read a <code class="language-plaintext highlighter-rouge">vhlink:/</code>, decrypt the JWE fixture.</li>
 </ul>
 
-<p>Results are reported back to smart-trust-tools as evidence for STT-GEN-004
+<p>Results are reported back to smart-trust-tools as evidence for <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-gen-004">STT-GEN-004</a>
 (and as beans there for anything Android refuses, e.g. algorithm names).
 Google Maven artifacts (AGP, AndroidX test) are pinned with sha256 like every
 other. The emulator job uses a pinned action by SHA and caches no
