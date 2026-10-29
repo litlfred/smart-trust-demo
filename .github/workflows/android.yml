@@ -100,6 +100,9 @@ jobs:
           arch: x86_64
           target: google_apis
           disable-animations: true
+          # API 26 timed out booting at the default 600 s on main twice
+          # (run 40688693937, 2026-10-28 and its re-run), before any test ran.
+          emulator-boot-timeout: 1200
           script: gradle -p android-test --no-daemon connectedDebugAndroidTest
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
