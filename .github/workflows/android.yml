@@ -66,7 +66,7 @@ jobs:
     # Skipped when the metadata was only just written: that push needs a review
     # and a new commit to run the tests against it.
     if: always() && needs.verification-metadata.outputs.written != 'true' && needs.verification-metadata.result != 'failure'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned: API 26 emulator stopped starting on ubuntu-latest on 2026-10-28 (runs 40688693937, 40859806075)
     strategy:
       fail-fast: false
       matrix:
