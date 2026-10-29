@@ -89,6 +89,13 @@ jobs:
         run: python3 lib/hcert/build.py
       - name: Build the test APK against the verification metadata
         run: gradle -p android-test --no-daemon assembleDebugAndroidTest
+      - name: Free disk space for the emulator
+        # The API 26 AVD stopped starting on 2026-10-28: "Not enough space to
+        # create userdata partition. Available: 7185 MB, need 7373 MB"
+        # (run 40863016850). Drop toolchains this job never uses.
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/.ghcup /usr/share/swift /usr/local/lib/android/sdk/ndk /opt/hostedtoolcache/CodeQL
+          df -h /home/runner
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -100,8 +107,6 @@ jobs:
           arch: x86_64
           target: google_apis
           disable-animations: true
-          # API 26 timed out booting at the default 600 s on main twice
-          # (run 40688693937, 2026-10-28 and its re-run), before any test ran.
           emulator-boot-timeout: 1200
           script: gradle -p android-test --no-daemon connectedDebugAndroidTest
       - if: always()
