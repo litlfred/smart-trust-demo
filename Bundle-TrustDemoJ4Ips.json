@@ -1,0 +1,236 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "TrustDemoJ4Ips",
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:uuid:5f0c3a8e-2b1d-4c7e-9a64-1d2e3f4a5b6c"
+  },
+  "type" : "document",
+  "timestamp" : "2026-11-20T10:00:00Z",
+  "entry" : [{
+    "fullUrl" : "http://smart.who.int/trust-demo/Composition/TrustDemoJ4Composition",
+    "resource" : {
+      "resourceType" : "Composition",
+      "id" : "TrustDemoJ4Composition",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Composition_TrustDemoJ4Composition\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Composition TrustDemoJ4Composition</b></p><a name=\"TrustDemoJ4Composition\"> </a><a name=\"hcTrustDemoJ4Composition\"> </a><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 60591-5}\">Patient summary Document</span></p><p><b>date</b>: 2026-11-20 10:00:00+0000</p><p><b>author</b>: National health portal, Country B (XXH)</p><p><b>title</b>: Patient summary: Chanthala SOUVANNALATH</p></div>"
+      },
+      "status" : "final",
+      "type" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "60591-5",
+          "display" : "Patient summary Document"
+        }]
+      },
+      "subject" : [{
+        "reference" : "Patient/TrustDemoChanthala"
+      }],
+      "date" : "2026-11-20T10:00:00Z",
+      "author" : [{
+        "display" : "National health portal, Country B (XXH)"
+      }],
+      "title" : "Patient summary: Chanthala SOUVANNALATH",
+      "section" : [{
+        "title" : "Allergies and intolerances",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "48765-2",
+            "display" : "Allergies and adverse reactions Document"
+          }]
+        },
+        "emptyReason" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+            "code" : "unavailable",
+            "display" : "Unavailable"
+          }]
+        }
+      },
+      {
+        "title" : "Medication summary",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "10160-0",
+            "display" : "History of Medication use Narrative"
+          }]
+        },
+        "emptyReason" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+            "code" : "unavailable",
+            "display" : "Unavailable"
+          }]
+        }
+      },
+      {
+        "title" : "Problems",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "11450-4",
+            "display" : "Problem list - Reported"
+          }]
+        },
+        "emptyReason" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+            "code" : "unavailable",
+            "display" : "Unavailable"
+          }]
+        }
+      },
+      {
+        "title" : "Immunizations",
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "11369-6",
+            "display" : "History of Immunization Narrative"
+          }]
+        },
+        "entry" : [{
+          "reference" : "Immunization/TrustDemoJ3HepBImported"
+        },
+        {
+          "reference" : "Immunization/TrustDemoJ3BcgImported"
+        },
+        {
+          "reference" : "Immunization/TrustDemoJ3Opv0"
+        }]
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/Patient/TrustDemoChanthala",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "TrustDemoChanthala",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_TrustDemoChanthala\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient TrustDemoChanthala</b></p><a name=\"TrustDemoChanthala\"> </a><a name=\"hcTrustDemoChanthala\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Chanthala SOUVANNALATH  Female, DoB: 2026-10-21</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Nominated Contact: mother\">mother:</td><td colspan=\"3\"><ul><li>Mali SOUVANNALATH </li></ul></td></tr></table></div>"
+      },
+      "name" : [{
+        "family" : "SOUVANNALATH",
+        "given" : ["Chanthala"]
+      }],
+      "gender" : "female",
+      "birthDate" : "2026-10-21",
+      "contact" : [{
+        "relationship" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code" : "MTH",
+            "display" : "mother"
+          }]
+        }],
+        "name" : {
+          "family" : "SOUVANNALATH",
+          "given" : ["Mali"]
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/Immunization/TrustDemoJ3HepBImported",
+    "resource" : {
+      "resourceType" : "Immunization",
+      "id" : "TrustDemoJ3HepBImported",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoJ3HepBImported\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ3HepBImported</b></p><a name=\"TrustDemoJ3HepBImported\"> </a><a name=\"hcTrustDemoJ3HepBImported\"> </a><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/cvx 08}\">Hep B, adolescent or pediatric</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoChanthala.html\">Chanthala SOUVANNALATH  Female, DoB: 2026-10-21</a></p><p><b>occurrence</b>: 2026-10-21</p><p><b>primarySource</b>: false</p><h3>InformationSources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Concept</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:\">Verified DVC (HCERT) issued by Country A (XXR)</span></td></tr></table><p><b>location</b>: Provincial hospital, Country A (XXR)</p></div>"
+      },
+      "status" : "completed",
+      "vaccineCode" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/sid/cvx",
+          "code" : "08",
+          "display" : "Hep B, adolescent or pediatric"
+        }]
+      },
+      "patient" : {
+        "reference" : "Patient/TrustDemoChanthala"
+      },
+      "occurrenceDateTime" : "2026-10-21",
+      "primarySource" : false,
+      "informationSource" : {
+        "concept" : {
+          "text" : "Verified DVC (HCERT) issued by Country A (XXR)"
+        }
+      },
+      "location" : {
+        "display" : "Provincial hospital, Country A (XXR)"
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/Immunization/TrustDemoJ3BcgImported",
+    "resource" : {
+      "resourceType" : "Immunization",
+      "id" : "TrustDemoJ3BcgImported",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoJ3BcgImported\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ3BcgImported</b></p><a name=\"TrustDemoJ3BcgImported\"> </a><a name=\"hcTrustDemoJ3BcgImported\"> </a><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/cvx 19}\">BCG</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoChanthala.html\">Chanthala SOUVANNALATH  Female, DoB: 2026-10-21</a></p><p><b>occurrence</b>: 2026-10-21</p><p><b>primarySource</b>: false</p><h3>InformationSources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Concept</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:\">Verified DVC (HCERT) issued by Country A (XXR)</span></td></tr></table><p><b>location</b>: Provincial hospital, Country A (XXR)</p></div>"
+      },
+      "status" : "completed",
+      "vaccineCode" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/sid/cvx",
+          "code" : "19",
+          "display" : "BCG"
+        }]
+      },
+      "patient" : {
+        "reference" : "Patient/TrustDemoChanthala"
+      },
+      "occurrenceDateTime" : "2026-10-21",
+      "primarySource" : false,
+      "informationSource" : {
+        "concept" : {
+          "text" : "Verified DVC (HCERT) issued by Country A (XXR)"
+        }
+      },
+      "location" : {
+        "display" : "Provincial hospital, Country A (XXR)"
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/Immunization/TrustDemoJ3Opv0",
+    "resource" : {
+      "resourceType" : "Immunization",
+      "id" : "TrustDemoJ3Opv0",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoJ3Opv0\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ3Opv0</b></p><a name=\"TrustDemoJ3Opv0\"> </a><a name=\"hcTrustDemoJ3Opv0\"> </a><p><b>basedOn</b>: <a href=\"ImmunizationRecommendation-TrustDemoJ3Recommendation.html\">ImmunizationRecommendation: date = 2026-11-04 09:31:00+0000</a></p><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/cvx 182}\">OPV, Unspecified formulation</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoChanthala.html\">Chanthala SOUVANNALATH  Female, DoB: 2026-10-21</a></p><p><b>occurrence</b>: 2026-11-04</p><p><b>primarySource</b>: true</p><p><b>location</b>: District clinic, Country B (XXH)</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoTomasAlves.html\">Tomas ALVES</a></td></tr></table></div>"
+      },
+      "basedOn" : [{
+        "reference" : "ImmunizationRecommendation/TrustDemoJ3Recommendation"
+      }],
+      "status" : "completed",
+      "vaccineCode" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/sid/cvx",
+          "code" : "182",
+          "display" : "OPV, Unspecified formulation"
+        }]
+      },
+      "patient" : {
+        "reference" : "Patient/TrustDemoChanthala"
+      },
+      "occurrenceDateTime" : "2026-11-04",
+      "primarySource" : true,
+      "location" : {
+        "display" : "District clinic, Country B (XXH)"
+      },
+      "performer" : [{
+        "actor" : {
+          "reference" : "Practitioner/TrustDemoTomasAlves"
+        }
+      }]
+    }
+  }]
+}

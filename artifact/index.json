@@ -14,7 +14,7 @@
     "@id": "http://smart.who.int/trust-demo"
   },
   "dcterms:title": "SMART Trust demonstrator: journeys J1 to J4",
-  "schema:numberOfItems": 14,
+  "schema:numberOfItems": 30,
   "schema:hasPart": [
     {
       "@id": "ActorDefinition-TrustDemo.Role.BirthClinicSystem.jsonld",
@@ -158,6 +158,119 @@
       "schema:sameAs": {
         "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.PocReceiver"
       }
+    },
+    {
+      "@id": "Bundle-TrustDemoJ4Ips.jsonld",
+      "@type": "fhir:Bundle",
+      "dcterms:identifier": "Bundle/TrustDemoJ4Ips",
+      "dcterms:title": "TrustDemoJ4Ips",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Device-TrustDemoHomeClinicEhr.jsonld",
+      "@type": "fhir:Device",
+      "dcterms:identifier": "Device/TrustDemoHomeClinicEhr",
+      "dcterms:title": "TrustDemoHomeClinicEhr",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Device-TrustDemoPocReceiver.jsonld",
+      "@type": "fhir:Device",
+      "dcterms:identifier": "Device/TrustDemoPocReceiver",
+      "dcterms:title": "TrustDemoPocReceiver",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Immunization-TrustDemoJ3BcgImported.jsonld",
+      "@type": "fhir:Immunization",
+      "dcterms:identifier": "Immunization/TrustDemoJ3BcgImported",
+      "dcterms:title": "TrustDemoJ3BcgImported",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Immunization-TrustDemoJ3HepBImported.jsonld",
+      "@type": "fhir:Immunization",
+      "dcterms:identifier": "Immunization/TrustDemoJ3HepBImported",
+      "dcterms:title": "TrustDemoJ3HepBImported",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Immunization-TrustDemoJ3Opv0.jsonld",
+      "@type": "fhir:Immunization",
+      "dcterms:identifier": "Immunization/TrustDemoJ3Opv0",
+      "dcterms:title": "TrustDemoJ3Opv0",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "ImmunizationRecommendation-TrustDemoJ3Recommendation.jsonld",
+      "@type": "fhir:ImmunizationRecommendation",
+      "dcterms:identifier": "ImmunizationRecommendation/TrustDemoJ3Recommendation",
+      "dcterms:title": "TrustDemoJ3Recommendation",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Organization-TrustDemoHomeClinic.jsonld",
+      "@type": "fhir:Organization",
+      "dcterms:identifier": "Organization/TrustDemoHomeClinic",
+      "dcterms:title": "TrustDemoHomeClinic",
+      "dcterms:description": "District clinic, Country B (fictional)",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Patient-TrustDemoChanthala.jsonld",
+      "@type": "fhir:Patient",
+      "dcterms:identifier": "Patient/TrustDemoChanthala",
+      "dcterms:title": "TrustDemoChanthala",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Practitioner-TrustDemoAnaMoreira.jsonld",
+      "@type": "fhir:Practitioner",
+      "dcterms:identifier": "Practitioner/TrustDemoAnaMoreira",
+      "dcterms:title": "TrustDemoAnaMoreira",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Practitioner-TrustDemoSitaRai.jsonld",
+      "@type": "fhir:Practitioner",
+      "dcterms:identifier": "Practitioner/TrustDemoSitaRai",
+      "dcterms:title": "TrustDemoSitaRai",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Practitioner-TrustDemoTomasAlves.jsonld",
+      "@type": "fhir:Practitioner",
+      "dcterms:identifier": "Practitioner/TrustDemoTomasAlves",
+      "dcterms:title": "TrustDemoTomasAlves",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Provenance-TrustDemoJ3Import.jsonld",
+      "@type": "fhir:Provenance",
+      "dcterms:identifier": "Provenance/TrustDemoJ3Import",
+      "dcterms:title": "TrustDemoJ3Import",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Provenance-TrustDemoJ41Received.jsonld",
+      "@type": "fhir:Provenance",
+      "dcterms:identifier": "Provenance/TrustDemoJ41Received",
+      "dcterms:title": "TrustDemoJ41Received",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "RelatedPerson-TrustDemoMali.jsonld",
+      "@type": "fhir:RelatedPerson",
+      "dcterms:identifier": "RelatedPerson/TrustDemoMali",
+      "dcterms:title": "TrustDemoMali",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "ServiceRequest-TrustDemoJ2Referral.jsonld",
+      "@type": "fhir:ServiceRequest",
+      "dcterms:identifier": "ServiceRequest/TrustDemoJ2Referral",
+      "dcterms:title": "TrustDemoJ2Referral",
+      "dcterms:type": "Other"
     },
     {
       "@id": "ImplementationGuide-smart.who.int.trust-demo.jsonld",

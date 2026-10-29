@@ -95,6 +95,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Patient"
+      }],
+      "reference" : {
+        "reference" : "Patient/TrustDemoChanthala"
+      },
+      "name" : "Chanthala SOUVANNALATH (newborn)",
+      "description" : "The subject of every journey, as registered in Country B (XXH) by the CHW in J2. Born 2026-10-21 in Country A (XXR); a Lao national resident in Country B. Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ActorDefinition"
       }],
       "reference" : {
@@ -115,6 +127,30 @@
       "name" : "Community health worker",
       "description" : "Finds unregistered children on home visits, registers them and refers them to the clinic (J2).\n\n**Persona**: Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity.\n\n**Played in the journeys by**: Sita RAI (community health worker, home) (fictional).",
       "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      }],
+      "reference" : {
+        "reference" : "Organization/TrustDemoHomeClinic"
+      },
+      "name" : "District clinic, Country B",
+      "description" : "The home district clinic of J3, in Country B (XXH, a fictional GDHCN DEV participant).",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/TrustDemoAnaMoreira"
+      },
+      "name" : "Dr Ana MOREIRA (clinician abroad)",
+      "description" : "The emergency-room physician who reads Chanthala's records through the VHL in J4.1. Fictional.",
+      "isExample" : true
     },
     {
       "extension" : [{
@@ -155,6 +191,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Device"
+      }],
+      "reference" : {
+        "reference" : "Device/TrustDemoHomeClinicEhr"
+      },
+      "name" : "Home clinic EHR, Country B",
+      "description" : "The clinic's record system that verifies the DVCs offline against its cached trust list and imports them (J3).",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ActorDefinition"
       }],
       "reference" : {
@@ -179,6 +227,114 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ServiceRequest"
+      }],
+      "reference" : {
+        "reference" : "ServiceRequest/TrustDemoJ2Referral"
+      },
+      "name" : "J2 referral to the home clinic",
+      "description" : "Sita RAI's referral of Chanthala to the district clinic after a home visit. The two foreign DVCs were read unverified on the CHW app, offline; the clinic is to verify them and give any dose due.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ3Opv0"
+      },
+      "name" : "J3 given: birth-dose OPV",
+      "description" : "The birth-dose OPV Tomas ALVES gives at the home clinic once the schedule finds it due.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ3BcgImported"
+      },
+      "name" : "J3 imported: BCG birth dose (from a verified DVC)",
+      "description" : "The BCG birth dose given in Country A on 2026-10-21, imported from its DVC after the EHR verified the HCERT. Not given here, so not a primary source.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ3HepBImported"
+      },
+      "name" : "J3 imported: Hep B birth dose (from a verified DVC)",
+      "description" : "The Hep B birth dose given in Country A on 2026-10-21, imported from its DVC after the EHR verified the HCERT against XXR's DSC in the cached trust list. Not given here, so not a primary source.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Provenance"
+      }],
+      "reference" : {
+        "reference" : "Provenance/TrustDemoJ3Import"
+      },
+      "name" : "J3 provenance of the imported doses",
+      "description" : "Records that the two imported Immunizations come from DVCs the home clinic EHR verified offline against its cached copy of the GDHCN DEV trust list.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ImmunizationRecommendation"
+      }],
+      "reference" : {
+        "reference" : "ImmunizationRecommendation/TrustDemoJ3Recommendation"
+      },
+      "name" : "J3 schedule evaluation: birth-dose OPV due",
+      "description" : "The national schedule run on the imported record: the Hep B and BCG birth doses count, and the birth-dose OPV is due. The schedule rules themselves are Country B's (fictional) and are not modelled here.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      }],
+      "reference" : {
+        "reference" : "Bundle/TrustDemoJ4Ips"
+      },
+      "name" : "J4.0 Chanthala's IPS (document Bundle)",
+      "description" : "The patient summary document the portal puts behind Chanthala's VHL in J4.0, and that the hospital abroad decrypts in J4.1: her three doses, two of them imported from verified DVCs.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Provenance"
+      }],
+      "reference" : {
+        "reference" : "Provenance/TrustDemoJ41Received"
+      },
+      "name" : "J4.1 provenance of the records received abroad",
+      "description" : "Records how the hospital system abroad obtained Chanthala's IPS: it verified the VHL's HCERT against Country B's DSC in its cached trust list, fetched the manifest by ITI-YY5 with HTTP Message Signatures, and decrypted the document with the passcode Mali gave.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "RelatedPerson"
+      }],
+      "reference" : {
+        "reference" : "RelatedPerson/TrustDemoMali"
+      },
+      "name" : "Mali SOUVANNALATH (mother)",
+      "description" : "Chanthala's mother and guardian: the Holder of the paper DVCs (J1 to J3) and of the family phone's VHLs (J4). Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ActorDefinition"
       }],
       "reference" : {
@@ -187,6 +343,18 @@
       "name" : "National health portal",
       "description" : "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0): the VHL Sharer.\n\n**Persona**: A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.\n\n**Also known as**: VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer)\n\n**Played in the journeys by**: National health portal, Country B (XXH) (fictional).",
       "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Device"
+      }],
+      "reference" : {
+        "reference" : "Device/TrustDemoPocReceiver"
+      },
+      "name" : "Point-of-care hospital system abroad",
+      "description" : "The hospital system abroad that verifies the VHL's HCERT, fetches the manifest by ITI-YY5 and decrypts the records (J4.1): a VHL Receiver.",
+      "isExample" : true
     },
     {
       "extension" : [{
@@ -211,6 +379,30 @@
       "name" : "Point-of-care receiver",
       "description" : "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Hospital system abroad (J4.1) (fictional).",
       "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/TrustDemoSitaRai"
+      },
+      "name" : "Sita RAI (community health worker, Country B)",
+      "description" : "The CHW who finds Chanthala missing from the household register in J2. Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/TrustDemoTomasAlves"
+      },
+      "name" : "Tomas ALVES (nurse, home clinic, Country B)",
+      "description" : "The immunization nurse who verifies the DVCs and gives the birth-dose OPV in J3. Fictional.",
+      "isExample" : true
     }],
     "page" : {
       "sourceUrl" : "toc.html",

@@ -1,0 +1,38 @@
+{
+  "resourceType" : "ImmunizationRecommendation",
+  "id" : "TrustDemoJ3Recommendation",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImmunizationRecommendation TrustDemoJ3Recommendation</b></p><a name=\"TrustDemoJ3Recommendation\"> </a><a name=\"hcTrustDemoJ3Recommendation\"> </a><p><b>patient</b>: <a href=\"Patient-TrustDemoChanthala.html\">Chanthala SOUVANNALATH  Female, DoB: 2026-10-21</a></p><p><b>date</b>: 2026-11-04 09:31:00+0000</p><p><b>authority</b>: <a href=\"Organization-TrustDemoHomeClinic.html\">District clinic, Country B (fictional)</a></p><blockquote><p><b>recommendation</b></p><p><b>vaccineCode</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/cvx 182}\">OPV, Unspecified formulation</span></p><p><b>forecastStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/immunization-recommendation-status due}\">Due</span></p><p><b>doseNumber</b>: 0</p><p><b>supportingImmunization</b>: </p><ul><li><a href=\"Immunization-TrustDemoJ3HepBImported.html\">Immunization: status = completed; vaccineCode = Hep B, adolescent or pediatric; occurrence[x] = 2026-10-21; primarySource = false</a></li><li><a href=\"Immunization-TrustDemoJ3BcgImported.html\">Immunization: status = completed; vaccineCode = BCG; occurrence[x] = 2026-10-21; primarySource = false</a></li></ul></blockquote></div>"
+  },
+  "patient" : {
+    "reference" : "Patient/TrustDemoChanthala"
+  },
+  "date" : "2026-11-04T09:31:00Z",
+  "authority" : {
+    "reference" : "Organization/TrustDemoHomeClinic"
+  },
+  "recommendation" : [{
+    "vaccineCode" : [{
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/sid/cvx",
+        "code" : "182",
+        "display" : "OPV, Unspecified formulation"
+      }]
+    }],
+    "forecastStatus" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/immunization-recommendation-status",
+        "code" : "due",
+        "display" : "Due"
+      }]
+    },
+    "doseNumber" : "0",
+    "supportingImmunization" : [{
+      "reference" : "Immunization/TrustDemoJ3HepBImported"
+    },
+    {
+      "reference" : "Immunization/TrustDemoJ3BcgImported"
+    }]
+  }]
+}
