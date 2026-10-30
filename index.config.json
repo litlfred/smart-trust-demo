@@ -7,7 +7,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/fhir-harness",
-          "ref": "a46e9f017a22cb6ec319c7bb9951acac9f2ba273",
+          "ref": "9f54fffa96bedb7ea2c32a0d6183da541326f862",
           "overrides": {
             "fhir-harness": {
               "whole": true
@@ -16,9 +16,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-20",
-              "ref": "a46e9f017a22cb6ec319c7bb9951acac9f2ba273",
-              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+              "on": "2026-10-30",
+              "ref": "9f54fffa96bedb7ea2c32a0d6183da541326f862",
+              "evidence": "Owner (litlfred), 2026-10-30 16:30Z, in the smart-trust-demo drain thread: \"go\", after cat-harness-tools#923 merged (checks never write into mounts) and the re-pin was announced; merge/repin window to ~18:13Z. Every harness layer at its main tip on 2026-10-30, because cat-harness-tools main (f730db2) needs a cat-harness and core newer than the folio-assistant pins."
             }
           }
         }
@@ -29,7 +29,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/folio-assistant-core",
-          "ref": "651c1ead3608db36014a7a960cefa60ac7b9830d",
+          "ref": "0ac20b162cd408f5e935fcf6a5b639543ff41dd2",
           "overrides": {
             "folio-assistant-core": {
               "whole": true
@@ -44,9 +44,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-20",
-              "ref": "651c1ead3608db36014a7a960cefa60ac7b9830d",
-              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+              "on": "2026-10-30",
+              "ref": "0ac20b162cd408f5e935fcf6a5b639543ff41dd2",
+              "evidence": "Owner (litlfred), 2026-10-30 16:30Z, in the smart-trust-demo drain thread: \"go\", after cat-harness-tools#923 merged (checks never write into mounts) and the re-pin was announced; merge/repin window to ~18:13Z. Every harness layer at its main tip on 2026-10-30, because cat-harness-tools main (f730db2) needs a cat-harness and core newer than the folio-assistant pins."
             }
           }
         }
@@ -57,7 +57,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness",
-          "ref": "643c7880812bd499d9f1a9dc17ef97937ddb0c59",
+          "ref": "a250f81206a29f1f9d58030a5257f58406978e1f",
           "overrides": {
             "cat-harness": {
               "whole": true
@@ -72,9 +72,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-21",
-              "ref": "643c7880812bd499d9f1a9dc17ef97937ddb0c59",
-              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-21: \"It really needs to look at all of the actors and the dependency of the loaded harness\" and \"Merge when green\". Repinned to main after merging litlfred/cat-harness#391 (neededActors: the actors an instance may name are the platform's, every needed instance's and its own)."
+              "on": "2026-10-30",
+              "ref": "a250f81206a29f1f9d58030a5257f58406978e1f",
+              "evidence": "Owner (litlfred), 2026-10-30 16:30Z, in the smart-trust-demo drain thread: \"go\", after cat-harness-tools#923 merged (checks never write into mounts) and the re-pin was announced; merge/repin window to ~18:13Z. cat-harness at main (a250f81), which cat-harness-tools main (f730db2) needs."
             }
           }
         }
@@ -85,7 +85,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "137a56a9028446cd24ba02b237b84109c8c4622b",
+          "ref": "f730db265b9c63b0ef1b3f6b7fec090b1f6701ee",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -97,9 +97,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-21",
-              "ref": "137a56a9028446cd24ba02b237b84109c8c4622b",
-              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-21: \"It really needs to look at all of the actors and the dependency of the loaded harness\" and \"Merge when green\". Repinned to main after merging litlfred/cat-harness-tools#507 (kg-audit --instance resolves actors with neededActors)."
+              "on": "2026-10-30",
+              "ref": "f730db265b9c63b0ef1b3f6b7fec090b1f6701ee",
+              "evidence": "Owner (litlfred), 2026-10-30 16:30Z, in the smart-trust-demo drain thread: \"go\", after cat-harness-tools#923 merged (checks never write into mounts) and the re-pin was announced; merge/repin window to ~18:13Z. Pins follow folio-assistant main f82cbc6 except cat-harness-tools at main (f730db2, which carries #879 and #923)."
             }
           }
         }
@@ -110,7 +110,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/bootstrap",
-          "ref": "0d442b3811991e5a0c19d8f619848fb4a5f8aa5f",
+          "ref": "3ce2b5d641779ca78432971abb919e6e3afdc60a",
           "overrides": {
             "bootstrap": {
               "whole": true
@@ -119,9 +119,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-20",
-              "ref": "0d442b3811991e5a0c19d8f619848fb4a5f8aa5f",
-              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+              "on": "2026-10-30",
+              "ref": "3ce2b5d641779ca78432971abb919e6e3afdc60a",
+              "evidence": "Owner (litlfred), 2026-10-30 16:30Z, in the smart-trust-demo drain thread: \"go\", after cat-harness-tools#923 merged (checks never write into mounts) and the re-pin was announced; merge/repin window to ~18:13Z. Pins follow folio-assistant main f82cbc6 except cat-harness-tools at main (f730db2, which carries #879 and #923)."
             }
           }
         }
@@ -132,7 +132,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/bootstrap-tools",
-          "ref": "157dacf74b6fc3e86c28e123904d4b2d4a16ae61",
+          "ref": "b7fb762ba968a6868bbe5004144ddf78023eb9c7",
           "overrides": {
             "bootstrap-tools": {
               "whole": true
@@ -144,9 +144,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-10-20",
-              "ref": "157dacf74b6fc3e86c28e123904d4b2d4a16ae61",
-              "evidence": "Adopted unchanged from litlfred/smart-trust-tools index.config.json at f862552c, where the owner consented: Owner (litlfred), 2026-10-20, in the session that set up this repository: \"A, needs fhir-harness, main to root, branches STAGING\" (adopt cat-harness fully, need fhir-harness). The ref is the one litlfred/folio-assistant index.config.json pins at bb61e9b, adopted unchanged."
+              "on": "2026-10-30",
+              "ref": "b7fb762ba968a6868bbe5004144ddf78023eb9c7",
+              "evidence": "Owner (litlfred), 2026-10-30 16:30Z, in the smart-trust-demo drain thread: \"go\", after cat-harness-tools#923 merged (checks never write into mounts) and the re-pin was announced; merge/repin window to ~18:13Z. Every harness layer at its main tip on 2026-10-30, because cat-harness-tools main (f730db2) needs a cat-harness and core newer than the folio-assistant pins."
             }
           }
         }
