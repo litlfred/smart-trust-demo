@@ -84,7 +84,7 @@ Usage: #example
 * provision.data[=].reference = Reference(TrustDemoJ4Ips)
 
 Instance: TrustDemoJ41Received
-InstanceOf: Provenance
+InstanceOf: TrustDemoThVhlReceipt
 Title: "J4.1 provenance of the summary viewed in Chiang Rai"
 Description: "How the Chiang Rai clinic viewer obtained Somsack's IPS: it verified the VHL's HCERT against Country B's DSC in its cached trust list, fetched the manifest by ITI-YY5 with an HTTP Message Signature once Bounmy said the passcode, and decrypted the document. Viewed, not copied into a Thai registry."
 Usage: #example
@@ -101,7 +101,7 @@ Usage: #example
 * entity[=].what = Reference(TrustDemoJ4Consent)
 
 Instance: TrustDemoJ41Access
-InstanceOf: AuditEvent
+InstanceOf: TrustDemoLaoVhlAccess
 Title: "J4.1 access logged in Lao PDR: manifest released"
 Description: "The record the Lao gateway keeps when the Chiang Rai clinic viewer retrieves Somsack's VHL manifest with the right passcode (IHE Basic Audit Log Patterns): who looked, from where, and when."
 Usage: #example
@@ -125,7 +125,7 @@ Usage: #example
 * entity[+].what = Reference(TrustDemoJ4Ips)
 
 Instance: TrustDemoJ41WrongPasscode
-InstanceOf: AuditEvent
+InstanceOf: TrustDemoLaoVhlAccess
 Title: "J4.1 wrong passcode: refused, and still logged in Lao PDR"
 Description: "The 'what if' of J4.1: a manifest request with the wrong passcode is refused, and the attempt is logged at home all the same."
 Usage: #example

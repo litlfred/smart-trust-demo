@@ -7,14 +7,14 @@
 // the 6-week doses due and books them.
 
 Instance: TrustDemoJ3HepB
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoImmunization
 Title: "J3 verified: Hep B birth dose (Thailand), with both codings"
 Description: "The Hep B birth dose after the EHR verified its DVC: the verified DVC is the administering hospital's own signed record, so the dose is recorded from its primary source (the VaxLink trust ladder's 'verified' step). The issuer's product coding is kept, and the national schedule coding is added beside it."
 Usage: #example
 * status = #completed
-* vaccineCode.coding[+] = TrustDemoVaccineProduct#vp-hepb-peds-monovalent "Hepatitis B vaccine, paediatric, monovalent"
-* vaccineCode.coding[+] = TrustDemoLaoEpiSchedule#LAO-EPI-HEPB-BD "Hepatitis B birth dose"
-* vaccineCode.coding[+] = $cvx#08 "Hep B, adolescent or pediatric"
+* vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-hepb-peds-monovalent "Hepatitis B vaccine, paediatric, monovalent"
+* vaccineCode.coding[laoEpi] = TrustDemoLaoEpiSchedule#LAO-EPI-HEPB-BD "Hepatitis B birth dose"
+* vaccineCode.coding[cvx] = $cvx#08 "Hep B, adolescent or pediatric"
 * vaccineCode.text = "Hepatitis B paediatric birth dose"
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-10-28T09:15:00+07:00"
@@ -26,14 +26,14 @@ Usage: #example
 * protocolApplied.doseNumber = "1"
 
 Instance: TrustDemoJ3Bcg
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoImmunization
 Title: "J3 verified: BCG birth dose (Thailand), with both codings"
 Description: "The BCG birth dose after the EHR verified its DVC, with the national schedule coding added beside the issuer's."
 Usage: #example
 * status = #completed
-* vaccineCode.coding[+] = TrustDemoVaccineProduct#vp-bcg-freeze-dried "BCG vaccine, freeze-dried"
-* vaccineCode.coding[+] = TrustDemoLaoEpiSchedule#LAO-EPI-BCG "BCG"
-* vaccineCode.coding[+] = $cvx#19 "BCG"
+* vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-bcg-freeze-dried "BCG vaccine, freeze-dried"
+* vaccineCode.coding[laoEpi] = TrustDemoLaoEpiSchedule#LAO-EPI-BCG "BCG"
+* vaccineCode.coding[cvx] = $cvx#19 "BCG"
 * vaccineCode.text = "BCG"
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-10-28T09:20:00+07:00"
@@ -45,7 +45,7 @@ Usage: #example
 * protocolApplied.doseNumber = "1"
 
 Instance: TrustDemoJ3Verification
-InstanceOf: Provenance
+InstanceOf: TrustDemoLaoDvcVerification
 Title: "J3a provenance: DVCs verified against the GDHCN DEV trust list"
 Description: "Records that the two doses come from DVCs the district EHR verified offline (COSE_Sign1, ES256) against XXR's DSC in its cached copy of the GDHCN DEV trust list, and that they replace the reported doses of J2."
 Usage: #example
@@ -122,13 +122,13 @@ Usage: #example
 // district health center (primary source).
 
 Instance: TrustDemoLaoPenta1
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoImmunization
 Title: "Lao dose: pentavalent 1 (2025-12-10)"
 Description: "Given at Vientiane District Health Center at 6 weeks, as the J3 schedule booked it."
 Usage: #example
 * status = #completed
-* vaccineCode.coding[+] = TrustDemoVaccineProduct#vp-pentavalent-liquid "DTP-HepB-Hib (pentavalent), liquid"
-* vaccineCode.coding[+] = TrustDemoLaoEpiSchedule#LAO-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
+* vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-pentavalent-liquid "DTP-HepB-Hib (pentavalent), liquid"
+* vaccineCode.coding[laoEpi] = TrustDemoLaoEpiSchedule#LAO-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-12-10"
 * primarySource = true
@@ -139,13 +139,13 @@ Usage: #example
 * protocolApplied.doseNumber = "1"
 
 Instance: TrustDemoLaoBopv1
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoImmunization
 Title: "Lao dose: bOPV 1 (2025-12-10)"
 Description: "Given at Vientiane District Health Center at 6 weeks."
 Usage: #example
 * status = #completed
-* vaccineCode.coding[+] = TrustDemoVaccineProduct#vp-bopv-drops "Bivalent oral polio vaccine (bOPV), drops"
-* vaccineCode.coding[+] = TrustDemoLaoEpiSchedule#LAO-EPI-OPV-1 "bOPV, dose 1"
+* vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-bopv-drops "Bivalent oral polio vaccine (bOPV), drops"
+* vaccineCode.coding[laoEpi] = TrustDemoLaoEpiSchedule#LAO-EPI-OPV-1 "bOPV, dose 1"
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-12-10"
 * primarySource = true
@@ -156,13 +156,13 @@ Usage: #example
 * protocolApplied.doseNumber = "1"
 
 Instance: TrustDemoLaoPcv1
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoImmunization
 Title: "Lao dose: PCV 1 (2025-12-10)"
 Description: "Given at Vientiane District Health Center at 6 weeks."
 Usage: #example
 * status = #completed
-* vaccineCode.coding[+] = TrustDemoVaccineProduct#vp-pcv-13-dose "Pneumococcal conjugate vaccine (PCV)"
-* vaccineCode.coding[+] = TrustDemoLaoEpiSchedule#LAO-EPI-PCV-1 "PCV, dose 1"
+* vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-pcv-13-dose "Pneumococcal conjugate vaccine (PCV)"
+* vaccineCode.coding[laoEpi] = TrustDemoLaoEpiSchedule#LAO-EPI-PCV-1 "PCV, dose 1"
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-12-10"
 * primarySource = true
@@ -173,13 +173,13 @@ Usage: #example
 * protocolApplied.doseNumber = "1"
 
 Instance: TrustDemoLaoMr1
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoImmunization
 Title: "Lao dose: measles-rubella 1 (2026-07-28)"
 Description: "Given at Vientiane District Health Center at 9 months."
 Usage: #example
 * status = #completed
-* vaccineCode.coding[+] = TrustDemoVaccineProduct#vp-mr-freeze-dried "Measles-rubella vaccine, freeze-dried"
-* vaccineCode.coding[+] = TrustDemoLaoEpiSchedule#LAO-EPI-MR-1 "Measles-rubella, dose 1"
+* vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-mr-freeze-dried "Measles-rubella vaccine, freeze-dried"
+* vaccineCode.coding[laoEpi] = TrustDemoLaoEpiSchedule#LAO-EPI-MR-1 "Measles-rubella, dose 1"
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2026-07-28"
 * primarySource = true

@@ -5,12 +5,12 @@
 // when it next has a signal.
 
 Instance: TrustDemoHousehold
-InstanceOf: Group
+InstanceOf: TrustDemoLaoHousehold
 Title: "J2a the Sengmany household (HH-LAO-204)"
 Description: "The household roster Soukanh updates on her offline phone: Somsack is added beside his mother and father."
 Usage: #example
-* identifier.system = $HouseholdId
-* identifier.value = "HH-LAO-204"
+* identifier[household].system = $HouseholdId
+* identifier[household].value = "HH-LAO-204"
 * type = #person
 * membership = #enumerated
 * code = $v3-RoleCode#FAMMEMB "family member"
@@ -58,7 +58,7 @@ Usage: #definition
 * item[=].type = #boolean
 
 Instance: TrustDemoJ2Registration
-InstanceOf: QuestionnaireResponse
+InstanceOf: TrustDemoLaoRegistration
 Title: "J2a Somsack's registration, as captured offline"
 Description: "Soukanh's answers on the newborn registration form, saved on the phone with no signal and synced later."
 Usage: #example
@@ -82,7 +82,7 @@ Usage: #example
 * item[=].answer.valueBoolean = true
 
 Instance: TrustDemoJ2HepBReported
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoReportedImmunization
 Title: "J2b reported: Hep B birth dose (DVC read, not verified)"
 Description: "The Hep B birth dose as the CHW app saves it after reading the paper DVC offline without verifying it (STT-VER-011): reported by the family, primarySource false, only the issuer's product coding."
 Usage: #example
@@ -97,7 +97,7 @@ Usage: #example
 * note.text = "Read from a paper DVC without verifying its signature (triage read): reported, not verified."
 
 Instance: TrustDemoJ2BcgReported
-InstanceOf: Immunization
+InstanceOf: TrustDemoLaoReportedImmunization
 Title: "J2b reported: BCG birth dose (DVC read, not verified)"
 Description: "The BCG birth dose as the CHW app saves it after the unverified read: reported by the family, primarySource false."
 Usage: #example
@@ -112,7 +112,7 @@ Usage: #example
 * note.text = "Read from a paper DVC without verifying its signature (triage read): reported, not verified."
 
 Instance: TrustDemoJ2Referral
-InstanceOf: ServiceRequest
+InstanceOf: TrustDemoLaoReferral
 Title: "J2b referral to the district health center"
 Description: "Soukanh's referral of Somsack to Vientiane District Health Center: verify the two foreign DVCs and fit the doses to the national schedule."
 Usage: #example

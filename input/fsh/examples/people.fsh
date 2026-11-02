@@ -13,12 +13,12 @@ Alias: $LaoTmpId = http://smart.who.int/trust-demo/sid/lao-temporary-id
 Alias: $HouseholdId = http://smart.who.int/trust-demo/sid/lao-household-id
 
 Instance: TrustDemoSomsack
-InstanceOf: Patient
+InstanceOf: TrustDemoLaoPatient
 Title: "Somsack SENGMANY (newborn)"
 Description: "The subject of every journey, as the CHW registers him in Lao PDR (Country B) in J2: born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), with no Thai identity number. Until civil registration catches up he has a temporary id. Fictional."
 Usage: #example
-* identifier.system = $LaoTmpId
-* identifier.value = "LAO-TMP-2025-00918"
+* identifier[temporaryId].system = $LaoTmpId
+* identifier[temporaryId].value = "LAO-TMP-2025-00918"
 * active = true
 * name.use = #official
 * name.family = "SENGMANY"
