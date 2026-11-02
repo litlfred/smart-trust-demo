@@ -8,33 +8,33 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
-| [Caregiver](ActorDefinition-TrustDemo.Role.Caregiver.html) | The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder. | Mali SOUVANNALATH (mother) | VHL Holder (IHE ITI VHL); Holder (SMART Trust) |
-| [Birth clinic vaccinator](ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html) | The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1). | Dr Pimchanok WATTANA (birth clinic, abroad) |  |
-| [Community health worker](ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html) | Finds unregistered children on home visits, registers them and refers them to the clinic (J2). | Sita RAI (community health worker, home) |  |
-| [Home clinic provider](ActorDefinition-TrustDemo.Role.HomeClinicProvider.html) | The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3). | Tomas ALVES (nurse, home clinic) |  |
-| [Point-of-care provider](ActorDefinition-TrustDemo.Role.PocProvider.html) | The clinician abroad who scans the family's QR and reads the child's records (J4.1). | Dr Ana MOREIRA (clinician abroad, J4.1) |  |
+| [Caregiver](ActorDefinition-TrustDemo.Role.Caregiver.html) | The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder. | Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) | VHL Holder (IHE ITI VHL); Holder (SMART Trust) |
+| [Birth clinic vaccinator](ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html) | The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1). | Dr Anan (clinician, Chiang Rai, Thailand) |  |
+| [Community health worker](ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html) | Finds unregistered children on home visits, registers them and refers them to the clinic (J2). | Vilay (community health worker, Village 04, Lao PDR) |  |
+| [Home clinic provider](ActorDefinition-TrustDemo.Role.HomeClinicProvider.html) | The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3). | Nurse Chanthasone (Vientiane District Health Center, Lao PDR) |  |
+| [Point-of-care provider](ActorDefinition-TrustDemo.Role.PocProvider.html) | The clinician abroad who scans the family's QR and reads the child's records (J4.1). | Dr Anan (clinician, Chiang Rai, Thailand) |  |
 {: .grid }
 
 ### System actors
 
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
-| [Birth clinic issuing system](ActorDefinition-TrustDemo.Role.BirthClinicSystem.html) | The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR). | Provincial hospital system, Country A (XXR) | Issuer of the birth-dose DVCs (SMART Trust Issuer) |
-| [CHW app](ActorDefinition-TrustDemo.Role.ChwApp.html) | The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, [STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011)), registers the child and records a referral, all offline, syncing later. | CHW app, Country B | Triage reader (SMART Trust Receiver, read-unverified) |
-| [Home clinic EHR](ActorDefinition-TrustDemo.Role.HomeClinicEhr.html) | The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3). | Home clinic EHR, Country B | Verifier at the home clinic (SMART Trust Receiver) |
-| [National health portal](ActorDefinition-TrustDemo.Role.NationalPortal.html) | The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0): the VHL Sharer. | National health portal, Country B (XXH) | VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer) |
+| [Birth clinic issuing system](ActorDefinition-TrustDemo.Role.BirthClinicSystem.html) | The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR). | Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) | Issuer of the birth-dose DVCs (SMART Trust Issuer) |
+| [CHW app](ActorDefinition-TrustDemo.Role.ChwApp.html) | The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, [STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011)), registers the child and records a referral, all offline, syncing later. | CHW app, Lao PDR (Country B) | Triage reader (SMART Trust Receiver, read-unverified) |
+| [Home clinic EHR](ActorDefinition-TrustDemo.Role.HomeClinicEhr.html) | The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3). | Vientiane District Health Center EHR (Country B) | Verifier at the home clinic (SMART Trust Receiver) |
+| [National health portal](ActorDefinition-TrustDemo.Role.NationalPortal.html) | The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer. | Lao PDR national health portal and gateway (Country B, XXH) | VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer) |
 | [Family phone](ActorDefinition-TrustDemo.Role.FamilyPhone.html) | The one smartphone the family shares, holding one VHL QR per member (J4); holds links, not keys to anyone's records beyond what each link grants. | The family's shared phone | Personal health wallet |
-| [Point-of-care receiver](ActorDefinition-TrustDemo.Role.PocReceiver.html) | The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver. | Hospital system abroad (J4.1) | VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver) |
+| [Point-of-care receiver](ActorDefinition-TrustDemo.Role.PocReceiver.html) | The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver. | Chiang Rai primary care clinic viewer, Thailand (J4.1) | VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver) |
 {: .grid }
 
 ### External actors
 
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
-| [Issuer signing key](ActorDefinition-TrustDemo.Role.IssuerKey.html) | The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, [STT-ISS-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004)). | XXR document signer key (Country A) | Document signer (DSC) key |
+| [Issuer signing key](ActorDefinition-TrustDemo.Role.IssuerKey.html) | The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, [STT-ISS-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004)). | XXR document signer key (Country A, Thailand) | Document signer (DSC) key |
 | [GDHCN trust anchor](ActorDefinition-TrustDemo.Role.GdhcnTrustAnchor.html) | WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL). | GDHCN DEV trust network (WHO) | Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL) |
 {: .grid }
 
 ### Other people in the journeys
 
-- **Chanthala SOUVANNALATH (newborn)**: The subject of every journey, from the guide's example: born 2026-10-21, female, nationality LAO. Holds no device and acts through her mother. Fictional.
+- **Somsack SENGMANY (newborn)**: The subject of every journey: a Lao baby boy born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), while his family lives in Lao PDR (Country B). Has no Thai identity number; registered in Lao PDR with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.

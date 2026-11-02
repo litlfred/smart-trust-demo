@@ -1,0 +1,20 @@
+{
+  "id": "chiang-rai-provincial-hospital",
+  "title": "Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)",
+  "kind": "system",
+  "description": "The hospital record system and DVC issuing service of Chiang Rai Provincial Hospital in Thailand (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Thailand in the demonstrator. XXR is a DEV test participant, not Thailand's production key.",
+  "roles": [
+    "birth-clinic-system"
+  ],
+  "capabilities": [],
+  "meta": {
+    "definedBy": [
+      "http://smart.who.int/trust/ActorDefinition/Issuer",
+      "http://smart.who.int/trust-phw/ActorDefinition/Issuer",
+      "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLSharer"
+    ],
+    "playsActor": [
+      "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-sharer"
+    ]
+  }
+}

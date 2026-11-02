@@ -13,6 +13,6 @@ The nurse at the home clinic who receives the referral, has the foreign DVCs ver
 
 **Persona**: Trusts the system's verdict and needs a reason when a certificate fails.
 
-**Played in the journeys by**: Tomas ALVES (nurse, home clinic) (fictional).
+**Played in the journeys by**: Nurse Chanthasone (Vientiane District Health Center, Lao PDR) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

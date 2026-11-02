@@ -1,8 +1,8 @@
 {
-  "id": "national-portal-xxh",
-  "title": "National health portal, Country B (XXH)",
+  "id": "lao-national-portal",
+  "title": "Lao PDR national health portal and gateway (Country B, XXH)",
   "kind": "system",
-  "description": "Country B's portal (J4.0): assembles each family member's IPS and DVCs and issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC; hosts the manifests (ITI-YY5).",
+  "description": "Lao PDR's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the fictional participant XXH, so no real ministry's key is implied.",
   "roles": [
     "national-portal"
   ],

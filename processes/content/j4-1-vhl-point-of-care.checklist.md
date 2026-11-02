@@ -6,20 +6,20 @@
 
 J4.1.
 
-## Begin — Chanthala needs care abroad (`Start`)
+## Begin — A child of the family needs care abroad (`Start`)
 
 - Begin here.
 - Call `workflow_start` with `process: "Process_J41VhlFetch"` and the subject this run is about; keep the instance id it returns.
-- next: → `Task_Open` (Show Chanthala's VHL QR)
+- next: → `Task_Open` (Show the child's VHL QR)
 
-### 1. Show Chanthala's VHL QR (`Task_Open`)
+### 1. Show the child's VHL QR (`Task_Open`)
 
 - Who: the `Family phone` lane (role `family-phone`).
 - Skill: `wallet-hold-vhl`.
 - Record it: `workflow_complete` with `node: "Task_Open"`.
-- next: → `Task_Scan` (Scan the QR and enter the passcode Mali gives)
+- next: → `Task_Scan` (Scan the QR and enter the passcode the caregiver says)
 
-### 2. Scan the QR and enter the passcode Mali gives (`Task_Scan`)
+### 2. Scan the QR and enter the passcode the caregiver says (`Task_Scan`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
 - Record it: `workflow_complete` with `node: "Task_Scan"`.
@@ -45,7 +45,7 @@ J4.1.
 - Skill: `vhl-receive`.
 - What: STT-VHL-005, STT-VHL-006, STT-VHL-008; the host does the HTTP, the library builds and reads (STT-VHL-010).
 - Record it: `workflow_complete` with `node: "Task_Fetch"`.
-- next: → `Task_Decrypt` (Decrypt the IPS and DVCs)
+- next: → `Task_Release` (Check the passcode, return the manifest and log the access)
 
 ### 5. No digital verification: treat the records like paper (`Task_Unverified`)
 
@@ -54,7 +54,21 @@ J4.1.
 - Record it: `workflow_complete` with `node: "Task_Unverified"`.
 - next: → `Task_Review` (Review history, allergies and vaccinations)
 
-### 6. Decrypt the IPS and DVCs (`Task_Decrypt`)
+### 6. Check the passcode, return the manifest and log the access (`Task_Release`)
+
+- Who: the `National health portal` lane (role `national-portal`).
+- Skill: `portal-serve-manifest`.
+- What: The home country's portal hosts the manifest (ITI-YY5).
+- Record it: `workflow_complete` with `node: "Task_Release"`.
+- next: → `Task_Decrypt` (Decrypt the IPS and DVCs)
+
+### 7. Review history, allergies and vaccinations (`Task_Review`)
+
+- Who: the `Point-of-care provider` lane (role `poc-provider`).
+- Record it: `workflow_complete` with `node: "Task_Review"`.
+- next: → `End` (The child is treated with the full record)
+
+### 8. Decrypt the IPS and DVCs (`Task_Decrypt`)
 
 - Who: the `Point-of-care receiver` lane (role `poc-receiver`).
 - Skill: `vhl-receive`.
@@ -62,12 +76,6 @@ J4.1.
 - Record it: `workflow_complete` with `node: "Task_Decrypt"`.
 - next: → `Task_Review` (Review history, allergies and vaccinations)
 
-### 7. Review history, allergies and vaccinations (`Task_Review`)
-
-- Who: the `Point-of-care provider` lane (role `poc-provider`).
-- Record it: `workflow_complete` with `node: "Task_Review"`.
-- next: → `End` (Chanthala is treated with her records)
-
-## Done — Chanthala is treated with her records (`End`)
+## Done — The child is treated with the full record (`End`)
 
 - The instance completes here. `workflow_next` then reports nothing enabled — that, not this line, is the record of completion.

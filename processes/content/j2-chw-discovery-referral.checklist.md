@@ -30,9 +30,9 @@ J2, Return home, CHW discovery and referral.
 - Skill: `hcert-verify`.
 - What: read-unverified (STT-VER-011): strip HC1:, Base45, inflate within limits (STT-B45-002, STT-ZIP-002), bounded CBOR (STT-CBR-003), payloads read but flagged unverified; no trust list needed, fully offline.
 - Record it: `workflow_complete` with `node: "Task_Read"`.
-- next: → `Task_Register` (Register the infant with the doses marked unverified)
+- next: → `Task_Register` (Add the infant to the household; save the doses as reported, not verified)
 
-### 4. Register the infant with the doses marked unverified (`Task_Register`)
+### 4. Add the infant to the household; save the doses as reported, not verified (`Task_Register`)
 
 - Who: the `CHW app` lane (role `chw-app`).
 - Skill: `chw-register-infant`.

@@ -10,9 +10,9 @@ J4.0, Outbound family travel, "One Family, One Phone".
 
 - Begin here.
 - Call `workflow_start` with `process: "Process_J40FamilyVhl"` and the subject this run is about; keep the instance id it returns.
-- next: → `Task_Request` (Request travel records for each family member)
+- next: → `Task_Request` (Choose who to share, with a passcode and an expiry)
 
-### 1. Request travel records for each family member (`Task_Request`)
+### 1. Choose who to share, with a passcode and an expiry (`Task_Request`)
 
 - Who: the `Caregiver` lane (role `caregiver`).
 - Record it: `workflow_complete` with `node: "Task_Request"`.

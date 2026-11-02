@@ -13,6 +13,7 @@ The harness sources stay the single source of truth:
                                     and systems that play each role)
 - scenarios/stories.json and the "User scenarios" section of
   docs/journeys.md               -> input/pagecontent/scenarios.md
+- docs/images/*                 -> data URIs in docs/index.md (data-img)
 - docs/*.md and docs/*/*.md      -> input/pagecontent/<page>.md (DOC_PAGES),
                                     so the IG site carries the project pages
                                     and is the one site at the root
@@ -252,7 +253,9 @@ def gen_scenarios(roles):
 # A page in a docs/ subdirectory becomes a flat IG page (the IG Publisher has
 # no subdirectories); the old address forwards to it (FORWARDS).
 DOC_PAGES = {
+    "docs/index.md": "index",
     "docs/journeys.md": "journeys",
+    "docs/vaxlink-examples.md": "vaxlink-examples",
     "docs/plan.md": "plan",
     "docs/dependencies.md": "dependencies",
     "docs/proposals/app-platform.md": "proposal-app-platform",
@@ -260,10 +263,10 @@ DOC_PAGES = {
 }
 
 
-def doc_page(src):
+def doc_page(src, text=None):
     """One docs page as an IG page: no front matter, no H1 (the IG gives the
     title), headings one level down, links to moved pages at their IG names."""
-    text = (ROOT / src).read_text()
+    text = text if text is not None else (ROOT / src).read_text()
     text = re.sub(r"\A---\n.*?\n---\n", "", text, flags=re.S)
     text = re.sub(r"\A\s*# [^\n]*\n", "", text)
     text = re.sub(r"^(#{2,5}) ", lambda m: "#" + m.group(1) + " ", text, flags=re.M)
@@ -271,6 +274,19 @@ def doc_page(src):
         old = other[len("docs/"):-len(".md")] + ".html"
         text = re.sub(r"\]\((?:\.\./)?" + re.escape(old) + r"(#[^)]*)?\)", lambda m: f"]({name}.html{m.group(1) or ''})", text)
     return HEADER.format(src=src) + text.lstrip("\n")
+
+
+def inline_images(src):
+    """A docs page with each <img data-img="images/x.jpg|svg|png" src="...">
+    carrying that image as a data URI, since neither the docs site nor the
+    IG's AST route copies image files. docs/images/ stays the source."""
+    text = (ROOT / src).read_text()
+    mime = {"svg": "image/svg+xml", "jpg": "image/jpeg", "png": "image/png"}
+
+    def inline(m):
+        data = base64.b64encode((ROOT / "docs" / m.group(1)).read_bytes()).decode("ascii")
+        return f'data-img="{m.group(1)}" src="data:{mime[m.group(2)]};base64,{data}"'
+    return re.sub(r'data-img="(images/[\w.-]+\.(svg|jpg|png))" src="[^"]*"', inline, text)
 
 
 def build():
@@ -285,8 +301,9 @@ def build():
     files["input/pagecontent/system-actors.md"] = gen_system_actors(roles, by_role)
     files["input/pagecontent/business-processes.md"] = gen_processes(procs, roles)
     files["input/pagecontent/scenarios.md"] = gen_scenarios(roles)
+    files["docs/index.md"] = inline_images("docs/index.md")
     for src, name in DOC_PAGES.items():
-        files[f"input/pagecontent/{name}.md"] = doc_page(src)
+        files[f"input/pagecontent/{name}.md"] = doc_page(src, files.get(src))
     for rel in files:
         if rel.endswith(".md"):
             files[rel] = link_reqs(files[rel])

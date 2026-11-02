@@ -15,7 +15,7 @@ The hospital system abroad that issues a DVC per dose with the HCERT library: th
 
 **Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)
 
-**Played in the journeys by**: Provincial hospital system, Country A (XXR) (fictional).
+**Played in the journeys by**: Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/Issuer"

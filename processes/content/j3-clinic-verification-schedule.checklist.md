@@ -37,7 +37,7 @@ J3, Clinic verification and schedule generation, in Country B.
 - Who: the `Home clinic EHR` lane (role `home-clinic-ehr`).
 - Skill: `ehr-import-immunization`.
 - Record it: `workflow_complete` with `node: "Task_Import"`.
-- next: → `Task_Schedule` (Evaluate the national schedule)
+- next: → `Task_Map` (Add the national schedule code beside the foreign vaccine code)
 
 ### 4. Record the failure reason; decide doses by national policy (`Task_Unverified`)
 
@@ -45,20 +45,28 @@ J3, Clinic verification and schedule generation, in Country B.
 - Record it: `workflow_complete` with `node: "Task_Unverified"`.
 - next: → `Task_Plan` (Give due doses and book the next visit)
 
-### 5. Evaluate the national schedule (`Task_Schedule`)
+### 5. Add the national schedule code beside the foreign vaccine code (`Task_Map`)
 
 - Who: the `Home clinic EHR` lane (role `home-clinic-ehr`).
-- Skill: `schedule-evaluate`.
-- What: PlanDefinition/$apply over the imported Immunizations: Hep B and BCG birth doses count; birth-dose OPV is due.
-- Record it: `workflow_complete` with `node: "Task_Schedule"`.
-- next: → `Task_Plan` (Give due doses and book the next visit)
+- Skill: `map-vaccine-codes`.
+- What: The imported doses keep the issuer's vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place.
+- Record it: `workflow_complete` with `node: "Task_Map"`.
+- next: → `Task_Schedule` (Evaluate the national schedule)
 
 ### 6. Give due doses and book the next visit (`Task_Plan`)
 
 - Who: the `Home clinic provider` lane (role `home-clinic-provider`).
 - Record it: `workflow_complete` with `node: "Task_Plan"`.
-- next: → `End` (Chanthala is on Country B's schedule)
+- next: → `End` (The child is on Country B's schedule)
 
-## Done — Chanthala is on Country B's schedule (`End`)
+### 7. Evaluate the national schedule (`Task_Schedule`)
+
+- Who: the `Home clinic EHR` lane (role `home-clinic-ehr`).
+- Skill: `schedule-evaluate`.
+- What: PlanDefinition/$apply over the imported Immunizations, read by their national schedule codes: the Hep B and BCG birth doses count; the 6-week doses (pentavalent, bOPV, PCV) are due, and a reminder Task is created for that date.
+- Record it: `workflow_complete` with `node: "Task_Schedule"`.
+- next: → `Task_Plan` (Give due doses and book the next visit)
+
+## Done — The child is on Country B's schedule (`End`)
 
 - The instance completes here. `workflow_next` then reports nothing enabled — that, not this line, is the record of completion.

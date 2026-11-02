@@ -38,8 +38,10 @@ step traces to smart-trust-tools' `req:` nodes by id.
   WHO. No paywalled ISO.
 - **gh-pages is published by an agent, not a workflow.** main publishes to the
   root; every other branch to `STAGING/<branch-slug>/`.
-- **Every person is fictional.** Personas and test patients are invented;
-  the J1 newborn is the WHO guide's own example.
+- **Every person is fictional.** Personas and test patients are invented.
+  The journeys follow the VaxLink walkthrough's family (issue #21); the WHO
+  guide's own worked example (QR Code Generation §12) stays the library's
+  test vector.
 - **Test keys are test keys.** Signing keys in this repository are throw-away
   and marked TEST-ONLY; production keys never enter it.
 - No model identifiers in commits, PRs or code.
