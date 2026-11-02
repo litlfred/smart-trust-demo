@@ -15,7 +15,7 @@ The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list
 
 **Also known as**: Verifier at the home clinic (SMART Trust Receiver)
 
-**Played in the journeys by**: Home clinic EHR, Country B (fictional).
+**Played in the journeys by**: Vientiane District Health Center EHR (Country B) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/Receiver"

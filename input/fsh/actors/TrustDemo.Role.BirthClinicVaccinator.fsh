@@ -13,6 +13,6 @@ The clinician abroad who gives the birth doses and hands over the signed paper D
 
 **Persona**: A maternity-ward clinician who records doses in the hospital system and prints what it produces.
 
-**Played in the journeys by**: Dr Pimchanok WATTANA (birth clinic, abroad) (fictional).
+**Played in the journeys by**: Dr Somchai (clinician, Chiang Rai, Thailand) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

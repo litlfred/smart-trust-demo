@@ -15,7 +15,7 @@ The parent who holds the child's paper DVCs and the family phone, and presents t
 
 **Also known as**: VHL Holder (IHE ITI VHL); Holder (SMART Trust)
 
-**Played in the journeys by**: Mali SOUVANNALATH (mother) (fictional).
+**Played in the journeys by**: Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLHolder"

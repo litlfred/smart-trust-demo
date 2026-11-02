@@ -6,7 +6,7 @@
 
 J1, Cross-border birth and initial vaccination.
 
-## Begin — Chanthala is born in Country A (`Start`)
+## Begin — A Country B family's child is born in Country A (`Start`)
 
 - Begin here.
 - Call `workflow_start` with `process: "Process_J1BirthDoseDvc"` and the subject this run is about; keep the instance id it returns.
@@ -15,7 +15,7 @@ J1, Cross-border birth and initial vaccination.
 ### 1. Give Hep B and BCG birth doses and record them (`Task_Vaccinate`)
 
 - Who: the `Birth clinic vaccinator` lane (role `birth-clinic-vaccinator`).
-- What: Dr Pimchanok WATTANA records each dose (vaccine product, date, batch) in the hospital system.
+- What: The vaccinator records each dose (vaccine product, date, batch) in the hospital system.
 - Record it: `workflow_complete` with `node: "Task_Vaccinate"`.
 - next: → `Task_Payload` (Build one DVCMinPreQual payload per dose)
 
@@ -55,8 +55,8 @@ J1, Cross-border birth and initial vaccination.
 
 - Who: the `Birth clinic vaccinator` lane (role `birth-clinic-vaccinator`).
 - Record it: `workflow_complete` with `node: "Task_Print"`.
-- next: → `End` (Mali holds two signed paper DVCs)
+- next: → `End` (The caregiver holds two signed paper DVCs)
 
-## Done — Mali holds two signed paper DVCs (`End`)
+## Done — The caregiver holds two signed paper DVCs (`End`)
 
 - The instance completes here. `workflow_next` then reports nothing enabled — that, not this line, is the record of completion.

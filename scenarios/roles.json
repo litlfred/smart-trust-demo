@@ -116,6 +116,7 @@
         "hcert-verify",
         "hcert-trust-list",
         "ehr-import-immunization",
+        "map-vaccine-codes",
         "schedule-evaluate"
       ],
       "persona": "Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.",
@@ -142,7 +143,7 @@
     {
       "id": "national-portal",
       "title": "National health portal",
-      "description": "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0): the VHL Sharer.",
+      "description": "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer.",
       "actorKinds": [
         "system"
       ],
@@ -157,7 +158,8 @@
         "hcert-encode-base45",
         "hcert-prefix-context",
         "hcert-trust-list",
-        "portal-assemble-records"
+        "portal-assemble-records",
+        "portal-serve-manifest"
       ],
       "persona": "A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.",
       "otherNames": [

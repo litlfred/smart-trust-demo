@@ -15,7 +15,7 @@ The DSC private key of the issuing participant, in an HSM, cloud KMS or Android 
 
 **Also known as**: Document signer (DSC) key
 
-**Played in the journeys by**: XXR document signer key (Country A) (fictional).
+**Played in the journeys by**: XXR document signer key (Country A, Thailand) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/TrustNetworkParticipant"

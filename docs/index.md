@@ -11,6 +11,9 @@ libraries at every step.
 - [The journeys J1–J4](journeys.html): processes, roles, personas, user
   scenarios, and how the actors map to WHO SMART Trust, smart-trust-phw and
   IHE ITI VHL.
+- [VaxLink examples](vaxlink-examples.html): each screen and payload of the
+  [VaxLink](https://fredhersch.github.io/vaxlink/) walkthrough, mapped to the
+  example in the IG that materializes it.
 - [Plan](plan.html) and the [app-platform proposal](proposals/app-platform.html).
 - [Dependency register](dependencies.html).
 

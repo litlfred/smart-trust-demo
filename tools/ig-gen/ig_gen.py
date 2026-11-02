@@ -253,6 +253,7 @@ def gen_scenarios(roles):
 # no subdirectories); the old address forwards to it (FORWARDS).
 DOC_PAGES = {
     "docs/journeys.md": "journeys",
+    "docs/vaxlink-examples.md": "vaxlink-examples",
     "docs/plan.md": "plan",
     "docs/dependencies.md": "dependencies",
     "docs/proposals/app-platform.md": "proposal-app-platform",

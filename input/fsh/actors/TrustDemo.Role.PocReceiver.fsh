@@ -15,7 +15,7 @@ The clinic system abroad that scans a VHL, verifies it, fetches the manifest (IT
 
 **Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)
 
-**Played in the journeys by**: Hospital system abroad (J4.1) (fictional).
+**Played in the journeys by**: Chiang Rai primary care clinic viewer, Thailand (J4.1) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver"

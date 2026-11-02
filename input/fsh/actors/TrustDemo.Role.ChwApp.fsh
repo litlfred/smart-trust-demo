@@ -15,7 +15,7 @@ The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage
 
 **Also known as**: Triage reader (SMART Trust Receiver, read-unverified)
 
-**Played in the journeys by**: CHW app, Country B (fictional).
+**Played in the journeys by**: CHW app, Lao PDR (Country B) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/Receiver"
