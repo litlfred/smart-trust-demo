@@ -1,4 +1,4 @@
-// J2a and J2b, Village 04, Lao PDR, 2025-11-18 (T0 + 3 weeks). Soukanh adds
+// J2a and J2b, Village 04, Lao PDR, 2025-11-18 (T0 + 3 weeks). Vilay adds
 // Somsack to the Sengmany household offline, scans the two paper DVCs without
 // verifying them, saves the doses as reported by the family, and refers him
 // to the district health center. Everything is queued on her phone and syncs
@@ -7,7 +7,7 @@
 Instance: TrustDemoHousehold
 InstanceOf: TrustDemoLaoHousehold
 Title: "J2a the Sengmany household (HH-LAO-204)"
-Description: "The household roster Soukanh updates on her offline phone: Somsack is added beside his mother and father."
+Description: "The household roster Vilay updates on her offline phone: Somsack is added beside his mother and father."
 Usage: #example
 * identifier[household].system = $HouseholdId
 * identifier[household].value = "HH-LAO-204"
@@ -60,13 +60,13 @@ Usage: #definition
 Instance: TrustDemoJ2Registration
 InstanceOf: TrustDemoLaoRegistration
 Title: "J2a Somsack's registration, as captured offline"
-Description: "Soukanh's answers on the newborn registration form, saved on the phone with no signal and synced later."
+Description: "Vilay's answers on the newborn registration form, saved on the phone with no signal and synced later."
 Usage: #example
 * questionnaire = Canonical(TrustDemoHouseholdRegistration)
 * status = #completed
 * subject = Reference(TrustDemoSomsack)
 * authored = "2025-11-18T10:05:00+07:00"
-* author = Reference(TrustDemoSoukanh)
+* author = Reference(TrustDemoVilay)
 * source = Reference(TrustDemoBounmy)
 * item[+].linkId = "household"
 * item[=].answer.valueString = "HH-LAO-204"
@@ -114,7 +114,7 @@ Usage: #example
 Instance: TrustDemoJ2Referral
 InstanceOf: TrustDemoLaoReferral
 Title: "J2b referral to the district health center"
-Description: "Soukanh's referral of Somsack to Vientiane District Health Center: verify the two foreign DVCs and fit the doses to the national schedule."
+Description: "Vilay's referral of Somsack to Vientiane District Health Center: verify the two foreign DVCs and fit the doses to the national schedule."
 Usage: #example
 * status = #active
 * intent = #order
@@ -123,7 +123,7 @@ Usage: #example
 * code.concept.text = "Verify foreign paper DVCs and map the birth doses to the national schedule"
 * subject = Reference(TrustDemoSomsack)
 * authoredOn = "2025-11-18T10:20:00+07:00"
-* requester = Reference(TrustDemoSoukanh)
+* requester = Reference(TrustDemoVilay)
 * performer = Reference(TrustDemoVientianeDhc)
 * reason[+].concept.text = "Unverified foreign vaccination cards presented on a home visit (primarySource false)"
 * supportingInfo[+].reference = Reference(TrustDemoJ2HepBReported)

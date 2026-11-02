@@ -15,10 +15,10 @@ page maps each of its screens and payloads to them.
 
 | Journey | What happens | Library call |
 |---|---|---|
-| **J1** Born abroad | Somsack is born at Chiang Rai Provincial Hospital, Thailand (Country A). Dr Somchai gives the Hep B and BCG birth doses; the hospital issues two signed paper Digital Vaccine Certificates (DVCs) with QR codes. No Thai identity number is needed. | issuer `prepare` / host signs / `finish` |
-| **J2** Found at home | In Village 04, Lao PDR (Country B), the Community Health Worker (CHW) Soukanh adds him to his household offline, reads the foreign QRs without verifying them, saves the doses as reported, and refers the family. | `HcertVerifier.readUnverified` (STT-VER-011) |
+| **J1** Born abroad | Somsack is born at Chiang Rai Provincial Hospital, Thailand (Country A). Dr Anan gives the Hep B and BCG birth doses; the hospital issues two signed paper Digital Vaccine Certificates (DVCs) with QR codes. No Thai identity number is needed. | issuer `prepare` / host signs / `finish` |
+| **J2** Found at home | In Village 04, Lao PDR (Country B), the Community Health Worker (CHW) Vilay adds him to his household offline, reads the foreign QRs without verifying them, saves the doses as reported, and refers the family. | `HcertVerifier.readUnverified` (STT-VER-011) |
 | **J3** Made official | At Vientiane District Health Center, Nurse Chanthasone's tablet verifies the DVCs against the GDHCN trust list, imports the doses with provenance, adds the Lao schedule code beside the Thai product code, and books the 6-week doses. | `HcertVerifier.verify`, `HcertTrustStore.addDidDocument` |
-| **J4** Crossing back ("One Family, One Phone") | A year later, Bounmy's phone holds the family's records. He shares Somsack's IPS as a passcode-protected Verifiable Health Link (VHL); in Chiang Rai, Dr Somchai views it, and the access is logged in Lao PDR. | `HcertVhl` (IHE ITI VHL, `vhlink:/`, ITI-YY5) |
+| **J4** Crossing back ("One Family, One Phone") | A year later, Bounmy's phone holds the family's records. He shares Somsack's IPS as a passcode-protected Verifiable Health Link (VHL); in Chiang Rai, Dr Anan views it, and the access is logged in Lao PDR. | `HcertVhl` (IHE ITI VHL, `vhlink:/`, ITI-YY5) |
 
 Thailand is played on the GDHCN DEV network by test participant `XXR`, whose
 key also signs the WHO SMART Trust guide's worked example

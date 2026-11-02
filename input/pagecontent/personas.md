@@ -9,10 +9,10 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
 | [Caregiver](ActorDefinition-TrustDemo.Role.Caregiver.html) | The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder. | Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) | VHL Holder (IHE ITI VHL); Holder (SMART Trust) |
-| [Birth clinic vaccinator](ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html) | The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1). | Dr Somchai (clinician, Chiang Rai, Thailand) |  |
-| [Community health worker](ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html) | Finds unregistered children on home visits, registers them and refers them to the clinic (J2). | Soukanh (community health worker, Village 04, Lao PDR) |  |
+| [Birth clinic vaccinator](ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html) | The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1). | Dr Anan (clinician, Chiang Rai, Thailand) |  |
+| [Community health worker](ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html) | Finds unregistered children on home visits, registers them and refers them to the clinic (J2). | Vilay (community health worker, Village 04, Lao PDR) |  |
 | [Home clinic provider](ActorDefinition-TrustDemo.Role.HomeClinicProvider.html) | The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3). | Nurse Chanthasone (Vientiane District Health Center, Lao PDR) |  |
-| [Point-of-care provider](ActorDefinition-TrustDemo.Role.PocProvider.html) | The clinician abroad who scans the family's QR and reads the child's records (J4.1). | Dr Somchai (clinician, Chiang Rai, Thailand) |  |
+| [Point-of-care provider](ActorDefinition-TrustDemo.Role.PocProvider.html) | The clinician abroad who scans the family's QR and reads the child's records (J4.1). | Dr Anan (clinician, Chiang Rai, Thailand) |  |
 {: .grid }
 
 ### System actors

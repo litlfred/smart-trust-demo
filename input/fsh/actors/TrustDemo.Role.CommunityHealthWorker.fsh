@@ -13,6 +13,6 @@ Finds unregistered children on home visits, registers them and refers them to th
 
 **Persona**: Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity.
 
-**Played in the journeys by**: Soukanh (community health worker, Village 04, Lao PDR) (fictional).
+**Played in the journeys by**: Vilay (community health worker, Village 04, Lao PDR) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

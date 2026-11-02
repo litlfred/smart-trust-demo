@@ -54,22 +54,22 @@ Usage: #example
 * name.given = "Bounmy"
 * gender = #male
 
-Instance: TrustDemoSomchai
+Instance: TrustDemoAnan
 InstanceOf: Practitioner
-Title: "Dr Somchai (clinician, Chiang Rai, Thailand)"
+Title: "Dr Anan (clinician, Chiang Rai, Thailand)"
 Description: "Gives Somsack's birth doses and prints the DVCs (J1), and reads his record through the VHL a year later (J4.1). Fictional."
 Usage: #example
-* name.text = "Dr Somchai"
-* name.given = "Somchai"
+* name.text = "Dr Anan"
+* name.given = "Anan"
 * name.prefix = "Dr"
 
-Instance: TrustDemoSoukanh
+Instance: TrustDemoVilay
 InstanceOf: Practitioner
-Title: "Soukanh (community health worker, Village 04, Lao PDR)"
+Title: "Vilay (community health worker, Village 04, Lao PDR)"
 Description: "The CHW who finds Somsack missing from the household roster in J2. Fictional."
 Usage: #example
-* name.text = "Soukanh"
-* name.given = "Soukanh"
+* name.text = "Vilay"
+* name.given = "Vilay"
 
 Instance: TrustDemoChanthasone
 InstanceOf: Practitioner
@@ -106,7 +106,7 @@ Usage: #example
 Instance: TrustDemoChiangRaiClinic
 InstanceOf: Organization
 Title: "Chiang Rai primary care clinic, Thailand (J4.1)"
-Description: "Where Dr Somchai sees Somsack a year after his birth, back in Country A."
+Description: "Where Dr Anan sees Somsack a year after his birth, back in Country A."
 Usage: #example
 * name = "Chiang Rai primary care clinic (demonstrator)"
 * contact.address.country = "TH"
@@ -114,7 +114,7 @@ Usage: #example
 Instance: TrustDemoChwApp
 InstanceOf: Device
 Title: "CHW app (OHS, community configuration), Lao PDR"
-Description: "The offline app on Soukanh's phone (J2): household registration, triage read of foreign DVCs (STT-VER-011), referral."
+Description: "The offline app on Vilay's phone (J2): household registration, triage read of foreign DVCs (STT-VER-011), referral."
 Usage: #example
 * displayName = "CHW app, Village 04 (offline)"
 

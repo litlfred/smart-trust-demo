@@ -12,7 +12,7 @@ Parent: Patient
 Id: TrustDemoLaoPatient
 Title: "Lao PDR: child registered by the community health worker"
 Description: """
-How it is used: J2 onwards. Soukanh registers Somsack on a home visit, and the same patient carries every Lao record that follows: the verified Thai doses, the Lao doses and the summary shared in J4.
+How it is used: J2 onwards. Vilay registers Somsack on a home visit, and the same patient carries every Lao record that follows: the verified Thai doses, the Lao doses and the summary shared in J4.
 
 Why: a child born abroad is not in the Lao civil registry yet. A temporary id lets the CHW, the district clinic and the national portal all refer to the same child until civil registration catches up. The parents are recorded as contacts, because they hold the paper cards and later the family's VHLs.
 """

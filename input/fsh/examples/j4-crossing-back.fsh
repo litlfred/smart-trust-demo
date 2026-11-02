@@ -1,7 +1,7 @@
 // J4.0 and J4.1, 12 months on. The family plans a trip to Thailand. On
 // Bounmy's phone, the family wallet holds a profile for each of them; for
 // Somsack he shares a passcode-protected VHL valid for 14 days (J4.0). At a
-// primary care clinic in Chiang Rai, Dr Somchai scans it, Bounmy says the
+// primary care clinic in Chiang Rai, Dr Anan scans it, Bounmy says the
 // passcode, and the viewer fetches Somsack's IPS from Lao PDR; the Lao gateway
 // logs the access at home (J4.1). The Bundle follows the IPS document shape
 // (Composition, LOINC 60591-5) without claiming the IPS profiles, which this
@@ -92,7 +92,7 @@ Usage: #example
 * recorded = "2026-10-28T14:30:20+07:00"
 * activity.text = "Verified the VHL (HCERT) offline, fetched the manifest (ITI-YY5), decrypted the IPS (JWE)"
 * agent[+].who = Reference(TrustDemoClinicViewer)
-* agent[+].who = Reference(TrustDemoSomchai)
+* agent[+].who = Reference(TrustDemoAnan)
 * agent[+].who = Reference(TrustDemoBounmy)
 * agent[=].type.text = "Holder: showed the VHL QR and said the passcode"
 * entity[+].role = #source

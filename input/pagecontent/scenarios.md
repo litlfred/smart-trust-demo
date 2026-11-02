@@ -38,7 +38,7 @@ signed with a key whose DSC was never shared fails every receiver's
 trust-list check ([STT-VER-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006)).
 
 Khamla gives birth to Somsack on 2025-10-28 at Chiang Rai Provincial
-Hospital, away from home. He has no Thai identity number. Dr Somchai gives the
+Hospital, away from home. He has no Thai identity number. Dr Anan gives the
 Hep B and BCG birth doses and records them with their WHO PreQual product
 codes. For each dose, the hospital system does three things:
 
@@ -60,7 +60,7 @@ do not verify in J3.
 
 #### J2 — Found at home (Lao PDR, 3 weeks later)
 
-**J2a.** On a routine visit to Village 04, Soukanh finds a newborn the Lao
+**J2a.** On a routine visit to Village 04, Vilay finds a newborn the Lao
 system does not know exists. Her phone has had no signal for weeks. On the
 CHW app's newborn form (structured data capture, `TrustDemoHouseholdRegistration`)
 she adds Somsack to the Sengmany household (`TrustDemoHousehold`), with a
@@ -70,7 +70,7 @@ temporary id. Bounmy confirms the details as head of household.
 **read-unverified** ([STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011); [STT-B45-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002), [STT-ZIP-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-002), [STT-CBR-003](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003)),
 which needs no trust list. It shows the doses and saves them as reported by
 the family, not verified (`TrustDemoJ2HepBReported`, `TrustDemoJ2BcgReported`:
-`primarySource` false). Soukanh refers Somsack to the district health center
+`primarySource` false). Vilay refers Somsack to the district health center
 (`TrustDemoJ2Referral`). Everything stays queued on the phone, for 28 days if
 need be, and syncs when it next reaches a signal.
 
@@ -148,7 +148,7 @@ weekly at the offline J3 clinic. It does not need to be online to verify:
 verifying reads the cache and never fetches the list. A DSC published after
 the last refresh fails the trust-list check ([STT-VER-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006)), naming that reason.
 
-Back where it began, Dr Somchai sees Somsack at a primary care clinic in
+Back where it began, Dr Anan sees Somsack at a primary care clinic in
 Chiang Rai. Bounmy shows the QR on his phone and says the passcode. The
 clinic viewer and the Lao gateway take five steps:
 
@@ -156,13 +156,13 @@ clinic viewer and the Lao gateway take five steps:
 2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures ([STT-VHL-005](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005), [STT-VHL-006](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-006), [STT-VHL-008](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008)).
 3. The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home (`TrustDemoJ41Access`).
 4. The viewer decrypts the IPS and DVCs ([STT-VHL-007](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007)) (`TrustDemoJ41Received`).
-5. It shows them to Dr Somchai: every dose since the birth, viewed, never copied.
+5. It shows them to Dr Anan: every dose since the birth, viewed, never copied.
 
 A wrong passcode is refused, and the attempt is still logged in Lao PDR
 (`TrustDemoJ41WrongPasscode`). If the HCERT does not verify (for example,
 Country B's DSC is missing from the cached list), there is no digital
 verification. The clinic names the step and the reason ([STT-VER-008](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008)), does not
-follow the VHL, and Dr Somchai treats whatever the family can show as he
+follow the VHL, and Dr Anan treats whatever the family can show as he
 would a paper record.
 
 - *Pain point:* without the history, the doctor would repeat vaccines or have to guess.

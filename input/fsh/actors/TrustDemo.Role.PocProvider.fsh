@@ -13,6 +13,6 @@ The clinician abroad who scans the family's QR and reads the child's records (J4
 
 **Persona**: Has minutes, no prior relationship with the family, and her own hospital's system.
 
-**Played in the journeys by**: Dr Somchai (clinician, Chiang Rai, Thailand) (fictional).
+**Played in the journeys by**: Dr Anan (clinician, Chiang Rai, Thailand) (fictional).
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

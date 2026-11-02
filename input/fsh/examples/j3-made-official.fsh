@@ -20,7 +20,7 @@ Usage: #example
 * occurrenceDateTime = "2025-10-28T09:15:00+07:00"
 * primarySource = true
 * informationSource.reference = Reference(TrustDemoChiangRaiHospital)
-* performer.actor = Reference(TrustDemoSomchai)
+* performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-4821"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
 * protocolApplied.doseNumber = "1"
@@ -39,7 +39,7 @@ Usage: #example
 * occurrenceDateTime = "2025-10-28T09:20:00+07:00"
 * primarySource = true
 * informationSource.reference = Reference(TrustDemoChiangRaiHospital)
-* performer.actor = Reference(TrustDemoSomchai)
+* performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-9012"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
 * protocolApplied.doseNumber = "1"

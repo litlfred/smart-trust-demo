@@ -13,7 +13,7 @@ The harness sources stay the single source of truth:
                                     and systems that play each role)
 - scenarios/stories.json and the "User scenarios" section of
   docs/journeys.md               -> input/pagecontent/scenarios.md
-- docs/images/*.svg              -> data URIs in docs/index.md (data-svg)
+- docs/images/*                 -> data URIs in docs/index.md (data-img)
 - docs/*.md and docs/*/*.md      -> input/pagecontent/<page>.md (DOC_PAGES),
                                     so the IG site carries the project pages
                                     and is the one site at the root
@@ -276,16 +276,17 @@ def doc_page(src, text=None):
     return HEADER.format(src=src) + text.lstrip("\n")
 
 
-def inline_svgs(src):
-    """A docs page with each <img data-svg="images/x.svg" src="..."> carrying
-    that SVG as a data URI, since neither the docs site nor the IG's AST route
-    copies image files. docs/images/*.svg stay the editable source."""
+def inline_images(src):
+    """A docs page with each <img data-img="images/x.jpg|svg|png" src="...">
+    carrying that image as a data URI, since neither the docs site nor the
+    IG's AST route copies image files. docs/images/ stays the source."""
     text = (ROOT / src).read_text()
+    mime = {"svg": "image/svg+xml", "jpg": "image/jpeg", "png": "image/png"}
 
     def inline(m):
         data = base64.b64encode((ROOT / "docs" / m.group(1)).read_bytes()).decode("ascii")
-        return f'data-svg="{m.group(1)}" src="data:image/svg+xml;base64,{data}"'
-    return re.sub(r'data-svg="(images/[\w.-]+\.svg)" src="[^"]*"', inline, text)
+        return f'data-img="{m.group(1)}" src="data:{mime[m.group(2)]};base64,{data}"'
+    return re.sub(r'data-img="(images/[\w.-]+\.(svg|jpg|png))" src="[^"]*"', inline, text)
 
 
 def build():
@@ -300,7 +301,7 @@ def build():
     files["input/pagecontent/system-actors.md"] = gen_system_actors(roles, by_role)
     files["input/pagecontent/business-processes.md"] = gen_processes(procs, roles)
     files["input/pagecontent/scenarios.md"] = gen_scenarios(roles)
-    files["docs/index.md"] = inline_svgs("docs/index.md")
+    files["docs/index.md"] = inline_images("docs/index.md")
     for src, name in DOC_PAGES.items():
         files[f"input/pagecontent/{name}.md"] = doc_page(src, files.get(src))
     for rel in files:

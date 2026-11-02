@@ -31,7 +31,7 @@ Parent: Immunization
 Id: TrustDemoThImmunization
 Title: "Thailand: dose given at the birth hospital (DVC source)"
 Description: """
-How it is used: J1. Each birth dose (Hep B, BCG) that Dr Somchai gives is recorded here first. The hospital then packs it into a Digital Vaccination Certificate (HCERT, signed with XXR's key) and prints it as a QR card.
+How it is used: J1. Each birth dose (Hep B, BCG) that Dr Anan gives is recorded here first. The hospital then packs it into a Digital Vaccination Certificate (HCERT, signed with XXR's key) and prints it as a QR card.
 
 Why: the DVC can only carry what this record holds. The vaccine product, date, lot, dose number and the administering organization are exactly the fields the HCERT certificate needs. They are required here so every printed card is complete. The product is coded from the WHO PreQual-style product list, because that is the code Lao PDR will later map to its own schedule (J3).
 """

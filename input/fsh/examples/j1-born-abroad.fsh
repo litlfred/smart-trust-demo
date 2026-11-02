@@ -1,5 +1,5 @@
 // J1, Chiang Rai Provincial Hospital, Thailand (Country A), 2025-10-28 (T0).
-// Somsack is born; Dr Somchai gives the Hep B and BCG birth doses; the
+// Somsack is born; Dr Anan gives the Hep B and BCG birth doses; the
 // hospital records them under its own hospital number and prints one signed
 // DVC (HCERT, XXR's key, kid 916ffa567c0f44a2) per dose. These are the Thai
 // records behind those cards; the Lao records of the same doses are in J2
@@ -31,7 +31,7 @@ Usage: #example
 * vaccineCode.coding[cvx] = $cvx#08 "Hep B, adolescent or pediatric"
 * patient = Reference(TrustDemoThSomsack)
 * occurrenceDateTime = "2025-10-28T09:15:00+07:00"
-* performer.actor = Reference(TrustDemoSomchai)
+* performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-4821"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
 * protocolApplied.doseNumber = "1"
@@ -44,7 +44,7 @@ Usage: #example
 * vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-bcg-freeze-dried "BCG vaccine, freeze-dried"
 * patient = Reference(TrustDemoThSomsack)
 * occurrenceDateTime = "2025-10-28T09:20:00+07:00"
-* performer.actor = Reference(TrustDemoSomchai)
+* performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-9012"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
 * protocolApplied.doseNumber = "1"
