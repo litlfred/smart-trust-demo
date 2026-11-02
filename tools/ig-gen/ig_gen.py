@@ -13,6 +13,7 @@ The harness sources stay the single source of truth:
                                     and systems that play each role)
 - scenarios/stories.json and the "User scenarios" section of
   docs/journeys.md               -> input/pagecontent/scenarios.md
+- docs/images/*.svg              -> data URIs in docs/index.md (data-svg)
 - docs/*.md and docs/*/*.md      -> input/pagecontent/<page>.md (DOC_PAGES),
                                     so the IG site carries the project pages
                                     and is the one site at the root
@@ -262,24 +263,29 @@ DOC_PAGES = {
 }
 
 
-def doc_page(src):
+def doc_page(src, text=None):
     """One docs page as an IG page: no front matter, no H1 (the IG gives the
     title), headings one level down, links to moved pages at their IG names."""
-    text = (ROOT / src).read_text()
+    text = text if text is not None else (ROOT / src).read_text()
     text = re.sub(r"\A---\n.*?\n---\n", "", text, flags=re.S)
     text = re.sub(r"\A\s*# [^\n]*\n", "", text)
     text = re.sub(r"^(#{2,5}) ", lambda m: "#" + m.group(1) + " ", text, flags=re.M)
     for other, name in DOC_PAGES.items():
         old = other[len("docs/"):-len(".md")] + ".html"
         text = re.sub(r"\]\((?:\.\./)?" + re.escape(old) + r"(#[^)]*)?\)", lambda m: f"]({name}.html{m.group(1) or ''})", text)
-    # Images under docs/images/ go into the page as data URIs, since the IG's
-    # AST route copies no image files.
-    def inline(m):
-        img = ROOT / "docs" / m.group(1)
-        data = base64.b64encode(img.read_bytes()).decode("ascii")
-        return f'src="data:image/svg+xml;base64,{data}"'
-    text = re.sub(r'src="(images/[\w.-]+\.svg)"', inline, text)
     return HEADER.format(src=src) + text.lstrip("\n")
+
+
+def inline_svgs(src):
+    """A docs page with each <img data-svg="images/x.svg" src="..."> carrying
+    that SVG as a data URI, since neither the docs site nor the IG's AST route
+    copies image files. docs/images/*.svg stay the editable source."""
+    text = (ROOT / src).read_text()
+
+    def inline(m):
+        data = base64.b64encode((ROOT / "docs" / m.group(1)).read_bytes()).decode("ascii")
+        return f'data-svg="{m.group(1)}" src="data:image/svg+xml;base64,{data}"'
+    return re.sub(r'data-svg="(images/[\w.-]+\.svg)" src="[^"]*"', inline, text)
 
 
 def build():
@@ -294,8 +300,9 @@ def build():
     files["input/pagecontent/system-actors.md"] = gen_system_actors(roles, by_role)
     files["input/pagecontent/business-processes.md"] = gen_processes(procs, roles)
     files["input/pagecontent/scenarios.md"] = gen_scenarios(roles)
+    files["docs/index.md"] = inline_svgs("docs/index.md")
     for src, name in DOC_PAGES.items():
-        files[f"input/pagecontent/{name}.md"] = doc_page(src)
+        files[f"input/pagecontent/{name}.md"] = doc_page(src, files.get(src))
     for rel in files:
         if rel.endswith(".md"):
             files[rel] = link_reqs(files[rel])
