@@ -252,6 +252,7 @@ def gen_scenarios(roles):
 # A page in a docs/ subdirectory becomes a flat IG page (the IG Publisher has
 # no subdirectories); the old address forwards to it (FORWARDS).
 DOC_PAGES = {
+    "docs/index.md": "index",
     "docs/journeys.md": "journeys",
     "docs/vaxlink-examples.md": "vaxlink-examples",
     "docs/plan.md": "plan",
@@ -271,6 +272,13 @@ def doc_page(src):
     for other, name in DOC_PAGES.items():
         old = other[len("docs/"):-len(".md")] + ".html"
         text = re.sub(r"\]\((?:\.\./)?" + re.escape(old) + r"(#[^)]*)?\)", lambda m: f"]({name}.html{m.group(1) or ''})", text)
+    # Images under docs/images/ go into the page as data URIs, since the IG's
+    # AST route copies no image files.
+    def inline(m):
+        img = ROOT / "docs" / m.group(1)
+        data = base64.b64encode(img.read_bytes()).decode("ascii")
+        return f'src="data:image/svg+xml;base64,{data}"'
+    text = re.sub(r'src="(images/[\w.-]+\.svg)"', inline, text)
     return HEADER.format(src=src) + text.lstrip("\n")
 
 
