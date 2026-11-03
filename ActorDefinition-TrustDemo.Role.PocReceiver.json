@@ -11,7 +11,7 @@
   "title" : "Point-of-care receiver",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-10-29T10:30:32+00:00",
+  "date" : "2026-11-02T17:55:42+00:00",
   "publisher" : "litlfred",
   "contact" : [{
     "name" : "litlfred",
@@ -20,7 +20,7 @@
       "value" : "https://github.com/litlfred/smart-trust-demo"
     }]
   }],
-  "description" : "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Hospital system abroad (J4.1) (fictional).",
+  "description" : "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Chiang Rai primary care clinic viewer, Thailand (J4.1) (fictional).",
   "type" : "system",
   "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
   "derivedFrom" : ["https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver",

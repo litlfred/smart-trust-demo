@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <link rel="stylesheet" href="/smart-trust-demo/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="../../../assets/css/just-the-docs-default.css">
 
-  <link rel="stylesheet" href="/smart-trust-demo/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
   <style id="jtd-nav-activation">
   
@@ -20,10 +20,10 @@
   
 
   
-    <script src="/smart-trust-demo/assets/js/vendor/lunr.min.js"></script>
+    <script src="../../../assets/js/vendor/lunr.min.js"></script>
   
 
-  <script src="/smart-trust-demo/assets/js/just-the-docs.js"></script>
+  <script src="../../../assets/js/just-the-docs.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -36,8 +36,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Translation Workflow" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family (birth-dose DVCs abroad, CHW triage read, clinic verification and schedule, family VHLs on one phone) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family (birth-dose DVCs abroad, CHW triage read, clinic verification and schedule, family VHLs on one phone) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-workflow.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-workflow.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Translation Workflow" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family (birth-dose DVCs abroad, CHW triage read, clinic verification and schedule, family VHLs on one phone) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Translation Workflow","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-workflow.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Translation Workflow","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-workflow.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -137,7 +137,7 @@
   `mark-small` in `harness.json`, and it went unread: nothing in this
   repo ever emitted a favicon at all, `rel="icon"` included. It also could
   not have driven this lookup as declared — `imagesForRole()`
-  (`schemas/kg-node.ts`) requires an image's `layout` field, which neither
+  (`schemas/kg/kg-node.ts`) requires an image's `layout` field, which neither
   mark entry carries, so a `browser-icon`-role lookup returns nothing. Reusing
   the already-resolved `icon` (the same field `title.html` reads) sidesteps
   that and, more importantly, is what was asked for: the sidebar mark and the
@@ -269,9 +269,9 @@
   "translationQa":{
     "key": "page.translation",
     "slug": "en-cat-harness-processes-translation-workflow",
-    "src": "/smart-trust-demo/assets/qa/en-cat-harness-processes-translation-workflow/page.translation.json",
-    "index": "/smart-trust-demo/assets/qa/en-cat-harness-processes-translation-workflow/qa-index.json",
-    "list": "/smart-trust-demo/assets/qa/translation-qa-pages.json"
+    "src": "../../../assets/qa/en-cat-harness-processes-translation-workflow/page.translation.json",
+    "index": "../../../assets/qa/en-cat-harness-processes-translation-workflow/qa-index.json",
+    "list": "../../../assets/qa/translation-qa-pages.json"
   },
   "sweep":{
     "absent": "smart-trust-demo publishes no translation QA sweep on this site",
@@ -281,7 +281,7 @@
     "pagesWithTranslations": 0,
     "complete": false
   },
-  "statusSrc":"/smart-trust-demo/assets/translation-status/index.json"
+  "statusSrc":"../../../assets/translation-status/index.json"
 }</script>
 <!--
   Where the action tiles point.
@@ -293,7 +293,7 @@
   graph exporter and the Pages workflow use. The tile therefore cannot
   disagree with what is published.
 
-  This block previously wrote `/smart-trust-demo/kg/` by hand. Nothing
+  This block previously wrote `../../../kg/` by hand. Nothing
   has ever been published at `<base>/kg/` -- the renderings sit at the base,
   named after the stub -- so the only entry point to the viewer anywhere on
   this site was a 404 from the day it was added. See bean `udx8`, and the
@@ -323,9 +323,17 @@
   visualisations plus `siteLinks`. Nothing about the row is decided in Liquid
   or in JavaScript.
 -->
-<script type="application/json" id="fa-navbar-row">{"icons":["close","todos","beans","fsh-guts","qr","launcher"],"hrefs":{},"notes":{"beans":"no viewer yet"},"folders":[{"kind":"beans","label":"Beans","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"memory","label":"Memory","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/memory/smart-trust-demo/"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/processes/"},{"kind":"scenarios","label":"Scenarios","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/smart-trust-demo/"},{"kind":"skills","label":"Skills","note":"no viewer yet"}]}</script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
+<!--
+  EMPTY HERE, FILLED BY `assets/js/harness-data.js` (bean `gp2f`, page weight).
+  The row is the same on every page of a build, so it is written once into a
+  cached file instead of into each page. `data-fa-row-src` is the contract the
+  railed pages already use (`withNavbarRow` in harness-rail.ts): the file drops
+  the name once it has filled the island, and a reader that finds it still
+  named and empty reports a failed load rather than "declared none".
+-->
+<script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><!-- NOT MOVED, deliberately. Measured, with the reason and the condition for
      moving it, in assets/harness/site.json's front matter. -->
-<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/smart-trust-demo/","jsonld":"https://litlfred.github.io/folio-assistant/smart-trust-demo.jsonld","source":"https://github.com/litlfred/smart-trust-demo"}</script>
+<script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/smart-trust-demo/","jsonld":"https://litlfred.github.io/folio-assistant/smart-trust-demo/smart-trust-demo.jsonld","source":"https://github.com/litlfred/smart-trust-demo"}</script>
 
 <!--
   The todo index — a PERSON's outstanding items, published by
@@ -350,11 +358,11 @@
 <!-- THE SITE INDEX, published once. docs-ui.js reads an ISLAND FIRST where a
      page has one and falls back to this. Rationale and measurement are in that
      file's front matter, which is not served. -->
-<meta name="fa-site-index-src" content="/smart-trust-demo/assets/harness/site.json">
-<meta name="fa-todo-src" content="/smart-trust-demo/assets/todos/index.json">
+<meta name="fa-site-index-src" content="../../../assets/harness/site.json">
+<meta name="fa-todo-src" content="../../../assets/todos/index.json">
 <!-- The todo GRAPH (#1941): the typed edges — node, person, bean — the board
      filters and groups by, and each todo's own page. -->
-<meta name="fa-todo-graph" content="/smart-trust-demo/todos.jsonld">
+<meta name="fa-todo-graph" content="../../../todos.jsonld">
 
 <!--
   THE SEMANTIC-ZOOM DECLARATION — when the card stops rendering its words and
@@ -372,7 +380,7 @@
   generator wrote the file, and a conditional that guessed would make "this
   folio declares no threshold" and "the build did not run" the same page.
 -->
-<meta name="fa-zoom-src" content="/smart-trust-demo/assets/semantic-zoom.json">
+<meta name="fa-zoom-src" content="../../../assets/semantic-zoom.json">
 
 <!--
   THE DECLARED VISUALISATIONS, as tiles.
@@ -393,7 +401,14 @@
   otherwise close the attribute, and the quoting rule is Liquid's rather than
   something this comment has to be right about.
 -->
-<meta name="fa-tiles" content="[]">
+<!--
+  THE CONTENT IS FILLED BY `assets/js/harness-data.js` (bean `gp2f`). The list
+  is the same on every page and was 12.5 KB of each one (measured on gh-pages
+  1ad53fa, 2026-10-23). That file is a deferred script ahead of `docs-ui.js`,
+  and deferred scripts run in document order, so the tiles are in place before
+  the first reader runs: no later paint than the inlined copy had.
+-->
+<meta name="fa-tiles" content="" data-fa-src="harness-data">
 <!--
   THE GLASS STRIP'S PINNED TILES, in order (owner, 2026-10-01, bean `ob3m`
   finding 10: "Pinned tiles first, plus '+N more'"). Resolved from the
@@ -424,8 +439,14 @@
   block means the day it goes missing every tile silently points at the origin
   again — which is this defect, with a second way to reach it. Two reasons for
   one answer now.
+
+  RELATIVE TO THIS PAGE since bean `g196` (2026-10-23): `.` at the root,
+  `../..` two levels down, never the deploy's path, so the page is the same
+  bytes in every preview. `_plugins/fa-root-relative.rb` does that to every
+  `site.baseurl` and `relative_url` on an HTML page; `siteBaseurl()` in
+  `docs-ui.js` and `navbar-row.js` resolves it back to an absolute path.
 -->
-<meta name="fa-baseurl" content="/smart-trust-demo">
+<meta name="fa-baseurl" content="../../..">
 
 <!--
   WHETHER THIS IS A PREVIEW, for the tiles above.
@@ -451,6 +472,10 @@
   the tile. That matches `compose-docs.ts`, which withholds unless positively
   told `--staging` — one direction in both places, so the page and its tile
   cannot disagree about which deploy they are on.
+
+  A CONSTANT, `preview`, rather than the slug (bean `g196`, 2026-10-23): every
+  reader asks only whether it is empty, and the slug made every page differ
+  between previews. The branch is in `staging.json`, which the banner reads.
 -->
 <meta name="fa-staging" content="">
 
@@ -495,7 +520,7 @@
   graphs with separate declarations, and a consumer that wants only the human
   half should not fetch 239 beans to get three todos.
 -->
-<meta name="fa-beans-src" content="/smart-trust-demo/assets/beans/index.json">
+<meta name="fa-beans-src" content="../../../assets/beans/index.json">
 <!--
   The process index's entry point — the REPOSITORY's named-subgraph index,
   whose children are the harness roots this site frames (`bun run
@@ -504,7 +529,7 @@
   `[data-fa-process-index]` (the publication-workflow page), which walks it
   down to every `processes` subgraph's `index.hydrated.jsonld`.
 -->
-<meta name="fa-processes-src" content="/smart-trust-demo/subgraph/index.jsonld">
+<meta name="fa-processes-src" content="../../../subgraph/index.jsonld">
 <!--
   The deploy's stamp — when it was built and from which commit — which the
   work-plan dashboard turns into "generated … · N commits behind main".
@@ -512,7 +537,7 @@
   deploy, never committed, because a committed timestamp is a merge conflict
   on every pair of concurrent changes (bean `y7b3`).
 -->
-<meta name="fa-build-src" content="/smart-trust-demo/build.json">
+<meta name="fa-build-src" content="../../../build.json">
 
 <!--
   The discarded-items document — `fsh-guts.jsonld`, published at the base by
@@ -539,7 +564,7 @@
   (`foreignSite.absent.fshGuts`, `lib/foreign-site-scope.ts`).
 -->
 <!--
-  ?v=<build time> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
+  ?v=<content hash> ON EVERY FIRST-PARTY ASSET — and the reason is a REVIEW
   failure, not a performance one.
 
   These five are served from stable paths with no hash in the name, so a
@@ -552,42 +577,43 @@
   2026-09-21 on this branch: every byte of the change was verified present in
   the publish ref while the page rendered the previous build.
 
-  `site.time` is the BUILD's timestamp, so the query changes exactly when the
-  bytes might have, and never between two readers of the same build. A
-  content hash would be tighter and needs a pipeline step; this needs none
-  and closes the case that costs review time.
+  The query is a HASH OF THE ASSET (`fa_asset_version`,
+  `_plugins/fa-asset-version.rb`), so it changes exactly when the served bytes
+  do. It was `site.time` until 2026-10-23, and the build time is new on every
+  build: every page then differed on every rebuild, so each re-push of a
+  preview stored a whole new copy of its HTML (bean `g196`).
 
   NOT a cache-busting strategy for third-party assets, and not applied to
   them: those are versioned in their own URLs already.
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/navbar-row.css?v=1793270092">
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/docs-ui.css?v=1793270092">
+<link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/narrow-viewport.css?v=1793270092">
+<link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2">
 
 <!--
   The work-plan dashboard's styles, split from docs-ui.css so that
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/work-plan.css?v=1793270092">
-<!-- Sticky themes. GENERATED from the theme nodes in `schemas/themes.ts` by
+<link rel="stylesheet" href="../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/themes.css?v=1793270092">
+<link rel="stylesheet" href="../../../assets/css/themes.css?v=5c199f8420d3">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/uml.css?v=1793270092">
-<!-- Kind avatars. GENERATED from `schemas/avatars.ts` by `bun run cat avatars:css`;
+<link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66">
+<!-- Kind avatars. GENERATED from `schemas/content/avatars.ts` by `bun run cat avatars:css`;
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="/smart-trust-demo/assets/css/avatars.css?v=1793270092">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=728aae53f477">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -603,17 +629,29 @@
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
 <script type="application/json" id="fa-declared-kinds">["beans","code","memory","processes","scenarios","skills"]</script>
-<script src="/smart-trust-demo/assets/js/vendor/qrcode.js" defer></script>
-<script src="/smart-trust-demo/assets/js/vendor/qrcode_UTF8.js" defer></script>
+<!--
+  FIRST of the deferred scripts: it fills `#fa-navbar-row` and
+  `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
+
+  NO VERSION QUERY, unlike every other first-party asset here. This file carries LIVE
+  COUNTS (open beans, todos), so it changes whenever one bean opens or closes.
+  A version query naming its content would write that change into every page: two
+  previews built 25 minutes apart differed on 1,351 pages for one count going
+  133 -> 132 (bean `g196`, 2026-10-23). Unversioned, a stale copy lives only as
+  long as GitHub Pages' cache (about 10 minutes), and the pages stay the same.
+-->
+<script src="../../../assets/js/harness-data.js" defer></script>
+<script src="../../../assets/js/vendor/qrcode.js" defer></script>
+<script src="../../../assets/js/vendor/qrcode_UTF8.js" defer></script>
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
-<script src="/smart-trust-demo/assets/js/kg-render.js" defer></script>
+<script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="/smart-trust-demo/assets/js/navbar-row.js?v=1793270092" defer></script>
-<script src="/smart-trust-demo/assets/js/docs-ui.js?v=1793270092" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="/smart-trust-demo/assets/js/edit-links.js?v=1793270092" defer></script>
+<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -621,12 +659,12 @@
   page without that container pays one failed querySelector. The same file is
   inlined verbatim into the generated state-visualiser pages.
 -->
-<script src="/smart-trust-demo/assets/js/work-plan.js" defer></script>
+<script src="../../../assets/js/work-plan.js" defer></script>
 <!--
   The process index, self-mounting on `[data-fa-process-index]` the same way.
   Its rows are the diagrams' own documentation, from the published subgraph JSON-LD.
 -->
-<script src="/smart-trust-demo/assets/js/process-index.js" defer></script>
+<script src="../../../assets/js/process-index.js" defer></script>
 
 <!--
   The landing panel — the instance's declared description drawn inside the
@@ -698,9 +736,9 @@
   is broken when it is doing exactly what it can.
 -->
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-1pfetyl3drl.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-2g59l8l0q63.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-1pfetyl3drl","here":"/en/cat-harness/processes/translation-workflow.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-2g59l8l0q63","here":"/en/cat-harness/processes/translation-workflow.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -863,11 +901,23 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), t.name, "task");
+    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
     task.appendChild(el("div", "pt-attr", "id = " + t.id));
-    if (t.lane) task.appendChild(el("div", "pt-attr", "lane = " + t.lane));
+    if (t.lane) { var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref })); task.appendChild(ln); }
+    if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
     panel.appendChild(task);
-    if (t.calls) { panel.appendChild(edge("calls")); panel.appendChild(obj("Process", link(t.calls), "proc")); }
+    if (t.calls) {
+      panel.appendChild(edge("calls"));
+      var cp = obj("Process", link(t.calls), "proc");
+      if (t.calls.diagram && t.calls.diagram !== t.calls.href) { var dg = el("div", "pt-attr"); dg.appendChild(link({ name: "diagram", href: t.calls.diagram })); cp.appendChild(dg); }
+      panel.appendChild(cp);
+    }
+    if (t.shared) {
+      panel.appendChild(edge("calls"));
+      var gt = obj(t.shared.type.replace(/^bpmn:/, ""), t.shared.id, "proc");
+      Object.keys(t.shared.inputs || {}).forEach(function (k) { gt.appendChild(el("div", "pt-attr", k + " = " + t.shared.inputs[k])); });
+      panel.appendChild(gt);
+    }
     t.skills.forEach(function (s) {
       panel.appendChild(edge("requires"));
       var sk = obj("Skill", link(s), "skill");
@@ -925,6 +975,7 @@
   <li><strong>Called by:</strong> no call activity names this process</li>
   <li><strong>Calls:</strong> <a href="adjudication.html">Adjudication</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
   
@@ -1113,67 +1164,6 @@
 
   
     
-
-
-
-
-
-<script type="module">
-  
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs';
-  
-
-  var config = /* Mermaid configuration for this docs site.
-
-   just-the-docs interpolates this file's contents directly into
-   `var config = <here>; mermaid.initialize(config);`
-   — see that theme's `_includes/components/mermaid.html` — so this must be a
-   bare JavaScript object literal. No `export`, no statements, no semicolon.
-
-   DIAGRAMS ARE ALWAYS LIGHT, IN BOTH COLOUR SCHEMES. The site's stylesheet
-   follows the reader's choice; the drawings do not. They render in Mermaid's
-   light palette on a white card supplied by `.fa-figure-wrap`
-   (site-chrome/assets/css/docs-ui.css), exactly like the BPMN exports beside them,
-   which carry their own white backdrop and cannot follow a scheme at all.
-
-   This reverses a decision made an hour earlier in this session, and the
-   reversal is the whole point of the comment. Setting `theme: "dark"` did fix
-   the ORIGINAL complaint — pale nodes glaring on a dark page — and replaced it
-   with a worse one: dark-on-dark, the diagram's own near-black background
-   dissolving into the page and the text with it. Owner's call, and it is the
-   right one: a schematic is a figure, figures are printed on white, and one
-   consistent treatment across BPMN and Mermaid beats two that each look
-   correct only in one mode.
-
-   Consequence worth knowing: the palette no longer depends on the reader's
-   scheme, so the header's light/dark toggle does not need to re-render
-   anything and no longer reloads the page on diagram pages.
-
-   The PARENTHESES are load-bearing. A bare `{ "theme": ... }` at the start of
-   a statement parses as a BLOCK, not an object, so eslint rejects it with
-   "';' expected" — and eslint lints this file, which is free syntax checking
-   worth keeping. `var config = ({ ... });` is exactly as valid as without
-   them, so the wrapper costs nothing and buys the linter. */
-(({
-  "theme": "default",
-  "themeVariables": {
-    /* Match the card the diagram sits on, so its own backdrop and the
-       wrapper's are the same white rather than two near-whites with a seam. */
-    "background": "#ffffff"
-  },
-  /* Long swimlane labels wrap rather than forcing the diagram wider than the
-     zoom controls can usefully bring back. */
-  "flowchart": { "useMaxWidth": true }
-}))
-;
-  mermaid.initialize(config);
-  mermaid.run({
-    querySelector: '.language-mermaid',
-  });
-</script>
-
-
-
   
 </body>
 </html>

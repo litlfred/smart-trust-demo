@@ -1,39 +1,48 @@
 {
   "resourceType" : "Provenance",
   "id" : "TrustDemoJ41Received",
+  "meta" : {
+    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThVhlReceipt"]
+  },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Provenance TrustDemoJ41Received</b></p><a name=\"TrustDemoJ41Received\"> </a><a name=\"hcTrustDemoJ41Received\"> </a><p>Provenance for <a href=\"Bundle-TrustDemoJ4Ips.html\">Bundle: identifier = UUID:5f0c3a8e-2b1d-4c7e-9a64-1d2e3f4a5b6c; type = document; timestamp = 2026-11-20 10:00:00+0000</a></p><p>Summary</p><table class=\"grid\"><tr><td>Recorded</td><td>2026-12-05 21:40:00+0000</td></tr><tr><td>Activity</td><td><span title=\"Codes:\">Verified the VHL (HCERT) offline, fetched the manifest (ITI-YY5), decrypted the IPS (JWE)</span></td></tr></table><p><b>Agents</b></p><table class=\"grid\"><tr><td><b>Type</b></td><td><b>who</b></td></tr><tr><td/><td><a href=\"Device-TrustDemoPocReceiver.html\">Device: displayName = Point-of-care hospital system abroad</a></td></tr><tr><td/><td><a href=\"Practitioner-TrustDemoAnaMoreira.html\">Ana MOREIRA</a></td></tr><tr><td><span title=\"Codes:\">Holder: showed the VHL QR and gave the passcode</span></td><td><a href=\"RelatedPerson-TrustDemoMali.html\">Mali SOUVANNALATH - mother</a></td></tr></table><p><b>Entities</b></p><table class=\"grid\"><tr><td><b>Role</b></td><td><b>What</b></td></tr><tr><td>Source</td><td>VHL for Chanthala (HCERT, VHL at key 5), issued by Country B (XXH)</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Provenance TrustDemoJ41Received</b></p><a name=\"TrustDemoJ41Received\"> </a><a name=\"hcTrustDemoJ41Received\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoThVhlReceipt.html\">Thailand: record of a summary read through a VHL</a></p></div><p>Provenance for <a href=\"Bundle-TrustDemoJ4Ips.html\">Bundle: identifier = UUID:8d3f1c52-6a4e-4b0f-9c1d-2e7a5b9f0c31; type = document; timestamp = 2026-10-26 09:00:00+0700</a></p><p>Summary</p><table class=\"grid\"><tr><td>Recorded</td><td>2026-10-28 14:30:20+0700</td></tr><tr><td>Activity</td><td><span title=\"Codes:\">Verified the VHL (HCERT) offline, fetched the manifest (ITI-YY5), decrypted the IPS (JWE)</span></td></tr></table><p><b>Agents</b></p><table class=\"grid\"><tr><td><b>Type</b></td><td><b>who</b></td></tr><tr><td/><td><a href=\"Device-TrustDemoClinicViewer.html\">Device: displayName = Chiang Rai clinic VHL viewer</a></td></tr><tr><td/><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr><tr><td><span title=\"Codes:\">Holder: showed the VHL QR and said the passcode</span></td><td><a href=\"RelatedPerson-TrustDemoBounmy.html\">Bounmy SENGMANY - father</a></td></tr></table><p><b>Entities</b></p><table class=\"grid\"><tr><td><b>Role</b></td><td><b>What</b></td></tr><tr><td>Source</td><td>VHL for Somsack (HCERT, VHL at key 5), issued by Country B (XXH)</td></tr><tr><td>Source</td><td><a href=\"Consent-TrustDemoJ4Consent.html\">TrustDemoJ4Consent</a></td></tr></table></div>"
   },
   "target" : [{
     "reference" : "Bundle/TrustDemoJ4Ips"
   }],
-  "recorded" : "2026-12-05T21:40:00Z",
+  "recorded" : "2026-10-28T14:30:20+07:00",
   "activity" : {
     "text" : "Verified the VHL (HCERT) offline, fetched the manifest (ITI-YY5), decrypted the IPS (JWE)"
   },
   "agent" : [{
     "who" : {
-      "reference" : "Device/TrustDemoPocReceiver"
+      "reference" : "Device/TrustDemoClinicViewer"
     }
   },
   {
     "who" : {
-      "reference" : "Practitioner/TrustDemoAnaMoreira"
+      "reference" : "Practitioner/TrustDemoAnan"
     }
   },
   {
     "type" : {
-      "text" : "Holder: showed the VHL QR and gave the passcode"
+      "text" : "Holder: showed the VHL QR and said the passcode"
     },
     "who" : {
-      "reference" : "RelatedPerson/TrustDemoMali"
+      "reference" : "RelatedPerson/TrustDemoBounmy"
     }
   }],
   "entity" : [{
     "role" : "source",
     "what" : {
-      "display" : "VHL for Chanthala (HCERT, VHL at key 5), issued by Country B (XXH)"
+      "display" : "VHL for Somsack (HCERT, VHL at key 5), issued by Country B (XXH)"
+    }
+  },
+  {
+    "role" : "source",
+    "what" : {
+      "reference" : "Consent/TrustDemoJ4Consent"
     }
   }]
 }

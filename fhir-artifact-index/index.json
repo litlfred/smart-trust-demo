@@ -8,12 +8,12 @@
   "source": {
     "kind": "output",
     "of": "output-ast",
-    "revision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-    "readAt": "2026-10-29"
+    "revision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+    "readAt": "2026-11-02"
   },
   "provenance": {},
   "sidecarApi": "unknown",
-  "count": 30,
+  "count": 70,
   "artifacts": [
     {
       "key": "ActorDefinition/TrustDemo.Role.BirthClinicSystem",
@@ -21,7 +21,7 @@
       "id": "TrustDemo.Role.BirthClinicSystem",
       "name": "BirthClinicSystem",
       "title": "Birth clinic issuing system",
-      "description": "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by**: Provincial hospital system, Country A (XXR) (fictional).",
+      "description": "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by**: Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicSystem",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -57,10 +57,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -69,7 +69,7 @@
       "id": "TrustDemo.Role.BirthClinicVaccinator",
       "name": "BirthClinicVaccinator",
       "title": "Birth clinic vaccinator",
-      "description": "The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1).\n\n**Persona**: A maternity-ward clinician who records doses in the hospital system and prints what it produces.\n\n**Played in the journeys by**: Dr Pimchanok WATTANA (birth clinic, abroad) (fictional).",
+      "description": "The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1).\n\n**Persona**: A maternity-ward clinician who records doses in the hospital system and prints what it produces.\n\n**Played in the journeys by**: Dr Anan (clinician, Chiang Rai, Thailand) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicVaccinator",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -105,10 +105,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -117,7 +117,7 @@
       "id": "TrustDemo.Role.Caregiver",
       "name": "Caregiver",
       "title": "Caregiver",
-      "description": "The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder.\n\n**Persona**: A parent carrying a newborn's records across borders on paper and one shared phone; no health training, little time, limited connectivity.\n\n**Also known as**: VHL Holder (IHE ITI VHL); Holder (SMART Trust)\n\n**Played in the journeys by**: Mali SOUVANNALATH (mother) (fictional).",
+      "description": "The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder.\n\n**Persona**: A parent carrying a newborn's records across borders on paper and one shared phone; no health training, little time, limited connectivity.\n\n**Also known as**: VHL Holder (IHE ITI VHL); Holder (SMART Trust)\n\n**Played in the journeys by**: Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.Caregiver",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -153,10 +153,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -165,7 +165,7 @@
       "id": "TrustDemo.Role.ChwApp",
       "name": "ChwApp",
       "title": "CHW app",
-      "description": "The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, STT-VER-011), registers the child and records a referral, all offline, syncing later.\n\n**Persona**: Offline-first Android app; must never present an unverified record as verified.\n\n**Also known as**: Triage reader (SMART Trust Receiver, read-unverified)\n\n**Played in the journeys by**: CHW app, Country B (fictional).",
+      "description": "The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, STT-VER-011), registers the child and records a referral, all offline, syncing later.\n\n**Persona**: Offline-first Android app; must never present an unverified record as verified.\n\n**Also known as**: Triage reader (SMART Trust Receiver, read-unverified)\n\n**Played in the journeys by**: CHW app, Lao PDR (Country B) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.ChwApp",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -201,10 +201,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -213,7 +213,7 @@
       "id": "TrustDemo.Role.CommunityHealthWorker",
       "name": "CommunityHealthWorker",
       "title": "Community health worker",
-      "description": "Finds unregistered children on home visits, registers them and refers them to the clinic (J2).\n\n**Persona**: Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity.\n\n**Played in the journeys by**: Sita RAI (community health worker, home) (fictional).",
+      "description": "Finds unregistered children on home visits, registers them and refers them to the clinic (J2).\n\n**Persona**: Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity.\n\n**Played in the journeys by**: Vilay (community health worker, Village 04, Lao PDR) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.CommunityHealthWorker",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -249,10 +249,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -297,10 +297,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -345,10 +345,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -357,7 +357,7 @@
       "id": "TrustDemo.Role.HomeClinicEhr",
       "name": "HomeClinicEhr",
       "title": "Home clinic EHR",
-      "description": "The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3).\n\n**Persona**: Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.\n\n**Also known as**: Verifier at the home clinic (SMART Trust Receiver)\n\n**Played in the journeys by**: Home clinic EHR, Country B (fictional).",
+      "description": "The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3).\n\n**Persona**: Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.\n\n**Also known as**: Verifier at the home clinic (SMART Trust Receiver)\n\n**Played in the journeys by**: Vientiane District Health Center EHR (Country B) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicEhr",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -393,10 +393,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -405,7 +405,7 @@
       "id": "TrustDemo.Role.HomeClinicProvider",
       "name": "HomeClinicProvider",
       "title": "Home clinic provider",
-      "description": "The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3).\n\n**Persona**: Trusts the system's verdict and needs a reason when a certificate fails.\n\n**Played in the journeys by**: Tomas ALVES (nurse, home clinic) (fictional).",
+      "description": "The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3).\n\n**Persona**: Trusts the system's verdict and needs a reason when a certificate fails.\n\n**Played in the journeys by**: Nurse Chanthasone (Vientiane District Health Center, Lao PDR) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicProvider",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -441,10 +441,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -453,7 +453,7 @@
       "id": "TrustDemo.Role.IssuerKey",
       "name": "IssuerKey",
       "title": "Issuer signing key",
-      "description": "The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, STT-ISS-004).\n\n**Persona**: A key that signs what it is given and reveals nothing else.\n\n**Also known as**: Document signer (DSC) key\n\n**Played in the journeys by**: XXR document signer key (Country A) (fictional).",
+      "description": "The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, STT-ISS-004).\n\n**Persona**: A key that signs what it is given and reveals nothing else.\n\n**Also known as**: Document signer (DSC) key\n\n**Played in the journeys by**: XXR document signer key (Country A, Thailand) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.IssuerKey",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -489,10 +489,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -501,7 +501,7 @@
       "id": "TrustDemo.Role.NationalPortal",
       "name": "NationalPortal",
       "title": "National health portal",
-      "description": "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0): the VHL Sharer.\n\n**Persona**: A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.\n\n**Also known as**: VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer)\n\n**Played in the journeys by**: National health portal, Country B (XXH) (fictional).",
+      "description": "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer.\n\n**Persona**: A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.\n\n**Also known as**: VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer)\n\n**Played in the journeys by**: Lao PDR national health portal and gateway (Country B, XXH) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.NationalPortal",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -537,10 +537,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -549,7 +549,7 @@
       "id": "TrustDemo.Role.PocProvider",
       "name": "PocProvider",
       "title": "Point-of-care provider",
-      "description": "The clinician abroad who scans the family's QR and reads the child's records (J4.1).\n\n**Persona**: Has minutes, no prior relationship with the family, and her own hospital's system.\n\n**Played in the journeys by**: Dr Ana MOREIRA (clinician abroad, J4.1) (fictional).",
+      "description": "The clinician abroad who scans the family's QR and reads the child's records (J4.1).\n\n**Persona**: Has minutes, no prior relationship with the family, and her own hospital's system.\n\n**Played in the journeys by**: Dr Anan (clinician, Chiang Rai, Thailand) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.PocProvider",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -585,10 +585,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -597,7 +597,7 @@
       "id": "TrustDemo.Role.PocReceiver",
       "name": "PocReceiver",
       "title": "Point-of-care receiver",
-      "description": "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Hospital system abroad (J4.1) (fictional).",
+      "description": "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Chiang Rai primary care clinic viewer, Thailand (J4.1) (fictional).",
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.PocReceiver",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
@@ -633,10 +633,110 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "AuditEvent/TrustDemoJ41Access",
+      "resourceType": "AuditEvent",
+      "id": "TrustDemoJ41Access",
+      "title": "TrustDemoJ41Access",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"
+      ],
+      "code": {
+        "text": "IHE ITI VHL manifest retrieval (ITI-YY5)"
+      },
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/AuditEvent-TrustDemoJ41Access.json"
+        },
+        "localPath": "output-ast/resources/AuditEvent/TrustDemoJ41Access--0d48e284.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "AuditEvent/TrustDemoJ41WrongPasscode",
+      "resourceType": "AuditEvent",
+      "id": "TrustDemoJ41WrongPasscode",
+      "title": "TrustDemoJ41WrongPasscode",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"
+      ],
+      "code": {
+        "text": "IHE ITI VHL manifest retrieval (ITI-YY5)"
+      },
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/AuditEvent-TrustDemoJ41WrongPasscode.json"
+        },
+        "localPath": "output-ast/resources/AuditEvent/TrustDemoJ41WrongPasscode--263159c8.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -677,25 +777,213 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Device/TrustDemoHomeClinicEhr",
+      "key": "CodeSystem/TrustDemoLaoEpiSchedule",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoLaoEpiSchedule",
+      "name": "TrustDemoLaoEpiSchedule",
+      "title": "National schedule antigen-dose codes (illustrative, Lao PDR)",
+      "description": "Illustrative antigen-and-dose codes of a national immunization schedule, as the VaxLink walkthrough names them for Lao PDR. Not the official Lao EPI coding.",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule",
+      "version": "0.1.0",
+      "category": "Terminology: Code Systems",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/CodeSystem-TrustDemoLaoEpiSchedule.json"
+        },
+        "localPath": "output-ast/resources/CodeSystem/TrustDemoLaoEpiSchedule--838b8148.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "CodeSystem/TrustDemoVaccineProduct",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoVaccineProduct",
+      "name": "TrustDemoVaccineProduct",
+      "title": "Vaccine products (illustrative PreQual-style codes)",
+      "description": "Illustrative product codes in the style of WHO PreQual product ids, as the VaxLink walkthrough uses them: the issuer's coding of each dose. Not WHO PreQual ids.",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+      "version": "0.1.0",
+      "category": "Terminology: Code Systems",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/CodeSystem-TrustDemoVaccineProduct.json"
+        },
+        "localPath": "output-ast/resources/CodeSystem/TrustDemoVaccineProduct--9e5cedc0.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "ConceptMap/TrustDemoProductToLaoEpi",
+      "resourceType": "ConceptMap",
+      "id": "TrustDemoProductToLaoEpi",
+      "name": "TrustDemoProductToLaoEpi",
+      "title": "J3 map: vaccine product to national schedule dose",
+      "description": "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthasone confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again.",
+      "canonical": "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToLaoEpi",
+      "version": "0.1.0",
+      "category": "Terminology: Concept Maps",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/ConceptMap-TrustDemoProductToLaoEpi.json"
+        },
+        "localPath": "output-ast/resources/ConceptMap/TrustDemoProductToLaoEpi--82d0ca93.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Consent/TrustDemoJ4Consent",
+      "resourceType": "Consent",
+      "id": "TrustDemoJ4Consent",
+      "title": "TrustDemoJ4Consent",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Consent-TrustDemoJ4Consent.json"
+        },
+        "localPath": "output-ast/resources/Consent/TrustDemoJ4Consent--e702962c.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Device/TrustDemoChwApp",
       "resourceType": "Device",
-      "id": "TrustDemoHomeClinicEhr",
-      "title": "TrustDemoHomeClinicEhr",
+      "id": "TrustDemoChwApp",
+      "title": "TrustDemoChwApp",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Device-TrustDemoHomeClinicEhr.json"
+          "local": "fsh-generated/resources/Device-TrustDemoChwApp.json"
         },
-        "localPath": "output-ast/resources/Device/TrustDemoHomeClinicEhr--5f455536.json",
+        "localPath": "output-ast/resources/Device/TrustDemoChwApp--163706a2.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -721,25 +1009,25 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Device/TrustDemoPocReceiver",
+      "key": "Device/TrustDemoClinicViewer",
       "resourceType": "Device",
-      "id": "TrustDemoPocReceiver",
-      "title": "TrustDemoPocReceiver",
+      "id": "TrustDemoClinicViewer",
+      "title": "TrustDemoClinicViewer",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Device-TrustDemoPocReceiver.json"
+          "local": "fsh-generated/resources/Device-TrustDemoClinicViewer.json"
         },
-        "localPath": "output-ast/resources/Device/TrustDemoPocReceiver--10c13fdf.json",
+        "localPath": "output-ast/resources/Device/TrustDemoClinicViewer--d68a51af.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -765,25 +1053,25 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Immunization/TrustDemoJ3BcgImported",
-      "resourceType": "Immunization",
-      "id": "TrustDemoJ3BcgImported",
-      "title": "TrustDemoJ3BcgImported",
+      "key": "Device/TrustDemoDhcEhr",
+      "resourceType": "Device",
+      "id": "TrustDemoDhcEhr",
+      "title": "TrustDemoDhcEhr",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Immunization-TrustDemoJ3BcgImported.json"
+          "local": "fsh-generated/resources/Device-TrustDemoDhcEhr.json"
         },
-        "localPath": "output-ast/resources/Immunization/TrustDemoJ3BcgImported--f3ab93b6.json",
+        "localPath": "output-ast/resources/Device/TrustDemoDhcEhr--24d5927d.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -809,25 +1097,25 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Immunization/TrustDemoJ3HepBImported",
-      "resourceType": "Immunization",
-      "id": "TrustDemoJ3HepBImported",
-      "title": "TrustDemoJ3HepBImported",
+      "key": "Device/TrustDemoFamilyPhone",
+      "resourceType": "Device",
+      "id": "TrustDemoFamilyPhone",
+      "title": "TrustDemoFamilyPhone",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Immunization-TrustDemoJ3HepBImported.json"
+          "local": "fsh-generated/resources/Device-TrustDemoFamilyPhone.json"
         },
-        "localPath": "output-ast/resources/Immunization/TrustDemoJ3HepBImported--55f5d5d9.json",
+        "localPath": "output-ast/resources/Device/TrustDemoFamilyPhone--f0c2ac83.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -853,25 +1141,25 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Immunization/TrustDemoJ3Opv0",
-      "resourceType": "Immunization",
-      "id": "TrustDemoJ3Opv0",
-      "title": "TrustDemoJ3Opv0",
+      "key": "Device/TrustDemoLaoGateway",
+      "resourceType": "Device",
+      "id": "TrustDemoLaoGateway",
+      "title": "TrustDemoLaoGateway",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Immunization-TrustDemoJ3Opv0.json"
+          "local": "fsh-generated/resources/Device-TrustDemoLaoGateway.json"
         },
-        "localPath": "output-ast/resources/Immunization/TrustDemoJ3Opv0--d6f7e61f.json",
+        "localPath": "output-ast/resources/Device/TrustDemoLaoGateway--dc064a99.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -897,10 +1185,538 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Group/TrustDemoHousehold",
+      "resourceType": "Group",
+      "id": "TrustDemoHousehold",
+      "title": "TrustDemoHousehold",
+      "description": "Sengmany household",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoHousehold"
+      ],
+      "code": {
+        "text": "Household",
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "FAMMEMB",
+            "display": "family member"
+          }
+        ]
+      },
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Group-TrustDemoHousehold.json"
+        },
+        "localPath": "output-ast/resources/Group/TrustDemoHousehold--05b872fe.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoJ1Bcg",
+      "resourceType": "Immunization",
+      "id": "TrustDemoJ1Bcg",
+      "title": "TrustDemoJ1Bcg",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoJ1Bcg.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoJ1Bcg--13c40064.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoJ1HepB",
+      "resourceType": "Immunization",
+      "id": "TrustDemoJ1HepB",
+      "title": "TrustDemoJ1HepB",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoJ1HepB.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoJ1HepB--f688f695.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoJ2BcgReported",
+      "resourceType": "Immunization",
+      "id": "TrustDemoJ2BcgReported",
+      "title": "TrustDemoJ2BcgReported",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReportedImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoJ2BcgReported.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoJ2BcgReported--41e9610c.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoJ2HepBReported",
+      "resourceType": "Immunization",
+      "id": "TrustDemoJ2HepBReported",
+      "title": "TrustDemoJ2HepBReported",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReportedImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoJ2HepBReported.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoJ2HepBReported--2ae27023.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoJ3Bcg",
+      "resourceType": "Immunization",
+      "id": "TrustDemoJ3Bcg",
+      "title": "TrustDemoJ3Bcg",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoJ3Bcg.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoJ3Bcg--ea4f3df5.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoJ3HepB",
+      "resourceType": "Immunization",
+      "id": "TrustDemoJ3HepB",
+      "title": "TrustDemoJ3HepB",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoJ3HepB.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoJ3HepB--7ce68245.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoLaoBopv1",
+      "resourceType": "Immunization",
+      "id": "TrustDemoLaoBopv1",
+      "title": "TrustDemoLaoBopv1",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoLaoBopv1.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoLaoBopv1--b1c79800.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoLaoMr1",
+      "resourceType": "Immunization",
+      "id": "TrustDemoLaoMr1",
+      "title": "TrustDemoLaoMr1",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoLaoMr1.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoLaoMr1--36ba46c6.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoLaoPcv1",
+      "resourceType": "Immunization",
+      "id": "TrustDemoLaoPcv1",
+      "title": "TrustDemoLaoPcv1",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoLaoPcv1.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoLaoPcv1--0dcf5bc0.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Immunization/TrustDemoLaoPenta1",
+      "resourceType": "Immunization",
+      "id": "TrustDemoLaoPenta1",
+      "title": "TrustDemoLaoPenta1",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Immunization-TrustDemoLaoPenta1.json"
+        },
+        "localPath": "output-ast/resources/Immunization/TrustDemoLaoPenta1--09c3ec8c.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -941,10 +1757,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -953,7 +1769,7 @@
       "id": "smart.who.int.trust-demo",
       "name": "TrustDemo",
       "title": "SMART Trust demonstrator: journeys J1 to J4",
-      "description": "The user journeys of one cross-border family (birth-dose DVCs abroad, CHW triage read, clinic verification and schedule, family VHLs on one phone) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.",
+      "description": "The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.",
       "canonical": "http://smart.who.int/trust-demo/ImplementationGuide/smart.who.int.trust-demo",
       "version": "0.1.0",
       "profiles": [
@@ -991,26 +1807,26 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Organization/TrustDemoHomeClinic",
+      "key": "Organization/TrustDemoChiangRaiClinic",
       "resourceType": "Organization",
-      "id": "TrustDemoHomeClinic",
-      "title": "TrustDemoHomeClinic",
-      "description": "District clinic, Country B (fictional)",
+      "id": "TrustDemoChiangRaiClinic",
+      "title": "TrustDemoChiangRaiClinic",
+      "description": "Chiang Rai primary care clinic (demonstrator)",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Organization-TrustDemoHomeClinic.json"
+          "local": "fsh-generated/resources/Organization-TrustDemoChiangRaiClinic.json"
         },
-        "localPath": "output-ast/resources/Organization/TrustDemoHomeClinic--9a67b858.json",
+        "localPath": "output-ast/resources/Organization/TrustDemoChiangRaiClinic--d77a5159.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -1036,25 +1852,163 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Patient/TrustDemoChanthala",
+      "key": "Organization/TrustDemoChiangRaiHospital",
+      "resourceType": "Organization",
+      "id": "TrustDemoChiangRaiHospital",
+      "title": "TrustDemoChiangRaiHospital",
+      "description": "Chiang Rai Provincial Hospital (demonstrator)",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Organization-TrustDemoChiangRaiHospital.json"
+        },
+        "localPath": "output-ast/resources/Organization/TrustDemoChiangRaiHospital--8bd490c9.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Organization/TrustDemoLaoPortalOrg",
+      "resourceType": "Organization",
+      "id": "TrustDemoLaoPortalOrg",
+      "title": "TrustDemoLaoPortalOrg",
+      "description": "Lao PDR national health portal (demonstrator, GDHCN DEV participant XXH)",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Organization-TrustDemoLaoPortalOrg.json"
+        },
+        "localPath": "output-ast/resources/Organization/TrustDemoLaoPortalOrg--8a80ff18.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Organization/TrustDemoVientianeDhc",
+      "resourceType": "Organization",
+      "id": "TrustDemoVientianeDhc",
+      "title": "TrustDemoVientianeDhc",
+      "description": "Vientiane District Health Center (demonstrator)",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Organization-TrustDemoVientianeDhc.json"
+        },
+        "localPath": "output-ast/resources/Organization/TrustDemoVientianeDhc--5a276a81.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Patient/TrustDemoSomsack",
       "resourceType": "Patient",
-      "id": "TrustDemoChanthala",
-      "title": "TrustDemoChanthala",
+      "id": "TrustDemoSomsack",
+      "title": "TrustDemoSomsack",
       "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoPatient"
+      ],
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Patient-TrustDemoChanthala.json"
+          "local": "fsh-generated/resources/Patient-TrustDemoSomsack.json"
         },
-        "localPath": "output-ast/resources/Patient/TrustDemoChanthala--853dc101.json",
+        "localPath": "output-ast/resources/Patient/TrustDemoSomsack--ab7614e2.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -1080,25 +2034,120 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Practitioner/TrustDemoAnaMoreira",
+      "key": "Patient/TrustDemoThSomsack",
+      "resourceType": "Patient",
+      "id": "TrustDemoThSomsack",
+      "title": "TrustDemoThSomsack",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThPatient"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Patient-TrustDemoThSomsack.json"
+        },
+        "localPath": "output-ast/resources/Patient/TrustDemoThSomsack--8e2da5a4.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "PlanDefinition/TrustDemoLaoInfantSchedule",
+      "resourceType": "PlanDefinition",
+      "id": "TrustDemoLaoInfantSchedule",
+      "name": "TrustDemoLaoInfantSchedule",
+      "title": "National infant immunization schedule (illustrative excerpt)",
+      "description": "The part of the national schedule the J3 evaluation needs: birth doses, the 6-week doses and measles-rubella at 9 months. Illustrative; the schedule rules are not executable here.",
+      "canonical": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoLaoInfantSchedule",
+      "version": "0.1.0",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/PlanDefinition-TrustDemoLaoInfantSchedule.json"
+        },
+        "localPath": "output-ast/resources/PlanDefinition/TrustDemoLaoInfantSchedule--a5377c21.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Practitioner/TrustDemoAnan",
       "resourceType": "Practitioner",
-      "id": "TrustDemoAnaMoreira",
-      "title": "TrustDemoAnaMoreira",
+      "id": "TrustDemoAnan",
+      "title": "TrustDemoAnan",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Practitioner-TrustDemoAnaMoreira.json"
+          "local": "fsh-generated/resources/Practitioner-TrustDemoAnan.json"
         },
-        "localPath": "output-ast/resources/Practitioner/TrustDemoAnaMoreira--5942e35d.json",
+        "localPath": "output-ast/resources/Practitioner/TrustDemoAnan--4844f9d1.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -1124,25 +2173,25 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Practitioner/TrustDemoSitaRai",
+      "key": "Practitioner/TrustDemoChanthasone",
       "resourceType": "Practitioner",
-      "id": "TrustDemoSitaRai",
-      "title": "TrustDemoSitaRai",
+      "id": "TrustDemoChanthasone",
+      "title": "TrustDemoChanthasone",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Practitioner-TrustDemoSitaRai.json"
+          "local": "fsh-generated/resources/Practitioner-TrustDemoChanthasone.json"
         },
-        "localPath": "output-ast/resources/Practitioner/TrustDemoSitaRai--3e2aee7b.json",
+        "localPath": "output-ast/resources/Practitioner/TrustDemoChanthasone--2982fa9e.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -1168,25 +2217,25 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Practitioner/TrustDemoTomasAlves",
+      "key": "Practitioner/TrustDemoVilay",
       "resourceType": "Practitioner",
-      "id": "TrustDemoTomasAlves",
-      "title": "TrustDemoTomasAlves",
+      "id": "TrustDemoVilay",
+      "title": "TrustDemoVilay",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Practitioner-TrustDemoTomasAlves.json"
+          "local": "fsh-generated/resources/Practitioner-TrustDemoVilay.json"
         },
-        "localPath": "output-ast/resources/Practitioner/TrustDemoTomasAlves--ef6281dc.json",
+        "localPath": "output-ast/resources/Practitioner/TrustDemoVilay--4493b1fa.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -1212,25 +2261,25 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "Provenance/TrustDemoJ3Import",
+      "key": "Provenance/TrustDemoJ3Adjudication",
       "resourceType": "Provenance",
-      "id": "TrustDemoJ3Import",
-      "title": "TrustDemoJ3Import",
+      "id": "TrustDemoJ3Adjudication",
+      "title": "TrustDemoJ3Adjudication",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/Provenance-TrustDemoJ3Import.json"
+          "local": "fsh-generated/resources/Provenance-TrustDemoJ3Adjudication.json"
         },
-        "localPath": "output-ast/resources/Provenance/TrustDemoJ3Import--a6055658.json",
+        "localPath": "output-ast/resources/Provenance/TrustDemoJ3Adjudication--3066339d.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -1256,10 +2305,57 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Provenance/TrustDemoJ3Verification",
+      "resourceType": "Provenance",
+      "id": "TrustDemoJ3Verification",
+      "title": "TrustDemoJ3Verification",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoDvcVerification"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Provenance-TrustDemoJ3Verification.json"
+        },
+        "localPath": "output-ast/resources/Provenance/TrustDemoJ3Verification--c60512f4.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -1268,6 +2364,9 @@
       "id": "TrustDemoJ41Received",
       "title": "TrustDemoJ41Received",
       "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThVhlReceipt"
+      ],
       "published": {},
       "materialization": {
         "state": "materialized",
@@ -1300,25 +2399,29 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
-      "key": "RelatedPerson/TrustDemoMali",
-      "resourceType": "RelatedPerson",
-      "id": "TrustDemoMali",
-      "title": "TrustDemoMali",
+      "key": "Questionnaire/TrustDemoHouseholdRegistration",
+      "resourceType": "Questionnaire",
+      "id": "TrustDemoHouseholdRegistration",
+      "name": "TrustDemoHouseholdRegistration",
+      "title": "Add a newborn to the household",
+      "description": "The form the CHW app renders offline (OHS Structured Data Capture) to add a newborn to a household and note any foreign vaccination cards.",
+      "canonical": "http://smart.who.int/trust-demo/Questionnaire/TrustDemoHouseholdRegistration",
+      "version": "0.1.0",
       "category": "Other",
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
-          "local": "fsh-generated/resources/RelatedPerson-TrustDemoMali.json"
+          "local": "fsh-generated/resources/Questionnaire-TrustDemoHouseholdRegistration.json"
         },
-        "localPath": "output-ast/resources/RelatedPerson/TrustDemoMali--61884ca6.json",
+        "localPath": "output-ast/resources/Questionnaire/TrustDemoHouseholdRegistration--184ce0df.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -1344,10 +2447,145 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "QuestionnaireResponse/TrustDemoJ2Registration",
+      "resourceType": "QuestionnaireResponse",
+      "id": "TrustDemoJ2Registration",
+      "title": "TrustDemoJ2Registration",
+      "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoRegistration"
+      ],
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/QuestionnaireResponse-TrustDemoJ2Registration.json"
+        },
+        "localPath": "output-ast/resources/QuestionnaireResponse/TrustDemoJ2Registration--8390c05a.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "RelatedPerson/TrustDemoBounmy",
+      "resourceType": "RelatedPerson",
+      "id": "TrustDemoBounmy",
+      "title": "TrustDemoBounmy",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/RelatedPerson-TrustDemoBounmy.json"
+        },
+        "localPath": "output-ast/resources/RelatedPerson/TrustDemoBounmy--85d06dd4.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "RelatedPerson/TrustDemoKhamla",
+      "resourceType": "RelatedPerson",
+      "id": "TrustDemoKhamla",
+      "title": "TrustDemoKhamla",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/RelatedPerson-TrustDemoKhamla.json"
+        },
+        "localPath": "output-ast/resources/RelatedPerson/TrustDemoKhamla--4ccf83b5.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     },
     {
@@ -1356,6 +2594,9 @@
       "id": "TrustDemoJ2Referral",
       "title": "TrustDemoJ2Referral",
       "category": "Other",
+      "profiles": [
+        "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReferral"
+      ],
       "published": {},
       "materialization": {
         "state": "materialized",
@@ -1388,10 +2629,681 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "c5cf01d3b5d76dceea798c82bf512b165468fb03",
-          "inputDigest": "982b11b2ea23420345a9e31b90dfc97df64302414704ef8b8e26128662301b41"
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
         },
-        "materializedAt": "2026-10-29T10:31:45.339819852Z"
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoDvcVerification",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoDvcVerification",
+      "name": "TrustDemoLaoDvcVerification",
+      "title": "Lao PDR: foreign DVC verified against the GDHCN trust list",
+      "description": "How it is used: J3a. The district EHR verifies each Thai DVC offline against its cached copy of the GDHCN trust list, then imports the dose. This record says so.\n\nWhy: a verified dose replaces a reported one, so the record must show who verified what, against which policy, and which reported doses it removes. Anyone who later doubts a dose can follow this record back to the signed certificate and the issuing country's key.",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoDvcVerification",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoDvcVerification.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoDvcVerification--79f5faf0.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoHousehold",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoHousehold",
+      "name": "TrustDemoLaoHousehold",
+      "title": "Lao PDR: household on the CHW's roster",
+      "description": "How it is used: J2a. The CHW finds that a newborn is missing from the household roster and adds Somsack as a member.\n\nWhy: Lao community health work is organized by household. The roster is how a CHW notices that a child is missing, and it is the unit the family phone shares under in J4 (one phone, three profiles).",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoHousehold",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoHousehold.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoHousehold--703db18e.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoImmunization",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoImmunization",
+      "name": "TrustDemoLaoImmunization",
+      "title": "Lao PDR: dose on the national schedule",
+      "description": "How it is used: J3 and after. These are the Thai birth doses once the district clinic has verified them, and every dose given in Lao PDR.\n\nWhy: the Lao schedule engine works on Lao EPI codes, so each dose must carry one. A dose that came from abroad keeps the issuer's product code beside the Lao one, added through the ConceptMap and confirmed by the nurse. Nothing the other country said is overwritten. A verified foreign dose is recorded from its primary source, the signing hospital, and its Provenance says how it was verified.",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoImmunization.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoImmunization--6b19f007.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoPatient",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoPatient",
+      "name": "TrustDemoLaoPatient",
+      "title": "Lao PDR: child registered by the community health worker",
+      "description": "How it is used: J2 onwards. Vilay registers Somsack on a home visit, and the same patient carries every Lao record that follows: the verified Thai doses, the Lao doses and the summary shared in J4.\n\nWhy: a child born abroad is not in the Lao civil registry yet. A temporary id lets the CHW, the district clinic and the national portal all refer to the same child until civil registration catches up. The parents are recorded as contacts, because they hold the paper cards and later the family's VHLs.",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoPatient",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoPatient.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoPatient--cd0d9b3f.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoReferral",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoReferral",
+      "name": "TrustDemoLaoReferral",
+      "title": "Lao PDR: CHW referral to verify foreign cards",
+      "description": "How it is used: J2b. The CHW refers Somsack to the district health center to have his foreign cards verified and his doses fitted to the Lao schedule.\n\nWhy: the CHW cannot verify a DVC on the phone, but the clinic can. The referral points at the reported doses it is about, so the clinic knows exactly what to check, and the CHW can see when it is done.",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReferral",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoReferral.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoReferral--6355c53a.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoRegistration",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoRegistration",
+      "name": "TrustDemoLaoRegistration",
+      "title": "Lao PDR: newborn registration captured offline",
+      "description": "How it is used: J2a. These are the CHW's answers on the newborn registration form, which the app renders with Structured Data Capture and saves with no signal.\n\nWhy: in Lao PDR the form is the configuration, not code. A ministry can change the questions without shipping a new app. The answers are kept so that the Patient and Group extracted from them can always be traced back to what was asked and who answered.",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoRegistration",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoRegistration.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoRegistration--d6f037ba.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoReportedImmunization",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoReportedImmunization",
+      "name": "TrustDemoLaoReportedImmunization",
+      "title": "Lao PDR: foreign dose as reported (not yet verified)",
+      "description": "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false and the family as the information source keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReportedImmunization",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoReportedImmunization.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoReportedImmunization--ce7e0762.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoLaoVhlAccess",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoLaoVhlAccess",
+      "name": "TrustDemoLaoVhlAccess",
+      "title": "Lao PDR: every VHL access logged at home",
+      "description": "How it is used: J4.1. The Lao national gateway records each attempt by a clinic abroad to fetch a family member's VHL manifest, the refused ones included.\n\nWhy: the family shares a link, not a copy, and the data stays in Lao PDR. Logging every access at home, following IHE Basic Audit Log Patterns, is what lets the family and the ministry see who looked, from where and when. A wrong passcode is logged too.",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoLaoVhlAccess.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoLaoVhlAccess--45ae436a.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoThImmunization",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoThImmunization",
+      "name": "TrustDemoThImmunization",
+      "title": "Thailand: dose given at the birth hospital (DVC source)",
+      "description": "How it is used: J1. Each birth dose (Hep B, BCG) that Dr Anan gives is recorded here first. The hospital then packs it into a Digital Vaccination Certificate (HCERT, signed with XXR's key) and prints it as a QR card.\n\nWhy: the DVC can only carry what this record holds. The vaccine product, date, lot, dose number and the administering organization are exactly the fields the HCERT certificate needs. They are required here so every printed card is complete. The product is coded from the WHO PreQual-style product list, because that is the code Lao PDR will later map to its own schedule (J3).",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThImmunization",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoThImmunization.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoThImmunization--df0aa9d7.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoThPatient",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoThPatient",
+      "name": "TrustDemoThPatient",
+      "title": "Thailand: newborn at the birth hospital",
+      "description": "How it is used: J1. Chiang Rai Provincial Hospital registers Somsack under its own hospital number on the day he is born.\n\nWhy: a baby born to Lao parents in Thailand has no Thai citizen id, so the hospital number is the only identifier the hospital can put behind the dose records it signs. The DVCs it prints carry the name and date of birth, not this number. The family's home country therefore cannot rely on any Thai identifier, and links the doses to its own patient (see the Lao patient profile).",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThPatient",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoThPatient.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoThPatient--7376b965.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "StructureDefinition/TrustDemoThVhlReceipt",
+      "resourceType": "StructureDefinition",
+      "id": "TrustDemoThVhlReceipt",
+      "name": "TrustDemoThVhlReceipt",
+      "title": "Thailand: record of a summary read through a VHL",
+      "description": "How it is used: J4.1. The Chiang Rai clinic viewer keeps this record when it opens Somsack's patient summary through the Verifiable Health Link that his father shows.\n\nWhy: the Thai clinic views the Lao record and does not copy it into a Thai registry. So the clinic keeps a note of what it saw, where it came from, and how it was verified: the VHL's signature against Lao PDR's key on the GDHCN trust list, the manifest fetch, and the passcode. The Lao side keeps its own log of the same access (the Lao audit profile).",
+      "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThVhlReceipt",
+      "version": "0.1.0",
+      "category": "Structures: Resource Profiles",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/StructureDefinition-TrustDemoThVhlReceipt.json"
+        },
+        "localPath": "output-ast/resources/StructureDefinition/TrustDemoThVhlReceipt--fd584b9f.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "Task/TrustDemoJ3Reminder",
+      "resourceType": "Task",
+      "id": "TrustDemoJ3Reminder",
+      "title": "TrustDemoJ3Reminder",
+      "category": "Other",
+      "code": {
+        "text": "Immunization appointment reminder: 6-week doses"
+      },
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Task-TrustDemoJ3Reminder.json"
+        },
+        "localPath": "output-ast/resources/Task/TrustDemoJ3Reminder--299ed80b.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "ValueSet/TrustDemoLaoEpiScheduleCodes",
+      "resourceType": "ValueSet",
+      "id": "TrustDemoLaoEpiScheduleCodes",
+      "name": "TrustDemoLaoEpiScheduleCodes",
+      "title": "National schedule codes of the journeys",
+      "description": "Every code of TrustDemoLaoEpiSchedule: the target of the national ConceptMap.",
+      "canonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoLaoEpiScheduleCodes",
+      "version": "0.1.0",
+      "category": "Terminology: Value Sets",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/ValueSet-TrustDemoLaoEpiScheduleCodes.json"
+        },
+        "localPath": "output-ast/resources/ValueSet/TrustDemoLaoEpiScheduleCodes--dfa98c8f.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
+      }
+    },
+    {
+      "key": "ValueSet/TrustDemoVaccineProducts",
+      "resourceType": "ValueSet",
+      "id": "TrustDemoVaccineProducts",
+      "name": "TrustDemoVaccineProducts",
+      "title": "Vaccine products of the journeys",
+      "description": "Every product code of TrustDemoVaccineProduct: the source of the national ConceptMap.",
+      "canonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
+      "version": "0.1.0",
+      "category": "Terminology: Value Sets",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/ValueSet-TrustDemoVaccineProducts.json"
+        },
+        "localPath": "output-ast/resources/ValueSet/TrustDemoVaccineProducts--c4c22376.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "817d43aca7b5ca3cc4445bdd9a104013c5838d5a",
+          "inputDigest": "333f23648446961aae43945ba43d399409534ecf4c0ec404819819e0699bf928"
+        },
+        "materializedAt": "2026-11-02T17:57:49.965835866Z"
       }
     }
   ]

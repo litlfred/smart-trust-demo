@@ -11,7 +11,7 @@
   "title" : "Home clinic EHR",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-10-29T10:30:32+00:00",
+  "date" : "2026-11-02T17:55:42+00:00",
   "publisher" : "litlfred",
   "contact" : [{
     "name" : "litlfred",
@@ -20,7 +20,7 @@
       "value" : "https://github.com/litlfred/smart-trust-demo"
     }]
   }],
-  "description" : "The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3).\n\n**Persona**: Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.\n\n**Also known as**: Verifier at the home clinic (SMART Trust Receiver)\n\n**Played in the journeys by**: Home clinic EHR, Country B (fictional).",
+  "description" : "The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3).\n\n**Persona**: Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.\n\n**Also known as**: Verifier at the home clinic (SMART Trust Receiver)\n\n**Played in the journeys by**: Vientiane District Health Center EHR (Country B) (fictional).",
   "type" : "system",
   "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
   "derivedFrom" : ["http://smart.who.int/trust/ActorDefinition/Receiver",

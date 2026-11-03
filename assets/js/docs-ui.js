@@ -58,6 +58,16 @@
     }
   })();
 
+  /* The address this document was fetched from: what a page-relative base
+   * resolves against, even after a `history.replaceState` (see `absoluteBase`). */
+  var LOADED_FROM = (function () {
+    try {
+      var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      if (nav && nav.name) return nav.name;
+    } catch (_e) { /* older engines: the address bar at load is the best there is */ }
+    return location.href;
+  })();
+
   var ZOOM_STEPS = [0.5, 0.67, 0.8, 1, 1.25, 1.5, 2, 3, 4];
   var DEFAULT_STEP = 3; // index of 1.0
 
@@ -274,7 +284,7 @@
     "fr": "Fran\u00E7ais", "ru": "\u0420\u0443\u0441\u0441\u043A\u0438\u0439", "es": "Espa\u00F1ol"
   };
 
-  /* The six UN languages, matching `UN_LOCALES` in `schemas/translation.ts`.
+  /* The six UN languages, matching `UN_LOCALES` in `schemas/content/translation.ts`.
 
      A FALLBACK, never the answer: `fa-translation-meta` carries the instance's
      own `supportedLocales`, and an instance may support more or fewer. This is
@@ -2894,7 +2904,7 @@
    * and this file must never turn that into a number: with no declaration
    * every card keeps its words, and the console says why once.
    *
-   * ## This mirrors `schemas/window-stack.ts`, and that is a real cost
+   * ## This mirrors `schemas/ui/window-stack.ts`, and that is a real cost
    *
    * The model is specified and unit-tested there; this is a browser script and
    * cannot import it. Two implementations of one rule can drift, so the
@@ -2920,7 +2930,7 @@
    * cannot perform 404s for exactly the reader who cannot edit, which reads as
    * "this page is broken" rather than "you cannot do this".
    *
-   * Mirrors `schemas/panel-chrome.ts`, which this file cannot import. Same
+   * Mirrors `schemas/ui/panel-chrome.ts`, which this file cannot import. Same
    * cost, same mitigation as `window-stack.ts`: the e2e asserts the browser's
    * answer against the model's, case for case.
    */
@@ -2996,7 +3006,7 @@
    * Owner: *"be able to filter out by kind properties things on miror board"*.
    *
    * TWO FILTERS, AND THEY MUST NOT BECOME ONE FIELD. A board carries a
-   * DECLARED filter (`schemas/board.ts`) that says what the board IS, and it
+   * DECLARED filter (`schemas/ui/board.ts`) that says what the board IS, and it
    * lives in `boards/<id>.json` where everyone opening that board gets it.
    * This is the other one: a reader narrowing their own view, at view time.
    * Conflating them would make one reader's temporary view edit the board
@@ -3007,7 +3017,7 @@
    * persists. It is session state, like the window stack, and the absence is
    * the design rather than an omission.
    *
-   * Mirrors `schemas/reader-filter.ts`, which this file cannot import — same
+   * Mirrors `schemas/content/reader-filter.ts`, which this file cannot import — same
    * cost and same mitigation as its siblings: the e2e checks the browser's
    * answer against the model's.
    */
@@ -3104,7 +3114,36 @@
   function siteBaseurl() {
     var meta = document.querySelector('meta[name="fa-baseurl"]');
     var v = (meta && meta.getAttribute("content")) || "";
-    return v ? v.replace(/\/+$/, "") : (baseurlFromTodoSrc() || SCRIPT_BASE);
+    return v ? absoluteBase(v) : (absoluteBase(baseurlFromTodoSrc()) || SCRIPT_BASE);
+  }
+
+  /**
+   * A base the page wrote RELATIVE to itself (`.`, `../..`), as the absolute
+   * path every caller of `siteBaseurl` has always been given.
+   *
+   * Since bean `g196` (2026-10-23) a Jekyll page writes its same-site links
+   * relative to itself, so a page that did not change is byte-identical in
+   * every STAGING preview and on the live site; `fa-baseurl` and
+   * `fa-todo-src` are relative too. Resolving here, once, keeps every
+   * consumer's arithmetic as it was (`withBase`, `baseurlResolved`'s
+   * prefix guard, `navKey`'s strip).
+   *
+   * Resolved against the address the document was LOADED from, not the
+   * address bar: a page may `history.replaceState` to a different depth
+   * before this runs, and a relative base resolved after that is one level
+   * off (the same trap `navbar-row.js`'s `loadedFrom` records).
+   * An absolute value, or `""`, comes back as it was, trailing slash dropped.
+   */
+  function absoluteBase(v) {
+    if (!v) return "";
+    if (v.charAt(0) === "/" || /^[a-z][a-z0-9+.-]*:/i.test(v)) return v.replace(/\/+$/, "");
+    try {
+      var u = new URL(v.replace(/\/*$/, "/"), LOADED_FROM);
+      var path = u.pathname.replace(/\/+$/, "");
+      return u.origin === location.origin ? path : u.origin + path;
+    } catch (_e) {
+      return v.replace(/\/+$/, "");
+    }
   }
 
   /* ── Is this a STAGING preview? ──────────────────────────────────────
@@ -3218,7 +3257,7 @@
    *
    * ## Absent is not zero, and this function is where that is enforced
    *
-   * `schemas/tile-count.ts` carries the argument: a projection that declares
+   * `schemas/ui/tile-count.ts` carries the argument: a projection that declares
    * no count, declares a malformed one, or could not be read is NOT a
    * projection over an empty graph. They are opposite facts, and `dh4f` is
    * this repository's name for scanning nothing and calling it clean.
@@ -3246,6 +3285,13 @@
   function declaredTilesFromMeta() {
     var meta = document.querySelector('meta[name="fa-tiles"]');
     var raw = meta && meta.getAttribute("content");
+    // Filled by `assets/js/harness-data.js` (bean `gp2f`). Still named and
+    // empty: that file did not load, which is not "declared no tiles".
+    if (!raw && meta && meta.hasAttribute("data-fa-src")) {
+      console.warn("docs-ui: the tiles' shared data (" + meta.getAttribute("data-fa-src") +
+                   ".js) did not load; no tiles were mounted.");
+      return null;
+    }
     if (!raw) return null;
     try {
       var tiles = JSON.parse(raw);
@@ -3350,7 +3396,7 @@
 
   /* ═══ Which URL schemes may reach an `href` ══════════════════════════
    *
-   * R17, the owner: *"skill tool hints for XSSrsiction"*. `schemas/safe-url.ts`
+   * R17, the owner: *"skill tool hints for XSSrsiction"*. `schemas/ui/safe-url.ts`
    * carries the argument; this is its mirror, and the rule is one line long:
    * **default-deny**. A blocklist has to enumerate every dangerous scheme and
    * is wrong the day a browser ships a new one; an allow-list is wrong only
@@ -3383,7 +3429,7 @@
    * A todo's values for one property, as a list. MULTI-VALUED properties — the
    * assignees and beans `todos.jsonld` gives a todo — are lists already; a
    * single value is a list of one; absent or empty is the empty list.
-   * Mirrors `haveOf` in `schemas/reader-filter.ts`.
+   * Mirrors `haveOf` in `schemas/content/reader-filter.ts`.
    */
   function valuesOf(todo, name) {
     var v = todo[name];
@@ -3441,7 +3487,7 @@
    *
    * ## SESSION-ONLY, like the stack above it
    *
-   * `schemas/board-positions.ts` is where a move becomes durable, and
+   * `schemas/ui/board-positions.ts` is where a move becomes durable, and
    * `moveBy` is the function that does it — for a tool or an agent, against
    * the repository. A published page cannot write that file, and the lesson
    * `db7g` settled applies unchanged: it is better to be a control over this
@@ -3903,7 +3949,7 @@
    * The declared threshold for a kind, with where it came from — or null.
    *
    * Returns the SOURCE alongside the number for the reason
-   * `schemas/semantic-zoom.ts` gives: an inherited value is still a fact
+   * `schemas/kg/semantic-zoom.ts` gives: an inherited value is still a fact
    * somebody must be able to trace, and a reviewer looking at a card that
    * flipped too early needs to tell a deliberate override from the folio's
    * default landing somewhere it does not fit.
@@ -4283,6 +4329,139 @@
       last = re.lastIndex;
     }
     if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  /**
+   * Browser mirror of `schemas/ui/render-output.ts` (`renderToolOutput`, bean
+   * `q2wm`, R17): renders one tool/skill output value according to its declared
+   * `RENDER_AS` hint (`text`, `url`, `markdown`, `json`) as DOM nodes with no
+   * raw HTML injection.
+   */
+  function renderToolOutput(value, hint) {
+    var str = String(value == null ? "" : value);
+    var as = (hint && hint.as) || "text";
+    if (as === "url") {
+      var outUrl = safeHref(str);
+      return outUrl
+        ? el("a", { href: outUrl, rel: "noopener noreferrer" }, str)
+        : el("span", { class: "fa-tool-output-refused" }, str);
+    }
+    if (as === "markdown") {
+      var md = el("div", { class: "fa-tool-output-markdown" });
+      renderMarkdownInto(md, str);
+      return md;
+    }
+    if (as === "json") {
+      return el("pre", { class: "fa-tool-output-json" }, str);
+    }
+    return el("span", { class: "fa-tool-output-text" }, str);
+  }
+
+  function renderWindowOutputs(outputs) {
+    if (!Array.isArray(outputs) || outputs.length === 0) return null;
+    var box = el("div", { class: "fa-sticky-outputs" });
+    for (var i = 0; i < outputs.length; i++) {
+      var item = outputs[i];
+      if (!item) continue;
+      var as = (item.render && item.render.as) || "text";
+      var row = el("div", { class: "fa-sticky-output", "data-render-as": as });
+      if (item.name) {
+        row.appendChild(el("span", { class: "fa-sticky-output-name" }, String(item.name)));
+      }
+      row.appendChild(renderToolOutput(item.value, item.render));
+      box.appendChild(row);
+    }
+    return box;
+  }
+
+  /**
+   * Lazy window detail fetch — bean `q2wm`:
+   *
+   * Rendering the board with `N` cards makes 0 per-card detail fetches up
+   * front (`todoSlot` renders only the avatar/tile). When a reader opens a
+   * card window (`openCard`), `fetchCardDetail` fetches that card's detail URL
+   * once, caches the result by `todo.id`, and renders any body/tool outputs
+   * through `renderBody(..., { markdown: true })` and `renderToolOutput`.
+   */
+  var cardDetailCache = {};
+  var cardDetailPending = {};
+
+  function cardDetailUrl(todo) {
+    if (!todo) return undefined;
+    return (
+      todo.detailHref ||
+      todo.bodyHref ||
+      todo.artifactHref ||
+      (!todo.comment ? todo.jsonldHref : undefined)
+    );
+  }
+
+  function fetchCardDetail(todo, done) {
+    if (!todo || !todo.id) return done(null, false);
+    if (Object.prototype.hasOwnProperty.call(cardDetailCache, todo.id)) {
+      return done(cardDetailCache[todo.id], true);
+    }
+    var rawUrl = cardDetailUrl(todo);
+    if (!rawUrl) return done(null, false);
+    var safeUrl = safeHref(rawUrl);
+    if (!safeUrl) {
+      var refused = {
+        outputs: [{ name: "detail", value: rawUrl, render: { as: "url" } }],
+      };
+      cardDetailCache[todo.id] = refused;
+      return done(refused, false);
+    }
+    if (cardDetailPending[todo.id]) {
+      cardDetailPending[todo.id].push(done);
+      return;
+    }
+    cardDetailPending[todo.id] = [done];
+    fetch(safeUrl, { credentials: "same-origin" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      })
+      .then(function (raw) {
+        var parsed;
+        var trimmed = String(raw || "").trim();
+        if (trimmed.charAt(0) === "{") {
+          try {
+            parsed = JSON.parse(trimmed);
+          } catch (_e) {
+            parsed = { body: raw };
+          }
+        } else {
+          parsed = { body: raw };
+        }
+        cardDetailCache[todo.id] = parsed;
+        var waiters = cardDetailPending[todo.id] || [];
+        delete cardDetailPending[todo.id];
+        for (var w = 0; w < waiters.length; w++) waiters[w](parsed, false);
+      })
+      .catch(function (e) {
+        console.warn("docs-ui: could not read detail for " + todo.id + " (" + e.message + ")");
+        var waiters = cardDetailPending[todo.id] || [];
+        delete cardDetailPending[todo.id];
+        for (var w = 0; w < waiters.length; w++) waiters[w](null, false);
+      });
+  }
+
+  function applyWindowDetail(cardEl, todo, detail) {
+    var bodyText =
+      (detail && (detail.comment || detail.description || detail.body)) ||
+      todo.comment ||
+      "";
+    var oldBody = cardEl.querySelector(".fa-sticky-body");
+    if (bodyText && oldBody && oldBody.parentNode) {
+      var nextBody = renderBody(bodyText, { markdown: true });
+      if (oldBody.hasAttribute("hidden")) nextBody.setAttribute("hidden", "hidden");
+      oldBody.parentNode.replaceChild(nextBody, oldBody);
+    }
+    var outputs = (detail && detail.outputs) || todo.outputs;
+    var oldOut = cardEl.querySelector(".fa-sticky-outputs");
+    if (oldOut && oldOut.parentNode) oldOut.parentNode.removeChild(oldOut);
+    var outBox = renderWindowOutputs(outputs);
+    if (outBox) cardEl.appendChild(outBox);
   }
 
 
@@ -7895,7 +8074,10 @@
           status.textContent = "The harness configuration could not be read. That is not the same as there being none.";
           return;
         }
-        status.textContent = c.harnesses.length + " harnesses here, " + c.associated.length + " associated.";
+        // `subscribed` (issue #1719) is absent from a harness.json built before
+        // the field existed; absent reads as none, never as an error.
+        var subscribed = c.subscribed || [];
+        status.textContent = c.harnesses.length + " harnesses here, " + c.associated.length + " associated, " + subscribed.length + " subscribed.";
         var wrap = el("div", { class: "fa-hc", "data-fa-hc-view": selected ? "detail" : "list" });
         var list = el("div", { class: "fa-hc-list" });
         var detail = el("div", { class: "fa-hc-detail", "aria-live": "polite" });
@@ -7960,7 +8142,28 @@
           h.appendChild(el("code", {}, item.name));
           detail.appendChild(h);
           var acts = el("p", { class: "fa-hc-actions" });
-          if (kind === "associated") {
+          if (kind === "subscribed") {
+            acts.appendChild(link(item.url, "Open at the pin ↗", "Open " + item.title + " at its pinned commit"));
+            acts.appendChild(editLink(link(item.editHref, "✎ Its repository", "Edit " + item.title + " in its own repository")));
+            detail.appendChild(acts);
+            var srows = [
+              { key: "name", value: item.name },
+              { key: "repository", value: item.repository },
+              { key: "ref", value: item.ref },
+              { key: "subscription", value: item.subscription },
+              { key: "harness", value: item.chosen ? "chosen, not yet instantiated" : "not chosen: referenced only" },
+            ];
+            if (item.note) srows.push({ key: "note", value: item.note });
+            srows.push({ key: "declared by", value: item.declaredBy.join(", ") });
+            var st = table(srows);
+            // The rows of a subscription are edited where it is DECLARED.
+            Array.prototype.forEach.call(st.querySelectorAll("tbody td.fa-hc-skills"), function (td) {
+              td.appendChild(link(withBase("/reference/skill-instructions/kg-subscription.html"), "kg-subscription"));
+            });
+            detail.appendChild(st);
+            detail.appendChild(el("p", { class: "fa-hc-note" },
+              "Subscribed: pinned, and not instantiated here. Its parts are copied only when chosen, through the five gates."));
+          } else if (kind === "associated") {
             acts.appendChild(link(item.url, "Open ↗", "Open " + item.title + " (its own site)"));
             if (item.editHref) acts.appendChild(editLink(link(item.editHref, "✎ Its repository", "Edit " + item.title + " in its own repository")));
             detail.appendChild(acts);
@@ -8002,6 +8205,7 @@
           { id: "instantiated", label: "Instantiated here", items: c.harnesses.filter(function (x) { return x.group === "instantiated"; }) },
           { id: "checkout", label: "In this checkout", items: c.harnesses.filter(function (x) { return x.group === "checkout"; }) },
           { id: "associated", label: "Associated ↗ remote", items: c.associated },
+          { id: "subscribed", label: "Subscribed ↗ remote", items: subscribed },
         ];
         var chosen = null;
         groups.forEach(function (g) {
@@ -8014,7 +8218,7 @@
             var li = el("li", {});
             var b = el("button", { type: "button", class: "fa-hc-item", "aria-current": "false" }, item.title);
             if (item.title !== item.name) b.appendChild(el("code", {}, item.name));
-            var kind = g.id === "associated" ? "associated" : "local";
+            var kind = g.id === "associated" || g.id === "subscribed" ? g.id : "local";
             b.addEventListener("click", function () { show(kind, item, b); });
             buttons.push(b);
             li.appendChild(b);
@@ -9532,7 +9736,18 @@
       // already carries the frame's `[x]` — a second Close inside it would be
       // two controls for one act, and they would not agree about what they
       // close. Which controls a kind may declare here is `t4my`'s.
-      panel.appendChild(buildSticky(todo));
+      var cardEl = buildSticky(todo);
+      panel.appendChild(cardEl);
+      if (todo.outputs && todo.outputs.length) {
+        applyWindowDetail(cardEl, todo, null);
+      }
+      if (cardDetailUrl(todo)) {
+        panel.setAttribute("data-fa-detail-state", "loading");
+        fetchCardDetail(todo, function (detail, fromCache) {
+          if (detail) applyWindowDetail(cardEl, todo, detail);
+          panel.setAttribute("data-fa-detail-state", fromCache ? "cached" : "loaded");
+        });
+      }
       // SELECTING ANY PART RAISES — the owner's words, so the listener is on
       // the panel rather than on its title bar. `mousedown` and not `click`,
       // so the raise happens before a control inside the panel acts on it.
@@ -9680,7 +9895,7 @@
   function mountPageStickies(items, board) {
     /* ── The two relations, from ONE pass ─────────────────────────────────
      *
-     * Mirrors `notesAt()` in `schemas/note-anchor.ts`, including the rule
+     * Mirrors `notesAt()` in `schemas/ui/note-anchor.ts`, including the rule
      * that decides the overlap: a note both attached here AND also-about
      * here counts ONCE, as attached — the stronger relation wins, so a
      * self-referential declaration cannot inflate a badge past the length of
@@ -12238,7 +12453,7 @@
 
     var box = document.getElementById("fa-nav-open");
     // NO ☰ AND NO [x] (#1757 on the rail, ob3m finding 8 here). The avatar
-    // below is the one control: it pins the bar open and closes it.
+    // below pins a closed bar open, and goes home from an open one.
 
     /* THE AVATAR OPENS AND CLOSES THE BAR — owner, 2026-09-27: *"navbar
      * starts hidden, click avatar opens for a split second then returns to
@@ -12248,7 +12463,8 @@
      *
      * From 50rem up it is now the bar's toggle: pin open (lifting stay-closed),
      * or close (setting it, so the hover peek does not hold it open under the
-     * pointer). Home is still one click away, as ⌂ at the foot of the bar and
+     * pointer). (Superseded 2026-10-30, below: the ⌂ row is gone and an open
+     * bar's avatar goes home.) Home was one click away, as ⌂ at the foot and
      * as the first page. Below 50rem the theme's ☰ owns the menu and the
      * avatar stays the home link. With no script it is the home link too. */
     var avatar = bar.querySelector(".site-title");
@@ -12262,29 +12478,27 @@
         }
         avatar.setAttribute("aria-controls", bar.id || "");
         avatar.setAttribute("aria-expanded", box.checked ? "true" : "false");
-        avatar.title = box.checked ? "Close navigation" : "Open navigation";
+        avatar.title = box.checked ? "Go to the landing page" : "Open navigation, or go to the landing page once it is open";
       };
       if (!bar.id) bar.id = "fa-side-bar";
       label();
       box.addEventListener("change", label);
+      /* AN OPEN BAR'S AVATAR GOES HOME -- owner, 2026-10-30: *"who eblmen not
+       * clicable to go to landing page. also dont need home on bottomof
+       * harnes navbars."* The ⌂ row at the foot is gone, so the avatar is the
+       * way home. It still pins a CLOSED bar open, which is the touch case
+       * (no hover to peek it open); once the bar is open, by hover, focus or
+       * the pin, the click is the theme's home link. */
       avatar.addEventListener("click", function (e) {
         if (!wide.matches) return;
+        // `(hover: hover)`: a touch screen reports :hover on the tap itself,
+        // which would send its first tap home instead of opening the bar.
+        var canHover = window.matchMedia("(hover: hover)").matches;
+        if (box.checked || (canHover && bar.matches(":hover")) || bar.matches(":focus-visible, :has(:focus-visible)")) return;
         e.preventDefault();
-        box.checked = !box.checked;
-        // Closed under the pointer, the hover peek would hold it open, so the
-        // peek is withheld -- until the pointer leaves the bar, not for good.
-        applyNavPref(box.checked ? null : "closed");
-        if (!box.checked) {
-          bar.addEventListener("pointerleave", function release() {
-            bar.removeEventListener("pointerleave", release);
-            if (!box.checked) applyNavPref(null);
-          });
-        }
+        box.checked = true;
+        applyNavPref(null);
         label();
-        // Closing must drop focus too: the bar also opens on `:focus-within`
-        // (the keyboard path), so a focused avatar held it open after the
-        // click that closed it. Measured: 264px wide with the pointer away.
-        if (!box.checked) avatar.blur();
       });
     }
   }
