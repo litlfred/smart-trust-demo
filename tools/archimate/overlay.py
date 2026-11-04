@@ -297,3 +297,9 @@ for _code in JOURNEYS:
     _v, _c = journey_view(_code)
     VIEWS.append(_v)
     VIEW_CONNECTIONS[_v[0]] = _c
+
+# The harness's ArchiMate reader does not decode numeric character references
+# (&#x27;), so a straight apostrophe would show as one; write the typographic one.
+ELEMENTS = {k: (t, n.replace("'", "’"), d.replace("'", "’"), {pk: pv.replace("'", "’") for pk, pv in p.items()})
+            for k, (t, n, d, p) in ELEMENTS.items()}
+VIEWS = [(n, d.replace("'", "’"), l) for n, d, l in VIEWS]
