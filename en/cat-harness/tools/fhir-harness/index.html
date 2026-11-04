@@ -917,9 +917,9 @@ is <code class="language-plaintext highlighter-rouge">satisfies</code>, and it r
 to do that</em>, never <em>this skill is a tool</em>.</p>
 
 <div class="tg-grid">
-<a class="tg-stat" href="#every-tool"><b>33</b><span>Tool nodes</span></a>
-<a class="tg-stat" href="#does-every-satisfies-name-a-skill-that-exists"><b>8</b><span>skills satisfied</span></a>
-<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>33</b><span>invoked as a shell command</span></a>
+<a class="tg-stat" href="#every-tool"><b>34</b><span>Tool nodes</span></a>
+<a class="tg-stat" href="#does-every-satisfies-name-a-skill-that-exists"><b>9</b><span>skills satisfied</span></a>
+<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>34</b><span>invoked as a shell command</span></a>
 <a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>0</b><span>reachable over MCP</span></a>
 </div>
 
@@ -944,7 +944,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><span class="tg-tag tg-shell">shell</span></td>
-      <td>33</td>
+      <td>34</td>
     </tr>
   </tbody>
 </table></div>
@@ -959,7 +959,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">none</code></td>
-      <td>28</td>
+      <td>29</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cli</code></td>
@@ -976,7 +976,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
 </h2>
     
 
-<p>Yes — all <strong>8</strong> skills named across <strong>33</strong> tools resolve to a
+<p>Yes — all <strong>9</strong> skills named across <strong>34</strong> tools resolve to a
 skill document in this checkout. A <code class="language-plaintext highlighter-rouge">satisfies</code> pointing at nothing would be a
 tool advertising a capability the graph cannot locate.</p>
 <h2 id="every-tool">
@@ -1002,15 +1002,15 @@ tool advertising a capability the graph cannot locate.</p>
   <tbody>
     <tr>
       <td><a id="build-ig-site"></a><a href="#build-ig-site"><code class="language-plaintext highlighter-rouge">build-ig-site</code></a><br />Stage one IG as its own just-the-docs Jekyll site</td>
-      <td>Turn an IG source repository into ONE Jekyll source for just-the-docs, as the IG Publisher builds one IG per site: <code class="language-plaintext highlighter-rouge">input/pagecontent</code> pages with title, parent and order from <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> <code class="language-plaintext highlighter-rouge">pages:</code>, the files the Publisher’s include tags resolve against, images, <code class="language-plaintext highlighter-rouge">_data/fhir.json</code> from <code class="language-plaintext highlighter-rouge">ig-site-data</code>, and a <code class="language-plaintext highlighter-rouge">_config.yml</code>. The pages render unchanged, including their references to the IG’s site data (bean <code class="language-plaintext highlighter-rouge">bamf</code>, owner’s choice of one site per IG). With the IG’s menu, the layout is the one every IG site wears (bean <code class="language-plaintext highlighter-rouge">mftp</code>): the IG’s own top bar, the IG’s TOC declared as the folio-assistant navbar’s section (added by <code class="language-plaintext highlighter-rouge">rail-standalone-pages</code>), no sidebar of its own, an edit link per page, and per heading a source-line link and a pre-filled feedback issue.</td>
+      <td>Turn an IG source repository into ONE Jekyll source for just-the-docs, as the IG Publisher builds one IG per site: <code class="language-plaintext highlighter-rouge">input/pagecontent</code> pages with title, parent and order from <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> <code class="language-plaintext highlighter-rouge">pages:</code>, the files the Publisher’s include tags resolve against, images, <code class="language-plaintext highlighter-rouge">_data/fhir.json</code> from <code class="language-plaintext highlighter-rouge">ig-site-data</code>, and a <code class="language-plaintext highlighter-rouge">_config.yml</code>. The pages render unchanged, including their references to the IG’s site data. With the IG’s menu, the layout is the one every IG site wears: the IG’s own top bar, the IG’s TOC declared as the folio-assistant navbar’s section (added by <code class="language-plaintext highlighter-rouge">rail-standalone-pages</code>), no sidebar of its own, an edit link per page, and per heading a source-line link and a pre-filled feedback issue.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
-      <td>4 in / 2 out</td>
+      <td>5 in / 2 out</td>
       <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
     <tr>
       <td><a id="check-wireframe-questionnaire"></a><a href="#check-wireframe-questionnaire"><code class="language-plaintext highlighter-rouge">check-wireframe-questionnaire</code></a><br />Check a Questionnaire field for field against the wireframe it was derived from</td>
-      <td>Compare the <code class="language-plaintext highlighter-rouge">data-element</code> fields of a mid-fidelity wireframe (per <code class="language-plaintext highlighter-rouge">data-layout</code>, in document order) with the answerable items of a BUILT Questionnaire (depth first, named by <code class="language-plaintext highlighter-rouge">definition</code> or <code class="language-plaintext highlighter-rouge">code</code>). Reports a field with no item, an item with no field, an item naming no data element, a data element twice in one layout, and the first place the order differs. Fidelity, not design. Moved down from the WHO layer on the owner’s ruling of 2026-10-14: nothing in it is WHO’s.</td>
+      <td>Compare the <code class="language-plaintext highlighter-rouge">data-element</code> fields of a mid-fidelity wireframe (per <code class="language-plaintext highlighter-rouge">data-layout</code>, in document order) with the answerable items of a BUILT Questionnaire (depth first, named by <code class="language-plaintext highlighter-rouge">definition</code> or <code class="language-plaintext highlighter-rouge">code</code>). Reports a field with no item, an item with no field, an item naming no data element, a data element twice in one layout, and the first place the order differs. Fidelity, not design.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">fhir-questionnaire-wireframe</code></td>
       <td>2 in / 1 out</td>
@@ -1018,7 +1018,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="fhir-cache-seed-npm"></a><a href="#fhir-cache-seed-npm"><code class="language-plaintext highlighter-rouge">fhir-cache-seed-npm</code></a><br />Seed the FHIR package cache from trusted sources (exact versions)</td>
-      <td>Fill <code class="language-plaintext highlighter-rouge">~/.fhir/packages</code> (or <code class="language-plaintext highlighter-rouge">--cache</code>) for an environment that cannot reach packages.fhir.org, from trust anchors only: npm account <code class="language-plaintext highlighter-rouge">grahamegrieve</code> (owner-trusted), publishers’ own published-site repositories (the seeder’s list, each fetch verified against the tarball’s own package.json), template repos found through FHIR/ig-registry’s templates.json read live each run, and an owner <code class="language-plaintext highlighter-rouge">--mirror</code>. Exact versions only (a patch wildcard resolves as the Publisher resolves it, recorded); every tarball verified; nothing computed once and kept; provenance recorded; missing versions listed, never substituted.</td>
+      <td>Fill <code class="language-plaintext highlighter-rouge">~/.fhir/packages</code> (or <code class="language-plaintext highlighter-rouge">--cache</code>) for an environment that cannot reach packages.fhir.org, from trust anchors only: npm account <code class="language-plaintext highlighter-rouge">grahamegrieve</code>, publishers’ own published-site repositories (the seeder’s list, each fetch verified against the tarball’s own package.json), template repos found through FHIR/ig-registry’s templates.json read live each run, and a <code class="language-plaintext highlighter-rouge">--mirror</code>. Exact versions only (a patch wildcard resolves as the Publisher resolves it, recorded); every tarball verified; nothing computed once and kept; provenance recorded; missing versions listed, never substituted.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-publisher-fork</code></td>
       <td>5 in / 2 out</td>
@@ -1034,7 +1034,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="fsh-cone"></a><a href="#fsh-cone"><code class="language-plaintext highlighter-rouge">fsh-cone</code></a><br />FSH dependency cone</td>
-      <td>Compute the dependency cone over an IG’s FSH graph, and the blast radius of a set of changed files. What makes an incremental IG build possible: without it, any edit rebuilds everything.</td>
+      <td>Compute the dependency cone over an IG’s FSH graph, and the blast radius of a set of changed files. It is what lets an incremental IG build rebuild less than everything.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">fhir-validation</code></td>
       <td>5 in / 1 out</td>
@@ -1042,7 +1042,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="ig-artifact-jsonld"></a><a href="#ig-artifact-jsonld"><code class="language-plaintext highlighter-rouge">ig-artifact-jsonld</code></a><br />Write one JSON-LD node per IG artefact, and check a built site’s nodes</td>
-      <td><code class="language-plaintext highlighter-rouge">write</code> turns an artefact index into <code class="language-plaintext highlighter-rouge">artifact/&lt;Type&gt;-&lt;id&gt;.jsonld</code> (and a <code class="language-plaintext highlighter-rouge">.json</code> twin) under a docs root: one <code class="language-plaintext highlighter-rouge">folio-ig-artifact-jsonld/v1</code> node per artefact, in borrowed vocabularies only (the FHIR RDF class, dcterms, schema.org, PROV), naming the artefact’s canonical URL, its representations and, for a compiled copy, what built it. <code class="language-plaintext highlighter-rouge">check</code> is the kind’s QA: over a BUILT site, every artefact has its node and no node is an orphan, each node is its own file’s, its twin matches, and every local resource it names is on the site. It also writes and checks the index node, <code class="language-plaintext highlighter-rouge">artifact/index.jsonld</code> (<code class="language-plaintext highlighter-rouge">folio-ig-artifact-index-jsonld/v1</code>): every artefact once, each entry naming its node. WHO-free; the assets the thin pages render (owner, 2026-10-11, option A; thin by default since 2026-10-12).</td>
+      <td><code class="language-plaintext highlighter-rouge">write</code> turns an artefact index into <code class="language-plaintext highlighter-rouge">artifact/&lt;Type&gt;-&lt;id&gt;.jsonld</code> (and a <code class="language-plaintext highlighter-rouge">.json</code> twin) under a docs root: one <code class="language-plaintext highlighter-rouge">folio-ig-artifact-jsonld/v1</code> node per artefact, in borrowed vocabularies only (the FHIR RDF class, dcterms, schema.org, PROV), naming the artefact’s canonical URL, its representations and, for a compiled copy, what built it. <code class="language-plaintext highlighter-rouge">check</code> is the kind’s QA: over a BUILT site, every artefact has its node and no node is an orphan, each node is its own file’s, its twin matches, and every local resource it names is on the site. It also writes and checks the index node, <code class="language-plaintext highlighter-rouge">artifact/index.jsonld</code> (<code class="language-plaintext highlighter-rouge">folio-ig-artifact-index-jsonld/v1</code>): every artefact once, each entry naming its node. These are the assets the thin pages render.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
       <td>6 in / 1 out</td>
@@ -1074,7 +1074,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="ig-ast-jsonld"></a><a href="#ig-ast-jsonld"><code class="language-plaintext highlighter-rouge">ig-ast-jsonld</code></a><br />Export an IG AST as JSON-LD</td>
-      <td>Write an AST as linked data against <code class="language-plaintext highlighter-rouge">fhir-harness/schemas/ig-ast.context.jsonld</code>: each resource a node identified by its canonical URL (<code class="language-plaintext highlighter-rouge">urn:fhir:&lt;Type&gt;/&lt;id&gt;</code> when it has none) and typed by its FHIR resource type, each dependency edge a link to its target, and the manifest’s <code class="language-plaintext highlighter-rouge">authority: cache</code> and <code class="language-plaintext highlighter-rouge">provisional</code> list carried on the graph. The AST is validated against the Zod declaration the JSON Schemas are generated from before it is exported (bean <code class="language-plaintext highlighter-rouge">l0lq</code>).</td>
+      <td>Write an AST as linked data against <code class="language-plaintext highlighter-rouge">fhir-harness/schemas/ig-ast.context.jsonld</code>: each resource a node identified by its canonical URL (<code class="language-plaintext highlighter-rouge">urn:fhir:&lt;Type&gt;/&lt;id&gt;</code> when it has none) and typed by its FHIR resource type, each dependency edge a link to its target, and the manifest’s <code class="language-plaintext highlighter-rouge">authority: cache</code> and <code class="language-plaintext highlighter-rouge">provisional</code> list carried on the graph. The AST is validated against the Zod declaration the JSON Schemas are generated from before it is exported.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-ast-delta</code></td>
       <td>1 in / 1 out</td>
@@ -1090,7 +1090,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="ig-ast-measure-real-igs"></a><a href="#ig-ast-measure-real-igs"><code class="language-plaintext highlighter-rouge">ig-ast-measure-real-igs</code></a><br />Measure the AST export on real IGs</td>
-      <td>Build the WHO SMART Trust and Immunizations IGs through <code class="language-plaintext highlighter-rouge">ig-ast-export</code> and print the W1/W2 measurements: counts, whether FSH sources sit where the plan expects, and logic-layer edge coverage per resource type against 458 of 458. <code class="language-plaintext highlighter-rouge">--byte-identical</code> adds a stock build and an <code class="language-plaintext highlighter-rouge">output/</code> diff.</td>
+      <td>Build the WHO SMART Trust and Immunizations IGs through <code class="language-plaintext highlighter-rouge">ig-ast-export</code> and print the fork’s measurements: counts, whether FSH sources sit where the plan expects, and logic-layer edge coverage per resource type. <code class="language-plaintext highlighter-rouge">--byte-identical</code> adds a stock build and an <code class="language-plaintext highlighter-rouge">output/</code> diff.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-publisher-fork</code></td>
       <td>1 in / 1 out</td>
@@ -1098,7 +1098,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="ig-ast-pages"></a><a href="#ig-ast-pages"><code class="language-plaintext highlighter-rouge">ig-ast-pages</code></a><br />Write the IG AST viewer: a page per instance holding <code class="language-plaintext highlighter-rouge">ig-ast</code> directories, and a hub</td>
-      <td>For every visualiser an instance declares <code class="language-plaintext highlighter-rouge">renderedBy: ig-ast-pages</code>, write the hub at <code class="language-plaintext highlighter-rouge">&lt;locale&gt;/&lt;harness&gt;/&lt;id&gt;/</code> and, with <code class="language-plaintext highlighter-rouge">subgraphs: "instance"</code>, one page per instance that declares an <code class="language-plaintext highlighter-rouge">ig-ast</code> directory, at <code class="language-plaintext highlighter-rouge">…/&lt;instance&gt;/</code>. Each lists the ASTs the directory holds: the IG’s package id, resources in total and by type, dependency edges (resolved inside the IG, by origin, by kind), the rebuild plan when one is recorded, and what stays provisional. A declared directory not on disk — a branch-family member not restored, which is the normal case — is reported UNKNOWN with the family it would be restored from, never as zero ASTs. Not <code class="language-plaintext highlighter-rouge">ig-ast-list</code> extended: that Tool summarises ONE AST it is handed, and a site build has no AST path to hand it.</td>
+      <td>For every visualiser an instance declares <code class="language-plaintext highlighter-rouge">renderedBy: ig-ast-pages</code>, write the hub at <code class="language-plaintext highlighter-rouge">&lt;locale&gt;/&lt;harness&gt;/&lt;id&gt;/</code> and, with <code class="language-plaintext highlighter-rouge">subgraphs: "instance"</code>, one page per instance that declares an <code class="language-plaintext highlighter-rouge">ig-ast</code> directory, at <code class="language-plaintext highlighter-rouge">…/&lt;instance&gt;/</code>. Each lists the ASTs the directory holds: the IG’s package id, resources in total and by type, dependency edges (resolved inside the IG, by origin, by kind), the rebuild plan when one is recorded, and what stays provisional. A declared directory not on disk — a branch-family member not restored, which is the normal case — is reported UNKNOWN with the family it would be restored from, never as zero ASTs. <code class="language-plaintext highlighter-rouge">ig-ast-list</code> summarises one AST it is handed; this Tool needs no AST path.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-ast-delta</code></td>
       <td>3 in / 1 out</td>
@@ -1153,8 +1153,16 @@ tool advertising a capability the graph cannot locate.</p>
       <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
     <tr>
+      <td><a id="ig-index-build"></a><a href="#ig-index-build"><code class="language-plaintext highlighter-rouge">ig-index-build</code></a><br />Build each IG instance’s artefact index from the IG’s cached AST</td>
+      <td>Write each IG instance’s <code class="language-plaintext highlighter-rouge">fhir-artifact-index/</code> at publish, so no IG instance commits one. Indexes each instance that needs this layer and whose <code class="language-plaintext highlighter-rouge">repository</code> has an AST cache branch; others are skipped and named. Per instance: <code class="language-plaintext highlighter-rouge">index.json</code> from the AST <code class="language-plaintext highlighter-rouge">ig-cache.sh restore</code> lays down from the IG repository’s cache branch (<code class="language-plaintext highlighter-rouge">authority: "cache"</code>), <code class="language-plaintext highlighter-rouge">menu.json</code> from the IG’s <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> at the commit cloned (recording the <code class="language-plaintext highlighter-rouge">source.of</code> and <code class="language-plaintext highlighter-rouge">source.ref</code> that <code class="language-plaintext highlighter-rouge">stage-ig-sites</code> clones from), <code class="language-plaintext highlighter-rouge">releases.json</code> from the repository’s GitHub releases (a failed read writes nothing, never an empty list), <code class="language-plaintext highlighter-rouge">package.tgz</code> from the AST’s resources, and the JSON-LD contexts the IG publishes. The first step of process <code class="language-plaintext highlighter-rouge">ig-docs-site-compose</code>.</td>
+      <td><span class="tg-tag tg-shell">shell</span></td>
+      <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
+      <td>4 in / 1 out</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
+    </tr>
+    <tr>
       <td><a id="ig-pages"></a><a href="#ig-pages"><code class="language-plaintext highlighter-rouge">ig-pages</code></a><br />Generate an IG instance’s reader-facing pages from its artefact index</td>
-      <td>Write <code class="language-plaintext highlighter-rouge">&lt;instance&gt;/docs/</code> — an index page, one page per artefact, a page per over-large category and per menu group — from <code class="language-plaintext highlighter-rouge">fhir-artifact-index/index.json</code> (and <code class="language-plaintext highlighter-rouge">menu.json</code> when ingested), styled by the template chrome an owning instance ingested. Moved down to this layer because nothing in it was one IG’s own (#1767); with <code class="language-plaintext highlighter-rouge">--summary</code> it writes an instance’s landing page, opening with that instance’s harness section. For an instance whose docs declare <code class="language-plaintext highlighter-rouge">igSite</code> (bean <code class="language-plaintext highlighter-rouge">mftp</code>) it writes no index, menu or category pages — the IG site’s own replace them — and only a front-matter <code class="language-plaintext highlighter-rouge">artifacts.md</code> naming the Tool that drew it. Where an instance declares a visualiser <code class="language-plaintext highlighter-rouge">renderedBy: ig-pages</code>, it also writes that visualiser’s route page, <code class="language-plaintext highlighter-rouge">&lt;base&gt;/&lt;instance&gt;/&lt;id&gt;/</code>, which opens the artefact index; with <code class="language-plaintext highlighter-rouge">--site &lt;dir&gt;</code> it writes only those route pages, under that site. For an IG whose SOURCE is at hand, <code class="language-plaintext highlighter-rouge">build-ig-site</code> renders the IG’s own pages instead; this is for an IG known only by what it published.</td>
+      <td>Write <code class="language-plaintext highlighter-rouge">&lt;instance&gt;/docs/</code> — an index page, one page per artefact, a page per over-large category and per menu group — from <code class="language-plaintext highlighter-rouge">fhir-artifact-index/index.json</code> (and <code class="language-plaintext highlighter-rouge">menu.json</code> when ingested), styled by the template chrome an owning instance ingested. For an instance whose docs declare <code class="language-plaintext highlighter-rouge">igSite</code> it writes no index, menu or category pages — the IG site’s own replace them — and only a front-matter <code class="language-plaintext highlighter-rouge">artifacts.md</code> naming the Tool that drew it. <code class="language-plaintext highlighter-rouge">build-ig-site</code> renders an IG’s narrative pages from source; this Tool writes the artefact pages for every IG instance (<code class="language-plaintext highlighter-rouge">stage-ig-sites</code> copies them in).</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
       <td>9 in / 1 out</td>
@@ -1170,7 +1178,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="ig-site-data"></a><a href="#ig-site-data"><code class="language-plaintext highlighter-rouge">ig-site-data</code></a><br />Populate site.data.fhir for a just-the-docs IG render</td>
-      <td>Write the IG Publisher’s Jekyll variables (<code class="language-plaintext highlighter-rouge">site.data.fhir.ig.*</code>, <code class="language-plaintext highlighter-rouge">packageId</code>, <code class="language-plaintext highlighter-rouge">canonical</code>) for ONE implementation guide, from <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> or a published IG’s <code class="language-plaintext highlighter-rouge">fhir-artifact-index</code>, so pages written for the Publisher render on just-the-docs unchanged. fhir-harness declares <code class="language-plaintext highlighter-rouge">site.data</code> as a pass-through Liquid prefix; this is what Jekyll then reads (bean <code class="language-plaintext highlighter-rouge">bamf</code>).</td>
+      <td>Write the IG Publisher’s Jekyll variables (<code class="language-plaintext highlighter-rouge">site.data.fhir.ig.*</code>, <code class="language-plaintext highlighter-rouge">packageId</code>, <code class="language-plaintext highlighter-rouge">canonical</code>) for ONE implementation guide, from <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> or a published IG’s <code class="language-plaintext highlighter-rouge">fhir-artifact-index</code>, so pages written for the Publisher render on just-the-docs unchanged. fhir-harness declares <code class="language-plaintext highlighter-rouge">site.data</code> as a pass-through Liquid prefix; this is what Jekyll then reads.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
       <td>3 in / 2 out</td>
@@ -1186,7 +1194,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="ingest-ig-releases"></a><a href="#ingest-ig-releases"><code class="language-plaintext highlighter-rouge">ingest-ig-releases</code></a><br />Record an IG’s GitHub releases as pointers to their binary assets</td>
-      <td>Read an IG repository’s GitHub releases and write <code class="language-plaintext highlighter-rouge">fhir-artifact-index/releases.json</code> (<code class="language-plaintext highlighter-rouge">ig-releases/v1</code>): each asset’s name, size, SHA-256 digest and download URL, never its bytes. The IG site’s generated <code class="language-plaintext highlighter-rouge">releases</code> page lists them (bean <code class="language-plaintext highlighter-rouge">b8ip</code>).</td>
+      <td>Read an IG repository’s GitHub releases and write <code class="language-plaintext highlighter-rouge">fhir-artifact-index/releases.json</code> (<code class="language-plaintext highlighter-rouge">ig-releases/v1</code>): each asset’s name, size, SHA-256 digest and download URL, never its bytes. The IG site’s generated <code class="language-plaintext highlighter-rouge">releases</code> page lists them.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-binary-artefacts</code></td>
       <td>2 in / 1 out</td>
@@ -1194,7 +1202,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="jsonld-vocabularies"></a><a href="#jsonld-vocabularies"><code class="language-plaintext highlighter-rouge">jsonld-vocabularies</code></a><br />ValueSet expansions → JSON-LD</td>
-      <td>JSON-LD vocabularies built from the ValueSet expansions in the published output.</td>
+      <td>JSON-LD vocabularies built from the ValueSet expansions in the IG’s AST (<code class="language-plaintext highlighter-rouge">expansions.json</code>).</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
       <td>1 in / 1 out</td>
@@ -1202,7 +1210,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="logical-model-schemas"></a><a href="#logical-model-schemas"><code class="language-plaintext highlighter-rouge">logical-model-schemas</code></a><br />Logical models → JSON Schema</td>
-      <td>A JSON Schema per logical model, from the published FHIR resources.</td>
+      <td>A JSON Schema per logical model, from the logical models in the IG’s AST.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
       <td>1 in / 1 out</td>
@@ -1210,7 +1218,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="pin-ig-terminology"></a><a href="#pin-ig-terminology"><code class="language-plaintext highlighter-rouge">pin-ig-terminology</code></a><br />Snapshot a published IG’s terminology at its pinned version</td>
-      <td>Read every CodeSystem concept out of a FHIR IG clone checked out at its pinned tag and write a <code class="language-plaintext highlighter-rouge">folio-pinned-terminology/v1</code> snapshot: the offline, version-fixed answer <code class="language-plaintext highlighter-rouge">check:term-mapping</code> resolves its <code class="language-plaintext highlighter-rouge">fhir</code> target against. Which IG, which pin record and which snapshot path are the caller’s (<code class="language-plaintext highlighter-rouge">--pin</code>, <code class="language-plaintext highlighter-rouge">--out</code>, <code class="language-plaintext highlighter-rouge">--source</code>); this layer names none (#1767, stage B′).</td>
+      <td>Read every CodeSystem concept out of a FHIR IG clone checked out at its pinned tag and write a <code class="language-plaintext highlighter-rouge">folio-pinned-terminology/v1</code> snapshot: the offline, version-fixed answer <code class="language-plaintext highlighter-rouge">check:term-mapping</code> resolves its <code class="language-plaintext highlighter-rouge">fhir</code> target against. Which IG, which pin record and which snapshot path are the caller’s (<code class="language-plaintext highlighter-rouge">--pin</code>, <code class="language-plaintext highlighter-rouge">--out</code>, <code class="language-plaintext highlighter-rouge">--source</code>); this layer names none.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">vocabulary-authority</code></td>
       <td>1 in / 1 out</td>
@@ -1218,7 +1226,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="sdc-checks"></a><a href="#sdc-checks"><code class="language-plaintext highlighter-rouge">sdc-checks</code></a><br />Check an IG’s built Questionnaires with CSIRO’s SDC libraries</td>
-      <td>Build-time Structured Data Capture checks, one result per Questionnaire (<code class="language-plaintext highlighter-rouge">sdcChecks[]</code> of <code class="language-plaintext highlighter-rouge">fhir-questionnaire-wireframe</code>): <code class="language-plaintext highlighter-rouge">assemble</code> (<code class="language-plaintext highlighter-rouge">@aehrc/sdc-assemble</code> 2.0.3: an assemble-root’s sub-forms resolve in this IG, and <code class="language-plaintext highlighter-rouge">--out</code> writes the assembled Questionnaire), <code class="language-plaintext highlighter-rouge">template-extract</code> (<code class="language-plaintext highlighter-rouge">@aehrc/sdc-template-extract</code> 1.0.16: extraction from the IG’s fixture response yields the expected resources), <code class="language-plaintext highlighter-rouge">populate</code> (<code class="language-plaintext highlighter-rouge">@aehrc/sdc-populate</code> 4.7.2: FHIRPath pre-population from a fixture context gives the expected answers) and <code class="language-plaintext highlighter-rouge">behaviour</code> (<code class="language-plaintext highlighter-rouge">@aehrc/questionnaire-test-toolkit</code> 0.1.0: the IG’s own behavioural test, warn-only). Owner, 2026-10-14: checks, not UI.</td>
+      <td>Build-time Structured Data Capture checks, one result per Questionnaire (<code class="language-plaintext highlighter-rouge">sdcChecks[]</code> of <code class="language-plaintext highlighter-rouge">fhir-questionnaire-wireframe</code>): <code class="language-plaintext highlighter-rouge">assemble</code> (<code class="language-plaintext highlighter-rouge">@aehrc/sdc-assemble</code> 2.0.3: an assemble-root’s sub-forms resolve in this IG, and <code class="language-plaintext highlighter-rouge">--out</code> writes the assembled Questionnaire), <code class="language-plaintext highlighter-rouge">template-extract</code> (<code class="language-plaintext highlighter-rouge">@aehrc/sdc-template-extract</code> 1.0.16: extraction from the IG’s fixture response yields the expected resources), <code class="language-plaintext highlighter-rouge">populate</code> (<code class="language-plaintext highlighter-rouge">@aehrc/sdc-populate</code> 4.7.2: FHIRPath pre-population from a fixture context gives the expected answers) and <code class="language-plaintext highlighter-rouge">behaviour</code> (<code class="language-plaintext highlighter-rouge">@aehrc/questionnaire-test-toolkit</code> 0.1.0: the IG’s own behavioural test, warn-only). Checks only, no UI.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">fhir-questionnaire-wireframe</code></td>
       <td>4 in / 1 out</td>
@@ -1226,10 +1234,10 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="stage-ig-sites"></a><a href="#stage-ig-sites"><code class="language-plaintext highlighter-rouge">stage-ig-sites</code></a><br />Stage every IG whose instance records its source, one Jekyll site each</td>
-      <td>For every instance holding <code class="language-plaintext highlighter-rouge">fhir-artifact-index/menu.json</code> with a sushi-config source, clone the IG at the recorded commit and stage it with <code class="language-plaintext highlighter-rouge">build-ig-site</code>: the instance’s webpage theme (inherited along <code class="language-plaintext highlighter-rouge">needs</code> when it declares none), its artefact pages and <code class="language-plaintext highlighter-rouge">artifacts</code> page, its post-processing fills, and an edit link to the IG’s default branch. An instance whose docs directory declares <code class="language-plaintext highlighter-rouge">igSite</code> is staged to be served AT <code class="language-plaintext highlighter-rouge">/&lt;instance&gt;/</code> with its artefact pages copied in (a collision is refused); otherwise beside it at <code class="language-plaintext highlighter-rouge">/&lt;instance&gt;/ig/</code>. Prints one <code class="language-plaintext highlighter-rouge">&lt;instance&gt; &lt;jekyll source&gt; &lt;at&gt;</code> line per IG for the caller’s <code class="language-plaintext highlighter-rouge">jekyll build</code> (beans <code class="language-plaintext highlighter-rouge">bamf</code>, <code class="language-plaintext highlighter-rouge">mftp</code>).</td>
+      <td>Clone each IG whose instance records a sushi-config source in <code class="language-plaintext highlighter-rouge">fhir-artifact-index/menu.json</code>, at the recorded commit, and stage it with <code class="language-plaintext highlighter-rouge">build-ig-site</code> (theme, artefact pages, post-processing fills, edit links to the IG’s default branch). Served at <code class="language-plaintext highlighter-rouge">/&lt;instance&gt;/</code> when its docs declare <code class="language-plaintext highlighter-rouge">igSite</code> (its artefact pages copied in; a collision is refused), else <code class="language-plaintext highlighter-rouge">/&lt;instance&gt;/ig/</code>. Prints one <code class="language-plaintext highlighter-rouge">&lt;instance&gt; &lt;jekyll source&gt; &lt;at&gt;</code> line per IG for the caller’s <code class="language-plaintext highlighter-rouge">jekyll build</code>.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
-      <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
-      <td>9 in / 1 out</td>
+      <td><code class="language-plaintext highlighter-rouge">docs-generation</code><br /><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
+      <td>10 in / 1 out</td>
       <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
     <tr>
@@ -1250,7 +1258,7 @@ tool advertising a capability the graph cannot locate.</p>
     </tr>
     <tr>
       <td><a id="terminology-index"></a><a href="#terminology-index"><code class="language-plaintext highlighter-rouge">terminology-index</code></a><br />Write an IG site’s static terminology index from the IG’s own cache</td>
-      <td>Read the IG Publisher’s <code class="language-plaintext highlighter-rouge">expansions.json</code> and <code class="language-plaintext highlighter-rouge">txcache/</code>, as <code class="language-plaintext highlighter-rouge">ig-cache.sh restore</code> leaves them, and write <code class="language-plaintext highlighter-rouge">index.json</code> (gzipped as <code class="language-plaintext highlighter-rouge">index.json.gz</code> over 1 MB): every code with its system and display, and each value set’s codes. The IG site’s service worker answers the self-hosted Form Builder’s LOINC search from it, and its UCUM search from the vendored full UCUM list, so the site makes no cross-site call (owner, 2026-10-14: “cache + ucum. this is gh-pages so no XSS”). <code class="language-plaintext highlighter-rouge">build-ig-site</code> runs it for every IG with a Questionnaire.</td>
+      <td>Read the IG Publisher’s <code class="language-plaintext highlighter-rouge">expansions.json</code> and <code class="language-plaintext highlighter-rouge">txcache/</code>, as <code class="language-plaintext highlighter-rouge">ig-cache.sh restore</code> leaves them, and write <code class="language-plaintext highlighter-rouge">index.json</code> (gzipped as <code class="language-plaintext highlighter-rouge">index.json.gz</code> over 1 MB): every code with its system and display, and each value set’s codes. The IG site’s service worker answers the self-hosted Form Builder’s LOINC search from it, and its UCUM search from the vendored full UCUM list, so the site makes no cross-site call. <code class="language-plaintext highlighter-rouge">build-ig-site</code> runs it for every IG with a Questionnaire.</td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
       <td>3 in / 1 out</td>

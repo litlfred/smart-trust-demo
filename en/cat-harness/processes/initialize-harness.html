@@ -908,7 +908,7 @@
 
 <p>THE ONLY PROCESS IN BOOTSTRAP AN ACTOR STARTS. A Bootstrapping Agent that has read bootstrap’s README.md is at its start event and has nowhere else to begin. Every other diagram here is reached from this one by a call activity and is never started: <code class="language-plaintext highlighter-rouge">discussion</code> determines which harness and where; <code class="language-plaintext highlighter-rouge">human-agent-discussion</code> is the one reusable way any diagram asks a person anything; <code class="language-plaintext highlighter-rouge">complete-initialization</code> makes sure every step the declarations name is done; <code class="language-plaintext highlighter-rouge">log-message</code> records what a step is doing.</p>
 
-<p>PRECONDITIONS are DECLARED below as bootstrap.processes:precondition elements rather than asserted here. Three of the four are kind=”stated”: nothing in this repository can observe whether an actor understands what a role is, and a check claiming to would be a green tick over an unverified claim — so they evaluate to could-not-determine, never to satisfied. The fourth is checkable, and note what it actually checks: that README.md EXISTS, not that the Bootstrapping Agent read it. Reading is not observable from here.</p>
+<p>PRECONDITIONS are DECLARED below as bootstrap.processes:precondition elements rather than asserted here. Three of the four are kind=”stated”: nothing in this repository can observe whether an actor understands what a role is, so they evaluate to could-not-determine, never to satisfied. The fourth is checkable: README.md EXISTS. That the Bootstrapping Agent read it is not observable.</p>
 
 <p>NO work-plan element on any activity: a work plan is harness machinery and a Bootstrapping Agent runs before the harness that carries it. isExecutable is false because the engine that runs a diagram is harness machinery too — this is data a Bootstrapping Agent reads, not a process bootstrap can drive.</p>
 
@@ -949,7 +949,7 @@
     <tr>
       <td>Bootstrapping Agent</td>
       <td><code class="language-plaintext highlighter-rouge">bootstrapping-agent</code></td>
-      <td>Everything this process performs other than reading the target location. The one judgement — WHICH harness — is not made here: it is the Requestor’s, obtained inside <code class="language-plaintext highlighter-rouge">discussion</code> through <code class="language-plaintext highlighter-rouge">human-agent-discussion</code>, which is why this diagram has no Requestor lane. It follows the CHOSEN harness’s own instructions rather than any bootstrap holds, and logs failure on all three refusal paths rather than retrying — a guessed harness produces a repository set up as the wrong thing, which this process treats as worse than stopping.</td>
+      <td>Everything this process performs other than reading the target location. The one judgement — WHICH harness — is not made here: it is the Requestor’s, obtained inside <code class="language-plaintext highlighter-rouge">discussion</code> through <code class="language-plaintext highlighter-rouge">human-agent-discussion</code>, which is why this diagram has no Requestor lane. It follows the CHOSEN harness’s own instructions rather than any bootstrap holds.</td>
     </tr>
   </tbody>
 </table></div>
@@ -984,13 +984,13 @@
       <td><strong>Read what each location already is</strong><br /><code class="language-plaintext highlighter-rouge">A_ReadLocation</code></td>
       <td>Bootstrapping Agent</td>
       <td><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></td>
-      <td>Ask the location, not your memory of it: a Knowledge Graph Data Store that carries a declaration at its root is ALREADY an instance, and it says so itself. <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> present and parsing is the whole test, and <code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code> says what the three answers mean — absent (not an instance yet), present, and present-but-unreadable, which is an instance asserting something broken and is not a green light either.<br />Before reading the chosen harness rather than after, deliberately: if the location is spoken for by another harness there is nothing to learn from the chosen one, and fetching it first only makes the failure more expensive.</td>
+      <td>Ask the location, not your memory of it: a Knowledge Graph Data Store that carries a declaration at its root is ALREADY an instance, and it says so itself. <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> present and parsing is the whole test, and <code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code> says what the three answers mean — absent (not an instance yet), present, and present-but-unreadable, which is an instance asserting something broken and is not a green light either.<br />Done before reading the chosen harness: a location held by another harness ends the process here.</td>
     </tr>
     <tr>
       <td><strong>Read the harness’s declaration and instructions</strong><br /><code class="language-plaintext highlighter-rouge">A_ReadDeclaration</code></td>
       <td>Bootstrapping Agent</td>
       <td><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></td>
-      <td>Performed against the data store — a git repository, through the git CLI or a forge API. The instructions are at a PREDETERMINED spot on the harness: <code class="language-plaintext highlighter-rouge">&lt;stub&gt;/docs/bootstrap/initialization.md</code>, the same for every harness, which is what lets a Bootstrapping Agent be pointed at one nobody has written yet.</td>
+      <td>Performed against the data store — a git repository, through the git CLI or a forge API. The instructions are at a PREDETERMINED spot on the harness: <code class="language-plaintext highlighter-rouge">&lt;name&gt;/docs/bootstrap/initialization.md</code>, the same for every harness, which is what lets a Bootstrapping Agent be pointed at one nobody has written yet.</td>
     </tr>
     <tr>
       <td><strong>Log the start of the install</strong><br /><code class="language-plaintext highlighter-rouge">A_LogInstallStart</code></td>
@@ -1008,7 +1008,7 @@
       <td><strong>Write the root README, if it is not there</strong><br /><code class="language-plaintext highlighter-rouge">A_WriteRootReadme</code></td>
       <td>Bootstrapping Agent</td>
       <td><code class="language-plaintext highlighter-rouge">root-readme</code></td>
-      <td>The repository now IS an instance of something, and nothing at its root says so. It carries a LINK to the harness that was installed and the OVERALL install status across every location — WHEN ABSENT, never replacing: where a README is already there, the link and status go in a marker pair the harness’s own README tool maintains.<br />WRITING IT IS NOT A PROCESS WRITE. <code class="language-plaintext highlighter-rouge">instance-readme</code> declares <code class="language-plaintext highlighter-rouge">layer: context</code>, and this step writes one. Both hold, because INITIALISATION IS NOT PROCESS RUNTIME: the rule governs a process operating on an instance that exists, and this is the act that brings the instance into being.</td>
+      <td>The repository now IS an instance of something, and nothing at its root says so. It carries a LINK to the harness that was installed and the OVERALL install status across every location — WHEN ABSENT, never replacing: where a README is already there, the link and status go in a marker pair the harness’s own README tool maintains.<br />Initialization may create the README: the rule that a running process never writes an <code class="language-plaintext highlighter-rouge">instance-readme</code> governs an instance that already exists.</td>
     </tr>
     <tr>
       <td><strong>Make sure every step is done</strong><br /><code class="language-plaintext highlighter-rouge">A_CompleteInitialization</code></td>

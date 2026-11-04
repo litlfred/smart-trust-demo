@@ -906,7 +906,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_QuestionnaireWireframeReview</code> · advisory · 10 step(s)</p>
 
-<p>A built FHIR Questionnaire shown the way a person will meet it — a mid-fidelity wireframe at web and mobile width, and a live LHC-Forms form view — checked field for field against the L2 wireframe it was derived from, reviewed as a design, staged with deep links, and changed through requests that say which side was edited. Operating skill: fhir-questionnaire-wireframe. Owner decisions, 2026-10-14: LHC-Forms, vendored; the checker lives in this layer; either the Questionnaire or the wireframe may be the source of a change, and the request says which.</p>
+<p>A built FHIR Questionnaire shown the way a person will meet it — a mid-fidelity wireframe at web and mobile width, and a live LHC-Forms form view — checked field for field against the L2 wireframe it was derived from, reviewed as a design, staged with deep links, and changed through requests that say which side was edited. Operating skill: fhir-questionnaire-wireframe.</p>
 
 <p>WHERE IT SITS. After SUSHI has compiled the Questionnaire to JSON (l3-fhir-pipeline, Task_Sushi), and wherever a layer above reviews a Questionnaire’s fidelity to its wireframe. It reads JSON only, so it can run on any IG that produces a Questionnaire.</p>
 
@@ -954,12 +954,12 @@
     <tr>
       <td>Build pipeline — rendering, screenshots, fidelity</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
-      <td>The mechanical steps, none of which decides anything a person has to own: screenshots at both viewports (wireframe-check), the field-for-field fidelity check against the L2 wireframe when there is one, and the staging build. A fidelity finding does not stop the run here; it travels into the review as evidence, because whether a mismatch is the wireframe’s fault or the Questionnaire’s is the change request’s call, not the checker’s.</td>
+      <td>The mechanical steps: screenshots at both viewports (wireframe-check), the field-for-field fidelity check against the L2 wireframe when there is one, and the staging build. A fidelity finding does not stop the run here; it travels into the review as evidence, because whether a mismatch is the wireframe’s fault or the Questionnaire’s is the change request’s call, not the checker’s.</td>
     </tr>
     <tr>
       <td>Business analyst — design review</td>
       <td><code class="language-plaintext highlighter-rouge">business-analyst</code></td>
-      <td>Reviews the rendered form as a design against the workflow it serves, through wireframe-design-review: blind, per criterion, at web and mobile width, adjudicated where reviewers disagree. Here because the question is whether the form lets its user do the task, which is the business analyst’s to answer rather than the modeller’s, who drew it.</td>
+      <td>Reviews the rendered form as a design against the workflow it serves, through wireframe-design-review: blind, per criterion, at web and mobile width, adjudicated where reviewers disagree. Whether the form lets its user do the task is the business analyst’s question, not the modeller’s, who drew it.</td>
     </tr>
     <tr>
       <td>Clinical reviewer — the staged form</td>
@@ -999,7 +999,7 @@
       <td><strong>Render the wireframe and the LHC-Forms view</strong><br /><code class="language-plaintext highlighter-rouge">Task_Render</code></td>
       <td>FHIR modeller</td>
       <td><code class="language-plaintext highlighter-rouge">fhir-questionnaire-wireframe</code></td>
-      <td>A mid-fidelity wireframe with one field per answerable item, each carrying data-element and sitting in a data-layout web or mobile subtree; and the form view, the same JSON in the vendored &lt;lhc-forms&gt; web component on the IG site’s form page. Never a CDN at runtime (owner, 2026-10-14).</td>
+      <td>A mid-fidelity wireframe with one field per answerable item, each carrying data-element and sitting in a data-layout web or mobile subtree; and the form view, the same JSON in the vendored &lt;lhc-forms&gt; web component on the IG site’s form page. Never loaded from a CDN at runtime.</td>
     </tr>
     <tr>
       <td><strong>Screenshots, web and mobile</strong><br /><code class="language-plaintext highlighter-rouge">Task_Screens</code></td>
@@ -1047,7 +1047,7 @@
       <td><strong>Apply it to the other side</strong><br /><code class="language-plaintext highlighter-rouge">Task_Apply</code></td>
       <td>FHIR modeller</td>
       <td><code class="language-plaintext highlighter-rouge">l3-fhir-authoring</code></td>
-      <td>The side the request edited is the source of the change (owner, 2026-10-14). An edited Questionnaire is applied as an FSH edit and the wireframe is redrawn to match; an edited wireframe is kept and the Questionnaire re-derived from it. Then back to Task_Read.</td>
+      <td>The side the request edited is the source of the change. An edited Questionnaire is applied as an FSH edit and the wireframe is redrawn to match; an edited wireframe is kept and the Questionnaire re-derived from it. Then back to Task_Read.</td>
     </tr>
   </tbody>
 </table></div>

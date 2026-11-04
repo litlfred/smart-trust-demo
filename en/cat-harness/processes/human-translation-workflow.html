@@ -1229,7 +1229,7 @@
       <td><strong>Extract the POT</strong><br /><code class="language-plaintext highlighter-rouge">Task_ExtractPOT</code></td>
       <td>Automated Pipeline</td>
       <td>shared step <code class="language-plaintext highlighter-rouge">GT_ExtractPot</code><br /><code class="language-plaintext highlighter-rouge">translation-manager</code></td>
-      <td>Scan the source content and write the translatable strings to .pot files at the configured granularity: segment prose by paragraph, shield what must not be translated (math, code, labels, Lean companions) as placeholders, normalise whitespace, and extract metadata such as titles, alt text and captions. Tool: the translation_extract MCP tool, or bun run content/pipeline/pot-extract.ts.</td>
+      <td>Scan the source content and write the translatable strings to .pot files at the configured granularity: segment prose by paragraph, shield what must not be translated (math, code, labels, Lean companions) as placeholders, normalise whitespace, and extract metadata such as titles, alt text and captions. Tool: the translation_extract MCP tool.</td>
     </tr>
     <tr>
       <td><strong>Prepare domain glossary</strong><br /><code class="language-plaintext highlighter-rouge">Task_PrepareGlossary</code></td>
@@ -1241,13 +1241,13 @@
       <td><strong>Inject the PO</strong><br /><code class="language-plaintext highlighter-rouge">Task_InjectPO</code></td>
       <td>Automated Pipeline</td>
       <td>shared step <code class="language-plaintext highlighter-rouge">GT_InjectPo</code><br /><code class="language-plaintext highlighter-rouge">translation-manager</code></td>
-      <td>Read the .po file and the source .md, substitute msgstr for msgid, unshield the placeholders, and write the translated .md to translations/&lt;locale&gt;/. Check structure (paragraph count, heading levels) and completeness (no empty msgstr), and lint (doubled punctuation, orphaned placeholders). Tool: the translation_inject MCP tool, or bun run content/pipeline/po-inject.ts.</td>
+      <td>Read the .po file and the source .md, substitute msgstr for msgid, unshield the placeholders, and write the translated .md to translations/&lt;locale&gt;/. Check structure (paragraph count, heading levels) and completeness (no empty msgstr), and lint (doubled punctuation, orphaned placeholders). Tool: the translation_inject MCP tool.</td>
     </tr>
     <tr>
       <td><strong>Round-trip translation QA</strong><br /><code class="language-plaintext highlighter-rouge">Task_RoundTripQA</code></td>
       <td>Automated Pipeline</td>
       <td>shared step <code class="language-plaintext highlighter-rouge">GT_RoundTripQa</code><br /><code class="language-plaintext highlighter-rouge">translation-manager</code></td>
-      <td>Back-translate the target-language .md into the source language and compare the meaning with the original (bean folio-assistant-ktt2). It catches semantic drift and terminology misses that a forward-only fluency check cannot see, and tells the two apart. Tool: the translation_validate MCP tool.<br />No gateway follows: drift or clean, the translation goes to Task_SMEReview with the findings attached. Which of two readings is right is a human call (translation-manager, “route drift to a human reviewer”), and every translation in this workflow is reviewed and signed off anyway, so a clean result is evidence for the reviewer and never a way around them.</td>
+      <td>Back-translate the target-language .md into the source language and compare the meaning with the original. It catches semantic drift and terminology misses that a forward-only fluency check cannot see, and tells the two apart. Tool: the translation_validate MCP tool.<br />No gateway follows: drift or clean, the translation goes to Task_SMEReview with the findings attached. Which of two readings is right is a human call (translation-manager, “route drift to a human reviewer”), and every translation in this workflow is reviewed and signed off anyway, so a clean result is evidence for the reviewer and never a way around them.</td>
     </tr>
     <tr>
       <td><strong>Append WHO disclaimer (if DAK)</strong><br /><code class="language-plaintext highlighter-rouge">Task_AppendDisclaimer</code></td>

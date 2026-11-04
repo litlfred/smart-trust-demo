@@ -906,11 +906,11 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_IgAstDeltaReview</code> · advisory · 4 step(s)</p>
 
-<p>The review step of an incremental FHIR IG build, as its own subprocess: list and inspect the differences between the incremental IG AST and what a full build would have produced, then accept them or raise a finding. THE REVIEW STEP OF AN INCREMENTAL IG BUILD, drawn as its own subprocess (bean <code class="language-plaintext highlighter-rouge">a9tx</code>, owner 2026-09-30: “list and view differentials/deltas against AST … as part of (sub-?)process/skills/tools, including pipeline rendering”).</p>
+<p>The review step of an incremental FHIR IG build, as its own subprocess: list and inspect the differences between the incremental IG AST and what a full build would have produced, then accept them or raise a finding.</p>
 
-<p>WHERE IT SITS. In <code class="language-plaintext highlighter-rouge">ig-incremental-build.bpmn</code> it belongs between Task_Merge and Task_Qa: after the restored and rebuilt records are merged, before the QC gates read the aggregate. That diagram predates the AST work and is not edited here; <code class="language-plaintext highlighter-rouge">ig-ast-delta</code> §”Where this sits in a process” states the placement until it is.</p>
+<p>WHERE IT SITS. In <code class="language-plaintext highlighter-rouge">ig-incremental-build.bpmn</code> it belongs between Task_Merge and Task_Qa: after the restored and rebuilt records are merged, before the QC gates read the aggregate. That diagram does not call it yet; <code class="language-plaintext highlighter-rouge">ig-ast-delta</code> §”Where this sits in a process” states the placement.</p>
 
-<p>WHAT IT GUARDS. An incremental build rebuilds only the cone of a change, computed on the BASE edges. If the cone rules miss a coupling, a resource that should have changed does not, and nothing downstream can tell: the merged AST looks exactly like a correct one. So a person reads the delta, and a difference nobody can explain is treated as a missed coupling rather than as a curiosity.</p>
+<p>WHAT IT GUARDS. An incremental build rebuilds only the cone of a change, computed on the BASE edges. If the cone rules miss a coupling, a resource that should have changed does not, and nothing downstream can tell: the merged AST looks exactly like a correct one. So a person reads the delta, and a difference nobody can explain is treated as a missed coupling.</p>
 
 <p>WHAT IT DOES NOT CLAIM. A clean review says the delta is explained, not that the IG is correct. The AST stays a cache: every rendered page carries the provisional mark, and a release is still cut from a full build (<code class="language-plaintext highlighter-rouge">ig-publisher-reduction</code> P4).</p>
 
@@ -951,12 +951,12 @@
     <tr>
       <td>Incremental build (system)</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
-      <td>Checks that the base AST still matches the IG’s inputs, then diffs base against head and renders the delta pages. Both steps are mechanical and read files only; neither decides anything a person has to own. A stale or undeterminable base ends here, before any delta is shown, because a delta against the wrong base explains nothing.</td>
+      <td>Checks that the base AST still matches the IG’s inputs, then diffs base against head and renders the delta pages. Both steps are mechanical and read files only. A stale or undeterminable base ends here, before any delta is shown, because a delta against the wrong base explains nothing.</td>
     </tr>
     <tr>
       <td>QC reviewer</td>
       <td><code class="language-plaintext highlighter-rouge">qc-reviewer</code></td>
-      <td>Reads the rendered delta and answers one question: is every difference explained by the change? This is the only judgement in the subprocess, and it is a person’s (or a reviewing agent acting in this role) because “explained” depends on what the change was meant to do, which no tool knows.</td>
+      <td>Reads the rendered delta and answers one question: is every difference explained by the change? This is the only judgement in the subprocess, and it is a person’s (or a reviewing agent acting in this role): “explained” depends on what the change was meant to do.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1000,10 +1000,10 @@
       <td>Start at the delta index; open each changed resource’s page. Check <code class="language-plaintext highlighter-rouge">builtAt</code> before judging: a resource carried from the base was not rebuilt, so a difference there is the change itself or a missed coupling, never noise. The differential is structural: a reordered repeating element shows at every index.</td>
     </tr>
     <tr>
-      <td><strong>Note the missed coupling on the bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_FileCoupling</code></td>
+      <td><strong>Note the missed coupling on the work plan</strong><br /><code class="language-plaintext highlighter-rouge">Task_FileCoupling</code></td>
       <td>QC reviewer</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Append to bean <code class="language-plaintext highlighter-rouge">a9tx</code> (W8): the resource key, the differential path, and why it is unexplained. Check before creating: beans create is not idempotent. A note, not a new bean, unless the owner asks for one.</td>
+      <td>Append to the IG AST work-plan item: the resource key, the differential path, and why it is unexplained. A note on the existing item, not a new one unless the owner asks; creating an item is not idempotent, so check before creating.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1035,7 +1035,7 @@
     <tr>
       <td><strong>Every difference explained?</strong><br /><code class="language-plaintext highlighter-rouge">GW_Explained</code></td>
       <td>Answered by the reviewer in Task_Review. <code class="language-plaintext highlighter-rouge">yes</code> when every added, removed and changed resource is accounted for by the change. <code class="language-plaintext highlighter-rouge">no</code> when any is not, including a resource that SHOULD have changed and did not, which the delta shows as absent rather than as a row.</td>
-      <td><strong>yes</strong> → Delta accepted — on to the QC gates<br /><strong>no</strong> → Note the missed coupling on the bean</td>
+      <td><strong>yes</strong> → Delta accepted — on to the QC gates<br /><strong>no</strong> → Note the missed coupling on the work plan</td>
     </tr>
   </tbody>
 </table></div>

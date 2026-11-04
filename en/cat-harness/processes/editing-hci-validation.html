@@ -906,13 +906,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_Editing</code> · strict · 17 step(s)</p>
 
-<p>What happens to one proposed change to one content block: drafted, validated mechanically and by review, shown to the editor, and committed to the corpus only if accepted. folio-assistant — editing a content block and its HCI validation gate.
-Source of truth: this file. Open it in bpmn.io, Camunda Modeler, or any other
-BPMN 2.0 tool. The SVG under docs/assets/img/workflows/ is generated from it
-by <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code> — never hand-edit the SVG.
-The &lt;bootstrap.processes:skill&gt; extension on an activity names the folio-assistant skill
-that implements it; &lt;cat-harness.processes:bean&gt; marks a step that reads or writes the shared
-work plan in beans/.</p>
+<p>What happens to one proposed change to one content block: drafted, validated mechanically and by review, shown to the editor, and committed to the corpus only if accepted.</p>
 
 <p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
 <h2 id="how-it-connects">
@@ -951,22 +945,22 @@ work plan in beans/.</p>
     <tr>
       <td>Editor / author (person)</td>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td>Every act the requesting party performs personally rather than through the agent lands here: stating the change, retrieving its evidence, and — once every validation path has reported — ruling on it. The gate sits at Task_ReviewFindings rather than earlier because a decision taken before the findings exist would not be a decision about the change that was actually built.</td>
+      <td>Every act the requesting party performs personally rather than through the agent lands here: stating the change, retrieving its evidence, and — once every validation path has reported — ruling on it. The gate sits at Task_ReviewFindings, once the findings exist.</td>
     </tr>
     <tr>
       <td>Authoring agent (system)</td>
       <td><code class="language-plaintext highlighter-rouge">authoring-agent</code></td>
-      <td>Produces the proposed change and, once findings exist, weighs the options for it — accept, revise, discard — but stops short of choosing: Call_OptionsAnalysis records that the options were weighed, Task_RecordDecision in the editor’s lane records what was chosen, and collapsing the two would let the same party both analyse and decide.</td>
+      <td>Produces the proposed change and, once findings exist, weighs the options for it — accept, revise, discard — but stops short of choosing: Call_OptionsAnalysis records that the options were weighed, Task_RecordDecision in the editor’s lane records what was chosen, so one party never both analyses and decides.</td>
     </tr>
     <tr>
       <td>HCI validation pipeline (system)</td>
       <td><code class="language-plaintext highlighter-rouge">validation-pipeline</code></td>
-      <td>Forks validation into its four parallel paths and, once every one reports, collates mechanical results and review findings into a single report. It is the aggregation point rather than a checker itself — its only job is making sure none of the four is missing before the editor sees anything.</td>
+      <td>Forks validation into its four parallel paths and, once every one reports, collates mechanical results and review findings into a single report. It checks nothing itself; it makes sure none of the four is missing before the editor sees anything.</td>
     </tr>
     <tr>
       <td>Mechanical validation (system)</td>
       <td><code class="language-plaintext highlighter-rouge">validation-pipeline</code></td>
-      <td>Runs the three checks that need no judgement call — schema and constraints, syntax and link resolution, build and QA gates — in parallel with the non-mechanical review rather than gating on it, so a spelling error is never held up behind a pending SME review, or the reverse.</td>
+      <td>Runs the three checks that need no judgement call — schema and constraints, syntax and link resolution, build and QA gates — in parallel with the non-mechanical review rather than gating on it.</td>
     </tr>
     <tr>
       <td>Non-mechanical validation (review agent or SME)</td>
@@ -1006,7 +1000,7 @@ work plan in beans/.</p>
       <td><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_ClaimBean</code></td>
       <td>Authoring agent (system)</td>
       <td>calls <a href="bean-open.html">Open the bean</a><br /><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
-      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn (bean m8gz, owner 2026-10-24); the gateway after this reads which end it reached.</td>
+      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn; the gateway after this reads which end it reached.</td>
     </tr>
     <tr>
       <td><strong>Gather and verify the evidence</strong><br /><code class="language-plaintext highlighter-rouge">CallActivity_Evidence</code></td>
@@ -1072,7 +1066,7 @@ work plan in beans/.</p>
       <td><strong>Options analysis accept · revise · discard</strong><br /><code class="language-plaintext highlighter-rouge">Call_OptionsAnalysis</code></td>
       <td>Authoring agent (system)</td>
       <td>calls <a href="options-analysis.html">Options analysis</a></td>
-      <td>On the edge out of <code class="language-plaintext highlighter-rouge">Task_ReviewFindings</code> and before <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code>: the findings are the evidence, so the options can only be weighed once they exist, and after <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code> the decision is already written down.<br />NOT between <code class="language-plaintext highlighter-rouge">Gateway_EditorDecision</code> and <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code>, which is the pair the work-plan named — in this diagram those run the OTHER WAY ROUND. <code class="language-plaintext highlighter-rouge">Flow_21b</code> goes <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code> -&gt; <code class="language-plaintext highlighter-rouge">Gateway_EditorDecision</code>, so the gateway reads a decision that has already been recorded, and interposing there would analyse options after the choice was made.<br />In the Agent lane, and this diagram makes the reason sharp. <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code> is a <code class="language-plaintext highlighter-rouge">userTask</code> in <code class="language-plaintext highlighter-rouge">Lane_Editor</code> that already names <code class="language-plaintext highlighter-rouge">decision-audit</code>, and <a href="options-analysis.html"><code class="language-plaintext highlighter-rouge">Process_OptionsAnalysis</code></a> ends with its own <code class="language-plaintext highlighter-rouge">decision-audit</code> note. Those are two different acts — the subprocess records that the options were WEIGHED, the editor records WHAT WAS CHOSEN — and putting the analysis in the editor’s lane would collapse them, making the same party both analyse and decide. The subprocess’s own documentation refuses that: it produces options and a recommendation, and the authorisation belongs to the calling step.<br /><code class="language-plaintext highlighter-rouge">CallActivity_Evidence</code> sits in <code class="language-plaintext highlighter-rouge">Lane_Editor</code> instead, and that is not an inconsistency: the author performs the evidence retrieval, whereas here the point is that the analyst is not the decider.<br />On the trigger: <code class="language-plaintext highlighter-rouge">A_Frame</code> opens the subprocess on <code class="language-plaintext highlighter-rouge">opening-brief</code>’s trigger — irreversibility and surprise — and leaving there is a correct outcome. A spelling fix that reached <code class="language-plaintext highlighter-rouge">Task_ReviewFindings</code> with one mechanical finding exits immediately; a revise-or-discard on a block other content depends on does not.</td>
+      <td>On the edge out of <code class="language-plaintext highlighter-rouge">Task_ReviewFindings</code> and before <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code>: the findings are the evidence, so the options can only be weighed once they exist, and after <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code> the decision is already written down.<br />Not between <code class="language-plaintext highlighter-rouge">Gateway_EditorDecision</code> and <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code>: <code class="language-plaintext highlighter-rouge">Flow_21b</code> runs <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code> -&gt; <code class="language-plaintext highlighter-rouge">Gateway_EditorDecision</code>, so the gateway reads a decision already recorded.<br />In the Agent lane: the subprocess records that the options were WEIGHED (its own <code class="language-plaintext highlighter-rouge">decision-audit</code> note), and <code class="language-plaintext highlighter-rouge">Task_RecordDecision</code> in <code class="language-plaintext highlighter-rouge">Lane_Editor</code> records WHAT WAS CHOSEN. The analyst is not the decider. (<code class="language-plaintext highlighter-rouge">CallActivity_Evidence</code> is in <code class="language-plaintext highlighter-rouge">Lane_Editor</code> because the author performs the retrieval.)<br />On the trigger: <code class="language-plaintext highlighter-rouge">A_Frame</code> opens the subprocess on <code class="language-plaintext highlighter-rouge">opening-brief</code>’s trigger — irreversibility and surprise — and leaving there is a correct outcome. A spelling fix that reached <code class="language-plaintext highlighter-rouge">Task_ReviewFindings</code> with one mechanical finding exits immediately; a revise-or-discard on a block other content depends on does not.</td>
     </tr>
     <tr>
       <td><strong>Record the decision and audit note</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordDecision</code></td>
@@ -1096,7 +1090,7 @@ work plan in beans/.</p>
       <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_ResolveBean</code></td>
       <td>Authoring agent (system)</td>
       <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
+      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn; placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
     </tr>
   </tbody>
 </table></div>

@@ -909,7 +909,7 @@
 
 <p>Every change to the publish branch appends an entry to <code class="language-plaintext highlighter-rouge">_render-log/&lt;day&gt;.jsonl</code>. A removal is a NEW entry, never the erasure of the <code class="language-plaintext highlighter-rouge">rendered</code> one before it — the pair is the history. The lane is the build pipeline because every writer is a workflow job; no agent decides what goes in this log. A system lane runs a fixed program and exercises no judgement, which is exactly what an append-only log wants.</p>
 
-<p>The question it exists to answer: what happened to STAGING/&lt;slug&gt;, and why. Bean <code class="language-plaintext highlighter-rouge">plj1</code> is why it is needed — a full-replace deploy silently deleted every open PR’s preview, for months, and the publish branch kept no record of its own changes. The publish branch has several publishers and one of them replaces the whole branch, which is why a removed preview needs a record of its own.</p>
+<p>The question it exists to answer: what happened to STAGING/&lt;slug&gt;, and why. The publish branch has several publishers and one of them replaces the whole branch, which is why a removed preview needs a record of its own.</p>
 <style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
 
 <div class="pt-diagram" data-panel="staging-render-log.tasks.json">
@@ -1148,13 +1148,13 @@
       <td><strong>Preflight: is the preview live?</strong><br /><code class="language-plaintext highlighter-rouge">A_Preflight</code></td>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">render-logging</code></td>
-      <td><code class="language-plaintext highlighter-rouge">previewLiveness</code> — a disjunction over open-pr, unmerged-branch and recent-commit, shared with the health sweep so the two cannot disagree. Bean <code class="language-plaintext highlighter-rouge">w2g5</code>: a preview whose pull request is closed is NOT an abandoned one.</td>
+      <td><code class="language-plaintext highlighter-rouge">previewLiveness</code> — a disjunction over open-pr, unmerged-branch and recent-commit, shared with the health sweep so the two cannot disagree. A preview whose pull request is closed is NOT necessarily an abandoned one.</td>
     </tr>
     <tr>
       <td><strong>Append <code class="language-plaintext highlighter-rouge">retained</code> with the reason</strong><br /><code class="language-plaintext highlighter-rouge">A_LogRetained</code></td>
       <td>CI/CD Pipeline</td>
       <td>shared step <code class="language-plaintext highlighter-rouge">GT_LogRetained</code><br /><code class="language-plaintext highlighter-rouge">render-logging</code></td>
-      <td>The entry that makes the log worth reading. A removal was considered and refused, or a preview still stands because a signal fired; without an entry that leaves no trace, and the next person asking “why is this preview still up” has nothing to consult. A reason is REQUIRED — the tool refuses without one.</td>
+      <td>Records that a removal was considered and refused, or that a preview still stands because a signal fired. A reason is REQUIRED — the tool refuses without one.</td>
     </tr>
     <tr>
       <td><strong>Append <code class="language-plaintext highlighter-rouge">removed</code> with the reason</strong><br /><code class="language-plaintext highlighter-rouge">A_LogRemoved</code></td>
@@ -1172,7 +1172,7 @@
       <td><strong>Append <code class="language-plaintext highlighter-rouge">restored</code></strong><br /><code class="language-plaintext highlighter-rouge">A_LogRestored</code></td>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">render-logging</code></td>
-      <td>A full-replace deploy (<code class="language-plaintext highlighter-rouge">docs-site.yml</code>, the only publisher without keep_files) wipes the branch; <code class="language-plaintext highlighter-rouge">restore-staging</code> carries the previews AND this log back in. Its own event rather than a second <code class="language-plaintext highlighter-rouge">rendered</code>, because “somebody pushed this branch” and “an unrelated merge nearly deleted it” are different facts — and bean <code class="language-plaintext highlighter-rouge">plj1</code> is what happens when the second is invisible.</td>
+      <td>A full-replace deploy (<code class="language-plaintext highlighter-rouge">docs-site.yml</code>, the only publisher without keep_files) wipes the branch; <code class="language-plaintext highlighter-rouge">restore-staging</code> carries the previews AND this log back in. Its own event rather than a second <code class="language-plaintext highlighter-rouge">rendered</code>, because “somebody pushed this branch” and “an unrelated merge nearly deleted it” are different facts.</td>
     </tr>
   </tbody>
 </table></div>

@@ -372,7 +372,7 @@
       "instance": "cat-harness-tools",
       "name": "attribution",
       "graphNode": "schema",
-      "summary": "Who wrote a piece of derived content — bean `iqim`.",
+      "summary": "Who wrote a piece of derived content.",
       "isTest": false
     },
     {
@@ -396,7 +396,7 @@
       "instance": "cat-harness-tools",
       "name": "block-summary",
       "graphNode": "schema",
-      "summary": "An agent's summary of a library block, kept BESIDE the block — the QA",
+      "summary": "An agent's summary of a library block, kept BESIDE the block as a QA",
       "isTest": false
     },
     {
@@ -452,7 +452,7 @@
       "instance": "cat-harness-tools",
       "name": "document-image",
       "graphNode": "schema",
-      "summary": "An image placed on a page of an ingested document — bean `d5f1`.",
+      "summary": "An image placed on a page of an ingested document.",
       "isTest": false
     },
     {
@@ -476,7 +476,7 @@
       "instance": "cat-harness-tools",
       "name": "document-structure",
       "graphNode": "schema",
-      "summary": "`structure.json` as a BASE with VARIANTS — bean `rkqp`, owner 2026-09-30",
+      "summary": "`structure.json` as a BASE with VARIANTS.",
       "isTest": false
     },
     {
@@ -492,7 +492,7 @@
       "instance": "cat-harness-tools",
       "name": "figure-description",
       "graphNode": "schema",
-      "summary": "What a person or agent SAYS a drawn figure shows — bean `a8wy`, under",
+      "summary": "What a person or agent SAYS a drawn figure shows — the judgement half of the",
       "isTest": false
     },
     {
@@ -507,7 +507,7 @@
       "instance": "cat-harness-tools",
       "name": "inline-code",
       "graphNode": "schema",
-      "summary": "Backtick spans in authored prose, rendered as `<code>` — bean `mylx`.",
+      "summary": "Backtick spans in authored prose, rendered as `<code>`.",
       "isTest": false
     },
     {
@@ -531,7 +531,7 @@
       "instance": "cat-harness-tools",
       "name": "narrative",
       "graphNode": "schema",
-      "summary": "A generated narrative, and who stands behind it — bean `ju0u`.",
+      "summary": "A generated narrative, and who stands behind it.",
       "isTest": false
     },
     {
@@ -555,7 +555,7 @@
       "instance": "cat-harness-tools",
       "name": "pinned-terminology",
       "graphNode": "schema",
-      "summary": "The codes a PUBLISHED IG carries at ONE pinned version — bean `7wou`.",
+      "summary": "The codes a PUBLISHED IG carries at ONE pinned version.",
       "isTest": false
     },
     {
@@ -580,7 +580,7 @@
       "instance": "cat-harness-tools",
       "name": "prov",
       "graphNode": "schema",
-      "summary": "W3C PROV-O: the record of a task or decision being performed. Issue #1180,",
+      "summary": "W3C PROV-O: the record of a task or decision being performed, extended for",
       "isTest": false
     },
     {
@@ -612,7 +612,7 @@
       "instance": "cat-harness-tools",
       "name": "section-verdicts",
       "graphNode": "schema",
-      "summary": "Section verdicts — which ingested sections are not PROSE. Bean `fnqn`.",
+      "summary": "Section verdicts — which ingested sections are not PROSE.",
       "isTest": false
     },
     {
@@ -652,7 +652,7 @@
       "instance": "cat-harness-tools",
       "name": "vector-figure",
       "graphNode": "schema",
-      "summary": "A DRAWN figure, assembled and rendered — bean `ay3x`, under `m4xy`. The step",
+      "summary": "A DRAWN figure, assembled and rendered — the step above",
       "isTest": false
     },
     {
@@ -660,7 +660,7 @@
       "instance": "cat-harness-tools",
       "name": "vector-labels",
       "graphNode": "schema",
-      "summary": "The positioned TEXT on a page that declares a figure — bean `a8wy`, under",
+      "summary": "The positioned TEXT on a page that declares a figure: the labels of a",
       "isTest": false
     },
     {
@@ -1137,7 +1137,7 @@
       "instance": "cat-harness-tools",
       "name": "instance-repositories",
       "graphNode": "schema",
-      "summary": "The `owner/repo ↔ instance` map — DERIVED, never kept by hand (bean `6rmv`).",
+      "summary": "The `owner/repo ↔ instance` map — DERIVED, never kept by hand.",
       "isTest": false
     },
     {
@@ -1251,7 +1251,7 @@
       "name": "namespaces",
       "graphNode": "none",
       "reason": "a single IRI constant, not a schema",
-      "summary": "The platform's own IRI namespace — a leaf module, imported by nothing.",
+      "summary": "The platform's own IRI namespaces.",
       "isTest": false
     },
     {
@@ -1268,7 +1268,7 @@
       "name": "node-kind-index",
       "graphNode": "none",
       "reason": "a function library over the typology registry; it defines no schema",
-      "summary": "Every node kind a checkout declares, found THROUGH the graph typologies —",
+      "summary": "Every node kind a checkout declares, found THROUGH the graph typologies.",
       "isTest": false
     },
     {
@@ -1285,7 +1285,7 @@
       "name": "node-kind-nodes",
       "graphNode": "none",
       "reason": "a reader over declared directories; it defines no schema",
-      "summary": "The NODES of a node kind, found where its typologies say they are — issue",
+      "summary": "The NODES of a node kind, found where its typologies say they are.",
       "isTest": false
     },
     {
@@ -1351,7 +1351,7 @@
       "instance": "cat-harness-tools",
       "name": "prov-jsonld",
       "graphNode": "schema",
-      "summary": "PROV activities as PROV-JSONLD — links, not strings (beans `jcet`, `9y9j`).",
+      "summary": "PROV activities as PROV-JSONLD — links, not strings.",
       "isTest": false
     },
     {
@@ -1497,7 +1497,7 @@
       "name": "to-json-schema",
       "graphNode": "none",
       "reason": "a function library. It defines no schema of its own; it",
-      "summary": "JSON Schema conversion — one wrapper, because the converter changed under us.",
+      "summary": "JSON Schema conversion — one wrapper over zod 4's native `z.toJSONSchema`.",
       "isTest": false
     },
     {
@@ -1513,7 +1513,7 @@
       "instance": "cat-harness-tools",
       "name": "url-space",
       "graphNode": "schema",
-      "summary": "Where a published thing is served: one resolver for the site's URL space",
+      "summary": "Where a published thing is served: one resolver for the site's URL space.",
       "isTest": false
     },
     {
@@ -1521,7 +1521,7 @@
       "instance": "cat-harness-tools",
       "name": "validator-node",
       "graphNode": "schema",
-      "summary": "A VALIDATOR as a node of the knowledge graph (bean riit). Owner, 2026-10-04:",
+      "summary": "A VALIDATOR as a node of the knowledge graph. **The validator names the",
       "isTest": false
     },
     {
@@ -1603,7 +1603,7 @@
       "instance": "cat-harness-tools",
       "name": "archive-contents",
       "graphNode": "schema",
-      "summary": "An archive's entry list, as data — bean `twqe`.",
+      "summary": "An archive's entry list, as data.",
       "isTest": false
     },
     {
@@ -1708,7 +1708,7 @@
       "instance": "cat-harness-tools",
       "name": "recording",
       "graphNode": "schema",
-      "summary": "A recorded meeting or talk as a library entry, and its transcripts. Bean",
+      "summary": "A recorded meeting or talk as a library entry, and its transcripts.",
       "isTest": false
     },
     {
@@ -1748,7 +1748,7 @@
       "instance": "cat-harness-tools",
       "name": "source-licence",
       "graphNode": "schema",
-      "summary": "A source's licence, as one record wherever it is written — bean `7bg9`.",
+      "summary": "A source's licence, as one record wherever it is written.",
       "isTest": false
     },
     {
@@ -1772,7 +1772,7 @@
       "instance": "cat-harness-tools",
       "name": "tabular-csvw",
       "graphNode": "schema",
-      "summary": "A tabular source as CSVW, annotated with what CSVW cannot say — bean `eief`.",
+      "summary": "A tabular source as CSVW, annotated with what CSVW cannot say.",
       "isTest": false
     },
     {
@@ -1780,7 +1780,7 @@
       "instance": "cat-harness-tools",
       "name": "tabular-records",
       "graphNode": "schema",
-      "summary": "What makes a dataset findable — bean `p67i`.",
+      "summary": "What makes a dataset findable.",
       "isTest": false
     },
     {
@@ -2172,7 +2172,7 @@
       "instance": "cat-harness-tools",
       "name": "gates-report",
       "graphNode": "schema",
-      "summary": "The typed reports of `bun run cat gates` and `bun run cat check:merged`",
+      "summary": "The typed reports of `bun run cat gates` and `bun run cat check:merged`.",
       "isTest": false
     },
     {
@@ -2206,7 +2206,7 @@
       "name": "input-trace",
       "graphNode": "none",
       "reason": "a one-function hook called at `traced` input sites",
-      "summary": "The runtime half of the input-site audit — bean `f017`.",
+      "summary": "The runtime half of the input-site audit.",
       "isTest": false
     },
     {
@@ -2359,7 +2359,7 @@
       "name": "script-table",
       "graphNode": "none",
       "reason": "functions that read the script table; no schema",
-      "summary": "The checkout's script table, read from where each script now lives.",
+      "summary": "The checkout's script table, read from where each script lives.",
       "isTest": false
     },
     {
@@ -2431,7 +2431,7 @@
       "instance": "cat-harness-tools",
       "name": "test-data",
       "graphNode": "schema",
-      "summary": "Test data sets (fixed and generated) and SME review case/verdict pairs —",
+      "summary": "Test data sets (fixed and generated) and SME review case/verdict pairs.",
       "isTest": false
     },
     {
@@ -2471,7 +2471,7 @@
       "instance": "cat-harness-tools",
       "name": "test-run",
       "graphNode": "schema",
-      "summary": "A TEST RUN — what was measured, with what, and whether it can be redone.",
+      "summary": "A TEST RUN — what was measured, with what, and whether it can be redone:",
       "isTest": false
     },
     {
@@ -2495,7 +2495,7 @@
       "instance": "cat-harness-tools",
       "name": "todo-index",
       "graphNode": "schema",
-      "summary": "The published todo index — `folio-todo-index/v1`, described at last.",
+      "summary": "The published todo index — `folio-todo-index/v1`.",
       "isTest": false
     },
     {
@@ -2511,7 +2511,7 @@
       "instance": "cat-harness-tools",
       "name": "viewer-nav-qa",
       "graphNode": "schema",
-      "summary": "The viewer-navbar audit — **what the owner's rule looks like as data**.",
+      "summary": "The viewer-navbar audit — the common navbar rail as data.",
       "isTest": false
     },
     {
@@ -2658,7 +2658,7 @@
       "name": "tool-folders",
       "graphNode": "none",
       "reason": "the folder convention and its loader: the Tool node's schema is `tool.ts`",
-      "summary": "One Tool per folder: `<tools dir>/<id>/<id>.ts`, and the loader that reads them.",
+      "summary": "One Tool per folder: `<tools dir>/<id>/<id>.json` or `<id>/<id>.ts`, and the",
       "isTest": false
     },
     {
@@ -2732,7 +2732,7 @@
       "instance": "cat-harness-tools",
       "name": "workflow-tool-results",
       "graphNode": "schema",
-      "summary": "Typed results of the workflow engine's tools (issue",
+      "summary": "Typed results of the workflow engine's tools.",
       "isTest": false
     },
     {
@@ -2789,7 +2789,7 @@
       "instance": "cat-harness-tools",
       "name": "diff-renderers",
       "graphNode": "schema",
-      "summary": "The diff renderers a reviewer chooses between on the review page. Bean",
+      "summary": "The diff renderers a reviewer chooses between on the review page.",
       "isTest": false
     },
     {
@@ -2837,7 +2837,7 @@
       "instance": "cat-harness-tools",
       "name": "render-log",
       "graphNode": "schema",
-      "summary": "The render log — what was published to the publish branch, when, and why.",
+      "summary": "The render log — what was published to the publish branch, when, and why:",
       "isTest": false
     },
     {
@@ -2853,7 +2853,7 @@
       "instance": "cat-harness-tools",
       "name": "render-output",
       "graphNode": "schema",
-      "summary": "The ONE implementation of a Tool output's render hint — bean `q2wm`, R17.",
+      "summary": "The ONE implementation of a Tool output's render hint.",
       "isTest": false
     },
     {
@@ -2877,7 +2877,7 @@
       "instance": "cat-harness-tools",
       "name": "rendered-impact",
       "graphNode": "schema",
-      "summary": "What a change does to a RENDERED site: the contract every renderer answers",
+      "summary": "What a change does to a RENDERED site: the contract every renderer answers.",
       "isTest": false
     },
     {
@@ -2958,7 +2958,7 @@
       "instance": "cat-harness-tools",
       "name": "themes",
       "graphNode": "schema",
-      "summary": "The themes this instance ships, and the default.",
+      "summary": "The themes this instance ships, and the default: grumpy-cat, white and",
       "isTest": false
     },
     {
@@ -3031,7 +3031,7 @@
       "instance": "cat-harness",
       "name": "staging-comparison",
       "graphNode": "schema",
-      "summary": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is skills/sdlc/sdlc-core/staging-review.md §\"The deep-link rule\". Copied inline as `definitions.stagingLinks` into every skill contract that carries it; ",
+      "summary": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is sdlc/skills/sdlc-core/staging-review.md §\"The deep-link rule\". Copied inline as `definitions.stagingLinks` into every skill contract that carries it; ",
       "isTest": false
     },
     {
@@ -31339,6 +31339,13 @@
           "type": "IndexSiteSchema.optional()",
           "optional": true,
           "array": false
+        },
+        {
+          "name": "enableSubgraphs",
+          "type": "z .array(z.string().regex(/^[a-z0-9][a-z0-9-]*\\.[^\\s]+$/, \"`<instance>.<directory id>`, e.g. `cat-harness.sdlc`\")) .ref…",
+          "optional": true,
+          "array": true,
+          "doc": "The opt-in named sub-graphs switched on for THIS checkout, each"
         },
         {
           "name": "gateExemptions",
@@ -70565,7 +70572,7 @@
       "name": "StagingLinks",
       "module": "cat-harness/schemas/staging-comparison.schema.json",
       "kind": "json-schema",
-      "doc": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is skills/sdlc/sdlc-core/staging-review.md §\"The deep-link rule\". Copied inline as `definitions.stagingLinks` into every skill contract that carries it; ",
+      "doc": "The staging preview of the work a request for feedback is about: one deep link per changed page (the page and the anchor where the change sits) with the same page on main as `before`. Mirrors StagingComparison in schemas/sdlc/staging.ts. The rule is sdlc/skills/sdlc-core/staging-review.md §\"The deep-link rule\". Copied inline as `definitions.stagingLinks` into every skill contract that carries it; ",
       "fields": [
         {
           "name": "branch",

@@ -906,7 +906,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_GettingStarted</code> · strict · 16 step(s)</p>
 
-<p>Somebody said “create a folio”: work out which request they meant, with the branch computed by a decision table that may answer “ask”, and what has to be true before anything is written. folio-assistant — getting started: from “create a folio” to a live site.</p>
+<p>Somebody said “create a folio”: work out which request they meant, with the branch computed by a decision table that may answer “ask”, and what has to be true before anything is written, through to a live site.</p>
 
 <p>“Create a folio” is five different requests. Gateway_Intent computes which one
 from decisions/folio-intent.dmn rather than letting the agent assume, and <code class="language-plaintext highlighter-rouge">ask</code>
@@ -958,12 +958,12 @@ generated from it by <code class="language-plaintext highlighter-rouge">bun run 
     <tr>
       <td>Onboarding agent (system)</td>
       <td><code class="language-plaintext highlighter-rouge">onboarding-agent</code></td>
-      <td>Every write in this diagram belongs to this lane, and each sits behind the non-relaxable read-first gate: nothing is created or scaffolded until Gateway_Intent has classified what was actually asked for, which is what stands between this lane and writing over somebody’s existing project.</td>
+      <td>Every write in this diagram belongs to this lane, and each sits behind the non-relaxable read-first gate: nothing is created or scaffolded until Gateway_Intent has classified what was actually asked for.</td>
     </tr>
     <tr>
       <td>Publish — GitHub Pages</td>
       <td><code class="language-plaintext highlighter-rouge">publish-target</code></td>
-      <td>Provisions the gh-pages branch before Pages is switched on (Task_ProvisionGhPages, #2417), derives the URL, and holds the report that follows it: “unprovisioned” routes back to provisioning, and “live”, “not-yet” and “unknown” are reached by exclusive branches of one DMN-computed gateway, and this lane is what keeps a failed probe from being reported as the softer “not-yet” it would be tempting to default to.</td>
+      <td>Provisions the gh-pages branch before Pages is switched on (Task_ProvisionGhPages), derives the URL, and holds the report that follows it: “unprovisioned” routes back to provisioning, and “live”, “not-yet” and “unknown” are exclusive branches of one DMN-computed gateway, so a failed probe is reported as “unknown”, never as “not-yet”.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1016,7 +1016,7 @@ generated from it by <code class="language-plaintext highlighter-rouge">bun run 
       <td><strong>Choose what the harness reads</strong><br /><code class="language-plaintext highlighter-rouge">Task_ChooseHarnessed</code></td>
       <td>User (person)</td>
       <td>calls <a href="ask-the-person.html">Ask the person</a><br /><code class="language-plaintext highlighter-rouge">repo-conversion</code><br /><code class="language-plaintext highlighter-rouge">interaction-modality</code></td>
-      <td>The person picks which of the content markers the scan found the harness declares in index.config.json, and nothing is declared unpicked. A PERSON’S STEP: the scan’s <code class="language-plaintext highlighter-rouge">markers</code> that are not yet declared are offered as selectable options — one per marker, each with its paths and what declaring it means, plus “none of these” — and the person picks which parts of the repository to load into the KG. A tap card where the host has one; otherwise a numbered pick-list with a stated default. Never a typed reply. The default declares NOTHING: a harness that declared every marker it found would be slurping the repository, which is what this step exists to prevent. Only the picks reach Task_Scaffold, which declares exactly those in index.config.json. With no undeclared marker found, nothing is asked. The same question is put after setup by running the scan with <code class="language-plaintext highlighter-rouge">--markers</code> (repo-conversion §2a).</td>
+      <td>A PERSON’S STEP: the scan’s <code class="language-plaintext highlighter-rouge">markers</code> that are not yet declared are offered as selectable options — one per marker, each with its paths and what declaring it means, plus “none of these” — and the person picks which parts of the repository to load into the KG. A tap card where the host has one; otherwise a numbered pick-list with a stated default. Never a typed reply. The default declares NOTHING. Only the picks reach Task_Scaffold, which declares exactly those in index.config.json. With no undeclared marker found, nothing is asked. The same question is put after setup by running the scan with <code class="language-plaintext highlighter-rouge">--markers</code> (repo-conversion §2a).</td>
     </tr>
     <tr>
       <td><strong>Import what, where, and who does it</strong><br /><code class="language-plaintext highlighter-rouge">Task_ConfirmImport</code></td>
@@ -1034,7 +1034,7 @@ generated from it by <code class="language-plaintext highlighter-rouge">bun run 
       <td><strong>Scaffold the folio (folio_init)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Scaffold</code></td>
       <td>Onboarding agent (system)</td>
       <td><code class="language-plaintext highlighter-rouge">getting-started</code></td>
-      <td>content/, uploads/, library/, the first manifests, &lt;slug&gt;.json and index.config.json (the instance’s config inline in its entry; no &lt;slug&gt;.config.json, bean ymvt), the builder shim, AGENTS.md with its stubs, .mcp.json, the session-start hook and the beans store. On the overlay path it declares in index.config.json exactly the markers picked at Task_ChooseHarnessed, and none it was not given. Refuses rather than overwrites when a folio is already present.</td>
+      <td>content/, uploads/, library/, the first manifests, &lt;slug&gt;.json and index.config.json (the instance’s config inline in its entry; no &lt;slug&gt;.config.json), the builder shim, AGENTS.md with its stubs, .mcp.json, the session-start hook and the beans store. On the overlay path it declares in index.config.json exactly the markers picked at Task_ChooseHarnessed, and none it was not given. Refuses rather than overwrites when a folio is already present.</td>
     </tr>
     <tr>
       <td><strong>Seed the work plan</strong><br /><code class="language-plaintext highlighter-rouge">Task_SeedPlan</code></td>
@@ -1046,7 +1046,7 @@ generated from it by <code class="language-plaintext highlighter-rouge">bun run 
       <td><strong>Provision gh-pages</strong><br /><code class="language-plaintext highlighter-rouge">Task_ProvisionGhPages</code></td>
       <td>Publish — GitHub Pages</td>
       <td><code class="language-plaintext highlighter-rouge">getting-started</code></td>
-      <td>Before Pages is switched on, make sure the gh-pages branch exists — the semantics of A_Provision in bootstrap-tools’ render-kg-to-github-pages.bpmn, first half. <code class="language-plaintext highlighter-rouge">git ls-remote --heads origin gh-pages</code>; if absent, <code class="language-plaintext highlighter-rouge">bun run cat-harness/scripts/pages-bootstrap.ts --provision</code> pushes an orphan gh-pages holding a placeholder index.html and .nojekyll (idempotent; never forced; the script creates no remote branch without the flag). Then Settings → Pages → “Deploy from a branch: gh-pages, / (root)” — not “GitHub Actions” when the publish workflow pushes gh-pages. Every publishing path reaches this step: new-repo, overlay and add-folio, and an overlay or new repo that remote-mounts its dependencies (litlfred/test, provisioned at 860f9c2). Owner, 2026-10-01: “need to create gh-pages branch before can turn on”; 2026-10-07: “need to create gh-pages before can deploy” (#2417).</td>
+      <td>Before Pages is switched on, make sure the gh-pages branch exists — the semantics of A_Provision in bootstrap-tools’ render-kg-to-github-pages.bpmn, first half. <code class="language-plaintext highlighter-rouge">git ls-remote --heads origin gh-pages</code>; if absent, <code class="language-plaintext highlighter-rouge">bun run cat-harness/scripts/pages-bootstrap.ts --provision</code> pushes an orphan gh-pages holding a placeholder index.html and .nojekyll (idempotent; never forced; the script creates no remote branch without the flag). Then Settings → Pages → “Deploy from a branch: gh-pages, / (root)” — not “GitHub Actions” when the publish workflow pushes gh-pages. Every publishing path reaches this step: new-repo, overlay and add-folio, and an overlay or new repo that remote-mounts its dependencies.</td>
     </tr>
     <tr>
       <td><strong>Start the Pages build and derive the URL</strong><br /><code class="language-plaintext highlighter-rouge">Task_PagesBootstrap</code></td>
@@ -1064,7 +1064,7 @@ generated from it by <code class="language-plaintext highlighter-rouge">bun run 
       <td><strong>Say where it will be</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReportPending</code></td>
       <td>Publish — GitHub Pages</td>
       <td><code class="language-plaintext highlighter-rouge">getting-started</code></td>
-      <td>A measured 404. The author is told the address and that the first build has not landed there yet — which is useful, and is not the same as being told it is live.</td>
+      <td>A measured 404. The author is told the address and that the first build has not landed there yet.</td>
     </tr>
     <tr>
       <td><strong>Say it could not be confirmed</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReportUnknown</code></td>
@@ -1076,13 +1076,13 @@ generated from it by <code class="language-plaintext highlighter-rouge">bun run 
       <td><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanOpen</code></td>
       <td>Onboarding agent (system)</td>
       <td>calls <a href="bean-open.html">Open the bean</a><br /><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
-      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn (bean m8gz, owner 2026-10-24); the gateway after this reads which end it reached.</td>
+      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn; the gateway after this reads which end it reached.</td>
     </tr>
     <tr>
       <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose</code></td>
       <td>Publish — GitHub Pages</td>
       <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
+      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn; placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1108,7 +1108,7 @@ generated from it by <code class="language-plaintext highlighter-rouge">bun run 
   <tbody>
     <tr>
       <td><strong>What is the user asking for?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_Intent</code></td>
-      <td>Computed, not chosen. decisions/folio-intent.dmn returns one of five branches from statedIntent, isFolio and repoHasContent. Non-relaxable: this gateway IS the fix.</td>
+      <td>Computed, not chosen. decisions/folio-intent.dmn returns one of five branches from statedIntent, isFolio and repoHasContent. Non-relaxable.</td>
       <td><strong>ask</strong> → Choose from the offered options<br /><strong>overlay</strong> → Scan the repo for content worth importing<br /><strong>new-repo</strong> → Create the repository<br /><strong>new-content</strong> → Handed to content authoring<br /><strong>add-folio</strong> → Scaffold the folio (folio_init)</td>
     </tr>
     <tr>

@@ -908,7 +908,7 @@
 
 <p>Merging an approved content change on the owner’s explicit confirmation and publishing it: remove the staging preview, rebuild the main site and watch it. A change that is not merged keeps its preview.</p>
 
-<p>Called from content-change-review after the committee approves. Approving is the committee’s judgement and merging is a separate, confirmed act (bean en2d), which is why the merge opens this phase rather than closing the review.</p>
+<p>Called from content-change-review after the committee approves. Approving is the committee’s judgement and merging is a separate, confirmed act, which is why the merge opens this phase rather than closing the review.</p>
 
 <p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
 <h2 id="how-it-connects">
@@ -952,7 +952,7 @@
     <tr>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
-      <td>GW_Merged sits downstream of Task_Approve in the Reviewer’s lane, so it is checking whether that approval actually resulted in a merge rather than deciding whether to approve one, and a “No” ends the pipeline quietly instead of looping back into review.</td>
+      <td>GW_Merged checks whether the approval resulted in a merge; it does not decide whether to approve one, and a “No” ends the run instead of looping back into review.</td>
     </tr>
   </tbody>
 </table></div>
@@ -999,7 +999,7 @@
       <td><strong>Note the main-branch watch</strong><br /><code class="language-plaintext highlighter-rouge">Task_WatchMainCI</code></td>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">watch</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Second dispatch point: the change was approved and merged, and the<br />root of the site has been rebuilt from main. This is the moment<br />docs-site.yml failed all 30 times over two months (bean xom7) while<br />looking exactly like a green run from inside the repo.<br /><code class="language-plaintext highlighter-rouge">note</code> rather than <code class="language-plaintext highlighter-rouge">claim</code>, and the difference is not cosmetic. By<br />here the branch-watch bean already exists, and whether the publish<br />SUCCEEDED is a judgement this step cannot make – the build reports<br />its own exit code, and xom7 is the record of that being believed.<br />AGENTS.md: a bean is not closed on someone else’s say-so. So the step<br />records what it observed and leaves the verdict to the watcher.</td>
+      <td>Second dispatch point: the change was approved and merged, and the<br />root of the site has been rebuilt from main. A failing main build<br />can look like a green run from inside the repo.<br /><code class="language-plaintext highlighter-rouge">note</code> rather than <code class="language-plaintext highlighter-rouge">claim</code>: the branch-watch bean already exists, and<br />whether the publish SUCCEEDED is not this step’s judgement (the build<br />reports its own exit code). A bean is not closed on someone else’s<br />say-so, so the step records what it observed and leaves the verdict<br />to the watcher.</td>
     </tr>
   </tbody>
 </table></div>

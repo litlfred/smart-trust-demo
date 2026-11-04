@@ -906,13 +906,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_Publication</code> · strict · 13 step(s)</p>
 
-<p>How the corpus becomes an officially published folio: a draft publication, its review, and the release authority’s decision. folio-assistant — corpus to draft publication to officially published.
-Source of truth: this file. Open it in bpmn.io, Camunda Modeler, or any other
-BPMN 2.0 tool. The SVG under docs/assets/img/workflows/ is generated from it
-by <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code> — never hand-edit the SVG.
-The &lt;bootstrap.processes:skill&gt; extension on an activity names the folio-assistant skill
-that implements it; &lt;cat-harness.processes:bean&gt; marks a step that reads or writes the shared
-work plan in beans/.</p>
+<p>How the corpus becomes an officially published folio: a draft publication, its review, and the release authority’s decision.</p>
 
 <p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
 <h2 id="how-it-connects">
@@ -951,22 +945,22 @@ work plan in beans/.</p>
     <tr>
       <td>Editors + authoring agents</td>
       <td><code class="language-plaintext highlighter-rouge">editor</code></td>
-      <td>The one call activity both rejection paths loop back to — a red QA gate directly, and a review rejection only once the publication manager has turned each finding into a bean — so a fix here never needs to know which failure sent it back.</td>
+      <td>Where both rejection paths loop back to: a red QA gate directly, and a review rejection once each finding has become a bean.</td>
     </tr>
     <tr>
       <td>Build pipeline (system)</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
-      <td>Owns the one gate that decides whether the draft is fit to be circulated: Task_BuildDraft turns the corpus into a draft and the DMN-backed Gateway_QaGreen decides whether Task_CirculateDraft ever runs, so a red result here is caught before Lane_ReviewTeam or Lane_Sme spend time on a draft that was never fit to review.</td>
+      <td>Owns the one gate that decides whether the draft is fit to be circulated: Task_BuildDraft turns the corpus into a draft and the DMN-backed Gateway_QaGreen decides whether Task_CirculateDraft runs, so a red draft never reaches Lane_ReviewTeam or Lane_Sme.</td>
     </tr>
     <tr>
       <td>Publication manager</td>
       <td><code class="language-plaintext highlighter-rouge">publication-manager</code></td>
-      <td>Fans the QA-gated draft out to review and SME sign-off in parallel, then — once the programme manager authorises — is the only lane that actually presses publish, so both the review verdict and the release authority pass through this one hand before anything goes live.</td>
+      <td>Fans the QA-gated draft out to review and SME sign-off in parallel, then, once the programme manager authorises, is the only lane that publishes.</td>
     </tr>
     <tr>
       <td>Review team (content · QC · technical officer)</td>
       <td><code class="language-plaintext highlighter-rouge">reviewer</code></td>
-      <td>Owns the single approved/not-approved gateway the whole review rests on: it fires only after Lane_Sme’s sign-off has also reached the join, but the call is this lane’s alone, and a rejection here is what turns into the change beans Lane_WorkPlan opens next.</td>
+      <td>Owns the approved/not-approved gateway: it fires after Lane_Sme’s sign-off has also reached the join, but the call is this lane’s alone, and a rejection becomes the change beans Lane_WorkPlan opens next.</td>
     </tr>
     <tr>
       <td>Public review (commenters, review committee, editor)</td>
@@ -976,12 +970,12 @@ work plan in beans/.</p>
     <tr>
       <td>Clinical / scientific SMEs</td>
       <td><code class="language-plaintext highlighter-rouge">clinical-sme</code></td>
-      <td>Runs in parallel with Lane_ReviewTeam, not after it — Gateway_ReviewJoin waits on both — but does not own the approve/reject gateway that follows: sign-off here is necessary for the join to complete and nothing more, which keeps a clinical judgement from also becoming the phase-gate call.</td>
+      <td>Runs in parallel with Lane_ReviewTeam (Gateway_ReviewJoin waits on both) but does not own the approve/reject gateway that follows: sign-off here is needed for the join to complete, and nothing more.</td>
     </tr>
     <tr>
       <td>Programme manager (release authority)</td>
       <td><code class="language-plaintext highlighter-rouge">programme-manager</code></td>
-      <td>Sits between review’s approval and the actual publish — a second, distinct gate on an already-approved draft, because content being right and a release being authorised to ship are two different questions, and only this lane answers the second one.</td>
+      <td>Sits between review’s approval and the publish: a second gate on an approved draft, answering whether the release is authorised to ship.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1010,7 +1004,7 @@ work plan in beans/.</p>
       <td><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_OpenReleaseBean</code></td>
       <td>Build pipeline (system)</td>
       <td>calls <a href="bean-open.html">Open the bean</a><br /><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
-      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn (bean m8gz, owner 2026-10-24); the gateway after this reads which end it reached.</td>
+      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn; the gateway after this reads which end it reached.</td>
     </tr>
     <tr>
       <td><strong>Build the draft publication</strong><br /><code class="language-plaintext highlighter-rouge">Task_BuildDraft</code></td>
@@ -1040,7 +1034,7 @@ work plan in beans/.</p>
       <td><strong>Release for public comment</strong><br /><code class="language-plaintext highlighter-rouge">CallActivity_PublicComment</code></td>
       <td>Public review (commenters, review committee, editor)</td>
       <td>calls <a href="public-comment-release.html">Release a draft for public comment</a><br /><code class="language-plaintext highlighter-rouge">public-comment</code></td>
-      <td>When the draft goes out for public comment: the release date is agreed, the draft is frozen as a line-numbered public comment release, every channel is set up against it and announced, and the comments that come back are placed, triaged, recommended on by the review committee and decided by the editor (<a href="public-comment-release.html">Process_PublicCommentRelease</a>, which calls <a href="public-comment.html">Process_PublicComment</a>). Bean v26p, issue #197.</td>
+      <td>When the draft goes out for public comment: the release date is agreed, the draft is frozen as a line-numbered public comment release, every channel is set up against it and announced, and the comments that come back are placed, triaged, recommended on by the review committee and decided by the editor (<a href="public-comment-release.html">Process_PublicCommentRelease</a>, which calls <a href="public-comment.html">Process_PublicComment</a>).</td>
     </tr>
     <tr>
       <td><strong>Review the draft publication</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewDraft</code></td>
@@ -1082,7 +1076,7 @@ work plan in beans/.</p>
       <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_ArchiveReleaseBean</code></td>
       <td>Publication manager</td>
       <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
+      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn; placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
     </tr>
   </tbody>
 </table></div>

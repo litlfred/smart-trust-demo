@@ -909,9 +909,9 @@
 
 <p>The generic review position: classify what changed, descend into the review that fits it, consolidate what comes back, and accept or send back.</p>
 
-<p>You are in this process for any change under review. It is a DISPATCHER — the actor takes on the inner lane’s role for the call path only — which is why prose and code can both be reviewed without either reviewer having to know the other’s criteria. A change that is both — prose and the code it describes — takes a branch of its own, which reviews the two against each other; the gateway is exclusive and takes exactly one branch, so the earlier wording, that such a change goes through both, described a route the diagram could not take (issue #1042).</p>
+<p>You are in this process for any change under review. It is a DISPATCHER — the actor takes on the inner lane’s role for the call path only — which is why prose and code can both be reviewed without either reviewer having to know the other’s criteria. A change that is both — prose and the code it describes — takes a branch of its own, which reviews the two against each other; the gateway is exclusive and takes exactly one branch.</p>
 
-<p>The accept-or-send-back decision lives here and nowhere beneath it. The subprocesses produce findings; this is the only lane entitled to turn findings into an outcome, and keeping that single makes “who decided” answerable.</p>
+<p>The accept-or-send-back decision lives here and nowhere beneath it. The subprocesses produce findings; this is the only lane entitled to turn findings into an outcome.</p>
 <style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
 
 <div class="pt-diagram" data-panel="review-task.tasks.json">
@@ -1118,7 +1118,7 @@
     <tr>
       <td>Reviewer / SME</td>
       <td><code class="language-plaintext highlighter-rouge">reviewer</code></td>
-      <td>Makes exactly one decision on its own — what changed, at Task_ClassifyChange — and for everything after that descends into a subprocess, taking on the narrative- or code-reviewer role for that call path only rather than carrying both statically. A change that is both visits both subprocesses in turn, and neither role widens the other.</td>
+      <td>Makes exactly one decision on its own — what changed, at Task_ClassifyChange — and for everything after that descends into a subprocess, taking on the narrative- or code-reviewer role for that call path only rather than carrying both statically. A change that is both prose and code goes to the pair review; neither role widens the other.</td>
     </tr>
     <tr>
       <td>Editors + authoring agents</td>
@@ -1152,7 +1152,7 @@
       <td><strong>Classify what changed</strong><br /><code class="language-plaintext highlighter-rouge">Task_ClassifyChange</code></td>
       <td>Reviewer / SME</td>
       <td><code class="language-plaintext highlighter-rouge">content-review</code><br /><code class="language-plaintext highlighter-rouge">staging-review</code></td>
-      <td>Prose, code nodes, or both. This is the only decision the generic lane<br />makes on its own: everything after it is made inside a subprocess by<br />the role that lane binds.<br />Binds <code class="language-plaintext highlighter-rouge">content-review</code>, the same skill as Task_Consolidate in this lane,<br />since placement PR3 (bean <code class="language-plaintext highlighter-rouge">63wl</code>): it named a paper skill the science<br />layer owns, which this harness diagram<br />cannot reach. A paper process that wants semantic scoping adds it by<br />calling this process.</td>
+      <td>Prose, code nodes, or both. This is the only decision the generic lane<br />makes on its own: everything after it is made inside a subprocess by<br />the role that lane binds.<br />Binds <code class="language-plaintext highlighter-rouge">content-review</code>, the same skill as Task_Consolidate in this lane.<br />A paper process that wants semantic scoping adds it by<br />calling this process.</td>
     </tr>
     <tr>
       <td><strong>Narrative review</strong><br /><code class="language-plaintext highlighter-rouge">Call_NarrativeReview</code></td>
@@ -1170,7 +1170,7 @@
       <td><strong>Prose and the code it describes</strong><br /><code class="language-plaintext highlighter-rouge">Call_NarrativeCodeReview</code></td>
       <td>Reviewer / SME</td>
       <td>calls <a href="narrative-code-review.html">Prose and the code it describes</a></td>
-      <td>Descend into <a href="narrative-code-review.html">Process_NarrativeCodeReview</a>: judge what the pair checks<br />could not settle (a stale pair, a false or undetermined claim), and<br />send a disagreement with a checker to adjudication. Issue #1042, stage C.</td>
+      <td>Descend into <a href="narrative-code-review.html">Process_NarrativeCodeReview</a>: judge what the pair checks<br />could not settle (a stale pair, a false or undetermined claim), and send<br />a disagreement with a checker to adjudication.</td>
     </tr>
     <tr>
       <td><strong>Consolidate findings</strong><br /><code class="language-plaintext highlighter-rouge">Task_Consolidate</code></td>

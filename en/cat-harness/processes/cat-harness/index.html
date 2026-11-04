@@ -916,7 +916,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">cat-harness/processes/sdlc/</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/</code></td>
       <td>37</td>
     </tr>
     <tr>
@@ -1199,6 +1199,42 @@
       <td>none recorded</td>
     </tr>
     <tr>
+      <td><a href="../archimate-publish.html">Publish an ArchiMate model — every picture derived from it</a></td>
+      <td>4</td>
+      <td>—</td>
+      <td>none recorded</td>
+    </tr>
+    <tr>
+      <td><a href="../harness-default-rendering.html">A harness’s default rendering</a></td>
+      <td>7</td>
+      <td>—</td>
+      <td>none recorded</td>
+    </tr>
+    <tr>
+      <td><a href="../ingest-theme.html">Ingestion subprocess — ingest a theme</a></td>
+      <td>5</td>
+      <td>—</td>
+      <td>none recorded</td>
+    </tr>
+    <tr>
+      <td><a href="../staging-render-log.html">Render log — the publish branch keeps its own history</a></td>
+      <td>6</td>
+      <td>—</td>
+      <td>none recorded</td>
+    </tr>
+    <tr>
+      <td><a href="../theme-ui-review.html">Theme and UI review — at ingestion</a></td>
+      <td>6</td>
+      <td>—</td>
+      <td>none recorded</td>
+    </tr>
+    <tr>
+      <td><a href="../wireframe-design-review.html">Wireframe design review</a></td>
+      <td>6</td>
+      <td>—</td>
+      <td>none recorded</td>
+    </tr>
+    <tr>
       <td><a href="../activity-log.html">Agent activity log</a></td>
       <td>8</td>
       <td>—</td>
@@ -1260,7 +1296,7 @@
     </tr>
     <tr>
       <td><a href="../docs-site-publish.html">Publishing the docs site, and keeping the previews alive</a></td>
-      <td>9</td>
+      <td>11</td>
       <td>—</td>
       <td>none recorded</td>
     </tr>
@@ -1420,42 +1456,6 @@
       <td>—</td>
       <td>none recorded</td>
     </tr>
-    <tr>
-      <td><a href="../archimate-publish.html">Publish an ArchiMate model — every picture derived from it</a></td>
-      <td>4</td>
-      <td>—</td>
-      <td>none recorded</td>
-    </tr>
-    <tr>
-      <td><a href="../harness-default-rendering.html">A harness’s default rendering</a></td>
-      <td>7</td>
-      <td>—</td>
-      <td>none recorded</td>
-    </tr>
-    <tr>
-      <td><a href="../ingest-theme.html">Ingestion subprocess — ingest a theme</a></td>
-      <td>5</td>
-      <td>—</td>
-      <td>none recorded</td>
-    </tr>
-    <tr>
-      <td><a href="../staging-render-log.html">Render log — the publish branch keeps its own history</a></td>
-      <td>6</td>
-      <td>—</td>
-      <td>none recorded</td>
-    </tr>
-    <tr>
-      <td><a href="../theme-ui-review.html">Theme and UI review — at ingestion</a></td>
-      <td>6</td>
-      <td>—</td>
-      <td>none recorded</td>
-    </tr>
-    <tr>
-      <td><a href="../wireframe-design-review.html">Wireframe design review</a></td>
-      <td>6</td>
-      <td>—</td>
-      <td>none recorded</td>
-    </tr>
   </tbody>
 </table></div>
 <h2 id="what-runs-this-skill">
@@ -1469,7 +1469,7 @@
 
 <p>The reverse of <code class="language-plaintext highlighter-rouge">&lt;bootstrap.processes:skill ref&gt;</code>, which is the join nothing else exposes: a skill says what to do, and until now nothing said which processes ask for it.</p>
 
-<p><strong>104</strong> distinct skill(s) are named by an activity.</p>
+<p><strong>105</strong> distinct skill(s) are named by an activity.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -1541,7 +1541,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">content-feedback</code></td>
-      <td><a href="../review-narrative.html"><code class="language-plaintext highlighter-rouge">review-narrative.bpmn</code></a>, <a href="../adjudication.html"><code class="language-plaintext highlighter-rouge">adjudication.bpmn</code></a>, <a href="../narrative-code-review.html"><code class="language-plaintext highlighter-rouge">narrative-code-review.bpmn</code></a>, <a href="../harness-default-rendering.html"><code class="language-plaintext highlighter-rouge">harness-default-rendering.bpmn</code></a></td>
+      <td><a href="../review-narrative.html"><code class="language-plaintext highlighter-rouge">review-narrative.bpmn</code></a>, <a href="../harness-default-rendering.html"><code class="language-plaintext highlighter-rouge">harness-default-rendering.bpmn</code></a>, <a href="../adjudication.html"><code class="language-plaintext highlighter-rouge">adjudication.bpmn</code></a>, <a href="../narrative-code-review.html"><code class="language-plaintext highlighter-rouge">narrative-code-review.bpmn</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">content-review</code></td>
@@ -1610,6 +1610,10 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">dispatch-agent</code></td>
       <td><a href="../merge-refusal.html"><code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docs-generation</code></td>
+      <td><a href="../docs-site-publish.html"><code class="language-plaintext highlighter-rouge">docs-site-publish.bpmn</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
@@ -1777,7 +1781,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">render-logging</code></td>
-      <td><a href="../feature-staging.html"><code class="language-plaintext highlighter-rouge">feature-staging.bpmn</code></a>, <a href="../staging-render-log.html"><code class="language-plaintext highlighter-rouge">staging-render-log.bpmn</code></a></td>
+      <td><a href="../staging-render-log.html"><code class="language-plaintext highlighter-rouge">staging-render-log.bpmn</code></a>, <a href="../feature-staging.html"><code class="language-plaintext highlighter-rouge">feature-staging.bpmn</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">rendered-verification</code></td>
@@ -1857,7 +1861,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td><a href="../copy-into-folio.html"><code class="language-plaintext highlighter-rouge">copy-into-folio.bpmn</code></a>, <a href="../crdm-signoff.html"><code class="language-plaintext highlighter-rouge">crdm-signoff.bpmn</code></a>, <a href="../bean-close.html"><code class="language-plaintext highlighter-rouge">bean-close.bpmn</code></a>, <a href="../bean-drain.html"><code class="language-plaintext highlighter-rouge">bean-drain.bpmn</code></a>, <a href="../bean-lifecycle.html"><code class="language-plaintext highlighter-rouge">bean-lifecycle.bpmn</code></a>, <a href="../bean-open.html"><code class="language-plaintext highlighter-rouge">bean-open.bpmn</code></a>, <a href="../code-change-review.html"><code class="language-plaintext highlighter-rouge">code-change-review.bpmn</code></a>, <a href="../merge-refusal.html"><code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code></a>, <a href="../test-data-curation.html"><code class="language-plaintext highlighter-rouge">test-data-curation.bpmn</code></a>, <a href="../test-plan-execution.html"><code class="language-plaintext highlighter-rouge">test-plan-execution.bpmn</code></a>, <a href="../upstream-pin-watch.html"><code class="language-plaintext highlighter-rouge">upstream-pin-watch.bpmn</code></a>, <a href="../upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption.bpmn</code></a>, <a href="../harness-default-rendering.html"><code class="language-plaintext highlighter-rouge">harness-default-rendering.bpmn</code></a></td>
+      <td><a href="../copy-into-folio.html"><code class="language-plaintext highlighter-rouge">copy-into-folio.bpmn</code></a>, <a href="../crdm-signoff.html"><code class="language-plaintext highlighter-rouge">crdm-signoff.bpmn</code></a>, <a href="../harness-default-rendering.html"><code class="language-plaintext highlighter-rouge">harness-default-rendering.bpmn</code></a>, <a href="../bean-close.html"><code class="language-plaintext highlighter-rouge">bean-close.bpmn</code></a>, <a href="../bean-drain.html"><code class="language-plaintext highlighter-rouge">bean-drain.bpmn</code></a>, <a href="../bean-lifecycle.html"><code class="language-plaintext highlighter-rouge">bean-lifecycle.bpmn</code></a>, <a href="../bean-open.html"><code class="language-plaintext highlighter-rouge">bean-open.bpmn</code></a>, <a href="../code-change-review.html"><code class="language-plaintext highlighter-rouge">code-change-review.bpmn</code></a>, <a href="../merge-refusal.html"><code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code></a>, <a href="../test-data-curation.html"><code class="language-plaintext highlighter-rouge">test-data-curation.bpmn</code></a>, <a href="../test-plan-execution.html"><code class="language-plaintext highlighter-rouge">test-plan-execution.bpmn</code></a>, <a href="../upstream-pin-watch.html"><code class="language-plaintext highlighter-rouge">upstream-pin-watch.bpmn</code></a>, <a href="../upstream-version-adoption.html"><code class="language-plaintext highlighter-rouge">upstream-version-adoption.bpmn</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">translation-manager</code></td>
@@ -2336,9 +2340,9 @@
 </h3>
     
 
-<p><strong>42</strong> across <strong>26</strong> diagram(s). This section reported them as defects in its first version, and that was wrong: beans <code class="language-plaintext highlighter-rouge">luke</code> and <code class="language-plaintext highlighter-rouge">uuhu</code> worked this corpus from 90 down to this remainder and settled what is left. <code class="language-plaintext highlighter-rouge">luke</code>: <em>“coverage is deliberately NOT gated — a human sign-off step has no skill”</em>. <code class="language-plaintext highlighter-rouge">uuhu</code> added the call-activity exemption and recorded that its own remainder <em>“are not gaps”</em>.</p>
+<p><strong>43</strong> across <strong>26</strong> diagram(s). This section reported them as defects in its first version, and that was wrong: beans <code class="language-plaintext highlighter-rouge">luke</code> and <code class="language-plaintext highlighter-rouge">uuhu</code> worked this corpus from 90 down to this remainder and settled what is left. <code class="language-plaintext highlighter-rouge">luke</code>: <em>“coverage is deliberately NOT gated — a human sign-off step has no skill”</em>. <code class="language-plaintext highlighter-rouge">uuhu</code> added the call-activity exemption and recorded that its own remainder <em>“are not gaps”</em>.</p>
 
-<p><strong>20</strong> are call activities, which delegate to a subprocess — the skill is named there, and naming it twice would be one fact in two places. The other <strong>22</strong> are listed by lane, because the lane is what says whether a person, a pipeline or an agent performs the step, and only the last of those has a skill to run.</p>
+<p><strong>20</strong> are call activities, which delegate to a subprocess — the skill is named there, and naming it twice would be one fact in two places. The other <strong>23</strong> are listed by lane, because the lane is what says whether a person, a pipeline or an agent performs the step, and only the last of those has a skill to run.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -2350,7 +2354,7 @@
   <tbody>
     <tr>
       <td>CI/CD Pipeline</td>
-      <td>7</td>
+      <td>8</td>
     </tr>
     <tr>
       <td>Stakeholders</td>
@@ -2391,7 +2395,7 @@
   </tbody>
 </table></div>
 
-<p><strong>No verdict is offered on which of these is a gap</strong>, and that is the honest state rather than a hedge: distinguishing a person’s judgement step from an agent step somebody forgot needs the lane’s actor KIND, which a free-text lane name does not give — <code class="language-plaintext highlighter-rouge">process-model.ts</code> notes sixty lanes spell two dozen positions. The lane’s <code class="language-plaintext highlighter-rouge">partitionElementRef</code> is the join that would answer it, and it is present on <strong>22</strong> of these <strong>22</strong> steps — which is the measurement, not an impression. An earlier draft of this sentence said <em>few of these</em> and was counting whether the lane had a NAME, a different question with a different answer.</p>
+<p><strong>No verdict is offered on which of these is a gap</strong>, and that is the honest state rather than a hedge: distinguishing a person’s judgement step from an agent step somebody forgot needs the lane’s actor KIND, which a free-text lane name does not give — <code class="language-plaintext highlighter-rouge">process-model.ts</code> notes sixty lanes spell two dozen positions. The lane’s <code class="language-plaintext highlighter-rouge">partitionElementRef</code> is the join that would answer it, and it is present on <strong>23</strong> of these <strong>23</strong> steps — which is the measurement, not an impression. An earlier draft of this sentence said <em>few of these</em> and was counting whether the lane had a NAME, a different question with a different answer.</p>
 
           
 

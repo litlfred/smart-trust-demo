@@ -949,12 +949,12 @@
     <tr>
       <td>Author</td>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
-      <td>Reached only on the <code class="language-plaintext highlighter-rouge">new sticky</code> branch of GW_Exists — dragging an existing card never re-enters this lane, because A_CreateNote is the one write to the folio and everything after it is positioning. Leaving out <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code> and <code class="language-plaintext highlighter-rouge">board</code> here is what lets one note sit on several boards without this lane arbitrating between them; arbitration would make placement an authoring decision, which it is not.</td>
+      <td>Reached only on the <code class="language-plaintext highlighter-rouge">new sticky</code> branch of GW_Exists — dragging an existing card never re-enters this lane, because A_CreateNote is the one write to the folio and everything after it is positioning. Placement is not an authoring decision.</td>
     </tr>
     <tr>
       <td>Layout layer</td>
       <td><code class="language-plaintext highlighter-rouge">corpus</code></td>
-      <td>Every placement writes here, and nothing that decides anything reads it back — losing this graph loses WHERE a note sits, never WHAT it says. That asymmetry is why A_SweepOrphans cleans stray positions from this lane’s own file rather than touching the note itself: the easy direction is removing a position whose note is gone, never removing a note because its position is.</td>
+      <td>Every placement writes here, and nothing that decides anything reads it back — losing this graph loses WHERE a note sits, never WHAT it says. So A_SweepOrphans removes a position whose note is gone, never a note whose position is.</td>
     </tr>
   </tbody>
 </table></div>

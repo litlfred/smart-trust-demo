@@ -1158,7 +1158,7 @@
       <td><strong>Point at the upload target</strong><br /><code class="language-plaintext highlighter-rouge">A_PointToUpload</code></td>
       <td>Agent</td>
       <td><code class="language-plaintext highlighter-rouge">content-acquisition</code></td>
-      <td>Composed from the declaration, never written by hand. The queue is declared with INSTANCE scope, so its declared path is missing the segment a repository-relative forge URL needs: /upload/main/uploads is a 404 and /upload/main/cat-harness/uploads is not, verified against GitHub 2026-09-20. Every failure is named — no origin remote, a non-GitHub forge, a declared-but-absent queue — because a URL is believed, and somebody sent to a wrong one cannot tell it from an empty directory. On failure, fall back to the conversation. Uses <code class="language-plaintext highlighter-rouge">scripts/upload-url.ts</code>.</td>
+      <td>Composed from the declaration by the <code class="language-plaintext highlighter-rouge">upload-url</code> Tool, never written by hand: the queue is declared with INSTANCE scope, and a forge URL needs the path relative to the REPOSITORY. Every failure is named — no origin remote, a non-GitHub forge, a declared-but-absent queue. On failure, fall back to the conversation.</td>
     </tr>
     <tr>
       <td><strong>Drop the file in the queue</strong><br /><code class="language-plaintext highlighter-rouge">P_Upload</code></td>

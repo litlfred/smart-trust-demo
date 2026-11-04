@@ -976,13 +976,13 @@
       <td><strong>Build staging site</strong><br /><code class="language-plaintext highlighter-rouge">Task_BuildStaging</code></td>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
-      <td>feature-staging.yml triggers:<br />1. Regenerate docs (schema, skills, content-backed pages)<br />2. Render BPMN diagrams<br />3. Stamp build with commit SHA + timestamp + branch<br />4. Build Jekyll site with STAGING/ baseurl<br />5. Inject yellow staging banner into every HTML page<br />A draft pull request is staged too, from its first push (owner,<br />2026-10-31, “drafts get previews”; folio-assistant#2836). A build<br />takes about 22 minutes, and GitHub Pages about 3 to 4 more.</td>
+      <td>feature-staging.yml triggers:<br />1. Regenerate docs (schema, skills, content-backed pages)<br />2. Render BPMN diagrams<br />3. Stamp build with commit SHA + timestamp + branch<br />4. Build Jekyll site with STAGING/ baseurl<br />5. Inject yellow staging banner into every HTML page<br />A draft pull request is staged too, from its first push. A build<br />takes about 22 minutes, and GitHub Pages about 3 to 4 more.</td>
     </tr>
     <tr>
       <td>**Deploy to STAGING/<slug>/**<br />`Task_DeployStaging`</slug></td>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
-      <td>The stage job copies the built site into gh-pages under<br />STAGING/&lt;branch-slug&gt;/, then <code class="language-plaintext highlighter-rouge">staging-share.ts apply</code> keeps only<br />the files that differ from the live site (cat-harness-tools#1115).<br />The preview’s staging-sw.js serves every other file from the live<br />site and puts the staging banner back on it. Other previews and the<br />main site are left as they are.</td>
+      <td>The stage job copies the built site into gh-pages under<br />STAGING/&lt;branch-slug&gt;/, then <code class="language-plaintext highlighter-rouge">staging-share.ts apply</code> keeps only<br />the files that differ from the live site.<br />The preview’s staging-sw.js serves every other file from the live<br />site and puts the staging banner back on it. Other previews and the<br />main site are left as they are.</td>
     </tr>
     <tr>
       <td><strong>Comment staging URL on PR</strong><br /><code class="language-plaintext highlighter-rouge">Task_CommentPR</code></td>
@@ -994,7 +994,7 @@
       <td><strong>Open the branch-watch bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_WatchBranchCI</code></td>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">watch</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>First dispatch point for a CI watcher: the feature branch has changed<br />and a staging build now exists to watch. The watcher is DISPATCHED BY<br />OPENING A BEAN, not by a workflow_dispatch – per the owner on bean<br />29ij, this is a task/workflow initiation.<br />That is the whole reason it is an activity rather than a line of prose.<br />A bean makes the watch durable past the session that opened it: the<br />container is reclaimed, and what survives is the claim. Starting the<br />watcher and recording that it is running are ONE declared step, so the<br />two cannot disagree about whether anything is watching.<br />Claim rather than note: the watch is work in progress, and it is<br />idempotent, so re-entering on a subsequent push does not duplicate it.</td>
+      <td>First dispatch point for a CI watcher: the feature branch has changed<br />and a staging build now exists to watch. The watcher is DISPATCHED BY<br />OPENING A BEAN, not by a workflow_dispatch: this is a task/workflow<br />initiation.<br />A bean makes the watch durable past the session that opened it: the<br />container is reclaimed, and what survives is the claim. Starting the<br />watcher and recording that it is running are ONE declared step, so the<br />two cannot disagree about whether anything is watching.<br />Claim rather than note: the watch is work in progress, and it is<br />idempotent, so re-entering on a subsequent push does not duplicate it.</td>
     </tr>
   </tbody>
 </table></div>

@@ -1162,7 +1162,7 @@
       <td><strong>Mount the remote tree at its pin</strong><br /><code class="language-plaintext highlighter-rouge">Task_MountRemotePin</code></td>
       <td>Build pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">remote-mount</code></td>
-      <td>A <code class="language-plaintext highlighter-rouge">remote</code> source (bean <code class="language-plaintext highlighter-rouge">0mpw</code>): another repository’s tree at a full<br />40-character commit. <code class="language-plaintext highlighter-rouge">bun run cat mount:remote</code> lays it down at the declared<br />path and locks its tree digest; it is never written back, because the<br />bytes are somebody else’s at somebody else’s pin. Usually reached<br />through a <code class="language-plaintext highlighter-rouge">source.remote</code> instance in the root <code class="language-plaintext highlighter-rouge">index.config.json</code><br />(legacy: <code class="language-plaintext highlighter-rouge">remoteMounts</code>), which expands a whole harness and its closure —<br /><a href="mount-dependency.html"><code class="language-plaintext highlighter-rouge">Process_MountDependency</code></a>.</td>
+      <td>A <code class="language-plaintext highlighter-rouge">remote</code> source: another repository’s tree at a full<br />40-character commit. <code class="language-plaintext highlighter-rouge">bun run cat mount:remote</code> lays it down at the declared<br />path and locks its tree digest; it is never written back, because the<br />bytes are somebody else’s at somebody else’s pin. Usually reached<br />through a <code class="language-plaintext highlighter-rouge">source.remote</code> instance in the root <code class="language-plaintext highlighter-rouge">index.config.json</code><br />(legacy: <code class="language-plaintext highlighter-rouge">remoteMounts</code>), which expands a whole harness and its closure —<br /><a href="mount-dependency.html"><code class="language-plaintext highlighter-rouge">Process_MountDependency</code></a>.</td>
     </tr>
     <tr>
       <td><strong>Retrieve the npm package or tarball</strong><br /><code class="language-plaintext highlighter-rouge">Task_RetrieveNpmPackage</code></td>
@@ -1174,7 +1174,7 @@
       <td><strong>Refuse: no flow for this source kind</strong><br /><code class="language-plaintext highlighter-rouge">Task_RefuseUnknownKind</code></td>
       <td>Build pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">sub-kg-lifecycle</code></td>
-      <td>A kind added to the union (a graph database, say) before this diagram<br />and the mount tool learn it. Refused with its own exit code — reading it<br />as a directory would scan an empty path and report it clean, the <code class="language-plaintext highlighter-rouge">dh4f</code><br />defect.</td>
+      <td>A kind added to the union (a graph database, say) before this diagram<br />and the mount tool learn it. Refused with its own exit code — reading it<br />as a directory would scan an empty path and report it clean.</td>
     </tr>
   </tbody>
 </table></div>

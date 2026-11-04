@@ -906,13 +906,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_L3Fhir</code> · advisory · 7 step(s)</p>
 
-<p>How an L3 FHIR Implementation Guide is authored in FSH, built with SUSHI, the validator and the IG Publisher, reviewed and published, starting from a source model that is ready. Generic: what produces the source model is the layer above’s own process, which maps its model and then calls <a href="l3-fhir-pipeline.html">Process_L3Fhir</a>. This one names no such model. folio-assistant — the generic L3 FHIR IG pipeline.
-Source of truth: this file. Open it in bpmn.io, Camunda Modeler, or any other
-BPMN 2.0 tool. The SVG under docs/assets/img/workflows/ is generated from it
-by <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code> — never hand-edit the SVG.
-The &lt;bootstrap.processes:skill&gt; extension on an activity names the folio-assistant skill
-that implements it; &lt;cat-harness.processes:bean&gt; marks a step that reads or writes the shared
-work plan in beans/.</p>
+<p>How an L3 FHIR Implementation Guide is authored in FSH, built with SUSHI, the validator and the IG Publisher, reviewed and published, starting from a source model that is ready. Generic: what produces the source model is the layer above’s own process, which maps its model and then calls <a href="l3-fhir-pipeline.html">Process_L3Fhir</a>. This one names no such model.</p>
 
 <p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
 <h2 id="how-it-connects">
@@ -951,22 +945,22 @@ work plan in beans/.</p>
     <tr>
       <td>FHIR modeller</td>
       <td><code class="language-plaintext highlighter-rouge">fhir-modeller</code></td>
-      <td>Task_AuthorFsh is the single re-entry point for both failure paths in this diagram — an invalid-FHIR loop from Gateway_Valid with no record left behind, and a QC failure that arrives only after Task_QcBeans has filed it — so the lane has to be able to tell a mechanical re-run from a finding that needs to be read, and the diagram gives it no other signal than which edge fired.</td>
+      <td>Task_AuthorFsh is the single re-entry point for both failure paths: an invalid-FHIR loop from Gateway_Valid, which leaves no record, and a QC failure, which arrives after Task_QcBeans has filed it. Which edge fired is the only signal that tells a mechanical re-run from a finding to read.</td>
     </tr>
     <tr>
       <td>Build pipeline — SUSHI · validator · IG Publisher</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
-      <td>Two different jobs share this lane rather than one continuous run. Task_Sushi and Task_Validate turn FSH into validated FHIR JSON and loop straight back to the modeller lane on failure with no bean filed — re-running compile-and-validate is cheap enough that a durable finding would be noise. Task_IgPublisher is the other job, reached only once Lane_Qc has passed, and its output is what Lane_PubMgr actually publishes.</td>
+      <td>Two jobs share this lane. Task_Sushi and Task_Validate turn FSH into validated FHIR JSON and loop back to the modeller lane on failure with no bean filed: re-running compile-and-validate is cheap. Task_IgPublisher runs only once Lane_Qc has passed, and its output is what Lane_PubMgr publishes.</td>
     </tr>
     <tr>
       <td>QC reviewer</td>
       <td><code class="language-plaintext highlighter-rouge">qc-reviewer</code></td>
-      <td>The single gate between a syntactically valid FHIR JSON and the full IG Publisher build — Task_IgPublisher runs only once this lane says clean, so a QC finding here is what keeps a compiling-but-wrong profile from ever reaching a publishable IG rather than being caught only after the whole site is built.</td>
+      <td>The single gate between valid FHIR JSON and the full IG Publisher build: Task_IgPublisher runs only once this lane says clean, so a compiling-but-wrong profile never reaches a publishable IG.</td>
     </tr>
     <tr>
       <td>Publication manager</td>
       <td><code class="language-plaintext highlighter-rouge">publication-manager</code></td>
-      <td>The last lane and the only one with no path back into the loop — reaching it means Task_IgPublisher already succeeded on Lane_Qc’s clean verdict. It does not itself decide whether the release is authorised: that call is draft-to-publication.bpmn’s, and Task_PublishIg only executes what that separate process has already cleared.</td>
+      <td>The last lane, with no path back into the loop: reaching it means Task_IgPublisher succeeded on Lane_Qc’s clean verdict. It does not itself decide whether the release is authorised: that call is draft-to-publication.bpmn’s, and Task_PublishIg only executes what that separate process has already cleared.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1013,13 +1007,13 @@ work plan in beans/.</p>
       <td><strong>QC gates</strong><br /><code class="language-plaintext highlighter-rouge">Task_QcGates</code></td>
       <td>QC reviewer</td>
       <td><code class="language-plaintext highlighter-rouge">quality-control</code></td>
-      <td>The QC reviewer rules on the aggregate QA against the publication gates. Emitting the QA report is mechanical; ruling on it is a decision, which is why it sits in the reviewer’s lane rather than the build’s.</td>
+      <td>The QC reviewer rules on the aggregate QA against the publication gates. Emitting the QA report is mechanical; ruling on it is the reviewer’s decision.</td>
     </tr>
     <tr>
       <td><strong>File QC findings as beans</strong><br /><code class="language-plaintext highlighter-rouge">Task_QcBeans</code></td>
       <td>FHIR modeller</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>QC findings do not stay in a report nobody re-reads — each becomes a bean the modeller and the agents both see.</td>
+      <td>Each QC finding becomes a bean on the work plan, which the modeller and the agents both see.</td>
     </tr>
     <tr>
       <td><strong>IG Publisher build</strong><br /><code class="language-plaintext highlighter-rouge">Task_IgPublisher</code></td>
