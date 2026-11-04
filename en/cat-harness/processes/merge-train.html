@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=b4497e8e1c4a">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=728aae53f477">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=21300380f63e">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=69d9894b0281" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=23ca1803a02a" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-1tpxwvdtq8a.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-1tpxwvdtq8a","here":"/en/cat-harness/processes/merge-train.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-2cbagaiqkyj.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-2cbagaiqkyj","here":"/en/cat-harness/processes/merge-train.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,7 +893,7 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/processes/sdlc/merge-train.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">cat-harness/processes/sdlc/merge-train.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="cat-harness/">cat-harness processes</a></p>
 </blockquote>
 
 <h1 id="a-merge-train">
@@ -851,30 +909,38 @@
 
 <p>Land the ready pull requests as one train: place each by the merge-priority decision table, merge the members with <code class="language-plaintext highlighter-rouge">merge-base</code>, run the gate set on the combination, and on red eject the culprit rather than reject the train. A TRAIN OF PULL REQUESTS, landed together. Bean <code class="language-plaintext highlighter-rouge">hfag</code> (merge-pipeline epic), owner’s ruling 2026-10-02. One instance per train run, committed under <code class="language-plaintext highlighter-rouge">beans/workflows/</code> like every other instance, so a sibling steward sees the same position and the run’s record is what T4 will later be tuned from (R10).</p>
 
-<p>IT LINKS THE EXISTING PROCESSES AND DUPLICATES NONE. Each member is merged by <code class="language-plaintext highlighter-rouge">merge-base.bpmn</code> (<code class="language-plaintext highlighter-rouge">Process_MergeBase</code>); the train is gated by <code class="language-plaintext highlighter-rouge">code-quality-gates.bpmn</code> and <code class="language-plaintext highlighter-rouge">pr-checks-present.bpmn</code>; a refused or ejected member is handed back by <code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code> (<code class="language-plaintext highlighter-rouge">Process_MergeRefusal</code>, draft PR #1888 — until it lands the call stays opaque, which the engine permits). The ORDER is computed by <code class="language-plaintext highlighter-rouge">decisions/merge-priority.dmn</code>, whose inputs come from the ordering processes: <code class="language-plaintext highlighter-rouge">graph-detanglement.bpmn</code> (a PR that removes tangle edges unblocks others, input b) and <code class="language-plaintext highlighter-rouge">kg-separation.bpmn</code> (a PR that seeds the staging repos, input a; <code class="language-plaintext highlighter-rouge">seed:ready</code> on branch <code class="language-plaintext highlighter-rouge">claude/seed-ready</code> reports which). A landed member’s preview is taken down by <code class="language-plaintext highlighter-rouge">feature-staging.bpmn</code>, which this process does not repeat.</p>
+<p>IT LINKS THE EXISTING PROCESSES AND DUPLICATES NONE. Each member is merged by <code class="language-plaintext highlighter-rouge">merge-base.bpmn</code> (<a href="merge-base.html"><code class="language-plaintext highlighter-rouge">Process_MergeBase</code></a>); the train is gated by <code class="language-plaintext highlighter-rouge">code-quality-gates.bpmn</code> and <code class="language-plaintext highlighter-rouge">pr-checks-present.bpmn</code>; a refused or ejected member is handed back by <code class="language-plaintext highlighter-rouge">merge-refusal.bpmn</code> (<a href="merge-refusal.html"><code class="language-plaintext highlighter-rouge">Process_MergeRefusal</code></a>, draft PR #1888 — until it lands the call stays opaque, which the engine permits). The ORDER is computed by <code class="language-plaintext highlighter-rouge">decisions/merge-priority.dmn</code>, whose inputs come from the ordering processes: <code class="language-plaintext highlighter-rouge">graph-detanglement.bpmn</code> (a PR that removes tangle edges unblocks others, input b) and <code class="language-plaintext highlighter-rouge">kg-separation.bpmn</code> (a PR that seeds the staging repos, input a; <code class="language-plaintext highlighter-rouge">seed:ready</code> on branch <code class="language-plaintext highlighter-rouge">claude/seed-ready</code> reports which). A landed member’s preview is taken down by <code class="language-plaintext highlighter-rouge">feature-staging.bpmn</code>, which this process does not repeat.</p>
 
 <p>THE QUEUE STORES DECISIONS, NEVER GITHUB’S FACTS. CI status, mergeability, labels and head SHA are read live at each step (<code class="language-plaintext highlighter-rouge">schemas/sdlc/merge-queue.ts</code>). What this instance records is what the steward decided and the dated evidence it acted on.</p>
 
 <p>FROM THE LITERATURE (requirements note <code class="language-plaintext highlighter-rouge">cat-harness/docs/proposals/merge-pipeline-requirements.md</code>, branch <code class="language-plaintext highlighter-rouge">claude/merge-pipeline-library</code>): T3 cheap conflict prediction on authored paths (R6, R7; SQ19 §5.2 pp. 7-8) feeds the placement table; T7 retries a declared-flaky gate once (R11; TAP17 Table II p. 5); T2 attributes a red train from each member’s own CI before bisecting (SQ19 §2.1 pp. 2-3); T1 ejects the culprit and re-runs the rest rather than rejecting the whole train (R3; SQ19 §2.2 p. 3), handing it back with the reason (R4; SQ19 §3.2 p. 4). The tools behind the steps are <code class="language-plaintext highlighter-rouge">merge:overlap</code>, <code class="language-plaintext highlighter-rouge">merge:train</code> and <code class="language-plaintext highlighter-rouge">merge:leftover</code>, on branch <code class="language-plaintext highlighter-rouge">claude/merge-pipeline-tools</code>.</p>
-<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
+<style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}</style>
 
 <div class="pt-diagram" data-panel="merge-train.tasks.json">
 <img src="../../../assets/img/workflows/merge-train.svg" alt="BPMN diagram: A merge train" />
-<button type="button" class="pt-mark" data-task="Task_ReadLive" style="left:11.83%;top:7.47%" aria-expanded="false" aria-label="About step: Read each queued PR's live facts" title="About: Read each queued PR's live facts">i</button>
-<button type="button" class="pt-mark" data-task="Task_TakeNext" style="left:18.88%;top:7.47%" aria-expanded="false" aria-label="About step: Take the next PR in queue order" title="About: Take the next PR in queue order">i</button>
-<button type="button" class="pt-mark" data-task="Task_Admit" style="left:29.67%;top:7.47%" aria-expanded="false" aria-label="About step: Admit it to the train, record the train id" title="About: Admit it to the train, record the train id">i</button>
-<button type="button" class="pt-mark" data-task="Call_HandBack" style="left:29.67%;top:22.41%" aria-expanded="false" aria-label="About step: Hand it back" title="About: Hand it back">i</button>
-<button type="button" class="pt-mark" data-task="Task_SiblingFix" style="left:36.31%;top:38.51%" aria-expanded="false" aria-label="About step: Fix the PR, then re-signal ready" title="About: Fix the PR, then re-signal ready">i</button>
-<button type="button" class="pt-mark" data-task="Call_ChecksPresent" style="left:47.51%;top:54.6%" aria-expanded="false" aria-label="About step: Find members with no CI on their head" title="About: Find members with no CI on their head">i</button>
-<button type="button" class="pt-mark" data-task="Call_MergeMembers" style="left:54.56%;top:54.6%" aria-expanded="false" aria-label="About step: Merge each member onto the base" title="About: Merge each member onto the base">i</button>
-<button type="button" class="pt-mark" data-task="Call_Gates" style="left:65.35%;top:54.6%" aria-expanded="false" aria-label="About step: Run the gate set on the train" title="About: Run the gate set on the train">i</button>
-<button type="button" class="pt-mark" data-task="Task_RetryFlaky" style="left:76.14%;top:68.39%" aria-expanded="false" aria-label="About step: Retry a declared-flaky gate once" title="About: Retry a declared-flaky gate once">i</button>
-<button type="button" class="pt-mark" data-task="Task_Attribute" style="left:81.54%;top:22.41%" aria-expanded="false" aria-label="About step: Attribute the failure: each member's own CI first" title="About: Attribute the failure: each member's own CI first">i</button>
-<button type="button" class="pt-mark" data-task="Task_Bisect" style="left:74.48%;top:7.47%" aria-expanded="false" aria-label="About step: Bisect the train" title="About: Bisect the train">i</button>
-<button type="button" class="pt-mark" data-task="Task_Eject" style="left:65.35%;top:22.41%" aria-expanded="false" aria-label="About step: Eject the culprit, record why" title="About: Eject the culprit, record why">i</button>
-<button type="button" class="pt-mark" data-task="Call_EjectHandBack" style="left:54.56%;top:22.41%" aria-expanded="false" aria-label="About step: Hand the culprit back" title="About: Hand the culprit back">i</button>
-<button type="button" class="pt-mark" data-task="Call_MergeToMain" style="left:93.98%;top:7.47%" aria-expanded="false" aria-label="About step: Land each member" title="About: Land each member">i</button>
-<button type="button" class="pt-mark" data-task="Task_Override" style="left:11.83%;top:85.63%" aria-expanded="false" aria-label="About step: Place it by hand, with a reason" title="About: Place it by hand, with a reason">i</button>
+<div class="pt-layer">
+<button type="button" class="pt-mark" data-task="Task_ReadLive" style="left:10.94%;top:5.16%" aria-expanded="false" aria-label="About step: Read each queued PR's live facts" title="About: Read each queued PR's live facts">i</button>
+<button type="button" class="pt-mark" data-task="Task_TakeNext" style="left:17.58%;top:5.16%" aria-expanded="false" aria-label="About step: Take the next PR in queue order" title="About: Take the next PR in queue order">i</button>
+<button type="button" class="pt-mark" data-task="Task_Admit" style="left:27.73%;top:5.16%" aria-expanded="false" aria-label="About step: Admit it to the train, record the train id" title="About: Admit it to the train, record the train id">i</button>
+<a class="pt-go" href="merge-refusal.html" style="left:24.9%;top:28.67%;width:0.94%;height:2.75%" aria-label="Open subprocess: Hand it back" title="Open subprocess: Hand it back"></a>
+<button type="button" class="pt-mark" data-task="Call_HandBack" style="left:27.93%;top:22.36%" aria-expanded="false" aria-label="About step: Hand it back" title="About: Hand it back">i</button>
+<button type="button" class="pt-mark" data-task="Task_SiblingFix" style="left:34.18%;top:38.42%" aria-expanded="false" aria-label="About step: Fix the PR, then re-signal ready" title="About: Fix the PR, then re-signal ready">i</button>
+<a class="pt-go" href="pr-checks-present.html" style="left:42.68%;top:63.3%;width:0.94%;height:2.75%" aria-label="Open subprocess: Find members with no CI on their head" title="Open subprocess: Find members with no CI on their head"></a>
+<button type="button" class="pt-mark" data-task="Call_ChecksPresent" style="left:45.51%;top:52.41%" aria-expanded="false" aria-label="About step: Find members with no CI on their head" title="About: Find members with no CI on their head">i</button>
+<a class="pt-go" href="merge-base.html" style="left:51.07%;top:63.3%;width:0.94%;height:2.75%" aria-label="Open subprocess: Merge each member onto the base" title="Open subprocess: Merge each member onto the base"></a>
+<button type="button" class="pt-mark" data-task="Call_MergeMembers" style="left:53.91%;top:52.41%" aria-expanded="false" aria-label="About step: Merge each member onto the base" title="About: Merge each member onto the base">i</button>
+<a class="pt-go" href="code-quality-gates.html" style="left:62.99%;top:63.3%;width:0.94%;height:2.75%" aria-label="Open subprocess: Run the gate set on the train" title="Open subprocess: Run the gate set on the train"></a>
+<button type="button" class="pt-mark" data-task="Call_Gates" style="left:65.82%;top:52.41%" aria-expanded="false" aria-label="About step: Run the gate set on the train" title="About: Run the gate set on the train">i</button>
+<button type="button" class="pt-mark" data-task="Task_RetryFlaky" style="left:76.95%;top:65.94%" aria-expanded="false" aria-label="About step: Retry a declared-flaky gate once" title="About: Retry a declared-flaky gate once">i</button>
+<button type="button" class="pt-mark" data-task="Task_Attribute" style="left:82.23%;top:22.36%" aria-expanded="false" aria-label="About step: Attribute the failure: each member's own CI first" title="About: Attribute the failure: each member's own CI first">i</button>
+<button type="button" class="pt-mark" data-task="Task_Bisect" style="left:75.39%;top:5.16%" aria-expanded="false" aria-label="About step: Bisect the train" title="About: Bisect the train">i</button>
+<button type="button" class="pt-mark" data-task="Task_Eject" style="left:65.04%;top:22.36%" aria-expanded="false" aria-label="About step: Eject the culprit, record why" title="About: Eject the culprit, record why">i</button>
+<a class="pt-go" href="merge-refusal.html" style="left:51.07%;top:28.67%;width:0.94%;height:2.75%" aria-label="Open subprocess: Hand the culprit back" title="Open subprocess: Hand the culprit back"></a>
+<button type="button" class="pt-mark" data-task="Call_EjectHandBack" style="left:54.88%;top:22.36%" aria-expanded="false" aria-label="About step: Hand the culprit back" title="About: Hand the culprit back">i</button>
+<a class="pt-go" href="merge-to-main.html" style="left:90.92%;top:16.06%;width:0.94%;height:2.75%" aria-label="Open subprocess: Land each member" title="Open subprocess: Land each member"></a>
+<button type="button" class="pt-mark" data-task="Call_MergeToMain" style="left:93.75%;top:5.16%" aria-expanded="false" aria-label="About step: Land each member" title="About: Land each member">i</button>
+<button type="button" class="pt-mark" data-task="Task_Override" style="left:10.94%;top:83.37%" aria-expanded="false" aria-label="About step: Place it by hand, with a reason" title="About: Place it by hand, with a reason">i</button>
+</div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
 <script>(function () {
@@ -910,7 +976,14 @@
     close.onclick = function () { hide(); }; panel.appendChild(close);
     var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
     task.appendChild(el("div", "pt-attr", "id = " + t.id));
-    if (t.lane) { var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref })); task.appendChild(ln); }
+    if (t.lane) {
+      var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
+      // The lane is a partition; the Role it names is who acts (owner,
+      // 2026-10-31: "i thought there was a Role/person or actor that should be
+      // linked"). Shown here too, not only in the Role box further down.
+      if (t.role) { ln.appendChild(el("span", "pt-st", " → role ")); ln.appendChild(link(t.role)); }
+      task.appendChild(ln);
+    }
     if (data && data.processHref) { var pr = el("div", "pt-attr", "process = "); pr.appendChild(link({ name: data.process, href: data.processHref })); task.appendChild(pr); }
     panel.appendChild(task);
     if (t.calls) {
@@ -951,6 +1024,60 @@
       panel.appendChild(el("div", "pt-none", "Lane role: " + t.binding + "."));
     }
   }
+  // THE MARKERS FOLLOW THE DRAWING, not the box around it. The site's figure
+  // viewer (docs-ui.js) swaps the <img> for an inlined <svg>, puts a toolbar
+  // above it, and zooms and pans it inside a scroll box. Positioned against
+  // this block, every marker and link drifted off its shape (owner,
+  // 2026-10-31: "misaligned"). So the layer is laid over wherever the drawing
+  // is actually drawn, and re-laid whenever that can change.
+  var layer = root.querySelector(".pt-layer"), queued = false;
+  function art() {
+    var c = root.querySelectorAll("img, svg");
+    for (var i = 0; i < c.length; i++) {
+      var e = c[i];
+      if (e.closest(".pt-layer, .pt-panel, .fa-figure-tools")) continue;
+      if (e.parentElement && e.parentElement.closest("svg")) continue;
+      return e;
+    }
+    return null;
+  }
+  function place() {
+    queued = false;
+    var a = art();
+    if (!layer || !a) return;
+    var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
+    var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
+    if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
+    if (vw > 0 && vh > 0 && w > 0 && h > 0) {
+      var k = vw / vh;
+      if (w / h > k) { var nw = h * k; x += (w - nw) / 2; w = nw; } else { var nh = w / k; y += (h - nh) / 2; h = nh; }
+    }
+    layer.style.left = x + "px"; layer.style.top = y + "px"; layer.style.width = w + "px"; layer.style.height = h + "px";
+    // Zoomed in, the drawing scrolls inside its box: markers past the edge are hidden with it.
+    var sc = a.parentElement;
+    while (sc && sc !== root && !(sc.scrollWidth > sc.clientWidth + 1 || sc.scrollHeight > sc.clientHeight + 1)) sc = sc.parentElement;
+    if (sc && sc !== root) {
+      var s = sc.getBoundingClientRect(), L = r.left + x, T = r.top + y;
+      layer.style.clipPath = "inset(" + Math.max(0, s.top - T) + "px " + Math.max(0, L + w - s.right) + "px " +
+        Math.max(0, T + h - s.bottom) + "px " + Math.max(0, s.left - L) + "px)";
+    } else layer.style.clipPath = "";
+    if (open) at(open);
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(place); } }
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(root);
+  if (window.MutationObserver) new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++) if (!layer || !layer.contains(ms[i].target)) { schedule(); return; }
+  }).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "viewBox"] });
+  root.addEventListener("scroll", schedule, true);
+  root.addEventListener("load", schedule, true);
+  window.addEventListener("resize", schedule);
+  schedule();
+  function at(b) {
+    var r = root.getBoundingClientRect(), m = b.getBoundingClientRect();
+    panel.style.left = (m.left + m.width / 2 - r.left) + "px"; panel.style.top = (m.top + m.height / 2 - r.top) + "px";
+  }
   function hide() { panel.hidden = true; if (open) open.setAttribute("aria-expanded", "false"); open = null; }
   root.addEventListener("click", function (ev) {
     var b = ev.target.closest && ev.target.closest(".pt-mark");
@@ -958,7 +1085,7 @@
     if (open === b) { hide(); return; }
     if (open) open.setAttribute("aria-expanded", "false");
     open = b; b.setAttribute("aria-expanded", "true");
-    panel.style.left = b.style.left; panel.style.top = b.style.top;
+    at(b);
     panel.hidden = false; panel.textContent = "Loading\u2026";
     load().then(function (j) {
       var t = j.tasks[b.getAttribute("data-task")];
@@ -979,7 +1106,7 @@
     
 
 <ul>
-  <li><strong>Called by:</strong> no call activity names this process</li>
+  <li><strong>Called by:</strong> <a href="merge-manager-watch.html">Merge manager watch: wake, read the queue live, route</a></li>
   <li><strong>Calls:</strong> <a href="code-quality-gates.html">The gates a change must pass before it can merge</a>, <a href="merge-base.html">Merge the base branch in</a>, <a href="merge-refusal.html">A refused merge-train member</a>, <a href="merge-to-main.html">Merge to main</a>, <a href="pr-checks-present.html">Which open pull requests have no CI run on their head?</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>

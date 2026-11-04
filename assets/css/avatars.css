@@ -73,6 +73,13 @@
   mask-image: var(--fa-avatar-glyph);
 }
 
+.fa-avatar[data-fa-kind="business-processes"] {
+  /* a page holding a diamond — a process described as content, never run */
+  --fa-avatar-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3h9l3 3v15H6zM12 10l3 3-3 3-3-3z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-image: var(--fa-avatar-glyph);
+  mask-image: var(--fa-avatar-glyph);
+}
+
 .fa-avatar[data-fa-kind="scenarios"] {
   /* two figures — the Actors and the Roles they take on */
   --fa-avatar-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 11a3 3 0 100-6 3 3 0 000 6zm0 0c-2.5 0-4 1.5-4 4v4h8v-4c0-2.5-1.5-4-4-4zm8-6a2.5 2.5 0 110 5M17 12c2 0 3 1.5 3 3v4h-3' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -293,6 +300,13 @@
 .fa-avatar[data-fa-kind="substrate-snapshot"] {
   /* a sealed envelope, pinned — another Knowledge Graph's declaration, kept byte for byte at the commit it was subscribed at */
   --fa-avatar-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 7h14v11H3zM3 7l7 6 7-6M17 4l4 4M19 6l-3 3' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-image: var(--fa-avatar-glyph);
+  mask-image: var(--fa-avatar-glyph);
+}
+
+.fa-avatar[data-fa-kind="subscribed-harnesses"] {
+  /* a house with its door open — the home each subscribed harness writes its state into */
+  --fa-avatar-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   -webkit-mask-image: var(--fa-avatar-glyph);
   mask-image: var(--fa-avatar-glyph);
 }
@@ -605,6 +619,13 @@
   mask-image: var(--fa-avatar-glyph);
 }
 
+.fa-avatar[data-fa-kind="dsa"] {
+  /* a document sheet with text lines and a verification tick — a signed agreement text paired with its cryptographic hash check and ODRL policy */
+  --fa-avatar-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 2h9l5 5v15H6V2zm8 1.5V8h4.5M9 12h6m-6 3h6m-3 3l1.5 1.5L16.5 17' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-image: var(--fa-avatar-glyph);
+  mask-image: var(--fa-avatar-glyph);
+}
+
 .fa-avatar[data-fa-kind="glossary"] {
   /* an open book — terms somebody looks up, not terms a machine mints */
   --fa-avatar-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 7v12M12 7C10 5 7 5 4 6v12c3-1 6-1 8 1M12 7c2-2 5-2 8-1v12c-3-1-6-1-8 1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -710,6 +731,7 @@
   .fa-avatar[data-fa-kind="bootstrap-tools"] { background-color: hsl(96 46% 34%); }
   .fa-avatar[data-fa-kind="skills"] { background-color: hsl(256 46% 34%); }
   .fa-avatar[data-fa-kind="processes"] { background-color: hsl(280 46% 34%); }
+  .fa-avatar[data-fa-kind="business-processes"] { background-color: hsl(268 46% 34%); }
   .fa-avatar[data-fa-kind="scenarios"] { background-color: hsl(292 46% 34%); }
   .fa-avatar[data-fa-kind="policies"] { background-color: hsl(304 46% 34%); }
   .fa-avatar[data-fa-kind="folio"] { background-color: hsl(224 46% 34%); }
@@ -742,6 +764,7 @@
   .fa-avatar[data-fa-kind="models"] { background-color: hsl(300 46% 34%); }
   .fa-avatar[data-fa-kind="external-schema"] { background-color: hsl(208 46% 34%); }
   .fa-avatar[data-fa-kind="substrate-snapshot"] { background-color: hsl(216 46% 34%); }
+  .fa-avatar[data-fa-kind="subscribed-harnesses"] { background-color: hsl(214 46% 34%); }
   .fa-avatar[data-fa-kind="code-list"] { background-color: hsl(180 46% 34%); }
   .fa-avatar[data-fa-kind="vocab-mapping"] { background-color: hsl(120 46% 34%); }
   .fa-avatar[data-fa-kind="uml"] { background-color: hsl(220 46% 34%); }
@@ -786,6 +809,7 @@
   .fa-avatar[data-fa-kind="ig-pages"] { background-color: hsl(178 46% 34%); }
   .fa-avatar[data-fa-kind="catalogue"] { background-color: hsl(258 46% 34%); }
   .fa-avatar[data-fa-kind="computation-witness"] { background-color: hsl(328 46% 34%); }
+  .fa-avatar[data-fa-kind="dsa"] { background-color: hsl(205 46% 34%); }
   .fa-avatar[data-fa-kind="glossary"] { background-color: hsl(84 46% 34%); }
   .fa-avatar[data-fa-kind="public-comments"] { background-color: hsl(30 46% 34%); }
   .fa-avatar[data-fa-kind="references"] { background-color: hsl(32 46% 34%); }
@@ -809,6 +833,7 @@
     .fa-avatar[data-fa-kind="bootstrap-tools"] { background-color: hsl(96 46% 34%); }
     .fa-avatar[data-fa-kind="skills"] { background-color: hsl(256 46% 34%); }
     .fa-avatar[data-fa-kind="processes"] { background-color: hsl(280 46% 34%); }
+    .fa-avatar[data-fa-kind="business-processes"] { background-color: hsl(268 46% 34%); }
     .fa-avatar[data-fa-kind="scenarios"] { background-color: hsl(292 46% 34%); }
     .fa-avatar[data-fa-kind="policies"] { background-color: hsl(304 46% 34%); }
     .fa-avatar[data-fa-kind="folio"] { background-color: hsl(224 46% 34%); }
@@ -841,6 +866,7 @@
     .fa-avatar[data-fa-kind="models"] { background-color: hsl(300 46% 34%); }
     .fa-avatar[data-fa-kind="external-schema"] { background-color: hsl(208 46% 34%); }
     .fa-avatar[data-fa-kind="substrate-snapshot"] { background-color: hsl(216 46% 34%); }
+    .fa-avatar[data-fa-kind="subscribed-harnesses"] { background-color: hsl(214 46% 34%); }
     .fa-avatar[data-fa-kind="code-list"] { background-color: hsl(180 46% 34%); }
     .fa-avatar[data-fa-kind="vocab-mapping"] { background-color: hsl(120 46% 34%); }
     .fa-avatar[data-fa-kind="uml"] { background-color: hsl(220 46% 34%); }
@@ -885,6 +911,7 @@
     .fa-avatar[data-fa-kind="ig-pages"] { background-color: hsl(178 46% 34%); }
     .fa-avatar[data-fa-kind="catalogue"] { background-color: hsl(258 46% 34%); }
     .fa-avatar[data-fa-kind="computation-witness"] { background-color: hsl(328 46% 34%); }
+    .fa-avatar[data-fa-kind="dsa"] { background-color: hsl(205 46% 34%); }
     .fa-avatar[data-fa-kind="glossary"] { background-color: hsl(84 46% 34%); }
     .fa-avatar[data-fa-kind="public-comments"] { background-color: hsl(30 46% 34%); }
     .fa-avatar[data-fa-kind="references"] { background-color: hsl(32 46% 34%); }
@@ -909,6 +936,7 @@
   .fa-avatar[data-fa-kind="bootstrap-tools"] { background-color: hsl(96 42% 72%); }
   .fa-avatar[data-fa-kind="skills"] { background-color: hsl(256 42% 72%); }
   .fa-avatar[data-fa-kind="processes"] { background-color: hsl(280 42% 72%); }
+  .fa-avatar[data-fa-kind="business-processes"] { background-color: hsl(268 42% 72%); }
   .fa-avatar[data-fa-kind="scenarios"] { background-color: hsl(292 42% 72%); }
   .fa-avatar[data-fa-kind="policies"] { background-color: hsl(304 42% 72%); }
   .fa-avatar[data-fa-kind="folio"] { background-color: hsl(224 42% 72%); }
@@ -941,6 +969,7 @@
   .fa-avatar[data-fa-kind="models"] { background-color: hsl(300 42% 72%); }
   .fa-avatar[data-fa-kind="external-schema"] { background-color: hsl(208 42% 72%); }
   .fa-avatar[data-fa-kind="substrate-snapshot"] { background-color: hsl(216 42% 72%); }
+  .fa-avatar[data-fa-kind="subscribed-harnesses"] { background-color: hsl(214 42% 72%); }
   .fa-avatar[data-fa-kind="code-list"] { background-color: hsl(180 42% 72%); }
   .fa-avatar[data-fa-kind="vocab-mapping"] { background-color: hsl(120 42% 72%); }
   .fa-avatar[data-fa-kind="uml"] { background-color: hsl(220 42% 72%); }
@@ -985,6 +1014,7 @@
   .fa-avatar[data-fa-kind="ig-pages"] { background-color: hsl(178 42% 72%); }
   .fa-avatar[data-fa-kind="catalogue"] { background-color: hsl(258 42% 72%); }
   .fa-avatar[data-fa-kind="computation-witness"] { background-color: hsl(328 42% 72%); }
+  .fa-avatar[data-fa-kind="dsa"] { background-color: hsl(205 42% 72%); }
   .fa-avatar[data-fa-kind="glossary"] { background-color: hsl(84 42% 72%); }
   .fa-avatar[data-fa-kind="public-comments"] { background-color: hsl(30 42% 72%); }
   .fa-avatar[data-fa-kind="references"] { background-color: hsl(32 42% 72%); }
@@ -1008,6 +1038,7 @@
     .fa-avatar[data-fa-kind="bootstrap-tools"] { background-color: hsl(96 42% 72%); }
     .fa-avatar[data-fa-kind="skills"] { background-color: hsl(256 42% 72%); }
     .fa-avatar[data-fa-kind="processes"] { background-color: hsl(280 42% 72%); }
+    .fa-avatar[data-fa-kind="business-processes"] { background-color: hsl(268 42% 72%); }
     .fa-avatar[data-fa-kind="scenarios"] { background-color: hsl(292 42% 72%); }
     .fa-avatar[data-fa-kind="policies"] { background-color: hsl(304 42% 72%); }
     .fa-avatar[data-fa-kind="folio"] { background-color: hsl(224 42% 72%); }
@@ -1040,6 +1071,7 @@
     .fa-avatar[data-fa-kind="models"] { background-color: hsl(300 42% 72%); }
     .fa-avatar[data-fa-kind="external-schema"] { background-color: hsl(208 42% 72%); }
     .fa-avatar[data-fa-kind="substrate-snapshot"] { background-color: hsl(216 42% 72%); }
+    .fa-avatar[data-fa-kind="subscribed-harnesses"] { background-color: hsl(214 42% 72%); }
     .fa-avatar[data-fa-kind="code-list"] { background-color: hsl(180 42% 72%); }
     .fa-avatar[data-fa-kind="vocab-mapping"] { background-color: hsl(120 42% 72%); }
     .fa-avatar[data-fa-kind="uml"] { background-color: hsl(220 42% 72%); }
@@ -1084,6 +1116,7 @@
     .fa-avatar[data-fa-kind="ig-pages"] { background-color: hsl(178 42% 72%); }
     .fa-avatar[data-fa-kind="catalogue"] { background-color: hsl(258 42% 72%); }
     .fa-avatar[data-fa-kind="computation-witness"] { background-color: hsl(328 42% 72%); }
+    .fa-avatar[data-fa-kind="dsa"] { background-color: hsl(205 42% 72%); }
     .fa-avatar[data-fa-kind="glossary"] { background-color: hsl(84 42% 72%); }
     .fa-avatar[data-fa-kind="public-comments"] { background-color: hsl(30 42% 72%); }
     .fa-avatar[data-fa-kind="references"] { background-color: hsl(32 42% 72%); }
@@ -1110,6 +1143,7 @@
   .fa-avatar[data-fa-kind="bootstrap-tools"][data-fa-trash="true"] { background-color: hsl(96 16% 52%); }
   .fa-avatar[data-fa-kind="skills"][data-fa-trash="true"] { background-color: hsl(256 16% 52%); }
   .fa-avatar[data-fa-kind="processes"][data-fa-trash="true"] { background-color: hsl(280 16% 52%); }
+  .fa-avatar[data-fa-kind="business-processes"][data-fa-trash="true"] { background-color: hsl(268 16% 52%); }
   .fa-avatar[data-fa-kind="scenarios"][data-fa-trash="true"] { background-color: hsl(292 16% 52%); }
   .fa-avatar[data-fa-kind="policies"][data-fa-trash="true"] { background-color: hsl(304 16% 52%); }
   .fa-avatar[data-fa-kind="folio"][data-fa-trash="true"] { background-color: hsl(224 16% 52%); }
@@ -1142,6 +1176,7 @@
   .fa-avatar[data-fa-kind="models"][data-fa-trash="true"] { background-color: hsl(300 16% 52%); }
   .fa-avatar[data-fa-kind="external-schema"][data-fa-trash="true"] { background-color: hsl(208 16% 52%); }
   .fa-avatar[data-fa-kind="substrate-snapshot"][data-fa-trash="true"] { background-color: hsl(216 16% 52%); }
+  .fa-avatar[data-fa-kind="subscribed-harnesses"][data-fa-trash="true"] { background-color: hsl(214 16% 52%); }
   .fa-avatar[data-fa-kind="code-list"][data-fa-trash="true"] { background-color: hsl(180 16% 52%); }
   .fa-avatar[data-fa-kind="vocab-mapping"][data-fa-trash="true"] { background-color: hsl(120 16% 52%); }
   .fa-avatar[data-fa-kind="uml"][data-fa-trash="true"] { background-color: hsl(220 16% 52%); }
@@ -1186,6 +1221,7 @@
   .fa-avatar[data-fa-kind="ig-pages"][data-fa-trash="true"] { background-color: hsl(178 16% 52%); }
   .fa-avatar[data-fa-kind="catalogue"][data-fa-trash="true"] { background-color: hsl(258 16% 52%); }
   .fa-avatar[data-fa-kind="computation-witness"][data-fa-trash="true"] { background-color: hsl(328 16% 52%); }
+  .fa-avatar[data-fa-kind="dsa"][data-fa-trash="true"] { background-color: hsl(205 16% 52%); }
   .fa-avatar[data-fa-kind="glossary"][data-fa-trash="true"] { background-color: hsl(84 16% 52%); }
   .fa-avatar[data-fa-kind="public-comments"][data-fa-trash="true"] { background-color: hsl(30 16% 52%); }
   .fa-avatar[data-fa-kind="references"][data-fa-trash="true"] { background-color: hsl(32 16% 52%); }
@@ -1208,6 +1244,7 @@
     .fa-avatar[data-fa-kind="bootstrap-tools"][data-fa-trash="true"] { background-color: hsl(96 16% 52%); }
     .fa-avatar[data-fa-kind="skills"][data-fa-trash="true"] { background-color: hsl(256 16% 52%); }
     .fa-avatar[data-fa-kind="processes"][data-fa-trash="true"] { background-color: hsl(280 16% 52%); }
+    .fa-avatar[data-fa-kind="business-processes"][data-fa-trash="true"] { background-color: hsl(268 16% 52%); }
     .fa-avatar[data-fa-kind="scenarios"][data-fa-trash="true"] { background-color: hsl(292 16% 52%); }
     .fa-avatar[data-fa-kind="policies"][data-fa-trash="true"] { background-color: hsl(304 16% 52%); }
     .fa-avatar[data-fa-kind="folio"][data-fa-trash="true"] { background-color: hsl(224 16% 52%); }
@@ -1240,6 +1277,7 @@
     .fa-avatar[data-fa-kind="models"][data-fa-trash="true"] { background-color: hsl(300 16% 52%); }
     .fa-avatar[data-fa-kind="external-schema"][data-fa-trash="true"] { background-color: hsl(208 16% 52%); }
     .fa-avatar[data-fa-kind="substrate-snapshot"][data-fa-trash="true"] { background-color: hsl(216 16% 52%); }
+    .fa-avatar[data-fa-kind="subscribed-harnesses"][data-fa-trash="true"] { background-color: hsl(214 16% 52%); }
     .fa-avatar[data-fa-kind="code-list"][data-fa-trash="true"] { background-color: hsl(180 16% 52%); }
     .fa-avatar[data-fa-kind="vocab-mapping"][data-fa-trash="true"] { background-color: hsl(120 16% 52%); }
     .fa-avatar[data-fa-kind="uml"][data-fa-trash="true"] { background-color: hsl(220 16% 52%); }
@@ -1284,6 +1322,7 @@
     .fa-avatar[data-fa-kind="ig-pages"][data-fa-trash="true"] { background-color: hsl(178 16% 52%); }
     .fa-avatar[data-fa-kind="catalogue"][data-fa-trash="true"] { background-color: hsl(258 16% 52%); }
     .fa-avatar[data-fa-kind="computation-witness"][data-fa-trash="true"] { background-color: hsl(328 16% 52%); }
+    .fa-avatar[data-fa-kind="dsa"][data-fa-trash="true"] { background-color: hsl(205 16% 52%); }
     .fa-avatar[data-fa-kind="glossary"][data-fa-trash="true"] { background-color: hsl(84 16% 52%); }
     .fa-avatar[data-fa-kind="public-comments"][data-fa-trash="true"] { background-color: hsl(30 16% 52%); }
     .fa-avatar[data-fa-kind="references"][data-fa-trash="true"] { background-color: hsl(32 16% 52%); }
@@ -1306,6 +1345,7 @@
   .fa-avatar[data-fa-kind="bootstrap-tools"][data-fa-trash="true"] { background-color: hsl(96 14% 56%); }
   .fa-avatar[data-fa-kind="skills"][data-fa-trash="true"] { background-color: hsl(256 14% 56%); }
   .fa-avatar[data-fa-kind="processes"][data-fa-trash="true"] { background-color: hsl(280 14% 56%); }
+  .fa-avatar[data-fa-kind="business-processes"][data-fa-trash="true"] { background-color: hsl(268 14% 56%); }
   .fa-avatar[data-fa-kind="scenarios"][data-fa-trash="true"] { background-color: hsl(292 14% 56%); }
   .fa-avatar[data-fa-kind="policies"][data-fa-trash="true"] { background-color: hsl(304 14% 56%); }
   .fa-avatar[data-fa-kind="folio"][data-fa-trash="true"] { background-color: hsl(224 14% 56%); }
@@ -1338,6 +1378,7 @@
   .fa-avatar[data-fa-kind="models"][data-fa-trash="true"] { background-color: hsl(300 14% 56%); }
   .fa-avatar[data-fa-kind="external-schema"][data-fa-trash="true"] { background-color: hsl(208 14% 56%); }
   .fa-avatar[data-fa-kind="substrate-snapshot"][data-fa-trash="true"] { background-color: hsl(216 14% 56%); }
+  .fa-avatar[data-fa-kind="subscribed-harnesses"][data-fa-trash="true"] { background-color: hsl(214 14% 56%); }
   .fa-avatar[data-fa-kind="code-list"][data-fa-trash="true"] { background-color: hsl(180 14% 56%); }
   .fa-avatar[data-fa-kind="vocab-mapping"][data-fa-trash="true"] { background-color: hsl(120 14% 56%); }
   .fa-avatar[data-fa-kind="uml"][data-fa-trash="true"] { background-color: hsl(220 14% 56%); }
@@ -1382,6 +1423,7 @@
   .fa-avatar[data-fa-kind="ig-pages"][data-fa-trash="true"] { background-color: hsl(178 14% 56%); }
   .fa-avatar[data-fa-kind="catalogue"][data-fa-trash="true"] { background-color: hsl(258 14% 56%); }
   .fa-avatar[data-fa-kind="computation-witness"][data-fa-trash="true"] { background-color: hsl(328 14% 56%); }
+  .fa-avatar[data-fa-kind="dsa"][data-fa-trash="true"] { background-color: hsl(205 14% 56%); }
   .fa-avatar[data-fa-kind="glossary"][data-fa-trash="true"] { background-color: hsl(84 14% 56%); }
   .fa-avatar[data-fa-kind="public-comments"][data-fa-trash="true"] { background-color: hsl(30 14% 56%); }
   .fa-avatar[data-fa-kind="references"][data-fa-trash="true"] { background-color: hsl(32 14% 56%); }
@@ -1404,6 +1446,7 @@
     .fa-avatar[data-fa-kind="bootstrap-tools"][data-fa-trash="true"] { background-color: hsl(96 14% 56%); }
     .fa-avatar[data-fa-kind="skills"][data-fa-trash="true"] { background-color: hsl(256 14% 56%); }
     .fa-avatar[data-fa-kind="processes"][data-fa-trash="true"] { background-color: hsl(280 14% 56%); }
+    .fa-avatar[data-fa-kind="business-processes"][data-fa-trash="true"] { background-color: hsl(268 14% 56%); }
     .fa-avatar[data-fa-kind="scenarios"][data-fa-trash="true"] { background-color: hsl(292 14% 56%); }
     .fa-avatar[data-fa-kind="policies"][data-fa-trash="true"] { background-color: hsl(304 14% 56%); }
     .fa-avatar[data-fa-kind="folio"][data-fa-trash="true"] { background-color: hsl(224 14% 56%); }
@@ -1436,6 +1479,7 @@
     .fa-avatar[data-fa-kind="models"][data-fa-trash="true"] { background-color: hsl(300 14% 56%); }
     .fa-avatar[data-fa-kind="external-schema"][data-fa-trash="true"] { background-color: hsl(208 14% 56%); }
     .fa-avatar[data-fa-kind="substrate-snapshot"][data-fa-trash="true"] { background-color: hsl(216 14% 56%); }
+    .fa-avatar[data-fa-kind="subscribed-harnesses"][data-fa-trash="true"] { background-color: hsl(214 14% 56%); }
     .fa-avatar[data-fa-kind="code-list"][data-fa-trash="true"] { background-color: hsl(180 14% 56%); }
     .fa-avatar[data-fa-kind="vocab-mapping"][data-fa-trash="true"] { background-color: hsl(120 14% 56%); }
     .fa-avatar[data-fa-kind="uml"][data-fa-trash="true"] { background-color: hsl(220 14% 56%); }
@@ -1480,6 +1524,7 @@
     .fa-avatar[data-fa-kind="ig-pages"][data-fa-trash="true"] { background-color: hsl(178 14% 56%); }
     .fa-avatar[data-fa-kind="catalogue"][data-fa-trash="true"] { background-color: hsl(258 14% 56%); }
     .fa-avatar[data-fa-kind="computation-witness"][data-fa-trash="true"] { background-color: hsl(328 14% 56%); }
+    .fa-avatar[data-fa-kind="dsa"][data-fa-trash="true"] { background-color: hsl(205 14% 56%); }
     .fa-avatar[data-fa-kind="glossary"][data-fa-trash="true"] { background-color: hsl(84 14% 56%); }
     .fa-avatar[data-fa-kind="public-comments"][data-fa-trash="true"] { background-color: hsl(30 14% 56%); }
     .fa-avatar[data-fa-kind="references"][data-fa-trash="true"] { background-color: hsl(32 14% 56%); }

@@ -251,58 +251,88 @@
   },
   "Task_Apply": {
    "id": "Task_Apply",
-   "name": "Re-materialize, re-asking the five gates — and record the new fixity",
+   "name": "Re-materialize and record new fixity",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/node/Task_Apply",
-   "lane": "Corpus — L1 source knowledge graph",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/lane/Lane_1",
    "skills": [
     {
      "name": "materialize-remote"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
+      "name": "library-ingestion"
+     },
+     {
+      "name": "materialize-on-demand"
+     },
+     {
       "name": "materialize-remote"
+     },
+     {
+      "name": "theme-art-intake"
+     },
+     {
+      "name": "theme-ui-review"
+     },
+     {
+      "name": "upload-naming"
      }
     ]
    }
   },
   "Task_KeepLocal": {
    "id": "Task_KeepLocal",
-   "name": "Keep the local edit, and re-pin so it stops being asked",
+   "name": "Keep the edit, re-pin",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/node/Task_KeepLocal",
-   "lane": "Corpus — L1 source knowledge graph",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/lane/Lane_1",
    "skills": [
     {
      "name": "materialize-remote"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
+      "name": "library-ingestion"
+     },
+     {
+      "name": "materialize-on-demand"
+     },
+     {
       "name": "materialize-remote"
+     },
+     {
+      "name": "theme-art-intake"
+     },
+     {
+      "name": "theme-ui-review"
+     },
+     {
+      "name": "upload-naming"
      }
     ]
    }
@@ -312,26 +342,41 @@
    "name": "Record the conflict, decide nothing, and do NOT re-pin",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/node/Task_RecordConflict",
-   "lane": "Corpus — L1 source knowledge graph",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_RefreshMaterialized/lane/Lane_1",
    "skills": [
     {
      "name": "materialize-remote"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
+      "name": "library-ingestion"
+     },
+     {
+      "name": "materialize-on-demand"
+     },
+     {
       "name": "materialize-remote"
+     },
+     {
+      "name": "theme-art-intake"
+     },
+     {
+      "name": "theme-ui-review"
+     },
+     {
+      "name": "upload-naming"
      }
     ]
    }

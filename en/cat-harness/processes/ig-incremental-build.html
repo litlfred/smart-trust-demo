@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=b4497e8e1c4a">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=728aae53f477">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=21300380f63e">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=69d9894b0281" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=23ca1803a02a" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-1tpxwvdtq8a.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-1tpxwvdtq8a","here":"/en/cat-harness/processes/ig-incremental-build.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-2cbagaiqkyj.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-2cbagaiqkyj","here":"/en/cat-harness/processes/ig-incremental-build.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,7 +893,7 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">fhir-harness/processes/content/ig-incremental-build.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">fhir-harness/processes/content/ig-incremental-build.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="fhir-harness/">fhir-harness processes</a></p>
 </blockquote>
 <h1 id="incremental-ig-build">
   
@@ -894,12 +952,7 @@ package that owns the content owns what adequate means.</p>
     <tr>
       <td>FHIR modeller / PR author (person + authoring agent)</td>
       <td><code class="language-plaintext highlighter-rouge">fhir-modeller</code></td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>Work plan — beans (shared by humans and agents)</td>
-      <td><code class="language-plaintext highlighter-rouge">work-plan</code></td>
-      <td>Where every failure branch lands before the process ends rather than just stopping: Gateway_Valid’s <code class="language-plaintext highlighter-rouge">no</code>, Gateway_QcPass’s <code class="language-plaintext highlighter-rouge">no</code> and Gateway_Restore’s <code class="language-plaintext highlighter-rouge">environment error</code> each write here — Task_LogFindings, Task_QcBeans, Task_LogEnvError — before EndEvent_Findings, EndEvent_FindingsQc or EndEvent_EnvError, so a run that stops short always leaves a record of why rather than only a red check.</td>
+      <td>Starts the run with a source change, and owns every failure branch before the process ends rather than just stopping: Gateway_Valid’s <code class="language-plaintext highlighter-rouge">no</code>, Gateway_QcPass’s <code class="language-plaintext highlighter-rouge">no</code> and Gateway_Restore’s <code class="language-plaintext highlighter-rouge">environment error</code> each write to the work plan here, in Task_LogFindings, Task_QcBeans and Task_LogEnvError, before EndEvent_Findings, EndEvent_FindingsQc or EndEvent_EnvError. A run that stops short therefore always leaves a record of why, not only a red check. The work plan is a data store these tasks write to, not a lane of its own.</td>
     </tr>
     <tr>
       <td>Incremental build (system)</td>
@@ -952,7 +1005,7 @@ package that owns the content owns what adequate means.</p>
     </tr>
     <tr>
       <td><strong>Log the environment error on the bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_LogEnvError</code></td>
-      <td>Work plan — beans (shared by humans and agents)</td>
+      <td>FHIR modeller / PR author (person + authoring agent)</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>Exit 2 from restore: the cache store or the toolchain could not be reached. Record that on the change’s bean, with the restore output, so the work plan says the build did not run and why. Check before creating — beans create is not idempotent.</td>
     </tr>
@@ -963,7 +1016,7 @@ package that owns the content owns what adequate means.</p>
       <td>Exit 1 or 3 from restore: the whole IG is built as today. Its outputs become the records the next seed writes.</td>
     </tr>
     <tr>
-      <td><strong>Compute the cone of the change (fsh-cone –changed)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Cone</code></td>
+      <td><strong>Compute the cone of the change</strong><br /><code class="language-plaintext highlighter-rouge">Task_Cone</code></td>
       <td>Incremental build (system)</td>
       <td><code class="language-plaintext highlighter-rouge">ig-publication</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code></td>
       <td>content/pipeline/fsh-cone.ts over the changed files: the forward cone is what to rebuild, the backward cone is what to check out.</td>
@@ -987,7 +1040,7 @@ package that owns the content owns what adequate means.</p>
       <td>Compile the restricted checkout with SUSHI — the cone’s FSH, not the whole IG. A build optimisation, not a validation shortcut: SUSHI compiling is not conformance, so a green compile goes on to validation rather than standing in for it.</td>
     </tr>
     <tr>
-      <td><strong>Load or reuse the warm context (fhir_context_load)</strong><br /><code class="language-plaintext highlighter-rouge">Task_ContextLoad</code></td>
+      <td><strong>Load or reuse the warm context</strong><br /><code class="language-plaintext highlighter-rouge">Task_ContextLoad</code></td>
       <td>Publisher + validator services (JVM)</td>
       <td><code class="language-plaintext highlighter-rouge">ig-publication</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code></td>
       <td>The validator’s server mode holds the loaded dependency packages, snapshots and expansions in its session cache. Cold start loads the restored derived FHIR rather than regenerating it.</td>
@@ -1000,7 +1053,7 @@ package that owns the content owns what adequate means.</p>
     </tr>
     <tr>
       <td><strong>Log findings on the bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_LogFindings</code></td>
-      <td>Work plan — beans (shared by humans and agents)</td>
+      <td>FHIR modeller / PR author (person + authoring agent)</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>Validation failed: record the findings on the change’s bean, so the work plan says what blocks it. Check before creating — beans create is not idempotent.</td>
     </tr>
@@ -1023,20 +1076,20 @@ package that owns the content owns what adequate means.</p>
       <td>The whole-IG aggregates only — artifacts, TOC, canonicals, expansions, package, QA aggregate. Never re-derives an artefact: a missing record is a miss (exit 1), not a silent rebuild.</td>
     </tr>
     <tr>
-      <td><strong>Assemble the site (template · Jekyll)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Site</code></td>
+      <td><strong>Assemble the site</strong><br /><code class="language-plaintext highlighter-rouge">Task_Site</code></td>
       <td>Incremental build (system)</td>
       <td><code class="language-plaintext highlighter-rouge">ig-publication</code></td>
       <td>Assemble the site from the merged records: the IG template and a Jekyll build over output/. Only site assembly happens here — every artefact record already exists.</td>
     </tr>
     <tr>
-      <td><strong>QC gates on the aggregate QA</strong><br /><code class="language-plaintext highlighter-rouge">Task_Qa</code></td>
+      <td><strong>Run QC gates on the aggregate QA</strong><br /><code class="language-plaintext highlighter-rouge">Task_Qa</code></td>
       <td>PR reviewer / QC reviewer</td>
       <td><code class="language-plaintext highlighter-rouge">quality-control</code></td>
       <td>qa.json is the aggregate of per-artefact outcomes; the reviewer reads the cone’s rows first.</td>
     </tr>
     <tr>
       <td><strong>File QC findings as beans</strong><br /><code class="language-plaintext highlighter-rouge">Task_QcBeans</code></td>
-      <td>Work plan — beans (shared by humans and agents)</td>
+      <td>FHIR modeller / PR author (person + authoring agent)</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>QC failed on the aggregate: file each finding as a bean, so it is tracked on the work plan rather than lost in qa.json. Check for an existing bean before creating one.</td>
     </tr>
@@ -1047,13 +1100,13 @@ package that owns the content owns what adequate means.</p>
       <td>A preview never seeds the shared cache.</td>
     </tr>
     <tr>
-      <td><strong>Deploy the site [content-publish]</strong><br /><code class="language-plaintext highlighter-rouge">Task_Deploy</code></td>
+      <td><strong>Deploy the site</strong><br /><code class="language-plaintext highlighter-rouge">Task_Deploy</code></td>
       <td>Publication manager — deploy and seed</td>
       <td><code class="language-plaintext highlighter-rouge">content-publish</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code></td>
       <td>Deploy the site built from main or a release. Deploying is release-management, after a human authorised the release — an agent never records that authorisation. Report the published URL only once it answers: a returned deploy is not a serving site.</td>
     </tr>
     <tr>
-      <td><strong>Seed the cache from the green build (ig-cache seed · verify · promote)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Seed</code></td>
+      <td><strong>Seed the cache from the green build</strong><br /><code class="language-plaintext highlighter-rouge">Task_Seed</code></td>
       <td>Publication manager — deploy and seed</td>
       <td><code class="language-plaintext highlighter-rouge">ig-publication</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code></td>
       <td>Only a green build of main or a release seeds. Seed writes to the -test branch, verifies a restore from a clean clone, then promotes.</td>
@@ -1083,7 +1136,7 @@ package that owns the content owns what adequate means.</p>
     <tr>
       <td><strong>Cache usable?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_Restore</code></td>
       <td>Answered by the exit code of <code class="language-plaintext highlighter-rouge">ig-cache restore</code> (Task_Restore): 0 is a usable cache and takes <code class="language-plaintext highlighter-rouge">yes</code>, into the cone machinery. 1 (a miss) or 3 (present, but the toolchain moved) takes <code class="language-plaintext highlighter-rouge">no</code>, to the full publisher build, whose outputs become the records the next seed writes. Exit 2 (an environment error — the cache could not be read, which says nothing about whether it is usable) takes <code class="language-plaintext highlighter-rouge">environment error</code>: the run stops and the error is logged, rather than falling back to a full build that would hide a broken cache store behind a slow green run.</td>
-      <td><strong>yes</strong> → Compute the cone of the change (fsh-cone –changed)<br /><strong>no</strong> → Full publisher build<br /><strong>environment error</strong> → Log the environment error on the bean</td>
+      <td><strong>yes</strong> → Compute the cone of the change<br /><strong>no</strong> → Full publisher build<br /><strong>environment error</strong> → Log the environment error on the bean</td>
     </tr>
     <tr>
       <td><strong>Valid?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_Valid</code></td>
@@ -1098,7 +1151,7 @@ package that owns the content owns what adequate means.</p>
     <tr>
       <td><strong>PR branch, or main / release?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_Path</code></td>
       <td>Answered by the push that started the process. <code class="language-plaintext highlighter-rouge">PR branch</code> is the review path: deploy the preview, which never seeds the shared cache. <code class="language-plaintext highlighter-rouge">main / release</code> is the publish path: deploy the site after a human has authorised the release, then seed the cache, which writes to a -test branch, verifies a restore from a clean clone, and only then promotes. Only this branch reaches the lane allowed to touch the shared cache.</td>
-      <td><strong>PR branch</strong> → Deploy the preview site<br /><strong>main / release</strong> → Deploy the site [content-publish]</td>
+      <td><strong>PR branch</strong> → Deploy the preview site<br /><strong>main / release</strong> → Deploy the site</td>
     </tr>
   </tbody>
 </table></div>

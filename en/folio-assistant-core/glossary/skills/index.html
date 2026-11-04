@@ -9,32 +9,7 @@
 
   <link rel="stylesheet" href="../../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-
-    .site-nav > ul.nav-list:first-child > li > a,
-    
-    .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(5)) > a,
-    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li a {
-      background-image: none;
-    }
-
-    .site-nav > ul.nav-list:not(:first-child) a,
-    .site-nav li.external a {
-      background-image: none;
-    }
-
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(5) > a {
-      font-weight: 600;
-      text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(1) > button svg,
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(5) > button svg {
-      transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list,
-    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(5) > ul.nav-list {
-      display: block;
-    }
-  </style>
 
   
 
@@ -103,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -607,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../../assets/css/docs-ui.css?v=b4497e8e1c4a">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -632,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=728aae53f477">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=21300380f63e">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -665,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../../assets/js/docs-ui.js?v=69d9894b0281" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../../assets/js/edit-links.js?v=23ca1803a02a" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -753,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-1tpxwvdtq8a.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-1tpxwvdtq8a","here":"/en/folio-assistant-core/glossary/skills/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#letter-A","label":"A"},{"href":"#letter-B","label":"B"},{"href":"#letter-C","label":"C"},{"href":"#letter-D","label":"D"},{"href":"#letter-E","label":"E"},{"href":"#letter-F","label":"F"},{"href":"#letter-G","label":"G"},{"href":"#letter-H","label":"H"},{"href":"#letter-I","label":"I"},{"href":"#letter-K","label":"K"},{"href":"#letter-L","label":"L"},{"href":"#letter-M","label":"M"},{"href":"#letter-N","label":"N"},{"href":"#letter-O","label":"O"},{"href":"#letter-P","label":"P"},{"href":"#letter-Q","label":"Q"},{"href":"#letter-R","label":"R"},{"href":"#letter-S","label":"S"},{"href":"#letter-T","label":"T"},{"href":"#letter-U","label":"U"},{"href":"#letter-V","label":"V"},{"href":"#letter-W","label":"W"},{"href":"#letter-Z","label":"Z"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="folio-assistant-core">
+  /* Grumpy cat, the theme of folio-assistant-core. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../../assets/img/harness/landing-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../assets/img/harness/landing-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../../assets/img/harness/landing-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../../assets/css/navbar.css"><script src="../../../../assets/navbar/rail-2cbagaiqkyj.js" defer></script><script src="../../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../../..">{"data":"rail-2cbagaiqkyj","here":"/en/folio-assistant-core/glossary/skills/","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#letter-A","label":"A"},{"href":"#letter-B","label":"B"},{"href":"#letter-C","label":"C"},{"href":"#letter-D","label":"D"},{"href":"#letter-E","label":"E"},{"href":"#letter-F","label":"F"},{"href":"#letter-G","label":"G"},{"href":"#letter-H","label":"H"},{"href":"#letter-I","label":"I"},{"href":"#letter-K","label":"K"},{"href":"#letter-L","label":"L"},{"href":"#letter-M","label":"M"},{"href":"#letter-N","label":"N"},{"href":"#letter-O","label":"O"},{"href":"#letter-P","label":"P"},{"href":"#letter-Q","label":"Q"},{"href":"#letter-R","label":"R"},{"href":"#letter-S","label":"S"},{"href":"#letter-T","label":"T"},{"href":"#letter-U","label":"U"},{"href":"#letter-V","label":"V"},{"href":"#letter-W","label":"W"},{"href":"#letter-Z","label":"Z"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -873,24 +912,24 @@
 
 <p>Candidate terms extracted from every skill’s front matter: <code class="language-plaintext highlighter-rouge">name</code> as the label, <code class="language-plaintext highlighter-rouge">description</code> as the definition. Each is the asset’s own text, verbatim and not curated, and carries the badge “candidate, extracted”. A person promotes one by authoring it. Authored terms are on their owning instance’s page, and those pages, the counts and the sources are linked from the <a href="../../../../en/folio-assistant-core/glossary/">glossary index</a>.</p>
 
-<p>From: bootstrap 13 (<a href="../../../../assets/glossary/bootstrap--kg-skills.skos.jsonld">SKOS</a>) · bootstrap-tools 3 (<a href="../../../../assets/glossary/bootstrap-tools--kg-skills.skos.jsonld">SKOS</a>) · cat-harness 248 (<a href="../../../../assets/glossary/cat-harness--kg-skills.skos.jsonld">SKOS</a>) · fhir-harness 18 (<a href="../../../../assets/glossary/fhir-harness--kg-skills.skos.jsonld">SKOS</a>) · folio-assistant-core 38 (<a href="../../../../assets/glossary/folio-assistant-core--kg-skills.skos.jsonld">SKOS</a>) · smart-trust-tools 16 (<a href="../../../../assets/glossary/smart-trust-tools--kg-skills.skos.jsonld">SKOS</a>).</p>
+<p>From: bootstrap 13 (<a href="../../../../assets/glossary/bootstrap--kg-skills.skos.jsonld">SKOS</a>) · bootstrap-tools 3 (<a href="../../../../assets/glossary/bootstrap-tools--kg-skills.skos.jsonld">SKOS</a>) · cat-harness 254 (<a href="../../../../assets/glossary/cat-harness--kg-skills.skos.jsonld">SKOS</a>) · fhir-harness 18 (<a href="../../../../assets/glossary/fhir-harness--kg-skills.skos.jsonld">SKOS</a>) · folio-assistant-core 47 (<a href="../../../../assets/glossary/folio-assistant-core--kg-skills.skos.jsonld">SKOS</a>) · smart-trust-tools 16 (<a href="../../../../assets/glossary/smart-trust-tools--kg-skills.skos.jsonld">SKOS</a>).</p>
 
-<p><strong>Size:</strong> this page holds 336 terms and is 290 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
+<p><strong>Size:</strong> this page holds 351 terms and is 305 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
 
 <div class="table-wrapper"><table class="fa-gloss-mapping">
 <caption>Already somebody else's concept? — <code>check:term-mapping</code>, bean <code>7wou</code></caption>
 <thead><tr><th>target</th><th>mapped</th><th>unmapped</th><th>undetermined</th><th>why undetermined</th></tr></thead>
-<tbody><tr><td><code>fhir</code></td><td>0</td><td>310</td><td>0</td><td>—</td></tr><tr><td><code>skos</code></td><td>0</td><td>310</td><td>0</td><td>—</td></tr></tbody>
+<tbody><tr><td><code>fhir</code></td><td>0</td><td>334</td><td>0</td><td>—</td></tr><tr><td><code>skos</code></td><td>0</td><td>334</td><td>0</td><td>—</td></tr></tbody>
 </table></div>
 <p class="fa-gloss-mapping-note"><strong>Undetermined is never “no match”.</strong> 
 A vocabulary that could not be reached has said nothing, and the column above keeps that 
 apart from a checked miss. The counts are reported and not graded: an unmapped candidate may 
 be a term this corpus is right to coin.</p>
-<p class="fa-gloss-mapping-perterm"><strong>Per term.</strong> Every term on this page is in no single state on <code>fhir</code>, so each entry states its own, and in no single state on <code>skos</code>, so each entry states its own, unless its entry says otherwise. 336 entries say otherwise.</p>
+<p class="fa-gloss-mapping-perterm"><strong>Per term.</strong> Every term on this page is in no single state on <code>fhir</code>, so each entry states its own, and in no single state on <code>skos</code>, so each entry states its own, unless its entry says otherwise. 351 entries say otherwise.</p>
 
 <p><label for="fa-gloss-q">Filter terms</label>
 <input id="fa-gloss-q" type="search" autocomplete="off" style="min-height:44px;width:100%;max-width:32rem" /></p>
-<p aria-live="polite"><span id="fa-gloss-n">336</span> shown</p>
+<p aria-live="polite"><span id="fa-gloss-n">351</span> shown</p>
 
 <nav aria-label="Letters"><a href="#letter-A">A</a> <a href="#letter-B">B</a> <a href="#letter-C">C</a> <a href="#letter-D">D</a> <a href="#letter-E">E</a> <a href="#letter-F">F</a> <a href="#letter-G">G</a> <a href="#letter-H">H</a> <a href="#letter-I">I</a> <a href="#letter-K">K</a> <a href="#letter-L">L</a> <a href="#letter-M">M</a> <a href="#letter-N">N</a> <a href="#letter-O">O</a> <a href="#letter-P">P</a> <a href="#letter-Q">Q</a> <a href="#letter-R">R</a> <a href="#letter-S">S</a> <a href="#letter-T">T</a> <a href="#letter-U">U</a> <a href="#letter-V">V</a> <a href="#letter-W">W</a> <a href="#letter-Z">Z</a></nav>
 <h2 id="letter-A">
@@ -962,7 +1001,7 @@ agent-permissions <span class="fa-gloss-status">candidate, extracted</span>
 archimate-models <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
 <dd>
-<p>ArchiMate models as knowledge-graph content: how an instance declares the Archi models it holds, what the <code>archimate</code> subgraph gives every model, view, element and relationship (an IRI, a thin page, and every view drawn as SVG from the model's own diagram), how to version the models, how to wire them into a folio's staging build and navbar, and why no Java, no Archi CLI and no Archi HTML report is ever part of the pipeline. Read before adding, publishing or rendering an <code>.archimate</code> file, before citing an ArchiMate element from prose, and before reaching for Archi's own tooling in CI.</p>
+<p>ArchiMate models as knowledge-graph content: how an instance declares the Archi models it holds, what the <code>archimate</code> subgraph gives every model, view, element and relationship (an IRI, a thin page, and every view drawn as SVG from the model's own diagram, and its metamodel derived and checked), how to version the models, how to wire them into a folio's staging build and navbar, how to count and lower the crossed lines in a view before committing it, why every view carries a plain-language key, why names are the source's own terms linked to their SKOS concepts, and why no Java, no Archi CLI and no Archi HTML report is ever part of the pipeline. Read before adding, authoring, publishing or rendering an <code>.archimate</code> file, before citing an ArchiMate element from prose, and before reaching for Archi's own tooling in CI.</p>
 <p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/ui/ui-core/archimate-models.md"><code>cat-harness/skills/ui/ui-core/archimate-models.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
@@ -1198,6 +1237,14 @@ bpmn-authoring <span class="fa-gloss-status">candidate, extracted</span>
 <dd>
 <p><em>The asset carries no description.</em></p>
 <p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/workflow/bpmn-authoring.md"><code>cat-harness/skills/process/workflow/bpmn-authoring.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="cat-harness--kg-skills--bpmn-detangle" data-fa-state="extracted" data-fa-gloss="">
+bpmn-detangle <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Make a BPMN diagram readable at 100% without zooming, and untangle it: keep it inside the size budget, give every label a place clear of other labels, flows and boxes, remove crossings, and swap lanes when another order makes the flows between lanes shorter. Run before and after every diagram edit.</p>
+<p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/process/workflow/bpmn-detangle.md"><code>cat-harness/skills/process/workflow/bpmn-detangle.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
 <dt id="cat-harness--kg-skills--bpmn-processes" data-fa-state="extracted" data-fa-gloss="">
@@ -1724,6 +1771,38 @@ domain-fencing <span class="fa-gloss-status">candidate, extracted</span>
 <p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/kg/graph-management/domain-fencing.md"><code>cat-harness/skills/kg/graph-management/domain-fencing.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
+<dt id="folio-assistant-core--kg-skills--dsa-catalogue-status" data-fa-state="extracted" data-fa-gloss="">
+dsa-catalogue-status <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Set the life-cycle status (<code>adms:status</code>, W3C DCAT 3 §6.4.30) on a Data Sharing Agreement's DCAT 3 catalogue record when the agreement is amended, renewed, terminated, or expires, while keeping all published versions readable at their immutable URLs (DSA building block B3, process step P14.5 <code>Task_SetStatus</code>).</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-catalogue-status.md"><code>folio-assistant-core/skills/content/folio-document-adapter/dsa-catalogue-status.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="folio-assistant-core--kg-skills--dsa-checksum" data-fa-state="extracted" data-fa-gloss="">
+dsa-checksum <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Compute and record the SHA-256 cryptographic digest of a signed Data Sharing Agreement's legal text as a W3C DCAT 3 <code>spdx:checksum</code> (<code>spdx:Checksum</code> with <code>spdx:checksumAlgorithm_sha256</code> and 64-character lowercase hex <code>spdx:checksumValue</code>), verified by <code>check:dsa-hash</code> (DSA building block B3, process steps P2.2 <code>Task_Hash</code> and P2.2a <code>Task_HashSummary</code>).</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-checksum.md"><code>folio-assistant-core/skills/content/folio-document-adapter/dsa-checksum.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="folio-assistant-core--kg-skills--dsa-dcat-record" data-fa-state="extracted" data-fa-gloss="">
+dsa-dcat-record <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Write the W3C DCAT 3 <code>dcat:Resource</code> and <code>dcat:Distribution</code> catalogue record for a Data Sharing Agreement (<code>dcat:downloadURL</code>, <code>spdx:checksum</code>, <code>odrl:hasPolicy</code>) and link versions with <code>dcat:version</code> and <code>dcat:previousVersion</code> (DSA building block B3, process step P2.4–5 <code>Task_Catalogue</code>).</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-dcat-record.md"><code>folio-assistant-core/skills/content/folio-document-adapter/dsa-dcat-record.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="folio-assistant-core--kg-skills--dsa-odrl-source" data-fa-state="extracted" data-fa-gloss="">
+dsa-odrl-source <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Bind a computable Data Sharing Agreement's W3C ODRL 2.2 <code>Agreement</code> to its signed legal text distribution using DCMI Metadata Terms <code>dcterms:source</code>, naming the exact <code>dcat:Distribution</code> whose <code>spdx:checksum</code> is checked (DSA building block B3, process step P2.3 <code>Task_OdrlCitesText</code>).</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/dsa-odrl-source.md"><code>folio-assistant-core/skills/content/folio-document-adapter/dsa-odrl-source.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
 <dt id="folio-assistant-core--kg-skills--dublin-core-renderings" data-fa-state="extracted" data-fa-gloss="">
 dublin-core-renderings <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -1838,6 +1917,14 @@ fhir-validation <span class="fa-gloss-status">candidate, extracted</span>
 <dd>
 <p><em>The asset carries no description.</em></p>
 <p class="fa-gloss-meta">Skills of fhir-harness · source <a href="https://github.com/litlfred/fhir-harness/blob/main/skills/content/fhir-ig-authoring/fhir-validation.md"><code>fhir-harness/skills/content/fhir-ig-authoring/fhir-validation.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="folio-assistant-core--kg-skills--figure-rebuild" data-fa-state="extracted" data-fa-gloss="">
+figure-rebuild <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Turn a source publication's figures into computable diagrams when a folio is built from its L1 entry. Every declared figure gets a block, and each one is rebuilt in the form its type calls for: an ArchiMate view, BPMN, DMN, a FHIR logical model, or an SVG generated from data, always from one schema-backed source. The PDF crop stays beside the rebuild as the cited source. The figure-coverage check counts what is missing and what is still only a picture.</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/library/ingestion/figure-rebuild.md"><code>folio-assistant-core/skills/library/ingestion/figure-rebuild.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
 <dt id="folio-assistant-core--kg-skills--filing-dublin-core" data-fa-state="extracted" data-fa-gloss="">
@@ -2028,6 +2115,14 @@ graph-rendering <span class="fa-gloss-status">candidate, extracted</span>
 </h2>
     
 <dl class="fa-gloss">
+<dt id="cat-harness--kg-skills--hand-back-to-discussion" data-fa-state="extracted" data-fa-gloss="">
+hand-back-to-discussion <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>A sibling agent, spawned during or working beside a live agent-human discussion, hands every card, question, decision, result, blocker or piece of context back to the discussion agent that is talking with the person, and never leaves it only in its own thread. The discussion agent asks the person (ask-the-person), marks every copy answered, and routes the answer back. A review sheet or issue in play is an extra channel. Use whenever an agent that is not the one talking with the person has something the person must see.</p>
+<p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/conduct/conduct-core/hand-back-to-discussion.md"><code>cat-harness/skills/conduct/conduct-core/hand-back-to-discussion.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
 <dt id="cat-harness--kg-skills--handover-report" data-fa-state="extracted" data-fa-gloss="">
 handover-report <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -2628,6 +2723,14 @@ merge-conflict-patterns <span class="fa-gloss-status">candidate, extracted</span
 <p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/merge-conflict-patterns.md"><code>cat-harness/skills/sdlc/sdlc-core/merge-conflict-patterns.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
+<dt id="cat-harness--kg-skills--merge-manager-watcher" data-fa-state="extracted" data-fa-gloss="">
+merge-manager-watcher <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The merge manager agent's watch loop: what wakes it, how often it looks, how it tells whether it is the active merge manager, what it reads each time, which process each reading sends it to (merge train, saturation meta-merge, stalled-agent takeover), and how it keeps the swarm in step with hold and done broadcasts. Use for &quot;be the merge manager&quot;, &quot;watch the queue&quot;, &quot;who merges&quot;, &quot;the queue is stuck&quot;, and when starting or handing over the merge-steward lane.</p>
+<p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/merge-manager-watcher.md"><code>cat-harness/skills/sdlc/sdlc-core/merge-manager-watcher.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
 <dt id="cat-harness--kg-skills--merge-queue" data-fa-state="extracted" data-fa-gloss="">
 merge-queue <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -2906,6 +3009,14 @@ public-comment <span class="fa-gloss-status">candidate, extracted</span>
 <p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/public-comment.md"><code>folio-assistant-core/skills/content/folio-document-adapter/public-comment.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
+<dt id="folio-assistant-core--kg-skills--public-comment-channels" data-fa-state="extracted" data-fa-gloss="">
+public-comment-channels <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Set up the channels a public-comment release goes out on (an offline Excel sheet, a Google Form, a GitHub issue form, and the review sheet), each limited to the release's fixed references, with the editor's instructions and the announcement, and bring every channel back in through one intake path that ends in agent triage into thematic change-sets. Use when a draft is released for public comment, when a channel is added to a running review, or when returned comments arrive from any channel.</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/public-comment-channels.md"><code>folio-assistant-core/skills/content/folio-document-adapter/public-comment-channels.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
 <dt id="bootstrap--kg-skills--publish-documents" data-fa-state="extracted" data-fa-gloss="">
 publish-documents <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -3150,6 +3261,30 @@ review-heatmap <span class="fa-gloss-status">candidate, extracted</span>
 <p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/authoring/authoring-core/review-heatmap.md"><code>cat-harness/skills/authoring/authoring-core/review-heatmap.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
+<dt id="folio-assistant-core--kg-skills--review-log-watch" data-fa-state="extracted" data-fa-gloss="">
+review-log-watch <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Poll a drafting review log (a Contributor Feedback sheet) and its folio repository's issues mechanically, with Tool <code>review-log-watch</code>, and start agent work only when a cell people set or an open issue changed. Each issue that no row links yet becomes a Contributor Feedback row, and a closed issue's row is hidden with its text struck through. Use on every wake of a review-log watcher, and when setting up a watcher for a new log.</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/review-log-watch.md"><code>folio-assistant-core/skills/content/folio-document-adapter/review-log-watch.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="folio-assistant-core--kg-skills--review-sheet-agent-columns" data-fa-state="extracted" data-fa-gloss="">
+review-sheet-agent-columns <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Whenever an agent works on a change set of a folio whose review sheet is kept by the Tool <code>review-sheet-sync</code>, it writes the Agent tabs' columns for that change set and its comments as it goes: status, step, what it did, the PR, the staging page and its build, what the PR changed and when it finished. Use on every change-set edit, draft, PR, push, merge or close, in a sheet sync or not.</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/review-sheet-agent-columns.md"><code>folio-assistant-core/skills/content/folio-document-adapter/review-sheet-agent-columns.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="folio-assistant-core--kg-skills--review-sheet-script" data-fa-state="extracted" data-fa-gloss="">
+review-sheet-script <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Build, install and reuse the Google Apps Script that keeps a review sheet's links and joined columns current (Tool <code>review-sheet-sync</code>). Public-comment mode: comment numbers, sections, pages and lines link into the frozen review draft, and Review Change Sets joins its comments. Drafting mode: one Contributor Feedback tab where each row is a change set with its own GitHub issue, and Sections pick from the document's table of contents. Use when setting up either sheet for a document, when its links are missing or stale, or after a tab, header, anchor or draft link changes.</p>
+<p class="fa-gloss-meta">Skills of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/skills/content/folio-document-adapter/review-sheet-script.md"><code>folio-assistant-core/skills/content/folio-document-adapter/review-sheet-script.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
 <dt id="cat-harness--kg-skills--role-model" data-fa-state="extracted" data-fa-gloss="">
 role-model <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -3182,6 +3317,14 @@ sample-import <span class="fa-gloss-status">candidate, extracted</span>
 <dd>
 <p>Testing an import of a SAMPLE of a remote source into a knowledge graph or other structured store: scope it, let materialize-remote gate it, land it in the library (permanent) or the kept, unpublished trashcan (trial), import it, and test the import. The gates are called, never copied.</p>
 <p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/large-datasets/sample-import.md"><code>cat-harness/skills/library/large-datasets/sample-import.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="cat-harness--kg-skills--saturation-meta-merge" data-fa-state="extracted" data-fa-gloss="">
+saturation-meta-merge <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>When the CI runners have been full for a long time, drain a repository's ready PRs in one step: hold the swarm, cancel the queued PR runs, stack every admitted PR onto one meta-merge branch with merge commits, and land that branch on <code>main</code> without waiting for CI, on the owner's card that names each PR. Then re-run main's checks and report. Use for &quot;runners are full&quot;, &quot;cancel everything and merge what's ready&quot;, &quot;meta-merge&quot;, &quot;consolidate the queue&quot;, and when the queue has not moved for an hour or more.</p>
+<p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/saturation-meta-merge.md"><code>cat-harness/skills/sdlc/sdlc-core/saturation-meta-merge.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
 <dt id="cat-harness--kg-skills--schema-management" data-fa-state="extracted" data-fa-gloss="">
@@ -3782,6 +3925,22 @@ work-plan-restructure <span class="fa-gloss-status">candidate, extracted</span>
 <dd>
 <p>Reorganise a work plan that has outgrown one-bean-at-a-time repair — session logs typed as epics, duplicate families, generated template beans, stale claims, unparented work — through a reviewed PLAN rather than in bulk. The taxonomy is stated as data, a dry-run plan lists one row per bean (action, new parent, new status, evidence, note) with its before-state so the plan is its own inverse, the owner approves it by class or by row, and the apply is batched and reversible. Scrap, never delete. Read before changing the parent, type or status of more than a handful of beans at once.</p>
 <p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/work-plan-restructure.md"><code>cat-harness/skills/sdlc/sdlc-core/work-plan-restructure.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="cat-harness--kg-skills--work-plan-store" data-fa-state="extracted" data-fa-gloss="">
+work-plan-store <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The contract the work plan (beans) keeps as a data store, as operations any Tool must provide: get, list, create, update with ifMatch, note, history, and where a bean is in its processes. Give back a bean exactly as written, keep ids unique and links whole, keep status and type to their closed lists, lose nothing to concurrent writers, and answer a bean's history. A mechanical Actor plays this Role through whichever Tool the deployment names.</p>
+<p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/work-plan-store.md"><code>cat-harness/skills/sdlc/sdlc-core/work-plan-store.md</code></a></p>
+<p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
+</dd>
+<dt id="cat-harness--kg-skills--work-plan-store-git-branch" data-fa-state="extracted" data-fa-gloss="">
+work-plan-store-git-branch <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>How the git state branch Tool performs the work-plan store's operations: the branch per graph, the mount at beans/, which command does get, list, create, update, note, history and positions, and how it keeps the race guarantee by fetching, rebuilding on the tip and pushing, never forcing. Read this only when the deployment's work-plan Tool is the git branch.</p>
+<p class="fa-gloss-meta">Skills of cat-harness · source <a href="https://github.com/litlfred/cat-harness/blob/main/skills/sdlc/sdlc-core/work-plan-store-git-branch.md"><code>cat-harness/skills/sdlc/sdlc-core/work-plan-store-git-branch.md</code></a></p>
 <p class="fa-gloss-mapstate">Mapping: <code>fhir</code> unmapped · <code>skos</code> unmapped</p>
 </dd>
 <dt id="cat-harness--kg-skills--workflow-state" data-fa-state="extracted" data-fa-gloss="">

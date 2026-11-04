@@ -5,7 +5,7 @@
  "tasks": {
   "Task_Scope": {
    "id": "Task_Scope",
-   "name": "Scope the sample: which items, which store, and is it PERMANENT?",
+   "name": "Scope the sample: items, store, permanence",
    "type": "bpmn:UserTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SampleImport/node/Task_Scope",
    "lane": "Contributor (human or agent)",
@@ -72,7 +72,7 @@
     }
    ],
    "calls": {
-    "name": "Materialize remote content — the shared subprocess",
+    "name": "Materialize remote content: the shared subprocess",
     "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MaterializeRemote",
     "diagram": "materialize-remote.html"
    },
@@ -245,26 +245,41 @@
    "name": "Record what failed",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SampleImport/node/Task_RecordFindings",
-   "lane": "Corpus — L1 source knowledge graph",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SampleImport/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SampleImport/lane/Lane_1",
    "skills": [
     {
      "name": "sample-import"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
+      "name": "library-ingestion"
+     },
+     {
+      "name": "materialize-on-demand"
+     },
+     {
       "name": "materialize-remote"
+     },
+     {
+      "name": "theme-art-intake"
+     },
+     {
+      "name": "theme-ui-review"
+     },
+     {
+      "name": "upload-naming"
      }
     ]
    }

@@ -48,10 +48,14 @@
   }
 
   // Hrefs, relative to the page that is drawing.
+  // A view's or an element's page is at its slug where the model gives one
+  // (`slugs`, from the instance's slug ledger), else at its id.
   var root = cfg.kind === "model" ? "./" : "../../";
-  function elHref(id) { return root + "elements/" + encodeURIComponent(id) + "/"; }
+  var slugs = {};
+  function seg(id) { return encodeURIComponent(Object.prototype.hasOwnProperty.call(slugs, id) ? slugs[id] : id); }
+  function elHref(id) { return root + "elements/" + seg(id) + "/"; }
   function relHref(id) { return root + "relationships/" + encodeURIComponent(id) + "/"; }
-  function viewHref(id) { return root + "views/" + encodeURIComponent(id) + "/"; }
+  function viewHref(id) { return root + "views/" + seg(id) + "/"; }
 
   function index(m) {
     var ix = { el: {}, rel: {}, view: {}, out: {}, inc: {} };
@@ -127,7 +131,8 @@
     var out = [];
     if (v.viewpoint) out.push(el("p", { class: "am-type" }, ["Viewpoint: " + typeLabel(v.viewpoint)]));
     if (v.documentation) out.push(text(v.documentation));
-    out.push(el("div", { class: "am-figure" }, [
+    // A `bpmn-figure`, so docs-ui.js gives it the zoom, pan, full-width and copy controls every other figure has.
+    out.push(el("figure", { class: "bpmn-figure am-figure" }, [
       el("object", { data: cfg.svg, type: "image/svg+xml", "aria-label": v.name }, [el("a", { href: cfg.svg }, ["The drawing of " + v.name])]),
     ]));
     var shown = Object.keys(m.inViews).filter(function (id) { return ix.el[id] && m.inViews[id].indexOf(v.id) >= 0; });
@@ -183,6 +188,7 @@
   kg.pending++;
   getJson(cfg.model)
     .then(function (m) {
+      slugs = m.slugs || {};
       var parts = draw(m);
       host.textContent = "";
       parts.forEach(function (p) { if (p) host.appendChild(p); });

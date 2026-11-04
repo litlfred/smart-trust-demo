@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=b4497e8e1c4a">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=728aae53f477">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=21300380f63e">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=69d9894b0281" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=23ca1803a02a" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-1tpxwvdtq8a.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-1tpxwvdtq8a","here":"/en/cat-harness/processes/content-change-review.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-2cbagaiqkyj.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-2cbagaiqkyj","here":"/en/cat-harness/processes/content-change-review.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,7 +893,7 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/content-change-review.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/content-change-review.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="folio-assistant-core/">folio-assistant-core processes</a></p>
 </blockquote>
 <h1 id="content-change-and-review">
   
@@ -846,13 +904,15 @@
 </h1>
     
 
-<p><code class="language-plaintext highlighter-rouge">Process_ContentChangeReview</code> · strict (defaulted) · 36 step(s)</p>
+<p><code class="language-plaintext highlighter-rouge">Process_ContentChangeReview</code> · strict (defaulted) · 11 step(s)</p>
 
 <p>Getting a change to a folio’s CONTENT from a request into a published rendering: the author says what they want, an agent works out its scope and makes it, a review committee accepts or refuses it, and the pipeline deploys.</p>
 
 <p>You are in this process when what is changing is a folio — a chapter, a block, a piece of deterministic logic — rather than the platform that renders it. <code class="language-plaintext highlighter-rouge">code-change-review</code> is the same shape for the other side of that line, and the distinction matters because a content change is accepted by a REVIEW COMMITTEE on editorial grounds while a platform change is accepted by a code reviewer on engineering ones.</p>
 
 <p>Two things this is not. It is not the feedback workflow: <code class="language-plaintext highlighter-rouge">todo-review</code> triages what readers said about content that already exists. And the rendering the author reviews is a STAGED one, because a person cannot assess a rendered artefact from a description of it.</p>
+
+<p>The diagram shows the phases and the hand-offs between them; each phase is its own process. Making the change is content-change-review-make, staging it is content-change-review-stage, the committee’s review is content-change-review-committee, and merging and deploying is content-change-review-publish. The page was one diagram of 43 steps in five lanes until the owner found it “long and hard to read” (2026-10-31); the split follows bpmn-authoring’s rule of one phase per call activity.</p>
 
 <p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
 <h2 id="how-it-connects">
@@ -865,8 +925,8 @@
     
 
 <ul>
-  <li><strong>Called by:</strong> <a href="public-comment.html">Public comment on a review draft</a></li>
-  <li><strong>Calls:</strong> <a href="adjudication.html">Adjudication</a>, <a href="bean-close.html">Close the bean</a>, <a href="bean-open.html">Open the bean</a>, <a href="options-analysis.html">Options analysis</a>, <a href="review-task.html">Review task</a></li>
+  <li><strong>Called by:</strong> <a href="guideline-updates.html">Guideline Updates</a>, <a href="public-comment-change.html">Make a decided public comment change</a></li>
+  <li><strong>Calls:</strong> <a href="bean-close.html">Close the bean</a>, <a href="bean-open.html">Open the bean</a>, <a href="content-change-review-committee.html">Committee review of a content change</a>, <a href="content-change-review-make.html">Make the content change</a>, <a href="content-change-review-publish.html">Merge and publish a content change</a>, <a href="content-change-review-stage.html">Stage the content change</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -896,22 +956,17 @@
     <tr>
       <td>Folio-Assistant Agent</td>
       <td><code class="language-plaintext highlighter-rouge">authoring-agent</code></td>
-      <td>Owns the entire technical execution of the change end to end — scoping impact, branching, editing both narrative content and deterministic logic, assessing what else it touches, weighing how to absorb that, and pushing. It is also the single re-entry point for both the author’s and the committee’s feedback, which is why Task_Iterate has two incoming edges rather than the diagram forking a second revision path.</td>
-    </tr>
-    <tr>
-      <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">reviewer</code></td>
-      <td>Compares staged against main, reviews the slices it is assigned (review-task.bpmn, one call per slice), takes a disputed finding to adjudication, and judges the impact assessment. It is also, unusually for this role elsewhere in this corpus, where the accept decision is made. Task_Approve records the approval, and Task_Merge merges only on the owner’s explicit confirmation: they were one task, “Approve and merge”, until bean en2d split them, because approving is the committee’s judgement and merging is a separate, confirmed act. A rejection routes back to Task_Iterate in the agent’s lane rather than to the author.</td>
+      <td>Opens and closes the bean, runs the make-the-change phase, and is the single re-entry point for both the author’s and the committee’s feedback: Task_Iterate has two incoming edges rather than the diagram forking a second revision path.</td>
     </tr>
     <tr>
       <td>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
-      <td>Runs build, stage, comment and watch once per push, re-entering from Task_Iterate on every later revision rather than only the first. GW_Merged sits downstream of Task_Approve in the Reviewer’s lane, so it is checking whether that approval actually resulted in a merge rather than deciding whether to approve one, and a “No” ends the pipeline quietly instead of looping back into review.</td>
+      <td>Stages every push, the first and each revision, and after a merge publishes it.</td>
     </tr>
     <tr>
-      <td>Review Coordinator</td>
-      <td><code class="language-plaintext highlighter-rouge">review-coordinator</code></td>
-      <td>Organises a review large enough to need organising, and decides nothing about the content: ingests the reviewers’ tagged comments, slices the change into pieces a reviewer can hold, assigns each slice to a review lane, and watches coverage until every changed block has a verdict or a reasoned waiver. A separate role from the editor on the owner’s ruling of 2026-09-23 (bean en2d): organising a review and deciding its outcome are different accountabilities, and a process where one lane did both could not say which it was doing.</td>
+      <td>Review Committee</td>
+      <td><code class="language-plaintext highlighter-rouge">reviewer</code></td>
+      <td>Runs the committee’s review as one phase, content-change-review-committee, and hands back either an approval or a request for changes. Slicing and coverage are the review coordinator’s lane inside that phase.</td>
     </tr>
   </tbody>
 </table></div>
@@ -924,7 +979,7 @@
 </h2>
     
 
-<p>Every one of the 36 step(s) is documented.</p>
+<p>Every one of the 11 step(s) is documented.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -943,10 +998,28 @@
       <td>Author describes the content change in natural language.<br />Example: “Update the immunization schedule to add a booster at 18 months.”</td>
     </tr>
     <tr>
+      <td><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanOpen</code></td>
+      <td>Folio-Assistant Agent</td>
+      <td>calls <a href="bean-open.html">Open the bean</a><br /><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
+      <td><a href="bean-open.html">Process_BeanOpen</a>: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn (bean m8gz, owner 2026-10-24); the gateway after this reads which end it reached.</td>
+    </tr>
+    <tr>
+      <td><strong>Make the change</strong><br /><code class="language-plaintext highlighter-rouge">Call_MakeChange</code></td>
+      <td>Folio-Assistant Agent</td>
+      <td>calls <a href="content-change-review-make.html">Make the content change</a><br /><code class="language-plaintext highlighter-rouge">content-author</code></td>
+      <td>content-change-review-make.bpmn: scope the change, branch, edit content and logic, assess and absorb the downstream impact, and push.</td>
+    </tr>
+    <tr>
+      <td><strong>Stage the change</strong><br /><code class="language-plaintext highlighter-rouge">Call_StageChange</code></td>
+      <td>CI/CD Pipeline</td>
+      <td>calls <a href="content-change-review-stage.html">Stage the content change</a><br /><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
+      <td>content-change-review-stage.bpmn: build and deploy the branch to its staging preview, link it on the pull request, and watch the branch’s CI. Runs once per push.</td>
+    </tr>
+    <tr>
       <td><strong>Review staged rendering</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewStaging</code></td>
       <td>Content Author</td>
       <td><code class="language-plaintext highlighter-rouge">staging-review</code></td>
-      <td>Author reviews the rendered feature branch at<br /><pages-url>/STAGING/<branch-slug>/ and compares<br />against the main site. The staging banner shows the commit SHA.<br />The agent's before/after preview (skill before-after-preview) sits<br />beside the URLs, with its counts and status line.</branch-slug></pages-url></td>
+      <td>Author reviews the rendered feature branch at<br />&lt;pages-url&gt;/STAGING/&lt;branch-slug&gt;/ and compares<br />against the main site. The staging banner shows the commit SHA.<br />The agent’s before/after preview (skill before-after-preview) sits<br />beside the URLs, with its counts and status line.</td>
     </tr>
     <tr>
       <td><strong>Request further revisions</strong><br /><code class="language-plaintext highlighter-rouge">Task_RequestRevision</code></td>
@@ -955,202 +1028,34 @@
       <td>Author provides feedback on what needs adjustment.<br />Agent iterates on the feature branch.</td>
     </tr>
     <tr>
-      <td><strong>Submit to review committee</strong><br /><code class="language-plaintext highlighter-rouge">Task_SubmitForReview</code></td>
-      <td>Content Author</td>
-      <td><code class="language-plaintext highlighter-rouge">staging-review</code></td>
-      <td>Author submits the PR for formal review by the guidance review committee.<br />The STAGING URL is the review surface.</td>
-    </tr>
-    <tr>
-      <td><strong>Detect change scope &amp; impact</strong><br /><code class="language-plaintext highlighter-rouge">Task_DetectScope</code></td>
-      <td>Folio-Assistant Agent</td>
-      <td>—</td>
-      <td>Agent analyses the requested change:<br />- Which content blocks are affected?<br />- Are there downstream implications (indicators, referral logic, visit schedules)?<br />- Will deterministic logic (CQL/DMN) need updating?<br />skill: content-graph, integration-watcher</td>
-    </tr>
-    <tr>
-      <td><strong>Create feature branch</strong><br /><code class="language-plaintext highlighter-rouge">Task_CreateBranch</code></td>
-      <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
-      <td>Agent creates a feature branch from main.<br />Branch naming: feature/<short-description><br />Opens a PR immediately (AGENTS.md: "open the PR at the first commit").</short-description></td>
-    </tr>
-    <tr>
-      <td><strong>Edit narrative content blocks</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditContent</code></td>
-      <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">content-author</code></td>
-      <td>Agent modifies the relevant content blocks (.md files, block manifests).<br />Validates each edit against the schema (content_validate).<br />skill: content editing, block builders</td>
-    </tr>
-    <tr>
-      <td><strong>Edit deterministic logic (if needed)</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditLogic</code></td>
-      <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">content-author</code></td>
-      <td>If the content change affects decision logic, indicators, or workflows:<br />- Update CQL expressions<br />- Update DMN decision tables<br />- Adjust indicator definitions<br />skill: dak-authoring, fhir-pipeline</td>
-    </tr>
-    <tr>
-      <td><strong>Assess downstream impact</strong><br /><code class="language-plaintext highlighter-rouge">Task_AssessImpact</code></td>
-      <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">content-graph</code></td>
-      <td>Agent reviews downstream implications:<br />- Will indicators need adjustment?<br />- Will referral/follow-up for next visit be impacted?<br />- Are translations affected (re-extract POT)?<br />- Do Lean proofs still hold?<br />skill: integration-watcher, translation-manager</td>
-    </tr>
-    <tr>
-      <td><strong>Options analysis how to absorb the impact</strong><br /><code class="language-plaintext highlighter-rouge">Call_OptionsAnalysis</code></td>
-      <td>Folio-Assistant Agent</td>
-      <td>calls <a href="options-analysis.html">Options analysis</a></td>
-      <td>On the edge OUT of <code class="language-plaintext highlighter-rouge">Task_AssessImpact</code> and before <code class="language-plaintext highlighter-rouge">Task_CommitPush</code>, because the impact assessment is the evidence the options are weighed against. An analysis before it would compare ways of absorbing a downstream effect nobody has measured yet; one after the commit would be a rationalisation of a choice already pushed.<br />NOT between <code class="language-plaintext highlighter-rouge">Task_AssessImpact</code> and <code class="language-plaintext highlighter-rouge">Task_ReviewImpact</code>, although that is the handoff the work-plan named. Those two tasks are in DIFFERENT LANES with no sequence flow between them — the agent’s assessment reaches the committee through <code class="language-plaintext highlighter-rouge">Task_CompareBeforeAfter</code>, not directly — so there was no edge there to interpose on. The conceptual handoff is real; the edge was not.<br />In the Agent lane, matching <code class="language-plaintext highlighter-rouge">upstream-version-adoption</code>: this step produces the options and their trade-offs, and <code class="language-plaintext highlighter-rouge">GW_Approved</code> in the Review Committee lane is where a decision is taken. A subprocess in the reviewer’s lane would read as the committee analysing its own options, which is a different process.<br />On the trigger: reaching this call is not the same as running the whole of it. <code class="language-plaintext highlighter-rouge">Process_OptionsAnalysis</code> opens with <code class="language-plaintext highlighter-rouge">A_Frame</code>, whose trigger is <code class="language-plaintext highlighter-rouge">opening-brief</code>’s — irreversibility and surprise, not size — and leaving at that first activity is a correct outcome rather than a skipped step. A copy-edit exits immediately; a logic change that moves an indicator does not, and this is the diagram where that distinction has teeth, since <code class="language-plaintext highlighter-rouge">Task_EditLogic</code> feeds straight into the assessment.</td>
-    </tr>
-    <tr>
-      <td><strong>Commit, push, update PR</strong><br /><code class="language-plaintext highlighter-rouge">Task_CommitPush</code></td>
-      <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">prepare-merge-auto</code><br /><code class="language-plaintext highlighter-rouge">before-after-preview</code></td>
-      <td>Agent commits all changes to the feature branch and pushes.<br />The feature-staging.yml workflow automatically deploys to<br />STAGING/<branch-slug>/ and comments the URL on the PR.<br />For a rendered change the agent also produces the before/after<br />preview (skill before-after-preview) and links it in the PR body.</branch-slug></td>
-    </tr>
-    <tr>
       <td><strong>Iterate on author feedback</strong><br /><code class="language-plaintext highlighter-rouge">Task_Iterate</code></td>
       <td>Folio-Assistant Agent</td>
       <td><code class="language-plaintext highlighter-rouge">content-author</code><br /><code class="language-plaintext highlighter-rouge">before-after-preview</code></td>
       <td>Agent receives revision requests from the author and applies changes.<br />Each push triggers a new staging deployment with updated SHA stamp.<br />A revision push does not pass through Task_CommitPush, so for a<br />rendered change the agent refreshes the before/after preview here<br />(skill before-after-preview), and the next review round never reads<br />a stale one.</td>
     </tr>
     <tr>
-      <td><strong>Compare main vs staging</strong><br /><code class="language-plaintext highlighter-rouge">Task_CompareBeforeAfter</code></td>
+      <td><strong>Submit to review committee</strong><br /><code class="language-plaintext highlighter-rouge">Task_SubmitForReview</code></td>
+      <td>Content Author</td>
+      <td><code class="language-plaintext highlighter-rouge">staging-review</code></td>
+      <td>Author submits the PR for formal review by the guidance review committee.<br />The STAGING URL is the review surface.</td>
+    </tr>
+    <tr>
+      <td><strong>Review the change</strong><br /><code class="language-plaintext highlighter-rouge">Call_CommitteeReview</code></td>
       <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">staging-review</code><br /><code class="language-plaintext highlighter-rouge">visual-diff</code><br /><code class="language-plaintext highlighter-rouge">rendered-impact</code></td>
-      <td>The review starts from the Change Set’s RENDERED list (skill<br />rendered-impact): every rendered file the change alters, predicted<br />from each renderer’s dependency cone and checked against the build.<br />The reviewer opens every content page on it, not only the pages the<br />author mentions; index files are listed but not reviewed. An input<br />the renderer could not place is shown as not known, never as no<br />change.<br />Review committee opens both URLs side by side:<br />- Main site: <pages-url>/ (current published state)<br />- Staging: <pages-url>/STAGING/<branch-slug>/<br />The staging banner shows the commit SHA so they can verify<br />what they are reviewing matches the PR. A changed figure, diagram<br />or table is also pictured before and after on the review page,<br />with the share of changed pixels in words (skill visual-diff,<br />Tool folio-block-screenshots). Anything the staging job cannot<br />picture (page chrome, scroll behaviour, a PDF page, an IG page) is<br />in the agent's before/after preview (skill before-after-preview).</branch-slug></pages-url></pages-url></td>
+      <td>calls <a href="content-change-review-committee.html">Committee review of a content change</a><br /><code class="language-plaintext highlighter-rouge">content-review</code></td>
+      <td>content-change-review-committee.bpmn: compare staged against main, slice the change and review each slice, settle withdrawals and disputes, gate on coverage, review the impact, and either approve or request changes. The one judgement inside it is Call_Adjudication, whose <code class="language-plaintext highlighter-rouge">stands</code> / <code class="language-plaintext highlighter-rouge">withdrawn</code> this call accepts; public-comment, which calls this whole process, reaches it through here.</td>
     </tr>
     <tr>
-      <td><strong>Ingest tagged review comments</strong><br /><code class="language-plaintext highlighter-rouge">Task_IngestComments</code></td>
-      <td>Review Coordinator</td>
-      <td><code class="language-plaintext highlighter-rouge">review-comments</code></td>
-      <td>Every PR conversation comment that starts with <code class="language-plaintext highlighter-rouge">block: &lt;label&gt;</code> becomes a <code class="language-plaintext highlighter-rouge">review-comment/1.0.0</code> todo (open), idempotently, and is published with the preview as <code class="language-plaintext highlighter-rouge">review-comments.json</code>. The staging workflow runs this on every push and on every tagged comment; the coordinator owns that it has run before slicing, because the slices are cut around what reviewers have already said. This is the <code class="language-plaintext highlighter-rouge">ingest</code> transition of REVIEW_TRANSITIONS.</td>
-    </tr>
-    <tr>
-      <td><strong>Slice the change and assign reviewers</strong><br /><code class="language-plaintext highlighter-rouge">Task_SliceAndAssign</code></td>
-      <td>Review Coordinator</td>
-      <td><code class="language-plaintext highlighter-rouge">review-heatmap</code><br /><code class="language-plaintext highlighter-rouge">staging-review</code><br /><code class="language-plaintext highlighter-rouge">rendered-impact</code></td>
-      <td>From the ChangeSet, its rendered list (skill rendered-impact: each changed rendered page is assigned like a changed block) and the heat map on the review page: cut the change into slices a reviewer can hold (usually a section, or a run of sections where the heat map clusters), and assign each slice to a review lane by what it contains — clinical content to a clinical SME, a decision table to a QC reviewer, prose to a narrative reviewer. A block that needs no review (a pure rename, say) is WAIVED here with a written reason, which is what the coverage gate counts. Re-entered from GW_Covered when coverage is incomplete: the uncovered blocks become new slices.</td>
-    </tr>
-    <tr>
-      <td><strong>Review each slice</strong><br /><code class="language-plaintext highlighter-rouge">Call_ReviewSlices</code></td>
-      <td>Review Committee</td>
-      <td>calls <a href="review-task.html">Review task</a><br /><code class="language-plaintext highlighter-rouge">content-review</code><br /><code class="language-plaintext highlighter-rouge">review-comments</code></td>
-      <td>review-task.bpmn, once per slice, in parallel lanes by role. What kind of thing changed decides which review the slice descends into; the reviewer takes on that inner lane’s role for the call only. Each reviewer gives the slice’s blocks a verdict, and comments on the pull request with the <code class="language-plaintext highlighter-rouge">block:</code> tag where something needs saying.</td>
-    </tr>
-    <tr>
-      <td><strong>Withdraw a review comment</strong><br /><code class="language-plaintext highlighter-rouge">Task_WithdrawComment</code></td>
-      <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">review-comments</code></td>
-      <td>The reviewer who made a comment takes it back (it was a misreading, or a later slice answered it). Recorded with <code class="language-plaintext highlighter-rouge">folio-review-comment-move --to withdrawn</code>, committed to the edit-set’s feature branch like every status change. This is the <code class="language-plaintext highlighter-rouge">withdraw</code> transition of REVIEW_TRANSITIONS.</td>
-    </tr>
-    <tr>
-      <td><strong>Adjudicate the disagreement</strong><br /><code class="language-plaintext highlighter-rouge">Call_Adjudication</code></td>
-      <td>Review Committee</td>
-      <td>calls <a href="adjudication.html">Adjudication</a><br /><code class="language-plaintext highlighter-rouge">adjudication</code></td>
-      <td>adjudication.bpmn. When the editor and a reviewer, or two reviewers, disagree about a finding, an adjudicator settles it and records why; the review comment moves to <code class="language-plaintext highlighter-rouge">adjudicated</code> with the Decision that closed it.<br />Permitted answers (bean <code class="language-plaintext highlighter-rouge">bvuk</code>, owner 2026-09-23): <code class="language-plaintext highlighter-rouge">stands</code> — the finding is right and the author addresses it; <code class="language-plaintext highlighter-rouge">withdrawn</code> — the finding is wrong and the comment closes. Recorded on the comment, not branched: either way the flow goes on to the coverage check.</td>
-    </tr>
-    <tr>
-      <td><strong>Review the editorial dependencies</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewUses</code></td>
-      <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">uses-editorial-review</code></td>
-      <td><code class="language-plaintext highlighter-rouge">uses[]</code> is what a READER must have read to follow the block — never<br />populated from the formal dependency graph. Once every changed block<br />is covered, the committee checks the editorial dependencies of the<br />change as a whole before judging its impact. Moved here from the<br />harness’s <code class="language-plaintext highlighter-rouge">review-narrative</code> by placement PR3 (bean <code class="language-plaintext highlighter-rouge">63wl</code>): reading<br />order is a property of folio content, so the step belongs to the<br />content process, which reaches the harness’s review by calling DOWN<br />into <code class="language-plaintext highlighter-rouge">review-task</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>Review impact assessment</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewImpact</code></td>
-      <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">content-review</code></td>
-      <td>Committee reviews the agent’s impact assessment:<br />- Were all downstream effects identified?<br />- Are the indicator changes acceptable?<br />- Does the logic change match the narrative intent?</td>
-    </tr>
-    <tr>
-      <td><strong>Request changes</strong><br /><code class="language-plaintext highlighter-rouge">Task_RequestChanges</code></td>
-      <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">content-review</code><br /><code class="language-plaintext highlighter-rouge">content-review</code></td>
-      <td>Committee provides feedback. PR stays open.<br />Author and agent iterate further.</td>
-    </tr>
-    <tr>
-      <td><strong>Approve</strong><br /><code class="language-plaintext highlighter-rouge">Task_Approve</code></td>
-      <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">decision-audit</code></td>
-      <td>The committee approves the change: the judgement, recorded with the<br />evidence it rests on. Approving is not merging. They were one task<br />(“Approve and merge”) until bean en2d split them, because a<br />self-authored change cannot be approved through GitHub’s own review<br />(the approver may not be the PR’s author), and a merge needs the<br />owner’s explicit confirmation whoever approved.</td>
-    </tr>
-    <tr>
-      <td><strong>Merge, on explicit confirmation</strong><br /><code class="language-plaintext highlighter-rouge">Task_Merge</code></td>
-      <td>Review Committee</td>
-      <td><code class="language-plaintext highlighter-rouge">prepare-merge</code></td>
-      <td>The owner says “merge it”, and only then is the branch merged. Merge<br />to main triggers:<br />1. the main site rebuilds with the changes;<br />2. the staging preview’s cleanup runs;<br />3. the review comments committed on the feature branch land on main,<br />as the review record.</td>
-    </tr>
-    <tr>
-      <td><strong>Build staging site</strong><br /><code class="language-plaintext highlighter-rouge">Task_BuildStaging</code></td>
+      <td><strong>Merge and publish</strong><br /><code class="language-plaintext highlighter-rouge">Call_Publish</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
-      <td>feature-staging.yml triggers:<br />1. Regenerate docs (schema, skills, content-backed pages)<br />2. Render BPMN diagrams<br />3. Stamp build with commit SHA + timestamp + branch<br />4. Build Jekyll site with STAGING/ baseurl<br />5. Inject yellow staging banner into every HTML page</td>
-    </tr>
-    <tr>
-      <td>**Deploy to STAGING/<slug>/**<br />`Task_DeployStaging`</slug></td>
-      <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
-      <td>peaceiris/actions-gh-pages deploys to gh-pages branch<br />under STAGING/<branch-slug>/ with keep_files: true<br />so other staging deployments and the main site are preserved.</branch-slug></td>
-    </tr>
-    <tr>
-      <td><strong>Comment staging URL on PR</strong><br /><code class="language-plaintext highlighter-rouge">Task_CommentPR</code></td>
-      <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">feature-staging</code><br /><code class="language-plaintext highlighter-rouge">rendered-impact</code></td>
-      <td>Bot comments or updates the staging URL on the PR.<br />Includes commit SHA, branch name, and build log link, and the<br />review list of rendered files the change alters (skill<br />rendered-impact), each linked on the preview and on main, with any<br />input the renderer could not place named as not known.</td>
-    </tr>
-    <tr>
-      <td><strong>Open the branch-watch bean</strong><br /><code class="language-plaintext highlighter-rouge">Task_WatchBranchCI</code></td>
-      <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">watch</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>First dispatch point for a CI watcher: the feature branch has changed<br />and a staging build now exists to watch. The watcher is DISPATCHED BY<br />OPENING A BEAN, not by a workflow_dispatch – per the owner on bean<br />29ij, this is a task/workflow initiation.<br />That is the whole reason it is an activity rather than a line of prose.<br />A bean makes the watch durable past the session that opened it: the<br />container is reclaimed, and what survives is the claim. Starting the<br />watcher and recording that it is running are ONE declared step, so the<br />two cannot disagree about whether anything is watching.<br />Claim rather than note: the watch is work in progress, and it is<br />idempotent, so re-entering on a subsequent push does not duplicate it.</td>
-    </tr>
-    <tr>
-      <td>**Remove STAGING/<slug>/**<br />`Task_CleanupStaging`</slug></td>
-      <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
-      <td>When the PR is merged or closed, the cleanup job<br />removes the STAGING/<slug>/ directory from gh-pages<br />so stale previews don't accumulate.</slug></td>
-    </tr>
-    <tr>
-      <td><strong>Rebuild main site</strong><br /><code class="language-plaintext highlighter-rouge">Task_RebuildMain</code></td>
-      <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">content-publish</code></td>
-      <td>docs-site.yml triggers on the merge commit to main,<br />rebuilding the root of gh-pages with the accepted changes.<br />The build SHA stamp now reflects the merged state.</td>
-    </tr>
-    <tr>
-      <td><strong>Note the main-branch watch</strong><br /><code class="language-plaintext highlighter-rouge">Task_WatchMainCI</code></td>
-      <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">watch</code><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Second dispatch point: the change was approved and merged, and the<br />root of the site has been rebuilt from main. This is the moment<br />docs-site.yml failed all 30 times over two months (bean xom7) while<br />looking exactly like a green run from inside the repo.<br /><code class="language-plaintext highlighter-rouge">note</code> rather than <code class="language-plaintext highlighter-rouge">claim</code>, and the difference is not cosmetic. By<br />here the branch-watch bean already exists, and whether the publish<br />SUCCEEDED is a judgement this step cannot make – the build reports<br />its own exit code, and xom7 is the record of that being believed.<br />AGENTS.md: a bean is not closed on someone else’s say-so. So the step<br />records what it observed and leaves the verdict to the watcher.</td>
-    </tr>
-    <tr>
-      <td><strong>Open the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanOpen</code></td>
-      <td>CI/CD Pipeline</td>
-      <td>calls <a href="bean-open.html">Open the bean</a><br /><code class="language-plaintext highlighter-rouge">bean-coordination</code></td>
-      <td>Process_BeanOpen: check before you create, find out whose the bean is, and claim it — or leave it alone when it is someone else’s. The one place a claim is drawn (bean m8gz, owner 2026-10-24); the gateway after this reads which end it reached.</td>
+      <td>calls <a href="content-change-review-publish.html">Merge and publish a content change</a><br /><code class="language-plaintext highlighter-rouge">prepare-merge</code></td>
+      <td>content-change-review-publish.bpmn: merge on the owner’s explicit confirmation, then remove the staging preview, rebuild main and watch it. An unmerged change keeps its preview.</td>
     </tr>
     <tr>
       <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose</code></td>
       <td>Folio-Assistant Agent</td>
       <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Process_BeanClose: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
-    </tr>
-    <tr>
-      <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose_2</code></td>
-      <td>Content Author</td>
-      <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Process_BeanClose: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
-    </tr>
-    <tr>
-      <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose_3</code></td>
-      <td>CI/CD Pipeline</td>
-      <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Process_BeanClose: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
-    </tr>
-    <tr>
-      <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose_4</code></td>
-      <td>CI/CD Pipeline</td>
-      <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Process_BeanClose: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
-    </tr>
-    <tr>
-      <td><strong>Close the bean</strong><br /><code class="language-plaintext highlighter-rouge">Call_BeanClose_5</code></td>
-      <td>Review Committee</td>
-      <td>calls <a href="bean-close.html">Close the bean</a><br /><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
-      <td>Process_BeanClose: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
+      <td><a href="bean-close.html">Process_BeanClose</a>: end the bean in a state that says why — complete and archive it, scrap it with its reasons and archive it, or record the blocker and hand it back. The one place resolve and archive are drawn (bean m8gz, owner 2026-10-24); placed straight before the end so the engine’s resolve sees nothing left but the archive step.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1163,7 +1068,7 @@
 </h2>
     
 
-<p>Every one of the 7 decision(s) is documented.</p>
+<p>Every one of the 3 decision(s) is documented.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -1175,39 +1080,19 @@
   </thead>
   <tbody>
     <tr>
+      <td><strong>Bean claimed?</strong><br /><code class="language-plaintext highlighter-rouge">GW_BeanYours</code></td>
+      <td>Reads which end <a href="bean-open.html">Process_BeanOpen</a> reached. <code class="language-plaintext highlighter-rouge">claimed</code>: the bean is in progress and this process works it. <code class="language-plaintext highlighter-rouge">not yours</code>: a sibling session or a human holds it, nothing was written to it, and this process stops here rather than work a bean it does not own (bean-coordination).</td>
+      <td><strong>not yours</strong> → Not yours — left alone<br /><strong>claimed</strong> → Make the change</td>
+    </tr>
+    <tr>
       <td><strong>Satisfied with changes?</strong><br /><code class="language-plaintext highlighter-rouge">GW_AuthorSatisfied</code></td>
       <td>The author’s own call after looking at the staged rendering. <code class="language-plaintext highlighter-rouge">No</code> requests further revisions; <code class="language-plaintext highlighter-rouge">Yes</code> submits the change to the review committee.</td>
       <td><strong>No</strong> → Request further revisions<br /><strong>Yes</strong> → Submit to review committee</td>
     </tr>
     <tr>
-      <td><strong>A comment withdrawn?</strong><br /><code class="language-plaintext highlighter-rouge">GW_Withdraw</code></td>
-      <td>Asked after the slices are reviewed: did a reviewer withdraw a comment? <code class="language-plaintext highlighter-rouge">Yes</code> records the withdrawal first; either way the flow then asks whether a finding is disputed.</td>
-      <td><strong>Yes</strong> → Withdraw a review comment<br /><strong>No</strong> → A finding disputed?</td>
-    </tr>
-    <tr>
-      <td><strong>A finding disputed?</strong><br /><code class="language-plaintext highlighter-rouge">GW_Disputed</code></td>
-      <td>Is any finding disputed between author and reviewer? <code class="language-plaintext highlighter-rouge">Yes</code> goes to adjudication; <code class="language-plaintext highlighter-rouge">No</code> goes on to check that every changed block was reviewed.</td>
-      <td><strong>Yes</strong> → Adjudicate the disagreement<br /><strong>No</strong> → Every changed block and page reviewed?</td>
-    </tr>
-    <tr>
-      <td><strong>Every changed block and page reviewed?</strong><br /><code class="language-plaintext highlighter-rouge">GW_Covered</code></td>
-      <td>Computed, not chosen: <code class="language-plaintext highlighter-rouge">decisions/review-coverage-gate.dmn</code> reads <code class="language-plaintext highlighter-rouge">uncoveredBlocks</code> (changed blocks with neither a verdict nor a reasoned waiver) and <code class="language-plaintext highlighter-rouge">openDefects</code>, and, where the build published a rendered impact, <code class="language-plaintext highlighter-rouge">unreviewedPages</code>, <code class="language-plaintext highlighter-rouge">undeterminedInputs</code> and <code class="language-plaintext highlighter-rouge">missedPages</code> with their <code class="language-plaintext highlighter-rouge">rendered</code> and <code class="language-plaintext highlighter-rouge">measured</code> statuses (skill rendered-impact). Resolved comments are not coverage, and coverage is not approval — that is GW_Approved.</td>
-      <td><strong>no</strong> → Slice the change and assign reviewers<br /><strong>yes</strong> → Review the editorial dependencies</td>
-    </tr>
-    <tr>
-      <td><strong>Changes approved?</strong><br /><code class="language-plaintext highlighter-rouge">GW_Approved</code></td>
-      <td>The committee’s decision on the impact assessment. <code class="language-plaintext highlighter-rouge">No</code> requests changes; <code class="language-plaintext highlighter-rouge">Yes</code> approves.</td>
-      <td><strong>No</strong> → Request changes<br /><strong>Yes</strong> → Approve</td>
-    </tr>
-    <tr>
-      <td><strong>PR merged?</strong><br /><code class="language-plaintext highlighter-rouge">GW_Merged</code></td>
-      <td>Was the PR merged? <code class="language-plaintext highlighter-rouge">Yes</code> removes the STAGING/<slug>/ preview; `No` ends this run at End_NotMerged without deploying and without looping back into review (the lane note says why); the preview stays in place, and the next push starts a new run.</slug></td>
-      <td><strong>Yes</strong> → Remove STAGING/<slug>/<br />**No** → Close the bean</slug></td>
-    </tr>
-    <tr>
-      <td><strong>Bean claimed?</strong><br /><code class="language-plaintext highlighter-rouge">GW_BeanYours</code></td>
-      <td>Reads which end Process_BeanOpen reached. <code class="language-plaintext highlighter-rouge">claimed</code>: the bean is in progress and this process works it. <code class="language-plaintext highlighter-rouge">not yours</code>: a sibling session or a human holds it, nothing was written to it, and this process stops here rather than work a bean it does not own (bean-coordination).</td>
-      <td><strong>claimed</strong> → Open the branch-watch bean<br /><strong>not yours</strong> → Not yours — left alone</td>
+      <td><strong>Approved?</strong><br /><code class="language-plaintext highlighter-rouge">GW_CommitteeApproved</code></td>
+      <td>Reads which end content-change-review-committee reached. <code class="language-plaintext highlighter-rouge">approved</code>: Task_Approve recorded the committee’s approval, and the change goes on to merge. <code class="language-plaintext highlighter-rouge">changes requested</code>: Task_RequestChanges said what must change, and the agent iterates.</td>
+      <td><strong>changes requested</strong> → Iterate on author feedback<br /><strong>approved</strong> → Merge and publish</td>
     </tr>
   </tbody>
 </table></div>

@@ -9,13 +9,7 @@
 
   <link rel="stylesheet" href="../../../assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
 
-  <style id="jtd-nav-activation">
   
-    .site-nav ul li a {
-      background-image: none;
-    }
-
-  </style>
 
   
 
@@ -84,9 +78,9 @@
      `<html data-fa-scheme>` before the body is parsed, so no rule keyed on
      it ever paints the wrong way first;
   2. if that is not the configured scheme, switch the theme's sheet NOW,
-     while the parser is still in the head. The link is parser-created, so
-     the browser holds first paint for its new file: a light reader is light
-     from the first frame, with no dark flash either;
+     while the parser is still in the head. `jtd.setTheme` loads the new
+     file beside the old, render-blocking, and drops the old one once it
+     has loaded (cat-harness#820): never a frame with no theme sheet;
   3. paint `html` itself, dark unless the scheme is light, so a sheet in
      flight shows the page's ground rather than white.
 
@@ -588,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=4885e06b0507">
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=b4497e8e1c4a">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -613,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=728aae53f477">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=21300380f63e">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -646,12 +640,12 @@
 <!-- BEFORE docs-ui.js and work-plan.js: both read window.faRender. -->
 <script src="../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
-<script src="../../../assets/js/navbar-row.js?v=7dce6a7e2ab0" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=944bce476b33" defer></script>
+<script src="../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
+<script src="../../../assets/js/docs-ui.js?v=69d9894b0281" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../assets/js/edit-links.js?v=81bb303b6bc2" defer></script>
+<script src="../../../assets/js/edit-links.js?v=23ca1803a02a" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -734,11 +728,75 @@
   the left-hand nav among them, and leaves just-the-docs' compiled chrome
   alone. Stated here because the alternative is a reader concluding the theme
   is broken when it is doing exactly what it can.
--->
+--><!--
+  THE PAGE GROUND: a harness's theme art behind every one of its docs pages.
 
-<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-1tpxwvdtq8a.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+  Bean `yj32`, owner card Q-DEP-2 A (2026-11-01): the avatar is "the default
+  display background for their corresponding docs/ (ghpages) rendering".
 
-<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-1tpxwvdtq8a","here":"/en/cat-harness/processes/evidence-retrieval.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+  WHICH HARNESS. Each tile in `_data/harness.json` carries `pageGround`
+  (cat-harness-tools `harness-tiles.ts`): the URL segments that make a page
+  that instance's, and its three crops. The FIRST tile whose scope the URL
+  contains wins; tiles come dependents first, so the content instance a page
+  is about beats the platform that renders it. The site owner is the fallback
+  (`siteDefault`), never a `/` scope, because `/` is in every URL. A tile with
+  no `art` gets no ground: a palette-only theme is a choice, not a gap.
+
+  A CSS BACKGROUND HERE, where the stickies use `<picture>`. A sticky places
+  words inside a measured quiet region of one crop, so the crop must be the
+  file. The page ground places nothing on the art, so a media query choosing
+  the crop is exact, and no markup is added to any page.
+
+  TWO SCRIMS, both the page's own background colour (not the theme's sticky
+  scrim, because the ink they protect is the page's ink). The page gets 85%,
+  so the art shows in the margins and under the header. The text column,
+  `.main-content`, gets a second layer at 96%, so the words sit on 99.4% page
+  colour. The art runs the full range (measured: every crop of the three
+  grounds has pixels at luminance 0.000 and 1.000), so the bound is the worst
+  pixel: text and links stay within 0.1:1 of the plain page in both schemes
+  (light links 4.94:1 against 5.03:1, dark links 4.09:1 against 4.14:1, dark body text 11.5:1 against 11.7:1).
+  A single 92% layer was measured first and dropped: it took dark-scheme
+  links from 4.14:1 to 3.35:1.
+--><style id="fa-page-ground" data-instance="cat-harness">
+  /* Grumpy cyborg agents, the theme of cat-harness. */
+  :root { --fa-page-scrim: rgba(39, 38, 43, 0.85); --fa-text-scrim: rgba(39, 38, 43, 0.96); }
+  :root[data-fa-scheme="light"] { --fa-page-scrim: rgba(255, 255, 255, 0.85); --fa-text-scrim: rgba(255, 255, 255, 0.96); }
+  /* The root carries the art, so it covers the whole viewport however short
+     the page; the body is made see-through so the art is not painted over. */
+  html:root body { background-color: transparent; }
+  html body .main-content { background-color: var(--fa-text-scrim); border-radius: 6px; }
+  html:root {
+    background-image:
+      linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+      url("../../../assets/img/harness/landing-grumpy-cyborg-agents-laptop.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  @media (max-width: 48rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-card.webp");
+    }
+  }
+  @media (max-width: 30rem) {
+    html:root {
+      background-image:
+        linear-gradient(var(--fa-page-scrim), var(--fa-page-scrim)),
+        url("../../../assets/img/harness/landing-grumpy-cyborg-agents-mobile.webp");
+    }
+  }
+  /* Print and forced colours get the plain page: art is decoration. */
+  @media print, (forced-colors: active) {
+    html:root { background-image: none; }
+  }
+</style>
+
+<link rel="stylesheet" href="../../../assets/css/navbar.css"><script src="../../../assets/navbar/rail-2cbagaiqkyj.js" defer></script><script src="../../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../../assets/page-layout.css" data-fa-page-layout><script src="../../../assets/page-layout.js" defer data-fa-page-layout></script><meta name="fa-pinned-data" content="../../.."></head>
+
+<body><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="../../..">{"data":"rail-2cbagaiqkyj","here":"/en/cat-harness/processes/evidence-retrieval.html","documentIndex":{"label":"On this page","icon":"§","items":[{"href":"#how-it-connects","label":"How it connects"},{"href":"#lanes--who-acts","label":"Lanes — who acts"},{"href":"#steps","label":"Steps"},{"href":"#decisions","label":"Decisions"}],"collapsible":true}}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="svg-link" viewBox="0 0 24 24">
@@ -835,7 +893,7 @@
         <main>
           
             <blockquote class="note">
-  <p>Generated from <code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/evidence-retrieval.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a></p>
+  <p>Generated from <code class="language-plaintext highlighter-rouge">folio-assistant-core/processes/content/evidence-retrieval.bpmn</code> by <code class="language-plaintext highlighter-rouge">gen-processes-viz.ts</code> — do not edit here. <a href="index.html">All processes</a> · <a href="folio-assistant-core/">folio-assistant-core processes</a></p>
 </blockquote>
 <h1 id="evidence-for-a-recommendation">
   
@@ -848,7 +906,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_EvidenceRetrieval</code> · strict · 10 step(s)</p>
 
-<p>Frame a question for a recommendation, retrieve and appraise evidence from trusted sources, and either attach it or record the gap. The author reviews the guidance already in their content, frames the question as PICO, retrieves candidate evidence across three classes (trusted L1 sources, trusted L2/L3 content, data repositories), verifies each candidate’s authority against the publishing body’s own API, grades the body of evidence, and either attaches it to the recommendation or records the gap. STRAWPERSON: registries, grading system and API bindings are not fixed here.</p>
+<p>Frame a question for a recommendation, retrieve and appraise evidence from trusted sources, and either attach it or record the gap; a change that states or alters no recommendation ends at its own event before any search. The author reviews the guidance already in their content, frames the question as PICO, retrieves candidate evidence across three classes (trusted L1 sources, trusted L2/L3 content, data repositories), verifies each candidate’s authority against the publishing body’s own API, grades the body of evidence, and either attaches it to the recommendation or records the gap. STRAWPERSON: registries, grading system and API bindings are not fixed here.</p>
 
 <p><em>No rendered diagram — run <code class="language-plaintext highlighter-rouge">bun run cat render:bpmn</code>.</em></p>
 <h2 id="how-it-connects">
@@ -899,11 +957,6 @@
       <td><code class="language-plaintext highlighter-rouge">external-registry</code></td>
       <td>Task_VerifyAuthority and its gateway sit here rather than with Lane_Agent because the decision is not this instance’s call — it is a readout of what the external API returns, and the moment that answer is uncertain or absent, Lane_WorkPlan opens a bean rather than this lane inventing a verdict.</td>
     </tr>
-    <tr>
-      <td>Work plan — beans (shared)</td>
-      <td><code class="language-plaintext highlighter-rouge">work-plan</code></td>
-      <td>Catches two different shortfalls at two different severities: an unverified citation is noted but the process continues into grading, while an insufficient body of evidence ends the process at its own event — so only the second is fatal, and both stay visible in the work plan rather than one being silently absorbed into the other.</td>
-    </tr>
   </tbody>
 </table></div>
 <h2 id="steps">
@@ -928,7 +981,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Review the guidance already in this content</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewExisting</code></td>
+      <td><strong>Review the existing guidance</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewExisting</code></td>
       <td>Author / guideline developer (person)</td>
       <td><code class="language-plaintext highlighter-rouge">content-review</code></td>
       <td>The author reads what the document, DAK or IG ALREADY says on this question, before looking outward. A recommendation that contradicts a sibling recommendation in the same artefact is a defect no external evidence will reveal.</td>
@@ -940,13 +993,13 @@
       <td>Population, Intervention, Comparator, Outcome. The PICO is what makes the search reproducible and the evidence auditable: without it, ‘we looked for evidence’ is not a claim anyone can check. WHO guideline development states the question this way before any retrieval.</td>
     </tr>
     <tr>
-      <td><strong>Search trusted SOURCES — L1</strong><br /><code class="language-plaintext highlighter-rouge">Task_L1Sources</code></td>
+      <td><strong>Search trusted L1 sources</strong><br /><code class="language-plaintext highlighter-rouge">Task_L1Sources</code></td>
       <td>Evidence agent (system)</td>
       <td><code class="language-plaintext highlighter-rouge">document-intake</code></td>
       <td>Ingested primary literature under library/: the sections/*.md tree and, where a document was scanned, ocr/page-NNN.txt. NOTE the known blind spot — a document OCR’d but never re-run through pdf-structure.py has only a stub in sections/, so a sections-only search misses it.</td>
     </tr>
     <tr>
-      <td><strong>Search trusted CONTENT — L2 DAKs, L3 IGs</strong><br /><code class="language-plaintext highlighter-rouge">Task_L2L3Content</code></td>
+      <td><strong>Search trusted L2 and L3 content</strong><br /><code class="language-plaintext highlighter-rouge">Task_L2L3Content</code></td>
       <td>Evidence agent (system)</td>
       <td><code class="language-plaintext highlighter-rouge">document-intake</code><br /><code class="language-plaintext highlighter-rouge">document-intake</code><br /><code class="language-plaintext highlighter-rouge">document-intake</code></td>
       <td>Already-adjudicated guidance: WHO SMART DAKs at L2 and FHIR Implementation Guides at L3. A recommendation adopted in a published DAK is evidence of a different kind from a primary study – it is a prior decision, with its own provenance, and must be cited as that rather than laundered into primary evidence.<br />NOT YET SKILL-BACKED. This step named <code class="language-plaintext highlighter-rouge">corpus-search</code>, which has never<br />existed. It is not <code class="language-plaintext highlighter-rouge">corpus-grep</code>, whose job is the pre-declaration check<br />that something really is an open gap — searching adjudicated L2/L3 content<br />for evidence is a different task, so pointing the ref there would have been<br />a plausible-looking wrong answer. Left uncovered until the skill is written.</td>
@@ -958,14 +1011,14 @@
       <td>Indicator and microdata sources. Distinct from the two above because the unit of evidence is a MEASUREMENT with a population, a period and a method, not a claim in prose.</td>
     </tr>
     <tr>
-      <td><strong>Verify authority against the observatory / registry API</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerifyAuthority</code></td>
+      <td><strong>Verify authority against the registry</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerifyAuthority</code></td>
       <td>Trusted registries and observatories (external)</td>
       <td><code class="language-plaintext highlighter-rouge">registry-authority-contract</code></td>
       <td>Each candidate is resolved against the standard API of the body that publishes it, so that ‘authoritative’ is a RESOLVED FACT rather than an assertion in the citation. What is checked: that the identifier resolves at the publisher; that the retrieved record matches what the citation claims; that the version and date are the ones cited; and that the publisher is one this folio has declared trusted. STRAWPERSON: the concrete registry list and endpoints are not settled here – see the cat-harness.processes:policy note.</td>
     </tr>
     <tr>
       <td><strong>Open a bean for the unverified citation</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordUnverified</code></td>
-      <td>Work plan — beans (shared)</td>
+      <td>Author / guideline developer (person)</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>An unresolvable citation is not dropped and not silently kept. It becomes a tracked item, so the gap is visible in the work plan rather than surviving as a footnote nobody re-checks.</td>
     </tr>
@@ -977,12 +1030,12 @@
     </tr>
     <tr>
       <td><strong>Record the evidence gap</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordGap</code></td>
-      <td>Work plan — beans (shared)</td>
+      <td>Author / guideline developer (person)</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>Insufficient evidence is a RESULT. It is recorded as such – an honest gap the guideline can state – rather than being closed by weakening the recommendation until the available evidence supports it.</td>
     </tr>
     <tr>
-      <td><strong>Attach the evidence to the recommendation</strong><br /><code class="language-plaintext highlighter-rouge">Task_AttachEvidence</code></td>
+      <td><strong>Attach the evidence</strong><br /><code class="language-plaintext highlighter-rouge">Task_AttachEvidence</code></td>
       <td>Author / guideline developer (person)</td>
       <td><code class="language-plaintext highlighter-rouge">content-author</code></td>
       <td>The PICO, the graded body of evidence, each verified citation and its resolved authority record are written onto the recommendation block, so a reader can retrace the whole chain from the sentence back to the source.</td>
@@ -998,7 +1051,7 @@
 </h2>
     
 
-<p>Every one of the 2 decision(s) is documented.</p>
+<p>Every one of the 3 decision(s) is documented.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -1010,6 +1063,11 @@
   </thead>
   <tbody>
     <tr>
+      <td><strong>Does the change state or alter a recommendation?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_RecommendationInPlay</code></td>
+      <td>The author answers before any search starts. <code class="language-plaintext highlighter-rouge">yes</code>: the change states a recommendation or alters one, and the evidence is gathered as below. <code class="language-plaintext highlighter-rouge">no</code>: the change carries none – a mathematics folio has none, and a figure redrawn from its own source as a computable graphic adds or changes none – so there is nothing to frame as PICO. The <code class="language-plaintext highlighter-rouge">no</code> branch ends at its own event, which records that answer in the instance history; it does not pretend a search was run. The answer is the author’s and the editor still rules on the change at Task_ReviewFindings in <a href="editing-hci-validation.html">Process_Editing</a>, so a wrong <code class="language-plaintext highlighter-rouge">no</code> is caught there.</td>
+      <td><strong>yes</strong> → Review the existing guidance<br /><strong>no</strong> → No recommendation in this change</td>
+    </tr>
+    <tr>
       <td><strong>Authority confirmed?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_Authoritative</code></td>
       <td>Answered by checking the source against the observatory or registry API: is its authority confirmed? <code class="language-plaintext highlighter-rouge">no</code> opens a bean for the unverified citation; <code class="language-plaintext highlighter-rouge">yes</code> goes on to appraise and grade the evidence.</td>
       <td><strong>no</strong> → Open a bean for the unverified citation<br /><strong>yes</strong> → Appraise and grade the body of evidence</td>
@@ -1017,7 +1075,7 @@
     <tr>
       <td><strong>Sufficient for a recommendation?</strong><br /><code class="language-plaintext highlighter-rouge">Gateway_Sufficient</code></td>
       <td>Answered by the appraisal: is the graded evidence enough to support a recommendation? <code class="language-plaintext highlighter-rouge">no</code> records the evidence gap; <code class="language-plaintext highlighter-rouge">yes</code> attaches the evidence to the recommendation.</td>
-      <td><strong>no</strong> → Record the evidence gap<br /><strong>yes</strong> → Attach the evidence to the recommendation</td>
+      <td><strong>no</strong> → Record the evidence gap<br /><strong>yes</strong> → Attach the evidence</td>
     </tr>
   </tbody>
 </table></div>

@@ -58,7 +58,7 @@
   },
   "Task_Validate": {
    "id": "Task_Validate",
-   "name": "Fetch the root declaration at the pin, and validate it",
+   "name": "Fetch and validate the pinned declaration",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Task_Validate",
    "lane": "Ingestion Engine (agent, runs unattended)",
@@ -105,26 +105,41 @@
    "name": "Record why it is not a substrate; write no entry",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Task_Refuse",
-   "lane": "Corpus — the subscriber's declaration",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_1",
    "skills": [
     {
      "name": "kg-subscription"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
+      "name": "library-ingestion"
+     },
+     {
+      "name": "materialize-on-demand"
+     },
+     {
       "name": "materialize-remote"
+     },
+     {
+      "name": "theme-art-intake"
+     },
+     {
+      "name": "theme-ui-review"
+     },
+     {
+      "name": "upload-naming"
      }
     ]
    }
@@ -134,26 +149,41 @@
    "name": "Write the entry and cache the declaration",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Task_Record",
-   "lane": "Corpus — the subscriber's declaration",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_1",
    "skills": [
     {
      "name": "kg-subscription"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
+      "name": "library-ingestion"
+     },
+     {
+      "name": "materialize-on-demand"
+     },
+     {
       "name": "materialize-remote"
+     },
+     {
+      "name": "theme-art-intake"
+     },
+     {
+      "name": "theme-ui-review"
+     },
+     {
+      "name": "upload-naming"
      }
     ]
    }
@@ -212,26 +242,41 @@
    "name": "Move the entry's ref and re-cache the declaration",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Task_RePin",
-   "lane": "Corpus — the subscriber's declaration",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_1",
    "skills": [
     {
      "name": "kg-subscription"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
+      "name": "library-ingestion"
+     },
+     {
+      "name": "materialize-on-demand"
+     },
+     {
       "name": "materialize-remote"
+     },
+     {
+      "name": "theme-art-intake"
+     },
+     {
+      "name": "theme-ui-review"
+     },
+     {
+      "name": "upload-naming"
      }
     ]
    }
@@ -355,7 +400,7 @@
     }
    ],
    "calls": {
-    "name": "Materialize remote content — the shared subprocess",
+    "name": "Materialize remote content: the shared subprocess",
     "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_MaterializeRemote",
     "diagram": "materialize-remote.html"
    },
@@ -440,155 +485,44 @@
   },
   "Task_Summarise": {
    "id": "Task_Summarise",
-   "name": "Record how the walk ended, part by part",
+   "name": "Record how each part of the walk ended",
    "type": "bpmn:ServiceTask",
    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Task_Summarise",
-   "lane": "Corpus — the subscriber's declaration",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_2",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_1",
    "skills": [
     {
      "name": "kg-subscription"
     }
    ],
    "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
+    "name": "ingestion-agent",
+    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/ingestion-agent",
+    "title": "Ingestion engine",
     "skills": [
      {
-      "name": "kg-affordances"
+      "name": "asset-extraction"
      },
      {
       "name": "kg-subscription"
      },
      {
-      "name": "materialize-remote"
-     }
-    ]
-   }
-  },
-  "Call_BeanOpen": {
-   "id": "Call_BeanOpen",
-   "name": "Open the bean",
-   "type": "bpmn:CallActivity",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Call_BeanOpen",
-   "lane": "Subscriber (the folio's owner)",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_0",
-   "skills": [
-    {
-     "name": "bean-coordination"
-    }
-   ],
-   "calls": {
-    "name": "Open the bean",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_BeanOpen",
-    "diagram": "bean-open.html"
-   },
-   "role": {
-    "name": "user",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/user",
-    "title": "User",
-    "skills": [
-     {
-      "name": "adjudication"
+      "name": "library-ingestion"
      },
      {
-      "name": "agent-permissions"
-     },
-     {
-      "name": "dispatch-agent"
-     },
-     {
-      "name": "folio-init"
-     },
-     {
-      "name": "getting-started"
-     },
-     {
-      "name": "interaction-modality"
-     },
-     {
-      "name": "kg-affordances"
-     },
-     {
-      "name": "kg-subscription"
+      "name": "materialize-on-demand"
      },
      {
       "name": "materialize-remote"
      },
      {
-      "name": "merge-to-main"
+      "name": "theme-art-intake"
      },
      {
-      "name": "repo-conversion"
-     }
-    ]
-   }
-  },
-  "Call_BeanClose": {
-   "id": "Call_BeanClose",
-   "name": "Close the bean",
-   "type": "bpmn:CallActivity",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Call_BeanClose",
-   "lane": "Corpus — the subscriber's declaration",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_2",
-   "skills": [
-    {
-     "name": "todo-manager"
-    }
-   ],
-   "calls": {
-    "name": "Close the bean",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_BeanClose",
-    "diagram": "bean-close.html"
-   },
-   "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
-    "skills": [
-     {
-      "name": "kg-affordances"
+      "name": "theme-ui-review"
      },
      {
-      "name": "kg-subscription"
-     },
-     {
-      "name": "materialize-remote"
-     }
-    ]
-   }
-  },
-  "Call_BeanClose_2": {
-   "id": "Call_BeanClose_2",
-   "name": "Close the bean",
-   "type": "bpmn:CallActivity",
-   "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/node/Call_BeanClose_2",
-   "lane": "Corpus — the subscriber's declaration",
-   "laneHref": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_SubscribeKg/lane/Lane_2",
-   "skills": [
-    {
-     "name": "todo-manager"
-    }
-   ],
-   "calls": {
-    "name": "Close the bean",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/process/Process_BeanClose",
-    "diagram": "bean-close.html"
-   },
-   "role": {
-    "name": "corpus",
-    "href": "https://litlfred.github.io/folio-assistant/cat-harness/role/corpus",
-    "title": "Corpus",
-    "skills": [
-     {
-      "name": "kg-affordances"
-     },
-     {
-      "name": "kg-subscription"
-     },
-     {
-      "name": "materialize-remote"
+      "name": "upload-naming"
      }
     ]
    }
