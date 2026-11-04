@@ -1,0 +1,17 @@
+{
+  "_comment": "The smart-ra files this overlay is built from, pinned by commit and sha256 (AGENTS.md: every dependency pinned and verified). build.py fetches them at this commit and refuses any file whose sha256 differs. Bumping smart-ra is an edit here plus `python3 tools/archimate/build.py`.",
+  "repository": "litlfred/smart-ra",
+  "commit": "8257473ee8fc4a57d7e139a80d76e38f73a81b40",
+  "files": {
+    "model": {
+      "path": "archimate/0.3.0-draft.1/WHOBaseFile.archimate",
+      "sha256": "c124900fb40fd379031d2b342cee8a4fb478dd1e8cea7843e9c51634df163533",
+      "why": "The DPI-H RA ArchiMate model (version 0.3.0-draft.1, with the Integrated View of Figs. 3.2 and 3.5) that the overlay is drawn on; every RA element keeps its Archi id, so its IRI is the one smart-ra publishes."
+    },
+    "addViews": {
+      "path": "tools/archimate-dth/add_views.py",
+      "sha256": "61a23723c80a91b4c2fcd7e92a323be27f61db7c8cc895b18a4fedf26bab6c00",
+      "why": "smart-ra's own script for adding elements, relationships and views to an Archi model from a spec, without rewriting what is there; reused rather than copied."
+    }
+  }
+}

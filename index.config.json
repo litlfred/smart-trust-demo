@@ -186,7 +186,11 @@
           "home": "docs/index.md",
           "profile": "folio",
           "sourceSteps": [
-            "site:docs"
+            "site:docs",
+            "site:archimate"
+          ],
+          "pre": [
+            "check:archimate"
           ]
         }
       }

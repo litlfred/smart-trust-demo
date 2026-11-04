@@ -76,7 +76,8 @@ the family chooses to share. The [VaxLink walkthrough's "How it works"
 view](https://litlfred.github.io/vaxlink/#/how) lays out both countries'
 components on the [DPI-H reference
 architecture](https://litlfred.github.io/smart-ra/en/dpi-h-ra/index.html), with
-GDHCN as the foundation.
+GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's
+own model is on the [architecture page](architecture.html).
 
 The journeys run the HCERT and VHL libraries of
 [smart-trust-tools](https://litlfred.github.io/smart-trust-tools/) against
