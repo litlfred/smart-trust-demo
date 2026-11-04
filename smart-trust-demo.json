@@ -63,13 +63,35 @@
       "id": "tools",
       "path": "tools/",
       "graphTypologies": ["code"],
-      "description": "repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency)."
+      "description": "repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency); archimate: the DPI-H RA overlay spec and its build."
     },
     {
       "id": "hcert-library-pin",
       "path": "lib/hcert/",
       "graphTypologies": ["code"],
       "description": "The Kotlin HCERT library at a pinned smart-trust-tools commit: the lock (commit and jar sha256) and the script that builds and checks the jars."
+    },
+    {
+      "id": "archimate",
+      "path": "archimate/",
+      "graphTypologies": ["archimate"],
+      "description": "The demonstrator as an ArchiMate overlay on the DPI-H Reference Architecture: smart-ra's model 0.3.0-draft.1, unchanged, plus the journeys J1 to J4.1 (use cases), the people assigned to them and the Thai and Lao systems that serve them, each system a specialization of the RA building block it instantiates. Built by tools/archimate/build.py from tools/archimate/overlay.py and smart-ra at the commit in tools/archimate/smart-ra.lock.json; cat-harness's archimate subgraph draws every view as SVG.",
+      "coverage": {
+        "visualiser": [
+          {
+            "ref": "en/smart-trust-demo/archimate/index.html",
+            "title": "ArchiMate views",
+            "writer": ["cat-harness-tools/archimate/scripts/gen-archimate-pages.ts"]
+          }
+        ]
+      }
+    }
+  ],
+  "visualisers": [
+    {
+      "id": "archimate",
+      "renderedBy": "archimate-pages",
+      "covers": ["archimate"]
     }
   ]
 }
