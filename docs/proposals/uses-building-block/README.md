@@ -49,7 +49,7 @@ Today it is in two places that do not know about each other:
 
 ## Files
 
-- `building-blocks.json`: the catalogue, converted once from vaxlink's
+- `building-blocks.json` (now at `scenarios/user-scenarios/building-blocks.json`, where the harness kind reads it): the catalogue, converted once from vaxlink's
   `techData.ts`. It has 19 blocks, 10 of them linked to overlay components.
   Kind, jurisdiction and components were mapped by hand.
 - `scenarios/user-scenarios/*.json`: every step now has `technicalSummary` and

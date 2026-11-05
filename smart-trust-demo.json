@@ -137,6 +137,30 @@
         "processes"
       ],
       "description": "The published walkthrough, on the gh-pages branch inside the demonstrator's site: vaxlink/ for main, STAGING/<branch>/vaxlink/ for any other branch. Built by npm run build in web/ (never committed) and placed by web/scripts/publish.sh after the site's own publish; index.config.json keeps vaxlink/ in a root publish."
+    },
+    {
+      "id": "user-scenarios",
+      "path": "scenarios/user-scenarios/",
+      "graphTypologies": [
+        "user-scenario"
+      ],
+      "description": "The journeys J1 to J4.1 as user scenarios (journey maps), J4 as the group journey over J4.0 and J4.1, and the building-block catalogue their steps use (building-blocks.json)."
+    },
+    {
+      "id": "workshops",
+      "path": "workshops/",
+      "graphTypologies": [
+        "workshop"
+      ],
+      "description": "The DPI-H policy-maker track taught from the journeys."
+    },
+    {
+      "id": "code-lists",
+      "path": "code-lists/",
+      "graphTypologies": [
+        "code-list"
+      ],
+      "description": "The record-trust ladder the journeys' steps name."
     }
   ],
   "visualisers": [
@@ -146,6 +170,15 @@
       "covers": [
         "archimate"
       ]
+    },
+    {
+      "id": "journeys",
+      "renderedBy": "journeys-viewer",
+      "coversKinds": [
+        "user-scenario",
+        "workshop"
+      ],
+      "subgraphs": "instance"
     }
   ]
 }

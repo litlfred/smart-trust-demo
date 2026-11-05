@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 """Check scenarios/user-scenarios/ (standard library only).
 
-Shape: docs/proposals/user-scenario/user-scenario.schema.json, through the jsonschema package when it is
-installed (it is not a dependency; without it only the references are checked).
+Shape: docs/proposals/user-scenario/user-scenario.schema.json for a
+user-scenario/0.1.0 file, and the mounted harness kind
+(cat-harness/schemas/kinds/user-scenario.schema.json) for a later family, through
+the jsonschema package when it is installed (it is not a dependency; without it
+only the references are checked).
 References, which a JSON Schema cannot express:
 - personas, step.lead, experience.actor, handoff.from/to: actors in
   scenarios/actors/, and every actor a step names is in personas;
 - step.stories: ids in scenarios/stories.json;
 - step.realisedBy: the BPMN file exists and each task id is a node in it;
-- step.record.state: a code of the code-list trustLadder names (beside the scenarios);
+- step.record.state: a code of the code-list trustLadder names (in code-lists/);
 - step.examples: an FSH Instance with that id in input/fsh/;
 - step ids unique within the scenario;
 - follows: another scenario here, and the chain has no loop;
+- partOf: another scenario here (the group journey);
 - step.uses: each block is in the building-blocks catalogue, once per step,
   and a named component is one of that block's;
 - the catalogue itself: unique block ids, known layers, and components that
@@ -29,7 +33,9 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DATA = ROOT / "scenarios" / "user-scenarios"
 SCHEMA = ROOT / "docs" / "proposals" / "user-scenario" / "user-scenario.schema.json"
-BLOCKS = ROOT / "docs" / "proposals" / "uses-building-block" / "building-blocks.json"
+HARNESS_SCHEMA = ROOT / "cat-harness" / "schemas" / "kinds" / "user-scenario.schema.json"
+LISTS = ROOT / "code-lists"
+BLOCKS = DATA / "building-blocks.json"
 BLOCKS_SCHEMA = ROOT / "docs" / "proposals" / "uses-building-block" / "building-blocks.schema.json"
 
 
@@ -61,6 +67,7 @@ def catalogue(errors, jsonschema):
 def main():
     errors = []
     schema = json.loads(SCHEMA.read_text())
+    harness = json.loads(HARNESS_SCHEMA.read_text()) if HARNESS_SCHEMA.exists() else None
     try:
         import jsonschema
     except ImportError:
@@ -69,7 +76,7 @@ def main():
     actors = {json.loads(f.read_text())["id"] for f in (ROOT / "scenarios" / "actors").glob("*.json")}
     stories = {s["id"] for s in json.loads((ROOT / "scenarios" / "stories.json").read_text())["stories"]}
     lists = {}
-    for f in DATA.glob("*.code-list.json"):
+    for f in LISTS.glob("*.code-list.json"):
         c = json.loads(f.read_text())
         lists[c["id"]] = [x["code"] for x in c["codes"]]
     blocks = catalogue(errors, jsonschema)
@@ -77,12 +84,23 @@ def main():
     for f in (ROOT / "input" / "fsh").rglob("*.fsh"):
         instances.update(re.findall(r"^Instance:\s*(\S+)", f.read_text(), re.M))
 
-    scenarios = [f for f in DATA.glob("*.json") if not f.name.endswith(".code-list.json")]
+    scenarios = [f for f in DATA.glob("*.json") if json.loads(f.read_text()).get("$schema", "").startswith("user-scenario/")]
     for f in scenarios:
         rel = f.relative_to(ROOT)
         s = json.loads(f.read_text())
-        if jsonschema:
-            for e in jsonschema.Draft202012Validator(schema).iter_errors(s):
+        shape = schema
+        if s["$schema"] != "user-scenario/0.1.0":
+            if harness is None:
+                print(f"check: {rel}: harness not mounted, {s['$schema']} shape not checked")
+                shape = None
+            elif s["$schema"] not in harness["$defs"]:
+                errors.append(f"{rel}: {s['$schema']} is not a family of {HARNESS_SCHEMA.relative_to(ROOT)}")
+                shape = None
+            else:
+                shape = {**harness, "$ref": f"#/$defs/{s['$schema'].replace('~', '~0').replace('/', '~1')}"}
+                shape.pop("anyOf", None)
+        if jsonschema and shape:
+            for e in jsonschema.Draft202012Validator(shape).iter_errors(s):
                 errors.append(f"{rel}: {'/'.join(map(str, e.path)) or '(root)'}: {e.message}")
         personas = set(s.get("personas", []))
         for a in personas - actors:
@@ -132,6 +150,10 @@ def main():
                 if ex.split("/", 1)[-1] not in instances:
                     errors.append(f"{where}: no FSH Instance {ex}")
     ids = {json.loads(f.read_text())["id"]: json.loads(f.read_text()).get("follows") for f in scenarios}
+    for f in scenarios:
+        part = json.loads(f.read_text()).get("partOf")
+        if part and part not in ids:
+            errors.append(f"{f.relative_to(ROOT)}: partOf unknown scenario {part}")
     for sid, prev in ids.items():
         seen_chain = {sid}
         while prev:
