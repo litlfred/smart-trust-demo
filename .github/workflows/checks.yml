@@ -42,6 +42,11 @@ jobs:
           while read -r h r ref; do git clone -q --filter=blob:none --no-checkout "https://github.com/$r" "$h" && git -C "$h" checkout -q "$ref" && rm -rf "$h/.git"; done < "$RUNNER_TEMP/mounts.txt"
           bun install --frozen-lockfile
           bun run cat mount:lock
+      - name: Chromium, for the BPMN renderer
+        # The renderer draws through bpmn-js in Chromium. The lockfile's own
+        # Playwright installs the browser build it expects, as the harness
+        # layers' CI does (a bare `npx playwright` may fetch another).
+        run: node_modules/.bin/playwright install --with-deps chromium
       - name: The BPMN drawings are current
         run: bun tools/render-bpmn/render_bpmn.ts --check
       - name: The BPMN checklists are current

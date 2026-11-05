@@ -19,7 +19,7 @@ pull request.
 | `actions/setup-java` | `cf277c60eb25467037889841efdb72551f06f6c3` | v4.9.1 | Temurin JDK 17 to build the HCERT library; the same pin smart-trust-tools uses. |
 | `gradle/actions/setup-gradle` | `748248ddd2a24f49513d8f472f81c3a07d4d50e1` | v4.4.4 | Gradle 8.14.3, the version smart-trust-tools builds with. |
 | `ReactiveCircus/android-emulator-runner` | `a421e43855164a8197daf9d8d40fe71c6996bb0d` | v2.38.0 (2026-07-05) | Boots the Android emulators (API 26 and 35) the HCERT library's instrumented tests run on. The emulator system images it installs come from the runner's Android SDK manager, not from Gradle. |
-| `oven-sh/setup-bun` | `0c5077e51419868618aeaa5fe8019c62421857d6` | v2.2.0 | Bun, for the harness's BPMN drawing and checklist generators in CI job `bpmn-generated`; the same pin the harness layers use. Bun itself installs from `bun.lock` (`--frozen-lockfile`), whose install scripts stay off (`bunfig.toml`). |
+| `oven-sh/setup-bun` | `0c5077e51419868618aeaa5fe8019c62421857d6` | v2.2.0 | Bun, for the harness's BPMN drawing and checklist generators in CI job `bpmn-generated`; the same pin the harness layers use. Bun itself installs from `bun.lock` (`--frozen-lockfile`), whose install scripts stay off (`bunfig.toml`). The renderer's Chromium is the build the lockfile's Playwright names, installed by `playwright install --with-deps chromium`, as the harness layers' CI does. |
 | `actions/upload-artifact` | `ea165f8d65b6e75b540449e92b4886f43607fa02` | v4.6.2 | Keeps the emulator test reports. |
 
 ## Runtime and build dependencies
