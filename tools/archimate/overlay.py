@@ -255,6 +255,35 @@ def roles_of(code):
 SYSTEMS_VIEW = "SMART Trust demo on the DPI-H Integrated View"
 JOURNEYS_VIEW = "SMART Trust demo journeys (use cases)"
 
+# The journeys view, laid out so its lines cross as little as they can: each
+# person who takes part in one journey stands under it (their assignment is a
+# vertical line), and the caregiver, who takes part in all five, stands at
+# the end. add_views.py places boxes left to right only, so VIEW_BOUNDS
+# (applied by build.py after it) moves a few boxes to exact positions: the
+# capabilities spread over the journeys, Health Workers centred under the
+# four health workers, Citizens / Care recipients under the caregiver.
+PEOPLE_ORDER = ["birth-clinic-vaccinator", "community-health-worker", "home-clinic-provider", "poc-provider", "caregiver"]
+assert sorted(PEOPLE_ORDER) == sorted(r["id"] for r in ROLES), "PEOPLE_ORDER must name every person role"
+_LEAF_W, _PAD = 170, 12  # add_views.py's box width and padding
+
+
+def _col(i):
+    """x of the i-th box (fractional i allowed) inside a group, relative to the group."""
+    return round(_PAD + i * (_LEAF_W + _PAD))
+
+
+_GROUP_W = 2 * _PAD + 5 * _LEAF_W + 4 * _PAD  # a five-box group, as wide as the journeys
+VIEW_BOUNDS = {
+    JOURNEYS_VIEW: {
+        "group-capabilities": {"width": _GROUP_W},
+        "cap-access-consent-trust": {"x": _col(1)},
+        "cap-clinical-services": {"x": _col(2)},
+        "cap-health-record-mgmt": {"x": _col(3)},
+        "stk-health-workers": {"x": 24 + _col(1.5)},
+        "stk-care-recipients": {"x": 24 + _col(4)},
+    },
+}
+
 
 def journey_view_name(code):
     return f"{code} on the DPI-H RA"
@@ -303,8 +332,8 @@ VIEWS = [
      ("col", [
          ("group", "group-capabilities", 3, [box(c) for c in GROUP_MEMBERS["group-capabilities"]]),
          ("group", "group-journeys", 5, [box(jkey(c)) for c in JOURNEYS]),
-         ("group", "group-people", 5, [box("role-" + r["id"]) for r in ROLES]),
-         ("row", [box("stk-care-recipients"), box("stk-health-workers")]),
+         ("group", "group-people", 5, [box("role-" + r) for r in PEOPLE_ORDER]),
+         ("row", [box("stk-health-workers"), box("stk-care-recipients")]),
      ])),
 ]
 
