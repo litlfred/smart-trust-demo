@@ -11,7 +11,7 @@ The harness sources stay the single source of truth:
                                     actors pages
 - scenarios/actors/*.json        -> the personas page (the fictional people
                                     and systems that play each role)
-- scenarios/stories.json and the "User scenarios" section of
+- scenarios/stories.json, scenarios/story-requirements.json and the "User scenarios" section of
   docs/journeys.md               -> input/pagecontent/scenarios.md
 - docs/images/*                 -> data URIs in docs/index.md (data-img)
 - docs/*.md and docs/*/*.md      -> input/pagecontent/<page>.md (DOC_PAGES),
@@ -54,6 +54,15 @@ REQ_ID = re.compile(r"STT-([A-Z0-9]{2,4})-(\d{3})(?:(\u2026|\.\.\.|\u2013)(\d{3}
 NO_LINK = re.compile(r"`[^`\n]*`|\[[^\]\n]*\]\([^)\n]*\)|<[^>\n]*>|^\[[^\]\n]+\]:.*$", re.M)
 
 
+STD_ID = re.compile(r"STD-([A-Z0-9]{2,4})-(\d{3})")
+
+
+def std_link(m):
+    """This demonstrator's own requirements, linked to their node in the repository."""
+    area, num = m.groups()
+    return f"[STD-{area}-{num}]({REPO}skills/requirements/std-{area.lower()}-{num}.json)"
+
+
 def req_link(m):
     area, first, sep, last = m.groups()
     out = f"[STT-{area}-{first}]({REQS}stt-{area.lower()}-{first})"
@@ -67,10 +76,10 @@ def link_reqs(text):
     spans, links and HTML alone. A range (STT-PAY-001…005) links both ends."""
     out, at = [], 0
     for m in NO_LINK.finditer(text):
-        out.append(REQ_ID.sub(req_link, text[at:m.start()]))
+        out.append(STD_ID.sub(std_link, REQ_ID.sub(req_link, text[at:m.start()])))
         out.append(m.group(0))
         at = m.end()
-    out.append(REQ_ID.sub(req_link, text[at:]))
+    out.append(STD_ID.sub(std_link, REQ_ID.sub(req_link, text[at:])))
     return "".join(out)
 
 
@@ -232,11 +241,16 @@ def gen_scenarios(roles):
     titles = {r["id"]: r["title"] for r in roles}
     stories = load("scenarios/stories.json")["stories"]
     out = [HEADER.format(src="scenarios/stories.json and docs/journeys.md (User scenarios)")]
+    trace = load("scenarios/story-requirements.json")["stories"]
     out.append("### User stories\n")
-    out.append("| Role | I want to | So that |\n|---|---|---|")
+    out.append("Each story traces to the smart-trust-tools requirements that serve it "
+               "(scenarios/story-requirements.json); where the HCERT library does not serve a story, the note says what does.\n")
+    out.append("| Role | I want to | So that | Requirements |\n|---|---|---|---|")
     for s in stories:
         role = s["role"]["role"]
-        out.append(f"| {cell(titles.get(role, role))} | {cell(s['want'])} | {cell(s.get('soThat', ''))} |")
+        t = trace.get(s["id"], {})
+        reqs = link_reqs(", ".join(t.get("requirements", []))) or cell(t.get("note", ""))
+        out.append(f"| {cell(titles[role])} | {cell(s['want'])} | {cell(s.get('soThat', ''))} | {reqs} |")
     out.append("{: .grid }\n")
     text = (ROOT / "docs" / "journeys.md").read_text()
     m = re.search(r"^## User scenarios\s*$(.*?)(?=^## |\Z)", text, re.S | re.M)

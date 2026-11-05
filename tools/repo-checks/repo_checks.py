@@ -10,8 +10,14 @@
   this instance's (skills/*/package-manifest.json) or of smart-trust-tools'
   hcert and vhl packages (names hcert-*, vhl-*), whose existence the harness
   check verifies once mounted.
+- Every user story traces to requirements (scenarios/story-requirements.json:
+  every story has an entry, an empty one says why in `note`), and every
+  requirement id cited there, in docs/journeys.md and in the BPMN exists:
+  STT-* in smart-trust-tools' skills/requirements/ at the pinned commit (the
+  mount, or the directory given by --requirements; CI fetches it), STD-* in
+  this repository's skills/requirements/, whose actors must be our roles.
 
-Run from anywhere: python3 tools/repo-checks/repo_checks.py
+Run from anywhere: python3 tools/repo-checks/repo_checks.py [--requirements DIR]
 """
 import fnmatch
 import json
@@ -71,6 +77,7 @@ def main():
         if len(head) < 3 or "$schema: folio-memory/v1" not in head[1] or f"id: {md.stem}" not in head[1]:
             errors.append(f"{md.relative_to(ROOT)}: missing folio-memory/v1 front matter with id {md.stem}")
     errors += journey_errors()
+    errors += requirement_errors(_arg("--requirements") or ROOT / "smart-trust-tools" / "skills" / "requirements")
     for e in errors:
         print(e, file=sys.stderr)
     print(f"repo-checks: {len(errors)} problem(s)")
@@ -137,6 +144,52 @@ def journey_errors():
             for end in ("sourceRef", "targetRef"):
                 if f.get(end) not in ids:
                     errors.append(f"{rel}: flow {f.get('id')} {end} {f.get(end)} does not exist")
+    return errors
+
+
+REQ_ID = re.compile(r"\bST[TD]-[A-Z0-9]+-\d{3}\b")  # STT-*: smart-trust-tools'; STD-*: this demonstrator's own
+
+
+def _arg(name):
+    return sys.argv[sys.argv.index(name) + 1] if name in sys.argv[:-1] else None
+
+
+def requirement_errors(req_dir):
+    """Stories trace to requirements, and every cited requirement id exists at the pinned smart-trust-tools."""
+    errors = []
+    req_dir = pathlib.Path(req_dir)
+    if not req_dir.is_dir():
+        return [f"{req_dir}: no smart-trust-tools requirements here; mount the pinned layers (bun run cat mount:lock) or pass --requirements DIR"]
+    known = set()
+    roles = {r["id"] for r in json.loads((ROOT / "scenarios" / "roles.json").read_text())["roles"]}
+    for d in (req_dir, ROOT / "skills" / "requirements"):
+        for f in sorted(d.glob("*.json")):
+            req = json.loads(f.read_text())
+            rid = req.get("id", "")
+            if rid.startswith("req:"):
+                known.add(rid[4:].upper())
+            if d != req_dir:  # this demonstrator's own: its actors are our roles
+                for a in req.get("actors", []):
+                    if a not in roles:
+                        errors.append(f"{f.relative_to(ROOT)}: actor {a} is not a role in scenarios/roles.json")
+    stories = [s["id"] for s in json.loads((ROOT / "scenarios" / "stories.json").read_text())["stories"]]
+    trace_file = ROOT / "scenarios" / "story-requirements.json"
+    trace = json.loads(trace_file.read_text())["stories"] if trace_file.exists() else {}
+    for sid in stories:
+        if sid not in trace:
+            errors.append(f"scenarios/story-requirements.json: story {sid} has no entry")
+    for sid, t in trace.items():
+        if sid not in stories:
+            errors.append(f"scenarios/story-requirements.json: {sid} is not a story in stories.json")
+        if not t.get("requirements") and not t.get("note"):
+            errors.append(f"scenarios/story-requirements.json: story {sid} traces to no requirement and gives no note saying why")
+        for r in t.get("requirements", []):
+            if r not in known:
+                errors.append(f"scenarios/story-requirements.json: story {sid} cites {r}, which smart-trust-tools does not define")
+    for src in [ROOT / "docs" / "journeys.md", *sorted((ROOT / "processes" / "content").glob("*.bpmn"))]:
+        for r in sorted(set(REQ_ID.findall(src.read_text(encoding="utf-8")))):
+            if r not in known:
+                errors.append(f"{src.relative_to(ROOT)}: cites {r}, which smart-trust-tools does not define")
     return errors
 
 

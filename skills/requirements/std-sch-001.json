@@ -1,0 +1,32 @@
+{
+  "id": "req:std-sch-001",
+  "title": "Doses given abroad count toward the home schedule",
+  "description": "Once a foreign dose is verified and imported, the home country's schedule counts it, so the next due doses are worked out from the child's whole history.",
+  "status": "proposed",
+  "actors": [
+    "home-clinic-provider",
+    "home-clinic-ehr"
+  ],
+  "statements": [
+    {
+      "key": "count",
+      "label": "Imported doses are counted",
+      "conformance": "SHALL",
+      "category": "functional",
+      "requirement": "Evaluating a child's schedule SHALL count verified doses imported from another country as given, by their mapped codes and dates.",
+      "capability": "see which doses are due once the foreign doses are counted",
+      "benefit": "the child gets every dose once",
+      "successCriteria": [
+        {
+          "key": "plan",
+          "criterion": "After J3's import, the infant schedule (PlanDefinition TrustDemoLaoInfantSchedule) recommends the next doses and not the birth doses already given (example ImmunizationRecommendation TrustDemoJ3Recommendation).",
+          "verification": "inspection"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "journeys",
+    "functional"
+  ]
+}

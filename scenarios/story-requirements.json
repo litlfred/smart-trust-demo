@@ -1,0 +1,88 @@
+{
+  "_comment": "Which requirements each user story in stories.json traces to: the HCERT library's (STT-*, req: nodes in skills/requirements/ of the pinned smart-trust-tools) and this demonstrator's own (STD-*, req: nodes in skills/requirements/ here). Every story has an entry; a story the library does not serve says what does instead, in `note`. repo_checks.py checks that every story is here, and that every requirement id cited here, in docs/journeys.md and in the BPMN exists. ig_gen.py shows them on the User Scenarios page.",
+  "stories": {
+    "caregiver-1": {
+      "requirements": [
+        "STT-VER-001",
+        "STT-VER-009",
+        "STT-TRU-002"
+      ]
+    },
+    "caregiver-2": {
+      "requirements": [
+        "STD-ACC-001",
+        "STT-VHL-001",
+        "STT-VHL-002",
+        "STT-VHL-004",
+        "STT-VHL-007"
+      ]
+    },
+    "caregiver-3": {
+      "requirements": [
+        "STD-ACC-001",
+        "STT-VHL-009",
+        "STT-VHL-008"
+      ]
+    },
+    "birth-clinic-vaccinator-1": {
+      "requirements": [
+        "STT-PAY-001",
+        "STT-PAY-003",
+        "STT-ISS-004",
+        "STT-COS-001",
+        "STT-HC1-001",
+        "STT-QR-001"
+      ]
+    },
+    "community-health-worker-1": {
+      "requirements": [
+        "STT-VER-011",
+        "STT-B45-002",
+        "STT-CBR-003"
+      ]
+    },
+    "community-health-worker-2": {
+      "requirements": [
+        "STT-VER-011"
+      ]
+    },
+    "community-health-worker-3": {
+      "requirements": [
+        "STT-PAY-005"
+      ]
+    },
+    "home-clinic-provider-1": {
+      "requirements": [
+        "STT-VER-001",
+        "STT-VER-002",
+        "STT-VER-008",
+        "STT-TRU-001"
+      ]
+    },
+    "home-clinic-provider-2": {
+      "requirements": [
+        "STD-SCH-001"
+      ]
+    },
+    "home-clinic-provider-3": {
+      "requirements": [
+        "STD-SEM-001"
+      ]
+    },
+    "poc-provider-1": {
+      "requirements": [
+        "STT-VHL-005",
+        "STT-VHL-006",
+        "STT-VHL-007",
+        "STT-VHL-008"
+      ]
+    },
+    "poc-provider-2": {
+      "requirements": [
+        "STT-VER-001",
+        "STT-TRU-002",
+        "STT-KID-002"
+      ]
+    }
+  }
+}
