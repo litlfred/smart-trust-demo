@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TD.DT.06: whether the receiver abroad follows a family member's VHL.
+  J4.1 Task_Verify and Gateway_Verified, receiver side. If the HCERT that
+  carries the link does not verify (STT-VER-008), or the link has expired
+  (STT-VHL-009), nothing is digitally verified: no manifest is requested and
+  the records are treated like paper (Task_Unverified).
+-->
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:trace="https://litlfred.github.io/smart-trust-demo/ns/dak/"
+             id="Definitions_VhlFollow"
+             name="Follow a VHL at the point of care"
+             namespace="https://litlfred.github.io/smart-trust-demo/decisions">
+  <decision id="Decision_VhlFollow" name="Does the receiver follow the VHL?">
+    <description>For one scanned VHL, decide whether the receiver requests the manifest or treats the family's records like paper.</description>
+    <extensionElements>
+      <trace:table code="TD.DT.06"/>
+      <trace:serves process="j4-1-vhl-point-of-care.bpmn" task="Task_Verify"/>
+      <trace:serves process="j4-1-vhl-point-of-care.bpmn" task="Gateway_Verified"/>
+      <trace:serves process="j4-1-vhl-point-of-care.bpmn" task="Task_Unverified"/>
+      <trace:serves process="j4-1-vhl-point-of-care.bpmn" task="Task_Fetch"/>
+      <trace:requirement ref="STT-VER-001"/>
+      <trace:requirement ref="STT-VER-008"/>
+      <trace:requirement ref="STT-VHL-009"/>
+      <trace:requirement ref="STT-VHL-005"/>
+      <trace:artifact ref="Provenance/TrustDemoJ41Received"/>
+      <trace:dataElement ref="TD.J41.DE01"/>
+    </extensionElements>
+    <decisionTable id="Table_VhlFollow" hitPolicy="FIRST">
+      <input id="In_Result" label="HCERT verification result">
+        <inputExpression id="Expr_Result" typeRef="string"><text>result</text></inputExpression>
+      </input>
+      <input id="In_Expired" label="The VHL has expired">
+        <inputExpression id="Expr_Expired" typeRef="boolean"><text>vhlExpired</text></inputExpression>
+      </input>
+      <output id="Out_Next" label="Next step" name="next" typeRef="string"/>
+      <rule id="Rule_Failed">
+        <description>STT-VER-008: the typed result names the step and reason, for example a DSC missing from the cached trust list (STT-VER-006). The clinician records why it was not verified.</description>
+        <inputEntry id="IE_Failed_1"><text>"failed"</text></inputEntry>
+        <inputEntry id="IE_Failed_2"><text>-</text></inputEntry>
+        <outputEntry id="OE_Failed_1"><text>"treat-as-paper"</text></outputEntry>
+      </rule>
+      <rule id="Rule_Expired">
+        <description>STT-VHL-009: an expired link is not followed.</description>
+        <inputEntry id="IE_Expired_1"><text>"verified"</text></inputEntry>
+        <inputEntry id="IE_Expired_2"><text>true</text></inputEntry>
+        <outputEntry id="OE_Expired_1"><text>"treat-as-paper"</text></outputEntry>
+      </rule>
+      <rule id="Rule_Fetch">
+        <description>Request the manifest by ITI-YY5 with an HTTP Message Signature (STT-VHL-005); the portal then applies TD.DT.05. Provenance TrustDemoJ41Received.</description>
+        <inputEntry id="IE_Fetch_1"><text>"verified"</text></inputEntry>
+        <inputEntry id="IE_Fetch_2"><text>false</text></inputEntry>
+        <outputEntry id="OE_Fetch_1"><text>"fetch"</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
