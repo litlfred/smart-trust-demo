@@ -11,7 +11,7 @@ created_at: 2026-11-05T12:00:00Z
 updated_at: 2026-11-05T13:00:00Z
 ---
 
-The VaxLink walkthrough (litlfred/vaxlink) is the presentation of these journeys. It was reviewed on 2026-11-05 against the cat-harness kind schemas at `f9423d7`. The site, the snapshots it copies from here, the standards, the personas' identity, the stories and its closed code sets all map to existing kinds (`basic-cdn-site`, `processes`, `archimate`, `external-schema`, `scenarios`, `code-list`). About 40% of its content maps to none. It lives only as TypeScript in `src/data/`. The fix belongs in cat-harness (and its Zod source in cat-harness-tools), so this bean is tagged upstream.
+The VaxLink walkthrough (litlfred/vaxlink) is the presentation of these journeys. It was reviewed on 2026-11-05 against the cat-harness kind schemas at `f9423d7`. The site, the snapshots it copies from here, the standards, the personas' identity and its closed code sets all map to existing kinds (`basic-cdn-site`, `processes`, `archimate`, `external-schema`, `scenarios`, `code-list`). About 40% of its content maps to none. It lives only as TypeScript in `src/data/`. The fix belongs in cat-harness (and its Zod source in cat-harness-tools), so this bean is tagged upstream.
 
 ## Gaps, largest first
 
