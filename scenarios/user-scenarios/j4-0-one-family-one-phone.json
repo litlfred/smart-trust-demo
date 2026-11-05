@@ -1,0 +1,135 @@
+{
+  "$schema": "user-scenario/0.1.0",
+  "id": "j4-0-one-family-one-phone",
+  "title": "J4.0 — Crossing back: one family, one phone",
+  "description": "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
+  "personas": [
+    "bounmy-sengmany",
+    "khamla-sengmany"
+  ],
+  "follows": "j3-made-official",
+  "when": "12 months later",
+  "where": "Lao PDR",
+  "country": "Cross-Border",
+  "trustLadder": "record-trust",
+  "steps": [
+    {
+      "id": "J4.0a",
+      "title": "One phone holds the whole family’s records",
+      "headline": "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
+      "when": "T0 + 12 months",
+      "where": "Vientiane, Lao PDR",
+      "touchpoint": "Family wallet app on Dad’s phone",
+      "narrative": "The family plans a trip to Thailand. Bounmy's phone holds the\nfamily wallet, with a profile for each of them. Somsack's summary\n(`TrustDemoJ4Ips`) shows six doses: two from Thailand, four from Lao PDR.",
+      "lead": "bounmy-sengmany",
+      "experiences": [
+        {
+          "actor": "bounmy-sengmany",
+          "doing": "Opens the family wallet: profiles for himself, Khamla and Somsack.",
+          "feeling": "“One phone, three people — I can manage all of us.”",
+          "emotion": 1
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Relies on Bounmy’s phone for her own and the baby’s records.",
+          "feeling": "“It’s on his phone. What if I travel without him?”",
+          "emotion": -1
+        }
+      ],
+      "painPoint": "Many families share one smartphone; one-app-per-person designs leave them out.",
+      "enabler": "A household wallet on one phone, with a separate health summary for each person.",
+      "policy": "Design for shared devices (“One Family, One Phone”) so families with only one phone aren’t left out.",
+      "record": {
+        "state": "portable",
+        "description": "12-month summary: 2 Thai + 4 Lao doses",
+        "heldWhere": "Lao national records + family wallet"
+      },
+      "handoff": {
+        "summary": "Somsack’s summary is ready to share"
+      },
+      "whatIf": [
+        {
+          "scenario": "Khamla travels alone with Somsack.",
+          "outcome": "Who can access the baby’s record without Bounmy’s phone? Delegated access within a household is still an open design question."
+        }
+      ],
+      "stories": [
+        "caregiver-2"
+      ],
+      "examples": [
+        "Bundle/TrustDemoJ4Ips"
+      ]
+    },
+    {
+      "id": "J4.0b",
+      "title": "Dad creates a link to share at the clinic",
+      "headline": "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR.",
+      "when": "T0 + 12 months",
+      "where": "Lao–Thai Friendship Bridge",
+      "touchpoint": "Family wallet app (share link)",
+      "preconditions": [
+        {
+          "title": "Country B's DSC is shared with the trust anchor",
+          "description": "**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1.",
+          "requirements": []
+        }
+      ],
+      "narrative": "For Somsack, Bounmy shares his record with a 4-digit passcode he\ncan say aloud, valid for 14 days. The portal records his consent\n(`TrustDemoJ4Consent`), then does three things:\n\n1. It assembles the IPS and Somsack's DVCs.\n2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n\nThe QR holds only a pointer and a key: the record stays in Lao PDR.",
+      "lead": "bounmy-sengmany",
+      "experiences": [
+        {
+          "actor": "bounmy-sengmany",
+          "doing": "Creates a passcode-protected QR link for Somsack, valid for 14 days.",
+          "feeling": "“I decide who sees it, and for how long.”",
+          "emotion": 2
+        }
+      ],
+      "painPoint": "Sending photos or PDFs of records leaks data and can’t be verified by the receiver.",
+      "enabler": "A Verifiable Health Link: the QR holds only a locked pointer; the data stays home until the passcode is given.",
+      "policy": "Data sovereignty: the record stays in Lao PDR until the family authorizes someone to open it.",
+      "record": {
+        "state": "portable",
+        "description": "Shareable link created; data stays in Lao PDR",
+        "heldWhere": "Lao national records (QR is just a pointer)"
+      },
+      "handoff": {
+        "summary": "A QR on Dad’s phone + a passcode he can say aloud"
+      },
+      "whatIf": [
+        {
+          "scenario": "Bounmy’s phone battery dies at the clinic.",
+          "outcome": "The link could be printed in advance, and the original paper cards still prove the birth doses."
+        }
+      ],
+      "stories": [
+        "caregiver-2",
+        "caregiver-3"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j4-0-family-vhl-issuance.bpmn",
+          "tasks": [
+            "Task_Request",
+            "Task_Assemble",
+            "Task_Share",
+            "Task_Prepare",
+            "Task_Sign",
+            "Task_Finish",
+            "Task_Store"
+          ]
+        }
+      ],
+      "requirements": [
+        "STT-VHL-004",
+        "STT-VHL-007",
+        "STT-VHL-009",
+        "STT-VHL-001",
+        "STT-VHL-002"
+      ],
+      "examples": [
+        "Composition/TrustDemoJ4Composition",
+        "Consent/TrustDemoJ4Consent"
+      ]
+    }
+  ]
+}

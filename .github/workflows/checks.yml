@@ -26,6 +26,8 @@ jobs:
           git -C smart-trust-tools checkout -q "$ref"
       - name: Actions pinned, JSON parses, memory front matter; the journeys, their skills and their requirements hang together
         run: python3 tools/repo-checks/repo_checks.py --smart-trust-tools smart-trust-tools
+      - name: User scenarios reference real actors, stories, BPMN tasks and examples
+        run: python3 tools/user-scenarios/check.py
 
   bpmn-generated:
     # The BPMN drawings and checklists are generated from processes/content/

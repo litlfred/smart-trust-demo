@@ -1,0 +1,18 @@
+{
+  "$schema": "folio-code-list/v1",
+  "id": "record-trust",
+  "title": "How far a child's vaccination record can be trusted",
+  "description": "The ordered states of the record along the journeys, from signed paper to shared and audited abroad. Each state includes the ones before it.",
+  "source": {
+    "href": "https://github.com/litlfred/vaxlink/blob/main/src/data/journeyData.ts",
+    "note": "RECORD_TRUST_LADDER of the VaxLink walkthrough"
+  },
+  "codes": [
+    { "code": "on-paper", "label": "On paper", "definition": "Signed cards in the family's hands." },
+    { "code": "reported", "label": "Reported", "definition": "Captured, but marked unverified." },
+    { "code": "verified", "label": "Verified", "definition": "Signature checked against the WHO trust list." },
+    { "code": "scheduled", "label": "Scheduled", "definition": "Counts toward the Lao schedule." },
+    { "code": "portable", "label": "Portable", "definition": "A full summary the family can share." },
+    { "code": "shared-audited", "label": "Shared and audited", "definition": "Viewed abroad, and every access logged at home." }
+  ]
+}

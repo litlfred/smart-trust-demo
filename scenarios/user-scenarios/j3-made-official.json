@@ -1,0 +1,170 @@
+{
+  "$schema": "user-scenario/0.1.0",
+  "id": "j3-made-official",
+  "title": "J3 — Made official",
+  "description": "A nurse verifies the cards are genuine and fits the Thai doses into the Lao schedule.",
+  "personas": [
+    "chanthasone",
+    "khamla-sengmany"
+  ],
+  "follows": "j2-found-at-home",
+  "when": "4 weeks later",
+  "where": "Vientiane District Health Center",
+  "country": "Lao PDR",
+  "trustLadder": "record-trust",
+  "steps": [
+    {
+      "id": "J3a",
+      "title": "The clinic confirms the cards are genuine",
+      "headline": "Nurse Chanthasone scans the card, and her tablet checks Thailand’s digital signature against the WHO trust list — without contacting Thailand.",
+      "when": "T0 + 4 weeks",
+      "where": "Vientiane District Health Center",
+      "touchpoint": "Clinic tablet (verification)",
+      "preconditions": [
+        {
+          "title": "The DID documents are already loaded",
+          "description": "**Precondition: the DID documents are already loaded.** Loading them is not a step of this visit. The clinic may be offline all day, so the EHR fetches nothing during it: its trust store holds the GDHCN DEV trust list as it was last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). A clinic with no connection of its own refreshes it about weekly, when the CHW visits the base clinic or district health office, where Country B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until the next refresh.",
+          "requirements": [
+            "STT-TRU-001",
+            "STT-TRU-002",
+            "STT-TRU-005",
+            "STT-VER-006"
+          ]
+        }
+      ],
+      "narrative": "Nurse Chanthasone opens the referral and scans the QRs. The EHR\n**verifies** each DVC offline against that copy (STT-VER-001…009,\nSTT-KID-002), without contacting Thailand. Both verify, so it imports them as\nFHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\ndoses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\nthe reason, the doses stay unverified, and the nurse decides by national\ncatch-up policy.",
+      "lead": "chanthasone",
+      "experiences": [
+        {
+          "actor": "chanthasone",
+          "doing": "Scans the card; the tablet confirms the Thai signature and marks the doses verified.",
+          "feeling": "“A green tick — I can trust a hospital I’ve never heard of.”",
+          "emotion": 2
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Brings Somsack in for the referral visit.",
+          "feeling": "“They believe the Thai papers!”",
+          "emotion": 1
+        }
+      ],
+      "painPoint": "Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly.",
+      "enabler": "Thailand’s signing key is on the shared WHO trust list, so any clinic can check it locally.",
+      "policy": "Trust is decentralized: a Lao clinic verifies a Thai signature itself, without contacting Thailand.",
+      "record": {
+        "state": "verified",
+        "description": "Doses verified; Thailand recorded as the source",
+        "heldWhere": "District clinic records"
+      },
+      "handoff": {
+        "summary": "Verified doses, ready to schedule"
+      },
+      "whatIf": [
+        {
+          "scenario": "The card has been tampered with.",
+          "outcome": "The signature check fails, the doses stay unverified and the nurse follows the local catch-up policy."
+        }
+      ],
+      "stories": [
+        "home-clinic-provider-1",
+        "caregiver-1"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j3-clinic-verification-schedule.bpmn",
+          "tasks": [
+            "Task_Scan",
+            "Task_Verify",
+            "Gateway_Verified",
+            "Task_Unverified",
+            "Task_Import"
+          ]
+        }
+      ],
+      "requirements": [
+        "STT-VER-001",
+        "STT-VER-002",
+        "STT-VER-003",
+        "STT-VER-004",
+        "STT-VER-005",
+        "STT-VER-006",
+        "STT-VER-007",
+        "STT-VER-008",
+        "STT-VER-009",
+        "STT-KID-002"
+      ],
+      "examples": [
+        "Immunization/TrustDemoJ3HepB",
+        "Immunization/TrustDemoJ3Bcg",
+        "Provenance/TrustDemoJ3Verification"
+      ]
+    },
+    {
+      "id": "J3b",
+      "title": "Thai vaccines are fitted to the Lao schedule",
+      "headline": "The Thai Hep B product doesn’t match anything on the Lao schedule. Chanthasone makes the clinical call, and the system works out what’s due next.",
+      "when": "T0 + 4 weeks",
+      "where": "Vientiane District Health Center",
+      "touchpoint": "Clinic tablet (vaccine matching + schedule)",
+      "narrative": "The Thai Hep B product matches nothing on the national schedule.\nThe EHR keeps Thailand's product coding and adds the schedule coding beside\nit, from the national map (`TrustDemoProductToLaoEpi`). For the Hep B product\nthe map has no entry, so Nurse Chanthasone makes the clinical call that it is\nthe schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is\nadded to the map for the next clinic. The schedule (`TrustDemoLaoInfantSchedule`)\nthen runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\nat 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n(`TrustDemoJ3Reminder`). Over the year Somsack gets those doses and\nmeasles-rubella at 9 months, in Lao PDR.",
+      "lead": "chanthasone",
+      "experiences": [
+        {
+          "actor": "chanthasone",
+          "doing": "Confirms the Thai product equals the Lao birth dose; the system books the 6-week vaccines.",
+          "feeling": "“Different name, same vaccine — I can make that call.”",
+          "emotion": 1
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Leaves with a date for Somsack’s next vaccines.",
+          "feeling": "“Now I know exactly when to come back.”",
+          "emotion": 2
+        }
+      ],
+      "painPoint": "Countries name and package vaccines differently, so doses get missed or repeated.",
+      "enabler": "Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due.",
+      "policy": "Never overwrite another country’s record: keep the original coding alongside the national one.",
+      "record": {
+        "state": "scheduled",
+        "description": "Birth doses count; next appointment booked",
+        "heldWhere": "Lao national health records"
+      },
+      "handoff": {
+        "summary": "Somsack continues on the Lao schedule for a year"
+      },
+      "whatIf": [
+        {
+          "scenario": "There is no automatic match for the foreign vaccine.",
+          "outcome": "That is exactly this step. The nurse decides — and her decision could be shared so the next nurse doesn’t have to."
+        }
+      ],
+      "stories": [
+        "home-clinic-provider-2",
+        "home-clinic-provider-3",
+        "caregiver-1"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j3-clinic-verification-schedule.bpmn",
+          "tasks": [
+            "Task_Map",
+            "Task_Schedule",
+            "Task_Plan"
+          ]
+        }
+      ],
+      "examples": [
+        "Immunization/TrustDemoLaoPenta1",
+        "Immunization/TrustDemoLaoBopv1",
+        "Immunization/TrustDemoLaoPcv1",
+        "Immunization/TrustDemoLaoMr1",
+        "ConceptMap/TrustDemoProductToLaoEpi",
+        "Provenance/TrustDemoJ3Adjudication",
+        "PlanDefinition/TrustDemoLaoInfantSchedule",
+        "ImmunizationRecommendation/TrustDemoJ3Recommendation",
+        "Task/TrustDemoJ3Reminder"
+      ]
+    }
+  ]
+}

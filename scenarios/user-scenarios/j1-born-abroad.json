@@ -1,0 +1,118 @@
+{
+  "$schema": "user-scenario/0.1.0",
+  "id": "j1-born-abroad",
+  "title": "J1 — Born abroad",
+  "description": "A Lao baby gets his first vaccines in Thailand and leaves with signed paper cards.",
+  "personas": [
+    "anan",
+    "somsack-sengmany",
+    "khamla-sengmany"
+  ],
+  "when": "birth day",
+  "where": "Thailand",
+  "country": "Thailand",
+  "trustLadder": "record-trust",
+  "steps": [
+    {
+      "id": "J1",
+      "title": "A Lao baby is born in Thailand",
+      "headline": "Somsack gets his birth vaccines in a Thai hospital — and the only thing that will cross the border with him is a pair of paper cards.",
+      "when": "T0 · Birth day",
+      "where": "Chiang Rai Provincial Hospital",
+      "touchpoint": "Hospital records + printed QR cards",
+      "preconditions": [
+        {
+          "title": "The issuer's DSC is on the trust list",
+          "description": "**Precondition: the issuer's DSC is on the trust list.** XXR's document signer certificate (DSC), issued under XXR's Country Signing CA (CSCA), was shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN publishes it as a DID document. Sharing it is not a step of issuing. A DVC signed with a key whose DSC was never shared fails every receiver's trust-list check (STT-VER-006).",
+          "requirements": [
+            "STT-VER-006"
+          ]
+        }
+      ],
+      "narrative": "Khamla gives birth to Somsack on 2025-10-28 at Chiang Rai Provincial\nHospital, away from home. He has no Thai identity number. Dr Anan gives the\nHep B and BCG birth doses and records them with their WHO PreQual product\ncodes. For each dose, the hospital system does three things:\n\n1. It builds a DVCMinPreQual payload: STT-PAY-001…005 and STT-PAY-007, with subclaim −6 (STT-SEL-003). No identity document is needed (STT-PAY-005).\n2. It prepares the CWT and the bytes to sign: STT-CWT-001…005, STT-ISS-004.\n3. It has XXR's key sign them (STT-COS-002, STT-COS-006), then finishes the HC1 text: STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001, STT-QR-001.\n\nKhamla leaves with two paper DVCs.\n*In the demo:* the library tests use the WHO guide's own two signed HC1\nstrings ([QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)),\nwhich verify against the live DEV trust list under the same XXR key. Somsack's\nDVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a\nTEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs\ndo not verify in J3.",
+      "lead": "anan",
+      "experiences": [
+        {
+          "actor": "anan",
+          "doing": "Gives Hep B and BCG birth doses and prints two signed QR vaccine cards.",
+          "feeling": "“He isn’t Thai, but he still needs a record he can take home.”",
+          "emotion": 1
+        },
+        {
+          "actor": "somsack-sengmany",
+          "doing": "Is born, and gets his Hep B and BCG birth doses within hours.",
+          "feeling": "“Two small jabs, and a record that will follow him.”",
+          "emotion": 0
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Gives birth away from home and receives two paper cards at discharge.",
+          "feeling": "“Will anyone back home believe these papers?”",
+          "emotion": -1
+        }
+      ],
+      "painPoint": "The baby has no Thai ID number, so his records would normally stay locked inside the Thai hospital’s system.",
+      "enabler": "A digitally signed QR card travels with the family — no ID number or database lookup needed.",
+      "policy": "Babies born abroad can get a verifiable vaccine record before they have the host country’s civil registration or a national ID — and registering the birth at home still matters.",
+      "record": {
+        "state": "on-paper",
+        "description": "2 signed paper cards (Hep B, BCG)",
+        "heldWhere": "Khamla’s bag"
+      },
+      "handoff": {
+        "summary": "Two paper cards go home with Khamla"
+      },
+      "whatIf": [
+        {
+          "scenario": "The cards are lost on the way home.",
+          "outcome": "The doses still happened, but no proof travels. Lao clinicians must re-vaccinate or rely on memory."
+        }
+      ],
+      "stories": [
+        "birth-clinic-vaccinator-1",
+        "caregiver-1"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j1-birth-dose-dvc.bpmn",
+          "tasks": [
+            "Task_Vaccinate",
+            "Task_Payload",
+            "Task_Prepare",
+            "Task_Sign",
+            "Task_Finish",
+            "Task_Print"
+          ]
+        }
+      ],
+      "requirements": [
+        "STT-PAY-001",
+        "STT-PAY-002",
+        "STT-PAY-003",
+        "STT-PAY-004",
+        "STT-PAY-005",
+        "STT-PAY-007",
+        "STT-SEL-003",
+        "STT-CWT-001",
+        "STT-CWT-002",
+        "STT-CWT-003",
+        "STT-CWT-004",
+        "STT-CWT-005",
+        "STT-ISS-004",
+        "STT-COS-002",
+        "STT-COS-006",
+        "STT-COS-001",
+        "STT-ZIP-001",
+        "STT-B45-001",
+        "STT-HC1-001",
+        "STT-QR-001",
+        "STT-ISS-003"
+      ],
+      "examples": [
+        "Patient/TrustDemoThSomsack",
+        "Immunization/TrustDemoJ1HepB",
+        "Immunization/TrustDemoJ1Bcg"
+      ]
+    }
+  ]
+}
