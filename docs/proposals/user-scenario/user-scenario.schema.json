@@ -9,71 +9,206 @@
     "user-scenario/0.1.0": {
       "type": "object",
       "properties": {
-        "$schema": { "const": "user-scenario/0.1.0" },
-        "id": { "$ref": "#/$defs/id", "description": "DAK UserScenario.id." },
-        "title": { "type": "string", "minLength": 1, "description": "DAK UserScenario.title." },
-        "description": { "type": "string", "minLength": 1, "description": "DAK UserScenario.description[x]: Markdown, or a repository-relative path to a .md file." },
+        "$schema": {
+          "const": "user-scenario/0.1.0"
+        },
+        "id": {
+          "$ref": "#/$defs/id",
+          "description": "DAK UserScenario.id."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "DAK UserScenario.title."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "DAK UserScenario.description[x]: Markdown, or a repository-relative path to a .md file."
+        },
         "personas": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/id" },
+          "items": {
+            "$ref": "#/$defs/id"
+          },
           "description": "DAK UserScenario.personas: the ids of the actors (scenarios/actors/*.json) who take part. Every actor a step names is listed here."
         },
-        "partOf": { "$ref": "#/$defs/id", "description": "The scenario this one continues, when a larger story is told as several scenarios (J1 → J2 → J3 → J4)." },
-        "sequence": { "type": "integer", "minimum": 1, "description": "Position within partOf." },
-        "when": { "type": "string", "minLength": 1, "description": "When the scenario happens, in the story's own terms (\"birth day\", \"+3 weeks\")." },
-        "where": { "type": "string", "minLength": 1 },
-        "country": { "type": "string", "minLength": 1 },
-        "trustLadder": { "type": "string", "minLength": 1, "description": "The id of the code-list whose ordered codes are the record's trust states (step.record.state)." },
+        "follows": {
+          "$ref": "#/$defs/id",
+          "description": "The scenario this one continues, when one story is told as several scenarios (J2 follows J1). The first has none."
+        },
+        "when": {
+          "type": "string",
+          "minLength": 1,
+          "description": "When the scenario happens, in the story's own terms (\"birth day\", \"+3 weeks\")."
+        },
+        "where": {
+          "type": "string",
+          "minLength": 1
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trustLadder": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The id of the code-list whose ordered codes are the record's trust states (step.record.state)."
+        },
         "steps": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/step" },
+          "items": {
+            "$ref": "#/$defs/step"
+          },
           "description": "The scenario in order. Step ids are unique within the scenario."
         }
       },
-      "required": ["$schema", "id", "title", "description", "personas", "steps"],
+      "required": [
+        "$schema",
+        "id",
+        "title",
+        "description",
+        "personas",
+        "steps"
+      ],
       "additionalProperties": false
     },
     "step": {
       "type": "object",
       "properties": {
-        "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]*$", "description": "The step's code in the story (J1, J2a, J4.0b)." },
-        "title": { "type": "string", "minLength": 1 },
-        "headline": { "type": "string", "minLength": 1, "description": "One sentence that tells the step." },
-        "when": { "type": "string", "minLength": 1 },
-        "where": { "type": "string", "minLength": 1 },
-        "touchpoint": { "type": "string", "minLength": 1, "description": "What the people touch: a paper card, an app, a QR." },
-        "lead": { "$ref": "#/$defs/id", "description": "The actor the step is told through." },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]*$",
+          "description": "The step's code in the story (J1, J2a, J4.0b)."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 1,
+          "description": "One sentence that tells the step."
+        },
+        "when": {
+          "type": "string",
+          "minLength": 1
+        },
+        "where": {
+          "type": "string",
+          "minLength": 1
+        },
+        "touchpoint": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What the people touch: a paper card, an app, a QR."
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Markdown."
+              },
+              "requirements": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "required": [
+              "title",
+              "description"
+            ],
+            "additionalProperties": false
+          },
+          "description": "What must already hold before the step, and is not a part of it (a DSC shared with the trust anchor, a trust list loaded)."
+        },
+        "narrative": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The step told in full, Markdown, naming the requirements and examples in the order they happen. docs/journeys.md \"User scenarios\" is generated from it."
+        },
+        "lead": {
+          "$ref": "#/$defs/id",
+          "description": "The actor the step is told through."
+        },
         "experiences": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/experience" },
+          "items": {
+            "$ref": "#/$defs/experience"
+          },
           "description": "One per actor present, the lead among them."
         },
-        "painPoint": { "type": "string", "minLength": 1, "description": "What goes wrong without the enabler." },
-        "enabler": { "type": "string", "minLength": 1, "description": "What makes the step work." },
+        "painPoint": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What goes wrong without the enabler."
+        },
+        "enabler": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What makes the step work."
+        },
         "record": {
           "type": "object",
           "properties": {
-            "state": { "type": "string", "minLength": 1, "description": "A code of the scenario's trustLadder." },
-            "description": { "type": "string", "minLength": 1 },
-            "heldWhere": { "type": "string", "minLength": 1 }
+            "state": {
+              "type": "string",
+              "minLength": 1,
+              "description": "A code of the scenario's trustLadder."
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "heldWhere": {
+              "type": "string",
+              "minLength": 1
+            }
           },
-          "required": ["state", "description", "heldWhere"],
+          "required": [
+            "state",
+            "description",
+            "heldWhere"
+          ],
           "additionalProperties": false,
           "description": "How far the record can be trusted once the step is done, and where it is."
         },
         "handoff": {
           "type": "object",
           "properties": {
-            "summary": { "type": "string", "minLength": 1 },
-            "from": { "$ref": "#/$defs/id" },
-            "to": { "$ref": "#/$defs/id" },
-            "offline": { "type": "boolean" }
+            "summary": {
+              "type": "string",
+              "minLength": 1
+            },
+            "from": {
+              "$ref": "#/$defs/id"
+            },
+            "to": {
+              "$ref": "#/$defs/id"
+            },
+            "offline": {
+              "type": "boolean"
+            }
           },
-          "required": ["summary"],
+          "required": [
+            "summary"
+          ],
           "additionalProperties": false,
           "description": "What passes on to the next step."
         },
@@ -82,10 +217,19 @@
           "items": {
             "type": "object",
             "properties": {
-              "scenario": { "type": "string", "minLength": 1 },
-              "outcome": { "type": "string", "minLength": 1 }
+              "scenario": {
+                "type": "string",
+                "minLength": 1
+              },
+              "outcome": {
+                "type": "string",
+                "minLength": 1
+              }
             },
-            "required": ["scenario", "outcome"],
+            "required": [
+              "scenario",
+              "outcome"
+            ],
             "additionalProperties": false
           },
           "description": "Alternative paths: what happens if something differs. A path the BPMN draws is linked through realisedBy instead."
@@ -93,7 +237,9 @@
         "stories": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "$ref": "#/$defs/id" },
+          "items": {
+            "$ref": "#/$defs/id"
+          },
           "description": "The user stories (scenarios/stories.json, DAK FunctionalRequirement) this step satisfies, in whole or in part. A story may be satisfied across several steps."
         },
         "realisedBy": {
@@ -101,10 +247,25 @@
           "items": {
             "type": "object",
             "properties": {
-              "process": { "type": "string", "minLength": 1, "description": "Path of the BPMN file, relative to the repository root." },
-              "tasks": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 }, "description": "Ids of the flow nodes in that process. Omitted: the whole process." }
+              "process": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Path of the BPMN file, relative to the repository root."
+              },
+              "tasks": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": "Ids of the flow nodes in that process. Omitted: the whole process."
+              }
             },
-            "required": ["process"],
+            "required": [
+              "process"
+            ],
             "additionalProperties": false
           },
           "description": "The BPMN that carries the step out. One step may span processes; one process may span steps."
@@ -112,30 +273,61 @@
         "requirements": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1 },
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
           "description": "Ids of the requirements the step exercises (smart-trust-tools req: nodes, e.g. STT-PAY-001)."
         },
         "examples": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "type": "string", "pattern": "^[A-Z][A-Za-z]+/[A-Za-z0-9.-]+$" },
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Za-z]+/[A-Za-z0-9.-]+$"
+          },
           "description": "The FHIR examples the step produces, as Type/id."
         }
       },
-      "required": ["id", "title", "lead", "experiences"],
+      "required": [
+        "id",
+        "title",
+        "lead",
+        "experiences"
+      ],
       "additionalProperties": false
     },
     "experience": {
       "type": "object",
       "properties": {
-        "actor": { "$ref": "#/$defs/id" },
-        "doing": { "type": "string", "minLength": 1 },
-        "feeling": { "type": "string", "minLength": 1, "description": "In their own words." },
-        "emotion": { "type": "integer", "minimum": -2, "maximum": 2, "description": "-2 distressed, -1 worried, 0 neutral, 1 reassured, 2 delighted." }
+        "actor": {
+          "$ref": "#/$defs/id"
+        },
+        "doing": {
+          "type": "string",
+          "minLength": 1
+        },
+        "feeling": {
+          "type": "string",
+          "minLength": 1,
+          "description": "In their own words."
+        },
+        "emotion": {
+          "type": "integer",
+          "minimum": -2,
+          "maximum": 2,
+          "description": "-2 distressed, -1 worried, 0 neutral, 1 reassured, 2 delighted."
+        }
       },
-      "required": ["actor", "doing"],
+      "required": [
+        "actor",
+        "doing"
+      ],
       "additionalProperties": false
     },
-    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    }
   }
 }

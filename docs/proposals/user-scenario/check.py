@@ -10,7 +10,8 @@ References, which a JSON Schema cannot express:
 - step.realisedBy: the BPMN file exists and each task id is a node in it;
 - step.record.state: a code of the code-list trustLadder names (example/);
 - step.examples: an FSH Instance with that id in input/fsh/;
-- step ids unique within the scenario.
+- step ids unique within the scenario;
+- follows: another scenario here, and the chain has no loop.
 step.requirements are not checked here: smart-trust-tools' req: nodes are a
 mounted layer.
 
@@ -86,6 +87,18 @@ def main():
             for ex in st.get("examples", []):
                 if ex.split("/", 1)[-1] not in instances:
                     errors.append(f"{where}: no FSH Instance {ex}")
+    ids = {json.loads(f.read_text())["id"]: json.loads(f.read_text()).get("follows") for f in scenarios}
+    for sid, prev in ids.items():
+        seen_chain = {sid}
+        while prev:
+            if prev not in ids:
+                errors.append(f"scenario {sid}: follows unknown scenario {prev}")
+                break
+            if prev in seen_chain:
+                errors.append(f"scenario {sid}: the follows chain loops")
+                break
+            seen_chain.add(prev)
+            prev = ids[prev]
     for e in errors:
         print(e)
     print(f"user-scenario check: {len(scenarios)} scenario(s), {len(errors)} problem(s)")

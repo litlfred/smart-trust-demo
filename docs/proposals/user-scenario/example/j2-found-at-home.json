@@ -1,0 +1,154 @@
+{
+  "$schema": "user-scenario/0.1.0",
+  "id": "j2-found-at-home",
+  "title": "J2 — Found at home",
+  "description": "A health worker registers him offline and records the cards as \"reported, not yet verified\".",
+  "personas": [
+    "vilay",
+    "somsack-sengmany",
+    "khamla-sengmany",
+    "bounmy-sengmany"
+  ],
+  "follows": "j1-born-abroad",
+  "when": "3 weeks later",
+  "where": "Village 04, Lao PDR",
+  "country": "Lao PDR",
+  "trustLadder": "record-trust",
+  "steps": [
+    {
+      "id": "J2a",
+      "title": "A health worker finds the baby at home",
+      "headline": "On a routine village visit, Vilay discovers a newborn the Lao system doesn’t know exists — and registers him with no signal.",
+      "when": "T0 + 3 weeks",
+      "where": "Catchment Village 04",
+      "touchpoint": "Offline phone app (household form)",
+      "narrative": "On a routine visit to Village 04, Vilay finds a newborn the Lao\nsystem does not know exists. Her phone has had no signal for weeks. On the\nCHW app's newborn form (structured data capture, `TrustDemoHouseholdRegistration`)\nshe adds Somsack to the Sengmany household (`TrustDemoHousehold`), with a\ntemporary id. Bounmy confirms the details as head of household.",
+      "lead": "vilay",
+      "experiences": [
+        {
+          "actor": "vilay",
+          "doing": "Adds Somsack to the Sengmany household roster on her offline phone.",
+          "feeling": "“No signal for weeks — but I need to register him today.”",
+          "emotion": 0
+        },
+        {
+          "actor": "somsack-sengmany",
+          "doing": "Is added to his household: the Lao health system now knows he exists.",
+          "feeling": "“Three weeks old, and now he counts.”",
+          "emotion": 1
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Tells Vilay about the birth in Thailand and shows the cards.",
+          "feeling": "“I hope we’re not in trouble for giving birth abroad.”",
+          "emotion": -1
+        },
+        {
+          "actor": "bounmy-sengmany",
+          "doing": "Confirms household details as head of household.",
+          "feeling": "“Good, he’s on our family record now.”",
+          "emotion": 0
+        }
+      ],
+      "painPoint": "Babies born abroad are invisible to the home health system until civil registration catches up — sometimes months later.",
+      "enabler": "An offline form links the baby to his household immediately; it syncs once the phone finds a signal.",
+      "record": {
+        "state": "on-paper",
+        "description": "Baby registered; vaccines still only on paper",
+        "heldWhere": "Paper cards + CHW phone"
+      },
+      "handoff": {
+        "summary": "Somsack is now on the household roster"
+      },
+      "whatIf": [
+        {
+          "scenario": "Vilay’s phone stays offline for 28 days.",
+          "outcome": "Everything stays queued safely on the device and syncs when she next reaches the health center."
+        }
+      ],
+      "stories": [
+        "community-health-worker-3"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j2-chw-discovery-referral.bpmn",
+          "tasks": [
+            "Task_Register"
+          ]
+        }
+      ],
+      "examples": [
+        "Questionnaire/TrustDemoHouseholdRegistration",
+        "Group/TrustDemoHousehold"
+      ]
+    },
+    {
+      "id": "J2b",
+      "title": "The cards are scanned — but not trusted yet",
+      "headline": "Vilay can read the vaccines on the cards, but she can’t prove they are genuine. So she records them as “reported” and refers the family on.",
+      "when": "T0 + 3 weeks",
+      "where": "Catchment Village 04",
+      "touchpoint": "Offline phone app (QR scan + referral)",
+      "narrative": "Khamla shows the two cards. The CHW app reads them with\n**read-unverified** (STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003),\nwhich needs no trust list. It shows the doses and saves them as reported by\nthe family, not verified (`TrustDemoJ2HepBReported`, `TrustDemoJ2BcgReported`:\n`primarySource` false). Vilay refers Somsack to the district health center\n(`TrustDemoJ2Referral`). Everything stays queued on the phone, for 28 days if\nneed be, and syncs when it next reaches a signal.",
+      "lead": "vilay",
+      "experiences": [
+        {
+          "actor": "vilay",
+          "doing": "Scans both QR cards, saves them as unverified and books a clinic referral.",
+          "feeling": "“I can read it, but I can’t prove it’s real out here.”",
+          "emotion": 0
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Receives a referral to the District Health Center.",
+          "feeling": "“Another trip — but at least they know about his vaccines now.”",
+          "emotion": 0
+        }
+      ],
+      "painPoint": "Without a check, a forged or mistyped card could quietly become an official record.",
+      "enabler": "The app keeps “what the family told us” clearly separate from “what we have verified”.",
+      "record": {
+        "state": "reported",
+        "description": "2 doses saved as “reported by family”",
+        "heldWhere": "CHW phone (waiting to sync)"
+      },
+      "handoff": {
+        "summary": "Referral to the District Health Center"
+      },
+      "whatIf": [
+        {
+          "scenario": "What if the CHW phone could verify signatures offline too?",
+          "outcome": "Technically possible with a cached trust list — but who keeps it current on thousands of village phones?"
+        }
+      ],
+      "stories": [
+        "community-health-worker-1",
+        "community-health-worker-2"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j2-chw-discovery-referral.bpmn",
+          "tasks": [
+            "Task_Show",
+            "Task_Scan",
+            "Task_Read",
+            "Task_Register",
+            "Task_Refer",
+            "Task_Slip"
+          ]
+        }
+      ],
+      "requirements": [
+        "STT-VER-011",
+        "STT-B45-002",
+        "STT-ZIP-002",
+        "STT-CBR-003"
+      ],
+      "examples": [
+        "Immunization/TrustDemoJ2HepBReported",
+        "Immunization/TrustDemoJ2BcgReported",
+        "ServiceRequest/TrustDemoJ2Referral"
+      ]
+    }
+  ]
+}

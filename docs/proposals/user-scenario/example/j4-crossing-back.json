@@ -1,0 +1,231 @@
+{
+  "$schema": "user-scenario/0.1.0",
+  "id": "j4-crossing-back",
+  "title": "J4 — Crossing back",
+  "description": "The family shares his full record with a Thai doctor using a link on Dad’s phone.",
+  "personas": [
+    "bounmy-sengmany",
+    "khamla-sengmany",
+    "anan",
+    "somsack-sengmany"
+  ],
+  "follows": "j3-made-official",
+  "when": "12 months later",
+  "where": "Lao PDR → Thailand",
+  "country": "Cross-Border",
+  "trustLadder": "record-trust",
+  "steps": [
+    {
+      "id": "J4.0a",
+      "title": "One phone holds the whole family’s records",
+      "headline": "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
+      "when": "T0 + 12 months",
+      "where": "Vientiane, Lao PDR",
+      "touchpoint": "Family wallet app on Dad’s phone",
+      "narrative": "The family plans a trip to Thailand. Bounmy's phone holds the\nfamily wallet, with a profile for each of them. Somsack's summary\n(`TrustDemoJ4Ips`) shows six doses: two from Thailand, four from Lao PDR.",
+      "lead": "bounmy-sengmany",
+      "experiences": [
+        {
+          "actor": "bounmy-sengmany",
+          "doing": "Opens the family wallet: profiles for himself, Khamla and Somsack.",
+          "feeling": "“One phone, three people — I can manage all of us.”",
+          "emotion": 1
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Relies on Bounmy’s phone for her own and the baby’s records.",
+          "feeling": "“It’s on his phone. What if I travel without him?”",
+          "emotion": -1
+        }
+      ],
+      "painPoint": "Many families share one smartphone; one-app-per-person designs leave them out.",
+      "enabler": "A household wallet on one phone, with a separate health summary for each person.",
+      "record": {
+        "state": "portable",
+        "description": "12-month summary: 2 Thai + 4 Lao doses",
+        "heldWhere": "Lao national records + family wallet"
+      },
+      "handoff": {
+        "summary": "Somsack’s summary is ready to share"
+      },
+      "whatIf": [
+        {
+          "scenario": "Khamla travels alone with Somsack.",
+          "outcome": "Who can access the baby’s record without Bounmy’s phone? Delegated access within a household is still an open design question."
+        }
+      ],
+      "stories": [
+        "caregiver-2"
+      ],
+      "examples": [
+        "Bundle/TrustDemoJ4Ips"
+      ]
+    },
+    {
+      "id": "J4.0b",
+      "title": "Dad creates a link to share at the clinic",
+      "headline": "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR.",
+      "when": "T0 + 12 months",
+      "where": "Lao–Thai Friendship Bridge",
+      "touchpoint": "Family wallet app (share link)",
+      "preconditions": [
+        {
+          "title": "Country B's DSC is shared with the trust anchor",
+          "description": "**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1.",
+          "requirements": []
+        }
+      ],
+      "narrative": "For Somsack, Bounmy shares his record with a 4-digit passcode he\ncan say aloud, valid for 14 days. The portal records his consent\n(`TrustDemoJ4Consent`), then does three things:\n\n1. It assembles the IPS and Somsack's DVCs.\n2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n\nThe QR holds only a pointer and a key: the record stays in Lao PDR.",
+      "lead": "bounmy-sengmany",
+      "experiences": [
+        {
+          "actor": "bounmy-sengmany",
+          "doing": "Creates a passcode-protected QR link for Somsack, valid for 14 days.",
+          "feeling": "“I decide who sees it, and for how long.”",
+          "emotion": 2
+        }
+      ],
+      "painPoint": "Sending photos or PDFs of records leaks data and can’t be verified by the receiver.",
+      "enabler": "A Verifiable Health Link: the QR holds only a locked pointer; the data stays home until the passcode is given.",
+      "record": {
+        "state": "portable",
+        "description": "Shareable link created; data stays in Lao PDR",
+        "heldWhere": "Lao national records (QR is just a pointer)"
+      },
+      "handoff": {
+        "summary": "A QR on Dad’s phone + a passcode he can say aloud"
+      },
+      "whatIf": [
+        {
+          "scenario": "Bounmy’s phone battery dies at the clinic.",
+          "outcome": "The link could be printed in advance, and the original paper cards still prove the birth doses."
+        }
+      ],
+      "stories": [
+        "caregiver-2",
+        "caregiver-3"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j4-0-family-vhl-issuance.bpmn",
+          "tasks": [
+            "Task_Request",
+            "Task_Assemble",
+            "Task_Share",
+            "Task_Prepare",
+            "Task_Sign",
+            "Task_Finish",
+            "Task_Store"
+          ]
+        }
+      ],
+      "requirements": [
+        "STT-VHL-004",
+        "STT-VHL-007",
+        "STT-VHL-009",
+        "STT-VHL-001",
+        "STT-VHL-002"
+      ],
+      "examples": [
+        "Composition/TrustDemoJ4Composition",
+        "Consent/TrustDemoJ4Consent"
+      ]
+    },
+    {
+      "id": "J4.1",
+      "title": "A Thai doctor sees the full history",
+      "headline": "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Lao PDR is told who looked.",
+      "when": "T0 + 12 months",
+      "where": "Chiang Rai primary care clinic",
+      "touchpoint": "Clinic viewer (scan link + passcode)",
+      "preconditions": [
+        {
+          "title": "The DID documents are already loaded",
+          "description": "**Precondition, as in J3: the DID documents are already loaded.** The clinic viewer's trust store is a cached copy of the GDHCN trust list, including Country B's DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). The clinic refreshes it nightly or hourly, against about weekly at the offline J3 clinic. It does not need to be online to verify: verifying reads the cache and never fetches the list. A DSC published after the last refresh fails the trust-list check (STT-VER-006), naming that reason.",
+          "requirements": [
+            "STT-TRU-001",
+            "STT-TRU-002",
+            "STT-TRU-005",
+            "STT-VER-006"
+          ]
+        }
+      ],
+      "narrative": "Back where it began, Dr Anan sees Somsack at a primary care clinic in\nChiang Rai. Bounmy shows the QR on his phone and says the passcode. The\nclinic viewer and the Lao gateway take five steps:\n\n1. The viewer verifies the HCERT against Country B's DSC in its copy of the trust list.\n2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).\n3. The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home (`TrustDemoJ41Access`).\n4. The viewer decrypts the IPS and DVCs (STT-VHL-007) (`TrustDemoJ41Received`).\n5. It shows them to Dr Anan: every dose since the birth, viewed, never copied.\n\nA wrong passcode is refused, and the attempt is still logged in Lao PDR\n(`TrustDemoJ41WrongPasscode`). If the HCERT does not verify (for example,\nCountry B's DSC is missing from the cached list), there is no digital\nverification. The clinic names the step and the reason (STT-VER-008), does not\nfollow the VHL, and Dr Anan treats whatever the family can show as he\nwould a paper record.",
+      "lead": "anan",
+      "experiences": [
+        {
+          "actor": "anan",
+          "doing": "Scans the QR, enters the passcode Bounmy tells him, and sees all six doses.",
+          "feeling": "“Born here, vaccinated there — and I can see all of it.”",
+          "emotion": 2
+        },
+        {
+          "actor": "somsack-sengmany",
+          "doing": "Back in Chiang Rai with a fever, he is seen by the doctor who vaccinated him at birth.",
+          "feeling": "“A strange room, but nobody has to guess what he has had.”",
+          "emotion": 1
+        },
+        {
+          "actor": "bounmy-sengmany",
+          "doing": "Shows the QR on his phone and says the passcode out loud.",
+          "feeling": "“No folder of papers this time.”",
+          "emotion": 2
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Watches the doctor see everything that happened since the birth.",
+          "feeling": "“It all followed him.”",
+          "emotion": 2
+        }
+      ],
+      "painPoint": "Without the history, the doctor would repeat vaccines or have to guess.",
+      "enabler": "The record is fetched live from Lao PDR, viewed without being copied, and an access log is sent home.",
+      "record": {
+        "state": "shared-audited",
+        "description": "Viewed in Thailand, never copied; access logged in Lao PDR",
+        "heldWhere": "Lao national records"
+      },
+      "handoff": {
+        "summary": "Journey complete — full circle back to Thailand"
+      },
+      "whatIf": [
+        {
+          "scenario": "The wrong passcode is entered.",
+          "outcome": "Access is refused and the attempt is still logged back in Lao PDR."
+        }
+      ],
+      "stories": [
+        "poc-provider-1",
+        "poc-provider-2"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j4-1-vhl-point-of-care.bpmn",
+          "tasks": [
+            "Task_Open",
+            "Task_Scan",
+            "Task_Verify",
+            "Gateway_Verified",
+            "Task_Unverified",
+            "Task_Fetch",
+            "Task_Release",
+            "Task_Decrypt",
+            "Task_Review"
+          ]
+        }
+      ],
+      "requirements": [
+        "STT-VHL-005",
+        "STT-VHL-006",
+        "STT-VHL-008",
+        "STT-VHL-007",
+        "STT-VER-008"
+      ],
+      "examples": [
+        "AuditEvent/TrustDemoJ41Access",
+        "Provenance/TrustDemoJ41Received",
+        "AuditEvent/TrustDemoJ41WrongPasscode"
+      ]
+    }
+  ]
+}
