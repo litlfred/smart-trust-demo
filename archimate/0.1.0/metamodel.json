@@ -7,7 +7,7 @@
     {
       "type": "ApplicationComponent",
       "layer": "Application",
-      "elements": 93,
+      "elements": 109,
       "ids": [
         "id-5f6d9b9678824b37b95952735420ae8d",
         "id-35d0806bcb5c46fab5102d75de09558f",
@@ -101,13 +101,29 @@
         "id-d9395311cfb1500bbcd749721107d681",
         "id-fe54ecb442715a30953e7ac96e82240d",
         "id-22bf504637d85213a6fea2d6a1c05722",
-        "id-ad7b54ac197c58518d808570205dec48"
+        "id-ad7b54ac197c58518d808570205dec48",
+        "id-c5cee8c5cb4c5b6890bea5318bd7e039",
+        "id-37ebeb20c57f5e2ebd8841bacc919d62",
+        "id-41107c2c87f85322a89c66d29a05c37a",
+        "id-f1691b937e1c5a458421da9ccedae7fe",
+        "id-c11d501a31615e8fb5c6ddf99c994c36",
+        "id-520486ae3de45136995376884547fa30",
+        "id-db2f2b4ebb095b16b8ce8a82f10ea3b9",
+        "id-b19829e1dece5000a44f201b4e678df0",
+        "id-05b47af15e09597c9e2bb30b89ed582a",
+        "id-f0a8ca88b0235750af6a22664e793272",
+        "id-3e2133e0b2965eb8bda7b8a67f088ec6",
+        "id-fc0847dd22e053819e1c2840baaad167",
+        "id-7ec832cc42b358a89183236f7cba9a64",
+        "id-988f267afe0352f0bf72b7d62648345e",
+        "id-f5fb1de5c53056cd8d7b3a03f6867280",
+        "id-5696b6438656551a8defc2c72c7029ba"
       ]
     },
     {
       "type": "Grouping",
       "layer": "Other",
-      "elements": 37,
+      "elements": 39,
       "ids": [
         "id-f3d609a68a0a4a9f96e733f0fd544701",
         "id-7a412a25c6384d72bde19e407d329b3c",
@@ -143,6 +159,8 @@
         "id-e12108f9f25257a9bfed47e23ac4205a",
         "id-58f3c49e962351a6973759db49dde0cc",
         "id-7f39e2b20adc57b190c5ce7e831dd796",
+        "id-8393ba34788c525da7f5c9a3b6751cc0",
+        "id-65795122cc715cc8914ea02ee18f0d2a",
         "id-e7be893e972b5658a4297856dbb8b130",
         "id-42ac1ab8bd4d551ea7a485b8ddd37402",
         "id-c9ef2209617a51808286092b5e3de0c0"
@@ -551,6 +569,14 @@
       "ids": [
         "id-8104985f0f0e4f4cbe3bdf032ea20759"
       ]
+    },
+    {
+      "type": "Requirement",
+      "layer": "Motivation",
+      "elements": 1,
+      "ids": [
+        "id-a2e2cfb2092b557f913b60633d85dc8c"
+      ]
     }
   ],
   "patterns": [
@@ -558,7 +584,7 @@
       "source": "Grouping",
       "relationship": "Aggregation",
       "target": "ApplicationComponent",
-      "count": 58,
+      "count": 75,
       "allowed": true,
       "relationships": [
         "id-660cd19b336a5a9f8b6eb8af40b19d05",
@@ -615,10 +641,70 @@
         "id-2e5c03bbe9565ff8aa8018758a459115",
         "id-f57af4fdba27542da7ef2d5f06626962",
         "id-80dd8bdebd0c512f85247ef4bce40029",
+        "id-91ba165e6d5c553ebf2be620df77ace7",
+        "id-3ccebbf3926d5419ab227e249f0d9ff9",
+        "id-5fadaf0796b75fa0aeba98f61c0d0f0f",
+        "id-7266b4a65cf75d2b9e2e0bac5cb8d67d",
         "id-091156c38b7e52df857ca703e7fa411f",
         "id-bbba0cdfc82055499826411c8b4b5ed0",
         "id-063f053cfc705a638629eca4ff999bb6",
-        "id-1355ae43ee4c530791158d2f6b552bb4"
+        "id-1355ae43ee4c530791158d2f6b552bb4",
+        "id-ddc15320f89d5f9bb22b8797f739138d",
+        "id-41c73ac3e81750649076ac498030a4e8",
+        "id-4d2cb4c6de655d60b1499cd34adc8f64",
+        "id-0a26705479e95af38aeeda43dc7e0d50",
+        "id-a640be4252c757328a3996674b2d5aff",
+        "id-85c5bb7f809f50fcbbf3df348bb314a9",
+        "id-f66a351dcde9545bae4d9a948c24eb3f",
+        "id-3bd8c8cdd5ee5f51b0eb8c4363af6d99",
+        "id-8b2b862d4eac58f8beb91e561eef91b5",
+        "id-d65360a164bf5b4687d4465be27b5f5d",
+        "id-08eeeb682c2554e7ab9b9e4bc96bcb7a",
+        "id-ad72fc5145a55e0a8014ccf4d12edf66",
+        "id-a997515c8f2752ff80cdcfc96a6cc6f3"
+      ]
+    },
+    {
+      "source": "ApplicationComponent",
+      "relationship": "Specialization",
+      "target": "ApplicationComponent",
+      "count": 34,
+      "allowed": true,
+      "relationships": [
+        "id-130d4aadb73d5528872e1c6312010132",
+        "id-0be0f08e603a59928c0aa2b90ce48bc5",
+        "id-c416a29125c15855a970d60cf6a2c0c1",
+        "id-d759fc0a0faf515d985bcfcb9f1a5268",
+        "id-3bac62fc4897522caf449b8af1a9db67",
+        "id-38c4c1f88c655e7daa6ddca5d15d1341",
+        "id-b41d6957673c5eafb3b7705aece34282",
+        "id-c0469e24b62b5262a8431e0d710601ab",
+        "id-1152cb6d75925165a4d561f231a718fe",
+        "id-809abe00f6cc5511b27c0acd2897a4a4",
+        "id-73f6865ab0cc5ddc815b5735533abd41",
+        "id-a9005b923a87509f9f78e2a882525abb",
+        "id-78f0de07b92a5397a36c99a9f862c32d",
+        "id-ebb4c7fadf17511b8fd68668c68eac1f",
+        "id-da1509f223ff5def8d3f8113e2d19057",
+        "id-62878cb5f5c05212994f091e745e784f",
+        "id-2ccb4b287a025906b46b7026539b6140",
+        "id-189ea589137751279df2baa62fe84632",
+        "id-5a4b9430bee35b6c96035de2cfd2638b",
+        "id-05d79f4977a55c208be92a45c9128006",
+        "id-f8bee7d183195cd9bb5b0d792c7aacce",
+        "id-1960f17ca1d75d54943fc2f697e3fdca",
+        "id-c6f24ece0a775e8d87dbc6f10b754ae7",
+        "id-c9cdc47a028450ef84b1e54468899c3d",
+        "id-1f5201fe219f506ab2d9cdcc0786b391",
+        "id-63ca8f46a7ff5103a202616b52904f95",
+        "id-3d3d434cca7f5488b1eb4f638b3954d7",
+        "id-65c8ebba528254a7a7e74a594aa22af6",
+        "id-1cc8a3fcbac754a1b502f91174219f9e",
+        "id-5c599b468dce5443bc77783dec0bcb4e",
+        "id-c5c283e84eb15695bece56efd2d4cb60",
+        "id-5bde9c8874ca5f438466bddd38351351",
+        "id-c42b50ac1bea5102b2fa8c7c1a0eef2d",
+        "id-5e38ef538e6553838b8740f6d6bff548"
       ]
     },
     {
@@ -755,29 +841,30 @@
     },
     {
       "source": "ApplicationComponent",
-      "relationship": "Specialization",
+      "relationship": "Flow",
       "target": "ApplicationComponent",
-      "count": 18,
+      "count": 19,
       "allowed": true,
       "relationships": [
-        "id-0bc8c221d8e25834804da2b816e8a1ab",
-        "id-68270cfda719534fade809432370097e",
-        "id-79cbc46849265a01afb935d3ae6fe552",
-        "id-12f2477f9d8c5a928fdca677b13ccff1",
-        "id-585a385c265f5fd08a1a065105a08fcc",
-        "id-a71563a4dfd15d50b3fd9467425a6f5f",
-        "id-47f48d4fbd8c5eefb1c6dd5f7b9f9d0f",
-        "id-47295659d81d54b1a0273c5c531467fb",
-        "id-33e8a2011323588ea42ce6a752a4c9f3",
-        "id-0724c3ba57be55479a124bc9a9768269",
-        "id-b41ad5678e9654d0b0a8715f0396d899",
-        "id-d48eb5e708825100979a380a19aa99df",
-        "id-d93f8cb726915383ba0556993e36868d",
-        "id-43a467a6461759a1aa4f0e51437ddebd",
-        "id-eeadbc133a735395b07803d286fd31ce",
-        "id-a5229f86e251575f94a912b814461342",
-        "id-caa467f64ef55ecd819fdb2a8f226cda",
-        "id-825d6a9d3b16510caa8f128db60bcd36"
+        "id-b486315e0923437cb776b4234739136e",
+        "id-48e997e7f08e45babaadd7c552057a22",
+        "id-7f2ce188187f4d8a8691bf5ff2f9f667",
+        "id-ddd4756be0a340b892e9b2b436fbe5be",
+        "id-bb7f9716a2674341a2b93e31fc597849",
+        "id-477600ecd7224ee5ac009dbca111e5b0",
+        "id-50329fe8597d46f6a4d491ff05452bd4",
+        "id-48c4ebaa067e55058b648adb4fc9a066",
+        "id-62e98e363f005228803f60435478fede",
+        "id-3198916b3bd75338bd9fe029417afe0c",
+        "id-178a93a0dcf35015bdad9671d3e33eb0",
+        "id-5020ac56f2c251158c6c8bb503f919ec",
+        "id-cadfb5c569be52fe8cfa92ec25a29601",
+        "id-efb0687f5df95180acf2e7fe33b48c1c",
+        "id-b9ba74976a6b5e77894116b8bb1fbff0",
+        "id-d71262b66c8459a38ee2568143107443",
+        "id-b08c10e943ec5c3ba0baed2d935925f6",
+        "id-14e204e97c9056709f43744ae7687f92",
+        "id-2d7438e387f151d48346ea9fdecada1a"
       ]
     },
     {
@@ -806,27 +893,28 @@
       ]
     },
     {
-      "source": "ApplicationComponent",
-      "relationship": "Flow",
-      "target": "ApplicationComponent",
-      "count": 15,
+      "source": "Grouping",
+      "relationship": "Aggregation",
+      "target": "Grouping",
+      "count": 16,
       "allowed": true,
       "relationships": [
-        "id-b486315e0923437cb776b4234739136e",
-        "id-48e997e7f08e45babaadd7c552057a22",
-        "id-7f2ce188187f4d8a8691bf5ff2f9f667",
-        "id-ddd4756be0a340b892e9b2b436fbe5be",
-        "id-bb7f9716a2674341a2b93e31fc597849",
-        "id-477600ecd7224ee5ac009dbca111e5b0",
-        "id-50329fe8597d46f6a4d491ff05452bd4",
-        "id-48c4ebaa067e55058b648adb4fc9a066",
-        "id-62e98e363f005228803f60435478fede",
-        "id-3198916b3bd75338bd9fe029417afe0c",
-        "id-178a93a0dcf35015bdad9671d3e33eb0",
-        "id-5020ac56f2c251158c6c8bb503f919ec",
-        "id-cadfb5c569be52fe8cfa92ec25a29601",
-        "id-efb0687f5df95180acf2e7fe33b48c1c",
-        "id-b9ba74976a6b5e77894116b8bb1fbff0"
+        "id-caa4fb1c34215a1aaca4e5b4148f4748",
+        "id-7760498b5b8e5825a01d16112022172a",
+        "id-14af2fec68de5cdfbfaf62ac2d88d55c",
+        "id-df37ac2742af56828f7543fc1ef3dee3",
+        "id-ee629118fae95ac3b7574f16e750fdf4",
+        "id-e783cbfe696e57ae885a07b42bbc4c19",
+        "id-89cecc1a7668545592e346abf278e8a9",
+        "id-3507380224ab50b298725e3e6d6eb762",
+        "id-9e9ace84cd30599b87f709b2e35ebac9",
+        "id-be4257c7fdd9583e8075ce8ead3277ac",
+        "id-e61daf9bb61f5a01a0beedbb9c45d3cb",
+        "id-4fe33ec0bd4d53e09db861b9a3b94e15",
+        "id-aa5a2d93f7ad5d2881ac10e7ae3e4936",
+        "id-a852c172ed3c50e085327d1d926bba39",
+        "id-1002e5edcbff585ea93c742430489cfd",
+        "id-8ae7f6b341da5694b4a78fce69c01c3d"
       ]
     },
     {
@@ -915,27 +1003,6 @@
         "id-f733c58eb3a4597188628800548ad392",
         "id-707b767b414854faba5ac128fdd47351",
         "id-8714b6d94c0a54b09776754b94b7cc21"
-      ]
-    },
-    {
-      "source": "Grouping",
-      "relationship": "Aggregation",
-      "target": "Grouping",
-      "count": 12,
-      "allowed": true,
-      "relationships": [
-        "id-caa4fb1c34215a1aaca4e5b4148f4748",
-        "id-7760498b5b8e5825a01d16112022172a",
-        "id-14af2fec68de5cdfbfaf62ac2d88d55c",
-        "id-df37ac2742af56828f7543fc1ef3dee3",
-        "id-ee629118fae95ac3b7574f16e750fdf4",
-        "id-e783cbfe696e57ae885a07b42bbc4c19",
-        "id-89cecc1a7668545592e346abf278e8a9",
-        "id-3507380224ab50b298725e3e6d6eb762",
-        "id-9e9ace84cd30599b87f709b2e35ebac9",
-        "id-be4257c7fdd9583e8075ce8ead3277ac",
-        "id-e61daf9bb61f5a01a0beedbb9c45d3cb",
-        "id-4fe33ec0bd4d53e09db861b9a3b94e15"
       ]
     },
     {
@@ -1658,12 +1725,32 @@
     },
     {
       "source": "ApplicationComponent",
+      "relationship": "Realization",
+      "target": "Requirement",
+      "count": 1,
+      "allowed": true,
+      "relationships": [
+        "id-1b17a63e22f754159d1d6d5ba5ffe112"
+      ]
+    },
+    {
+      "source": "ApplicationComponent",
       "relationship": "Serving",
       "target": "BusinessRole",
       "count": 1,
       "allowed": true,
       "relationships": [
         "id-42a891f6319b4b14a7a7ba21b20a92fc"
+      ]
+    },
+    {
+      "source": "ApplicationComponent",
+      "relationship": "Triggering",
+      "target": "ApplicationComponent",
+      "count": 1,
+      "allowed": true,
+      "relationships": [
+        "id-3bc48dc4a4325c19b2d87dd2d7bda3e0"
       ]
     },
     {
@@ -1864,6 +1951,16 @@
       "allowed": true,
       "relationships": [
         "id-dca77329c7ef5cb78ac22339f7bb5024"
+      ]
+    },
+    {
+      "source": "Grouping",
+      "relationship": "Aggregation",
+      "target": "Requirement",
+      "count": 1,
+      "allowed": true,
+      "relationships": [
+        "id-090d9d9fb7f65ad9b29c06efe3af067f"
       ]
     },
     {

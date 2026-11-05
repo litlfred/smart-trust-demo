@@ -41,18 +41,39 @@ the caregiver with <em>Citizens / Care recipients</em>, the clinicians and the
 community health worker with <em>Health Workers</em> (a role and a stakeholder are
 different element types, so ArchiMate allows an association, not a
 specialization);</li>
-  <li>the Thai and Lao systems, each a <strong>specialization</strong> of the RA building
-block it is an instance of, serving the journeys it takes part in;</li>
+  <li>the Thai and Lao systems, serving the journeys they take part in, each
+holding its parts;</li>
+  <li>for each country, its own <strong>instance</strong> of every RA building block its parts
+play, such as <em>Provider Systems (Thailand)</em> and <em>Provider Systems (Lao
+PDR)</em>: Thailand and Lao PDR are different jurisdictions, so a Thai part is
+a <strong>specialization</strong> of Thailand’s instance, which is in turn a
+specialization of the RA’s block;</li>
+  <li><strong>where the two countries meet</strong>, as flow and triggering relationships
+between their parts, read from the BPMN: the paper DVC that J1 prints and
+the family carries to J2 and J3; in J4.1, the VHL QR the family’s phone
+shows the Thai clinic, the clinic’s signed ITI-YY5 manifest request to the
+Lao gateway, and the manifest it returns, the access logged in Lao PDR;</li>
+  <li><strong>what they share</strong>, and nothing else, between them: WHO GDHCN and the WHO
+SMART Trust specifications it realizes;</li>
+  <li>the RA’s own building blocks, generic and no country’s, in a band of their
+own below both countries;</li>
   <li>each journey’s <strong>realization</strong> of the RA capabilities it exercises.</li>
 </ul>
+
+<p>Every line is routed orthogonally through the gaps between boxes and never
+through a box.</p>
 
 <p>Every box in a drawing links to its element’s page.
 <a href="en/smart-trust-demo/archimate/0.1.0/">All views and elements</a>.</p>
 
 <h3 id="systems-on-the-integrated-view">Systems on the Integrated View</h3>
 
-<p>Thailand on the left, Lao PDR on the right, the layers of the RA’s Integrated
-View (Fig. 3.2) in the middle, and WHO GDHCN beneath both.</p>
+<p>Thailand on the left, Lao PDR on the right, each with its systems above its
+instances of the RA building blocks (each instance under the part that plays
+it); between them, only what both share: WHO GDHCN and the SMART Trust
+specifications. Below both, the RA’s own building blocks, by the layers of its
+Integrated View (Fig. 3.2). The dashed lines that run from one country to the
+other are where they meet.</p>
 
 <p><a href="en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/"><img src="archimate/0.1.0/views/id-249a1002c32e50199e27a502ef0ec3d8.svg" alt="Systems on the DPI-H Integrated View" /></a></p>
 
@@ -98,14 +119,17 @@ View (Fig. 3.2) in the middle, and WHO GDHCN beneath both.</p>
 <p>The model is generated, not drawn: <code class="language-plaintext highlighter-rouge">python3 -I tools/archimate/build.py</code>
 fetches smart-ra’s model and its <code class="language-plaintext highlighter-rouge">add_views.py</code> at the commit in
 <code class="language-plaintext highlighter-rouge">tools/archimate/smart-ra.lock.json</code> (sha256 checked), applies
-<code class="language-plaintext highlighter-rouge">tools/archimate/overlay.py</code>, and writes <code class="language-plaintext highlighter-rouge">archimate/0.1.0/smart-trust-demo.archimate</code>.
+<code class="language-plaintext highlighter-rouge">tools/archimate/overlay.py</code>, lays the overlay’s views out again with room
+between the boxes and routes every line orthogonally as Archi bendpoints
+(<code class="language-plaintext highlighter-rouge">tools/archimate/layout.py</code>), and writes <code class="language-plaintext highlighter-rouge">archimate/0.1.0/smart-trust-demo.archimate</code>.
 The journeys and their people are read from <code class="language-plaintext highlighter-rouge">processes/content/</code> and
-<code class="language-plaintext highlighter-rouge">scenarios/roles.json</code>; the systems are those of VaxLink’s architecture view.
+<code class="language-plaintext highlighter-rouge">scenarios/roles.json</code>, and where the countries meet from the BPMN’s sequence
+flows; the systems are those of VaxLink’s architecture view.
 CI fails if the committed model is not what the build makes. The drawings are
 cat-harness’s <code class="language-plaintext highlighter-rouge">archimate</code> subgraph’s: no Archi, no Java.</p>
 
 <p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/architecture.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/architecture.md">Edit this page on GitHub</a></p>
-<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/architecture.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/architecture.md", "lines": [{"t":"Systems on the Integrated View","l":26},{"t":"Journeys (use cases)","l":33},{"t":"One view per journey","l":37},{"t":"How it is made","l":47}]}</script>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/architecture.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/architecture.md", "lines": [{"t":"Systems on the Integrated View","l":43},{"t":"Journeys (use cases)","l":54},{"t":"One view per journey","l":58},{"t":"How it is made","l":68}]}</script>
 
 <script src="./assets/ig-source-links.js"></script>
 

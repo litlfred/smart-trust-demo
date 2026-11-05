@@ -95,3 +95,46 @@ sequenceDiagram
   id_abd2da4297944a5ca707a28a400dfb8f->>id_e9e37f6657324db7a972a974186b61b5: Create and submit document
   id_e9e37f6657324db7a972a974186b61b5->>id_4269b5141b6347698b67225759884a71: triggers Provide and Register Document Set [ITI-41]
   id_4269b5141b6347698b67225759884a71->>id_85d7590270dc483cb500963dbe5a4fc8: Provide and Register Document Set [ITI-41]
+
+sequenceDiagram
+  %% SMART Trust demo on the DPI-H Integrated View (id-249a1002c32e50199e27a502ef0ec3d8): sequence diagram, derived by archimate-diagrams. Do not edit.
+  participant id_ffb73de262f057bd97c3d94d388f3d56 as Clinic VHL viewer
+  participant id_d87eae4466985575a8b9f78882f86565 as OHS Info Gateway and access log
+  participant id_b8885086e3c95a88ba3a7972fcde0f2d as DVC signer (HCERT)
+  participant id_9cf65fade07d53ffbb3e88d415819366 as CHW app (OHS, SDC forms)
+  participant id_361ff71137da5ab1b0ae73394a4c0d6e as DVC verifier
+  participant id_278ea491eabd5bed9ca42fa314190228 as Family wallet
+  id_ffb73de262f057bd97c3d94d388f3d56->>id_d87eae4466985575a8b9f78882f86565: ITI-YY5 manifest request, signed
+  id_b8885086e3c95a88ba3a7972fcde0f2d->>id_9cf65fade07d53ffbb3e88d415819366: paper DVC (HC1 QR), carried by the family
+  id_b8885086e3c95a88ba3a7972fcde0f2d->>id_361ff71137da5ab1b0ae73394a4c0d6e: paper DVC (HC1 QR), carried by the family
+  id_278ea491eabd5bed9ca42fa314190228->>id_ffb73de262f057bd97c3d94d388f3d56: VHL QR, shown
+  id_d87eae4466985575a8b9f78882f86565->>id_ffb73de262f057bd97c3d94d388f3d56: manifest - access logged in Lao PDR
+
+sequenceDiagram
+  %% J1 on the DPI-H RA (id-18d2033f445f5b8895f20719cb97bd91): sequence diagram, derived by archimate-diagrams. Do not edit.
+  participant id_b8885086e3c95a88ba3a7972fcde0f2d as DVC signer (HCERT)
+  participant id_9cf65fade07d53ffbb3e88d415819366 as CHW app (OHS, SDC forms)
+  participant id_361ff71137da5ab1b0ae73394a4c0d6e as DVC verifier
+  id_b8885086e3c95a88ba3a7972fcde0f2d->>id_9cf65fade07d53ffbb3e88d415819366: paper DVC (HC1 QR), carried by the family
+  id_b8885086e3c95a88ba3a7972fcde0f2d->>id_361ff71137da5ab1b0ae73394a4c0d6e: paper DVC (HC1 QR), carried by the family
+
+sequenceDiagram
+  %% J2 on the DPI-H RA (id-099b088dc52f57289c647bfb64e8c4d6): sequence diagram, derived by archimate-diagrams. Do not edit.
+  participant id_b8885086e3c95a88ba3a7972fcde0f2d as DVC signer (HCERT)
+  participant id_9cf65fade07d53ffbb3e88d415819366 as CHW app (OHS, SDC forms)
+  id_b8885086e3c95a88ba3a7972fcde0f2d->>id_9cf65fade07d53ffbb3e88d415819366: paper DVC (HC1 QR), carried by the family
+
+sequenceDiagram
+  %% J3 on the DPI-H RA (id-c1154579a67d5815921b72f71587df50): sequence diagram, derived by archimate-diagrams. Do not edit.
+  participant id_b8885086e3c95a88ba3a7972fcde0f2d as DVC signer (HCERT)
+  participant id_361ff71137da5ab1b0ae73394a4c0d6e as DVC verifier
+  id_b8885086e3c95a88ba3a7972fcde0f2d->>id_361ff71137da5ab1b0ae73394a4c0d6e: paper DVC (HC1 QR), carried by the family
+
+sequenceDiagram
+  %% J4.1 on the DPI-H RA (id-42b408eba96159c187c0612ce7c2c6cf): sequence diagram, derived by archimate-diagrams. Do not edit.
+  participant id_ffb73de262f057bd97c3d94d388f3d56 as Clinic VHL viewer
+  participant id_d87eae4466985575a8b9f78882f86565 as OHS Info Gateway and access log
+  participant id_278ea491eabd5bed9ca42fa314190228 as Family wallet
+  id_ffb73de262f057bd97c3d94d388f3d56->>id_d87eae4466985575a8b9f78882f86565: ITI-YY5 manifest request, signed
+  id_278ea491eabd5bed9ca42fa314190228->>id_ffb73de262f057bd97c3d94d388f3d56: VHL QR, shown
+  id_d87eae4466985575a8b9f78882f86565->>id_ffb73de262f057bd97c3d94d388f3d56: manifest - access logged in Lao PDR

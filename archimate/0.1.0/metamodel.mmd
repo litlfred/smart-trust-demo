@@ -48,19 +48,21 @@ classDiagram
   <<Business>> BusinessCollaboration
   class Product["Product"]
   <<Business>> Product
-  Grouping o-- ApplicationComponent : aggregates ×58
+  class Requirement["Requirement"]
+  <<Motivation>> Requirement
+  Grouping o-- ApplicationComponent : aggregates ×75
+  ApplicationComponent --|> ApplicationComponent : specialises ×34
   Grouping o-- Capability : aggregates ×30
   Grouping o-- BusinessRole : aggregates ×26
   Capability ..> Goal : influences ×21
   ApplicationComponent *-- ApplicationComponent : composed of ×19
-  ApplicationComponent --|> ApplicationComponent : specialises ×18
+  ApplicationComponent ..> ApplicationComponent : flows to ×19
   ApplicationComponent ..|> Capability : realises ×16
-  ApplicationComponent ..> ApplicationComponent : flows to ×15
+  Grouping o-- Grouping : aggregates ×16
   ApplicationComponent --> ApplicationComponent : serves ×14
   ApplicationComponent ..> DataObject : accesses ×13
   Goal o-- Goal : aggregates ×13
   ApplicationComponent --> BusinessProcess : serves ×12
-  Grouping o-- Grouping : aggregates ×12
   Capability --> Capability : serves ×11
   Grouping o-- Stakeholder : aggregates ×11
   BusinessProcess ..|> Capability : realises ×10
@@ -116,7 +118,9 @@ classDiagram
   ApplicationComponent -- Artifact : associated with ×1
   ApplicationComponent -- DataObject : associated with ×1
   ApplicationComponent *-- ApplicationInterface : composed of ×1
+  ApplicationComponent ..|> Requirement : realises ×1
   ApplicationComponent --> BusinessRole : serves ×1
+  ApplicationComponent --> ApplicationComponent : triggers ×1
   ApplicationFunction ..> DataObject : accesses ×1
   ApplicationInterface --> BusinessRole : serves ×1
   ApplicationProcess ..> DataObject : accesses ×1
@@ -137,6 +141,7 @@ classDiagram
   Capability ..> Capability : flows to ×1
   DataObject -- Outcome : associated with ×1
   Grouping o-- BusinessCollaboration : aggregates ×1
+  Grouping o-- Requirement : aggregates ×1
   Outcome -- Capability : associated with ×1
   Outcome *-- Outcome : composed of ×1
   Outcome ..> Outcome : influences ×1

@@ -13,6 +13,8 @@ digraph "SMART Trust demonstrator on the WHO DPI-H Reference Architecture — me
 (to itself: composed of ×1, influences ×1)", class="mm-layer-motivation", fillcolor="#ccccff", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-Outcome", target="_top", tooltip="Outcome: its elements"];
     "Principle" [label="Principle
 3 element(s)", class="mm-layer-motivation", fillcolor="#ccccff", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-Principle", target="_top", tooltip="Principle: its elements"];
+    "Requirement" [label="Requirement
+1 element(s)", class="mm-layer-motivation", fillcolor="#ccccff", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-Requirement", target="_top", tooltip="Requirement: its elements"];
     "Stakeholder" [label="Stakeholder
 13 element(s)", class="mm-layer-motivation", fillcolor="#ccccff", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-Stakeholder", target="_top", tooltip="Stakeholder: its elements"];
     "Value" [label="Value
@@ -52,8 +54,8 @@ digraph "SMART Trust demonstrator on the WHO DPI-H Reference Architecture — me
     label="Application"; class="mm-layer-application"; labeljust=l; style="rounded,filled"; fillcolor="#f7f7f7"; color="#bbbbbb"; fontcolor="#666666";
     rank=same;
     "ApplicationComponent" [label="Application Component
-93 element(s)
-(to itself: composed of ×19, specialises ×18, flows to ×15, serves ×14, realises ×5)", class="mm-layer-application", fillcolor="#b5ffff", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-ApplicationComponent", target="_top", tooltip="Application Component: its elements"];
+109 element(s)
+(to itself: specialises ×34, composed of ×19, flows to ×19, serves ×14, realises ×5, triggers ×1)", class="mm-layer-application", fillcolor="#b5ffff", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-ApplicationComponent", target="_top", tooltip="Application Component: its elements"];
     "ApplicationFunction" [label="Application Function
 10 element(s)", class="mm-layer-application", fillcolor="#b5ffff", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-ApplicationFunction", target="_top", tooltip="Application Function: its elements"];
     "ApplicationInteraction" [label="Application Interaction
@@ -107,6 +109,7 @@ digraph "SMART Trust demonstrator on the WHO DPI-H Reference Architecture — me
   "ApplicationService" -> "ApplicationComponent" [label="serves ×2", class="mm-cat-dependency mm-from-application mm-to-application", arrowhead=vee, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-ApplicationService-ApplicationComponent", target="_top", tooltip="Application Service → Application Component: its relationships"];
   "ApplicationComponent" -> "BusinessObject" [label="accesses ×1", class="mm-cat-dependency mm-from-application mm-to-business", style=dotted, arrowhead=vee, arrowsize=0.6, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-ApplicationComponent-BusinessObject", target="_top", tooltip="Application Component → Business Object: its relationships"];
   "ApplicationComponent" -> "ApplicationInterface" [label="composed of ×1", class="mm-cat-structural mm-from-application mm-to-application", dir=both, arrowtail=diamond, arrowhead=none, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-ApplicationComponent-ApplicationInterface", target="_top", tooltip="Application Component → Application Interface: its relationships"];
+  "ApplicationComponent" -> "Requirement" [label="realises ×1", class="mm-cat-structural mm-from-application mm-to-motivation", style=dashed, arrowhead=empty, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-ApplicationComponent-Requirement", target="_top", tooltip="Application Component → Requirement: its relationships"];
   "ApplicationComponent" -> "BusinessRole" [label="serves ×1", class="mm-cat-dependency mm-from-application mm-to-business", arrowhead=vee, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-ApplicationComponent-BusinessRole", target="_top", tooltip="Application Component → Business Role: its relationships"];
   "ApplicationFunction" -> "DataObject" [label="accesses ×1", class="mm-cat-dependency mm-from-application mm-to-application", style=dotted, arrowhead=vee, arrowsize=0.6, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-ApplicationFunction-DataObject", target="_top", tooltip="Application Function → Data Object: its relationships"];
   "ApplicationInterface" -> "BusinessRole" [label="serves ×1", class="mm-cat-dependency mm-from-application mm-to-business", arrowhead=vee, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-ApplicationInterface-BusinessRole", target="_top", tooltip="Application Interface → Business Role: its relationships"];
