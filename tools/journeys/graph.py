@@ -40,8 +40,9 @@ def processes(root=ROOT):
     """Every BPMN process in processes/content/, in file order.
 
     Each is {file, stem, id, name, code, doc, lanes: [{id, role, name, nodes}],
-    skills, tasks: [{id, skill}]}, where a lane's role is its
-    partitionElementRef, its nodes the flow nodes it holds, and code the
+    skills, tasks: [{id, skill}], names: {node id: name}, flows: [(source,
+    target)]}, where a lane's role is its partitionElementRef, its nodes the
+    flow nodes it holds, flows its sequence flows in file order, and code the
     journey code that starts the process name (J1, J4.0, ...), or None.
     """
     out = []
@@ -69,6 +70,8 @@ def processes(root=ROOT):
             # every flow node that names a skill: {id, skill}
             "tasks": [{"id": n.get("id"), "skill": sk.get("ref")}
                       for n in proc.iter() if n.get("id") for sk in n.findall(f"{BPMN}extensionElements/{SKILL}")],
+            "names": {n.get("id"): n.get("name") for n in proc if n.get("id") and n.get("name")},
+            "flows": [(f.get("sourceRef"), f.get("targetRef")) for f in proc.iter(BPMN + "sequenceFlow")],
         })
     return out
 
