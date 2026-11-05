@@ -14,10 +14,15 @@
   every story has an entry, an empty one says why in `note`), and every
   requirement id cited there, in docs/journeys.md and in the BPMN exists:
   STT-* in smart-trust-tools' skills/requirements/ at the pinned commit (the
-  mount, or the directory given by --requirements; CI fetches it), STD-* in
+  mount, or the --smart-trust-tools directory; CI fetches it), STD-* in
   this repository's skills/requirements/, whose actors must be our roles.
 
-Run from anywhere: python3 tools/repo-checks/repo_checks.py [--requirements DIR]
+- Every skill a BPMN task names exists (this instance's, or a smart-trust-tools
+  package's at the pinned commit); a task's skill is one its lane's role
+  has; and every person and system role plays a lane in some journey.
+
+Run from anywhere: python3 tools/repo-checks/repo_checks.py [--smart-trust-tools DIR]
+(DIR defaults to the smart-trust-tools mount; CI fetches its skills/ there.)
 """
 import fnmatch
 import json
@@ -77,7 +82,9 @@ def main():
         if len(head) < 3 or "$schema: folio-memory/v1" not in head[1] or f"id: {md.stem}" not in head[1]:
             errors.append(f"{md.relative_to(ROOT)}: missing folio-memory/v1 front matter with id {md.stem}")
     errors += journey_errors()
-    errors += requirement_errors(_arg("--requirements") or ROOT / "smart-trust-tools" / "skills" / "requirements")
+    stt = pathlib.Path(_arg("--smart-trust-tools") or ROOT / "smart-trust-tools")
+    errors += requirement_errors(stt / "skills" / "requirements")
+    errors += binding_errors(stt / "skills")
     for e in errors:
         print(e, file=sys.stderr)
     print(f"repo-checks: {len(errors)} problem(s)")
@@ -85,7 +92,7 @@ def main():
 
 
 BPMN = "{http://www.omg.org/spec/BPMN/20100524/MODEL}"
-SKILL = "{https://litlfred.github.io/bootstrap/0.1.0/processes/ns#}skill"
+SKILL = "{https://litlfred.github.io/bootstrap/v0/processes/ns/}skill"
 UPSTREAM_SKILL = re.compile(r"^(hcert|vhl)-[a-z0-9-]+$")
 
 
@@ -159,7 +166,7 @@ def requirement_errors(req_dir):
     errors = []
     req_dir = pathlib.Path(req_dir)
     if not req_dir.is_dir():
-        return [f"{req_dir}: no smart-trust-tools requirements here; mount the pinned layers (bun run cat mount:lock) or pass --requirements DIR"]
+        return [f"{req_dir}: no smart-trust-tools requirements here; mount the pinned layers (bun run cat mount:lock) or pass --smart-trust-tools DIR"]
     known = set()
     roles = {r["id"] for r in json.loads((ROOT / "scenarios" / "roles.json").read_text())["roles"]}
     for d in (req_dir, ROOT / "skills" / "requirements"):
@@ -185,11 +192,42 @@ def requirement_errors(req_dir):
             errors.append(f"scenarios/story-requirements.json: story {sid} traces to no requirement and gives no note saying why")
         for r in t.get("requirements", []):
             if r not in known:
-                errors.append(f"scenarios/story-requirements.json: story {sid} cites {r}, which smart-trust-tools does not define")
+                errors.append(f"scenarios/story-requirements.json: story {sid} cites {r}, which no requirement defines (STT-* in smart-trust-tools, STD-* in skills/requirements/)")
     for src in [ROOT / "docs" / "journeys.md", *sorted((ROOT / "processes" / "content").glob("*.bpmn"))]:
         for r in sorted(set(REQ_ID.findall(src.read_text(encoding="utf-8")))):
             if r not in known:
-                errors.append(f"{src.relative_to(ROOT)}: cites {r}, which smart-trust-tools does not define")
+                errors.append(f"{src.relative_to(ROOT)}: cites {r}, which no requirement defines (STT-* in smart-trust-tools, STD-* in skills/requirements/)")
+    return errors
+
+
+def binding_errors(stt_skills):
+    """Task skills exist and belong to their lane's role; every person and system role plays a lane."""
+    errors = []
+    if not stt_skills.is_dir():
+        return [f"{stt_skills}: no smart-trust-tools skills here; mount the pinned layers or pass --smart-trust-tools DIR"]
+    known = set()
+    for m in [*stt_skills.glob("*/package-manifest.json"), *(ROOT / "skills").glob("*/package-manifest.json")]:
+        known.update(json.loads(m.read_text()).get("skills", []))
+    roles = {r["id"]: r for r in graph.roles(ROOT)}
+    in_lanes = set()
+    for p in graph.processes(ROOT):
+        rel = p["file"].relative_to(ROOT)
+        lane_of = {n: l["role"] for l in p["lanes"] for n in l["nodes"]}
+        in_lanes.update(l["role"] for l in p["lanes"])
+        for t in p["tasks"]:
+            if t["skill"] not in known:
+                errors.append(f"{rel}: task {t['id']} names skill {t['skill']}, which no skill package defines")
+            role = lane_of.get(t["id"])
+            if role is None:
+                errors.append(f"{rel}: task {t['id']} is in no lane")
+            elif role in roles and t["skill"] not in roles[role].get("skills", []):
+                errors.append(f"{rel}: task {t['id']}'s skill {t['skill']} is not one of its lane role {role}'s skills (scenarios/roles.json)")
+    for rid, r in roles.items():
+        for s in r.get("skills", []):
+            if s not in known:
+                errors.append(f"scenarios/roles.json: role {rid} names skill {s}, which no skill package defines")
+        if rid not in in_lanes and set(r.get("actorKinds", [])) & {"person", "system"}:
+            errors.append(f"scenarios/roles.json: role {rid} plays no lane in any journey")
     return errors
 
 

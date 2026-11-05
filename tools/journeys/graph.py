@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 BPMN = "{http://www.omg.org/spec/BPMN/20100524/MODEL}"
-SKILL = "{https://litlfred.github.io/bootstrap/0.1.0/processes/ns#}skill"
+SKILL = "{https://litlfred.github.io/bootstrap/v0/processes/ns/}skill"
 CODE = re.compile(r"^(J\d+(?:\.\d+)?)\s")  # a journey's code: the first word of its process name
 
 
@@ -39,9 +39,10 @@ def actors(root=ROOT):
 def processes(root=ROOT):
     """Every BPMN process in processes/content/, in file order.
 
-    Each is {file, stem, id, name, code, doc, lanes: [{id, role, name}]},
-    where a lane's role is its partitionElementRef and code is the journey
-    code that starts the process name (J1, J4.0, ...), or None.
+    Each is {file, stem, id, name, code, doc, lanes: [{id, role, name, nodes}],
+    skills, tasks: [{id, skill}]}, where a lane's role is its
+    partitionElementRef, its nodes the flow nodes it holds, and code the
+    journey code that starts the process name (J1, J4.0, ...), or None.
     """
     out = []
     for f in sorted((root / "processes" / "content").glob("*.bpmn")):
@@ -53,7 +54,8 @@ def processes(root=ROOT):
             role = lane.get("partitionElementRef")
             if not role:
                 raise GraphError(f"{f.relative_to(root)}: lane {lane.get('id')} has no partitionElementRef naming its role")
-            lanes.append({"id": lane.get("id"), "role": role, "name": lane.get("name")})
+            lanes.append({"id": lane.get("id"), "role": role, "name": lane.get("name"),
+                          "nodes": [n.text.strip() for n in lane.findall(BPMN + "flowNodeRef") if n.text]})
         m = CODE.match(proc.get("name") or "")
         out.append({
             "file": f,
@@ -64,6 +66,9 @@ def processes(root=ROOT):
             "doc": (doc.text or "").strip() if doc is not None else "",
             "lanes": lanes,
             "skills": [s.get("ref") for s in tree.iter(SKILL)],
+            # every flow node that names a skill: {id, skill}
+            "tasks": [{"id": n.get("id"), "skill": sk.get("ref")}
+                      for n in proc.iter() if n.get("id") for sk in n.findall(f"{BPMN}extensionElements/{SKILL}")],
         })
     return out
 
