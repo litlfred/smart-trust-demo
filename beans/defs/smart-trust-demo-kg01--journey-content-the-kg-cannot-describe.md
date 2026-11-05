@@ -1,14 +1,14 @@
 ---
 # smart-trust-demo-kg01
 title: 'KG-01: the journey content no cat-harness kind describes'
-status: todo
+status: in-progress
 type: feature
 priority: normal
 tags:
     - open-issue
     - upstream
 created_at: 2026-11-05T12:00:00Z
-updated_at: 2026-11-05T13:00:00Z
+updated_at: 2026-11-05T14:00:00Z
 ---
 
 The VaxLink walkthrough (litlfred/vaxlink) is the presentation of these journeys. It was reviewed on 2026-11-05 against the cat-harness kind schemas at `f9423d7`. The site, the snapshots it copies from here, the standards, the personas' identity and its closed code sets all map to existing kinds (`basic-cdn-site`, `processes`, `archimate`, `external-schema`, `scenarios`, `code-list`). About 40% of its content maps to none. It lives only as TypeScript in `src/data/`. The fix belongs in cat-harness (and its Zod source in cat-harness-tools), so this bean is tagged upstream.
@@ -21,6 +21,8 @@ The VaxLink walkthrough (litlfred/vaxlink) is the presentation of these journeys
    - `requirements` and `examples`: the smart-trust-tools `req:` ids and the FHIR examples, as `docs/journeys.md` lists them.
 
    Today the scenario is written three times: as prose in `docs/journeys.md` "User scenarios" (which already carries VaxLink's pain points, enablers and policy points), as `JourneyStep` in vaxlink's `journeyData.ts` (9 moments), and in part as the BPMN. Nothing links a moment to a story. The `scenarios` kind declares `roles`, `actors` and `extensions` but neither `stories` nor scenarios, so both need a kind.
+
+   **Draft:** [`docs/proposals/user-scenario/`](../../docs/proposals/user-scenario/README.md): schema `user-scenario/0.1.0` (the DAK `UserScenario` fields plus ordered steps and the four edges), J1 as a worked example, and `check.py` for the references.
 2. **"Uses a building block, in this role" edge.** A moment (or BPMN task) uses a building block, with a one-line role that is particular to that moment, and a data hand-off (from, to, payload, offline or not). ArchiMate's serving or realisation relations carry the block but not the per-moment role text. vaxlink: `techData.ts` `STEP_TECH`, 22 blocks.
 3. **Workshop / facilitation layer.** Modules (M1–M7, day, canvas sheet, the question each carries), questions tagged by module and asked of a moment, decision rights, legal bases, cost drivers and substitution patterns. `policies` is ODRL (what an actor may do) and does not fit. vaxlink: `policyData.ts`.
 4. **Persona fields on an actor.** The `scenarios` actor kind has `id`, `title`, `kind`, `description`, `roles` and no `meta`. This repository now keeps `meta.persona` (name, role, country, goal, needs, frustrations) on each person actor, checked by `tools/repo-checks`. The kind should declare it (or a `persona` sub-object), so the check is the harness's rather than this repository's.

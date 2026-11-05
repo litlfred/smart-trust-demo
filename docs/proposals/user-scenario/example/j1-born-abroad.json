@@ -1,0 +1,109 @@
+{
+  "$schema": "user-scenario/0.1.0",
+  "id": "j1-born-abroad",
+  "title": "J1 — Born abroad",
+  "description": "A Lao baby gets his first vaccines in Thailand and leaves with signed paper cards. The prose of this scenario is docs/journeys.md, section J1.",
+  "personas": [
+    "somsack-sengmany",
+    "khamla-sengmany",
+    "anan"
+  ],
+  "when": "Birth day (T0)",
+  "where": "Chiang Rai, Thailand",
+  "country": "Thailand",
+  "trustLadder": "record-trust",
+  "steps": [
+    {
+      "id": "J1",
+      "title": "A Lao baby is born in Thailand",
+      "headline": "Somsack gets his birth vaccines in a Thai hospital — and the only thing that will cross the border with him is a pair of paper cards.",
+      "when": "T0 · Birth day",
+      "where": "Chiang Rai Provincial Hospital",
+      "touchpoint": "Hospital records + printed QR cards",
+      "lead": "anan",
+      "experiences": [
+        {
+          "actor": "anan",
+          "doing": "Gives Hep B and BCG birth doses and prints two signed QR vaccine cards.",
+          "feeling": "“He isn’t Thai, but he still needs a record he can take home.”",
+          "emotion": 1
+        },
+        {
+          "actor": "somsack-sengmany",
+          "doing": "Is born, and gets his Hep B and BCG birth doses within hours.",
+          "feeling": "“Two small jabs, and a record that will follow him.”",
+          "emotion": 0
+        },
+        {
+          "actor": "khamla-sengmany",
+          "doing": "Gives birth away from home and receives two paper cards at discharge.",
+          "feeling": "“Will anyone back home believe these papers?”",
+          "emotion": -1
+        }
+      ],
+      "painPoint": "The baby has no Thai ID number, so his records would normally stay locked inside the Thai hospital’s system.",
+      "enabler": "A digitally signed QR card travels with the family — no ID number or database lookup needed.",
+      "record": {
+        "state": "on-paper",
+        "description": "2 signed paper cards (Hep B, BCG)",
+        "heldWhere": "Khamla’s bag"
+      },
+      "handoff": {
+        "summary": "Two paper cards go home with Khamla",
+        "from": "anan",
+        "to": "khamla-sengmany",
+        "offline": true
+      },
+      "whatIf": [
+        {
+          "scenario": "The cards are lost on the way home.",
+          "outcome": "The doses still happened, but no proof travels. Lao clinicians must re-vaccinate or rely on memory."
+        }
+      ],
+      "stories": [
+        "birth-clinic-vaccinator-1",
+        "caregiver-1"
+      ],
+      "realisedBy": [
+        {
+          "process": "processes/content/j1-birth-dose-dvc.bpmn",
+          "tasks": [
+            "Task_Vaccinate",
+            "Task_Payload",
+            "Task_Prepare",
+            "Task_Sign",
+            "Task_Finish",
+            "Task_Print"
+          ]
+        }
+      ],
+      "requirements": [
+        "STT-PAY-001",
+        "STT-PAY-002",
+        "STT-PAY-003",
+        "STT-PAY-004",
+        "STT-PAY-005",
+        "STT-PAY-007",
+        "STT-SEL-003",
+        "STT-CWT-001",
+        "STT-CWT-002",
+        "STT-CWT-003",
+        "STT-CWT-004",
+        "STT-CWT-005",
+        "STT-ISS-004",
+        "STT-COS-002",
+        "STT-COS-006",
+        "STT-COS-001",
+        "STT-ZIP-001",
+        "STT-B45-001",
+        "STT-HC1-001",
+        "STT-QR-001"
+      ],
+      "examples": [
+        "Patient/TrustDemoThSomsack",
+        "Immunization/TrustDemoJ1HepB",
+        "Immunization/TrustDemoJ1Bcg"
+      ]
+    }
+  ]
+}
