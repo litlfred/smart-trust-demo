@@ -11,6 +11,11 @@ The overlay adds:
   [BPMN process](https://litlfred.github.io/smart-trust-demo/business-processes.html);
 - the people who take part, as business roles assigned to the journeys
   whose BPMN has their lane;
+- each of those roles **associated** with the RA stakeholder it belongs to:
+  the caregiver with *Citizens / Care recipients*, the clinicians and the
+  community health worker with *Health Workers* (a role and a stakeholder are
+  different element types, so ArchiMate allows an association, not a
+  specialization);
 - the Thai and Lao systems, each a **specialization** of the RA building
   block it is an instance of, serving the journeys it takes part in;
 - each journey's **realization** of the RA capabilities it exercises.

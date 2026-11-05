@@ -62,6 +62,22 @@ EXISTING = {
     "cap-access-consent-trust": "id-0faeca5a0caf5731be8009de6378775e",
     "cap-clinical-services": "id-c483685e82ce5040b04e3c2bf0138f2b",
     "cap-health-record-mgmt": "id-4a08b39b55a6469098a89697af71daae",
+    # Stakeholders of the Integrated View (Fig. 3.2), which the journeys' people belong to
+    "stk-care-recipients": "id-a2320dbc07e6450b94f3f0f3e03bb877",  # Citizens / Care recipients ("Families & caregivers")
+    "stk-health-workers": "id-8d3dd8b68d504c2a9fe8cf414b16c127",  # Health Workers ("Providers, CHWs, system mgrs")
+}
+
+# Which RA stakeholder each person role belongs to. A BusinessRole and a
+# Stakeholder are different element types, so the link is an Association
+# (Specialization would need one type). The RA's own BusinessRoles
+# "Individual" and "Community Health" are not used: they come from the
+# supply-chain handbook (Fig. 1) and mean the actors of supply chain processes.
+ROLE_STAKEHOLDER = {
+    "caregiver": "stk-care-recipients",
+    "birth-clinic-vaccinator": "stk-health-workers",
+    "community-health-worker": "stk-health-workers",
+    "home-clinic-provider": "stk-health-workers",
+    "poc-provider": "stk-health-workers",
 }
 
 # Which RA blocks each Integrated View layer shows here (all of them are
@@ -202,6 +218,8 @@ for r in ROLES:
 for code, caps in JOURNEY_CAPABILITIES.items():
     for c in caps:
         RELATIONS.append(("Realization", jkey(code), c))
+for r in ROLES:
+    RELATIONS.append(("Association", "role-" + r["id"], ROLE_STAKEHOLDER[r["id"]]))
 GROUP_MEMBERS = {
     "country-th": [c[0] for c in TH],
     "country-la": [c[0] for c in LA],
@@ -281,17 +299,18 @@ VIEWS = [
          ("group", "country-la", 1, [box(c[0]) for c in _by_layer(LA)]),
      ])),
     (JOURNEYS_VIEW,
-     "The demonstrator\u2019s journeys J1 to J4.1 as business processes: the people assigned to each (its BPMN lanes) and the DPI-H RA capabilities it realizes. The systems that serve each journey are in that journey\u2019s own view.",
+     "The demonstrator\u2019s journeys J1 to J4.1 as business processes: the people assigned to each (its BPMN lanes), the DPI-H RA stakeholders those people belong to, and the RA capabilities it realizes. The systems that serve each journey are in that journey\u2019s own view.",
      ("col", [
          ("group", "group-capabilities", 3, [box(c) for c in GROUP_MEMBERS["group-capabilities"]]),
          ("group", "group-journeys", 5, [box(jkey(c)) for c in JOURNEYS]),
          ("group", "group-people", 5, [box("role-" + r["id"]) for r in ROLES]),
+         ("row", [box("stk-care-recipients"), box("stk-health-workers")]),
      ])),
 ]
 
 VIEW_CONNECTIONS = {
     SYSTEMS_VIEW: [("Specialization", k, ra) for k, _n, ra, *_ in SYSTEMS],
-    JOURNEYS_VIEW: [r for r in RELATIONS if r[0] in ("Assignment", "Realization")],
+    JOURNEYS_VIEW: [r for r in RELATIONS if r[0] in ("Assignment", "Realization", "Association")],
 }
 for _code in JOURNEYS:
     _v, _c = journey_view(_code)
