@@ -164,6 +164,11 @@
           "minLength": 1,
           "description": "What makes the step work."
         },
+        "policy": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The policy point the step makes, in one sentence. The questions a workshop asks of the step belong to a workshop kind that points at step ids (KG-01 gap 3)."
+        },
         "record": {
           "type": "object",
           "properties": {

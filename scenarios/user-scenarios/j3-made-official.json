@@ -9,7 +9,7 @@
   ],
   "follows": "j2-found-at-home",
   "when": "4 weeks later",
-  "where": "District Health Center, Lao PDR",
+  "where": "Vientiane District Health Center",
   "country": "Lao PDR",
   "trustLadder": "record-trust",
   "steps": [
@@ -50,6 +50,7 @@
       ],
       "painPoint": "Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly.",
       "enabler": "Thailand’s signing key is on the shared WHO trust list, so any clinic can check it locally.",
+      "policy": "Trust is decentralized: a Lao clinic verifies a Thai signature itself, without contacting Thailand.",
       "record": {
         "state": "verified",
         "description": "Doses verified; Thailand recorded as the source",
@@ -123,6 +124,7 @@
       ],
       "painPoint": "Countries name and package vaccines differently, so doses get missed or repeated.",
       "enabler": "Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due.",
+      "policy": "Never overwrite another country’s record: keep the original coding alongside the national one.",
       "record": {
         "state": "scheduled",
         "description": "Birth doses count; next appointment booked",

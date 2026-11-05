@@ -1,34 +1,35 @@
 #!/usr/bin/env python3
-"""Check the user-scenario proposal's examples (standard library only).
+"""Check scenarios/user-scenarios/ (standard library only).
 
-Shape: user-scenario.schema.json, through the jsonschema package when it is
+Shape: docs/proposals/user-scenario/user-scenario.schema.json, through the jsonschema package when it is
 installed (it is not a dependency; without it only the references are checked).
 References, which a JSON Schema cannot express:
 - personas, step.lead, experience.actor, handoff.from/to: actors in
   scenarios/actors/, and every actor a step names is in personas;
 - step.stories: ids in scenarios/stories.json;
 - step.realisedBy: the BPMN file exists and each task id is a node in it;
-- step.record.state: a code of the code-list trustLadder names (example/);
+- step.record.state: a code of the code-list trustLadder names (beside the scenarios);
 - step.examples: an FSH Instance with that id in input/fsh/;
 - step ids unique within the scenario;
 - follows: another scenario here, and the chain has no loop.
 step.requirements are not checked here: smart-trust-tools' req: nodes are a
 mounted layer.
 
-Run:   python3 docs/proposals/user-scenario/check.py
+Run:   python3 tools/user-scenarios/check.py   (CI: checks.yml, repo-checks job)
 """
 import json
 import pathlib
 import re
 import sys
 
-HERE = pathlib.Path(__file__).resolve().parent
-ROOT = HERE.parents[2]
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+DATA = ROOT / "scenarios" / "user-scenarios"
+SCHEMA = ROOT / "docs" / "proposals" / "user-scenario" / "user-scenario.schema.json"
 
 
 def main():
     errors = []
-    schema = json.loads((HERE / "user-scenario.schema.json").read_text())
+    schema = json.loads(SCHEMA.read_text())
     try:
         import jsonschema
     except ImportError:
@@ -37,14 +38,14 @@ def main():
     actors = {json.loads(f.read_text())["id"] for f in (ROOT / "scenarios" / "actors").glob("*.json")}
     stories = {s["id"] for s in json.loads((ROOT / "scenarios" / "stories.json").read_text())["stories"]}
     lists = {}
-    for f in (HERE / "example").glob("*.code-list.json"):
+    for f in DATA.glob("*.code-list.json"):
         c = json.loads(f.read_text())
         lists[c["id"]] = [x["code"] for x in c["codes"]]
     instances = set()
     for f in (ROOT / "input" / "fsh").rglob("*.fsh"):
         instances.update(re.findall(r"^Instance:\s*(\S+)", f.read_text(), re.M))
 
-    scenarios = [f for f in (HERE / "example").glob("*.json") if not f.name.endswith(".code-list.json")]
+    scenarios = [f for f in DATA.glob("*.json") if not f.name.endswith(".code-list.json")]
     for f in scenarios:
         rel = f.relative_to(ROOT)
         s = json.loads(f.read_text())

@@ -27,6 +27,7 @@ the ordered **steps** the journey map is made of:
 | `trustLadder` | a `code-list` | the ordered states of the record |
 | `steps[].experiences` | journey map | per actor: doing, feeling, emotion −2..2 |
 | `steps[].painPoint`, `enabler`, `record`, `handoff`, `whatIf` | journey map | |
+| `steps[].policy` | journey map | the policy point the step makes |
 | `steps[].narrative`, `preconditions` | `docs/journeys.md` | the prose the page is generated from; a precondition holds before the step and is not part of it |
 | `steps[].stories` | **edge** to user stories | many to many: a story may span steps |
 | `steps[].realisedBy` | **edge** to BPMN | a process file and task ids; one step may span processes |
@@ -39,8 +40,9 @@ what joins the two.
 
 **Left out on purpose:**
 
-- **The workshop layer.** "Ask the room", the policy takeaway, the facilitator
-  cue and the module questions are KG-01 gap 3. A workshop kind would point at
+- **The workshop layer.** "Ask the room", the facilitator cue and the module
+  questions are KG-01 gap 3. (The one-line policy point is kept, as `policy`,
+  because `docs/journeys.md` states it under each step.) A workshop kind would point at
   step ids, so the scenario does not depend on any one workshop.
 - **The technical layer.** Which building block a step uses, in which role, is
   KG-01 gap 2.
@@ -51,17 +53,21 @@ what joins the two.
 
 - [`user-scenario.schema.json`](user-scenario.schema.json): the shape, JSON
   Schema 2020-12, kind `user-scenario/0.1.0`.
-- [`example/`](example/): the four journeys, one scenario each, chained by
-  `follows`: J1 (one step), J2 (J2a, J2b), J3 (J3a, J3b), J4 (J4.0a, J4.0b,
-  J4.1), and the trust ladder as a code list. They were converted once from
-  vaxlink's `journeyData.ts` (the steps, experiences, pain points, enablers,
-  record and what-ifs) and the prose of `docs/journeys.md` (narrative and
-  preconditions; requirements and named examples are read from it). Stories and
-  BPMN tasks were mapped by hand.
-- [`check.py`](check.py): checks the shape, and the references a schema cannot
-  express (actors, stories, BPMN task ids, ladder codes, FSH instances, the
-  `follows` chain). Run `python3 docs/proposals/user-scenario/check.py`. It
-  passes on all four, and reports each of seven seeded errors.
+- [`scenarios/user-scenarios/`](../../../scenarios/user-scenarios/): one
+  scenario per journey, chained by `follows`: J1, J2 (J2a, J2b), J3 (J3a,
+  J3b), J4.0 (J4.0a, J4.0b), J4.1, and the trust ladder as a code list. They
+  were converted once from vaxlink's `journeyData.ts` (the steps, experiences,
+  pain points, enablers, policy points, record and what-ifs) and the prose of
+  `docs/journeys.md` (narrative and preconditions; requirements and named
+  examples are read from it). Stories and BPMN tasks were mapped by hand.
+- **`docs/journeys.md` "User scenarios" is generated from them** by
+  `tools/ig-gen/ig_gen.py`, between its markers; `ig_gen.py --check` fails in
+  CI when it is stale.
+- [`tools/user-scenarios/check.py`](../../../tools/user-scenarios/check.py):
+  checks the shape, and the references a schema cannot express (actors,
+  stories, BPMN task ids, ladder codes, FSH instances, the `follows` chain).
+  It runs in CI (`checks.yml`, job repo-checks). Without the `jsonschema`
+  package, which CI does not install, only the references are checked.
 
 ## What the conversion found
 
@@ -81,12 +87,13 @@ what joins the two.
 
 ## Open questions
 
-1. **Granularity.** Should a scenario be one journey or one whole story? **Decided 2026-11-05 (owner): one per journey**, chained by `follows`, as vaxlink's four chapters are.
-2. **Where the prose lives.** **Decided 2026-11-05 (owner): generate it.**
-   `docs/journeys.md` "User scenarios" is to be written by `ig_gen.py` from
-   each step's `narrative`, `preconditions`, `painPoint` and `enabler`, as the
-   personas page is from the actors. The policy line under each journey waits
-   for the workshop kind (KG-01 gap 3).
+1. **Granularity.** Should a scenario be one journey or one whole story? **Decided 2026-11-05 (owner): one per journey**, chained by `follows`. A journey is a BPMN process, so J4.0 and J4.1 are two scenarios, though vaxlink tells them in one chapter.
+2. **Where the prose lives.** **Decided 2026-11-05 (owner): generate it. Done.**
+   `ig_gen.py` writes the section from each step's `preconditions`,
+   `narrative`, `painPoint`, `enabler` and `policy`. A step's `policy` is its
+   one-line policy point; the workshop's questions stay for a workshop kind
+   (KG-01 gap 3). The pain point, enabler and policy lines are now one per
+   step, in the walkthrough's words.
 3. **Stories' kind.** User stories already have one: cat-harness-tools
    `schemas/process/user-story.ts` (`id`, `role`, `want`, `soThat`, strict).
    The edge runs from the step to the story, so that kind needs no change.

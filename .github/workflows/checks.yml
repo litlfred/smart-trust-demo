@@ -20,6 +20,8 @@ jobs:
           python-version: "3.12"
       - name: Actions pinned, JSON parses, memory front matter
         run: python3 tools/repo-checks/repo_checks.py
+      - name: User scenarios reference real actors, stories, BPMN tasks and examples
+        run: python3 tools/user-scenarios/check.py
 
   archimate:
     # The ArchiMate overlay on the DPI-H RA is generated: rebuild it from

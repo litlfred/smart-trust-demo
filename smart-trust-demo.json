@@ -32,56 +32,74 @@
     {
       "id": "demo-skills",
       "path": "skills/",
-      "graphTypologies": ["skills"],
+      "graphTypologies": [
+        "skills"
+      ],
       "description": "The journeys' own skills (package journeys): CHW registration and referral, Immunization import, schedule evaluation, record assembly for a VHL, and holding VHLs on a shared phone. The HCERT and VHL skills are smart-trust-tools'."
     },
     {
       "id": "processes",
       "path": "processes/",
-      "graphTypologies": ["processes"],
+      "graphTypologies": [
+        "processes"
+      ],
       "description": "One BPMN process per journey (J1, J2, J3, J4.0, J4.1) in the content concern group. Lanes are roles from scenarios/roles.json; tasks name skills."
     },
     {
       "id": "scenarios",
       "path": "scenarios/",
-      "graphTypologies": ["scenarios"],
-      "description": "The roles that play the journeys' lanes, the personas and systems that play them (each naming the WHO SMART Trust, smart-trust-phw and IHE ITI VHL ActorDefinitions it instantiates), and the user stories. Every person is fictional."
+      "graphTypologies": [
+        "scenarios"
+      ],
+      "description": "The roles that play the journeys' lanes, the personas and systems that play them (each naming the WHO SMART Trust, smart-trust-phw and IHE ITI VHL ActorDefinitions it instantiates), and the user stories. Every person is fictional. scenarios/user-scenarios/ holds one user scenario per journey (J1, J2, J3, J4.0, J4.1) in the draft user-scenario/0.1.0 shape (docs/proposals/user-scenario/), from which tools/ig-gen/ig_gen.py writes the User scenarios section of docs/journeys.md; tools/user-scenarios/check.py checks them in CI."
     },
     {
       "id": "memory",
       "path": "memory/",
-      "graphTypologies": ["memory"],
+      "graphTypologies": [
+        "memory"
+      ],
       "description": "Owner directives: the journeys and their two countries, consuming the library from a pinned commit, and being a full downstream."
     },
     {
       "id": "beans",
       "path": "beans/",
-      "graphTypologies": ["beans"],
+      "graphTypologies": [
+        "beans"
+      ],
       "description": "The open issues of this project, one bean each under beans/defs/; tagged upstream when the fix belongs in another repository."
     },
     {
       "id": "tools",
       "path": "tools/",
-      "graphTypologies": ["code"],
+      "graphTypologies": [
+        "code"
+      ],
       "description": "repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency); archimate: the DPI-H RA overlay spec and its build."
     },
     {
       "id": "hcert-library-pin",
       "path": "lib/hcert/",
-      "graphTypologies": ["code"],
+      "graphTypologies": [
+        "code"
+      ],
       "description": "The Kotlin HCERT library at a pinned smart-trust-tools commit: the lock (commit and jar sha256) and the script that builds and checks the jars."
     },
     {
       "id": "archimate",
       "path": "archimate/",
-      "graphTypologies": ["archimate"],
+      "graphTypologies": [
+        "archimate"
+      ],
       "description": "The demonstrator as an ArchiMate overlay on the DPI-H Reference Architecture: smart-ra's model 0.3.0-draft.1, unchanged, plus the journeys J1 to J4.1 (use cases), the people assigned to them and the Thai and Lao systems that serve them, each system a specialization of the RA building block it instantiates. Built by tools/archimate/build.py from tools/archimate/overlay.py and smart-ra at the commit in tools/archimate/smart-ra.lock.json; cat-harness's archimate subgraph draws every view as SVG.",
       "coverage": {
         "visualiser": [
           {
             "ref": "en/smart-trust-demo/archimate/index.html",
             "title": "ArchiMate views",
-            "writer": ["cat-harness-tools/archimate/scripts/gen-archimate-pages.ts"]
+            "writer": [
+              "cat-harness-tools/archimate/scripts/gen-archimate-pages.ts"
+            ]
           }
         ]
       }
@@ -91,7 +109,9 @@
     {
       "id": "archimate",
       "renderedBy": "archimate-pages",
-      "covers": ["archimate"]
+      "covers": [
+        "archimate"
+      ]
     }
   ]
 }
