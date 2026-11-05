@@ -99,9 +99,20 @@ def journey_errors():
             if not skill_ok(s):
                 errors.append(f"scenarios/roles.json: role {rid} names unknown skill {s}")
     for a in sorted((ROOT / "scenarios" / "actors").glob("*.json")):
-        for rid in json.loads(a.read_text()).get("roles", []):
+        actor = json.loads(a.read_text())
+        for rid in actor.get("roles", []):
             if rid not in roles:
                 errors.append(f"{a.relative_to(ROOT)}: unknown role {rid}")
+        # meta.persona is read by the IG's personas page and by the VaxLink walkthrough.
+        persona = actor.get("meta", {}).get("persona")
+        if persona is not None:
+            for key in ("name", "role", "country", "goal"):
+                if not isinstance(persona.get(key), str) or not persona[key]:
+                    errors.append(f"{a.relative_to(ROOT)}: meta.persona.{key} must be a non-empty string")
+            for key in ("needs", "frustrations"):
+                v = persona.get(key)
+                if not isinstance(v, list) or not v or not all(isinstance(x, str) and x for x in v):
+                    errors.append(f"{a.relative_to(ROOT)}: meta.persona.{key} must be a non-empty list of strings")
     stories = ROOT / "scenarios" / "stories.json"
     if stories.exists():
         for st in json.loads(stories.read_text())["stories"]:

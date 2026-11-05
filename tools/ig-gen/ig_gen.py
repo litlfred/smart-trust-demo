@@ -167,7 +167,19 @@ def gen_personas(roles, by_role):
             played = "; ".join(a["title"] for a in by_role.get(r["id"], []))
             out.append(f"| {link} | {cell(r['description'])} | {cell(played)} | {cell('; '.join(r.get('otherNames', [])))} |")
         out.append("{: .grid }")
-    others = [a for a in actors() if not a.get("roles")]
+    people = [a for a in actors() if a.get("meta", {}).get("persona")]
+    if people:
+        out.append("\n### The people of the journeys\n")
+        out.append("Each is fictional. Their goals, needs and frustrations are kept in "
+                   "`scenarios/actors/*.json` (`meta.persona`), and the VaxLink walkthrough shows the same text.\n")
+        for a in people:
+            p = a["meta"]["persona"]
+            out.append(f"\n#### {p['name']} ({p['role']}, {p['country']})\n")
+            out.append(f"{a['description']}\n")
+            out.append(f"- **Goal:** {p['goal']}")
+            out.append(f"- **Needs:** {'; '.join(p['needs'])}")
+            out.append(f"- **Frustrations:** {'; '.join(p['frustrations'])}")
+    others = [a for a in actors() if not a.get("roles") and not a.get("meta", {}).get("persona")]
     if others:
         out.append("\n### Other people in the journeys\n")
         for a in others:

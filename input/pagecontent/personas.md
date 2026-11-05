@@ -35,6 +35,55 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 | [GDHCN trust anchor](ActorDefinition-TrustDemo.Role.GdhcnTrustAnchor.html) | WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL). | GDHCN DEV trust network (WHO) | Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL) |
 {: .grid }
 
-### Other people in the journeys
+### The people of the journeys
 
-- **Somsack SENGMANY (newborn)**: The subject of every journey: a Lao baby boy born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), while his family lives in Lao PDR (Country B). Has no Thai identity number; registered in Lao PDR with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.
+Each is fictional. Their goals, needs and frustrations are kept in `scenarios/actors/*.json` (`meta.persona`), and the VaxLink walkthrough shows the same text.
+
+
+#### Dr. Anan (Thai clinician · birth & follow-up, Thailand)
+
+Persona: a Thai clinician in Chiang Rai who gives Somsack's Hep B and BCG birth doses and prints the two signed DVCs (J1), and who sees him again a year later at a primary care clinic, reading his record through the VHL (J4.1). Fictional.
+
+- **Goal:** Give a non-Thai baby proper care, at birth and when he returns.
+- **Needs:** A way to issue records that travel with the family; A child's full history at the point of care; Confidence the data is authentic
+- **Frustrations:** No national ID to attach records to; Records from abroad he cannot read or verify
+
+#### Bounmy (Father · holds the family phone, Lao PDR)
+
+Persona: Somsack's father, 29, head of the household in Lao PDR, who holds the family's one shared phone (J4). Creates Somsack's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.
+
+- **Goal:** Keep the whole family's health records in one place he controls.
+- **Needs:** One app for three people on one phone; Share records abroad without paperwork; Decide who sees what, and for how long
+- **Frustrations:** Carrying folders of documents across the border; Not knowing who has seen his child’s data
+
+#### Chanthasone (Nurse · District Health Center, Lao PDR)
+
+Persona for J3: the nurse at Vientiane District Health Center in Lao PDR (Country B), on the clinic's tablet (OHS app, facility configuration). Makes the clinical call when a foreign product has no mapping. Fictional.
+
+- **Goal:** Trust foreign records enough to avoid repeating or missing vaccines.
+- **Needs:** A reliable yes/no on whether a card is genuine; Foreign vaccines translated to the Lao schedule; Automatic calculation of what is due next
+- **Frustrations:** Unfamiliar product names from other countries; Choosing between re-vaccinating and trusting paper blindly
+
+#### Khamla (Mother, Lao PDR)
+
+Persona: Somsack's mother, 26, a Lao national living in Lao PDR (Country B) who gave birth in Thailand (Country A). Holds the two paper DVCs from J1 to J3. Fictional.
+
+- **Goal:** Have Somsack's care recognized at home, without starting over.
+- **Needs:** Proof of the vaccines her baby got abroad; Clear guidance on when to come back; Not to be penalized for giving birth across the border
+- **Frustrations:** Paper cards are easy to lose; Extra trips to the clinic; The family's records live on her husband's phone
+
+#### Somsack (Baby · the record follows him, Lao PDR)
+
+The subject of every journey: a Lao baby boy born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), while his family lives in Lao PDR (Country B). Has no Thai identity number; registered in Lao PDR with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.
+
+- **Goal:** Get every vaccine he needs, once, wherever he is.
+- **Needs:** His birth doses to count at home; No repeated or missed vaccines; His history to be there when a doctor needs it
+- **Frustrations:** Born where he has no national ID; Invisible to the home system until someone registers him
+
+#### Vilay (Community health worker · Village 04, Lao PDR)
+
+Persona for J2: the community health worker of catchment Village 04 in Lao PDR (Country B). Works offline for weeks at a time on an Android phone (OHS app, community configuration) and syncs when she reaches the health center. Can register a child and refer, but cannot decide whether a foreign record is genuine. Fictional.
+
+- **Goal:** Make sure no newborn in her village is missed, even with no signal.
+- **Needs:** Tools that work offline for weeks; A fast way to capture foreign cards; A clear next step to hand the family
+- **Frustrations:** Can't confirm whether a foreign card is genuine; Paperwork that duplicates what the clinic does
