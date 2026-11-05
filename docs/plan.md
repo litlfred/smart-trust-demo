@@ -49,7 +49,7 @@ SHA and every JSON file parses.
 ### 2c. L2 DAK and L3 FHIR IG
 
 The journeys as a WHO SMART Guidelines DAK and FHIR IG, shaped as
-litlfred/smart-immunizations (`sushi-config.yaml`, `ig.ini`, `dak.json`,
+litlfred/smart-immunizations (`sushi-config.yaml`, `ig.ini`, the DAK in `index.config.json` (`contentTypes.dak`),
 `input/`). The L2 content is generated from the harness sources by
 `tools/ig-gen/ig_gen.py`: roles become `ActorDefinition`s, the BPMN is
 copied to `input/business-processes/`, stories and scenarios become pages.

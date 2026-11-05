@@ -1,0 +1,41 @@
+{
+  "id": "req:std-sem-001",
+  "title": "Vaccine codes are semantically interoperable across the border",
+  "description": "A dose given in one country is coded in that country's terms. The receiving country reads it as the same vaccine in its own schedule's terms, without losing the original coding. Owner, 2026-11-05: “vaccine codes should be semantic interoperable across border”.",
+  "status": "proposed",
+  "actors": [
+    "home-clinic-provider",
+    "home-clinic-ehr"
+  ],
+  "statements": [
+    {
+      "key": "map",
+      "label": "The foreign code is mapped to the national one",
+      "conformance": "SHALL",
+      "category": "functional",
+      "requirement": "Importing a dose coded by another country SHALL map its vaccine code to the home country's code through a published, shareable mapping, and SHALL keep the original code beside the mapped one.",
+      "capability": "read a foreign dose as the vaccine it is in our own schedule",
+      "benefit": "nothing is repeated or missed because the codes differ",
+      "successCriteria": [
+        {
+          "key": "conceptmap",
+          "criterion": "The Thai product codes of J1's doses map to the Lao EPI codes by the IG's ConceptMap TrustDemoProductToLaoEpi, and the imported Immunization keeps both codings (example Immunization TrustDemoJ3HepB).",
+          "verification": "inspection"
+        }
+      ]
+    },
+    {
+      "key": "unmapped",
+      "label": "An unmapped code is not guessed",
+      "conformance": "SHALL",
+      "category": "functional",
+      "requirement": "A foreign vaccine code with no mapping SHALL be kept as it is and shown to the clinician as unmapped, never replaced by a guess.",
+      "capability": "see when a foreign code could not be mapped",
+      "benefit": "I decide, rather than the system guessing"
+    }
+  ],
+  "tags": [
+    "journeys",
+    "functional"
+  ]
+}

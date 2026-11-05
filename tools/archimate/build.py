@@ -19,12 +19,14 @@ archimate-models skill asks. Standard library only.
 """
 
 import hashlib
+import importlib.util
 import json
 import re
 import shutil
 import subprocess
 import sys
 import tempfile
+import uuid
 import zipfile
 from pathlib import Path
 
@@ -91,6 +93,36 @@ def write_zip(dst, model, others):
             z.writestr(info, data)
 
 
+def apply_bounds(xml):
+    """Move the boxes overlay.py's VIEW_BOUNDS names to exact positions (x, width), in its views only.
+
+    add_views.py lays boxes out left to right; this is the one step after it.
+    A box is found by its element's id inside the named view, and only its own
+    <bounds> (the first after its <child>) is changed.
+    """
+    spec = importlib.util.spec_from_file_location("overlay", HERE / "overlay.py")
+    o = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(o)
+    ns = uuid.uuid5(uuid.NAMESPACE_URL, o.NAMESPACE)
+    eid = lambda key: o.EXISTING.get(key) or "id-" + uuid.uuid5(ns, "element/" + key).hex
+    for view, boxes in getattr(o, "VIEW_BOUNDS", {}).items():
+        m = re.search(r'<element xsi:type="archimate:ArchimateDiagramModel" name="%s" id="[^"]+">' % re.escape(view), xml)
+        if not m:
+            raise SystemExit(f"VIEW_BOUNDS: no view {view!r}")
+        end = xml.index("\n      </element>", m.end())
+        body = xml[m.end():end]
+        for key, b in boxes.items():
+            c = re.search(r'<child xsi:type="archimate:DiagramObject" id="[^"]+" archimateElement="%s"' % eid(key), body)
+            if not c:
+                raise SystemExit(f"VIEW_BOUNDS: {key} is not drawn in {view!r}")
+            bm = re.compile(r'<bounds x="(-?\d+)" y="(-?\d+)" width="(\d+)" height="(\d+)"/>').search(body, c.end())
+            x, y, w, h = bm.groups()
+            new = f'<bounds x="{b.get("x", x)}" y="{y}" width="{b.get("width", w)}" height="{h}"/>'
+            body = body[:bm.start()] + new + body[bm.end():]
+        xml = xml[:m.end()] + body + xml[end:]
+    return xml
+
+
 def build(out):
     model, add_views = fetch()
     with tempfile.TemporaryDirectory() as t:
@@ -101,7 +133,7 @@ def build(out):
         if r.returncode:
             raise SystemExit(r.stdout + r.stderr)
         with zipfile.ZipFile(applied) as z:
-            xml = z.read("model.xml")
+            xml = apply_bounds(z.read("model.xml").decode("utf-8")).encode("utf-8")
             others = {n: z.read(n) for n in z.namelist() if n != "model.xml"}
         out.parent.mkdir(parents=True, exist_ok=True)
         write_zip(out, xml, others)

@@ -1,0 +1,58 @@
+{
+  "id": "req:std-acc-001",
+  "title": "The holder restricts who can open a shared record",
+  "description": "A family shares a record by handing over a link, not the record. The person who holds it decides who can open it and for how long: a passcode they choose and can say aloud, an expiry, and the means to withdraw the link. Owner, 2026-11-05: “user should be able to restrict access”.",
+  "status": "proposed",
+  "actors": [
+    "caregiver",
+    "family-phone",
+    "national-portal"
+  ],
+  "statements": [
+    {
+      "key": "passcode",
+      "label": "A passcode the holder sets",
+      "conformance": "SHALL",
+      "category": "functional",
+      "requirement": "Sharing a record as a link SHALL let the holder protect it with a passcode they choose, and the record SHALL NOT be released without it.",
+      "capability": "protect the link to my child's record with a passcode I choose",
+      "benefit": "only the person I tell can open it",
+      "successCriteria": [
+        {
+          "key": "wrong-passcode",
+          "criterion": "Opening a shared link with a wrong passcode releases nothing and is recorded in the home country's access log (J4.1, example AuditEvent TrustDemoJ41WrongPasscode).",
+          "verification": "test"
+        }
+      ]
+    },
+    {
+      "key": "expiry",
+      "label": "An expiry the holder sets",
+      "conformance": "SHALL",
+      "category": "functional",
+      "requirement": "The holder SHALL be able to choose how long a shared link stays valid, and an expired link SHALL release nothing.",
+      "capability": "choose how long the link works",
+      "benefit": "access ends when the visit is over",
+      "successCriteria": [
+        {
+          "key": "expired",
+          "criterion": "A link opened after the expiry the holder chose releases nothing.",
+          "verification": "test"
+        }
+      ]
+    },
+    {
+      "key": "revoke",
+      "label": "The holder withdraws a link",
+      "conformance": "SHOULD",
+      "category": "functional",
+      "requirement": "The holder SHOULD be able to withdraw a shared link before it expires.",
+      "capability": "withdraw a link I no longer want used",
+      "benefit": "a lost phone or a changed mind does not leave the record open"
+    }
+  ],
+  "tags": [
+    "journeys",
+    "functional"
+  ]
+}
