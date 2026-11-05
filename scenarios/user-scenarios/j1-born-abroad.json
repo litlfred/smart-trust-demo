@@ -60,7 +60,10 @@
         "heldWhere": "Khamla’s bag"
       },
       "handoff": {
-        "summary": "Two paper cards go home with Khamla"
+        "summary": "Two paper cards go home with Khamla",
+        "carrier": "Printed QR code",
+        "payload": "Signed DVC: HC1: prefix → CBOR + COSE_Sign1",
+        "offline": true
       },
       "whatIf": [
         {
@@ -83,6 +86,25 @@
             "Task_Finish",
             "Task_Print"
           ]
+        }
+      ],
+      "technicalSummary": "Thailand signs the record once. From then on, anyone on the WHO trust network can check it, with no database lookup and no national ID.",
+      "uses": [
+        {
+          "block": "thai-his",
+          "role": "Records Hep B + BCG and requests the certificates"
+        },
+        {
+          "block": "smart-imm",
+          "role": "Vaccines coded with WHO PreQual product codes"
+        },
+        {
+          "block": "dvc",
+          "role": "Dose data packed into CBOR, signed (COSE, ES256) and printed as a QR"
+        },
+        {
+          "block": "gdhcn",
+          "role": "Thailand’s signing key (kid 916ffa…) is published on the trust list"
         }
       ],
       "requirements": [

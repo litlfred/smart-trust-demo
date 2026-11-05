@@ -1,0 +1,429 @@
+{
+  "$schema": "building-blocks/0.1.0",
+  "layers": [
+    {
+      "id": "apps",
+      "label": "Tools & apps",
+      "question": "What software is in people’s hands?"
+    },
+    {
+      "id": "data",
+      "label": "Data standards",
+      "question": "How is the information structured so others can read it?"
+    },
+    {
+      "id": "trust",
+      "label": "Trust & exchange",
+      "question": "How is it signed, shared, consented and audited?"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "thai-his",
+      "name": "Thai hospital system + DVC issuing service",
+      "short": "Thai hospital system",
+      "kind": "system",
+      "layer": "apps",
+      "jurisdiction": "Thailand",
+      "owner": "Thailand MOPH",
+      "what": "The hospital’s own information system records the birth doses and calls a national signing service to print Digital Vaccine Certificates.",
+      "soWhat": "Thailand doesn’t need to change its hospital systems. It only needs to be able to sign certificates in the agreed format.",
+      "components": [
+        "th-birth-ehr",
+        "th-immunization-record",
+        "th-dvc-signer"
+      ],
+      "links": [
+        {
+          "label": "DVC issuing: WHO SMART Trust",
+          "url": "https://smart.who.int/trust/"
+        }
+      ]
+    },
+    {
+      "id": "ohs-fhir-sdk",
+      "name": "OHS FHIR SDK (FHIR Engine)",
+      "short": "OHS FHIR SDK",
+      "kind": "tool",
+      "layer": "apps",
+      "jurisdiction": "International",
+      "owner": "Open Health Stack (open source)",
+      "what": "An open-source, multiplatform library for building apps that store FHIR data on the device, work fully offline and sync later.",
+      "soWhat": "The CHW phone, clinic tablet and family wallet are all built on the same open building block, so data is FHIR from the first tap. No conversion step, no vendor lock-in.",
+      "links": [
+        {
+          "label": "OHS Android FHIR SDK",
+          "url": "https://github.com/google/android-fhir"
+        }
+      ]
+    },
+    {
+      "id": "ohs-sdc",
+      "name": "OHS Structured Data Capture library",
+      "short": "SDC library",
+      "kind": "tool",
+      "layer": "apps",
+      "jurisdiction": "International",
+      "owner": "Open Health Stack (open source)",
+      "what": "Renders FHIR Questionnaires as forms on the device and turns the answers into FHIR resources (extraction).",
+      "soWhat": "The Ministry can change a registration form by publishing a new Questionnaire, without rebuilding the app.",
+      "components": [
+        "la-chw-app"
+      ],
+      "links": [
+        {
+          "label": "HL7 FHIR SDC",
+          "url": "https://hl7.org/fhir/uv/sdc/"
+        },
+        {
+          "label": "FHIR Questionnaire",
+          "url": "https://hl7.org/fhir/questionnaire.html"
+        },
+        {
+          "label": "This journey’s form (IG)",
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/Questionnaire-TrustDemoHouseholdRegistration.html"
+        }
+      ]
+    },
+    {
+      "id": "ohs-info-gateway",
+      "name": "OHS FHIR Info Gateway",
+      "short": "Info Gateway (AuthZ)",
+      "kind": "tool",
+      "layer": "apps",
+      "jurisdiction": "International",
+      "owner": "Open Health Stack (open source)",
+      "what": "The authorization (AuthZ) layer in front of the national FHIR server. It checks the caller’s access token from the identity provider, applies access rules (role, facility, household, consent) to every request, and records each access.",
+      "soWhat": "Every app, from the CHW phone to the Thai clinic viewer, goes through one front door. Lao PDR keeps the records at home and decides who can read or write what, including requests from abroad.",
+      "components": [
+        "la-info-gateway"
+      ],
+      "links": [
+        {
+          "label": "OHS FHIR Info Gateway",
+          "url": "https://github.com/google/fhir-gateway"
+        }
+      ]
+    },
+    {
+      "id": "national-fhir",
+      "name": "Lao national FHIR repository",
+      "short": "National FHIR server",
+      "kind": "system",
+      "layer": "apps",
+      "jurisdiction": "Lao PDR",
+      "owner": "Lao PDR MOH",
+      "what": "The national store of immunization and health summary data, using the FHIR standard API.",
+      "soWhat": "It is the one source of truth that the family wallet, clinics and VHL links all point back to.",
+      "components": [
+        "la-national-fhir"
+      ],
+      "links": [
+        {
+          "label": "HL7 FHIR",
+          "url": "https://hl7.org/fhir/"
+        }
+      ]
+    },
+    {
+      "id": "ohs-data-pipes",
+      "name": "OHS FHIR Data Pipes (analytics)",
+      "short": "FHIR Data Pipes",
+      "kind": "tool",
+      "layer": "apps",
+      "jurisdiction": "International",
+      "owner": "Open Health Stack (open source)",
+      "what": "Open-source pipelines that copy FHIR data from the national server, including Provenance and AuditEvent, into analytics-ready tables for reports and dashboards.",
+      "soWhat": "The Ministry sees patterns, not just single records: how many foreign certificates were verified, how often records are opened abroad, and any unusual access.",
+      "components": [
+        "la-data-pipes"
+      ],
+      "links": [
+        {
+          "label": "OHS FHIR Data Pipes",
+          "url": "https://github.com/google/fhir-data-pipes"
+        }
+      ]
+    },
+    {
+      "id": "family-wallet",
+      "name": "Family wallet app",
+      "short": "Family wallet",
+      "kind": "system",
+      "layer": "apps",
+      "jurisdiction": "Lao PDR",
+      "owner": "Lao PDR MOH (built on OHS)",
+      "what": "A phone app that holds health summaries for several household members and can create shareable links.",
+      "soWhat": "It puts the family in control of sharing, on a device they already own.",
+      "components": [
+        "la-family-wallet"
+      ],
+      "links": [
+        {
+          "label": "IHE ITI VHL (Holder)",
+          "url": "https://profiles.ihe.net/ITI/VHL/"
+        }
+      ]
+    },
+    {
+      "id": "vhl-viewer",
+      "name": "VHL viewer",
+      "short": "VHL viewer",
+      "kind": "system",
+      "layer": "apps",
+      "jurisdiction": "Thailand",
+      "owner": "Any conformant vendor (Thailand)",
+      "what": "A web or tablet app that scans a VHL QR, takes the passcode, fetches the record and displays it.",
+      "soWhat": "The Thai clinic needs no account in the Lao system. Any viewer that follows the VHL standard works.",
+      "components": [
+        "th-vhl-viewer"
+      ],
+      "links": [
+        {
+          "label": "IHE ITI VHL (Receiver)",
+          "url": "https://profiles.ihe.net/ITI/VHL/"
+        }
+      ]
+    },
+    {
+      "id": "fhir-r4",
+      "name": "HL7 FHIR R4",
+      "short": "FHIR R4",
+      "kind": "standard",
+      "layer": "data",
+      "jurisdiction": "International",
+      "owner": "HL7 International",
+      "what": "The global standard for representing and exchanging health data as resources (Patient, Immunization, …) over a web API.",
+      "soWhat": "It is the common language. Every system in this story reads and writes the same resource shapes.",
+      "links": [
+        {
+          "label": "HL7 FHIR R4",
+          "url": "https://hl7.org/fhir/R4/"
+        },
+        {
+          "label": "This journey as a FHIR IG",
+          "url": "https://litlfred.github.io/smart-trust-demo/"
+        }
+      ]
+    },
+    {
+      "id": "smart-imm",
+      "name": "WHO SMART Guidelines: Immunizations",
+      "short": "WHO SMART Immunizations",
+      "kind": "standard",
+      "layer": "data",
+      "jurisdiction": "International",
+      "owner": "WHO",
+      "what": "WHO’s machine-readable immunization guidance: data dictionary, FHIR profiles, PreQual vaccine product codes and schedule logic.",
+      "soWhat": "Both countries use the same WHO vaccine codes and profiles, so a dose recorded in Thailand means the same thing in Lao PDR.",
+      "links": [
+        {
+          "label": "WHO SMART Immunizations",
+          "url": "https://smart.who.int/immunizations/"
+        }
+      ]
+    },
+    {
+      "id": "ips",
+      "name": "HL7 International Patient Summary (IPS)",
+      "short": "IPS",
+      "kind": "standard",
+      "layer": "data",
+      "jurisdiction": "International",
+      "owner": "HL7 / ISO 27269",
+      "what": "A standard, minimal health summary (immunizations, allergies, medications, problems) designed for care across borders.",
+      "soWhat": "The Thai doctor gets a predictable summary they know how to read, not a dump of another country’s records.",
+      "links": [
+        {
+          "label": "HL7 IPS",
+          "url": "https://hl7.org/fhir/uv/ips/"
+        },
+        {
+          "label": "Somsack’s IPS (IG)",
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/Bundle-TrustDemoJ4Ips.html"
+        }
+      ]
+    },
+    {
+      "id": "conceptmap",
+      "name": "FHIR ConceptMap (terminology mapping)",
+      "short": "ConceptMap",
+      "kind": "standard",
+      "layer": "data",
+      "jurisdiction": "International",
+      "owner": "HL7 FHIR",
+      "what": "A FHIR resource that records how a code in one system maps to a code in another, including who decided and how confident they are.",
+      "soWhat": "Foreign vaccines are translated without overwriting them. The original Thai code stays alongside the Lao one.",
+      "components": [
+        "la-conceptmap"
+      ],
+      "links": [
+        {
+          "label": "FHIR ConceptMap",
+          "url": "https://hl7.org/fhir/conceptmap.html"
+        },
+        {
+          "label": "The map in this journey (IG)",
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/ConceptMap-TrustDemoProductToLaoEpi.html"
+        }
+      ]
+    },
+    {
+      "id": "plandefinition",
+      "name": "FHIR PlanDefinition + CQL (schedule logic)",
+      "short": "PlanDefinition / CQL",
+      "kind": "standard",
+      "layer": "data",
+      "jurisdiction": "International",
+      "owner": "HL7 FHIR / WHO SMART",
+      "what": "Computable rules for the national schedule that work out which doses are due next.",
+      "soWhat": "Once foreign doses are mapped, they automatically count toward the Lao schedule. No mental arithmetic for the nurse.",
+      "components": [
+        "la-schedule"
+      ],
+      "links": [
+        {
+          "label": "FHIR PlanDefinition",
+          "url": "https://hl7.org/fhir/plandefinition.html"
+        },
+        {
+          "label": "CQL",
+          "url": "https://cql.hl7.org/"
+        },
+        {
+          "label": "The schedule (IG)",
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/PlanDefinition-TrustDemoLaoInfantSchedule.html"
+        }
+      ]
+    },
+    {
+      "id": "provenance",
+      "name": "FHIR Provenance",
+      "short": "Provenance",
+      "kind": "standard",
+      "layer": "data",
+      "jurisdiction": "International",
+      "owner": "HL7 FHIR",
+      "what": "Records where a piece of data came from, who verified it and how.",
+      "soWhat": "Anyone can see later that a dose was issued by Thailand and verified in Lao PDR. Trust is visible, not assumed.",
+      "links": [
+        {
+          "label": "FHIR Provenance",
+          "url": "https://hl7.org/fhir/provenance.html"
+        },
+        {
+          "label": "Verification provenance (IG)",
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ3Verification.html"
+        }
+      ]
+    },
+    {
+      "id": "dvc",
+      "name": "WHO Digital Vaccine Certificate (signed QR)",
+      "short": "Digital Vaccine Certificate",
+      "kind": "standard",
+      "layer": "trust",
+      "jurisdiction": "International",
+      "owner": "WHO SMART Trust",
+      "what": "A compact vaccination record (CBOR) digitally signed by the issuing country (COSE) and encoded in a QR code. It can be printed on paper.",
+      "soWhat": "Proof travels with the person and can be checked anywhere, even offline and even on paper.",
+      "links": [
+        {
+          "label": "WHO SMART Trust (HCERT)",
+          "url": "https://smart.who.int/trust/"
+        },
+        {
+          "label": "HCERT QR code generation",
+          "url": "https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode"
+        }
+      ]
+    },
+    {
+      "id": "gdhcn",
+      "name": "WHO Global Digital Health Certification Network",
+      "short": "WHO GDHCN",
+      "kind": "network",
+      "layer": "trust",
+      "jurisdiction": "International",
+      "owner": "WHO",
+      "what": "A WHO-run network where countries publish the public keys used to sign their health documents, as a shared trust list.",
+      "soWhat": "Lao PDR can verify a Thai signature without a bilateral agreement or a live call to Thailand. Trust is set up once and works between all members.",
+      "components": [
+        "gdhcn"
+      ],
+      "links": [
+        {
+          "label": "WHO GDHCN",
+          "url": "https://www.who.int/initiatives/global-digital-health-certification-network"
+        },
+        {
+          "label": "WHO SMART Trust",
+          "url": "https://smart.who.int/trust/"
+        }
+      ]
+    },
+    {
+      "id": "vhl",
+      "name": "IHE ITI Verifiable Health Links (VHL)",
+      "short": "Verifiable Health Link",
+      "kind": "standard",
+      "layer": "trust",
+      "jurisdiction": "International",
+      "owner": "IHE",
+      "what": "A signed QR that holds a link and decryption key, not the data itself. The record is fetched from its home only when the link is used.",
+      "soWhat": "Data stays in the home country until someone the family chooses opens it. The QR alone reveals nothing.",
+      "links": [
+        {
+          "label": "IHE ITI Verifiable Health Links",
+          "url": "https://profiles.ihe.net/ITI/VHL/"
+        }
+      ]
+    },
+    {
+      "id": "pcf",
+      "name": "IHE Privacy Consent on FHIR (PCF)",
+      "short": "Consent (PCF)",
+      "kind": "standard",
+      "layer": "trust",
+      "jurisdiction": "International",
+      "owner": "IHE",
+      "what": "Records the family’s sharing decision (who, what, how long) as a FHIR Consent that the gateway enforces.",
+      "soWhat": "Consent is machine-enforced: when the 14 days are up, the link stops working.",
+      "links": [
+        {
+          "label": "IHE Privacy Consent on FHIR",
+          "url": "https://profiles.ihe.net/ITI/PCF/"
+        },
+        {
+          "label": "Bounmy’s consent (IG)",
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/Consent-TrustDemoJ4Consent.html"
+        }
+      ]
+    },
+    {
+      "id": "audit",
+      "name": "FHIR AuditEvent (IHE BALP)",
+      "short": "Audit log",
+      "kind": "standard",
+      "layer": "trust",
+      "jurisdiction": "International",
+      "owner": "HL7 FHIR / IHE",
+      "what": "A standard record of who accessed which data, when, and with what result.",
+      "soWhat": "Every cross-border view is logged at home, which supports accountability and family notification.",
+      "links": [
+        {
+          "label": "IHE BALP",
+          "url": "https://profiles.ihe.net/ITI/BALP/"
+        },
+        {
+          "label": "FHIR AuditEvent",
+          "url": "https://hl7.org/fhir/auditevent.html"
+        },
+        {
+          "label": "The access log entry (IG)",
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html"
+        }
+      ]
+    }
+  ]
+}

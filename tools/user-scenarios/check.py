@@ -11,7 +11,11 @@ References, which a JSON Schema cannot express:
 - step.record.state: a code of the code-list trustLadder names (beside the scenarios);
 - step.examples: an FSH Instance with that id in input/fsh/;
 - step ids unique within the scenario;
-- follows: another scenario here, and the chain has no loop.
+- follows: another scenario here, and the chain has no loop;
+- step.uses: each block is in the building-blocks catalogue, once per step,
+  and a named component is one of that block's;
+- the catalogue itself: unique block ids, known layers, and components that
+  are element keys of tools/archimate/overlay.py.
 step.requirements are not checked here: smart-trust-tools' req: nodes are a
 mounted layer.
 
@@ -25,6 +29,33 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DATA = ROOT / "scenarios" / "user-scenarios"
 SCHEMA = ROOT / "docs" / "proposals" / "user-scenario" / "user-scenario.schema.json"
+BLOCKS = ROOT / "docs" / "proposals" / "uses-building-block" / "building-blocks.json"
+BLOCKS_SCHEMA = ROOT / "docs" / "proposals" / "uses-building-block" / "building-blocks.schema.json"
+
+
+def catalogue(errors, jsonschema):
+    """The building-blocks catalogue, checked, as {block id: block}."""
+    if not BLOCKS.exists():
+        return {}
+    cat = json.loads(BLOCKS.read_text())
+    rel = BLOCKS.relative_to(ROOT)
+    if jsonschema:
+        for e in jsonschema.Draft202012Validator(json.loads(BLOCKS_SCHEMA.read_text())).iter_errors(cat):
+            errors.append(f"{rel}: {'/'.join(map(str, e.path)) or '(root)'}: {e.message}")
+    layers = {l["id"] for l in cat.get("layers", [])}
+    overlay = (ROOT / "tools" / "archimate" / "overlay.py").read_text()
+    elements = set(re.findall(r'^\s*\("([a-z0-9-]+)", "', overlay, re.M)) | set(re.findall(r'^GDHCN = \("([a-z0-9-]+)"', overlay, re.M))
+    out = {}
+    for b in cat.get("blocks", []):
+        if b["id"] in out:
+            errors.append(f"{rel}: block {b['id']} repeated")
+        out[b["id"]] = b
+        if b.get("layer") not in layers:
+            errors.append(f"{rel}: block {b['id']}: unknown layer {b.get('layer')}")
+        for c in b.get("components", []):
+            if c not in elements:
+                errors.append(f"{rel}: block {b['id']}: {c} is not an element of tools/archimate/overlay.py")
+    return out
 
 
 def main():
@@ -41,6 +72,7 @@ def main():
     for f in DATA.glob("*.code-list.json"):
         c = json.loads(f.read_text())
         lists[c["id"]] = [x["code"] for x in c["codes"]]
+    blocks = catalogue(errors, jsonschema)
     instances = set()
     for f in (ROOT / "input" / "fsh").rglob("*.fsh"):
         instances.update(re.findall(r"^Instance:\s*(\S+)", f.read_text(), re.M))
@@ -85,6 +117,17 @@ def main():
             state = st.get("record", {}).get("state")
             if state and ladder is not None and state not in ladder:
                 errors.append(f"{where}: record state {state} is not a code of {s['trustLadder']}")
+            used = set()
+            for u in st.get("uses", []):
+                b = blocks.get(u.get("block"))
+                if b is None:
+                    errors.append(f"{where}: uses unknown building block {u.get('block')}")
+                    continue
+                if u["block"] in used:
+                    errors.append(f"{where}: uses {u['block']} twice")
+                used.add(u["block"])
+                if u.get("component") and u["component"] not in b.get("components", []):
+                    errors.append(f"{where}: {u['component']} is not a component of {u['block']}")
             for ex in st.get("examples", []):
                 if ex.split("/", 1)[-1] not in instances:
                     errors.append(f"{where}: no FSH Instance {ex}")

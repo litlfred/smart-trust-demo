@@ -24,6 +24,8 @@ The VaxLink walkthrough (litlfred/vaxlink) is the presentation of these journeys
 
    **Draft:** [`docs/proposals/user-scenario/`](../../docs/proposals/user-scenario/README.md): schema `user-scenario/0.1.0` (the DAK `UserScenario` fields plus ordered steps and the four edges), J1 as a worked example, and `check.py` for the references.
 2. **"Uses a building block, in this role" edge.** A moment (or BPMN task) uses a building block, with a one-line role that is particular to that moment, and a data hand-off (from, to, payload, offline or not). ArchiMate's serving or realisation relations carry the block but not the per-moment role text. vaxlink: `techData.ts` `STEP_TECH`, 22 blocks.
+
+   **Draft:** [`docs/proposals/uses-building-block/`](../../docs/proposals/uses-building-block/README.md): the `building-blocks/0.1.0` catalogue (kind, layer, jurisdiction, components) and the step's `uses` edge with its per-step role, converted for every step.
 3. **Workshop / facilitation layer.** Modules (M1–M7, day, canvas sheet, the question each carries), questions tagged by module and asked of a moment, decision rights, legal bases, cost drivers and substitution patterns. `policies` is ODRL (what an actor may do) and does not fit. vaxlink: `policyData.ts`.
 4. **Persona fields on an actor.** The `scenarios` actor kind has `id`, `title`, `kind`, `description`, `roles` and no `meta`. This repository now keeps `meta.persona` (name, role, country, goal, needs, frustrations) on each person actor, checked by `tools/repo-checks`. The kind should declare it (or a `persona` sub-object), so the check is the harness's rather than this repository's.
 5. **Smaller ones.**

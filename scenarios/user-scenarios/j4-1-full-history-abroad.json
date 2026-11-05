@@ -71,7 +71,10 @@
         "heldWhere": "Lao national records"
       },
       "handoff": {
-        "summary": "Journey complete — full circle back to Thailand"
+        "summary": "Journey complete — full circle back to Thailand",
+        "carrier": "HTTPS (VHL fetch) across the border",
+        "payload": "Encrypted IPS Bundle → decrypted in memory",
+        "offline": false
       },
       "whatIf": [
         {
@@ -97,6 +100,33 @@
             "Task_Decrypt",
             "Task_Review"
           ]
+        }
+      ],
+      "technicalSummary": "A standard viewer fetches the record from Lao PDR, decrypts it in memory, and leaves an audit trail at home. Cross-border care with no shared database between the countries.",
+      "uses": [
+        {
+          "block": "vhl-viewer",
+          "role": "Scans QR, takes passcode, displays IPS"
+        },
+        {
+          "block": "vhl",
+          "role": "Manifest fetched; decryption key used"
+        },
+        {
+          "block": "ohs-info-gateway",
+          "role": "Authorizes the request against passcode and consent, releases data, writes the AuditEvent"
+        },
+        {
+          "block": "ips",
+          "role": "Rendered for the Thai clinician"
+        },
+        {
+          "block": "audit",
+          "role": "AuditEvent recorded in Lao PDR"
+        },
+        {
+          "block": "ohs-data-pipes",
+          "role": "Feeds AuditEvents into a Ministry dashboard of cross-border access, so unusual access stands out"
         }
       ],
       "requirements": [
