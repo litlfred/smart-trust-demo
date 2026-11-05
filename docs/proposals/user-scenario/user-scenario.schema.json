@@ -209,6 +209,16 @@
             },
             "offline": {
               "type": "boolean"
+            },
+            "carrier": {
+              "type": "string",
+              "minLength": 1,
+              "description": "How it travels: a camera scan, a sync through a gateway, a QR shown on a phone."
+            },
+            "payload": {
+              "type": "string",
+              "minLength": 1,
+              "description": "What travels, in the data's own terms."
             }
           },
           "required": [
@@ -274,6 +284,40 @@
             "additionalProperties": false
           },
           "description": "The BPMN that carries the step out. One step may span processes; one process may span steps."
+        },
+        "technicalSummary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The step's technical so-what, in one or two sentences."
+        },
+        "uses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "block": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*$",
+                "description": "A block id in the building-blocks catalogue (docs/proposals/uses-building-block/building-blocks.json)."
+              },
+              "role": {
+                "type": "string",
+                "minLength": 1,
+                "description": "What the block does in this step, in one line. The same block plays different roles in different steps."
+              },
+              "component": {
+                "type": "string",
+                "minLength": 1,
+                "description": "The ArchiMate component that plays it here, when the block names more than one."
+              }
+            },
+            "required": [
+              "block",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The building blocks the step uses, each with the role it plays here (KG-01 gap 2). A block may appear once per step."
         },
         "requirements": {
           "type": "array",

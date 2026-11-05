@@ -47,7 +47,10 @@
         "heldWhere": "Paper cards + CHW phone"
       },
       "handoff": {
-        "summary": "The doses, read but not checked, go into the registration"
+        "summary": "The doses, read but not checked, go into the registration",
+        "carrier": "Camera scan",
+        "payload": "Decoded dose data (not yet saved)",
+        "offline": true
       },
       "whatIf": [
         {
@@ -66,6 +69,21 @@
             "Task_Scan",
             "Task_Read"
           ]
+        }
+      ],
+      "technicalSummary": "The phone can read the QR but deliberately doesn’t trust it: it decodes the card offline and checks no signature. Nothing is written yet.",
+      "uses": [
+        {
+          "block": "ohs-fhir-sdk",
+          "role": "Decodes the QR offline"
+        },
+        {
+          "block": "dvc",
+          "role": "QR decoded (CBOR) but signature not checked"
+        },
+        {
+          "block": "smart-imm",
+          "role": "PreQual codes read, but not yet mapped to the Lao schedule"
         }
       ],
       "requirements": [
@@ -119,7 +137,10 @@
         "heldWhere": "CHW phone (waiting to sync)"
       },
       "handoff": {
-        "summary": "Referral to the District Health Center"
+        "summary": "Referral to the District Health Center",
+        "carrier": "Offline form (FHIR Questionnaire), then sync via Info Gateway",
+        "payload": "Patient + Group + unverified Immunization ×2 + referral",
+        "offline": true
       },
       "whatIf": [
         {
@@ -139,6 +160,25 @@
             "Task_Refer",
             "Task_Slip"
           ]
+        }
+      ],
+      "technicalSummary": "The registration form is a FHIR Questionnaire. Its answers become standard FHIR resources on the phone; the doses read from the cards are saved with primarySource=false, apart from verified data, and everything syncs whenever there is signal.",
+      "uses": [
+        {
+          "block": "ohs-fhir-sdk",
+          "role": "Stores data on the phone; works 28+ days offline"
+        },
+        {
+          "block": "ohs-sdc",
+          "role": "Renders the household registration form and extracts FHIR from the answers"
+        },
+        {
+          "block": "fhir-r4",
+          "role": "Patient and Group (household); Immunization.primarySource = false; ServiceRequest for referral"
+        },
+        {
+          "block": "ohs-info-gateway",
+          "role": "On sync, checks the CHW’s token and only lets her write to households in her own catchment"
         }
       ],
       "examples": [

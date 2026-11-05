@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://litlfred.github.io/smart-trust-demo/docs/proposals/uses-building-block/building-blocks.schema.json",
+  "_draft": "PROPOSAL for a cat-harness kind (bean smart-trust-demo-kg01, gap 2). Hand-written here; once adopted, the source is a Zod schema in cat-harness-tools and this file is generated.",
+  "title": "Building blocks",
+  "description": "The catalogue a journey's steps point into when they say what they use: the tools, systems, standards and trust networks of the demonstrator, each in one architecture layer, each linked to the ArchiMate components that deploy it where there are any. A step's `uses` edge (user-scenario schema) names a block here, with the role that block plays in that step.",
+  "$ref": "#/$defs/building-blocks~10.1.0",
+  "$defs": {
+    "building-blocks/0.1.0": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "const": "building-blocks/0.1.0"
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "question": {
+                "type": "string",
+                "minLength": 1,
+                "description": "The question the layer answers for a policy audience."
+              }
+            },
+            "required": [
+              "id",
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "description": "The layers, in display order."
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/block"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "layers",
+        "blocks"
+      ],
+      "additionalProperties": false
+    },
+    "block": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "short": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A label for a crowded grid."
+        },
+        "kind": {
+          "enum": [
+            "tool",
+            "system",
+            "standard",
+            "network"
+          ],
+          "description": "tool: software anyone can deploy (OHS FHIR SDK). system: a country's deployed system (the Lao national FHIR server). standard: a specification (IPS, IHE VHL). network: a trust network (WHO GDHCN)."
+        },
+        "layer": {
+          "$ref": "#/$defs/id",
+          "description": "One of the catalogue's layers."
+        },
+        "jurisdiction": {
+          "enum": [
+            "Thailand",
+            "Lao PDR",
+            "International"
+          ],
+          "description": "Whose block it is. A country's deployed system belongs to that country; tools, standards and trust networks anyone can adopt are International. The ArchiMate views split the RA by jurisdiction on this field."
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Who maintains it."
+        },
+        "what": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What it is, in one sentence."
+        },
+        "soWhat": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why it matters for the journeys, in one sentence."
+        },
+        "components": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "The ArchiMate elements of the overlay (tools/archimate/overlay.py) that deploy this block, by element key. Omitted when the block is not drawn as a component (most standards)."
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "label",
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Where to read more: the specification, the source, the IG page."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "layer",
+        "jurisdiction",
+        "what"
+      ],
+      "additionalProperties": false
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    }
+  }
+}

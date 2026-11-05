@@ -57,7 +57,10 @@
         "heldWhere": "District clinic records"
       },
       "handoff": {
-        "summary": "Verified doses, ready to schedule"
+        "summary": "Verified doses, ready to schedule",
+        "carrier": "Camera scan + local trust-list check",
+        "payload": "Verified DVC → Immunization updated",
+        "offline": true
       },
       "whatIf": [
         {
@@ -79,6 +82,29 @@
             "Task_Unverified",
             "Task_Import"
           ]
+        }
+      ],
+      "technicalSummary": "The clinic checks Thailand’s signature against WHO’s trust list, stored locally. One check turns a foreign paper card into trusted clinical data, with no call to Thailand.",
+      "uses": [
+        {
+          "block": "ohs-fhir-sdk",
+          "role": "Clinic tablet app; caches the trust list"
+        },
+        {
+          "block": "ohs-info-gateway",
+          "role": "Delivers the CHW’s referral to this clinic; the nurse can only see patients referred to her facility"
+        },
+        {
+          "block": "gdhcn",
+          "role": "Supplies Thailand’s public key (downloaded in advance)"
+        },
+        {
+          "block": "dvc",
+          "role": "COSE_Sign1 signature verified (ES256)"
+        },
+        {
+          "block": "provenance",
+          "role": "Records that Thailand authored and Lao PDR verified the doses"
         }
       ],
       "requirements": [
@@ -131,7 +157,10 @@
         "heldWhere": "Lao national health records"
       },
       "handoff": {
-        "summary": "Somsack continues on the Lao schedule for a year"
+        "summary": "Somsack continues on the Lao schedule for a year",
+        "carrier": "FHIR API via Info Gateway",
+        "payload": "Dual-coded Immunization + next-dose Task",
+        "offline": false
       },
       "whatIf": [
         {
@@ -152,6 +181,37 @@
             "Task_Schedule",
             "Task_Plan"
           ]
+        }
+      ],
+      "technicalSummary": "Shared WHO codes and a FHIR ConceptMap translate Thai vaccines into the Lao schedule. Computable schedule logic then works out what’s due next.",
+      "uses": [
+        {
+          "block": "smart-imm",
+          "role": "Common PreQual codes make the mapping possible"
+        },
+        {
+          "block": "conceptmap",
+          "role": "PreQual product → WHO vaccine type → Lao EPI code"
+        },
+        {
+          "block": "plandefinition",
+          "role": "Lao schedule logic calculates the 6-week doses"
+        },
+        {
+          "block": "ohs-fhir-sdk",
+          "role": "Saves dual-coded record and syncs it to the national server"
+        },
+        {
+          "block": "ohs-info-gateway",
+          "role": "Checks the nurse’s role and facility before accepting the update"
+        },
+        {
+          "block": "ohs-data-pipes",
+          "role": "Verified Thai doses, with their Provenance, count toward Lao coverage reports"
+        },
+        {
+          "block": "national-fhir",
+          "role": "Receives the verified, mapped record"
         }
       ],
       "examples": [

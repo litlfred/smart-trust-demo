@@ -45,7 +45,10 @@
         "heldWhere": "Lao national records + family wallet"
       },
       "handoff": {
-        "summary": "Somsack’s summary is ready to share"
+        "summary": "Somsack’s summary is ready to share",
+        "carrier": "FHIR API (HTTPS) via Info Gateway",
+        "payload": "IPS Bundle per family member",
+        "offline": false
       },
       "whatIf": [
         {
@@ -55,6 +58,29 @@
       ],
       "stories": [
         "caregiver-2"
+      ],
+      "technicalSummary": "A year of records from two countries is assembled into one International Patient Summary, a format any clinician abroad knows how to read.",
+      "uses": [
+        {
+          "block": "family-wallet",
+          "role": "Holds 3 household profiles on one phone"
+        },
+        {
+          "block": "national-fhir",
+          "role": "Source of truth for all 6 doses"
+        },
+        {
+          "block": "ohs-info-gateway",
+          "role": "Lets Bounmy’s wallet read only his own household’s records"
+        },
+        {
+          "block": "ips",
+          "role": "Somsack’s summary packaged as an IPS Bundle"
+        },
+        {
+          "block": "provenance",
+          "role": "Thai origin of birth doses still visible"
+        }
       ],
       "examples": [
         "Bundle/TrustDemoJ4Ips"
@@ -93,7 +119,10 @@
         "heldWhere": "Lao national records (QR is just a pointer)"
       },
       "handoff": {
-        "summary": "A QR on Dad’s phone + a passcode he can say aloud"
+        "summary": "A QR on Dad’s phone + a passcode he can say aloud",
+        "carrier": "HTTPS",
+        "payload": "VHL manifest + Consent registered",
+        "offline": false
       },
       "whatIf": [
         {
@@ -117,6 +146,25 @@
             "Task_Finish",
             "Task_Store"
           ]
+        }
+      ],
+      "technicalSummary": "The QR is a key, not a copy. The record stays on the Lao server, and the family’s consent (who, how long) is recorded in a standard form and enforced.",
+      "uses": [
+        {
+          "block": "family-wallet",
+          "role": "Generates the link and passcode"
+        },
+        {
+          "block": "vhl",
+          "role": "Signed QR holding a manifest URL + decryption key"
+        },
+        {
+          "block": "pcf",
+          "role": "14-day, passcode-protected sharing consent"
+        },
+        {
+          "block": "ohs-info-gateway",
+          "role": "Registers the consent it will enforce when the link is used"
         }
       ],
       "requirements": [
