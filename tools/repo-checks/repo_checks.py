@@ -17,6 +17,13 @@
   mount, or the --smart-trust-tools directory; CI fetches it), STD-* in
   this repository's skills/requirements/, whose actors must be our roles.
 
+- The DAK's data dictionary (dak/data-dictionary.json), decision tables
+  (processes/content/decisions/*.dmn) and indicators (dak/indicators.json)
+  resolve: every requirement id they cite exists, every BPMN task they serve,
+  every FSH artifact and data element they name, every decision table an
+  indicator names; and each table's entries stay in the FEEL subset the
+  harness interprets (tools/dak/dak.py).
+
 - Every skill a BPMN task names exists (this instance's, or a smart-trust-tools
   package's at the pinned commit); a task's skill is one its lane's role
   has; and every person and system role plays a lane in some journey.
@@ -44,6 +51,17 @@ def _load_graph():
 
 
 graph = _load_graph()
+
+
+def _load_dak():
+    """tools/dak/dak.py, the one reader of the DAK's dictionary, decision tables and indicators."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("dak", ROOT / "tools" / "dak" / "dak.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
 SKIP = {".git", "node_modules", "build", ".gradle", ".kotlin", "site"}
 USES = re.compile(r"^\s*-?\s*uses:\s*([^\s#]+)")
 PINNED = re.compile(r"^[^@\s]+@[0-9a-f]{40}$")
@@ -85,6 +103,7 @@ def main():
     stt = pathlib.Path(_arg("--smart-trust-tools") or ROOT / "smart-trust-tools")
     errors += requirement_errors(stt / "skills" / "requirements")
     errors += binding_errors(stt / "skills")
+    errors += dak_errors(stt / "skills" / "requirements")
     for e in errors:
         print(e, file=sys.stderr)
     print(f"repo-checks: {len(errors)} problem(s)")
@@ -240,6 +259,20 @@ def binding_errors(stt_skills):
         if rid not in in_lanes and set(r.get("actorKinds", [])) & {"person", "system"}:
             errors.append(f"scenarios/roles.json: role {rid} plays no lane in any journey")
     return errors
+
+
+def dak_errors(req_dir):
+    """The DAK sources' references resolve, with STT-* and STD-* requirement ids as requirement_errors reads them."""
+    req_dir = pathlib.Path(req_dir)
+    if not req_dir.is_dir():
+        return []  # requirement_errors already names the missing mount
+    known = set()
+    for d in (req_dir, ROOT / "skills" / "requirements"):
+        for f in sorted(d.glob("*.json")):
+            rid = json.loads(f.read_text()).get("id", "")
+            if rid.startswith("req:"):
+                known.add(rid[4:].upper())
+    return _load_dak().errors(known, ROOT)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 # The L3 FHIR IG of the SMART Trust demonstrator. Its L2 content (personas,
-# system actors, business processes, user scenarios) is generated from the
-# harness sources by tools/ig-gen/ig_gen.py; do not edit those files by hand.
+# system actors, business processes, user scenarios, data dictionary,
+# decision-support logic, indicators) is generated from the harness sources
+# and dak/ by tools/ig-gen/ig_gen.py; do not edit those files by hand.
 # id and canonical: owner directive memory/dir-ig-identity.md.
 id: smart.who.int.trust-demo
 canonical: http://smart.who.int/trust-demo
@@ -58,6 +59,12 @@ pages:
       title: User Scenarios
     business-processes.md:
       title: Business Processes
+    dictionary.md:
+      title: Data Dictionary
+    decision-logic.md:
+      title: Decision-support Logic
+    indicators.md:
+      title: Indicators and Performance Metrics
     functional-requirements.md:
       title: Functional Requirements
   data-models-and-exchange.md:
@@ -85,6 +92,9 @@ menu:
     Generic Personas: personas.html
     User Scenarios: scenarios.html
     Business Processes: business-processes.html
+    Data Dictionary: dictionary.html
+    Decision-support Logic: decision-logic.html
+    Indicators and Performance Metrics: indicators.html
     Functional Requirements: functional-requirements.html
   Data Models and Exchange:
     System Actors: system-actors.html

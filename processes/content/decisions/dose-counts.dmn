@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TD.DT.03: whether the national schedule counts a dose in the child's
+  record. J3 Task_Schedule (STD-SCH-001): verified doses imported from
+  abroad count by their mapped codes and dates, as doses given at home do;
+  reported doses are not counted until a clinic verifies them
+  (TrustDemoLaoReportedImmunization).
+-->
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:trace="https://litlfred.github.io/smart-trust-demo/ns/dak/"
+             id="Definitions_DoseCounts"
+             name="Does a dose count toward the national schedule"
+             namespace="https://litlfred.github.io/smart-trust-demo/decisions">
+  <decision id="Decision_DoseCounts" name="Does the national schedule count this dose?">
+    <description>For one Immunization in the child's record, decide whether the schedule evaluation counts it as given.</description>
+    <extensionElements>
+      <trace:table code="TD.DT.03"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Schedule"/>
+      <trace:requirement ref="STD-SCH-001"/>
+      <trace:requirement ref="STD-SEM-001"/>
+      <trace:artifact ref="StructureDefinition/TrustDemoLaoImmunization"/>
+      <trace:artifact ref="StructureDefinition/TrustDemoLaoReportedImmunization"/>
+      <trace:dataElement ref="TD.J3B.DE02"/>
+      <trace:dataElement ref="TD.J3B.DE05"/>
+    </extensionElements>
+    <decisionTable id="Table_DoseCounts" hitPolicy="FIRST">
+      <input id="In_Primary" label="Recorded from its primary source">
+        <inputExpression id="Expr_Primary" typeRef="boolean"><text>primarySource</text></inputExpression>
+      </input>
+      <input id="In_Code" label="Has a national schedule code">
+        <inputExpression id="Expr_Code" typeRef="boolean"><text>hasScheduleCode</text></inputExpression>
+      </input>
+      <output id="Out_Counts" label="Counts" name="counts" typeRef="boolean"/>
+      <output id="Out_Why" label="Why" name="why" typeRef="string"/>
+      <rule id="Rule_Reported">
+        <description>A reported dose (J2: TrustDemoJ2HepBReported) is shown but not counted.</description>
+        <inputEntry id="IE_Reported_1"><text>false</text></inputEntry>
+        <inputEntry id="IE_Reported_2"><text>-</text></inputEntry>
+        <outputEntry id="OE_Reported_1"><text>false</text></outputEntry>
+        <outputEntry id="OE_Reported_2"><text>"Reported, not verified."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Unmapped">
+        <description>A verified dose with no schedule code (TD.DT.02 unmapped) cannot be read by the schedule, which works on schedule codes.</description>
+        <inputEntry id="IE_Unmapped_1"><text>true</text></inputEntry>
+        <inputEntry id="IE_Unmapped_2"><text>false</text></inputEntry>
+        <outputEntry id="OE_Unmapped_1"><text>false</text></outputEntry>
+        <outputEntry id="OE_Unmapped_2"><text>"Unmapped: shown to the clinician."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Counts">
+        <description>STD-SCH-001: counted by its schedule code and date, wherever it was given (J3: TrustDemoJ3HepB, TrustDemoJ3Bcg).</description>
+        <inputEntry id="IE_Counts_1"><text>true</text></inputEntry>
+        <inputEntry id="IE_Counts_2"><text>true</text></inputEntry>
+        <outputEntry id="OE_Counts_1"><text>true</text></outputEntry>
+        <outputEntry id="OE_Counts_2"><text>"Counted as given."</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

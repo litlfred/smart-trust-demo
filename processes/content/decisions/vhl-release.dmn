@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TD.DT.05: whether the home country's portal releases a shared link's
+  manifest. J4.1 Task_Release (STD-ACC-001). Every request, released or
+  refused, is logged as an AuditEvent at home (TrustDemoLaoVhlAccess). The
+  order is part of the logic: a withdrawn or expired link is refused for
+  that reason before the passcode is checked, so the log says why.
+-->
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:trace="https://litlfred.github.io/smart-trust-demo/ns/dak/"
+             id="Definitions_VhlRelease"
+             name="Release a shared link's manifest"
+             namespace="https://litlfred.github.io/smart-trust-demo/decisions">
+  <decision id="Decision_VhlRelease" name="Does the portal release the manifest for this request?">
+    <description>For one manifest request (ITI-YY5), decide whether the portal releases the manifest, and what the access log records.</description>
+    <extensionElements>
+      <trace:table code="TD.DT.05"/>
+      <trace:serves process="j4-1-vhl-point-of-care.bpmn" task="Task_Release"/>
+      <trace:requirement ref="STD-ACC-001"/>
+      <trace:artifact ref="Consent/TrustDemoJ4Consent"/>
+      <trace:artifact ref="AuditEvent/TrustDemoJ41Access"/>
+      <trace:artifact ref="AuditEvent/TrustDemoJ41WrongPasscode"/>
+      <trace:dataElement ref="TD.J40.DE06"/>
+      <trace:dataElement ref="TD.J40.DE09"/>
+      <trace:dataElement ref="TD.J41.DE06"/>
+      <trace:dataElement ref="TD.J41.DE07"/>
+      <trace:dataElement ref="TD.J41.DE08"/>
+    </extensionElements>
+    <decisionTable id="Table_VhlRelease" hitPolicy="FIRST">
+      <input id="In_Withdrawn" label="The holder withdrew the link">
+        <inputExpression id="Expr_Withdrawn" typeRef="boolean"><text>withdrawn</text></inputExpression>
+      </input>
+      <input id="In_Period" label="The request is within the period the holder chose">
+        <inputExpression id="Expr_Period" typeRef="boolean"><text>withinPeriod</text></inputExpression>
+      </input>
+      <input id="In_Passcode" label="The passcode matches">
+        <inputExpression id="Expr_Passcode" typeRef="boolean"><text>passcodeMatches</text></inputExpression>
+      </input>
+      <output id="Out_Release" label="Release" name="release" typeRef="boolean"/>
+      <output id="Out_Audit" label="Audit outcome" name="auditOutcome" typeRef="string"/>
+      <output id="Out_Reason" label="Refusal reason" name="refusalReason" typeRef="string"/>
+      <rule id="Rule_Withdrawn">
+        <description>STD-ACC-001 (revoke): a withdrawn link releases nothing; the attempt is logged.</description>
+        <inputEntry id="IE_Withdrawn_1"><text>true</text></inputEntry>
+        <inputEntry id="IE_Withdrawn_2"><text>-</text></inputEntry>
+        <inputEntry id="IE_Withdrawn_3"><text>-</text></inputEntry>
+        <outputEntry id="OE_Withdrawn_1"><text>false</text></outputEntry>
+        <outputEntry id="OE_Withdrawn_2"><text>"4"</text></outputEntry>
+        <outputEntry id="OE_Withdrawn_3"><text>"withdrawn"</text></outputEntry>
+      </rule>
+      <rule id="Rule_Expired">
+        <description>STD-ACC-001 (expiry): a link opened outside the holder's period (J4: 2026-10-26 to 2026-11-09, Consent TrustDemoJ4Consent) releases nothing.</description>
+        <inputEntry id="IE_Expired_1"><text>false</text></inputEntry>
+        <inputEntry id="IE_Expired_2"><text>false</text></inputEntry>
+        <inputEntry id="IE_Expired_3"><text>-</text></inputEntry>
+        <outputEntry id="OE_Expired_1"><text>false</text></outputEntry>
+        <outputEntry id="OE_Expired_2"><text>"4"</text></outputEntry>
+        <outputEntry id="OE_Expired_3"><text>"expired"</text></outputEntry>
+      </rule>
+      <rule id="Rule_WrongPasscode">
+        <description>STD-ACC-001 (passcode): a wrong passcode releases nothing and is logged at home (AuditEvent TrustDemoJ41WrongPasscode).</description>
+        <inputEntry id="IE_Wrong_1"><text>false</text></inputEntry>
+        <inputEntry id="IE_Wrong_2"><text>true</text></inputEntry>
+        <inputEntry id="IE_Wrong_3"><text>false</text></inputEntry>
+        <outputEntry id="OE_Wrong_1"><text>false</text></outputEntry>
+        <outputEntry id="OE_Wrong_2"><text>"4"</text></outputEntry>
+        <outputEntry id="OE_Wrong_3"><text>"wrong-passcode"</text></outputEntry>
+      </rule>
+      <rule id="Rule_Release">
+        <description>The manifest is released and the access logged (AuditEvent TrustDemoJ41Access).</description>
+        <inputEntry id="IE_Release_1"><text>false</text></inputEntry>
+        <inputEntry id="IE_Release_2"><text>true</text></inputEntry>
+        <inputEntry id="IE_Release_3"><text>true</text></inputEntry>
+        <outputEntry id="OE_Release_1"><text>true</text></outputEntry>
+        <outputEntry id="OE_Release_2"><text>"0"</text></outputEntry>
+        <outputEntry id="OE_Release_3"><text>null</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

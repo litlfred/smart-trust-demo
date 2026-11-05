@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TD.DT.04: which doses of the national schedule are due once the counted
+  doses are known. J3 Task_Schedule and Task_Plan (STD-SCH-001), evaluated
+  once per action of PlanDefinition TrustDemoLaoInfantSchedule. The excerpt
+  schedule is illustrative; catch-up rules for a dose whose age has passed
+  are the national schedule's and are not modelled here.
+-->
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:trace="https://litlfred.github.io/smart-trust-demo/ns/dak/"
+             id="Definitions_DoseDue"
+             name="Which schedule doses are due"
+             namespace="https://litlfred.github.io/smart-trust-demo/decisions">
+  <decision id="Decision_DoseDue" name="Is this dose of the national schedule due?">
+    <description>For one action of the national schedule, decide whether the evaluation recommends it now, and from which date.</description>
+    <extensionElements>
+      <trace:table code="TD.DT.04"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Schedule"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Plan"/>
+      <trace:requirement ref="STD-SCH-001"/>
+      <trace:artifact ref="PlanDefinition/TrustDemoLaoInfantSchedule"/>
+      <trace:artifact ref="ImmunizationRecommendation/TrustDemoJ3Recommendation"/>
+      <trace:artifact ref="Task/TrustDemoJ3Reminder"/>
+      <trace:dataElement ref="TD.J3B.DE05"/>
+      <trace:dataElement ref="TD.J3B.DE07"/>
+      <trace:dataElement ref="TD.J3B.DE08"/>
+      <trace:dataElement ref="TD.J3B.DE09"/>
+    </extensionElements>
+    <decisionTable id="Table_DoseDue" hitPolicy="FIRST">
+      <input id="In_Counted" label="A counted dose has this action's code (TD.DT.03)">
+        <inputExpression id="Expr_Counted" typeRef="boolean"><text>counted</text></inputExpression>
+      </input>
+      <input id="In_Next" label="This action's timing age is the earliest among the actions with no counted dose">
+        <inputExpression id="Expr_Next" typeRef="boolean"><text>isNextVisit</text></inputExpression>
+      </input>
+      <output id="Out_Forecast" label="Forecast" name="forecast" typeRef="string"/>
+      <output id="Out_DueDate" label="Due date" name="dueDate" typeRef="string"/>
+      <rule id="Rule_Given">
+        <description>J3: the Hep B and BCG birth doses count once imported, so they are not recommended again (STD-SCH-001).</description>
+        <inputEntry id="IE_Given_1"><text>true</text></inputEntry>
+        <inputEntry id="IE_Given_2"><text>-</text></inputEntry>
+        <outputEntry id="OE_Given_1"><text>"complete"</text></outputEntry>
+        <outputEntry id="OE_Given_2"><text>null</text></outputEntry>
+      </rule>
+      <rule id="Rule_Due">
+        <description>J3: pentavalent 1, bOPV 1 and PCV 1 at 6 weeks, due 2025-12-09 (ImmunizationRecommendation TrustDemoJ3Recommendation), with a reminder Task for that date.</description>
+        <inputEntry id="IE_Due_1"><text>false</text></inputEntry>
+        <inputEntry id="IE_Due_2"><text>true</text></inputEntry>
+        <outputEntry id="OE_Due_1"><text>"due"</text></outputEntry>
+        <outputEntry id="OE_Due_2"><text>"birthDate + timingAge"</text></outputEntry>
+      </rule>
+      <rule id="Rule_Later">
+        <description>J3: measles-rubella 1 at 9 months belongs to a later visit and is not in this recommendation.</description>
+        <inputEntry id="IE_Later_1"><text>false</text></inputEntry>
+        <inputEntry id="IE_Later_2"><text>false</text></inputEntry>
+        <outputEntry id="OE_Later_1"><text>"not-yet"</text></outputEntry>
+        <outputEntry id="OE_Later_2"><text>null</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

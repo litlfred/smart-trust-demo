@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TD.DT.02: how an imported dose gets the national schedule code beside the
+  issuer's product code. J3 Task_Map (STD-SEM-001). The national map is
+  ConceptMap TrustDemoProductToLaoEpi; a clinician's confirmation is recorded
+  as a Provenance (TrustDemoJ3Adjudication) and added to the map.
+-->
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:trace="https://litlfred.github.io/smart-trust-demo/ns/dak/"
+             id="Definitions_VaccineCodeMapping"
+             name="National schedule code of an imported dose"
+             namespace="https://litlfred.github.io/smart-trust-demo/decisions">
+  <decision id="Decision_VaccineCodeMapping" name="Which national schedule code does an imported dose carry?">
+    <description>For one dose, decide whether and how the national schedule code is added beside the issuer's product code, which is always kept.</description>
+    <extensionElements>
+      <trace:table code="TD.DT.02"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Map"/>
+      <trace:requirement ref="STD-SEM-001"/>
+      <trace:artifact ref="ConceptMap/TrustDemoProductToLaoEpi"/>
+      <trace:artifact ref="Provenance/TrustDemoJ3Adjudication"/>
+      <trace:artifact ref="Immunization/TrustDemoJ3HepB"/>
+      <trace:dataElement ref="TD.J3A.DE09"/>
+      <trace:dataElement ref="TD.J3B.DE01"/>
+      <trace:dataElement ref="TD.J3B.DE02"/>
+      <trace:dataElement ref="TD.J3B.DE03"/>
+    </extensionElements>
+    <decisionTable id="Table_VaccineCodeMapping" hitPolicy="FIRST">
+      <input id="In_Outcome" label="Record outcome (TD.DT.01)">
+        <inputExpression id="Expr_Outcome" typeRef="string"><text>outcome</text></inputExpression>
+      </input>
+      <input id="In_MapEntry" label="Entry in the national map">
+        <inputExpression id="Expr_MapEntry" typeRef="string"><text>mapEntry</text></inputExpression>
+      </input>
+      <input id="In_Confirmed" label="Clinician confirms an equivalent">
+        <inputExpression id="Expr_Confirmed" typeRef="string"><text>clinicianConfirms</text></inputExpression>
+      </input>
+      <output id="Out_Basis" label="Mapping basis" name="mappingBasis" typeRef="string"/>
+      <output id="Out_Action" label="Action" name="action" typeRef="string"/>
+      <rule id="Rule_NotImported">
+        <description>Only a verified dose is imported and mapped (J3's yes path); a reported dose keeps the issuer's code alone.</description>
+        <inputEntry id="IE_NotImported_1"><text>"reported-unverified","rejected","not-read"</text></inputEntry>
+        <inputEntry id="IE_NotImported_2"><text>-</text></inputEntry>
+        <inputEntry id="IE_NotImported_3"><text>-</text></inputEntry>
+        <outputEntry id="OE_NotImported_1"><text>"not-imported"</text></outputEntry>
+        <outputEntry id="OE_NotImported_2"><text>"No schedule code is added."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Map">
+        <description>STD-SEM-001 (map): the published national map has an equivalent; both codings are kept, as in TrustDemoJ3Bcg.</description>
+        <inputEntry id="IE_Map_1"><text>"verified"</text></inputEntry>
+        <inputEntry id="IE_Map_2"><text>"equivalent"</text></inputEntry>
+        <inputEntry id="IE_Map_3"><text>-</text></inputEntry>
+        <outputEntry id="OE_Map_1"><text>"concept-map"</text></outputEntry>
+        <outputEntry id="OE_Map_2"><text>"Add the mapped schedule code beside the product code."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Confirmed">
+        <description>The map has no entry and the clinician confirms the equivalent (J3: the Hep B product). Her decision is recorded and added to the map so the next clinic need not repeat it.</description>
+        <inputEntry id="IE_Confirmed_1"><text>"verified"</text></inputEntry>
+        <inputEntry id="IE_Confirmed_2"><text>"none"</text></inputEntry>
+        <inputEntry id="IE_Confirmed_3"><text>"yes"</text></inputEntry>
+        <outputEntry id="OE_Confirmed_1"><text>"clinician-confirmed"</text></outputEntry>
+        <outputEntry id="OE_Confirmed_2"><text>"Add the confirmed schedule code beside the product code; record the clinician's attestation as a Provenance; add the pair to the national map."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Unmapped">
+        <description>STD-SEM-001 (unmapped): no equivalent is known, and none is guessed.</description>
+        <inputEntry id="IE_Unmapped_1"><text>"verified"</text></inputEntry>
+        <inputEntry id="IE_Unmapped_2"><text>"none"</text></inputEntry>
+        <inputEntry id="IE_Unmapped_3"><text>"no"</text></inputEntry>
+        <outputEntry id="OE_Unmapped_1"><text>"unmapped"</text></outputEntry>
+        <outputEntry id="OE_Unmapped_2"><text>"Keep the product code as it is and show the dose to the clinician as unmapped; the schedule does not count it (TD.DT.03)."</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

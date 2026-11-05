@@ -1,0 +1,98 @@
+{
+  "$comment": "The DAK's indicators and performance metrics (component 6 of a WHO SMART Guidelines DAK). Definitions only: each says what is counted and how it is broken down, and states no target and no value. tools/ig-gen/ig_gen.py writes one FHIR Measure per indicator (input/fsh/dak/) and the Indicators page (input/pagecontent/indicators.md) from this file. `basis` is the FHIR resource an indicator counts, where this guide realises every record it counts: TD.IND.01 has none, since a DVC that fails verification is not yet a resource here (data set TD.J3A). tools/repo-checks/repo_checks.py checks that every data element, decision table and requirement it names exists.",
+  "indicators": [
+    {
+      "code": "TD.IND.01",
+      "id": "TrustDemoIND01",
+      "title": "Foreign doses imported as verified",
+      "definition": "Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.",
+      "journeys": ["J3"],
+      "numerator": {
+        "description": "Foreign DVCs scanned for verification in the reporting period whose dose was recorded as verified.",
+        "computation": "COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period AND \"Record outcome\" = verified"
+      },
+      "denominator": {
+        "description": "Foreign DVCs scanned for verification in the reporting period.",
+        "computation": "COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period"
+      },
+      "disaggregations": [
+        {"label": "Record outcome", "description": "verified, reported-unverified, rejected, not-read (TD.DT.01)"},
+        {"label": "Failure reason", "description": "the STT-VER-008 reason, for DVCs that did not verify"},
+        {"label": "Issuing country", "description": "the participant that signed the DVC"},
+        {"label": "Facility", "description": "the clinic that verified"}
+      ],
+      "dataElements": ["TD.J3A.DE02", "TD.J3A.DE03", "TD.J3A.DE05", "TD.J3A.DE07", "TD.J3A.DE09"],
+      "decisionTables": ["TD.DT.01"],
+      "requirements": ["STT-VER-001", "STT-VER-006", "STT-VER-008"]
+    },
+    {
+      "code": "TD.IND.02",
+      "id": "TrustDemoIND02",
+      "title": "Shared-link openings that were authorised",
+      "definition": "Of the requests to open a family member's shared link, the proportion the home country released.",
+      "basis": "AuditEvent",
+      "journeys": ["J4.1"],
+      "numerator": {
+        "description": "Manifest requests in the reporting period that were released.",
+        "computation": "COUNT of access records (TD.J41) WHERE \"Requested at\" is in the reporting period AND \"Released\" = true"
+      },
+      "denominator": {
+        "description": "Manifest requests in the reporting period, released or refused.",
+        "computation": "COUNT of access records (TD.J41) WHERE \"Requested at\" is in the reporting period"
+      },
+      "disaggregations": [
+        {"label": "Refusal reason", "description": "wrong-passcode, expired, withdrawn (TD.DT.05)"},
+        {"label": "Requesting system", "description": "the receiver abroad, and its country"}
+      ],
+      "dataElements": ["TD.J41.DE01", "TD.J41.DE02", "TD.J41.DE06", "TD.J41.DE08"],
+      "decisionTables": ["TD.DT.05"],
+      "requirements": ["STD-ACC-001"]
+    },
+    {
+      "code": "TD.IND.03",
+      "id": "TrustDemoIND03",
+      "title": "CHW referrals for verification completed at the clinic",
+      "definition": "Of the referrals community health workers make for a child's foreign cards to be verified, the proportion completed at the clinic.",
+      "basis": "ServiceRequest",
+      "journeys": ["J2", "J3"],
+      "numerator": {
+        "description": "Referrals made in the reporting period for which the clinic has recorded an outcome for every dose the referral lists.",
+        "computation": "COUNT of referrals (TD.J2B) WHERE \"Referred at\" is in the reporting period AND \"Referral status\" = completed"
+      },
+      "denominator": {
+        "description": "Referrals for verification made by community health workers in the reporting period.",
+        "computation": "COUNT of referrals (TD.J2B) WHERE \"Referred at\" is in the reporting period"
+      },
+      "disaggregations": [
+        {"label": "Referred to", "description": "the clinic referred to"},
+        {"label": "Referred by", "description": "the community health worker"}
+      ],
+      "dataElements": ["TD.J2B.DE02", "TD.J2B.DE03", "TD.J2B.DE04", "TD.J2B.DE06", "TD.J2B.DE07"],
+      "decisionTables": ["TD.DT.01"],
+      "requirements": ["STT-VER-011"]
+    },
+    {
+      "code": "TD.IND.04",
+      "id": "TrustDemoIND04",
+      "title": "Imported doses carrying a national schedule code",
+      "definition": "Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer's code, and so count toward the schedule.",
+      "basis": "Immunization",
+      "journeys": ["J3"],
+      "numerator": {
+        "description": "Doses imported as verified in the reporting period that carry a national schedule code.",
+        "computation": "COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" in (concept-map, clinician-confirmed)"
+      },
+      "denominator": {
+        "description": "Doses imported as verified in the reporting period.",
+        "computation": "COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" != not-imported"
+      },
+      "disaggregations": [
+        {"label": "Mapping basis", "description": "concept-map, clinician-confirmed, unmapped (TD.DT.02)"},
+        {"label": "Issuer's product code", "description": "the product as signed"}
+      ],
+      "dataElements": ["TD.J3B.DE01", "TD.J3B.DE02", "TD.J3B.DE03", "TD.J3B.DE05"],
+      "decisionTables": ["TD.DT.02", "TD.DT.03"],
+      "requirements": ["STD-SEM-001", "STD-SCH-001"]
+    }
+  ]
+}

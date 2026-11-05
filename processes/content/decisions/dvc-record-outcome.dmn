@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TD.DT.01: what a scanned DVC becomes in the child's record. Read by
+  J2 Task_Read and Task_Register (the CHW's triage read) and by J3
+  Task_Verify, Gateway_Verified, Task_Unverified and Task_Import (the
+  clinic's verification). The inputs are the HCERT library's typed result
+  (STT-VER-008) or its distinct unverified read (STT-VER-011); the table
+  never inspects a payload itself. The reason groups follow the library's
+  verification order (STT-VER-001): decode failures come before any
+  signature check, so nothing was read; time failures come after the
+  signature verified. The policy in each "action" is this demonstrator's
+  illustration of "decide doses by national policy", not a national rule.
+-->
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:trace="https://litlfred.github.io/smart-trust-demo/ns/dak/"
+             id="Definitions_DvcRecordOutcome"
+             name="What a scanned DVC becomes in the record"
+             namespace="https://litlfred.github.io/smart-trust-demo/decisions">
+  <decision id="Decision_DvcRecordOutcome" name="What does a scanned DVC become in the child's record?">
+    <description>From the result of reading one foreign DVC, decide whether its dose is recorded as verified, kept as reported and not verified, or not recorded from it at all.</description>
+    <extensionElements>
+      <trace:table code="TD.DT.01"/>
+      <trace:serves process="j2-chw-discovery-referral.bpmn" task="Task_Read"/>
+      <trace:serves process="j2-chw-discovery-referral.bpmn" task="Task_Register"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Verify"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Gateway_Verified"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Unverified"/>
+      <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Import"/>
+      <trace:requirement ref="STT-VER-001"/>
+      <trace:requirement ref="STT-VER-006"/>
+      <trace:requirement ref="STT-VER-008"/>
+      <trace:requirement ref="STT-VER-011"/>
+      <trace:artifact ref="StructureDefinition/TrustDemoLaoReportedImmunization"/>
+      <trace:artifact ref="StructureDefinition/TrustDemoLaoDvcVerification"/>
+      <trace:artifact ref="Provenance/TrustDemoJ3Verification"/>
+      <trace:dataElement ref="TD.J3A.DE05"/>
+      <trace:dataElement ref="TD.J3A.DE07"/>
+      <trace:dataElement ref="TD.J3A.DE09"/>
+    </extensionElements>
+    <decisionTable id="Table_DvcRecordOutcome" hitPolicy="FIRST">
+      <input id="In_Result" label="Verification result">
+        <inputExpression id="Expr_Result" typeRef="string"><text>result</text></inputExpression>
+      </input>
+      <input id="In_Reason" label="Failure reason">
+        <inputExpression id="Expr_Reason" typeRef="string"><text>failureReason</text></inputExpression>
+      </input>
+      <output id="Out_Outcome" label="Record outcome" name="outcome" typeRef="string"/>
+      <output id="Out_Action" label="Action" name="action" typeRef="string"/>
+      <rule id="Rule_Unverified">
+        <description>The CHW's triage read in J2 (STT-VER-011): nothing is verified, so the dose is reported, never verified. Example Immunization TrustDemoJ2HepBReported.</description>
+        <inputEntry id="IE_Unverified_1"><text>"unverified"</text></inputEntry>
+        <inputEntry id="IE_Unverified_2"><text>-</text></inputEntry>
+        <outputEntry id="OE_Unverified_1"><text>"reported-unverified"</text></outputEntry>
+        <outputEntry id="OE_Unverified_2"><text>"Save the dose as reported by the family (primarySource false, the caregiver as information source, a note that nothing is verified) and refer the child to the clinic for verification."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Verified">
+        <description>J3's yes path (STT-VER-001): the dose is recorded from its primary source. Examples Immunization TrustDemoJ3HepB and Provenance TrustDemoJ3Verification.</description>
+        <inputEntry id="IE_Verified_1"><text>"verified"</text></inputEntry>
+        <inputEntry id="IE_Verified_2"><text>-</text></inputEntry>
+        <outputEntry id="OE_Verified_1"><text>"verified"</text></outputEntry>
+        <outputEntry id="OE_Verified_2"><text>"Import the dose with primarySource true and a verification Provenance that names the signer's key and removes the reported dose it replaces; then map its vaccine code (TD.DT.02)."</text></outputEntry>
+      </rule>
+      <rule id="Rule_KidNotFound">
+        <description>The signer's certificate is not in the clinic's cached trust list (STT-VER-006), for example a signer added after the last refresh: J3's no path "until the next refresh".</description>
+        <inputEntry id="IE_Kid_1"><text>"failed"</text></inputEntry>
+        <inputEntry id="IE_Kid_2"><text>"KidNotFound"</text></inputEntry>
+        <outputEntry id="OE_Kid_1"><text>"reported-unverified"</text></outputEntry>
+        <outputEntry id="OE_Kid_2"><text>"Keep the dose as reported; record the step and reason (STT-VER-008); verify the DVC again after the next trust-list refresh."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Time">
+        <description>The signature verified, but the certificate is outside its validity period. The dose is not verified; the clinician decides by national policy.</description>
+        <inputEntry id="IE_Time_1"><text>"failed"</text></inputEntry>
+        <inputEntry id="IE_Time_2"><text>"Expired","NotYetValid"</text></inputEntry>
+        <outputEntry id="OE_Time_1"><text>"reported-unverified"</text></outputEntry>
+        <outputEntry id="OE_Time_2"><text>"Keep the dose as reported; record the step and reason; the clinician decides by national policy whether to give or repeat the dose."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Decode">
+        <description>Decoding failed before any signature check (STT-VER-001 order), so nothing was read: three states, not two, since a bad scan is not evidence either way.</description>
+        <inputEntry id="IE_Decode_1"><text>"failed"</text></inputEntry>
+        <inputEntry id="IE_Decode_2"><text>"BadPrefix","UnsupportedContextVersion","Base45Invalid","InflateFailed","LimitExceeded","CoseMalformed"</text></inputEntry>
+        <outputEntry id="OE_Decode_1"><text>"not-read"</text></outputEntry>
+        <outputEntry id="OE_Decode_2"><text>"Scan again; if it still fails, treat the card as paper and record why it was not verified."</text></outputEntry>
+      </rule>
+      <rule id="Rule_Rejected">
+        <description>Any other failure (signature, key usage, header, algorithm, hcert claim or payload): the certificate is not evidence of a dose.</description>
+        <inputEntry id="IE_Rejected_1"><text>"failed"</text></inputEntry>
+        <inputEntry id="IE_Rejected_2"><text>-</text></inputEntry>
+        <outputEntry id="OE_Rejected_1"><text>"rejected"</text></outputEntry>
+        <outputEntry id="OE_Rejected_2"><text>"Do not record a dose from this certificate; record the step and reason; the clinician decides by national policy, as for an undocumented dose."</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
