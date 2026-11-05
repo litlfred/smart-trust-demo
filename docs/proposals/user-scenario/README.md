@@ -86,6 +86,8 @@ what joins the two.
    each step's `narrative`, `preconditions`, `painPoint` and `enabler`, as the
    personas page is from the actors. The policy line under each journey waits
    for the workshop kind (KG-01 gap 3).
-3. **Stories' kind.** `scenarios/stories.json` has no kind either. The draft
-   takes the DAK `FunctionalRequirement` shape it already has (role, want,
-   soThat) as given; it needs its own kind, or a place in `scenarios`.
+3. **Stories' kind.** User stories already have one: cat-harness-tools
+   `schemas/process/user-story.ts` (`id`, `role`, `want`, `soThat`, strict).
+   The edge runs from the step to the story, so that kind needs no change.
+   Its "I want / so that" fields overlap the bootstrap `Requirement`
+   schema's `capability` and `benefit`.
