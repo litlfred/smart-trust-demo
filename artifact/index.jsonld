@@ -14,7 +14,7 @@
     "@id": "http://smart.who.int/trust-demo"
   },
   "dcterms:title": "SMART Trust demonstrator: journeys J1 to J4",
-  "schema:numberOfItems": 70,
+  "schema:numberOfItems": 100,
   "schema:hasPart": [
     {
       "@id": "ActorDefinition-TrustDemo.Role.BirthClinicSystem.jsonld",
@@ -399,6 +399,50 @@
       "dcterms:type": "Other"
     },
     {
+      "@id": "Measure-TrustDemoIND01.jsonld",
+      "@type": "fhir:Measure",
+      "dcterms:identifier": "Measure/TrustDemoIND01",
+      "dcterms:title": "TD.IND.01 Foreign doses imported as verified",
+      "dcterms:description": "Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/Measure/TrustDemoIND01"
+      }
+    },
+    {
+      "@id": "Measure-TrustDemoIND02.jsonld",
+      "@type": "fhir:Measure",
+      "dcterms:identifier": "Measure/TrustDemoIND02",
+      "dcterms:title": "TD.IND.02 Shared-link openings that were authorised",
+      "dcterms:description": "Of the requests to open a family member's shared link, the proportion the home country released.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/Measure/TrustDemoIND02"
+      }
+    },
+    {
+      "@id": "Measure-TrustDemoIND03.jsonld",
+      "@type": "fhir:Measure",
+      "dcterms:identifier": "Measure/TrustDemoIND03",
+      "dcterms:title": "TD.IND.03 CHW referrals for verification completed at the clinic",
+      "dcterms:description": "Of the referrals community health workers make for a child's foreign cards to be verified, the proportion completed at the clinic.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/Measure/TrustDemoIND03"
+      }
+    },
+    {
+      "@id": "Measure-TrustDemoIND04.jsonld",
+      "@type": "fhir:Measure",
+      "dcterms:identifier": "Measure/TrustDemoIND04",
+      "dcterms:title": "TD.IND.04 Imported doses carrying a national schedule code",
+      "dcterms:description": "Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer's code, and so count toward the schedule.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/Measure/TrustDemoIND04"
+      }
+    },
+    {
       "@id": "Organization-TrustDemoChiangRaiClinic.jsonld",
       "@type": "fhir:Organization",
       "dcterms:identifier": "Organization/TrustDemoChiangRaiClinic",
@@ -453,6 +497,72 @@
           "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThPatient"
         }
       ]
+    },
+    {
+      "@id": "PlanDefinition-TrustDemoDT01.jsonld",
+      "@type": "fhir:PlanDefinition",
+      "dcterms:identifier": "PlanDefinition/TrustDemoDT01",
+      "dcterms:title": "TD.DT.01 What does a scanned DVC become in the child's record?",
+      "dcterms:description": "From the result of reading one foreign DVC, decide whether its dose is recorded as verified, kept as reported and not verified, or not recorded from it at all. Requirements: STT-VER-001, STT-VER-006, STT-VER-008, STT-VER-011. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT01"
+      }
+    },
+    {
+      "@id": "PlanDefinition-TrustDemoDT02.jsonld",
+      "@type": "fhir:PlanDefinition",
+      "dcterms:identifier": "PlanDefinition/TrustDemoDT02",
+      "dcterms:title": "TD.DT.02 Which national schedule code does an imported dose carry?",
+      "dcterms:description": "For one dose, decide whether and how the national schedule code is added beside the issuer's product code, which is always kept. Requirements: STD-SEM-001. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT02"
+      }
+    },
+    {
+      "@id": "PlanDefinition-TrustDemoDT03.jsonld",
+      "@type": "fhir:PlanDefinition",
+      "dcterms:identifier": "PlanDefinition/TrustDemoDT03",
+      "dcterms:title": "TD.DT.03 Does the national schedule count this dose?",
+      "dcterms:description": "For one Immunization in the child's record, decide whether the schedule evaluation counts it as given. Requirements: STD-SCH-001, STD-SEM-001. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT03"
+      }
+    },
+    {
+      "@id": "PlanDefinition-TrustDemoDT04.jsonld",
+      "@type": "fhir:PlanDefinition",
+      "dcterms:identifier": "PlanDefinition/TrustDemoDT04",
+      "dcterms:title": "TD.DT.04 Is this dose of the national schedule due?",
+      "dcterms:description": "For one action of the national schedule, decide whether the evaluation recommends it now, and from which date. Requirements: STD-SCH-001. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT04"
+      }
+    },
+    {
+      "@id": "PlanDefinition-TrustDemoDT05.jsonld",
+      "@type": "fhir:PlanDefinition",
+      "dcterms:identifier": "PlanDefinition/TrustDemoDT05",
+      "dcterms:title": "TD.DT.05 Does the portal release the manifest for this request?",
+      "dcterms:description": "For one manifest request (ITI-YY5), decide whether the portal releases the manifest, and what the access log records. Requirements: STD-ACC-001. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT05"
+      }
+    },
+    {
+      "@id": "PlanDefinition-TrustDemoDT06.jsonld",
+      "@type": "fhir:PlanDefinition",
+      "dcterms:identifier": "PlanDefinition/TrustDemoDT06",
+      "dcterms:title": "TD.DT.06 Does the receiver follow the VHL?",
+      "dcterms:description": "For one scanned VHL, decide whether the receiver requests the manifest or treats the family's records like paper. Requirements: STT-VER-001, STT-VER-008, STT-VHL-009, STT-VHL-005. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+      "dcterms:type": "Other",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT06"
+      }
     },
     {
       "@id": "PlanDefinition-TrustDemoLaoInfantSchedule.jsonld",
@@ -580,6 +690,39 @@
       ]
     },
     {
+      "@id": "CodeSystem-TrustDemoCodeMappingBasis.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoCodeMappingBasis",
+      "dcterms:title": "How an imported dose got its national schedule code",
+      "dcterms:description": "The outcome of decision table TD.DT.02 (STD-SEM-001).",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoDataElements.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoDataElements",
+      "dcterms:title": "Data elements of the journeys",
+      "dcterms:description": "Every data element of the data dictionary, by its code (TD.<data set>.DE<nn>).",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoDvcOutcome.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoDvcOutcome",
+      "dcterms:title": "What a scanned DVC becomes in the record",
+      "dcterms:description": "The outcome of decision table TD.DT.01 for one scanned DVC.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome"
+      }
+    },
+    {
       "@id": "CodeSystem-TrustDemoLaoEpiSchedule.jsonld",
       "@type": "fhir:CodeSystem",
       "dcterms:identifier": "CodeSystem/TrustDemoLaoEpiSchedule",
@@ -602,6 +745,50 @@
       }
     },
     {
+      "@id": "CodeSystem-TrustDemoVerificationFailureReason.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVerificationFailureReason",
+      "dcterms:title": "Verification failure reasons",
+      "dcterms:description": "The closed set of reasons a DVC fails verification, shared by the Kotlin and Rust HCERT libraries (STT-VER-008).",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVerificationResult.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVerificationResult",
+      "dcterms:title": "Result of reading a DVC",
+      "dcterms:description": "What the HCERT library returns for one scanned DVC: a verified result, a failed result naming the step and reason (STT-VER-008), or the distinct result of the unverified triage read (STT-VER-011).",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVerificationStep.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVerificationStep",
+      "dcterms:title": "Verification steps",
+      "dcterms:description": "The steps of DVC verification in the order they run (STT-VER-001), as the HCERT library names them in its typed result (STT-VER-008).",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVhlRefusalReason.jsonld",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVhlRefusalReason",
+      "dcterms:title": "Why a shared link released nothing",
+      "dcterms:description": "The refusal reasons of decision table TD.DT.05 (STD-ACC-001).",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason"
+      }
+    },
+    {
       "@id": "ConceptMap-TrustDemoProductToLaoEpi.jsonld",
       "@type": "fhir:ConceptMap",
       "dcterms:identifier": "ConceptMap/TrustDemoProductToLaoEpi",
@@ -610,6 +797,83 @@
       "dcterms:type": "Terminology: Concept Maps",
       "schema:sameAs": {
         "@id": "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToLaoEpi"
+      }
+    },
+    {
+      "@id": "StructureDefinition-TrustDemoDdBirthDoseDvc.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/TrustDemoDdBirthDoseDvc",
+      "dcterms:title": "TD.J1 Birth-dose DVC",
+      "dcterms:description": "What the birth hospital records for each birth dose and signs into one Digital Vaccination Certificate (DVC, an HCERT) per dose: the payload, the CWT claims and the key that signs it.",
+      "dcterms:type": "Structures: Logical Models",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdBirthDoseDvc"
+      }
+    },
+    {
+      "@id": "StructureDefinition-TrustDemoDdChwReferral.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/TrustDemoDdChwReferral",
+      "dcterms:title": "TD.J2B Referral for verification",
+      "dcterms:description": "The community health worker's referral of the child to the home clinic, to verify the foreign cards and fit the doses to the national schedule.",
+      "dcterms:type": "Structures: Logical Models",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdChwReferral"
+      }
+    },
+    {
+      "@id": "StructureDefinition-TrustDemoDdChwRegistration.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/TrustDemoDdChwRegistration",
+      "dcterms:title": "TD.J2A Newborn registration on a home visit",
+      "dcterms:description": "What the community health worker records offline when she finds a newborn missing from the household roster: the registration form's answers and each dose read from a foreign card without verifying it.",
+      "dcterms:type": "Structures: Logical Models",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdChwRegistration"
+      }
+    },
+    {
+      "@id": "StructureDefinition-TrustDemoDdDvcVerification.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/TrustDemoDdDvcVerification",
+      "dcterms:title": "TD.J3A DVC verification and import",
+      "dcterms:description": "What the clinic records when it verifies a foreign DVC against its cached copy of the trust list, and, when the DVC verifies, imports the dose in place of the reported one.",
+      "dcterms:type": "Structures: Logical Models",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdDvcVerification"
+      }
+    },
+    {
+      "@id": "StructureDefinition-TrustDemoDdImportedDose.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/TrustDemoDdImportedDose",
+      "dcterms:title": "TD.J3B Imported dose and schedule",
+      "dcterms:description": "What the clinic records for each imported dose's vaccine code, and what the national schedule finds due once the doses are counted.",
+      "dcterms:type": "Structures: Logical Models",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdImportedDose"
+      }
+    },
+    {
+      "@id": "StructureDefinition-TrustDemoDdVhlAccess.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/TrustDemoDdVhlAccess",
+      "dcterms:title": "TD.J41 Access to a shared link",
+      "dcterms:description": "What the home country logs for every request to open a shared link, released or refused.",
+      "dcterms:type": "Structures: Logical Models",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdVhlAccess"
+      }
+    },
+    {
+      "@id": "StructureDefinition-TrustDemoDdVhlShare.jsonld",
+      "@type": "fhir:StructureDefinition",
+      "dcterms:identifier": "StructureDefinition/TrustDemoDdVhlShare",
+      "dcterms:title": "TD.J40 Shared link and consent",
+      "dcterms:description": "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+      "dcterms:type": "Structures: Logical Models",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdVhlShare"
       }
     },
     {
@@ -734,6 +998,28 @@
       }
     },
     {
+      "@id": "ValueSet-TrustDemoCodeMappingBasisVS.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoCodeMappingBasisVS",
+      "dcterms:title": "How an imported dose got its national schedule code",
+      "dcterms:description": "Every code of TrustDemoCodeMappingBasis.",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoCodeMappingBasisVS"
+      }
+    },
+    {
+      "@id": "ValueSet-TrustDemoDvcOutcomeVS.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoDvcOutcomeVS",
+      "dcterms:title": "What a scanned DVC becomes in the record",
+      "dcterms:description": "Every code of TrustDemoDvcOutcome.",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoDvcOutcomeVS"
+      }
+    },
+    {
       "@id": "ValueSet-TrustDemoLaoEpiScheduleCodes.jsonld",
       "@type": "fhir:ValueSet",
       "dcterms:identifier": "ValueSet/TrustDemoLaoEpiScheduleCodes",
@@ -753,6 +1039,50 @@
       "dcterms:type": "Terminology: Value Sets",
       "schema:sameAs": {
         "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts"
+      }
+    },
+    {
+      "@id": "ValueSet-TrustDemoVerificationFailureReasonVS.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoVerificationFailureReasonVS",
+      "dcterms:title": "Verification failure reasons",
+      "dcterms:description": "Every code of TrustDemoVerificationFailureReason.",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationFailureReasonVS"
+      }
+    },
+    {
+      "@id": "ValueSet-TrustDemoVerificationResultVS.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoVerificationResultVS",
+      "dcterms:title": "Result of reading a DVC",
+      "dcterms:description": "Every code of TrustDemoVerificationResult.",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationResultVS"
+      }
+    },
+    {
+      "@id": "ValueSet-TrustDemoVerificationStepVS.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoVerificationStepVS",
+      "dcterms:title": "Verification steps",
+      "dcterms:description": "Every code of TrustDemoVerificationStep.",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationStepVS"
+      }
+    },
+    {
+      "@id": "ValueSet-TrustDemoVhlRefusalReasonVS.jsonld",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoVhlRefusalReasonVS",
+      "dcterms:title": "Why a shared link released nothing",
+      "dcterms:description": "Every code of TrustDemoVhlRefusalReason.",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlRefusalReasonVS"
       }
     },
     {

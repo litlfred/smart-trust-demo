@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","beans","code","memory","processes","scenarios","skills"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","code","memory","processes","scenarios","skills"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -890,7 +890,7 @@
   
   
 </h1>
-    <p class="sv-sub">smart-trust-demo · 2 declared code directories · This instance is not a pinned mount here, so files are listed without links.</p><section class="sv-item">
+    <p class="sv-sub">smart-trust-demo · 4 declared code directories · This instance is not a pinned mount here, so files are listed without links.</p><section class="sv-item">
 <h3>
   
   
@@ -898,7 +898,7 @@
   
   
 </h3>
-    <p class="sv-sub">repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency); archimate: the DPI-H RA overlay spec and its build.</p><p class="sv-sub">12 files</p><ul><li><code>archimate/build.py</code></li><li><code>archimate/overlay.py</code></li><li><code>archimate/smart-ra.lock.json</code></li><li><code>ig-gen/fhir-packages.lock.json</code></li><li><code>ig-gen/fhir_cache.py</code></li><li><code>ig-gen/ig_gen.py</code></li><li><code>ig-gen/package-lock.json</code></li><li><code>ig-gen/package.json</code></li><li><code>journeys/graph.py</code></li><li><code>render-bpmn/render_bpmn.ts</code></li><li><code>repo-checks/repo_checks.py</code></li><li><code>site-docs/site_docs.sh</code></li></ul></section>
+    <p class="sv-sub">repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency); archimate: the DPI-H RA overlay spec and its build.</p><p class="sv-sub">14 files</p><ul><li><code>archimate/build.py</code></li><li><code>archimate/overlay.py</code></li><li><code>archimate/smart-ra.lock.json</code></li><li><code>dak/dak.py</code></li><li><code>ig-gen/fhir-packages.lock.json</code></li><li><code>ig-gen/fhir_cache.py</code></li><li><code>ig-gen/ig_gen.py</code></li><li><code>ig-gen/package-lock.json</code></li><li><code>ig-gen/package.json</code></li><li><code>journeys/graph.py</code></li><li><code>render-bpmn/render_bpmn.ts</code></li><li><code>repo-checks/repo_checks.py</code></li><li><code>site-docs/site_docs.sh</code></li><li><code>user-scenarios/check.py</code></li></ul></section>
 <section class="sv-item">
 <h3>
   
@@ -908,6 +908,24 @@
   
 </h3>
     <p class="sv-sub">The Kotlin HCERT library at a pinned smart-trust-tools commit: the lock (commit and jar sha256) and the script that builds and checks the jars.</p><p class="sv-sub">2 files</p><ul><li><code>build.py</code></li><li><code>hcert.lock.json</code></li></ul></section>
+<section class="sv-item">
+<h3>
+  
+  
+    <a href="#code-smart-trust-demo" class="anchor-heading" aria-labelledby="code-smart-trust-demo"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code>web/</code> <span class="sv-tag">vaxlink-web</span>
+  
+  
+</h3>
+    <p class="sv-sub">The VaxLink walkthrough (moved from litlfred/vaxlink on 2026-11-05): the journeys J1 to J4.1 told as people and moments for a workshop, with the technical and policy layers under each moment and the device screens S1 to S8. A React and Vite app; it imports the actors from scenarios/actors/, the BPMN drawings from processes/content/ and the moment pictures from docs/images/ at build time, and shows the site's own ArchiMate drawings, so it is built from the same commit as the journeys. scripts/publish.sh places the build in the published site; scripts/ig-examples.mjs copies the FHIR examples from SUSHI's output and checks the copy.</p><p class="sv-sub">57 files</p><ul><li><code>README.md</code></li><li><code>index.html</code></li><li><code>package-lock.json</code></li><li><code>package.json</code></li><li><code>postcss.config.js</code></li><li><code>scripts/ig-examples.mjs</code></li><li><code>scripts/publish.sh</code></li><li><code>src/App.tsx</code></li><li><code>src/components/common/DeviceFrame.tsx</code></li><li><code>src/components/common/FhirInspectorDrawer.tsx</code></li><li><code>src/components/common/Header.tsx</code></li><li><code>src/components/common/QrCodeView.tsx</code></li><li><code>src/components/screens/S1_BirthDosePreview.tsx</code></li><li><code>src/components/screens/S2_ChwScanCards.tsx</code></li><li><code>src/components/screens/S3_ChwRegisterRefer.tsx</code></li><li><code>src/components/screens/S4_ClinicVerification.tsx</code></li><li><code>src/components/screens/S5_TerminologyAdjudication.tsx</code></li><li><code>src/components/screens/S6_FamilyWallet.tsx</code></li><li><code>src/components/screens/S7_VhlQrDisplay.tsx</code></li><li><code>src/components/screens/S8_ForeignClinicViewer.tsx</code></li><li><code>src/components/userJourneys/ArchiMateViews.tsx</code></li><li><code>src/components/userJourneys/ArchitectureDiagram.tsx</code></li><li><code>src/components/userJourneys/BpmnViewer.tsx</code></li><li><code>src/components/userJourneys/ConceptMapIllustration.tsx</code></li><li><code>src/components/userJourneys/DiscussionView.tsx</code></li><li><code>src/components/userJourneys/HowItWorks.tsx</code></li><li><code>src/components/userJourneys/JourneyMap.tsx</code></li><li><code>src/components/userJourneys/JourneyOverview.tsx</code></li><li><code>src/components/userJourneys/MomentIllustration.tsx</code></li><li><code>src/components/userJourneys/MomentPicture.tsx</code></li><li><code>src/components/userJourneys/PersonaLens.tsx</code></li><li><code>src/components/userJourneys/PolicyPanel.tsx</code></li><li><code>src/components/userJourneys/PrintSheets.tsx</code></li><li><code>src/components/userJourneys/TechLayerPanel.tsx</code></li><li><code>src/components/userJourneys/UserJourneys.tsx</code></li><li><code>src/components/userJourneys/Walkthrough.tsx</code></li><li><code>src/components/userJourneys/shared.tsx</code></li><li><code>src/data/ig/AuditEvent-TrustDemoJ41Access.json</code></li><li><code>src/data/ig/ConceptMap-TrustDemoProductToLaoEpi.json</code></li><li><code>src/data/ig/Group-TrustDemoHousehold.json</code></li><li><code>src/data/ig/Immunization-TrustDemoJ3HepB.json</code></li><li><code>src/data/ig/Patient-TrustDemoSomsack.json</code></li><li><code>src/data/ig/Provenance-TrustDemoJ3Verification.json</code></li><li><code>src/data/ig/ServiceRequest-TrustDemoJ2Referral.json</code></li><li><code>src/data/journeyData.ts</code></li><li><code>src/data/links.ts</code></li><li><code>src/data/policyData.ts</code></li><li><code>src/data/storylineData.ts</code></li><li><code>src/data/techData.ts</code></li><li><code>src/index.css</code></li><li><code>src/main.tsx</code></li><li><code>src/routes.ts</code></li><li><code>src/types/index.ts</code></li><li><code>src/vite-env.d.ts</code></li><li><code>tailwind.config.js</code></li><li><code>tsconfig.json</code></li><li><code>vite.config.ts</code></li></ul></section>
+<section class="sv-item">
+<h3>
+  
+  
+    <a href="#code-smart-trust-demo" class="anchor-heading" aria-labelledby="code-smart-trust-demo"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code>web/src/data/</code> <span class="sv-tag">vaxlink-content</span>
+  
+  
+</h3>
+    <p class="sv-sub">The walkthrough's content as TypeScript: the moments and how each person lives them (journeyData.ts), the building blocks and each moment's technical layer (techData.ts), the workshop's policy layer (policyData.ts), the device screens and payloads (storylineData.ts). ig/ is the IG examples as SUSHI writes them, never edited by hand (CI ig-sushi runs ig-examples.mjs --check). No cat-harness kind describes the journey map, the per-moment use of a building block or the workshop layer yet: bean KG-01.</p><p class="sv-sub">12 files</p><ul><li><code>ig/AuditEvent-TrustDemoJ41Access.json</code></li><li><code>ig/ConceptMap-TrustDemoProductToLaoEpi.json</code></li><li><code>ig/Group-TrustDemoHousehold.json</code></li><li><code>ig/Immunization-TrustDemoJ3HepB.json</code></li><li><code>ig/Patient-TrustDemoSomsack.json</code></li><li><code>ig/Provenance-TrustDemoJ3Verification.json</code></li><li><code>ig/ServiceRequest-TrustDemoJ2Referral.json</code></li><li><code>journeyData.ts</code></li><li><code>links.ts</code></li><li><code>policyData.ts</code></li><li><code>storylineData.ts</code></li><li><code>techData.ts</code></li></ul></section>
 <h2 class="sv-h2">
   
   

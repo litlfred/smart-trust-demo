@@ -167,6 +167,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoDataElements"
+      },
+      "name" : "Data elements of the journeys",
+      "description" : "Every data element of the data dictionary, by its code (TD.<data set>.DE<nn>).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Device"
       }],
       "reference" : {
@@ -234,6 +246,30 @@
       },
       "name" : "Home clinic provider",
       "description" : "The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3).\n\n**Persona**: Trusts the system's verdict and needs a reason when a certificate fails.\n\n**Played in the journeys by**: Nurse Chanthasone (Vientiane District Health Center, Lao PDR) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoCodeMappingBasisVS"
+      },
+      "name" : "How an imported dose got its national schedule code",
+      "description" : "Every code of TrustDemoCodeMappingBasis.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoCodeMappingBasis"
+      },
+      "name" : "How an imported dose got its national schedule code",
+      "description" : "The outcome of decision table TD.DT.02 (STD-SEM-001).",
       "isExample" : false
     },
     {
@@ -746,6 +782,30 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVerificationResultVS"
+      },
+      "name" : "Result of reading a DVC",
+      "description" : "Every code of TrustDemoVerificationResult.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVerificationResult"
+      },
+      "name" : "Result of reading a DVC",
+      "description" : "What the HCERT library returns for one scanned DVC: a verified result, a failed result naming the step and reason (STT-VER-008), or the distinct result of the unverified triage read (STT-VER-011).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Patient"
       }],
       "reference" : {
@@ -755,6 +815,210 @@
       "description" : "The subject of every journey, as the CHW registers him in Lao PDR (Country B) in J2: born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), with no Thai identity number. Until civil registration catches up he has a temporary id. Fictional.",
       "isExample" : true,
       "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoPatient"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT01"
+      },
+      "name" : "TD.DT.01 What does a scanned DVC become in the child's record?",
+      "description" : "From the result of reading one foreign DVC, decide whether its dose is recorded as verified, kept as reported and not verified, or not recorded from it at all.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT02"
+      },
+      "name" : "TD.DT.02 Which national schedule code does an imported dose carry?",
+      "description" : "For one dose, decide whether and how the national schedule code is added beside the issuer's product code, which is always kept.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT03"
+      },
+      "name" : "TD.DT.03 Does the national schedule count this dose?",
+      "description" : "For one Immunization in the child's record, decide whether the schedule evaluation counts it as given.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT04"
+      },
+      "name" : "TD.DT.04 Is this dose of the national schedule due?",
+      "description" : "For one action of the national schedule, decide whether the evaluation recommends it now, and from which date.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT05"
+      },
+      "name" : "TD.DT.05 Does the portal release the manifest for this request?",
+      "description" : "For one manifest request (ITI-YY5), decide whether the portal releases the manifest, and what the access log records.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT06"
+      },
+      "name" : "TD.DT.06 Does the receiver follow the VHL?",
+      "description" : "For one scanned VHL, decide whether the receiver requests the manifest or treats the family's records like paper.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND01"
+      },
+      "name" : "TD.IND.01 Foreign doses imported as verified",
+      "description" : "Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND02"
+      },
+      "name" : "TD.IND.02 Shared-link openings that were authorised",
+      "description" : "Of the requests to open a family member's shared link, the proportion the home country released.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND03"
+      },
+      "name" : "TD.IND.03 CHW referrals for verification completed at the clinic",
+      "description" : "Of the referrals community health workers make for a child's foreign cards to be verified, the proportion completed at the clinic.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND04"
+      },
+      "name" : "TD.IND.04 Imported doses carrying a national schedule code",
+      "description" : "Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer's code, and so count toward the schedule.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdBirthDoseDvc"
+      },
+      "name" : "TD.J1 Birth-dose DVC",
+      "description" : "What the birth hospital records for each birth dose and signs into one Digital Vaccination Certificate (DVC, an HCERT) per dose: the payload, the CWT claims and the key that signs it.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdChwRegistration"
+      },
+      "name" : "TD.J2A Newborn registration on a home visit",
+      "description" : "What the community health worker records offline when she finds a newborn missing from the household roster: the registration form's answers and each dose read from a foreign card without verifying it.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdChwReferral"
+      },
+      "name" : "TD.J2B Referral for verification",
+      "description" : "The community health worker's referral of the child to the home clinic, to verify the foreign cards and fit the doses to the national schedule.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdDvcVerification"
+      },
+      "name" : "TD.J3A DVC verification and import",
+      "description" : "What the clinic records when it verifies a foreign DVC against its cached copy of the trust list, and, when the DVC verifies, imports the dose in place of the reported one.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdImportedDose"
+      },
+      "name" : "TD.J3B Imported dose and schedule",
+      "description" : "What the clinic records for each imported dose's vaccine code, and what the national schedule finds due once the doses are counted.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdVhlShare"
+      },
+      "name" : "TD.J40 Shared link and consent",
+      "description" : "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdVhlAccess"
+      },
+      "name" : "TD.J41 Access to a shared link",
+      "description" : "What the home country logs for every request to open a shared link, released or refused.",
+      "isExample" : false
     },
     {
       "extension" : [{
@@ -870,6 +1134,54 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVerificationFailureReasonVS"
+      },
+      "name" : "Verification failure reasons",
+      "description" : "Every code of TrustDemoVerificationFailureReason.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVerificationFailureReason"
+      },
+      "name" : "Verification failure reasons",
+      "description" : "The closed set of reasons a DVC fails verification, shared by the Kotlin and Rust HCERT libraries (STT-VER-008).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVerificationStepVS"
+      },
+      "name" : "Verification steps",
+      "description" : "Every code of TrustDemoVerificationStep.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVerificationStep"
+      },
+      "name" : "Verification steps",
+      "description" : "The steps of DVC verification in the order they run (STT-VER-001), as the HCERT library names them in its typed result (STT-VER-008).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Device"
       }],
       "reference" : {
@@ -902,6 +1214,54 @@
       "name" : "Vilay (community health worker, Village 04, Lao PDR)",
       "description" : "The CHW who finds Somsack missing from the household roster in J2. Fictional.",
       "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoDvcOutcomeVS"
+      },
+      "name" : "What a scanned DVC becomes in the record",
+      "description" : "Every code of TrustDemoDvcOutcome.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoDvcOutcome"
+      },
+      "name" : "What a scanned DVC becomes in the record",
+      "description" : "The outcome of decision table TD.DT.01 for one scanned DVC.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVhlRefusalReasonVS"
+      },
+      "name" : "Why a shared link released nothing",
+      "description" : "Every code of TrustDemoVhlRefusalReason.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVhlRefusalReason"
+      },
+      "name" : "Why a shared link released nothing",
+      "description" : "The refusal reasons of decision table TD.DT.05 (STD-ACC-001).",
+      "isExample" : false
     }],
     "page" : {
       "sourceUrl" : "toc.html",
@@ -983,6 +1343,24 @@
           "sourceUrl" : "business-processes.html",
           "name" : "business-processes.html",
           "title" : "Business Processes",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "dictionary.html",
+          "name" : "dictionary.html",
+          "title" : "Data Dictionary",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "decision-logic.html",
+          "name" : "decision-logic.html",
+          "title" : "Decision-support Logic",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "indicators.html",
+          "name" : "indicators.html",
+          "title" : "Indicators and Performance Metrics",
           "generation" : "markdown"
         },
         {

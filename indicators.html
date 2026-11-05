@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicators and Performance Metrics — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="./indicators.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="./assets/page-layout.css" data-fa-page-layout>
+<script src="./assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="./assets/ig-artifact.css">
+<link rel="stylesheet" href="./assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="./assets/navbar/row-2acuhncsmbg.js" defer></script><script src="./assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="./assets/css/navbar.css"><script src="./assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="./assets/js/navbar.js" defer></script><link rel="stylesheet" href="./assets/css/navbar-row.css"><script src="./assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content="."></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root="." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root=".">{"data":"rail-23mbhbo4s6d","here":"/indicators.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="./">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="./index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="./index.html">Summary</a></li><li><a href="./changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="./journeys.html">Journeys J1 to J4</a></li><li><a href="./vaxlink-examples.html">VaxLink Examples</a></li><li><a href="./architecture.html">Architecture (ArchiMate)</a></li><li><a href="./plan.html">Plan</a></li><li><a href="./proposal-app-platform.html">App Platform Proposal</a></li><li><a href="./dependencies.html">Dependency Register</a></li><li><a href="./upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="./personas.html">Generic Personas</a></li><li><a href="./scenarios.html">User Scenarios</a></li><li><a href="./business-processes.html">Business Processes</a></li><li><a href="./dictionary.html">Data Dictionary</a></li><li><a href="./decision-logic.html">Decision-support Logic</a></li><li><a href="./indicators.html">Indicators and Performance Metrics</a></li><li><a href="./functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="./system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="./artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="./assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="./assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from dak/indicators.json. Do not edit; edit the source and rerun. -->
+
+<p>The indicators are the DAK’s component 7: what a programme would count from the data the journeys record, as the <a href="https://smart.who.int/ig-starter-kit/l2_dak.html">WHO SMART Guidelines DAK</a> defines them. Each gives its numerator and denominator in words and as a computation over the <a href="dictionary.html">data elements</a>, and the disaggregations it is reported by. Each is also a FHIR <code class="language-plaintext highlighter-rouge">Measure</code> (proportion scoring) whose populations are described, not computable: this guide carries no CQL.</p>
+
+<p><strong>These are definitions only.</strong> They state no target, no threshold and no value: the journeys are a demonstration with fictional people, and nothing here has been measured.</p>
+
+<p>The source is <code class="language-plaintext highlighter-rouge">dak/indicators.json</code>; this page and the Measures are generated from it.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Indicator</th>
+      <th>Definition</th>
+      <th>Journeys</th>
+      <th>Measure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#tdind01-foreign-doses-imported-as-verified">TD.IND.01 Foreign doses imported as verified</a></td>
+      <td>Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.</td>
+      <td>J3</td>
+      <td><a href="artifact/Measure-TrustDemoIND01.html">TrustDemoIND01</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind02-shared-link-openings-that-were-authorised">TD.IND.02 Shared-link openings that were authorised</a></td>
+      <td>Of the requests to open a family member’s shared link, the proportion the home country released.</td>
+      <td>J4.1</td>
+      <td><a href="artifact/Measure-TrustDemoIND02.html">TrustDemoIND02</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind03-chw-referrals-for-verification-completed-at-the-clinic">TD.IND.03 CHW referrals for verification completed at the clinic</a></td>
+      <td>Of the referrals community health workers make for a child’s foreign cards to be verified, the proportion completed at the clinic.</td>
+      <td>J2, J3</td>
+      <td><a href="artifact/Measure-TrustDemoIND03.html">TrustDemoIND03</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind04-imported-doses-carrying-a-national-schedule-code">TD.IND.04 Imported doses carrying a national schedule code</a></td>
+      <td>Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer’s code, and so count toward the schedule.</td>
+      <td>J3</td>
+      <td><a href="artifact/Measure-TrustDemoIND04.html">TrustDemoIND04</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind01-foreign-doses-imported-as-verified">TD.IND.01 Foreign doses imported as verified</h3>
+
+<p>Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numerator</td>
+      <td>Foreign DVCs scanned for verification in the reporting period whose dose was recorded as verified.</td>
+    </tr>
+    <tr>
+      <td>Numerator computation</td>
+      <td>COUNT of verification records (TD.J3A) WHERE “Verified at” is in the reporting period AND “Record outcome” = verified</td>
+    </tr>
+    <tr>
+      <td>Denominator</td>
+      <td>Foreign DVCs scanned for verification in the reporting period.</td>
+    </tr>
+    <tr>
+      <td>Denominator computation</td>
+      <td>COUNT of verification records (TD.J3A) WHERE “Verified at” is in the reporting period</td>
+    </tr>
+    <tr>
+      <td>Disaggregations</td>
+      <td>Record outcome: verified, reported-unverified, rejected, not-read (TD.DT.01)<br />Failure reason: the <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a> reason, for DVCs that did not verify<br />Issuing country: the participant that signed the DVC<br />Facility: the clinic that verified</td>
+    </tr>
+    <tr>
+      <td>Data elements</td>
+      <td><a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE02</a> Issuing country<br /><a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE03</a> Verified at<br /><a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE05</a> Verification result<br /><a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE07</a> Failure reason<br /><a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> Record outcome</td>
+    </tr>
+    <tr>
+      <td>Decision tables</td>
+      <td><a href="decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01</a></td>
+    </tr>
+    <tr>
+      <td>Requirements</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a></td>
+    </tr>
+    <tr>
+      <td>Journeys</td>
+      <td>J3</td>
+    </tr>
+    <tr>
+      <td>Measure</td>
+      <td><a href="artifact/Measure-TrustDemoIND01.html">TrustDemoIND01</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind02-shared-link-openings-that-were-authorised">TD.IND.02 Shared-link openings that were authorised</h3>
+
+<p>Of the requests to open a family member’s shared link, the proportion the home country released.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numerator</td>
+      <td>Manifest requests in the reporting period that were released.</td>
+    </tr>
+    <tr>
+      <td>Numerator computation</td>
+      <td>COUNT of access records (TD.J41) WHERE “Requested at” is in the reporting period AND “Released” = true</td>
+    </tr>
+    <tr>
+      <td>Denominator</td>
+      <td>Manifest requests in the reporting period, released or refused.</td>
+    </tr>
+    <tr>
+      <td>Denominator computation</td>
+      <td>COUNT of access records (TD.J41) WHERE “Requested at” is in the reporting period</td>
+    </tr>
+    <tr>
+      <td>Disaggregations</td>
+      <td>Refusal reason: wrong-passcode, expired, withdrawn (TD.DT.05)<br />Requesting system: the receiver abroad, and its country</td>
+    </tr>
+    <tr>
+      <td>Data elements</td>
+      <td><a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE01</a> Requested at<br /><a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE02</a> Requester<br /><a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE06</a> Released<br /><a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE08</a> Refusal reason</td>
+    </tr>
+    <tr>
+      <td>Decision tables</td>
+      <td><a href="decision-logic.html#tddt05-does-the-portal-release-the-manifest-for-this-request">TD.DT.05</a></td>
+    </tr>
+    <tr>
+      <td>Requirements</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></td>
+    </tr>
+    <tr>
+      <td>Journeys</td>
+      <td>J4.1</td>
+    </tr>
+    <tr>
+      <td>Measure</td>
+      <td><a href="artifact/Measure-TrustDemoIND02.html">TrustDemoIND02</a> (basis <code class="language-plaintext highlighter-rouge">AuditEvent</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind03-chw-referrals-for-verification-completed-at-the-clinic">TD.IND.03 CHW referrals for verification completed at the clinic</h3>
+
+<p>Of the referrals community health workers make for a child’s foreign cards to be verified, the proportion completed at the clinic.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numerator</td>
+      <td>Referrals made in the reporting period for which the clinic has recorded an outcome for every dose the referral lists.</td>
+    </tr>
+    <tr>
+      <td>Numerator computation</td>
+      <td>COUNT of referrals (TD.J2B) WHERE “Referred at” is in the reporting period AND “Referral status” = completed</td>
+    </tr>
+    <tr>
+      <td>Denominator</td>
+      <td>Referrals for verification made by community health workers in the reporting period.</td>
+    </tr>
+    <tr>
+      <td>Denominator computation</td>
+      <td>COUNT of referrals (TD.J2B) WHERE “Referred at” is in the reporting period</td>
+    </tr>
+    <tr>
+      <td>Disaggregations</td>
+      <td>Referred to: the clinic referred to<br />Referred by: the community health worker</td>
+    </tr>
+    <tr>
+      <td>Data elements</td>
+      <td><a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE02</a> Referred by<br /><a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE03</a> Referred to<br /><a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE04</a> Referred at<br /><a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE06</a> Doses to verify<br /><a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE07</a> Referral status</td>
+    </tr>
+    <tr>
+      <td>Decision tables</td>
+      <td><a href="decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01</a></td>
+    </tr>
+    <tr>
+      <td>Requirements</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td>Journeys</td>
+      <td>J2, J3</td>
+    </tr>
+    <tr>
+      <td>Measure</td>
+      <td><a href="artifact/Measure-TrustDemoIND03.html">TrustDemoIND03</a> (basis <code class="language-plaintext highlighter-rouge">ServiceRequest</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind04-imported-doses-carrying-a-national-schedule-code">TD.IND.04 Imported doses carrying a national schedule code</h3>
+
+<p>Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer’s code, and so count toward the schedule.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numerator</td>
+      <td>Doses imported as verified in the reporting period that carry a national schedule code.</td>
+    </tr>
+    <tr>
+      <td>Numerator computation</td>
+      <td>COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND “Mapping basis” in (concept-map, clinician-confirmed)</td>
+    </tr>
+    <tr>
+      <td>Denominator</td>
+      <td>Doses imported as verified in the reporting period.</td>
+    </tr>
+    <tr>
+      <td>Denominator computation</td>
+      <td>COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND “Mapping basis” != not-imported</td>
+    </tr>
+    <tr>
+      <td>Disaggregations</td>
+      <td>Mapping basis: concept-map, clinician-confirmed, unmapped (TD.DT.02)<br />Issuer’s product code: the product as signed</td>
+    </tr>
+    <tr>
+      <td>Data elements</td>
+      <td><a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE01</a> Issuer’s product code<br /><a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> National schedule code<br /><a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE03</a> Mapping basis<br /><a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> Counts toward the schedule</td>
+    </tr>
+    <tr>
+      <td>Decision tables</td>
+      <td><a href="decision-logic.html#tddt02-which-national-schedule-code-does-an-imported-dose-carry">TD.DT.02</a>, <a href="decision-logic.html#tddt03-does-the-national-schedule-count-this-dose">TD.DT.03</a></td>
+    </tr>
+    <tr>
+      <td>Requirements</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>, <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td>Journeys</td>
+      <td>J3</td>
+    </tr>
+    <tr>
+      <td>Measure</td>
+      <td><a href="artifact/Measure-TrustDemoIND04.html">TrustDemoIND04</a> (basis <code class="language-plaintext highlighter-rouge">Immunization</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/indicators.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/indicators.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/indicators.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/indicators.md", "lines": [{"t":"TD.IND.01 Foreign doses imported as verified","l":18},{"t":"TD.IND.02 Shared-link openings that were authorised","l":36},{"t":"TD.IND.03 CHW referrals for verification completed at the clinic","l":54},{"t":"TD.IND.04 Imported doses carrying a national schedule code","l":72}]}</script>
+
+<script src="./assets/ig-source-links.js"></script>
+
+<link rel="stylesheet" href="assets/ig-pages.css" />
+
+<footer id="ig-footer">
+<p class="ig-footer-nav"><a href="decision-logic.html">&lt;prev</a> | <a href="#">top</a> | <a href="functional-requirements.html">next&gt;</a></p>
+<p class="ig-footer-band">IG © 2026+ <a href="https://github.com/litlfred/smart-trust-demo" rel="external">litlfred</a>. Package <code>smart.who.int.trust-demo#0.1.0</code> based on <a href="http://hl7.org/fhir/R5/" rel="external">FHIR 5.0.0</a>. </p>
+<p class="ig-footer-links">Links: <a href="toc.html">Table of Contents</a> | <a href="https://spdx.org/licenses/CC0-1.0.html" rel="external">License</a></p>
+</footer>
+
+
+</main>
+</body>
+</html>

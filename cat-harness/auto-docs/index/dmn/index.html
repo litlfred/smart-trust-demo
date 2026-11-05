@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","beans","code","memory","processes","scenarios","skills"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","code","memory","processes","scenarios","skills"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -978,6 +978,7 @@
 <li><a href="core-processes/">core-processes</a> <span class="p">folio-assistant-core/processes</span> <span class="n" data-da-count="index/dmn/core-processes" data-da-count-state="pending">…</span></li>
 <li><a href="processes/">processes</a> <span class="p">cat-harness/processes</span> <span class="n" data-da-count="index/dmn/processes" data-da-count-state="pending">…</span></li>
 <li><a href="sdlc-processes/">sdlc-processes</a> <span class="p">cat-harness/sdlc/processes</span> <span class="n" data-da-count="index/dmn/sdlc-processes" data-da-count-state="pending">…</span></li>
+<li><a href="smart-trust-demo-processes/">smart-trust-demo-processes</a> <span class="p">processes</span> <span class="n" data-da-count="index/dmn/smart-trust-demo-processes" data-da-count-state="pending">…</span></li>
 </ul>
 
 
@@ -1043,6 +1044,30 @@
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant-core/blob/main/processes/content/decisions/review-coverage-gate.dmn"><code>Every changed block and rendered page reviewed?</code></a><br><span class="p">folio-assistant-core/processes/content/decisions/review-coverage-gate.dmn</span></td>
   <td>A changed block nobody has given a verdict on, and nobody waived with a reason, means the review is not complete.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/decisions/dose-counts.dmn"><code>Does the national schedule count this dose?</code></a><br><span class="p">processes/content/decisions/dose-counts.dmn</span></td>
+  <td>For one Immunization in the child's record, decide whether the schedule evaluation counts it as given.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/decisions/dose-due.dmn"><code>Is this dose of the national schedule due?</code></a><br><span class="p">processes/content/decisions/dose-due.dmn</span></td>
+  <td>For one action of the national schedule, decide whether the evaluation recommends it now, and from which date.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/decisions/dvc-record-outcome.dmn"><code>What does a scanned DVC become in the child's record?</code></a><br><span class="p">processes/content/decisions/dvc-record-outcome.dmn</span></td>
+  <td>From the result of reading one foreign DVC, decide whether its dose is recorded as verified, kept as reported and not verified, or not recorded from it at all.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/decisions/vaccine-code-mapping.dmn"><code>Which national schedule code does an imported dose carry?</code></a><br><span class="p">processes/content/decisions/vaccine-code-mapping.dmn</span></td>
+  <td>For one dose, decide whether and how the national schedule code is added beside the issuer's product code, which is always kept.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/decisions/vhl-follow.dmn"><code>Does the receiver follow the VHL?</code></a><br><span class="p">processes/content/decisions/vhl-follow.dmn</span></td>
+  <td>For one scanned VHL, decide whether the receiver requests the manifest or treats the family's records like paper.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/decisions/vhl-release.dmn"><code>Does the portal release the manifest for this request?</code></a><br><span class="p">processes/content/decisions/vhl-release.dmn</span></td>
+  <td>For one manifest request (ITI-YY5), decide whether the portal releases the manifest, and what the access log records.</td>
 </tr>
 </tbody>
 </table></div>
