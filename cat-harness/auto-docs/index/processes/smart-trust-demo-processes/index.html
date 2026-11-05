@@ -989,23 +989,23 @@
 <tbody>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j1-birth-dose-dvc.bpmn"><code>J1 Issue the newborn&amp;#x27;s birth-dose DVCs in Country A</code></a><br><span class="p">processes/content/j1-birth-dose-dvc.bpmn</span></td>
-  <td>J1, Cross-border birth and initial vaccination.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Birth clinic vaccinator · Birth clinic issuing system · Issuer signing key</div></td>
+  <td>J1, Cross-border birth and initial vaccination.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Birth clinic vaccinator · Birth clinic issuing system · Issuer signing key</div><div class="f"><span class="k">skills</span> hcert-build-cwt, hcert-prefix-context, hcert-select-payload, hcert-sign-cose</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j2-chw-discovery-referral.bpmn"><code>J2 Discover and refer an unregistered infant in Country B</code></a><br><span class="p">processes/content/j2-chw-discovery-referral.bpmn</span></td>
-  <td>J2, Return home, CHW discovery and referral.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Community health worker · CHW app</div></td>
+  <td>J2, Return home, CHW discovery and referral.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Community health worker · CHW app</div><div class="f"><span class="k">skills</span> chw-refer, chw-register-infant, hcert-verify</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j3-clinic-verification-schedule.bpmn"><code>J3 Verify, import and schedule at the home clinic</code></a><br><span class="p">processes/content/j3-clinic-verification-schedule.bpmn</span></td>
-  <td>J3, Clinic verification and schedule generation, in Country B.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · Home clinic provider · Home clinic EHR</div></td>
+  <td>J3, Clinic verification and schedule generation, in Country B.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · Home clinic provider · Home clinic EHR</div><div class="f"><span class="k">skills</span> ehr-import-immunization, hcert-verify, map-vaccine-codes, schedule-evaluate</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j4-0-family-vhl-issuance.bpmn"><code>J4.0 Issue the family&amp;#x27;s records to one phone as VHLs</code></a><br><span class="p">processes/content/j4-0-family-vhl-issuance.bpmn</span></td>
-  <td>J4.0, Outbound family travel, &quot;One Family, One Phone&quot;.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · National health portal · Issuer signing key · Family phone</div></td>
+  <td>J4.0, Outbound family travel, &quot;One Family, One Phone&quot;.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · National health portal · Issuer signing key · Family phone</div><div class="f"><span class="k">skills</span> hcert-build-cwt, hcert-prefix-context, hcert-sign-cose, portal-assemble-records, vhl-share, wallet-hold-vhl</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j4-1-vhl-point-of-care.bpmn"><code>J4.1 Read a family member&amp;#x27;s records at the point of care abroad</code></a><br><span class="p">processes/content/j4-1-vhl-point-of-care.bpmn</span></td>
-  <td>J4.1.<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Caregiver · Family phone · Point-of-care provider · Point-of-care receiver · National health portal</div></td>
+  <td>J4.1.<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Caregiver · Family phone · Point-of-care provider · Point-of-care receiver · National health portal</div><div class="f"><span class="k">skills</span> hcert-verify, portal-serve-manifest, vhl-receive, wallet-hold-vhl</div></td>
 </tr>
 </tbody>
 </table></div>

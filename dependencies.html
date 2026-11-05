@@ -72,6 +72,12 @@ pull request.</p>
       <td>Boots the Android emulators (API 26 and 35) the HCERT library’s instrumented tests run on. The emulator system images it installs come from the runner’s Android SDK manager, not from Gradle.</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">oven-sh/setup-bun</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0c5077e51419868618aeaa5fe8019c62421857d6</code></td>
+      <td>v2.2.0</td>
+      <td>Bun, for the harness’s BPMN drawing and checklist generators in CI job <code class="language-plaintext highlighter-rouge">bpmn-generated</code>; the same pin the harness layers use. Bun itself installs from <code class="language-plaintext highlighter-rouge">bun.lock</code> (<code class="language-plaintext highlighter-rouge">--frozen-lockfile</code>), whose install scripts stay off (<code class="language-plaintext highlighter-rouge">bunfig.toml</code>). The renderer’s Chromium is the build the lockfile’s Playwright names, installed by <code class="language-plaintext highlighter-rouge">playwright install --with-deps chromium</code>, as the harness layers’ CI does.</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">actions/upload-artifact</code></td>
       <td><code class="language-plaintext highlighter-rouge">ea165f8d65b6e75b540449e92b4886f43607fa02</code></td>
       <td>v4.6.2</td>
@@ -130,7 +136,7 @@ pull request.</p>
 </table>
 
 <p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/dependencies.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/dependencies.md">Edit this page on GitHub</a></p>
-<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/dependencies.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/dependencies.md", "lines": [{"t":"GitHub Actions (pinned by commit SHA)","l":8},{"t":"Runtime and build dependencies","l":19}]}</script>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/dependencies.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/dependencies.md", "lines": [{"t":"GitHub Actions (pinned by commit SHA)","l":8},{"t":"Runtime and build dependencies","l":20}]}</script>
 
 <script src="./assets/ig-source-links.js"></script>
 

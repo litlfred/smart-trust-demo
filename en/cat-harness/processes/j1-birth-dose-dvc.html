@@ -904,7 +904,7 @@
 </h1>
     
 
-<p><code class="language-plaintext highlighter-rouge">Process_J1BirthDoseDvc</code> · strict (defaulted) · 6 step(s)</p>
+<p><code class="language-plaintext highlighter-rouge">Process_J1BirthDoseDvc</code> · advisory · 6 step(s)</p>
 
 <p>J1, Cross-border birth and initial vaccination. In Country A (XXR, the birth country) the provincial hospital gives a newborn who is not its own country’s national the Hep B and BCG birth doses and issues one signed DVC per dose (DVCMinPreQual at subclaim -6) as a paper QR, with no national identity number needed (the WHO guide’s QR Code Generation section 12 example is such a pair). The hospital system is the Issuer (SMART Trust) and the HCERT side of the VHL Sharer; the private key stays with the key holder (two-phase signing, STT-ISS-004, STT-COS-006). XXR’s DSC, under its CSCA, being on the GDHCN trust list is a PRECONDITION of issuing, declared below, not a step. The caregiver is the Holder (SMART Trust, smart-trust-phw) and VHL Holder (IHE ITI VHL).</p>
 
@@ -994,25 +994,25 @@
     <tr>
       <td><strong>Build one DVCMinPreQual payload per dose</strong><br /><code class="language-plaintext highlighter-rouge">Task_Payload</code></td>
       <td>Birth clinic issuing system</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-select-payload</code></td>
       <td>One immunization event per DVC (STT-PAY-003), typed DVCMin models (STT-PAY-001, STT-PAY-002), nationality alpha-3 LAO (STT-PAY-007), subject with no identity document (STT-PAY-005); subclaim -6 in the development range, opted into explicitly (STT-SEL-003).</td>
     </tr>
     <tr>
       <td><strong>Prepare: CWT claims and the COSE Sig_structure</strong><br /><code class="language-plaintext highlighter-rouge">Task_Prepare</code></td>
       <td>Birth clinic issuing system</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-build-cwt</code></td>
       <td>iss XR, iat, exp inside the DSC validity (STT-CWT-001 to 005); kid from the DSC (STT-KID-001); the library returns the bytes to sign (STT-ISS-004).</td>
     </tr>
     <tr>
       <td><strong>Sign the bytes with XXR’s DSC key</strong><br /><code class="language-plaintext highlighter-rouge">Task_Sign</code></td>
       <td>Issuer signing key</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-sign-cose</code></td>
       <td>ES256 or PS256 (STT-COS-002) in the HSM, KMS or Keystore; the library never holds the private key (STT-COS-006).</td>
     </tr>
     <tr>
       <td><strong>Finish: COSE_Sign1, deflate, Base45, HC1:</strong><br /><code class="language-plaintext highlighter-rouge">Task_Finish</code></td>
       <td>Birth clinic issuing system</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-prefix-context</code></td>
       <td>STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001; QR-ready text, no QR encoding in the library (STT-QR-001).</td>
     </tr>
     <tr>

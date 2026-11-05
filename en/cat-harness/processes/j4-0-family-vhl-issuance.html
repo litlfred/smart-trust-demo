@@ -904,7 +904,7 @@
 </h1>
     
 
-<p><code class="language-plaintext highlighter-rouge">Process_J40FamilyVhl</code> · strict (defaulted) · 7 step(s)</p>
+<p><code class="language-plaintext highlighter-rouge">Process_J40FamilyVhl</code> · advisory · 7 step(s)</p>
 
 <p>J4.0, Outbound family travel, “One Family, One Phone”. Before travelling, the caregiver who holds the family’s one shared phone asks Country B’s national portal for each family member’s records, choosing for each a passcode the family can say aloud and an expiry (for example 14 days); the portal records that choice as the holder’s consent to share (FHIR Consent, IHE Privacy Consent on FHIR). The portal, a VHL Sharer (IHE ITI VHL) and Issuer (SMART Trust, smart-trust-phw), issues one passcode-protected Verifiable Health Link per member: the documents (IPS, DVCs) encrypted as JWE (STT-VHL-007) behind an ITI-YY5 manifest, the link in the SMART Health Links payload format at HCERT key 5 (STT-VHL-001, STT-VHL-002), signed with Country B’s DSC. The shared phone holds the QRs for the caregiver, the VHL Holder. The records themselves stay hosted in Country B: the QR carries only a pointer and a key.</p>
 
@@ -994,37 +994,37 @@
     <tr>
       <td><strong>Assemble each member’s IPS and DVCs</strong><br /><code class="language-plaintext highlighter-rouge">Task_Assemble</code></td>
       <td>National health portal</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">portal-assemble-records</code></td>
       <td>—</td>
     </tr>
     <tr>
       <td><strong>Encrypt the documents and publish a passcode-protected manifest</strong><br /><code class="language-plaintext highlighter-rouge">Task_Share</code></td>
       <td>National health portal</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">vhl-share</code></td>
       <td>VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010).</td>
     </tr>
     <tr>
       <td><strong>Prepare the HCERT carrying the VHL at key 5</strong><br /><code class="language-plaintext highlighter-rouge">Task_Prepare</code></td>
       <td>National health portal</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-build-cwt</code></td>
       <td>VHL payload as a CBOR map at key 5 (STT-VHL-002); two-phase signing (STT-ISS-004).</td>
     </tr>
     <tr>
       <td><strong>Sign with Country B’s DSC key</strong><br /><code class="language-plaintext highlighter-rouge">Task_Sign</code></td>
       <td>Issuer signing key</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-sign-cose</code></td>
       <td>—</td>
     </tr>
     <tr>
       <td><strong>Finish the HC1 QR text</strong><br /><code class="language-plaintext highlighter-rouge">Task_Finish</code></td>
       <td>National health portal</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-prefix-context</code></td>
       <td>—</td>
     </tr>
     <tr>
       <td><strong>Store one VHL QR per member on the shared phone</strong><br /><code class="language-plaintext highlighter-rouge">Task_Store</code></td>
       <td>Family phone</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet-hold-vhl</code></td>
       <td>—</td>
     </tr>
   </tbody>

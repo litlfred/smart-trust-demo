@@ -904,7 +904,7 @@
 </h1>
     
 
-<p><code class="language-plaintext highlighter-rouge">Process_J3ClinicVerification</code> · strict (defaulted) · 7 step(s)</p>
+<p><code class="language-plaintext highlighter-rouge">Process_J3ClinicVerification</code> · advisory · 7 step(s)</p>
 
 <p>J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR’s DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them.</p>
 
@@ -989,7 +989,7 @@
     <tr>
       <td><strong>Verify each HCERT against the trust list</strong><br /><code class="language-plaintext highlighter-rouge">Task_Verify</code></td>
       <td>Home clinic EHR</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-verify</code></td>
       <td>HcertVerifier.verify: STT-VER-001 order, no payload before the signature (STT-VER-002), every DSC with the kid tried (STT-KID-002), EKU (STT-VER-004), time with an injected clock (STT-VER-005), typed result naming step and reason (STT-VER-008), fully offline (STT-VER-009); several payloads per HCERT (STT-SEL-004). It checks against the DID list the preconditions establish: a DSC added to the GDHCN list after the clinic’s last refresh is not in that copy, so its DVC fails at the trust-list step (STT-VER-006) and takes the “no” path, with that reason, until the next refresh.</td>
     </tr>
     <tr>
@@ -1001,19 +1001,19 @@
     <tr>
       <td><strong>Import the doses as FHIR Immunization resources</strong><br /><code class="language-plaintext highlighter-rouge">Task_Import</code></td>
       <td>Home clinic EHR</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">ehr-import-immunization</code></td>
       <td>—</td>
     </tr>
     <tr>
       <td><strong>Add the national schedule code beside the foreign vaccine code</strong><br /><code class="language-plaintext highlighter-rouge">Task_Map</code></td>
       <td>Home clinic EHR</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">map-vaccine-codes</code></td>
       <td>The imported doses keep the issuer’s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it.</td>
     </tr>
     <tr>
       <td><strong>Evaluate the national schedule</strong><br /><code class="language-plaintext highlighter-rouge">Task_Schedule</code></td>
       <td>Home clinic EHR</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">schedule-evaluate</code></td>
       <td>PlanDefinition/$apply over the imported Immunizations, read by their national schedule codes: the Hep B and BCG birth doses count; the 6-week doses (pentavalent, bOPV, PCV) are due, and a reminder Task is created for that date.</td>
     </tr>
     <tr>

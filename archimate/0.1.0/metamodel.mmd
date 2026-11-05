@@ -48,17 +48,18 @@ classDiagram
   <<Business>> BusinessCollaboration
   class Product["Product"]
   <<Business>> Product
-  Grouping o-- ApplicationComponent : aggregates ×69
+  Grouping o-- ApplicationComponent : aggregates ×58
   Grouping o-- Capability : aggregates ×30
-  ApplicationComponent --> BusinessProcess : serves ×27
   Grouping o-- BusinessRole : aggregates ×26
   Capability ..> Goal : influences ×21
-  ApplicationComponent --|> ApplicationComponent : specialises ×17
+  ApplicationComponent *-- ApplicationComponent : composed of ×19
+  ApplicationComponent --|> ApplicationComponent : specialises ×18
   ApplicationComponent ..|> Capability : realises ×16
   ApplicationComponent ..> ApplicationComponent : flows to ×15
+  ApplicationComponent --> ApplicationComponent : serves ×14
   ApplicationComponent ..> DataObject : accesses ×13
-  ApplicationComponent --> ApplicationComponent : serves ×13
   Goal o-- Goal : aggregates ×13
+  ApplicationComponent --> BusinessProcess : serves ×12
   Grouping o-- Grouping : aggregates ×12
   Capability --> Capability : serves ×11
   Grouping o-- Stakeholder : aggregates ×11
@@ -114,7 +115,6 @@ classDiagram
   ApplicationComponent -- ApplicationService : associated with ×1
   ApplicationComponent -- Artifact : associated with ×1
   ApplicationComponent -- DataObject : associated with ×1
-  ApplicationComponent *-- ApplicationComponent : composed of ×1
   ApplicationComponent *-- ApplicationInterface : composed of ×1
   ApplicationComponent --> BusinessRole : serves ×1
   ApplicationFunction ..> DataObject : accesses ×1

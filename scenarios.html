@@ -26,12 +26,15 @@
 
 <h3 id="user-stories">User stories</h3>
 
+<p>Each story traces to the smart-trust-tools requirements that serve it (scenarios/story-requirements.json); where the HCERT library does not serve a story, the note says what does.</p>
+
 <table class="grid">
   <thead>
     <tr>
       <th>Role</th>
       <th>I want to</th>
       <th>So that</th>
+      <th>Requirements</th>
     </tr>
   </thead>
   <tbody>
@@ -39,61 +42,73 @@
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.Caregiver.html">Caregiver</a></td>
       <td>Have my son’s birth doses from abroad recognised at home</td>
       <td>his care does not start over and nothing is repeated</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-009">STT-VER-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.Caregiver.html">Caregiver</a></td>
       <td>Show each family member’s records abroad from our one shared phone, with a passcode I can say aloud</td>
       <td>a doctor abroad can treat us without paper or an app</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-001">STT-VHL-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-002">STT-VHL-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-004">STT-VHL-004</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.Caregiver.html">Caregiver</a></td>
       <td>Decide who sees my child’s record, and for how long</td>
       <td>the record stays at home and I know who has looked</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html">Birth clinic vaccinator</a></td>
       <td>Print a signed record of each birth dose the family can carry anywhere</td>
       <td> </td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-001">STT-PAY-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-003">STT-PAY-003</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004">STT-ISS-004</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-001">STT-COS-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-hc1-001">STT-HC1-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-qr-001">STT-QR-001</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html">Community health worker</a></td>
       <td>Read a foreign vaccination QR offline and register the child with it</td>
       <td>the clinic sees what was given before the family arrives</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002">STT-B45-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003">STT-CBR-003</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html">Community health worker</a></td>
       <td>Refer a child whose foreign record needs checking</td>
       <td>verification is done by someone who can</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html">Community health worker</a></td>
       <td>Register a newborn into the household offline, before civil registration</td>
       <td>no newborn in my village is missed, even with no signal</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.HomeClinicProvider.html">Home clinic provider</a></td>
       <td>Know whether a foreign certificate is genuine, and why not when it is not</td>
       <td> </td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-002">STT-VER-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001">STT-TRU-001</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.HomeClinicProvider.html">Home clinic provider</a></td>
       <td>See which doses are due once the foreign doses are imported</td>
       <td>I give only what is missing</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.HomeClinicProvider.html">Home clinic provider</a></td>
       <td>Keep the foreign vaccine code and add our schedule code beside it, deciding myself when there is no match</td>
       <td>the other country’s record is never overwritten and the next nurse need not decide again</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.PocProvider.html">Point-of-care provider</a></td>
       <td>Read a visiting child’s summary and vaccinations from a QR the parent shows</td>
       <td>without installing anything or calling another country</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-006">STT-VHL-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a></td>
     </tr>
     <tr>
       <td><a href="artifact/ActorDefinition-TrustDemo.Role.PocProvider.html">Point-of-care provider</a></td>
       <td>Know the record I read abroad came from the child’s home country and was not altered</td>
       <td>I can rely on it as I would on my own clinic’s record</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-kid-002">STT-KID-002</a></td>
     </tr>
   </tbody>
 </table>
@@ -265,7 +280,7 @@ would a paper record.</p>
 </ul>
 
 <p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/scenarios.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/scenarios.md">Edit this page on GitHub</a></p>
-<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/scenarios.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/scenarios.md", "lines": [{"t":"User stories","l":4},{"t":"User scenarios","l":22},{"t":"J1 — Born abroad (Thailand, birth day)","l":31},{"t":"J2 — Found at home (Lao PDR, 3 weeks later)","l":61},{"t":"J3 — Made official (Vientiane District Health Center, 4 weeks later)","l":81},{"t":"J4.0 — Crossing back: one family, one phone (Lao PDR, 12 months later)","l":117},{"t":"J4.1 — Crossing back: a Thai doctor sees the full history (Chiang Rai, 12 months later)","l":141}]}</script>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/scenarios.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/scenarios.md", "lines": [{"t":"User stories","l":4},{"t":"User scenarios","l":24},{"t":"J1 — Born abroad (Thailand, birth day)","l":33},{"t":"J2 — Found at home (Lao PDR, 3 weeks later)","l":63},{"t":"J3 — Made official (Vientiane District Health Center, 4 weeks later)","l":83},{"t":"J4.0 — Crossing back: one family, one phone (Lao PDR, 12 months later)","l":119},{"t":"J4.1 — Crossing back: a Thai doctor sees the full history (Chiang Rai, 12 months later)","l":143}]}</script>
 
 <script src="./assets/ig-source-links.js"></script>
 

@@ -904,7 +904,7 @@
 </h1>
     
 
-<p><code class="language-plaintext highlighter-rouge">Process_J2ChwDiscovery</code> · strict (defaulted) · 6 step(s)</p>
+<p><code class="language-plaintext highlighter-rouge">Process_J2ChwDiscovery</code> · advisory · 6 step(s)</p>
 
 <p>J2, Return home, CHW discovery and referral. Back in Country B (home, XXH), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).</p>
 
@@ -995,19 +995,19 @@
     <tr>
       <td><strong>Read each DVC unverified (triage)</strong><br /><code class="language-plaintext highlighter-rouge">Task_Read</code></td>
       <td>CHW app</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-verify</code></td>
       <td>read-unverified (STT-VER-011): strip HC1:, Base45, inflate within limits (STT-B45-002, STT-ZIP-002), bounded CBOR (STT-CBR-003), payloads read but flagged unverified; no trust list needed, fully offline.</td>
     </tr>
     <tr>
       <td><strong>Add the infant to the household; save the doses as reported, not verified</strong><br /><code class="language-plaintext highlighter-rouge">Task_Register</code></td>
       <td>CHW app</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">chw-register-infant</code></td>
       <td>—</td>
     </tr>
     <tr>
       <td><strong>Create a referral to the home clinic for verification</strong><br /><code class="language-plaintext highlighter-rouge">Task_Refer</code></td>
       <td>CHW app</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">chw-refer</code></td>
       <td>—</td>
     </tr>
     <tr>
