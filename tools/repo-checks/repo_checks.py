@@ -22,6 +22,17 @@ import sys
 import xml.etree.ElementTree as ET
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+
+def _load_graph():
+    """tools/journeys/graph.py, the one reader of the journeys' sources (loaded by path: works under -I)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("journeys_graph", ROOT / "tools" / "journeys" / "graph.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+graph = _load_graph()
 SKIP = {".git", "node_modules", "build", ".gradle", ".kotlin", "site"}
 USES = re.compile(r"^\s*-?\s*uses:\s*([^\s#]+)")
 PINNED = re.compile(r"^[^@\s]+@[0-9a-f]{40}$")
@@ -107,12 +118,17 @@ def journey_errors():
         for st in json.loads(stories.read_text())["stories"]:
             if st["role"]["role"] not in roles:
                 errors.append(f"scenarios/stories.json: story {st['id']} names unknown role {st['role']['role']}")
+    try:
+        lanes = {p["file"]: p["lanes"] for p in graph.processes(ROOT)}
+    except graph.GraphError as e:
+        errors.append(str(e))
+        lanes = {}
     for b in sorted(files("processes/*.bpmn")):
         rel = b.relative_to(ROOT)
         tree = ET.parse(b).getroot()
-        for lane in tree.iter(BPMN + "lane"):
-            if lane.get("partitionElementRef") not in roles:
-                errors.append(f"{rel}: lane {lane.get('id')} names unknown role {lane.get('partitionElementRef')}")
+        for lane in lanes.get(b, []):
+            if lane["role"] not in roles:
+                errors.append(f"{rel}: lane {lane['id']} names unknown role {lane['role']}")
         for sk in tree.iter(SKILL):
             if not skill_ok(sk.get("ref")):
                 errors.append(f"{rel}: unknown skill {sk.get('ref')}")
