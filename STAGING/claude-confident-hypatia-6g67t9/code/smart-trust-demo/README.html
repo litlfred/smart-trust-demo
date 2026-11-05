@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaxLink: Cross-Border Digital Immunization Portability  Verification</title>
+<style>
+  :root { color-scheme: light dark; --fg: #1b1f23; --bg: #ffffff; --muted: #57606a; --line: #d0d7de; --link: #0b5cad; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e6edf3; --bg: #0d1117; --muted: #8d96a0; --line: #30363d; --link: #58a6ff; } }
+  body { font: 16px/1.6 system-ui, sans-serif; color: var(--fg); background: var(--bg); max-width: 50rem; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+  a { color: var(--link); }
+  code, pre { font-family: ui-monospace, monospace; font-size: 0.92em; }
+  pre { overflow-x: auto; padding: 0.75rem; border: 1px solid var(--line); border-radius: 6px; }
+  table { border-collapse: collapse; display: block; overflow-x: auto; }
+  th, td { border: 1px solid var(--line); padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; }
+  blockquote { margin-left: 0; padding-left: 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+  hr { border: 0; border-top: 1px solid var(--line); }
+</style>
+<link rel="stylesheet" href="../../assets/css/navbar.css"><script src="../../assets/navbar/rail-1fyq2044wjv.js" defer></script><script src="../../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../../assets/css/navbar-row.css"><script src="../../assets/js/navbar-row.js" defer></script><meta name="fa-search-exclude" content="true"><script src="../../assets/js/vendor/lunr.min.js" defer></script><script src="../../assets/js/just-the-docs.js" defer></script><link rel="stylesheet" href="../../assets/page-layout.css" data-fa-page-layout><script src="../../assets/page-layout.js" defer data-fa-page-layout></script><script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  var rv=el('span',{'data-fa-staging-review':''});d.appendChild(rv);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,f.pr&&f.pr!=='n/a'?'PR #'+f.pr:'no open PR found'));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  if(f.checksUrl){d.appendChild(sep());d.appendChild(link(f.checksUrl,'CI results'));}
+  stamp(f);
+  measure();
+  fresh(d,f);
+  review(rv,r,rel);
+}
+// The preview's review page (owner, 2026-11-01, Q-REV-1): reviewers could not
+// find it from a staging page. A folio writes it at <root>/<locale>/review/,
+// an IG at <root>/review/. Asked with HEAD, which the staging worker passes
+// through, so a 404 here is not answered with the live site's page. No review
+// page, no link.
+function review(s,r,rel){
+  if(typeof fetch!=='function')return;
+  var c=[],m=rel.match(/^([a-z]{2,3}(?:-[A-Za-z0-9]+)?)\//);
+  if(m)c.push(r+m[1]+'/review/');
+  c.push(r+'review/');
+  (function next(i){
+    if(i>=c.length)return;
+    fetch(c[i]+'index.html',{method:'HEAD',cache:'no-store'}).then(function(x){
+      if(!x.ok)return next(i+1);
+      s.appendChild(sep());
+      s.appendChild(link(c[i],'\ud83d\udd0d Review changes','font-weight:bold'));
+      measure();
+    }).catch(function(){next(i+1);});
+  })(0);
+}
+// Live staleness (owner, 2026-10-31, option C): ask GitHub for the branch's
+// head now and say so when it has moved past the commit this preview was
+// built from. Unauthenticated, one request per page view; on any failure
+// (rate limit, offline, a deleted branch) it says nothing rather than guess.
+function fresh(d,f){
+  var m=String(f.branchUrl||'').match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\//);
+  if(!m||!f.branch||!f.sha||typeof fetch!=='function')return;
+  fetch('https://api.github.com/repos/'+m[1]+'/'+m[2]+'/commits/'+encodeURIComponent(f.branch),
+    {headers:{Accept:'application/vnd.github.sha'},cache:'no-store'})
+    .then(function(x){if(!x.ok)throw 0;return x.text();})
+    .then(function(head){
+      head=String(head).trim();
+      if(!/^[0-9a-f]{7,40}$/.test(head)||head.indexOf(f.sha)===0)return;
+      d.appendChild(sep());
+      var w=el('strong',{'data-fa-staging-stale':'',style:'background:#b00020;padding:0 .4em;border-radius:3px'},'\u26a0 stale: the branch is now at ');
+      w.appendChild(chip(head.slice(0,7)));
+      w.appendChild(document.createTextNode(', newer than this preview'));
+      d.appendChild(w);measure();
+    }).catch(function(){});
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+// First visit to a preview: the shared stylesheets 404 until the worker is
+// in control, so the page would paint unstyled (a page-wide search icon) for
+// the moment before the reload. Hide it until then, only when a stylesheet
+// in the head actually failed, and show it again if no reload comes.
+function unstyled(){var l=document.querySelectorAll('link[rel="stylesheet"]');for(var i=0;i<l.length;i++){if(l[i].disabled)continue;try{if(!l[i].sheet||!l[i].sheet.cssRules.length)return true;}catch(e){}}return false;}
+function share(){
+  var r=root();if(!r||!('serviceWorker' in navigator))return;
+  var k='fa-share:'+r,s=document.documentElement.style;
+  var hide=!navigator.serviceWorker.controller&&!sessionStorage.getItem(k)&&unstyled();
+  function show(){if(hide){hide=false;s.removeProperty('visibility');}}
+  if(hide){s.setProperty('visibility','hidden');setTimeout(show,4000);}
+  navigator.serviceWorker.register(r+'staging-sw.js',{scope:r}).then(function(){
+    if(navigator.serviceWorker.controller||sessionStorage.getItem(k))return show();
+    return navigator.serviceWorker.ready.then(function(){sessionStorage.setItem(k,'1');location.reload();});
+  }).catch(show);
+}
+measure();share();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="../..">{"icons":["close","todos","beans","fsh-guts","qr","launcher"],"hrefs":{},"notes":{"beans":"no viewer yet"},"folders":[{"kind":"archimate","label":"Archimate","note":"no viewer yet"},{"kind":"basic-cdn-site","label":"Basic CDN site","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/site/"},{"kind":"beans","label":"Work plan","note":"no viewer yet"},{"kind":"code","label":"Code","note":"no viewer yet"},{"kind":"code-list","label":"Code lists","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/code-lists/smart-trust-demo/"},{"kind":"memory","label":"Memory","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/memory/smart-trust-demo/"},{"kind":"processes","label":"Processes","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/processes/smart-trust-demo/"},{"kind":"scenarios","label":"Scenarios","path":"https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/smart-trust-demo/"},{"kind":"skills","label":"Skills","note":"no viewer yet"},{"kind":"user-scenario","label":"User scenarios","note":"no viewer yet"},{"kind":"workshop","label":"Workshops","note":"no viewer yet"}]}</script><script type="application/json" id="fa-rail" data-fa-root="../.." data-fa-to-root="../..">{"data":"rail-1fyq2044wjv"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../">SMART Trust demonstrator</a></nav><div id="main-header" class="main-header fa-site-bar fa-page-bar"><a class="fa-page-bar-home" href="../../">SMART Trust demonstrator</a><div class="search" role="search"><div class="search-input-wrap"><input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search this site" autocomplete="off"><label for="search-input" class="search-label"><span class="sr-only">Search this site</span></label></div><div id="search-results" class="search-results"></div></div><span class="fa-page-bar-locale" data-fa-slot="locale"></span></div>
+<h1>VaxLink: Cross-Border Digital Immunization Portability &#x26; Verification</h1>
+<p>An interactive walkthrough of a cross-border immunization journey, built for the <strong>WHO Pre-GDHF (Global Digital Health Forum) Workshop</strong>, Bangkok 2026.</p>
+<p><strong>Live site:</strong> <a href="https://litlfred.github.io/smart-trust-demo/vaxlink/">https://litlfred.github.io/smart-trust-demo/vaxlink/</a>, inside the SMART Trust demonstrator's site (the original is <a href="https://github.com/fredhersch/vaxlink">fredhersch/vaxlink</a>; it was developed in litlfred/vaxlink, whose old address now redirects here). Each branch is previewed at <code>https://litlfred.github.io/smart-trust-demo/STAGING/&#x3C;branch>/vaxlink/</code>.</p>
+<p>It lives in <code>web/</code> of <a href="https://github.com/litlfred/smart-trust-demo">litlfred/smart-trust-demo</a>, so it is built from the same commit as the journeys, personas, BPMN processes and FHIR examples it shows.</p>
+<p>VaxLink follows one baby's vaccination record between <strong>Thailand</strong> and <strong>Lao PDR</strong> over his first year. It shows how three things work together so a record can cross a border and still be trusted, with no shared database between the two countries:</p>
+<ul>
+<li><strong>WHO GDHCN:</strong> a WHO trust network where countries publish the keys they sign health documents with, so anyone can verify them.</li>
+<li><strong>Open Health Stack (OHS):</strong> open-source tools for offline-first health apps.</li>
+<li><strong>IHE Verifiable Health Links (VHL):</strong> family-controlled sharing through a QR code.</li>
+</ul>
+<p>The site leads with <strong>people and moments</strong>. The technical layer (standards, tools, FHIR payloads) sits underneath each moment, ready when the room asks <em>"how does that work?"</em></p>
+<blockquote>
+<p><strong>Simulation notice:</strong> all people, records, keys and payloads are fictional and for demonstration only. The signing key belongs to a GDHCN <strong>DEV</strong> test participant (<code>XXR</code>), not a production key.</p>
+</blockquote>
+<hr>
+<h2>📖 The story</h2>
+<blockquote>
+<p>Somsack is born in Thailand, grows up in Lao PDR, and one year later a Thai doctor can see every vaccine he has ever had, without a single record being copied across the border.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Moment</th>
+<th>When</th>
+<th>Where</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Born abroad</strong></td>
+<td>Birth day</td>
+<td>Chiang Rai, Thailand</td>
+<td>Birth doses given; two signed paper vaccine certificates (QR) issued</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Found at home</strong></td>
+<td>+3 weeks</td>
+<td>Village 04, Lao PDR</td>
+<td>A health worker registers him offline and records the cards as <em>reported, not verified</em></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Made official</strong></td>
+<td>+4 weeks</td>
+<td>District Health Center, Lao PDR</td>
+<td>A nurse verifies the signature, then maps the Thai vaccines to the Lao schedule</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Crossing back</strong></td>
+<td>+12 months</td>
+<td>Lao PDR → Thailand</td>
+<td>Dad shares a passcode-protected link; a Thai doctor views the full history; the access is logged in Lao PDR</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The cast:</strong> Khamla (mother), Bounmy (father, holds the family phone), Vilay (community health worker), Nurse Chanthasone (district health center) and Dr. Anan (Thai clinician).</p>
+<hr>
+<h2>🎤 Running a workshop session</h2>
+<p>The site has two modes in the top bar: <strong>Journeys</strong> (the story and its technical layer) and <strong>Device Demo</strong> (the live screens). It opens on Journeys. A suggested order:</p>
+<ol>
+<li><strong>Overview:</strong> introduce the story in one sentence and the cast.</li>
+<li><strong>Walkthrough:</strong> present the eight moments one at a time. For each one, use <strong>Ask the room</strong>, then reveal the <strong>What if…</strong> branch.</li>
+<li><strong>Under the hood:</strong> turn it on in the walkthrough (press <strong>T</strong>) when the room wants to know how a moment works.</li>
+<li><strong>Persona lens:</strong> use it for discussion, e.g. why Khamla's mood dips when the records live on Bounmy's phone.</li>
+<li><strong>How it works:</strong> use it for technical questions. Pick a standard or tool to see every moment that depends on it.</li>
+<li><strong>Device Demo:</strong> open a screen from any moment ("See what … sees") to show the real interface. The tamper and wrong-passcode tests live on screens S4 and S8.</li>
+<li><strong>Discussion:</strong> close with the four policy questions. Moving past the last moment in the walkthrough opens it automatically.</li>
+</ol>
+<p><strong>Presenter mode</strong> (top right) shows a facilitator cue for the current moment in the banner and in the walkthrough. Turn it off before sharing your screen if you don't want the cues visible.</p>
+<h3>Keyboard shortcuts (Walkthrough)</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>→</code> / <code>PageDown</code></td>
+<td>Next moment (from the last moment, opens Discussion)</td>
+</tr>
+<tr>
+<td><code>←</code> / <code>PageUp</code></td>
+<td>Previous moment</td>
+</tr>
+<tr>
+<td><code>W</code></td>
+<td>Reveal or hide the "What if…" branch</td>
+</tr>
+<tr>
+<td><code>T</code></td>
+<td>Show or hide "Under the hood"</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🧭 What's in the app</h2>
+<h3>Journeys (default mode)</h3>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>Use it to…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Overview</strong></td>
+<td>Tell the story, introduce the four moments and the cast, and show the "Follow the record" trust ladder (on paper → reported → verified → scheduled → portable → shared &#x26; audited)</td>
+</tr>
+<tr>
+<td><strong>Walkthrough</strong></td>
+<td>Present one moment at a time: who's involved and how they feel, pain point vs. enabler, how the record's trust changes, "Ask the room", "What if…", the <strong>policy takeaway</strong>, the facilitator cue and <strong>Under the hood</strong></td>
+</tr>
+<tr>
+<td><strong>Journey map</strong></td>
+<td>See everyone at every moment as a swimlane, with optional rows for pain points, enablers and the technical layer. Focus on one persona to dim the rest</td>
+</tr>
+<tr>
+<td><strong>Persona lens</strong></td>
+<td>Follow one person end to end: goals, needs, frustrations, an emotion curve and touchpoints</td>
+</tr>
+<tr>
+<td><strong>How it works</strong></td>
+<td>Connect the journey to the architecture: four big ideas and a grid of building blocks against moments, with a detail panel for each standard or tool</td>
+</tr>
+<tr>
+<td><strong>Discussion</strong></td>
+<td>Close the session with four policy questions for delegates (each linked to the moments it relates to) and every moment's policy takeaway</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Under the hood</strong> (per moment) shows:</p>
+<ul>
+<li>a plain-language technical so-what;</li>
+<li>the tools, data standards and trust/exchange pieces in play, and what each does at that moment;</li>
+<li>the data hand-off (and whether it works offline);</li>
+<li>the FHIR resources it changes, with <strong>Inspect JSON</strong> links into the payload drawer.</li>
+</ul>
+<p>The <strong>FHIR payload drawer</strong> at the bottom of every page shows syntax-highlighted <code>Patient</code>, <code>Group</code>, <code>Immunization</code>, <code>ServiceRequest</code>, <code>Provenance</code>, <code>ConceptMap</code>, <code>AuditEvent</code> and raw CBOR/COSE payloads, with copy to clipboard.</p>
+<h3>Device Demo</h3>
+<p>Screens S1–S8 simulate each actor's device. A stage bar along the top jumps between them, and <strong>Back to the user journey</strong> returns to the matching moment.</p>
+<table>
+<thead>
+<tr>
+<th>Screen</th>
+<th>Moment</th>
+<th>Country · device</th>
+<th>Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>J1</td>
+<td>Thailand · tablet</td>
+<td>Birth doses with WHO PreQual codes; two printed DVC cards (<code>HC1:</code> QR signed with DEV key <code>916ffa567c0f44a2</code>)</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>J2a</td>
+<td>Lao PDR · mobile</td>
+<td>Offline QR scan of the two cards: decoded, not verified, nothing saved yet</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>J2b</td>
+<td>Lao PDR · mobile</td>
+<td>Offline CHW registration of Somsack into the household <code>Group</code> via an SDC questionnaire; the doses saved as <code>primarySource: false</code>, plus a <code>ServiceRequest</code> referral</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>J3a</td>
+<td>Lao PDR · tablet</td>
+<td>COSE_Sign1 verification against the cached GDHCN trust list, with <code>Provenance</code> attached. Includes a <strong>Simulate Tampered QR Card</strong> test</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>J3b</td>
+<td>Lao PDR · tablet</td>
+<td>Three-layer <code>ConceptMap</code> adjudication to <code>LAO-EPI-HEPB-BD</code>, and <code>PlanDefinition</code> schedule calculation</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>J4.0a</td>
+<td>Lao PDR · mobile</td>
+<td>"One Family, One Phone" wallet; IPS with 6 verified doses</td>
+</tr>
+<tr>
+<td>S7</td>
+<td>J4.0b</td>
+<td>Lao PDR · mobile</td>
+<td>VHL QR with a 4-digit passcode (<code>4829</code>), 14-day expiry and IHE PCF consent</td>
+</tr>
+<tr>
+<td>S8</td>
+<td>J4.1</td>
+<td>Thailand · tablet</td>
+<td>VHL viewer with passcode unlock and a wrong-passcode test; <code>AuditEvent</code> logged in Lao PDR</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🧱 Standards &#x26; building blocks</h2>
+<p>These are shown in <strong>How it works</strong> and <strong>Under the hood</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Building blocks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tools &#x26; apps</strong></td>
+<td>Thai hospital system + DVC issuing service · <a href="https://github.com/google/android-fhir">OHS FHIR SDK</a> (multiplatform, offline FHIR engine) · OHS Structured Data Capture library · <a href="https://github.com/google/fhir-gateway">OHS FHIR Info Gateway</a> (authorization layer) · Lao national FHIR server · <a href="https://github.com/google/fhir-data-pipes">OHS FHIR Data Pipes</a> (analytics) · family wallet · VHL viewer</td>
+</tr>
+<tr>
+<td><strong>Data standards</strong></td>
+<td><a href="https://hl7.org/fhir/R4/">HL7 FHIR R4</a> · <a href="https://smart.who.int/immunizations/">WHO SMART Guidelines: Immunizations</a> (PreQual codes) · <a href="https://hl7.org/fhir/uv/ips/">International Patient Summary</a> · <a href="https://hl7.org/fhir/uv/sdc/">FHIR SDC</a> · ConceptMap · PlanDefinition/CQL · Provenance</td>
+</tr>
+<tr>
+<td><strong>Trust &#x26; exchange</strong></td>
+<td><a href="https://smart.who.int/trust/">WHO Digital Vaccine Certificate / SMART Trust</a> (CBOR + COSE signed QR) · <a href="https://www.who.int/initiatives/global-digital-health-certification-network">WHO GDHCN</a> · <a href="https://profiles.ihe.net/ITI/VHL/">IHE ITI Verifiable Health Links</a> · <a href="https://profiles.ihe.net/ITI/PCF/">IHE Privacy Consent on FHIR</a> · AuditEvent (<a href="https://profiles.ihe.net/ITI/BALP/">IHE BALP</a>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>✏️ Editing the content</h2>
+<p>All narrative and technical content lives in data files, so you can change the story without touching components.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/data/journeyData.ts</code></td>
+<td>Personas (who each one is comes from their actor in <code>scenarios/actors/</code>, see below; only initials and colours are kept here), the four chapters and eight moments. Per moment: actions, feelings, pain points, enablers, record state, "Ask the room", "What if…", policy takeaway and facilitator cue. Also the closing discussion questions</td>
+</tr>
+<tr>
+<td><code>src/data/techData.ts</code></td>
+<td>Building blocks (tools, standards, trust), the four big ideas' blocks, and each moment's technical layer: so-what, roles, data hand-off and FHIR changes</td>
+</tr>
+<tr>
+<td><code>src/data/policyData.ts</code></td>
+<td>The workshop's policy track: modules M1–M7 and their canvas sheets, decision rights, legal bases, substitution patterns and each moment's questions</td>
+</tr>
+<tr>
+<td><code>src/data/storylineData.ts</code></td>
+<td>Stage metadata for the device screens, patient demographics, the DEV signing key and the sample FHIR/CBOR payloads</td>
+</tr>
+</tbody>
+</table>
+<h3>Project structure</h3>
+<pre><code>src/
+├── App.tsx                     # Journeys / Device Demo modes, shared state, presenter banner
+├── data/                       # Content (see above)
+├── types/index.ts
+└── components/
+    ├── userJourneys/           # Overview, Walkthrough, Journey map, Persona lens, How it works, Discussion, Under the hood
+    ├── screens/                # S1–S8 device simulations
+    └── common/                 # Header, device frame, QR view, FHIR inspector drawer
+</code></pre>
+<hr>
+<h2>🚀 Getting started</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Node.js 18 or later (CI uses the runner's own)</li>
+<li>npm</li>
+</ul>
+<h3>Run locally</h3>
+<pre><code class="language-bash">git clone https://github.com/litlfred/smart-trust-demo.git
+cd smart-trust-demo/web
+npm ci --ignore-scripts
+npm run dev
+</code></pre>
+<p>Then open <a href="http://localhost:5173/smart-trust-demo/vaxlink/">http://localhost:5173/smart-trust-demo/vaxlink/</a>. Links to the demonstrator's pages and its ArchiMate drawings are relative to the published site (<code>../</code>), so they resolve only once it is published beside them.</p>
+<h3>Production build</h3>
+<pre><code class="language-bash">npm run build     # type-check + build into dist/
+npm run preview   # serve dist/ locally
+</code></pre>
+<h3>Publishing</h3>
+<p>The demonstrator's site is published to <code>gh-pages</code> by an agent, never a workflow: <code>main</code> to the root, any other branch to <code>STAGING/&#x3C;branch>/</code>. The walkthrough is placed inside it by <a href="scripts/publish.sh"><code>scripts/publish.sh</code></a>, run after the site's own publish:</p>
+<pre><code class="language-bash">bun cat-harness-tools/scripts/stage-local.ts --repo . --publisher ig   # the site
+sh web/scripts/publish.sh                                             # the walkthrough, at vaxlink/
+</code></pre>
+<p>It builds with the base <code>/smart-trust-demo/vaxlink/</code> (or <code>/smart-trust-demo/STAGING/&#x3C;branch>/vaxlink/</code>) and refuses when the site at that place was built from another commit (<code>folio-build.json</code>). A root publish of the site keeps <code>vaxlink/</code> because <code>index.config.json</code> lists it in the site's <code>keep</code>; a branch's publish replaces <code>STAGING/&#x3C;branch>/</code> whole, hence the order.</p>
+<h3>Content from the rest of this repository</h3>
+<p>Nothing is copied by hand:</p>
+<ul>
+<li>the personas' actors are imported from <code>scenarios/actors/</code>, the BPMN drawings from <code>processes/content/*.svg</code> and the moment pictures from <code>docs/images/</code>, at build time;</li>
+<li>the ArchiMate views are the site's own drawings (<code>../archimate/0.1.0/views/&#x3C;id>.svg</code>), so their boxes link to the element pages beside them;</li>
+<li>the FHIR examples (<code>src/data/ig/</code>) are the IG's examples as SUSHI writes them, copied so the walkthrough builds without SUSHI. Edit <code>input/fsh/</code>, run SUSHI, then <code>node web/scripts/ig-examples.mjs</code>; CI's <code>ig-sushi</code> job runs it with <code>--check</code> and fails on a hand edit.</li>
+</ul>
+<hr>
+<h2>🛠 Tech stack</h2>
+<ul>
+<li><strong>Framework:</strong> React 18 + TypeScript</li>
+<li><strong>Build:</strong> Vite 5</li>
+<li><strong>Styling:</strong> Tailwind CSS (custom clinical design tokens)</li>
+<li><strong>Icons:</strong> Lucide React</li>
+<li><strong>QR codes:</strong> <code>qrcode</code></li>
+<li><strong>Hosting:</strong> GitHub Pages, inside the demonstrator's site on its <code>gh-pages</code> branch</li>
+</ul>
+<hr>
+<h2>📜 Credits</h2>
+<ul>
+<li><strong>Author / presenter:</strong> Fred Hersch</li>
+<li><strong>Audience:</strong> WHO Pre-GDHF Workshop, Bangkok 2026</li>
+<li><strong>Built on the work of:</strong> WHO (GDHCN, SMART Guidelines), Open Health Stack, HL7 International (FHIR, IPS) and IHE (VHL, PCF, BALP)</li>
+</ul>
+
+</body>
+</html>

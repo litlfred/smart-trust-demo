@@ -1,0 +1,26 @@
+{
+  "resourceType" : "ActorDefinition",
+  "id" : "TrustDemo.Role.HomeClinicProvider",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.HomeClinicProvider</b></p><a name=\"TrustDemo.Role.HomeClinicProvider\"> </a><a name=\"hcTrustDemo.Role.HomeClinicProvider\"> </a><table class=\"grid\"><tr><td><b>Actor: HomeClinicProvider </b></td><td>Home clinic provider</td><td>Type: person </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicProvider",
+  "version" : "0.1.0",
+  "name" : "HomeClinicProvider",
+  "title" : "Home clinic provider",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-05T13:02:41+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3).\n\n**Persona**: Trusts the system's verdict and needs a reason when a certificate fails.\n\n**Played in the journeys by**: Nurse Chanthasone (Vientiane District Health Center, Lao PDR) (fictional).",
+  "type" : "person",
+  "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
+}

@@ -1,0 +1,22 @@
+// The harness data that is the same on every page of a build, written ONCE
+// here instead of into each page (bean `gp2f`, page weight). Measured on
+// gh-pages 1ad53fa, 2026-10-23: the tiles list was 12.5 KB and the navbar icon
+// row 2.5 KB of every Jekyll page, about 15 KB of a 42 KB page.
+//
+// `head_custom.html` keeps the two places the readers look, empty, and loads
+// this as the FIRST deferred script. Deferred scripts run in document order,
+// so `navbar-row.js` and `docs-ui.js` find them filled, exactly as when the
+// data was inlined. If this file does not load, the islands stay named and
+// empty, and the readers report a failed load instead of "declared none".
+(function () {
+  var row = document.getElementById("fa-navbar-row");
+  if (row && row.getAttribute("data-fa-row-src") === "harness-data" && !row.textContent) {
+    row.textContent = "{\"icons\":[\"close\",\"todos\",\"beans\",\"fsh-guts\",\"qr\",\"launcher\"],\"hrefs\":{},\"notes\":{\"beans\":\"no viewer yet\"},\"folders\":[{\"kind\":\"archimate\",\"label\":\"Archimate\",\"note\":\"no viewer yet\"},{\"kind\":\"basic-cdn-site\",\"label\":\"Basic CDN site\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/site/\"},{\"kind\":\"beans\",\"label\":\"Work plan\",\"note\":\"no viewer yet\"},{\"kind\":\"code\",\"label\":\"Code\",\"note\":\"no viewer yet\"},{\"kind\":\"code-list\",\"label\":\"Code lists\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/code-lists/smart-trust-demo/\"},{\"kind\":\"memory\",\"label\":\"Memory\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/memory/smart-trust-demo/\"},{\"kind\":\"processes\",\"label\":\"Processes\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/processes/smart-trust-demo/\"},{\"kind\":\"scenarios\",\"label\":\"Scenarios\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/smart-trust-demo/\"},{\"kind\":\"skills\",\"label\":\"Skills\",\"note\":\"no viewer yet\"},{\"kind\":\"user-scenario\",\"label\":\"User scenarios\",\"note\":\"no viewer yet\"},{\"kind\":\"workshop\",\"label\":\"Workshops\",\"note\":\"no viewer yet\"}]}";
+    row.removeAttribute("data-fa-row-src");
+  }
+  var tiles = document.querySelector('meta[name="fa-tiles"][data-fa-src="harness-data"]');
+  if (tiles && !tiles.getAttribute("content")) {
+    tiles.setAttribute("content", "[{\"id\":\"archimate/1\",\"directory\":\"archimate\",\"title\":\"Archimate\",\"qualifier\":\"SMART Trust demonstrator\",\"ref\":\"cat-harness/docs/en/smart-trust-demo/archimate/index.html\",\"surfaces\":[\"navbar\",\"board\",\"glass\"],\"hidden\":false,\"href\":\"https://litlfred.github.io/folio-assistant/en/smart-trust-demo/archimate/\",\"showQualifier\":true},{\"id\":\"archimate/2\",\"directory\":\"archimate\",\"title\":\"Archimate\",\"qualifier\":\"SMART Trust demonstrator\",\"ref\":\"cat-harness/docs/en/smart-trust-demo/archimate/index.html\",\"surfaces\":[\"navbar\",\"board\",\"glass\"],\"hidden\":false,\"href\":\"https://litlfred.github.io/folio-assistant/en/smart-trust-demo/archimate/\",\"showQualifier\":true},{\"id\":\"archimate/3\",\"directory\":\"archimate\",\"title\":\"Archimate\",\"qualifier\":\"SMART Trust demonstrator\",\"ref\":\"cat-harness/docs/en/smart-trust-demo/archimate/index.html\",\"surfaces\":[\"navbar\",\"board\",\"glass\"],\"hidden\":false,\"href\":\"https://litlfred.github.io/folio-assistant/en/smart-trust-demo/archimate/\",\"showQualifier\":true},{\"id\":\"archimate/4\",\"directory\":\"archimate\",\"title\":\"Archimate\",\"qualifier\":\"SMART Trust demonstrator\",\"ref\":\"cat-harness/docs/en/smart-trust-demo/archimate/index.html\",\"surfaces\":[\"navbar\",\"board\",\"glass\"],\"hidden\":false,\"href\":\"https://litlfred.github.io/folio-assistant/en/smart-trust-demo/archimate/\",\"showQualifier\":true},{\"id\":\"vaxlink-site\",\"directory\":\"vaxlink-site\",\"title\":\"Published site\",\"qualifier\":\"SMART Trust demonstrator\",\"ref\":\"cat-harness/docs/en/cat-harness/site/index.html\",\"surfaces\":[\"navbar\",\"board\",\"glass\"],\"hidden\":false,\"href\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/site/\",\"showQualifier\":true}]");
+    tiles.removeAttribute("data-fa-src");
+  }
+})();

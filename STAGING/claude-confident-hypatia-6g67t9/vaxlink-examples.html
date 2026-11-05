@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaxLink Examples — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="./vaxlink-examples.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="./assets/page-layout.css" data-fa-page-layout>
+<script src="./assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="./assets/ig-artifact.css">
+<link rel="stylesheet" href="./assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="./assets/navbar/row-2acuhncsmbg.js" defer></script><script src="./assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="./assets/css/navbar.css"><script src="./assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="./assets/js/navbar.js" defer></script><link rel="stylesheet" href="./assets/css/navbar-row.css"><script src="./assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content="."></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/STAGING\/[^/]+\/)/);return m?m[1]:null;}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  var rv=el('span',{'data-fa-staging-review':''});d.appendChild(rv);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,f.pr&&f.pr!=='n/a'?'PR #'+f.pr:'no open PR found'));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  if(f.checksUrl){d.appendChild(sep());d.appendChild(link(f.checksUrl,'CI results'));}
+  stamp(f);
+  measure();
+  fresh(d,f);
+  review(rv,r,rel);
+}
+// The preview's review page (owner, 2026-11-01, Q-REV-1): reviewers could not
+// find it from a staging page. A folio writes it at <root>/<locale>/review/,
+// an IG at <root>/review/. Asked with HEAD, which the staging worker passes
+// through, so a 404 here is not answered with the live site's page. No review
+// page, no link.
+function review(s,r,rel){
+  if(typeof fetch!=='function')return;
+  var c=[],m=rel.match(/^([a-z]{2,3}(?:-[A-Za-z0-9]+)?)\//);
+  if(m)c.push(r+m[1]+'/review/');
+  c.push(r+'review/');
+  (function next(i){
+    if(i>=c.length)return;
+    fetch(c[i]+'index.html',{method:'HEAD',cache:'no-store'}).then(function(x){
+      if(!x.ok)return next(i+1);
+      s.appendChild(sep());
+      s.appendChild(link(c[i],'\ud83d\udd0d Review changes','font-weight:bold'));
+      measure();
+    }).catch(function(){next(i+1);});
+  })(0);
+}
+// Live staleness (owner, 2026-10-31, option C): ask GitHub for the branch's
+// head now and say so when it has moved past the commit this preview was
+// built from. Unauthenticated, one request per page view; on any failure
+// (rate limit, offline, a deleted branch) it says nothing rather than guess.
+function fresh(d,f){
+  var m=String(f.branchUrl||'').match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\//);
+  if(!m||!f.branch||!f.sha||typeof fetch!=='function')return;
+  fetch('https://api.github.com/repos/'+m[1]+'/'+m[2]+'/commits/'+encodeURIComponent(f.branch),
+    {headers:{Accept:'application/vnd.github.sha'},cache:'no-store'})
+    .then(function(x){if(!x.ok)throw 0;return x.text();})
+    .then(function(head){
+      head=String(head).trim();
+      if(!/^[0-9a-f]{7,40}$/.test(head)||head.indexOf(f.sha)===0)return;
+      d.appendChild(sep());
+      var w=el('strong',{'data-fa-staging-stale':'',style:'background:#b00020;padding:0 .4em;border-radius:3px'},'\u26a0 stale: the branch is now at ');
+      w.appendChild(chip(head.slice(0,7)));
+      w.appendChild(document.createTextNode(', newer than this preview'));
+      d.appendChild(w);measure();
+    }).catch(function(){});
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+// First visit to a preview: the shared stylesheets 404 until the worker is
+// in control, so the page would paint unstyled (a page-wide search icon) for
+// the moment before the reload. Hide it until then, only when a stylesheet
+// in the head actually failed, and show it again if no reload comes.
+function unstyled(){var l=document.querySelectorAll('link[rel="stylesheet"]');for(var i=0;i<l.length;i++){if(l[i].disabled)continue;try{if(!l[i].sheet||!l[i].sheet.cssRules.length)return true;}catch(e){}}return false;}
+function share(){
+  var r=root();if(!r||!('serviceWorker' in navigator))return;
+  var k='fa-share:'+r,s=document.documentElement.style;
+  var hide=!navigator.serviceWorker.controller&&!sessionStorage.getItem(k)&&unstyled();
+  function show(){if(hide){hide=false;s.removeProperty('visibility');}}
+  if(hide){s.setProperty('visibility','hidden');setTimeout(show,4000);}
+  navigator.serviceWorker.register(r+'staging-sw.js',{scope:r}).then(function(){
+    if(navigator.serviceWorker.controller||sessionStorage.getItem(k))return show();
+    return navigator.serviceWorker.ready.then(function(){sessionStorage.setItem(k,'1');location.reload();});
+  }).catch(show);
+}
+measure();share();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root=".">{"data":"rail-23mbhbo4s6d","here":"/vaxlink-examples.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="./">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="./index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="./index.html">Summary</a></li><li><a href="./changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="./journeys.html">Journeys J1 to J4</a></li><li><a href="./vaxlink-examples.html">VaxLink Examples</a></li><li><a href="./architecture.html">Architecture (ArchiMate)</a></li><li><a href="./plan.html">Plan</a></li><li><a href="./proposal-app-platform.html">App Platform Proposal</a></li><li><a href="./dependencies.html">Dependency Register</a></li><li><a href="./upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="./personas.html">Generic Personas</a></li><li><a href="./scenarios.html">User Scenarios</a></li><li><a href="./business-processes.html">Business Processes</a></li><li><a href="./dictionary.html">Data Dictionary</a></li><li><a href="./decision-logic.html">Decision-support Logic</a></li><li><a href="./indicators.html">Indicators and Performance Metrics</a></li><li><a href="./functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="./system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="./artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="./assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="./assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from docs/vaxlink-examples.md. Do not edit; edit the source and rerun. -->
+
+<p>The <a href="https://fredhersch.github.io/vaxlink/">VaxLink</a> walkthrough
+(<a href="https://github.com/fredhersch/vaxlink">source</a>) shows sample FHIR payloads in
+its payload drawer and on its device screens S1 to S8. This page maps each of
+them to the example in this guide that materializes it, so the walkthrough can
+load the published examples instead of its own copies.</p>
+
+<p>Every example is published twice: as a page, and as raw JSON at a stable URL
+the walkthrough can fetch (<code class="language-plaintext highlighter-rouge">https://litlfred.github.io/smart-trust-demo/&lt;Type&gt;-&lt;id&gt;.json</code>).
+They are FHIR R5, as this guide is.</p>
+
+<h3 id="by-device-screen">By device screen</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Screen</th>
+      <th>Moment</th>
+      <th>Country, device</th>
+      <th>Shows</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S1</td>
+      <td>J1</td>
+      <td>Thailand, tablet</td>
+      <td>Birth doses with their product codes; two printed DVCs signed with XXR’s DEV key (kid <code class="language-plaintext highlighter-rouge">916ffa567c0f44a2</code>)</td>
+      <td>the Thai records behind the cards: <a href="https://litlfred.github.io/smart-trust-demo/artifact/Patient-TrustDemoThSomsack.html">TrustDemoThSomsack</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ1HepB.html">TrustDemoJ1HepB</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ1Bcg.html">TrustDemoJ1Bcg</a>; the doses as later verified in Lao PDR: <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3HepB.html">TrustDemoJ3HepB</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ3HepB.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3Bcg.html">TrustDemoJ3Bcg</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ3Bcg.json">json</a>); <a href="https://litlfred.github.io/smart-trust-demo/artifact/Organization-TrustDemoChiangRaiHospital.html">TrustDemoChiangRaiHospital</a> (<a href="https://litlfred.github.io/smart-trust-demo/Organization-TrustDemoChiangRaiHospital.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Practitioner-TrustDemoAnan.html">TrustDemoAnan</a> (<a href="https://litlfred.github.io/smart-trust-demo/Practitioner-TrustDemoAnan.json">json</a>)</td>
+    </tr>
+    <tr>
+      <td>S2</td>
+      <td>J2a</td>
+      <td>Lao PDR, mobile</td>
+      <td>Offline QR scan of the two cards: read, not verified, nothing saved yet</td>
+      <td>the Thai records on the cards: <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ1HepB.html">TrustDemoJ1HepB</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ1Bcg.html">TrustDemoJ1Bcg</a></td>
+    </tr>
+    <tr>
+      <td>S3</td>
+      <td>J2b</td>
+      <td>Lao PDR, mobile</td>
+      <td>Offline registration of Somsack into the household through a form; the doses saved as reported (<code class="language-plaintext highlighter-rouge">primarySource</code> false), and a referral</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Group-TrustDemoHousehold.html">TrustDemoHousehold</a> (<a href="https://litlfred.github.io/smart-trust-demo/Group-TrustDemoHousehold.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Questionnaire-TrustDemoHouseholdRegistration.html">TrustDemoHouseholdRegistration</a> (<a href="https://litlfred.github.io/smart-trust-demo/Questionnaire-TrustDemoHouseholdRegistration.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/QuestionnaireResponse-TrustDemoJ2Registration.html">TrustDemoJ2Registration</a> (<a href="https://litlfred.github.io/smart-trust-demo/QuestionnaireResponse-TrustDemoJ2Registration.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Patient-TrustDemoSomsack.html">TrustDemoSomsack</a> (<a href="https://litlfred.github.io/smart-trust-demo/Patient-TrustDemoSomsack.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/RelatedPerson-TrustDemoKhamla.html">TrustDemoKhamla</a> (<a href="https://litlfred.github.io/smart-trust-demo/RelatedPerson-TrustDemoKhamla.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/RelatedPerson-TrustDemoBounmy.html">TrustDemoBounmy</a> (<a href="https://litlfred.github.io/smart-trust-demo/RelatedPerson-TrustDemoBounmy.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ2HepBReported.html">TrustDemoJ2HepBReported</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ2HepBReported.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ2BcgReported.html">TrustDemoJ2BcgReported</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ2BcgReported.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/ServiceRequest-TrustDemoJ2Referral.html">TrustDemoJ2Referral</a> (<a href="https://litlfred.github.io/smart-trust-demo/ServiceRequest-TrustDemoJ2Referral.json">json</a>)</td>
+    </tr>
+    <tr>
+      <td>S4</td>
+      <td>J3a</td>
+      <td>Lao PDR, tablet</td>
+      <td>Signature verified against the cached GDHCN trust list; provenance attached</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ3Verification.html">TrustDemoJ3Verification</a> (<a href="https://litlfred.github.io/smart-trust-demo/Provenance-TrustDemoJ3Verification.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3HepB.html">TrustDemoJ3HepB</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ3HepB.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3Bcg.html">TrustDemoJ3Bcg</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ3Bcg.json">json</a>)</td>
+    </tr>
+    <tr>
+      <td>S5</td>
+      <td>J3b</td>
+      <td>Lao PDR, tablet</td>
+      <td>Product code mapped to the national schedule (nurse adjudicates the Hep B product); 6-week doses calculated; reminder</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/ConceptMap-TrustDemoProductToLaoEpi.html">TrustDemoProductToLaoEpi</a> (<a href="https://litlfred.github.io/smart-trust-demo/ConceptMap-TrustDemoProductToLaoEpi.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ3Adjudication.html">TrustDemoJ3Adjudication</a> (<a href="https://litlfred.github.io/smart-trust-demo/Provenance-TrustDemoJ3Adjudication.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/PlanDefinition-TrustDemoLaoInfantSchedule.html">TrustDemoLaoInfantSchedule</a> (<a href="https://litlfred.github.io/smart-trust-demo/PlanDefinition-TrustDemoLaoInfantSchedule.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/ImmunizationRecommendation-TrustDemoJ3Recommendation.html">TrustDemoJ3Recommendation</a> (<a href="https://litlfred.github.io/smart-trust-demo/ImmunizationRecommendation-TrustDemoJ3Recommendation.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Task-TrustDemoJ3Reminder.html">TrustDemoJ3Reminder</a> (<a href="https://litlfred.github.io/smart-trust-demo/Task-TrustDemoJ3Reminder.json">json</a>)</td>
+    </tr>
+    <tr>
+      <td>S6</td>
+      <td>J4.0a</td>
+      <td>Lao PDR, mobile</td>
+      <td>Family wallet on one phone; Somsack’s IPS with six doses</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Bundle-TrustDemoJ4Ips.html">TrustDemoJ4Ips</a> (<a href="https://litlfred.github.io/smart-trust-demo/Bundle-TrustDemoJ4Ips.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoLaoPenta1.html">TrustDemoLaoPenta1</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoLaoPenta1.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoLaoBopv1.html">TrustDemoLaoBopv1</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoLaoBopv1.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoLaoPcv1.html">TrustDemoLaoPcv1</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoLaoPcv1.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoLaoMr1.html">TrustDemoLaoMr1</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoLaoMr1.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/Device-TrustDemoFamilyPhone.html">TrustDemoFamilyPhone</a> (<a href="https://litlfred.github.io/smart-trust-demo/Device-TrustDemoFamilyPhone.json">json</a>)</td>
+    </tr>
+    <tr>
+      <td>S7</td>
+      <td>J4.0b</td>
+      <td>Lao PDR, mobile</td>
+      <td>VHL QR with a 4-digit passcode and a 14-day expiry; consent</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Consent-TrustDemoJ4Consent.html">TrustDemoJ4Consent</a> (<a href="https://litlfred.github.io/smart-trust-demo/Consent-TrustDemoJ4Consent.json">json</a>)</td>
+    </tr>
+    <tr>
+      <td>S8</td>
+      <td>J4.1</td>
+      <td>Thailand, tablet</td>
+      <td>VHL viewer: passcode unlock, wrong-passcode test, access logged in Lao PDR</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ41Received.html">TrustDemoJ41Received</a> (<a href="https://litlfred.github.io/smart-trust-demo/Provenance-TrustDemoJ41Received.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html">TrustDemoJ41Access</a> (<a href="https://litlfred.github.io/smart-trust-demo/AuditEvent-TrustDemoJ41Access.json">json</a>), <a href="https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41WrongPasscode.html">TrustDemoJ41WrongPasscode</a> (<a href="https://litlfred.github.io/smart-trust-demo/AuditEvent-TrustDemoJ41WrongPasscode.json">json</a>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="country-profiles">Country profiles</h3>
+
+<p>Each country records only what its own step needs, so the guide has a small profile per country where the two differ. Each profile’s description says how it is used in the journey and why its constraints are there. These are demonstrator profiles: they show what each step relies on and are not a ministry’s national specification.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Moment</th>
+      <th>Profile</th>
+      <th>Why it is there</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Thailand</td>
+      <td>J1</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoThPatient.html">TrustDemoThPatient</a></td>
+      <td>The birth hospital’s newborn: a hospital number, since a baby of Lao parents has no Thai citizen id.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Patient-TrustDemoThSomsack.html">TrustDemoThSomsack</a></td>
+    </tr>
+    <tr>
+      <td>Thailand</td>
+      <td>J1</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoThImmunization.html">TrustDemoThImmunization</a></td>
+      <td>A birth dose with every field the signed DVC (HCERT) carries: product, date, lot, dose number, performer.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ1HepB.html">TrustDemoJ1HepB</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ1Bcg.html">TrustDemoJ1Bcg</a></td>
+    </tr>
+    <tr>
+      <td>Thailand</td>
+      <td>J4.1</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoThVhlReceipt.html">TrustDemoThVhlReceipt</a></td>
+      <td>What the Thai clinic keeps when it views a Lao summary through a VHL: viewed, not copied.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ41Received.html">TrustDemoJ41Received</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J2</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoPatient.html">TrustDemoLaoPatient</a></td>
+      <td>The child the CHW registers, under a temporary id until civil registration catches up.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Patient-TrustDemoSomsack.html">TrustDemoSomsack</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J2b</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoHousehold.html">TrustDemoLaoHousehold</a></td>
+      <td>The household roster, which is how a CHW notices a missing newborn.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Group-TrustDemoHousehold.html">TrustDemoHousehold</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J2b</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoRegistration.html">TrustDemoLaoRegistration</a></td>
+      <td>The answers on the offline registration form (Structured Data Capture), kept so the extracted records trace back to them.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/QuestionnaireResponse-TrustDemoJ2Registration.html">TrustDemoJ2Registration</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J2b</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoReportedImmunization.html">TrustDemoLaoReportedImmunization</a></td>
+      <td>A foreign dose read without verification: primarySource false, the family as source, not counted by the schedule.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ2HepBReported.html">TrustDemoJ2HepBReported</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ2BcgReported.html">TrustDemoJ2BcgReported</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J2b</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoReferral.html">TrustDemoLaoReferral</a></td>
+      <td>The CHW’s referral to the clinic, pointing at the reported doses to verify.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/ServiceRequest-TrustDemoJ2Referral.html">TrustDemoJ2Referral</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J3a</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoDvcVerification.html">TrustDemoLaoDvcVerification</a></td>
+      <td>Who verified which DVC against the GDHCN trust list, and which reported doses it replaced.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ3Verification.html">TrustDemoJ3Verification</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J3</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoImmunization.html">TrustDemoLaoImmunization</a></td>
+      <td>A dose on the national schedule: the Lao EPI code is required, and a foreign product code is kept beside it.</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3HepB.html">TrustDemoJ3HepB</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3Bcg.html">TrustDemoJ3Bcg</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoLaoPenta1.html">TrustDemoLaoPenta1</a></td>
+    </tr>
+    <tr>
+      <td>Lao PDR</td>
+      <td>J4.1</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-TrustDemoLaoVhlAccess.html">TrustDemoLaoVhlAccess</a></td>
+      <td>Every VHL access logged at home, refusals included (IHE BALP pattern).</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html">TrustDemoJ41Access</a>, <a href="https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41WrongPasscode.html">TrustDemoJ41WrongPasscode</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="the-payload-drawer">The payload drawer</h3>
+
+<p>The keys of the walkthrough’s <code class="language-plaintext highlighter-rouge">MOCK_FHIR_RESOURCES</code>
+(<code class="language-plaintext highlighter-rouge">src/data/storylineData.ts</code>) and the example that replaces each one:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Type</th>
+      <th>Example</th>
+      <th>What changed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">patient</code></td>
+      <td>Patient</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Patient-TrustDemoSomsack.html">TrustDemoSomsack</a> (<a href="https://litlfred.github.io/smart-trust-demo/Patient-TrustDemoSomsack.json">json</a>)</td>
+      <td>Temporary-id system is this guide’s (<code class="language-plaintext highlighter-rouge">http://smart.who.int/trust-demo/sid/lao-temporary-id</code>), not a ministry URL.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">group</code></td>
+      <td>Group</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Group-TrustDemoHousehold.html">TrustDemoHousehold</a> (<a href="https://litlfred.github.io/smart-trust-demo/Group-TrustDemoHousehold.json">json</a>)</td>
+      <td>R5: <code class="language-plaintext highlighter-rouge">membership = enumerated</code> replaces <code class="language-plaintext highlighter-rouge">actual</code>; the household code is <code class="language-plaintext highlighter-rouge">FAMMEMB</code> with the text “Household”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">immunizationHepB</code></td>
+      <td>Immunization</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3HepB.html">TrustDemoJ3HepB</a> (<a href="https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ3HepB.json">json</a>)</td>
+      <td>Both codings, as on the walkthrough’s payload; plus CVX <code class="language-plaintext highlighter-rouge">08</code>. The product and schedule code systems are this guide’s illustrative stand-ins.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">serviceRequest</code></td>
+      <td>ServiceRequest</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/ServiceRequest-TrustDemoJ2Referral.html">TrustDemoJ2Referral</a> (<a href="https://litlfred.github.io/smart-trust-demo/ServiceRequest-TrustDemoJ2Referral.json">json</a>)</td>
+      <td>Code is SNOMED CT <code class="language-plaintext highlighter-rouge">3457005</code> (patient referral) with the walkthrough’s text; the verification reason stays in <code class="language-plaintext highlighter-rouge">reason</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">provenance</code></td>
+      <td>Provenance</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ3Verification.html">TrustDemoJ3Verification</a> (<a href="https://litlfred.github.io/smart-trust-demo/Provenance-TrustDemoJ3Verification.json">json</a>)</td>
+      <td>Verifier, enterer and author agents; the DVCs as source entities and the reported doses as removed. The COSE signature stays in the DVC rather than in <code class="language-plaintext highlighter-rouge">Provenance.signature</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">auditEvent</code></td>
+      <td>AuditEvent</td>
+      <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html">TrustDemoJ41Access</a> (<a href="https://litlfred.github.io/smart-trust-demo/AuditEvent-TrustDemoJ41Access.json">json</a>)</td>
+      <td>R5 shape: <code class="language-plaintext highlighter-rouge">category</code>, <code class="language-plaintext highlighter-rouge">code</code>, <code class="language-plaintext highlighter-rouge">outcome.code</code>; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cborPayload</code></td>
+      <td>(not FHIR)</td>
+      <td>—</td>
+      <td>The DVC payload is an HCERT (CBOR/COSE), not a FHIR resource; its logical model is smart-trust-phw’s DVCMinPreQual. It waits for bean ig01 before it is an example here.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="what-the-examples-change-from-the-walkthroughs-copies">What the examples change from the walkthrough’s copies</h3>
+
+<ul>
+  <li><strong>Code systems.</strong> The walkthrough’s product codes (<code class="language-plaintext highlighter-rouge">vp-hepb-peds-monovalent</code> and so on) and Lao schedule codes (<code class="language-plaintext highlighter-rouge">LAO-EPI-HEPB-BD</code> and so on) are illustrative. They are defined here as the code systems <code class="language-plaintext highlighter-rouge">TrustDemoVaccineProduct</code> and <code class="language-plaintext highlighter-rouge">TrustDemoLaoEpiSchedule</code>, marked experimental, under this guide’s canonical, so no URL implies a real ministry or a real WHO code system.</li>
+  <li><strong>Countries.</strong> Thailand is played on the GDHCN DEV network by test participant XXR and Lao PDR by the fictional XXH. Neither is a production key.</li>
+  <li><strong>The passcode.</strong> The walkthrough shows <code class="language-plaintext highlighter-rouge">4829</code> on screen. No example stores a passcode: the consent and audit records say only that one was checked.</li>
+  <li><strong>Dates.</strong> As in the walkthrough: birth 2025-10-28, J2 2025-11-18, J3 2025-11-25, the Lao doses 2025-12-10 and 2026-07-28, the trip 2026-10-28.</li>
+</ul>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/vaxlink-examples.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/vaxlink-examples.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/vaxlink-examples.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/vaxlink-examples.md", "lines": [{"t":"By device screen","l":13},{"t":"Country profiles","l":26},{"t":"The payload drawer","l":45},{"t":"What the examples change from the walkthrough's copies","l":60}]}</script>
+
+<script src="./assets/ig-source-links.js"></script>
+
+<link rel="stylesheet" href="assets/ig-pages.css" />
+
+<footer id="ig-footer">
+<p class="ig-footer-nav"><a href="journeys.html">&lt;prev</a> | <a href="#">top</a> | <a href="architecture.html">next&gt;</a></p>
+<p class="ig-footer-band">IG © 2026+ <a href="https://github.com/litlfred/smart-trust-demo" rel="external">litlfred</a>. Package <code>smart.who.int.trust-demo#0.1.0</code> based on <a href="http://hl7.org/fhir/R5/" rel="external">FHIR 5.0.0</a>. </p>
+<p class="ig-footer-links">Links: <a href="toc.html">Table of Contents</a> | <a href="https://spdx.org/licenses/CC0-1.0.html" rel="external">License</a></p>
+</footer>
+
+
+</main>
+</body>
+</html>

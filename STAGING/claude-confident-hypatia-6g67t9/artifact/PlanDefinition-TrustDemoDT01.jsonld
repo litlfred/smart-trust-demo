@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "PlanDefinition-TrustDemoDT01.jsonld",
+  "@type": "fhir:PlanDefinition",
+  "dcterms:identifier": "PlanDefinition/TrustDemoDT01",
+  "schema:name": "TrustDemoDT01",
+  "dcterms:title": "TD.DT.01 What does a scanned DVC become in the child's record?",
+  "dcterms:description": "From the result of reading one foreign DVC, decide whether its dose is recorded as verified, kept as reported and not verified, or not recorded from it at all. Requirements: STT-VER-001, STT-VER-006, STT-VER-008, STT-VER-011. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Other",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT01"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/PlanDefinition/TrustDemoDT01--739cd31b.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "7a1b75786c1f5393a161f7969f3a59968e7114b9"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

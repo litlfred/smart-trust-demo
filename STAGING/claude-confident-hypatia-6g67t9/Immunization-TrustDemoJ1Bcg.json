@@ -1,0 +1,35 @@
+{
+  "resourceType" : "Immunization",
+  "id" : "TrustDemoJ1Bcg",
+  "meta" : {
+    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThImmunization"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ1Bcg</b></p><a name=\"TrustDemoJ1Bcg\"> </a><a name=\"hcTrustDemoJ1Bcg\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoThImmunization.html\">Thailand: dose given at the birth hospital (DVC source)</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-bcg-freeze-dried}\">BCG vaccine, freeze-dried</span></p><p><b>lotNumber</b>: TH-9012</p><p><b>patient</b>: <a href=\"Patient-TrustDemoThSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/th-chiang-rai-hn#CRH-HN-68-104377)</a></p><p><b>occurrence</b>: 2025-10-28 09:20:00+0700</p><p><b>location</b>: Chiang Rai Provincial Hospital, Thailand</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+  },
+  "status" : "completed",
+  "vaccineCode" : {
+    "coding" : [{
+      "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+      "code" : "vp-bcg-freeze-dried",
+      "display" : "BCG vaccine, freeze-dried"
+    }]
+  },
+  "lotNumber" : "TH-9012",
+  "patient" : {
+    "reference" : "Patient/TrustDemoThSomsack"
+  },
+  "occurrenceDateTime" : "2025-10-28T09:20:00+07:00",
+  "location" : {
+    "display" : "Chiang Rai Provincial Hospital, Thailand"
+  },
+  "performer" : [{
+    "actor" : {
+      "reference" : "Practitioner/TrustDemoAnan"
+    }
+  }],
+  "protocolApplied" : [{
+    "doseNumber" : "1"
+  }]
+}

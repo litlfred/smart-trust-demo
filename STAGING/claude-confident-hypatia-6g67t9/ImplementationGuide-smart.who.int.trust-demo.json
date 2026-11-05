@@ -1,0 +1,1686 @@
+{
+  "resourceType" : "ImplementationGuide",
+  "id" : "smart.who.int.trust-demo",
+  "meta" : {
+    "profile" : ["SMARTImplementationGuide"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide smart.who.int.trust-demo</b></p><a name=\"smart.who.int.trust-demo\"> </a><a name=\"hcsmart.who.int.trust-demo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <code>SMARTImplementationGuide</code></p></div><h2>TrustDemo</h2><p>The official URL for this implementation guide is: </p><pre>http://smart.who.int/trust-demo/ImplementationGuide/smart.who.int.trust-demo</pre><div><p>The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.</p>\n</div></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ImplementationGuide/smart.who.int.trust-demo",
+  "version" : "0.1.0",
+  "name" : "TrustDemo",
+  "title" : "SMART Trust demonstrator: journeys J1 to J4",
+  "status" : "draft",
+  "date" : "2026-10-23",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.",
+  "packageId" : "smart.who.int.trust-demo",
+  "fhirVersion" : ["5.0.0"],
+  "dependsOn" : [{
+    "id" : "hl7_terminology_r5",
+    "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
+    "packageId" : "hl7.terminology.r5",
+    "version" : "7.0.1"
+  },
+  {
+    "id" : "hl7_fhir_uv_extensions_r5",
+    "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+    "packageId" : "hl7.fhir.uv.extensions.r5",
+    "version" : "5.3.0-ballot-tc1"
+  },
+  {
+    "id" : "hl7_fhir_uv_tools_r5",
+    "uri" : "http://hl7.org/fhir/tools/ImplementationGuide/hl7.fhir.uv.tools",
+    "packageId" : "hl7.fhir.uv.tools.r5",
+    "version" : "1.1.0"
+  },
+  {
+    "id" : "smart_who_int_base",
+    "uri" : "http://smart.who.int/base/ImplementationGuide/smart.who.int.base",
+    "packageId" : "smart.who.int.base",
+    "version" : "0.2.0"
+  },
+  {
+    "id" : "smart_who_int_trust_phw",
+    "uri" : "http://smart.who.int/trust-phw/ImplementationGuide/smart.who.int.trust-phw",
+    "packageId" : "smart.who.int.trust-phw",
+    "version" : "0.1.0"
+  }],
+  "definition" : {
+    "resource" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.BirthClinicSystem"
+      },
+      "name" : "Birth clinic issuing system",
+      "description" : "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by**: Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.BirthClinicVaccinator"
+      },
+      "name" : "Birth clinic vaccinator",
+      "description" : "The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1).\n\n**Persona**: A maternity-ward clinician who records doses in the hospital system and prints what it produces.\n\n**Played in the journeys by**: Dr Anan (clinician, Chiang Rai, Thailand) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "RelatedPerson"
+      }],
+      "reference" : {
+        "reference" : "RelatedPerson/TrustDemoBounmy"
+      },
+      "name" : "Bounmy SENGMANY (father, head of household)",
+      "description" : "Somsack's father, 29, head of the household: he holds the family's one shared phone and is the VHL Holder in J4. Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.Caregiver"
+      },
+      "name" : "Caregiver",
+      "description" : "The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder.\n\n**Persona**: A parent carrying a newborn's records across borders on paper and one shared phone; no health training, little time, limited connectivity.\n\n**Also known as**: VHL Holder (IHE ITI VHL); Holder (SMART Trust)\n\n**Played in the journeys by**: Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      }],
+      "reference" : {
+        "reference" : "Organization/TrustDemoChiangRaiClinic"
+      },
+      "name" : "Chiang Rai primary care clinic, Thailand (J4.1)",
+      "description" : "Where Dr Anan sees Somsack a year after his birth, back in Country A.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      }],
+      "reference" : {
+        "reference" : "Organization/TrustDemoChiangRaiHospital"
+      },
+      "name" : "Chiang Rai Provincial Hospital, Thailand (Country A)",
+      "description" : "The birth hospital of J1. Its DVCs are signed with the DSC of GDHCN DEV test participant XXR, which plays Thailand in the demonstrator.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.ChwApp"
+      },
+      "name" : "CHW app",
+      "description" : "The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, STT-VER-011), registers the child and records a referral, all offline, syncing later.\n\n**Persona**: Offline-first Android app; must never present an unverified record as verified.\n\n**Also known as**: Triage reader (SMART Trust Receiver, read-unverified)\n\n**Played in the journeys by**: CHW app, Lao PDR (Country B) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Device"
+      }],
+      "reference" : {
+        "reference" : "Device/TrustDemoChwApp"
+      },
+      "name" : "CHW app (OHS, community configuration), Lao PDR",
+      "description" : "The offline app on Vilay's phone (J2): household registration, triage read of foreign DVCs (STT-VER-011), referral.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.CommunityHealthWorker"
+      },
+      "name" : "Community health worker",
+      "description" : "Finds unregistered children on home visits, registers them and refers them to the clinic (J2).\n\n**Persona**: Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity.\n\n**Played in the journeys by**: Vilay (community health worker, Village 04, Lao PDR) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoDataElements"
+      },
+      "name" : "Data elements of the journeys",
+      "description" : "Every data element of the data dictionary, by its code (TD.<data set>.DE<nn>).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Device"
+      }],
+      "reference" : {
+        "reference" : "Device/TrustDemoDhcEhr"
+      },
+      "name" : "District health center EHR (OHS, facility configuration), Lao PDR",
+      "description" : "The clinic tablet's record system that verifies the DVCs offline against its cached GDHCN trust list, imports them and evaluates the schedule (J3).",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/TrustDemoAnan"
+      },
+      "name" : "Dr Anan (clinician, Chiang Rai, Thailand)",
+      "description" : "Gives Somsack's birth doses and prints the DVCs (J1), and reads his record through the VHL a year later (J4.1). Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.FamilyPhone"
+      },
+      "name" : "Family phone",
+      "description" : "The one smartphone the family shares, holding one VHL QR per member (J4); holds links, not keys to anyone's records beyond what each link grants.\n\n**Persona**: A shared Android phone, sometimes offline; whoever holds it can show any member's QR, the passcode protects the records.\n\n**Also known as**: Personal health wallet\n\n**Played in the journeys by**: The family's shared phone (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor"
+      },
+      "name" : "GDHCN trust anchor",
+      "description" : "WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL).\n\n**Persona**: A WHO service publishing DID documents over did:web; verifiers fetch it when online and keep a copy.\n\n**Also known as**: Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL)\n\n**Played in the journeys by**: GDHCN DEV trust network (WHO) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.HomeClinicEhr"
+      },
+      "name" : "Home clinic EHR",
+      "description" : "The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3).\n\n**Persona**: Holds the DID trust list from its last refresh, about weekly for a clinic without its own connection, when the CHW visits the base clinic or district health office; loading it is a precondition of a visit, and it verifies offline at the point of care.\n\n**Also known as**: Verifier at the home clinic (SMART Trust Receiver)\n\n**Played in the journeys by**: Vientiane District Health Center EHR (Country B) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.HomeClinicProvider"
+      },
+      "name" : "Home clinic provider",
+      "description" : "The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3).\n\n**Persona**: Trusts the system's verdict and needs a reason when a certificate fails.\n\n**Played in the journeys by**: Nurse Chanthasone (Vientiane District Health Center, Lao PDR) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoCodeMappingBasisVS"
+      },
+      "name" : "How an imported dose got its national schedule code",
+      "description" : "Every code of TrustDemoCodeMappingBasis.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoCodeMappingBasis"
+      },
+      "name" : "How an imported dose got its national schedule code",
+      "description" : "The outcome of decision table TD.DT.02 (STD-SEM-001).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.IssuerKey"
+      },
+      "name" : "Issuer signing key",
+      "description" : "The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, STT-ISS-004).\n\n**Persona**: A key that signs what it is given and reveals nothing else.\n\n**Also known as**: Document signer (DSC) key\n\n**Played in the journeys by**: XXR document signer key (Country A, Thailand) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Questionnaire"
+      }],
+      "reference" : {
+        "reference" : "Questionnaire/TrustDemoHouseholdRegistration"
+      },
+      "name" : "J2a newborn registration form (structured data capture)",
+      "description" : "The form the CHW app renders offline (OHS Structured Data Capture) to add a newborn to a household and note any foreign vaccination cards.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "QuestionnaireResponse"
+      }],
+      "reference" : {
+        "reference" : "QuestionnaireResponse/TrustDemoJ2Registration"
+      },
+      "name" : "J2a Somsack's registration, as captured offline",
+      "description" : "Vilay's answers on the newborn registration form, saved on the phone with no signal and synced later.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoRegistration"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Group"
+      }],
+      "reference" : {
+        "reference" : "Group/TrustDemoHousehold"
+      },
+      "name" : "J2a the Sengmany household (HH-LAO-204)",
+      "description" : "The household roster Vilay updates on her offline phone: Somsack is added beside his mother and father.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoHousehold"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ServiceRequest"
+      }],
+      "reference" : {
+        "reference" : "ServiceRequest/TrustDemoJ2Referral"
+      },
+      "name" : "J2b referral to the district health center",
+      "description" : "Vilay's referral of Somsack to Vientiane District Health Center: verify the two foreign DVCs and fit the doses to the national schedule.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReferral"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ2BcgReported"
+      },
+      "name" : "J2b reported: BCG birth dose (DVC read, not verified)",
+      "description" : "The BCG birth dose as the CHW app saves it after the unverified read: reported by the family, primarySource false.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReportedImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ2HepBReported"
+      },
+      "name" : "J2b reported: Hep B birth dose (DVC read, not verified)",
+      "description" : "The Hep B birth dose as the CHW app saves it after reading the paper DVC offline without verifying it (STT-VER-011): reported by the family, primarySource false, only the issuer's product coding.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReportedImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ConceptMap"
+      }],
+      "reference" : {
+        "reference" : "ConceptMap/TrustDemoProductToLaoEpi"
+      },
+      "name" : "J3 map: vaccine product to national schedule dose",
+      "description" : "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthasone confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoLaoInfantSchedule"
+      },
+      "name" : "J3 national infant schedule (illustrative excerpt)",
+      "description" : "The part of the national schedule the J3 evaluation needs: birth doses, the 6-week doses and measles-rubella at 9 months. Illustrative; the schedule rules are not executable here.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ3Bcg"
+      },
+      "name" : "J3 verified: BCG birth dose (Thailand), with both codings",
+      "description" : "The BCG birth dose after the EHR verified its DVC, with the national schedule coding added beside the issuer's.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ3HepB"
+      },
+      "name" : "J3 verified: Hep B birth dose (Thailand), with both codings",
+      "description" : "The Hep B birth dose after the EHR verified its DVC: the verified DVC is the administering hospital's own signed record, so the dose is recorded from its primary source (the VaxLink trust ladder's 'verified' step). The issuer's product coding is kept, and the national schedule coding is added beside it.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Provenance"
+      }],
+      "reference" : {
+        "reference" : "Provenance/TrustDemoJ3Verification"
+      },
+      "name" : "J3a provenance: DVCs verified against the GDHCN DEV trust list",
+      "description" : "Records that the two doses come from DVCs the district EHR verified offline (COSE_Sign1, ES256) against XXR's DSC in its cached copy of the GDHCN DEV trust list, and that they replace the reported doses of J2.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoDvcVerification"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Provenance"
+      }],
+      "reference" : {
+        "reference" : "Provenance/TrustDemoJ3Adjudication"
+      },
+      "name" : "J3b provenance: the nurse's vaccine-code adjudication",
+      "description" : "Records Nurse Chanthasone's clinical call that the Thai Hep B product counts as the national Hep B birth dose, which the map did not yet cover. The decision is added to the national ConceptMap for the next clinic.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Task"
+      }],
+      "reference" : {
+        "reference" : "Task/TrustDemoJ3Reminder"
+      },
+      "name" : "J3b reminder: bring Somsack back for the 6-week doses",
+      "description" : "The reminder the schedule evaluation creates, so Khamla leaves knowing exactly when to come back.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ImmunizationRecommendation"
+      }],
+      "reference" : {
+        "reference" : "ImmunizationRecommendation/TrustDemoJ3Recommendation"
+      },
+      "name" : "J3b schedule evaluation: the 6-week doses are due",
+      "description" : "The national schedule run over the verified doses read by their schedule codes: the Hep B and BCG birth doses count, and pentavalent 1, bOPV 1 and PCV 1 fall due at 6 weeks (2025-12-09).",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      }],
+      "reference" : {
+        "reference" : "Bundle/TrustDemoJ4Ips"
+      },
+      "name" : "J4.0 Somsack's IPS (document Bundle)",
+      "description" : "The patient summary document behind Somsack's VHL: encrypted by the Lao portal in J4.0, decrypted by the Chiang Rai clinic viewer in J4.1. Six doses, two of them from Thailand with their original coding kept.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Consent"
+      }],
+      "reference" : {
+        "reference" : "Consent/TrustDemoJ4Consent"
+      },
+      "name" : "J4.0b Bounmy's consent to share Somsack's summary for 14 days",
+      "description" : "Recorded when Bounmy creates Somsack's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "AuditEvent"
+      }],
+      "reference" : {
+        "reference" : "AuditEvent/TrustDemoJ41Access"
+      },
+      "name" : "J4.1 access logged in Lao PDR: manifest released",
+      "description" : "The record the Lao gateway keeps when the Chiang Rai clinic viewer retrieves Somsack's VHL manifest with the right passcode (IHE Basic Audit Log Patterns): who looked, from where, and when.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Provenance"
+      }],
+      "reference" : {
+        "reference" : "Provenance/TrustDemoJ41Received"
+      },
+      "name" : "J4.1 provenance of the summary viewed in Chiang Rai",
+      "description" : "How the Chiang Rai clinic viewer obtained Somsack's IPS: it verified the VHL's HCERT against Country B's DSC in its cached trust list, fetched the manifest by ITI-YY5 with an HTTP Message Signature once Bounmy said the passcode, and decrypted the document. Viewed, not copied into a Thai registry.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThVhlReceipt"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "AuditEvent"
+      }],
+      "reference" : {
+        "reference" : "AuditEvent/TrustDemoJ41WrongPasscode"
+      },
+      "name" : "J4.1 wrong passcode: refused, and still logged in Lao PDR",
+      "description" : "The 'what if' of J4.1: a manifest request with the wrong passcode is refused, and the attempt is logged at home all the same.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "RelatedPerson"
+      }],
+      "reference" : {
+        "reference" : "RelatedPerson/TrustDemoKhamla"
+      },
+      "name" : "Khamla SENGMANY (mother)",
+      "description" : "Somsack's mother, 26: the Holder of the two paper DVCs from J1 to J3. Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoLaoBopv1"
+      },
+      "name" : "Lao dose: bOPV 1 (2025-12-10)",
+      "description" : "Given at Vientiane District Health Center at 6 weeks.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoLaoMr1"
+      },
+      "name" : "Lao dose: measles-rubella 1 (2026-07-28)",
+      "description" : "Given at Vientiane District Health Center at 9 months.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoLaoPcv1"
+      },
+      "name" : "Lao dose: PCV 1 (2025-12-10)",
+      "description" : "Given at Vientiane District Health Center at 6 weeks.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoLaoPenta1"
+      },
+      "name" : "Lao dose: pentavalent 1 (2025-12-10)",
+      "description" : "Given at Vientiane District Health Center at 6 weeks, as the J3 schedule booked it.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Device"
+      }],
+      "reference" : {
+        "reference" : "Device/TrustDemoLaoGateway"
+      },
+      "name" : "Lao PDR national FHIR server and info gateway",
+      "description" : "Hosts the VHL manifests, checks passcode, expiry and consent, and records every access as an AuditEvent (J4.1).",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      }],
+      "reference" : {
+        "reference" : "Organization/TrustDemoLaoPortalOrg"
+      },
+      "name" : "Lao PDR national health portal (Country B, XXH)",
+      "description" : "The national service that hosts the family's records, issues their VHLs (J4.0) and logs every access (J4.1). On the GDHCN DEV network it is the fictional participant XXH.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoPatient"
+      },
+      "name" : "Lao PDR: child registered by the community health worker",
+      "description" : "How it is used: J2 onwards. Vilay registers Somsack on a home visit, and the same patient carries every Lao record that follows: the verified Thai doses, the Lao doses and the summary shared in J4.\n\nWhy: a child born abroad is not in the Lao civil registry yet. A temporary id lets the CHW, the district clinic and the national portal all refer to the same child until civil registration catches up. The parents are recorded as contacts, because they hold the paper cards and later the family's VHLs.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoReferral"
+      },
+      "name" : "Lao PDR: CHW referral to verify foreign cards",
+      "description" : "How it is used: J2b. The CHW refers Somsack to the district health center to have his foreign cards verified and his doses fitted to the Lao schedule.\n\nWhy: the CHW cannot verify a DVC on the phone, but the clinic can. The referral points at the reported doses it is about, so the clinic knows exactly what to check, and the CHW can see when it is done.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoImmunization"
+      },
+      "name" : "Lao PDR: dose on the national schedule",
+      "description" : "How it is used: J3 and after. These are the Thai birth doses once the district clinic has verified them, and every dose given in Lao PDR.\n\nWhy: the Lao schedule engine works on Lao EPI codes, so each dose must carry one. A dose that came from abroad keeps the issuer's product code beside the Lao one, added through the ConceptMap and confirmed by the nurse. Nothing the other country said is overwritten. A verified foreign dose is recorded from its primary source, the signing hospital, and its Provenance says how it was verified.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoVhlAccess"
+      },
+      "name" : "Lao PDR: every VHL access logged at home",
+      "description" : "How it is used: J4.1. The Lao national gateway records each attempt by a clinic abroad to fetch a family member's VHL manifest, the refused ones included.\n\nWhy: the family shares a link, not a copy, and the data stays in Lao PDR. Logging every access at home, following IHE Basic Audit Log Patterns, is what lets the family and the ministry see who looked, from where and when. A wrong passcode is logged too.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoReportedImmunization"
+      },
+      "name" : "Lao PDR: foreign dose as reported (not yet verified)",
+      "description" : "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false and the family as the information source keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoDvcVerification"
+      },
+      "name" : "Lao PDR: foreign DVC verified against the GDHCN trust list",
+      "description" : "How it is used: J3a. The district EHR verifies each Thai DVC offline against its cached copy of the GDHCN trust list, then imports the dose. This record says so.\n\nWhy: a verified dose replaces a reported one, so the record must show who verified what, against which policy, and which reported doses it removes. Anyone who later doubts a dose can follow this record back to the signed certificate and the issuing country's key.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoHousehold"
+      },
+      "name" : "Lao PDR: household on the CHW's roster",
+      "description" : "How it is used: J2a. The CHW finds that a newborn is missing from the household roster and adds Somsack as a member.\n\nWhy: Lao community health work is organized by household. The roster is how a CHW notices that a child is missing, and it is the unit the family phone shares under in J4 (one phone, three profiles).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoLaoRegistration"
+      },
+      "name" : "Lao PDR: newborn registration captured offline",
+      "description" : "How it is used: J2a. These are the CHW's answers on the newborn registration form, which the app renders with Structured Data Capture and saves with no signal.\n\nWhy: in Lao PDR the form is the configuration, not code. A ministry can change the questions without shipping a new app. The answers are kept so that the Patient and Group extracted from them can always be traced back to what was asked and who answered.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.NationalPortal"
+      },
+      "name" : "National health portal",
+      "description" : "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer.\n\n**Persona**: A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.\n\n**Also known as**: VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer)\n\n**Played in the journeys by**: Lao PDR national health portal and gateway (Country B, XXH) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoLaoEpiSchedule"
+      },
+      "name" : "National schedule antigen-dose codes (illustrative, Lao PDR)",
+      "description" : "Illustrative antigen-and-dose codes of a national immunization schedule, as the VaxLink walkthrough names them for Lao PDR. Not the official Lao EPI coding.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoLaoEpiScheduleCodes"
+      },
+      "name" : "National schedule codes of the journeys",
+      "description" : "Every code of TrustDemoLaoEpiSchedule: the target of the national ConceptMap.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/TrustDemoChanthasone"
+      },
+      "name" : "Nurse Chanthasone (Vientiane District Health Center)",
+      "description" : "The nurse who verifies the DVCs and fits the Thai doses to the Lao schedule in J3. Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.PocProvider"
+      },
+      "name" : "Point-of-care provider",
+      "description" : "The clinician abroad who scans the family's QR and reads the child's records (J4.1).\n\n**Persona**: Has minutes, no prior relationship with the family, and her own hospital's system.\n\n**Played in the journeys by**: Dr Anan (clinician, Chiang Rai, Thailand) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/TrustDemo.Role.PocReceiver"
+      },
+      "name" : "Point-of-care receiver",
+      "description" : "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Chiang Rai primary care clinic viewer, Thailand (J4.1) (fictional).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVerificationResultVS"
+      },
+      "name" : "Result of reading a DVC",
+      "description" : "Every code of TrustDemoVerificationResult.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVerificationResult"
+      },
+      "name" : "Result of reading a DVC",
+      "description" : "What the HCERT library returns for one scanned DVC: a verified result, a failed result naming the step and reason (STT-VER-008), or the distinct result of the unverified triage read (STT-VER-011).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Patient"
+      }],
+      "reference" : {
+        "reference" : "Patient/TrustDemoSomsack"
+      },
+      "name" : "Somsack SENGMANY (newborn)",
+      "description" : "The subject of every journey, as the CHW registers him in Lao PDR (Country B) in J2: born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), with no Thai identity number. Until civil registration catches up he has a temporary id. Fictional.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoPatient"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT01"
+      },
+      "name" : "TD.DT.01 What does a scanned DVC become in the child's record?",
+      "description" : "From the result of reading one foreign DVC, decide whether its dose is recorded as verified, kept as reported and not verified, or not recorded from it at all.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT02"
+      },
+      "name" : "TD.DT.02 Which national schedule code does an imported dose carry?",
+      "description" : "For one dose, decide whether and how the national schedule code is added beside the issuer's product code, which is always kept.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT03"
+      },
+      "name" : "TD.DT.03 Does the national schedule count this dose?",
+      "description" : "For one Immunization in the child's record, decide whether the schedule evaluation counts it as given.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT04"
+      },
+      "name" : "TD.DT.04 Is this dose of the national schedule due?",
+      "description" : "For one action of the national schedule, decide whether the evaluation recommends it now, and from which date.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT05"
+      },
+      "name" : "TD.DT.05 Does the portal release the manifest for this request?",
+      "description" : "For one manifest request (ITI-YY5), decide whether the portal releases the manifest, and what the access log records.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PlanDefinition"
+      }],
+      "reference" : {
+        "reference" : "PlanDefinition/TrustDemoDT06"
+      },
+      "name" : "TD.DT.06 Does the receiver follow the VHL?",
+      "description" : "For one scanned VHL, decide whether the receiver requests the manifest or treats the family's records like paper.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND01"
+      },
+      "name" : "TD.IND.01 Foreign doses imported as verified",
+      "description" : "Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND02"
+      },
+      "name" : "TD.IND.02 Shared-link openings that were authorised",
+      "description" : "Of the requests to open a family member's shared link, the proportion the home country released.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND03"
+      },
+      "name" : "TD.IND.03 CHW referrals for verification completed at the clinic",
+      "description" : "Of the referrals community health workers make for a child's foreign cards to be verified, the proportion completed at the clinic.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Measure"
+      }],
+      "reference" : {
+        "reference" : "Measure/TrustDemoIND04"
+      },
+      "name" : "TD.IND.04 Imported doses carrying a national schedule code",
+      "description" : "Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer's code, and so count toward the schedule.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdBirthDoseDvc"
+      },
+      "name" : "TD.J1 Birth-dose DVC",
+      "description" : "What the birth hospital records for each birth dose and signs into one Digital Vaccination Certificate (DVC, an HCERT) per dose: the payload, the CWT claims and the key that signs it.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdChwRegistration"
+      },
+      "name" : "TD.J2A Newborn registration on a home visit",
+      "description" : "What the community health worker records offline when she finds a newborn missing from the household roster: the registration form's answers and each dose read from a foreign card without verifying it.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdChwReferral"
+      },
+      "name" : "TD.J2B Referral for verification",
+      "description" : "The community health worker's referral of the child to the home clinic, to verify the foreign cards and fit the doses to the national schedule.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdDvcVerification"
+      },
+      "name" : "TD.J3A DVC verification and import",
+      "description" : "What the clinic records when it verifies a foreign DVC against its cached copy of the trust list, and, when the DVC verifies, imports the dose in place of the reported one.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdImportedDose"
+      },
+      "name" : "TD.J3B Imported dose and schedule",
+      "description" : "What the clinic records for each imported dose's vaccine code, and what the national schedule finds due once the doses are counted.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdVhlShare"
+      },
+      "name" : "TD.J40 Shared link and consent",
+      "description" : "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:logical"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoDdVhlAccess"
+      },
+      "name" : "TD.J41 Access to a shared link",
+      "description" : "What the home country logs for every request to open a shared link, released or refused.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ1Bcg"
+      },
+      "name" : "Thailand: BCG birth dose, as the hospital records and signs it",
+      "description" : "The record behind the second DVC: the BCG birth dose.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoThImmunization"
+      },
+      "name" : "Thailand: dose given at the birth hospital (DVC source)",
+      "description" : "How it is used: J1. Each birth dose (Hep B, BCG) that Dr Anan gives is recorded here first. The hospital then packs it into a Digital Vaccination Certificate (HCERT, signed with XXR's key) and prints it as a QR card.\n\nWhy: the DVC can only carry what this record holds. The vaccine product, date, lot, dose number and the administering organization are exactly the fields the HCERT certificate needs. They are required here so every printed card is complete. The product is coded from the WHO PreQual-style product list, because that is the code Lao PDR will later map to its own schedule (J3).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Immunization"
+      }],
+      "reference" : {
+        "reference" : "Immunization/TrustDemoJ1HepB"
+      },
+      "name" : "Thailand: Hep B birth dose, as the hospital records and signs it",
+      "description" : "The record behind the first DVC Khamla carries home: product, date, lot, dose number and performer, the fields the HCERT certificate carries.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThImmunization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoThPatient"
+      },
+      "name" : "Thailand: newborn at the birth hospital",
+      "description" : "How it is used: J1. Chiang Rai Provincial Hospital registers Somsack under its own hospital number on the day he is born.\n\nWhy: a baby born to Lao parents in Thailand has no Thai citizen id, so the hospital number is the only identifier the hospital can put behind the dose records it signs. The DVCs it prints carry the name and date of birth, not this number. The family's home country therefore cannot rely on any Thai identifier, and links the doses to its own patient (see the Lao patient profile).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TrustDemoThVhlReceipt"
+      },
+      "name" : "Thailand: record of a summary read through a VHL",
+      "description" : "How it is used: J4.1. The Chiang Rai clinic viewer keeps this record when it opens Somsack's patient summary through the Verifiable Health Link that his father shows.\n\nWhy: the Thai clinic views the Lao record and does not copy it into a Thai registry. So the clinic keeps a note of what it saw, where it came from, and how it was verified: the VHL's signature against Lao PDR's key on the GDHCN trust list, the manifest fetch, and the passcode. The Lao side keeps its own log of the same access (the Lao audit profile).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Patient"
+      }],
+      "reference" : {
+        "reference" : "Patient/TrustDemoThSomsack"
+      },
+      "name" : "Thailand: Somsack at the birth hospital (hospital number)",
+      "description" : "Somsack as Chiang Rai Provincial Hospital registers him on the day he is born: a hospital number and no Thai citizen id, since his parents are Lao. The same child is TrustDemoSomsack in Lao PDR. Fictional.",
+      "isExample" : true,
+      "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThPatient"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Device"
+      }],
+      "reference" : {
+        "reference" : "Device/TrustDemoFamilyPhone"
+      },
+      "name" : "The Sengmany family's shared phone",
+      "description" : "One phone, three profiles (Bounmy, Khamla, Somsack): the family wallet holding one VHL QR per member (J4).",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVaccineProduct"
+      },
+      "name" : "Vaccine products (illustrative PreQual-style codes)",
+      "description" : "Illustrative product codes in the style of WHO PreQual product ids, as the VaxLink walkthrough uses them: the issuer's coding of each dose. Not WHO PreQual ids.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVaccineProducts"
+      },
+      "name" : "Vaccine products of the journeys",
+      "description" : "Every product code of TrustDemoVaccineProduct: the source of the national ConceptMap.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVerificationFailureReasonVS"
+      },
+      "name" : "Verification failure reasons",
+      "description" : "Every code of TrustDemoVerificationFailureReason.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVerificationFailureReason"
+      },
+      "name" : "Verification failure reasons",
+      "description" : "The closed set of reasons a DVC fails verification, shared by the Kotlin and Rust HCERT libraries (STT-VER-008).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVerificationStepVS"
+      },
+      "name" : "Verification steps",
+      "description" : "Every code of TrustDemoVerificationStep.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVerificationStep"
+      },
+      "name" : "Verification steps",
+      "description" : "The steps of DVC verification in the order they run (STT-VER-001), as the HCERT library names them in its typed result (STT-VER-008).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Device"
+      }],
+      "reference" : {
+        "reference" : "Device/TrustDemoClinicViewer"
+      },
+      "name" : "VHL viewer, Chiang Rai primary care clinic",
+      "description" : "The point-of-care system that verifies the VHL, fetches the manifest by ITI-YY5 after the passcode is entered, and decrypts the records for viewing (J4.1): a VHL Receiver.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      }],
+      "reference" : {
+        "reference" : "Organization/TrustDemoVientianeDhc"
+      },
+      "name" : "Vientiane District Health Center, Lao PDR (Country B)",
+      "description" : "The district health center of J3 and of Somsack's later Lao doses.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/TrustDemoVilay"
+      },
+      "name" : "Vilay (community health worker, Village 04, Lao PDR)",
+      "description" : "The CHW who finds Somsack missing from the household roster in J2. Fictional.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoDvcOutcomeVS"
+      },
+      "name" : "What a scanned DVC becomes in the record",
+      "description" : "Every code of TrustDemoDvcOutcome.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoDvcOutcome"
+      },
+      "name" : "What a scanned DVC becomes in the record",
+      "description" : "The outcome of decision table TD.DT.01 for one scanned DVC.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVhlRefusalReasonVS"
+      },
+      "name" : "Why a shared link released nothing",
+      "description" : "Every code of TrustDemoVhlRefusalReason.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVhlRefusalReason"
+      },
+      "name" : "Why a shared link released nothing",
+      "description" : "The refusal reasons of decision table TD.DT.05 (STD-ACC-001).",
+      "isExample" : false
+    }],
+    "page" : {
+      "sourceUrl" : "toc.html",
+      "name" : "toc.html",
+      "title" : "Table of Contents",
+      "generation" : "html",
+      "page" : [{
+        "sourceUrl" : "index.html",
+        "name" : "index.html",
+        "title" : "Home",
+        "generation" : "markdown",
+        "page" : [{
+          "sourceUrl" : "changes.html",
+          "name" : "changes.html",
+          "title" : "Changes",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "journeys.html",
+          "name" : "journeys.html",
+          "title" : "Journeys J1 to J4",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "vaxlink-examples.html",
+          "name" : "vaxlink-examples.html",
+          "title" : "VaxLink examples",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "architecture.html",
+          "name" : "architecture.html",
+          "title" : "Architecture (ArchiMate)",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "plan.html",
+          "name" : "plan.html",
+          "title" : "Plan",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "proposal-app-platform.html",
+          "name" : "proposal-app-platform.html",
+          "title" : "Proposal: Open Health Stack base",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "dependencies.html",
+          "name" : "dependencies.html",
+          "title" : "Dependency Register",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "upstream-who-smart-trust-phw-receive-a-vhl.html",
+          "name" : "upstream-who-smart-trust-phw-receive-a-vhl.html",
+          "title" : "Upstream issue: smart-trust-phw, receive a VHL",
+          "generation" : "markdown"
+        }]
+      },
+      {
+        "sourceUrl" : "business-requirements.html",
+        "name" : "business-requirements.html",
+        "title" : "Business Requirements",
+        "generation" : "markdown",
+        "page" : [{
+          "sourceUrl" : "personas.html",
+          "name" : "personas.html",
+          "title" : "Generic Personas",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "scenarios.html",
+          "name" : "scenarios.html",
+          "title" : "User Scenarios",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "business-processes.html",
+          "name" : "business-processes.html",
+          "title" : "Business Processes",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "dictionary.html",
+          "name" : "dictionary.html",
+          "title" : "Data Dictionary",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "decision-logic.html",
+          "name" : "decision-logic.html",
+          "title" : "Decision-support Logic",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "indicators.html",
+          "name" : "indicators.html",
+          "title" : "Indicators and Performance Metrics",
+          "generation" : "markdown"
+        },
+        {
+          "sourceUrl" : "functional-requirements.html",
+          "name" : "functional-requirements.html",
+          "title" : "Functional Requirements",
+          "generation" : "markdown"
+        }]
+      },
+      {
+        "sourceUrl" : "data-models-and-exchange.html",
+        "name" : "data-models-and-exchange.html",
+        "title" : "Data Models and Exchange",
+        "generation" : "markdown",
+        "page" : [{
+          "sourceUrl" : "system-actors.html",
+          "name" : "system-actors.html",
+          "title" : "System Actors",
+          "generation" : "markdown"
+        }]
+      },
+      {
+        "sourceUrl" : "indices.html",
+        "name" : "indices.html",
+        "title" : "Indices",
+        "generation" : "markdown",
+        "page" : [{
+          "sourceUrl" : "artifacts.html",
+          "name" : "artifacts.html",
+          "title" : "Artifact Index",
+          "generation" : "html"
+        }]
+      }]
+    },
+    "parameter" : [{
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "copyrightyear"
+      },
+      "value" : "2026+"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "releaselabel"
+      },
+      "value" : "ci-build"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "produce-jekyll-data"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "autoload-resources"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/capabilities"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/examples"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/extensions"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/models"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/operations"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/profiles"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/resources"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/vocabulary"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/maps"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/testing"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "input/history"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-resource"
+      },
+      "value" : "fsh-generated/resources"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-pages"
+      },
+      "value" : "template/config"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-pages"
+      },
+      "value" : "input/images"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-liquid"
+      },
+      "value" : "template/liquid"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-liquid"
+      },
+      "value" : "input/liquid"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-qa"
+      },
+      "value" : "temp/qa"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-temp"
+      },
+      "value" : "temp/pages"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-output"
+      },
+      "value" : "output"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/guide-parameter-code",
+        "code" : "path-tx-cache"
+      },
+      "value" : "input-cache/txcache"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-suppressed-warnings"
+      },
+      "value" : "input/ignoreWarnings.txt"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-history"
+      },
+      "value" : "http://smart.who.int/trust-demo/history.html"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "template-html"
+      },
+      "value" : "template-page.html"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "template-md"
+      },
+      "value" : "template-page-md.html"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-contact"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-context"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-copyright"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-jurisdiction"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-license"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-publisher"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-version"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "apply-wg"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "active-tables"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "fmm-definition"
+      },
+      "value" : "http://hl7.org/fhir/versions.html#maturity"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "propagate-status"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "excludelogbinaryformat"
+      },
+      "value" : "true"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "tabbed-snapshots"
+      },
+      "value" : "true"
+    }]
+  }
+}

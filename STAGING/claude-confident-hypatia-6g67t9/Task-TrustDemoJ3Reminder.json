@@ -1,0 +1,27 @@
+{
+  "resourceType" : "Task",
+  "id" : "TrustDemoJ3Reminder",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Task TrustDemoJ3Reminder</b></p><a name=\"TrustDemoJ3Reminder\"> </a><a name=\"hcTrustDemoJ3Reminder\"> </a><p><b>status</b>: Requested</p><p><b>intent</b>: plan</p><p><b>code</b>: <span title=\"Codes:\">Immunization appointment reminder: 6-week doses</span></p><p><b>focus</b>: <a href=\"ImmunizationRecommendation-TrustDemoJ3Recommendation.html\">ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700</a></p><p><b>for</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>requestedPeriod</b>: 2025-12-09 --&gt; 2025-12-16</p><p><b>authoredOn</b>: 2025-11-25 10:22:00+0700</p><p><b>requester</b>: <a href=\"Organization-TrustDemoVientianeDhc.html\">Vientiane District Health Center (demonstrator)</a></p></div>"
+  },
+  "status" : "requested",
+  "intent" : "plan",
+  "code" : {
+    "text" : "Immunization appointment reminder: 6-week doses"
+  },
+  "focus" : {
+    "reference" : "ImmunizationRecommendation/TrustDemoJ3Recommendation"
+  },
+  "for" : {
+    "reference" : "Patient/TrustDemoSomsack"
+  },
+  "requestedPeriod" : {
+    "start" : "2025-12-09",
+    "end" : "2025-12-16"
+  },
+  "authoredOn" : "2025-11-25T10:22:00+07:00",
+  "requester" : {
+    "reference" : "Organization/TrustDemoVientianeDhc"
+  }
+}
