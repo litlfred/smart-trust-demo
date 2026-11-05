@@ -11,7 +11,9 @@ Usage:
 2. Give the base model a view folder for the overlay and the demonstrator's
    model name; nothing else in it changes.
 3. Apply overlay.py with smart-ra's own add_views.py.
-4. Re-zip with fixed timestamps, so the output depends only on its inputs
+4. Lay the overlay's views out again with room between the boxes, move the
+   boxes VIEW_BOUNDS names, and route every line orthogonally (layout.py).
+5. Re-zip with fixed timestamps, so the output depends only on its inputs
    and --check can compare bytes.
 
 The version is the IG's (sushi-config.yaml `version:`), as cat-harness's
@@ -93,16 +95,20 @@ def write_zip(dst, model, others):
             z.writestr(info, data)
 
 
-def apply_bounds(xml):
+def _load(name):
+    spec = importlib.util.spec_from_file_location(name, HERE / f"{name}.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+def apply_bounds(xml, o):
     """Move the boxes overlay.py's VIEW_BOUNDS names to exact positions (x, width), in its views only.
 
-    add_views.py lays boxes out left to right; this is the one step after it.
+    layout.relayout() lays boxes out left to right; this is the step after it.
     A box is found by its element's id inside the named view, and only its own
     <bounds> (the first after its <child>) is changed.
     """
-    spec = importlib.util.spec_from_file_location("overlay", HERE / "overlay.py")
-    o = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(o)
     ns = uuid.uuid5(uuid.NAMESPACE_URL, o.NAMESPACE)
     eid = lambda key: o.EXISTING.get(key) or "id-" + uuid.uuid5(ns, "element/" + key).hex
     for view, boxes in getattr(o, "VIEW_BOUNDS", {}).items():
@@ -133,7 +139,9 @@ def build(out):
         if r.returncode:
             raise SystemExit(r.stdout + r.stderr)
         with zipfile.ZipFile(applied) as z:
-            xml = apply_bounds(z.read("model.xml").decode("utf-8")).encode("utf-8")
+            o, lay = _load("overlay"), _load("layout")
+            xml = z.read("model.xml").decode("utf-8")
+            xml = lay.route(apply_bounds(lay.relayout(xml, o), o), o).encode("utf-8")
             others = {n: z.read(n) for n in z.namelist() if n != "model.xml"}
         out.parent.mkdir(parents=True, exist_ok=True)
         write_zip(out, xml, others)
