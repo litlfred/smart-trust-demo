@@ -9,8 +9,9 @@ nav_order: 2
 > doctor can see every vaccine he has ever had, without a single record being
 > copied across the border.
 
-The story is the one the [VaxLink](https://fredhersch.github.io/vaxlink/)
-workshop walkthrough tells ([source](https://github.com/fredhersch/vaxlink)),
+The story is the one the [VaxLink walkthrough](vaxlink/) tells, moment by
+moment, with the people, the technical layer and the policy questions
+(interactive; its source is `web/` in this repository),
 documented here as a WHO SMART Guidelines L2 DAK and L3 implementation guide.
 Its FHIR examples are materialized in this guide; the
 [VaxLink examples](vaxlink-examples.html) page maps each moment and device screen
