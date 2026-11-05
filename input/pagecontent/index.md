@@ -4,7 +4,7 @@
 <div style="font:600 11px/1.4 monospace;letter-spacing:.12em;color:#7dd3fc;text-transform:uppercase">One baby · two countries · one year</div>
 <p style="font-size:1.45em;line-height:1.3;font-weight:700;color:#fff;margin:10px 0 8px">Somsack is born in Thailand and grows up in Lao PDR. A year later, a Thai doctor sees every vaccine he has ever had, and no record is copied across the border.</p>
 <p style="margin:0 0 16px;color:#cbd5e1">This guide is that story, the <a style="color:#7dd3fc" href="https://fredhersch.github.io/vaxlink/">VaxLink walkthrough</a>, written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN.</p>
-<a href="https://litlfred.github.io/vaxlink/" style="display:inline-block;background:#0ea5e9;color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Open the VaxLink walkthrough</a>
+<a href="vaxlink/" style="display:inline-block;background:#0ea5e9;color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Open the VaxLink walkthrough</a>
 <a href="journeys.html" style="display:inline-block;background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Read the journeys</a>
 <a href="vaxlink-examples.html" style="display:inline-block;background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 0 8px">See the FHIR examples</a>
 </div>
@@ -68,7 +68,7 @@ trust list, so its clinics can verify a Thai card with no signal. A year later
 the same trust list lets a Thai clinic verify the Lao VHL. Data crosses the
 border in only two ways: as a signed QR card the family carries, or as a link
 the family chooses to share. The [VaxLink walkthrough's "How it works"
-view](https://litlfred.github.io/vaxlink/#/how) lays out both countries'
+view](vaxlink/#/how) lays out both countries'
 components on the [DPI-H reference
 architecture](https://litlfred.github.io/smart-ra/en/dpi-h-ra/index.html), with
 GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's
