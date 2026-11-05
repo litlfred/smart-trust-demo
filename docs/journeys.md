@@ -36,7 +36,7 @@ clinician, at the birth and a year later).
 | # | Moment | When | Where | Processes |
 |---|---|---|---|---|
 | 1 | **Born abroad** | birth day, 2025-10-28 | Chiang Rai, Thailand | J1 |
-| 2 | **Found at home** | 3 weeks later | Village 04, Lao PDR | J2 (J2a register, J2b scan and refer) |
+| 2 | **Found at home** | 3 weeks later | Village 04, Lao PDR | J2 (J2a read the cards, J2b register and refer) |
 | 3 | **Made official** | 4 weeks later | District Health Center, Lao PDR | J3 (J3a verify, J3b map and schedule) |
 | 4 | **Crossing back** | 12 months later | Lao PDR to Thailand | J4.0 (a wallet, b share link), J4.1 |
 
@@ -129,14 +129,15 @@ do not verify in J3.
 ### J2 — Found at home (Lao PDR, 3 weeks later)
 
 **J2a.** On a routine visit to Village 04, Vilay finds a newborn the Lao
-system does not know exists. Her phone has had no signal for weeks. On the
-CHW app's newborn form (structured data capture, `TrustDemoHouseholdRegistration`)
-she adds Somsack to the Sengmany household (`TrustDemoHousehold`), with a
-temporary id. Bounmy confirms the details as head of household.
+system does not know exists. Her phone has had no signal for weeks. Khamla
+shows the two cards. The CHW app reads them with **read-unverified**
+(STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), which needs no trust
+list. It shows the doses, but checks no signature and saves nothing yet.
 
-**J2b.** Khamla shows the two cards. The CHW app reads them with
-**read-unverified** (STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003),
-which needs no trust list. It shows the doses and saves them as reported by
+**J2b.** On the CHW app's newborn form (structured data capture,
+`TrustDemoHouseholdRegistration`) she adds Somsack to the Sengmany household
+(`TrustDemoHousehold`), with a temporary id. Bounmy confirms the details as
+head of household. The app saves the doses read from the cards as reported by
 the family, not verified (`TrustDemoJ2HepBReported`, `TrustDemoJ2BcgReported`:
 `primarySource` false). Vilay refers Somsack to the district health center
 (`TrustDemoJ2Referral`). Everything stays queued on the phone, for 28 days if
@@ -241,7 +242,7 @@ would a paper record.
 
 The VaxLink walkthrough closes with four policy questions:
 
-1. **Identity for babies born abroad** (J1, J2a): how should national immunization systems handle temporary ids for cross-border infants before civil registration is complete?
-2. **Where trust begins** (J2b, J3a): why should offline CHW devices store foreign cards as reported, not verified, rather than verify them in the field?
+1. **Identity for babies born abroad** (J1, J2b): how should national immunization systems handle temporary ids for cross-border infants before civil registration is complete?
+2. **Where trust begins** (J2a, J3a): why should offline CHW devices store foreign cards as reported, not verified, rather than verify them in the field?
 3. **Matching vaccines across countries** (J3b): when a monovalent vaccine is given abroad but the home schedule uses a combination (pentavalent), how should schedule rules count the doses still due?
 4. **Cross-border access and audit** (J4.0b, J4.1): what agreements do countries need so that a clinician viewing a record abroad triggers an audit entry in the patient's home country?

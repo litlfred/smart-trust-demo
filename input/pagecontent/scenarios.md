@@ -61,14 +61,15 @@ do not verify in J3.
 #### J2 — Found at home (Lao PDR, 3 weeks later)
 
 **J2a.** On a routine visit to Village 04, Vilay finds a newborn the Lao
-system does not know exists. Her phone has had no signal for weeks. On the
-CHW app's newborn form (structured data capture, `TrustDemoHouseholdRegistration`)
-she adds Somsack to the Sengmany household (`TrustDemoHousehold`), with a
-temporary id. Bounmy confirms the details as head of household.
+system does not know exists. Her phone has had no signal for weeks. Khamla
+shows the two cards. The CHW app reads them with **read-unverified**
+([STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011); [STT-B45-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002), [STT-ZIP-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-002), [STT-CBR-003](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003)), which needs no trust
+list. It shows the doses, but checks no signature and saves nothing yet.
 
-**J2b.** Khamla shows the two cards. The CHW app reads them with
-**read-unverified** ([STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011); [STT-B45-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002), [STT-ZIP-002](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-002), [STT-CBR-003](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003)),
-which needs no trust list. It shows the doses and saves them as reported by
+**J2b.** On the CHW app's newborn form (structured data capture,
+`TrustDemoHouseholdRegistration`) she adds Somsack to the Sengmany household
+(`TrustDemoHousehold`), with a temporary id. Bounmy confirms the details as
+head of household. The app saves the doses read from the cards as reported by
 the family, not verified (`TrustDemoJ2HepBReported`, `TrustDemoJ2BcgReported`:
 `primarySource` false). Vilay refers Somsack to the district health center
 (`TrustDemoJ2Referral`). Everything stays queued on the phone, for 28 days if

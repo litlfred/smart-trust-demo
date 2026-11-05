@@ -65,12 +65,13 @@ what joins the two.
 
 ## What the conversion found
 
-- **The J2 BPMN does not match the J2 steps in order.** In the walkthrough,
-  Vilay registers Somsack (J2a), then reads the cards (J2b). In
-  `j2-chw-discovery-referral.bpmn`, `Task_Register` comes after `Task_Read` and
-  also saves the doses. So J2a and J2b both point at `Task_Register`. Either
-  the diagram splits registration from saving the doses, or the walkthrough
-  reorders.
+- **J2 was told in the opposite order to its BPMN.** The walkthrough had
+  Vilay register Somsack (J2a) before reading the cards (J2b), while
+  `j2-chw-discovery-referral.bpmn` reads first and then registers. **Resolved
+  2026-11-05 (owner): vaxlink was reordered** to match the BPMN. J2a now reads
+  the cards (`Task_Show`, `Task_Scan`, `Task_Read`), and J2b registers, saves
+  the doses as reported and refers (`Task_Register`, `Task_Refer`, `Task_Slip`).
+  `docs/journeys.md` and `docs/vaxlink-examples.md` follow.
 - **Pain points and enablers are worded twice.** `docs/journeys.md` and vaxlink
   say the same thing in different words (and journeys.md says it once per
   journey, vaxlink once per step). The examples take vaxlink's wording, per
