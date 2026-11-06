@@ -65,10 +65,10 @@ The harness layers and smart-trust-tools are mounted from `index.lock.json`
 (the mounts are gitignored; the lock is committed). In a fresh container:
 
 ```sh
-python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness']!='smart-trust-tools']" > /tmp/mounts.txt
+python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness'] not in ('smart-trust-tools','smart-base','who-iris')]" > /tmp/mounts.txt
 while read h r ref; do git clone -q --filter=blob:none --no-checkout https://github.com/$r $h && git -C $h checkout -q $ref && rm -rf $h/.git; done < /tmp/mounts.txt
 bun install --frozen-lockfile
-bun run cat mount:lock            # lays down every pinned layer, smart-trust-tools included
+bun run cat mount:lock            # lays down every pinned layer, smart-trust-tools, smart-base and who-iris included
 bun run cat mount:remote:check
 ```
 

@@ -153,22 +153,84 @@
       }
     },
     {
+      "name": "who-iris",
+      "source": {
+        "remote": {
+          "repository": "litlfred/who-iris",
+          "ref": "35f23d3f351547ead2a5cffa60b6d62635f1a94b",
+          "overrides": {
+            "who-iris": {
+              "whole": true
+            },
+            "folio-assistant-core": {
+              "skip": true
+            },
+            "cat-harness": {
+              "skip": true
+            },
+            "cat-harness-tools": {
+              "skip": true
+            },
+            "bootstrap": {
+              "skip": true
+            },
+            "bootstrap-tools": {
+              "skip": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "smart-base",
+      "source": {
+        "remote": {
+          "repository": "litlfred/smart-base",
+          "ref": "62b0b4311e248d1b41f64f0997796c4529fddedc",
+          "overrides": {
+            "smart-base": {
+              "path": "smart-base",
+              "directories": [
+                "smart-base-qa-checkers",
+                "smart-base-block-kinds",
+                "smart-base-content-adapters",
+                "smart-base-translations",
+                "library",
+                "methodologies",
+                "processes",
+                "smart-base-house-processes",
+                "smart-base-artifact-index",
+                "tools",
+                "smart-base-themes",
+                "smart-base-docs",
+                "smart-base-document-kinds",
+                "smart-base-findings",
+                "smart-base-external-schemas",
+                "smart-base-platform",
+                "smart-base-typologies",
+                "smart-base-validators",
+                "smart-base-schemas",
+                "smart-base-content",
+                "smart-base-scripts",
+                "smart-base-skills",
+                "smart-base-scenarios",
+                "smart-base-code-lists"
+              ],
+              "whole": true
+            }
+          }
+        }
+      }
+    },
+    {
       "name": "smart-trust-tools",
       "source": {
         "remote": {
           "repository": "litlfred/smart-trust-tools",
-          "ref": "b138b2a327a6b0ff39e61669b0315205626ef82b",
+          "ref": "5111b04338552a26b612b8319083412bb3a0ff9c",
           "overrides": {
             "smart-trust-tools": {
               "whole": true
-            }
-          },
-          "trust": {
-            "consent": {
-              "by": "litlfred",
-              "on": "2026-11-06",
-              "ref": "b138b2a327a6b0ff39e61669b0315205626ef82b",
-              "evidence": "Owner (litlfred), 2026-11-06 ~08:40Z, this session (https://claude.ai/code/session_01VQDpPd2LVFXt1ZV3eAxyvE): \"repin as needed. merge when green and ready + 6hr.\" Re-pinned to smart-trust-tools main, which includes #47 (IHE VHL links to volume-1.html)."
             }
           }
         }

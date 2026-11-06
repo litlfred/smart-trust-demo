@@ -15,6 +15,7 @@ J3, Clinic verification and schedule generation, in Country B.
 ### 1. Scan the QRs and open the referral (`Task_Scan`)
 
 - Who: the `Home clinic provider` lane (role `home-clinic-provider`).
+- Skill: `receiver-scan-credential`.
 - Record it: `workflow_complete` with `node: "Task_Scan"`.
 - next: → `Task_Verify` (Verify each HCERT against the trust list)
 
@@ -56,6 +57,8 @@ J3, Clinic verification and schedule generation, in Country B.
 ### 6. Give due doses and book the next visit (`Task_Plan`)
 
 - Who: the `Home clinic provider` lane (role `home-clinic-provider`).
+- Skill: `review-decision-support-guidance`.
+- What: The nurse acts on the schedule evaluation's guidance (TD.DT.04, which doses are due and from when) the way smart-base's act-on-decision-support process does it: accept or decline each proposed dose, one tap each.
 - Record it: `workflow_complete` with `node: "Task_Plan"`.
 - next: → `End` (The child is on Country B's schedule)
 

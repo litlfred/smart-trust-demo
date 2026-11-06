@@ -24,8 +24,15 @@ jobs:
           git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" smart-trust-tools
           git -C smart-trust-tools sparse-checkout set skills
           git -C smart-trust-tools checkout -q "$ref"
+      - name: smart-base's skills at the pinned commit (index.lock.json)
+        # The instance is the smart-base/ directory of that repository.
+        run: |
+          read -r repo ref < <(python3 -c "import json;m=next(m for m in json.load(open('index.lock.json'))['mounts'] if m['harness']=='smart-base');print(m['repository'],m['ref'])")
+          git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" smart-base-repo
+          git -C smart-base-repo sparse-checkout set smart-base/skills
+          git -C smart-base-repo checkout -q "$ref"
       - name: Actions pinned, JSON parses, memory front matter; the journeys, their skills and their requirements hang together
-        run: python3 tools/repo-checks/repo_checks.py --smart-trust-tools smart-trust-tools
+        run: python3 tools/repo-checks/repo_checks.py --smart-trust-tools smart-trust-tools --smart-base smart-base-repo/smart-base
 
   bpmn-generated:
     # The BPMN drawings and checklists are generated from processes/content/
@@ -38,7 +45,7 @@ jobs:
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
       - name: Lay down the pinned layers (index.lock.json)
         run: |
-          python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness']!='smart-trust-tools']" > "$RUNNER_TEMP/mounts.txt"
+          python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness'] not in ('smart-trust-tools','smart-base','who-iris')]" > "$RUNNER_TEMP/mounts.txt"
           while read -r h r ref; do git clone -q --filter=blob:none --no-checkout "https://github.com/$r" "$h" && git -C "$h" checkout -q "$ref" && rm -rf "$h/.git"; done < "$RUNNER_TEMP/mounts.txt"
           bun install --frozen-lockfile
           bun run cat mount:lock

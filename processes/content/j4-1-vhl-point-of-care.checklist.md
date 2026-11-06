@@ -22,6 +22,7 @@ J4.1.
 ### 2. Scan the QR and enter the passcode the caregiver says (`Task_Scan`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
+- Skill: `receiver-scan-credential`.
 - Record it: `workflow_complete` with `node: "Task_Scan"`.
 - next: → `Task_Verify` (Verify the HCERT and read the VHL at key 5)
 
