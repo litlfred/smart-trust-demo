@@ -50,6 +50,7 @@ build.py lays the overlay's views out again with room between the boxes
 route as Archi bendpoints.
 """
 
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -254,6 +255,21 @@ GDHCN_SERVES = ["th-dvc-signer", "th-vhl-viewer", "la-dvc-verifier", "la-vhl-iss
 _HOST = {c[0]: c[3] for c in COMPONENTS}
 GDHCN_JOURNEYS = [j for j in JOURNEYS if any(j in SYSTEM_JOURNEYS[_HOST[k]] for k in GDHCN_SERVES)]
 
+# The building-block catalogue the journeys' steps use (archimate/building-blocks/,
+# the harness's building-blocks kind) is the one source of which block an
+# element realizes: each component it names must be an element here, and the
+# element carries its blocks as a property.
+CATALOGUE = json.loads((ROOT / "archimate" / "building-blocks" / "building-blocks.json").read_text(encoding="utf-8"))
+BLOCKS_OF = {}
+for _b in CATALOGUE["blocks"]:
+    for _c in _b.get("components", []):
+        assert _c in _HOST or _c == GDHCN[0], f"building block {_b['id']}: component {_c} is not an element of this overlay"
+        BLOCKS_OF.setdefault(_c, []).append(_b["id"])
+
+
+def _blocks(key):
+    return {"buildingBlocks": ", ".join(BLOCKS_OF[key])} if key in BLOCKS_OF else {}
+
 # What both countries share, between them: GDHCN and the specifications it
 # realizes. A Requirement, which an ApplicationComponent may realize.
 TRUST_FRAMEWORK = ("trust-framework", "WHO SMART Trust specifications (HCERT, DVC, VHL)")
@@ -411,11 +427,11 @@ for a in SYSTEMS:
 for key, name, _ra, actor, ig in COMPONENTS:
     ELEMENTS[key] = ("ApplicationComponent", name,
                      f"{SYSTEM_COUNTRY[actor]}: {name}, part of {SYSTEM_SHORT.get(actor, ACTORS[actor]['title'])}.",
-                     {"country": SYSTEM_COUNTRY[actor], "partOf": f"scenarios/actors/{actor}.json", **_ig(ig)})
+                     {"country": SYSTEM_COUNTRY[actor], "partOf": f"scenarios/actors/{actor}.json", **_ig(ig), **_blocks(key)})
 
 ELEMENTS[GDHCN[0]] = ("ApplicationComponent", GDHCN[1],
                       "WHO’s Global Digital Health Certification Network: the trust list of participants’ public keys that lets a Lao clinic believe a Thai certificate, and a Thai clinic a Lao link, with no connection between the two countries' systems. Not a building block of the RA's Integrated View: it sits beneath both countries.",
-                      {"scenarioActor": f"scenarios/actors/{GDHCN[2]}.json", "spec": "https://smart.who.int/trust/"})
+                      {"scenarioActor": f"scenarios/actors/{GDHCN[2]}.json", "spec": "https://smart.who.int/trust/", **_blocks(GDHCN[0])})
 
 ELEMENTS[TRUST_FRAMEWORK[0]] = ("Requirement", TRUST_FRAMEWORK[1],
                                 "The specifications both countries’ systems conform to, so that a certificate signed in one is read in the other: HCERT and the DVC payload (WHO SMART Trust), and the Verifiable Health Link (WHO SMART Trust and IHE ITI VHL). GDHCN realizes the trust network they assume.",

@@ -425,5 +425,50 @@
         }
       ]
     }
+  ],
+  "ideas": [
+    {
+      "id": "same-language",
+      "title": "Speak the same language",
+      "text": "FHIR and WHO SMART Guidelines mean a dose recorded in Thailand has the same structure and codes in Lao PDR.",
+      "blocks": [
+        "fhir-r4",
+        "smart-imm",
+        "conceptmap",
+        "ips"
+      ]
+    },
+    {
+      "id": "trust-without-phoning-home",
+      "title": "Trust without phoning home",
+      "text": "Countries sign records and publish their keys on WHO GDHCN, so anyone can verify a certificate, even offline.",
+      "blocks": [
+        "dvc",
+        "gdhcn",
+        "provenance"
+      ]
+    },
+    {
+      "id": "share-without-copying",
+      "title": "Share without copying",
+      "text": "Data stays in its home country. The family hands out a time-limited key, and every access is logged at home.",
+      "blocks": [
+        "vhl",
+        "pcf",
+        "ohs-info-gateway",
+        "audit"
+      ]
+    },
+    {
+      "id": "open-tools-offline-first",
+      "title": "Open tools, offline first",
+      "text": "Open Health Stack gives every app offline FHIR storage and configurable forms, one secure front door to the national server, and analytics on top.",
+      "blocks": [
+        "ohs-fhir-sdk",
+        "ohs-sdc",
+        "ohs-info-gateway",
+        "ohs-data-pipes"
+      ]
+    }
   ]
 }

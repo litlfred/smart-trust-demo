@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.1.0",
+  "$schema": "user-scenario/0.2.0",
   "id": "j1-born-abroad",
   "title": "J1 — Born abroad",
   "description": "A Lao baby gets his first vaccines in Thailand and leaves with signed paper cards.",
@@ -63,7 +63,9 @@
         "summary": "Two paper cards go home with Khamla",
         "carrier": "Printed QR code",
         "payload": "Signed DVC: HC1: prefix → CBOR + COSE_Sign1",
-        "offline": true
+        "offline": true,
+        "from": "Thai hospital",
+        "to": "Family (paper)"
       },
       "whatIf": [
         {
@@ -134,7 +136,59 @@
         "Patient/TrustDemoThSomsack",
         "Immunization/TrustDemoJ1HepB",
         "Immunization/TrustDemoJ1Bcg"
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j1-born-abroad.jpg",
+        "alt": "At Chiang Rai Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsack"
+      },
+      "fhirChanges": [
+        {
+          "resource": "Immunization ×2",
+          "change": "Created in the Thai system (Hep B, BCG)",
+          "why": "The certificate can only carry what this record holds, so product, date, lot and dose number are required.",
+          "profile": "TrustDemoThImmunization",
+          "profileOf": "TH",
+          "examples": [
+            "Immunization/TrustDemoJ1HepB",
+            "Immunization/TrustDemoJ1Bcg"
+          ],
+          "spec": "https://hl7.org/fhir/immunization.html"
+        },
+        {
+          "resource": "DVC payload",
+          "change": "Signed CBOR/COSE certificate",
+          "why": "Not FHIR: the HCERT certificate that travels on paper, verifiable offline with Thailand’s key from GDHCN.",
+          "spec": "https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode"
+        }
       ]
+    }
+  ],
+  "scene": [
+    {
+      "icon": "hospital",
+      "label": "Thai hospital"
+    },
+    {
+      "icon": "baby",
+      "label": "Somsack is born"
+    },
+    {
+      "icon": "qr",
+      "label": "Two signed paper QR cards"
+    }
+  ],
+  "references": [
+    {
+      "label": "User scenario in the IG",
+      "href": "journeys.html#j1--born-abroad-thailand-birth-day",
+      "rel": "scenario"
+    }
+  ],
+  "views": [
+    {
+      "model": "0.1.0",
+      "view": "id-18d2033f445f5b8895f20719cb97bd91",
+      "label": "J1"
     }
   ]
 }

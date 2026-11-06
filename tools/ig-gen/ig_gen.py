@@ -291,7 +291,7 @@ def user_scenarios():
         out.append(cur)
         cur = nxt.get(cur["id"])
     if len(out) != len(docs):
-        sys.exit("ig-gen: scenarios/user-scenarios/ is not one follows chain (run tools/user-scenarios/check.py)")
+        sys.exit("ig-gen: scenarios/user-scenarios/ is not one follows chain (follows must make one chain, without a loop)")
     return out
 
 

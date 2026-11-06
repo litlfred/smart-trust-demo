@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.1.0",
+  "$schema": "user-scenario/0.2.0",
   "id": "j2-found-at-home",
   "title": "J2 — Found at home",
   "description": "A health worker registers him offline and records the cards as \"reported, not yet verified\".",
@@ -50,7 +50,9 @@
         "summary": "The doses, read but not checked, go into the registration",
         "carrier": "Camera scan",
         "payload": "Decoded dose data (not yet saved)",
-        "offline": true
+        "offline": true,
+        "from": "Paper card",
+        "to": "CHW phone"
       },
       "whatIf": [
         {
@@ -91,7 +93,11 @@
         "STT-B45-002",
         "STT-ZIP-002",
         "STT-CBR-003"
-      ]
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j2-found-at-home.jpg",
+        "alt": "In a Lao village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on"
+      }
     },
     {
       "id": "J2b",
@@ -140,7 +146,9 @@
         "summary": "Referral to the District Health Center",
         "carrier": "Offline form (FHIR Questionnaire), then sync via Info Gateway",
         "payload": "Patient + Group + unverified Immunization ×2 + referral",
-        "offline": true
+        "offline": true,
+        "from": "Khamla (verbal) + the decoded cards",
+        "to": "CHW phone → national server (on sync)"
       },
       "whatIf": [
         {
@@ -187,7 +195,99 @@
         "Immunization/TrustDemoJ2HepBReported",
         "Immunization/TrustDemoJ2BcgReported",
         "ServiceRequest/TrustDemoJ2Referral"
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j2-found-at-home.jpg",
+        "alt": "In a Lao village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on"
+      },
+      "fhirChanges": [
+        {
+          "resource": "Patient",
+          "change": "Created with a temporary Lao ID",
+          "why": "He is not in the Lao civil registry yet; a temporary id lets the CHW, clinic and portal all mean the same child. Thailand only gave him a hospital number.",
+          "profile": "TrustDemoLaoPatient",
+          "profileOf": "LA",
+          "examples": [
+            "Patient/TrustDemoSomsack",
+            "Patient/TrustDemoThSomsack"
+          ],
+          "spec": "https://hl7.org/fhir/patient.html"
+        },
+        {
+          "resource": "Group (household)",
+          "change": "Somsack added as member",
+          "why": "CHW work is organised by household: the roster is how a missing newborn is noticed.",
+          "profile": "TrustDemoLaoHousehold",
+          "profileOf": "LA",
+          "examples": [
+            "Group/TrustDemoHousehold"
+          ],
+          "spec": "https://hl7.org/fhir/group.html"
+        },
+        {
+          "resource": "QuestionnaireResponse",
+          "change": "The registration form, answered offline (SDC)",
+          "why": "The form is configuration, not code; keeping the answers lets every extracted record trace back to what was asked.",
+          "profile": "TrustDemoLaoRegistration",
+          "profileOf": "LA",
+          "examples": [
+            "QuestionnaireResponse/TrustDemoJ2Registration",
+            "Questionnaire/TrustDemoHouseholdRegistration"
+          ],
+          "spec": "https://hl7.org/fhir/uv/sdc/"
+        },
+        {
+          "resource": "Immunization ×2",
+          "change": "Created as primarySource = false",
+          "why": "Read without checking the signature, so kept as reported: not lost, but not counted by the schedule yet.",
+          "profile": "TrustDemoLaoReportedImmunization",
+          "profileOf": "LA",
+          "examples": [
+            "Immunization/TrustDemoJ2HepBReported",
+            "Immunization/TrustDemoJ1HepB"
+          ],
+          "spec": "https://hl7.org/fhir/immunization.html"
+        },
+        {
+          "resource": "ServiceRequest",
+          "change": "Referral to District Health Center",
+          "why": "The phone cannot verify a DVC but the clinic can; the referral points at exactly the doses to check.",
+          "profile": "TrustDemoLaoReferral",
+          "profileOf": "LA",
+          "examples": [
+            "ServiceRequest/TrustDemoJ2Referral"
+          ],
+          "spec": "https://hl7.org/fhir/servicerequest.html"
+        }
       ]
+    }
+  ],
+  "scene": [
+    {
+      "icon": "home",
+      "label": "Home visit, Village 04"
+    },
+    {
+      "icon": "wifi-off",
+      "label": "No signal"
+    },
+    {
+      "icon": "phone",
+      "label": "CHW phone: registered, reported"
+    }
+  ],
+  "references": [
+    {
+      "label": "User scenario in the IG",
+      "href": "journeys.html#j2--found-at-home-lao-pdr-3-weeks-later",
+      "rel": "scenario"
+    }
+  ],
+  "views": [
+    {
+      "model": "0.1.0",
+      "view": "id-099b088dc52f57289c647bfb64e8c4d6",
+      "label": "J2"
     }
   ]
 }

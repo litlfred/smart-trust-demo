@@ -51,7 +51,7 @@
       "graphTypologies": [
         "scenarios"
       ],
-      "description": "The roles that play the journeys' lanes, the personas and systems that play them (each naming the WHO SMART Trust, smart-trust-phw and IHE ITI VHL ActorDefinitions it instantiates), and the user stories. Every person is fictional. scenarios/user-scenarios/ holds one user scenario per journey (J1, J2, J3, J4.0, J4.1) in the draft user-scenario/0.1.0 shape (docs/proposals/user-scenario/), from which tools/ig-gen/ig_gen.py writes the User scenarios section of docs/journeys.md; tools/user-scenarios/check.py checks them in CI."
+      "description": "The roles that play the journeys' lanes, the personas and systems that play them (each naming the WHO SMART Trust, smart-trust-phw and IHE ITI VHL ActorDefinitions it instantiates), and the user stories. Every person is fictional. scenarios/user-scenarios/ holds one user scenario per journey (J1, J2, J3, J4.0, J4.1) and the group journey J4, in the harness's user-scenario kind, from which tools/ig-gen/ig_gen.py writes the User scenarios section of docs/journeys.md; the harness's check:journey-refs checks their references in CI."
     },
     {
       "id": "memory",
@@ -144,7 +144,7 @@
       "graphTypologies": [
         "user-scenario"
       ],
-      "description": "The journeys J1 to J4.1 as user scenarios (journey maps), J4 as the group journey over J4.0 and J4.1, and the building-block catalogue their steps use (building-blocks.json)."
+      "description": "The journeys J1 to J4.1 as user scenarios (journey maps), J4 as the group journey over J4.0 and J4.1, each with its scene, illustrations, FHIR changes and ArchiMate views. The building-block catalogue their steps use is in archimate/building-blocks/."
     },
     {
       "id": "workshops",
@@ -161,6 +161,22 @@
         "code-list"
       ],
       "description": "The record-trust ladder the journeys' steps name."
+    },
+    {
+      "id": "building-blocks",
+      "path": "archimate/building-blocks/",
+      "graphTypologies": [
+        "building-blocks"
+      ],
+      "description": "The building-block catalogue the journeys steps use."
+    },
+    {
+      "id": "fhir-artifact-index",
+      "path": "fhir-artifact-index/",
+      "graphTypologies": [
+        "fhir-artifact-index"
+      ],
+      "description": "The artefact index, built at publish from the IG AST."
     }
   ],
   "visualisers": [

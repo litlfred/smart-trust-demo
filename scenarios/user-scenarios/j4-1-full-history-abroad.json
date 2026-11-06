@@ -74,7 +74,9 @@
         "summary": "Journey complete — full circle back to Thailand",
         "carrier": "HTTPS (VHL fetch) across the border",
         "payload": "Encrypted IPS Bundle → decrypted in memory",
-        "offline": false
+        "offline": false,
+        "from": "Lao national server",
+        "to": "Thai clinic viewer"
       },
       "whatIf": [
         {
@@ -150,6 +152,36 @@
           "href": "https://profiles.ihe.net/ITI/VHL/",
           "rel": "specifies"
         }
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j4-crossing-back.jpg",
+        "alt": "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+      },
+      "fhirChanges": [
+        {
+          "resource": "Provenance",
+          "change": "Summary viewed, not stored in Thailand",
+          "why": "The Thai clinic keeps a note of what it saw and how it was verified, without copying the Lao record.",
+          "profile": "TrustDemoThVhlReceipt",
+          "profileOf": "TH",
+          "examples": [
+            "Provenance/TrustDemoJ41Received",
+            "Bundle/TrustDemoJ4Ips"
+          ],
+          "spec": "https://hl7.org/fhir/provenance.html"
+        },
+        {
+          "resource": "AuditEvent",
+          "change": "Created at Lao Info Gateway",
+          "why": "The data stays home, so the access log does too: the family can see who looked, from where and when.",
+          "profile": "TrustDemoLaoVhlAccess",
+          "profileOf": "LA",
+          "examples": [
+            "AuditEvent/TrustDemoJ41Access",
+            "AuditEvent/TrustDemoJ41WrongPasscode"
+          ],
+          "spec": "https://profiles.ihe.net/ITI/BALP/"
+        }
       ]
     }
   ],
@@ -158,7 +190,14 @@
     {
       "model": "0.1.0",
       "view": "id-42b408eba96159c187c0612ce7c2c6cf",
-      "label": "J4.1 on the DPI-H RA"
+      "label": "J4.1"
+    }
+  ],
+  "references": [
+    {
+      "label": "User scenario in the IG",
+      "href": "journeys.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later",
+      "rel": "scenario"
     }
   ]
 }
