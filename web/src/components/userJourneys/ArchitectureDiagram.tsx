@@ -9,13 +9,23 @@ import { ExtLink, countryChip } from './shared';
  * WHO GDHCN as the foundation both countries build on. Every building-block
  * name links to its element page in the smart-ra ArchiMate model; every
  * component links to its place in the SMART Trust demonstrator IG.
+ *
+ * The components are not written here: each is a part of a system actor
+ * (`meta.parts` in scenarios/actors/: its name, the RA block it plays, what
+ * it does and its IG artefact), in the actor's country (`meta.country`), and
+ * its journeys are those whose BPMN (processes/content/) has a lane played by
+ * one of its system's roles. All three are read at build time. Only where
+ * each RA block is drawn, and how, is kept here.
  */
 
 const RA_MODEL = 'https://litlfred.github.io/smart-ra/en/dpi-h-ra/archimate/0.3.0-draft.1';
 const ra = (id: string) => `${RA_MODEL}/elements/${id}/`;
 const RA_VIEW = `${RA_MODEL}/views/id-b16aba0577295090bd77388f73c61239/`;
 
-/** DPI-H RA elements (smart-ra ArchiMate model 0.3.0-draft.1). */
+/**
+ * DPI-H RA elements (smart-ra ArchiMate model 0.3.0-draft.1): their element
+ * ids, for the links. A part names its block by the RA's own name.
+ */
 export const RA = {
   pos: { name: 'Point-of-service & functional applications', id: 'id-c9b5f2ae923b5e38801bd1dbf8b382b9' },
   reusable: { name: 'DPI-H reusable components', id: 'id-08403902fa3e5df4920a1fbe8eddd82f' },
@@ -38,65 +48,72 @@ export const RA = {
 };
 export type RaEl = (typeof RA)[keyof typeof RA];
 
-export type Comp = { ra: RaEl; name: string; stages: string; href: string };
+/** The layout: each layer's row, its tone, and the RA blocks drawn in it, in order. */
+const LAYOUT: { ra: RaEl; tone: string; blocks: RaEl[] }[] = [
+  { ra: RA.pos, tone: 'bg-teal-50 border-teal-200', blocks: [RA.providerSystems, RA.chw, RA.citizenApps] },
+  { ra: RA.reusable, tone: 'bg-sky-50 border-sky-200', blocks: [RA.terminology, RA.cdss, RA.hmis] },
+  { ra: RA.shared, tone: 'bg-indigo-50 border-indigo-200', blocks: [RA.lhr, RA.productRegistry, RA.clientRegistry, RA.facilityRegistry, RA.workforceRegistry] },
+  { ra: RA.dpif, tone: 'bg-violet-50 border-violet-200', blocks: [RA.trustServices, RA.mediator] },
+];
+
+type Country = 'Thailand' | 'Lao PDR';
+type ActorPart = { id: string; title: string; raBlock: string; description: string; ig?: string };
+type Actor = { id: string; title: string; kind: string; roles?: string[]; meta?: { country?: string; parts?: ActorPart[] } };
+
+const ACTORS = Object.values(
+  import.meta.glob('../../../../scenarios/actors/*.json', { eager: true, import: 'default' }) as Record<string, Actor>,
+).sort((a, b) => a.id.localeCompare(b.id));
+
+/** Each journey code (J1, J4.0, ...) with the roles that play its BPMN lanes. */
+const JOURNEY_LANES: { code: string; roles: Set<string> }[] = Object.values(
+  import.meta.glob('../../../../processes/content/*.bpmn', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>,
+)
+  .map((xml) => ({
+    code: /<bpmn:process\b[^>]*\sname="(J\d+(?:\.\d+)?)\s/.exec(xml)?.[1] ?? '',
+    roles: new Set(Array.from(xml.matchAll(/<bpmn:lane\b[^>]*\spartitionElementRef="([^"]+)"/g), (m) => m[1])),
+  }))
+  .filter((j) => j.code)
+  .sort((a, b) => a.code.localeCompare(b.code, 'en', { numeric: true }));
+
+const journeysOf = (a: Actor) => JOURNEY_LANES.filter((j) => (a.roles ?? []).some((r) => j.roles.has(r))).map((j) => j.code);
+
+/** A part's IG artefact (`StructureDefinition/X`, `ConceptMap/Y`) as its page in the IG. */
+const igPage = (ref?: string) => {
+  if (!ref) return undefined;
+  const [type, id] = ref.split('/');
+  return type === 'StructureDefinition' ? IG.profile(id) : IG.example(type, id);
+};
+
+export type Comp = { ra: RaEl; name: string; description: string; system: string; stages: string; first: number; href?: string };
 export type Layer = { ra: RaEl; tone: string; th: Comp[]; la: Comp[] };
 
-export const LAYERS: Layer[] = [
-  {
-    ra: RA.pos,
-    tone: 'bg-teal-50 border-teal-200',
-    th: [
-      { ra: RA.providerSystems, name: 'Birth hospital EHR', stages: 'J1', href: IG.profile('TrustDemoThImmunization') },
-      { ra: RA.providerSystems, name: 'Clinic VHL viewer', stages: 'J4.1', href: IG.profile('TrustDemoThVhlReceipt') },
-    ],
-    la: [
-      { ra: RA.chw, name: 'CHW app (OHS, SDC forms)', stages: 'J2', href: IG.profile('TrustDemoLaoRegistration') },
-      { ra: RA.providerSystems, name: 'District health centre EHR', stages: 'J3', href: IG.profile('TrustDemoLaoImmunization') },
-      { ra: RA.citizenApps, name: 'Family wallet', stages: 'J4.0', href: IG.example('Consent', 'TrustDemoJ4Consent') },
-    ],
-  },
-  {
-    ra: RA.reusable,
-    tone: 'bg-sky-50 border-sky-200',
-    th: [],
-    la: [
-      { ra: RA.terminology, name: 'ConceptMap: product → Lao EPI', stages: 'J3', href: IG.example('ConceptMap', 'TrustDemoProductToLaoEpi') },
-      { ra: RA.cdss, name: 'Infant schedule (PlanDefinition)', stages: 'J3', href: IG.example('PlanDefinition', 'TrustDemoLaoInfantSchedule') },
-      { ra: RA.hmis, name: 'OHS FHIR Data Pipes', stages: 'J3', href: SPEC.ohsPipes },
-    ],
-  },
-  {
-    ra: RA.shared,
-    tone: 'bg-indigo-50 border-indigo-200',
-    th: [
-      { ra: RA.lhr, name: 'Hospital immunization record', stages: 'J1', href: IG.example('Immunization', 'TrustDemoJ1HepB') },
-      { ra: RA.productRegistry, name: 'Vaccine product codes', stages: 'J1', href: IG.example('CodeSystem', 'TrustDemoVaccineProduct') },
-    ],
-    la: [
-      { ra: RA.clientRegistry, name: 'Child + household', stages: 'J2', href: IG.profile('TrustDemoLaoPatient') },
-      { ra: RA.facilityRegistry, name: 'Clinics and health centres', stages: 'J2, J3', href: IG.example('Organization', 'TrustDemoVientianeDhc') },
-      { ra: RA.workforceRegistry, name: 'CHWs and nurses', stages: 'J2, J3', href: IG.example('Practitioner', 'TrustDemoVilay') },
-      { ra: RA.lhr, name: 'National FHIR server', stages: 'J3, J4', href: IG.example('Bundle', 'TrustDemoJ4Ips') },
-    ],
-  },
-  {
-    ra: RA.dpif,
-    tone: 'bg-violet-50 border-violet-200',
-    th: [{ ra: RA.trustServices, name: 'DVC signer (HCERT)', stages: 'J1', href: SPEC.trust }],
-    la: [
-      { ra: RA.trustServices, name: 'DVC verifier, VHL issuer', stages: 'J3, J4', href: IG.profile('TrustDemoLaoDvcVerification') },
-      { ra: RA.mediator, name: 'OHS Info Gateway + access log', stages: 'J4.1', href: IG.profile('TrustDemoLaoVhlAccess') },
-    ],
-  },
-];
+const BLOCK_BY_NAME = new Map(LAYOUT.flatMap((l) => l.blocks).map((b) => [b.name, b]));
+
+const COMPS: (Comp & { country: Country })[] = ACTORS.flatMap((a) =>
+  (a.meta?.parts ?? []).map((p) => {
+    const block = BLOCK_BY_NAME.get(p.raBlock);
+    if (!block) throw new Error(`scenarios/actors/${a.id}.json: part ${p.id} plays ${p.raBlock}, which the architecture view does not draw`);
+    const country = a.meta?.country;
+    if (country !== 'Thailand' && country !== 'Lao PDR') throw new Error(`scenarios/actors/${a.id}.json: meta.country is ${country}`);
+    const js = journeysOf(a);
+    const first = js.length ? JOURNEY_LANES.findIndex((j) => j.code === js[0]) : JOURNEY_LANES.length;
+    return { ra: block, name: p.title, description: p.description, system: a.title, stages: js.join(', '), first, href: igPage(p.ig), country };
+  }),
+);
+
+/** A layer's parts in one country: by block, then in the order of the first journey their system takes part in. */
+const inLayer = (l: (typeof LAYOUT)[number], country: Country) =>
+  l.blocks.flatMap((b) => COMPS.filter((c) => c.ra === b && c.country === country).sort((x, y) => x.first - y.first));
+
+export const LAYERS: Layer[] = LAYOUT.map((l) => ({ ra: l.ra, tone: l.tone, th: inLayer(l, 'Thailand'), la: inLayer(l, 'Lao PDR') }));
 
 const Box: React.FC<{ c: Comp }> = ({ c }) => (
   <div className="rounded-md border border-slate-300 bg-white px-2 py-1.5 shadow-[1px_1px_0_rgba(15,23,42,0.08)]">
     <a href={ra(c.ra.id)} target="_blank" rel="noopener noreferrer" className="block text-[9px] uppercase tracking-wider text-slate-500 font-semibold hover:text-sky-700" title="DPI-H RA element (smart-ra)">
       {c.ra.name}
     </a>
-    <div className="text-xs font-semibold leading-snug">
-      <ExtLink href={c.href}>{c.name}</ExtLink>
+    <div className="text-xs font-semibold leading-snug" title={`${c.system}: ${c.description}`}>
+      {c.href ? <ExtLink href={c.href}>{c.name}</ExtLink> : c.name}
     </div>
     <div className="text-[10px] font-mono text-slate-500">{c.stages}</div>
   </div>
@@ -110,7 +127,7 @@ const Cell: React.FC<{ comps: Comp[]; country: 'Thailand' | 'Lao PDR' }> = ({ co
     ) : (
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
         {comps.map((c) => (
-          <Box key={c.name} c={c} />
+          <Box key={`${c.system}:${c.name}`} c={c} />
         ))}
       </div>
     )}
@@ -134,7 +151,7 @@ export const ArchitectureDiagram: React.FC = () => (
         <ExtLink href={DPI_H_RA}>DPI-H RA</ExtLink>). Underneath both is WHO GDHCN: the shared trust list that lets a Lao clinic
         believe a Thai certificate, and a Thai clinic believe a Lao link, with no direct connection between the two. Small
         capitals name the RA building block; the component links to its place in the{' '}
-        <ExtLink href={IG.site}>IG</ExtLink>; codes are the journey moments.
+        <ExtLink href={IG.site}>IG</ExtLink> (hover for what it does); codes are the journeys its system takes part in.
       </p>
     </div>
 
