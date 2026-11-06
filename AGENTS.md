@@ -38,8 +38,10 @@ step traces to smart-trust-tools' `req:` nodes by id.
 - **Only open standards** are normative references: IETF, W3C, HL7 FHIR, IHE,
   WHO. No paywalled ISO.
 - **gh-pages is published by an agent, not a workflow.** main publishes to the
-  root; every other branch to `STAGING/<branch-slug>/`. The walkthrough goes
-  to `vaxlink/` inside that, by `web/scripts/publish.sh`, after the site.
+  root; every other branch to `branches/<branch-slug>/` (the harness's
+  preview prefix since 2026-11-05; older previews stay under `STAGING/`). The
+  walkthrough goes to `vaxlink/` inside that, by `web/scripts/publish.sh`,
+  after the site.
 - **The walkthrough (`web/`) restates nothing it can read.** Actors, BPMN
   drawings and moment pictures are imported from `scenarios/actors/`,
   `processes/content/` and `docs/images/` at build time; the ArchiMate views
@@ -75,7 +77,7 @@ which also writes into `cat-harness/`) leave that mount "modified"; re-lay it
 with `rm -rf <layer>` and the clone line above, then `mount:lock`. Publish
 gh-pages with `bun cat-harness-tools/scripts/stage-local.ts --repo . --publisher ig`,
 then `sh web/scripts/publish.sh`, which builds `web/` and places it at
-`vaxlink/` (or `STAGING/<branch>/vaxlink/`) beside the site of the same
+`vaxlink/` (or `branches/<branch>/vaxlink/`) beside the site of the same
 commit. The site's publish keeps `vaxlink/` at the root because
 `index.config.json` lists it in `site.build.keep`; a branch's site publish
-replaces `STAGING/<branch>/` whole, so the walkthrough always goes second.
+replaces `branches/<branch>/` whole, so the walkthrough always goes second.
