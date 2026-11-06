@@ -1,0 +1,60 @@
+# Arabic translation of upstream/who-smart-trust-phw-receive-a-vhl
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: smart-trust-demo\n"
+"POT-Creation-Date: 2026-11-06T09:26:50.962Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: docs/upstream/who-smart-trust-phw-receive-a-vhl.md:8
+msgid "Filed as <a0>smart-trust-phw#18</a0>; fix offered as <a1>smart-trust-phw#19</a1>."
+msgstr "سُجِّلت بوصفها <a0>smart-trust-phw#18</a0>؛ واقتُرح الإصلاح في <a1>smart-trust-phw#19</a1>."
+
+#: docs/upstream/who-smart-trust-phw-receive-a-vhl.md:34
+msgid "Found while mapping the user journeys of litlfred/smart-trust-demo (a CHW app, a clinic EHR and a hospital system abroad each receive a VDHC or VHL from the Holder) to the guide's actors."
+msgstr "اكتُشفت أثناء ربط رحلات المستخدم في litlfred/smart-trust-demo (يتلقى كلٌّ من تطبيق عامل الصحة المجتمعي (CHW) والسجل الصحي الإلكتروني (EHR) للعيادة ونظام مستشفى في الخارج شهادة VDHC أو رابط VHL من الحامل) بالجهات الفاعلة في الدليل."
+
+#: docs/upstream/who-smart-trust-phw-receive-a-vhl.md:12
+#, python-brace-format
+msgid "In {code0}, the Requirements instance {code1} (\"Receive VHL or VDHC\") reads:"
+msgstr "في {code0}، ينص مثيل المتطلبات {code1} («Receive VHL or VDHC» — استلام VHL أو VDHC) على ما يلي:"
+
+#: docs/upstream/who-smart-trust-phw-receive-a-vhl.md:6
+msgid "Issue for WorldHealthOrganization/smart-trust-phw"
+msgstr "مسألة لـ WorldHealthOrganization/smart-trust-phw"
+
+#: docs/upstream/who-smart-trust-phw-receive-a-vhl.md:20
+#, python-brace-format
+msgid "The capability described, receiving a VHL or VDHC from a Holder, is the Receiver's ({code0}: \"Receiver (system) of Verifiable Health Certificate or Verifiable Health Link\"). Its counterpart {code1} names the Holder. Proposed fix:"
+msgstr "القدرة الموصوفة، أي استلام VHL أو VDHC من الحامل، هي قدرة الجهة المُستقبِلة ({code0}: «الجهة المُستقبِلة (نظام) للشهادة الصحية القابلة للتحقق أو للرابط الصحي القابل للتحقق»). أما نظيرها {code1} فيسمّي الحامل. الإصلاح المقترح:"
+
+#: docs/upstream/who-smart-trust-phw-receive-a-vhl.md:30
+msgid "The same change is applied in litlfred/smart-trust-phw (https://github.com/litlfred/smart-trust-phw/pull/1) and can be offered as a pull request here."
+msgstr "طُبِّق التغيير نفسه في litlfred/smart-trust-phw (https://github.com/litlfred/smart-trust-phw/pull/1) ويمكن تقديمه هنا بوصفه طلب سحب (pull request)."
+
+#: docs/upstream/who-smart-trust-phw-receive-a-vhl.md:10
+#, python-brace-format
+msgid "Title: Requirement {code0} names the Issuer as its actor; it should be the Receiver"
+msgstr "العنوان: المتطلب {code0} يسمّي الجهة المُصدِرة بوصفها الجهة الفاعلة فيه؛ وينبغي أن تكون الجهة المُستقبِلة"

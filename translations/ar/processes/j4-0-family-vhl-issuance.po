@@ -1,0 +1,114 @@
+# Arabic translation of processes/j4-0-family-vhl-issuance
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: j4-0-family-vhl-issuance\n"
+"POT-Creation-Date: 2026-11-06T09:25:07.098Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:39
+#. Diagram label
+msgid "Assemble each member&#x27;s IPS and DVCs"
+msgstr "تجميع ملخص المريض الدولي (IPS) وشهادات DVC لكل فرد"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:19
+#. Diagram label
+msgid "Caregiver"
+msgstr "مقدِّم الرعاية"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:38
+#. Diagram label
+msgid "Choose who to share, with a passcode and an expiry"
+msgstr "اختيار من تُشارَك سجلاته، مع رمز مرور وتاريخ انتهاء"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram label
+msgid "Encrypt the documents and publish a passcode-protected manifest"
+msgstr "تشفير المستندات ونشر بيان محمي برمز مرور"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:33
+#. Diagram label
+msgid "Family phone"
+msgstr "هاتف الأسرة"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:37
+#. Diagram label
+msgid "Family plans to travel abroad"
+msgstr "تخطط الأسرة للسفر إلى الخارج"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:43
+#. Diagram label
+msgid "Finish the HC1 QR text"
+msgstr "إنهاء نص QR بصيغة HC1"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:30
+#. Diagram label
+msgid "Issuer signing key"
+msgstr "مفتاح التوقيع لدى الجهة المُصدِرة"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:9
+#. Diagram label
+msgid "J4.0 Issue the family&#x27;s records to one phone as VHLs"
+msgstr "J4.0 إصدار سجلات الأسرة إلى هاتف واحد بوصفها روابط VHL"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:12
+#. Diagram element documentation
+msgid "J4.0, Outbound family travel, \"One Family, One Phone\". Before travelling, the caregiver who holds the family's one shared phone asks Country B's national portal for each family member's records, choosing for each a passcode the family can say aloud and an expiry (for example 14 days); the portal records that choice as the holder's consent to share (FHIR Consent, IHE Privacy Consent on FHIR). The portal, a VHL Sharer (IHE ITI VHL) and Issuer (SMART Trust, smart-trust-phw), issues one passcode-protected Verifiable Health Link per member: the documents (IPS, DVCs) encrypted as JWE (STT-VHL-007) behind an ITI-YY5 manifest, the link in the SMART Health Links payload format at HCERT key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC. The shared phone holds the QRs for the caregiver, the VHL Holder. The records themselves stay hosted in Country B: the QR carries only a pointer and a key."
+msgstr "J4.0، سفر الأسرة إلى الخارج، «أسرة واحدة، هاتف واحد». قبل السفر، يطلب مقدِّم الرعاية الذي يحمل هاتف الأسرة المشترك الوحيد من البوابة الوطنية للبلد B سجلات كل فرد من أفراد الأسرة، مختاراً لكلٍّ منها رمز مرور يمكن للأسرة نطقه بصوت عالٍ وتاريخ انتهاء (مثلاً 14 يوماً)؛ وتسجّل البوابة ذلك الاختيار بوصفه موافقة الحامل على المشاركة (Consent في FHIR، وIHE Privacy Consent on FHIR). وتُصدر البوابة، بصفتها جهة مُشارِكة لـ VHL (IHE ITI VHL) وجهة مُصدِرة (SMART Trust، smart-trust-phw)، رابطاً صحياً قابلاً للتحقق محمياً برمز مرور لكل فرد: المستندات (IPS، وشهادات DVC) مشفّرة بصيغة JWE (STT-VHL-007) خلف بيان ITI-YY5، والرابط بتنسيق حمولة SMART Health Links عند المفتاح 5 في HCERT (STT-VHL-001، STT-VHL-002)، موقَّعاً بشهادة DSC الخاصة بالبلد B. ويحتفظ الهاتف المشترك برموز QR لمقدِّم الرعاية، حامل VHL. وتبقى السجلات نفسها مستضافة في البلد B: فرمز QR لا يحمل إلا مؤشراً ومفتاحاً."
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:24
+#. Diagram label
+msgid "National health portal"
+msgstr "البوابة الصحية الوطنية"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:45
+#. Diagram label
+msgid "One phone, one QR per family member"
+msgstr "هاتف واحد، ورمز QR واحد لكل فرد من أفراد الأسرة"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:41
+#. Diagram label
+msgid "Prepare the HCERT carrying the VHL at key 5"
+msgstr "تحضير HCERT يحمل VHL عند المفتاح 5"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:42
+#. Diagram label
+msgid "Sign with Country B&#x27;s DSC key"
+msgstr "التوقيع بمفتاح DSC الخاص بالبلد B"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
+#. Diagram label
+msgid "Store one VHL QR per member on the shared phone"
+msgstr "تخزين رمز QR واحد لـ VHL لكل فرد على الهاتف المشترك"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram element documentation
+msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+msgstr "توليد مفتاح VHL (STT-VHL-004)، وJWE dir/A256GCM (STT-VHL-007)، وعلامة رمز المرور وتاريخ الانتهاء (STT-VHL-009)؛ ولا تُجري المكتبة أي عمليات إدخال/إخراج (STT-VHL-010)."
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:41
+#. Diagram element documentation
+msgid "VHL payload as a CBOR map at key 5 (STT-VHL-002); two-phase signing (STT-ISS-004)."
+msgstr "حمولة VHL بوصفها خريطة CBOR عند المفتاح 5 (STT-VHL-002)؛ والتوقيع على مرحلتين (STT-ISS-004)."

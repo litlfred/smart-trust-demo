@@ -1,0 +1,154 @@
+# Arabic translation of processes/j4-1-vhl-point-of-care
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: j4-1-vhl-point-of-care\n"
+"POT-Creation-Date: 2026-11-06T09:25:07.099Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:44
+#. Diagram label
+msgid "A child of the family needs care abroad"
+msgstr "طفل من الأسرة يحتاج إلى رعاية في الخارج"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:22
+#. Diagram label
+msgid "Caregiver"
+msgstr "مقدِّم الرعاية"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram label
+msgid "Check the passcode, return the manifest and log the access"
+msgstr "التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:52
+#. Diagram label
+msgid "Decrypt the IPS and DVCs"
+msgstr "فك تشفير ملخص المريض الدولي (IPS) وشهادات DVC"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:26
+#. Diagram label
+msgid "Family phone"
+msgstr "هاتف الأسرة"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:48
+#. Diagram label
+msgid "HCERT verified?"
+msgstr "هل تم التحقق من HCERT؟"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:10
+#. Diagram label
+msgid "J4.1 Read a family member&#x27;s records at the point of care abroad"
+msgstr "J4.1 قراءة سجلات فرد من الأسرة في نقطة تقديم الرعاية في الخارج"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:13
+#. Diagram element documentation
+msgid "J4.1. Abroad, a child of the family needs care. The caregiver, the VHL Holder (IHE ITI VHL; Holder in SMART Trust and smart-trust-phw, requirement provide-a-vhl-to-a-receiver), opens her QR on the family phone and tells the passcode. The hospital system, a VHL Receiver (Receiver in SMART Trust and smart-trust-phw), verifies the HCERT against the GDHCN trust list, requests the manifest by ITI-YY5 with an HTTP Message Signature (STT-VHL-005, STT-VHL-006, STT-VHL-008) and decrypts the documents (STT-VHL-007). Country B&#x27;s portal checks the passcode, returns the manifest and logs every request, granted or refused, as an AuditEvent at home (IHE BALP). If the HCERT does not verify, there is no digital verification: the VHL is not followed and the records are treated like paper. As in J3, loading the DID documents is a PRECONDITION of this visit, not a step in it: the hospital verifies against its cached copy of the trust list and needs no connection to do so. It refreshes that cache nightly or hourly, where an offline site such as the J3 clinic refreshes about weekly."
+msgstr "J4.1. في الخارج، يحتاج طفل من الأسرة إلى رعاية. تفتح مقدِّمة الرعاية، حاملة VHL (IHE ITI VHL؛ الحامل في SMART Trust وsmart-trust-phw، المتطلب provide-a-vhl-to-a-receiver)، رمز QR الخاص بها على هاتف الأسرة وتنطق رمز المرور. ويتحقق نظام المستشفى، بصفته جهة مُستقبِلة لـ VHL (الجهة المُستقبِلة في SMART Trust وsmart-trust-phw)، من HCERT مقابل قائمة الثقة في GDHCN، ويطلب البيان عبر ITI-YY5 مع توقيع رسالة HTTP (STT-VHL-005، STT-VHL-006، STT-VHL-008) ويفك تشفير المستندات (STT-VHL-007). وتتحقق بوابة البلد B من رمز المرور، وتعيد البيان، وتسجّل كل طلب، مقبولاً كان أو مرفوضاً، بوصفه AuditEvent في البلد الأم (IHE BALP). وإذا لم يجتز HCERT التحقق، فلا يوجد تحقق رقمي: لا يُتَّبع رابط VHL وتُعامَل السجلات معاملة السجلات الورقية. وكما في J3، فإن تحميل وثائق DID شرط مسبق (PRECONDITION) لهذه الزيارة، وليس خطوة فيها: يتحقق المستشفى مقابل نسخته المخزّنة مؤقتاً من قائمة الثقة ولا يحتاج إلى اتصال لذلك. ويحدّث تلك النسخة كل ليلة أو كل ساعة، في حين يحدّثها موقع غير متصل مثل عيادة J3 أسبوعياً تقريباً."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:52
+#. Diagram element documentation
+msgid "JWE dir/A256GCM (STT-VHL-007)."
+msgstr "JWE dir/A256GCM (STT-VHL-007)."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:40
+#. Diagram label
+msgid "National health portal"
+msgstr "البوابة الصحية الوطنية"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:60
+#. Diagram label
+msgid "no"
+msgstr "لا"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram label
+msgid "No digital verification: treat the records like paper"
+msgstr "لا تحقق رقمي: تُعامَل السجلات معاملة السجلات الورقية"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:29
+#. Diagram label
+msgid "Point-of-care provider"
+msgstr "مقدِّم الخدمة في نقطة تقديم الرعاية"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:34
+#. Diagram label
+msgid "Point-of-care receiver"
+msgstr "الجهة المُستقبِلة في نقطة تقديم الرعاية"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:50
+#. Diagram label
+msgid "Request the manifest (ITI-YY5), signed"
+msgstr "طلب البيان (ITI-YY5)، موقَّعاً"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:53
+#. Diagram label
+msgid "Review history, allergies and vaccinations"
+msgstr "مراجعة التاريخ المرضي والحساسيات والتطعيمات"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:46
+#. Diagram label
+msgid "Scan the QR and enter the passcode the caregiver says"
+msgstr "مسح رمز QR وإدخال رمز المرور الذي ينطقه مقدِّم الرعاية"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:45
+#. Diagram label
+msgid "Show the child&#x27;s VHL QR"
+msgstr "عرض رمز QR الخاص بـ VHL للطفل"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:47
+#. Diagram element documentation
+msgid "STT-VER-001 against Country B's DSC on the trust list the preconditions establish; VHL expiry (STT-VHL-009). A DSC Country B published after the hospital's last refresh is not in its copy, so the HCERT fails at the trust-list step (STT-VER-006), naming that reason."
+msgstr "STT-VER-001 مقابل شهادة DSC الخاصة بالبلد B على قائمة الثقة التي تُرسيها الشروط المسبقة؛ وتاريخ انتهاء VHL (STT-VHL-009). إن شهادة DSC التي نشرها البلد B بعد آخر تحديث أجراه المستشفى لا تكون في نسخته، فيفشل HCERT عند خطوة قائمة الثقة (STT-VER-006)، مع تسمية ذلك السبب."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:50
+#. Diagram element documentation
+msgid "STT-VHL-005, STT-VHL-006, STT-VHL-008; the host does the HTTP, the library builds and reads (STT-VHL-010)."
+msgstr "STT-VHL-005، STT-VHL-006، STT-VHL-008؛ يتولى المضيف عمليات HTTP، وتبني المكتبة وتقرأ (STT-VHL-010)."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:54
+#. Diagram label
+msgid "The child is treated with the full record"
+msgstr "يُعالَج الطفل بالاستناد إلى السجل الكامل"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram element documentation
+msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+msgstr "أخفق HCERT في التحقق. تسمّي النتيجة المُنمَّطة الخطوة والسبب (STT-VER-008)، مثل غياب شهادة DSC عن قائمة الثقة المخزّنة مؤقتاً (STT-VER-006). لم يُتحقق رقمياً من أي شيء، فلا يُتَّبع رابط VHL ولا يُطلب أي بيان. وأيّاً كان ما تستطيع الأسرة عرضه، مثل شهادات DVC الورقية أو رمز QR مقروء دون تحقق (STT-VER-011)، فإن له وزن السجل الورقي نفسه: يبتّ فيه الممارس السريري بالاجتهاد السريري والسياسة المحلية، ويسجّل سبب عدم التحقق منه."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram element documentation
+msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
+msgstr "تستضيف بوابة البلد الأم البيان (ITI-YY5). وتتحقق من رمز المرور وتاريخ انتهاء الرابط والموافقة التي منحها الحامل عند المشاركة (IHE PCF)، وتعيد بيان الملفات المشفّرة عند النجاح، وتسجّل كل طلب، مقبولاً كان أو مرفوضاً، بوصفه AuditEvent (IHE BALP) في البلد الأم. ويُرفض رمز المرور الخاطئ ويُسجَّل مع ذلك. وتبقى السجلات مستضافة في البلد الأم: تطّلع عليها الجهة المُستقبِلة ولا يُنسخ شيء إلى أي سجل في الخارج."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:47
+#. Diagram label
+msgid "Verify the HCERT and read the VHL at key 5"
+msgstr "التحقق من HCERT وقراءة VHL عند المفتاح 5"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:59
+#. Diagram label
+msgid "yes"
+msgstr "نعم"

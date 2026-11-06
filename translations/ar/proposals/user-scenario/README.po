@@ -1,0 +1,232 @@
+# Arabic translation of proposals/user-scenario/README
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: smart-trust-demo\n"
+"POT-Creation-Date: 2026-11-06T09:26:50.960Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: docs/proposals/user-scenario/README.md:63
+#, python-brace-format
+msgid "{code0} \"User scenarios\" is generated from them by {code1}, between its markers; {code2} fails in CI when it is stale."
+msgstr "يُولَّد {code0} «سيناريوهات المستخدم» منها بواسطة {code1}، بين علاماته؛ ويُخفق {code2} في CI عندما يكون قديمًا."
+
+#: docs/proposals/user-scenario/README.md:25
+#, python-brace-format
+msgid "{code0} are actor ids"
+msgstr "{code0} هي معرِّفات جهات فاعلة"
+
+#: docs/proposals/user-scenario/README.md:26
+#, python-brace-format
+msgid "{code0} chains J1 → J4 into one story"
+msgstr "يربط {code0} الرحلات من J1 إلى J4 في قصة واحدة"
+
+#: docs/proposals/user-scenario/README.md:66
+#, python-brace-format
+msgid "<a0>{code0}</a0>: checks the shape, and the references a schema cannot express (actors, stories, BPMN task ids, ladder codes, FSH instances, the {code1} chain). It runs in CI ({code2}, job repo-checks). Without the {code3} package, which CI does not install, only the references are checked."
+msgstr "<a0>{code0}</a0>: يتحقق من البنية، ومن المراجع التي لا يستطيع المخطط التعبير عنها (الجهات الفاعلة، والقصص، ومعرِّفات مهام BPMN، ورموز السُّلَّم، ومثيلات FSH، وسلسلة {code1}). ويعمل في CI ({code2}، المهمة repo-checks). ودون الحزمة {code3}، التي لا يثبّتها CI، لا يُتحقَّق إلا من المراجع."
+
+#: docs/proposals/user-scenario/README.md:56
+#, python-brace-format
+msgid "<a0>{code0}</a0>: one scenario per journey, chained by {code1}: J1, J2 (J2a, J2b), J3 (J3a, J3b), J4.0 (J4.0a, J4.0b), J4.1, and the trust ladder as a code list. They were converted once from vaxlink's {code2} (the steps, experiences, pain points, enablers, policy points, record and what-ifs) and the prose of {code3} (narrative and preconditions; requirements and named examples are read from it). Stories and BPMN tasks were mapped by hand."
+msgstr "<a0>{code0}</a0>: سيناريو واحد لكل رحلة، مترابطة بواسطة {code1}: J1، وJ2 (J2a، J2b)، وJ3 (J3a، J3b)، وJ4.0 (J4.0a، J4.0b)، وJ4.1، وسُلَّم الثقة بوصفه قائمة رموز. وقد حُوِّلت مرة واحدة من {code2} الخاص بـ vaxlink (الخطوات، والتجارب، ونقاط الألم، والعوامل المُمكِّنة، ونقاط السياسات، والسجل، والاحتمالات الافتراضية) ومن نص {code3} (السرد والشروط المسبقة؛ أما المتطلبات والأمثلة المسمّاة فتُقرأ منه). ورُبطت القصص ومهام BPMN يدويًا."
+
+#: docs/proposals/user-scenario/README.md:54
+#, python-brace-format
+msgid "<a0>{code0}</a0>: the shape, JSON Schema 2020-12, kind {code1}."
+msgstr "<a0>{code0}</a0>: البنية، JSON Schema 2020-12، النوع {code1}."
+
+#: docs/proposals/user-scenario/README.md:33
+msgid "a process file and task ids; one step may span processes"
+msgstr "ملف عملية ومعرِّفات مهام؛ وقد تمتد خطوة واحدة عبر عدة عمليات"
+
+#: docs/proposals/user-scenario/README.md:10
+#, python-brace-format
+msgid "as {code0} entries in litlfred/vaxlink's {code1};"
+msgstr "بوصفها مُدخلات {code0} في {code1} الخاص بـ litlfred/vaxlink؛"
+
+#: docs/proposals/user-scenario/README.md:9
+#, python-brace-format
+msgid "as prose under \"User scenarios\" in <a0>{code0}</a0>;"
+msgstr "بوصفها نصًا تحت «سيناريوهات المستخدم» في <a0>{code0}</a0>؛"
+
+#: docs/proposals/user-scenario/README.md:25
+#, python-brace-format
+msgid "DAK {code0}"
+msgstr "DAK {code0}"
+
+#: docs/proposals/user-scenario/README.md:34
+msgid "e.g. STT-PAY-001"
+msgstr "مثل STT-PAY-001"
+
+#: docs/proposals/user-scenario/README.md:34
+#, python-brace-format
+msgid "edge to {code0} nodes"
+msgstr "حافة إلى عُقد {code0}"
+
+#: docs/proposals/user-scenario/README.md:33
+msgid "edge to BPMN"
+msgstr "حافة إلى BPMN"
+
+#: docs/proposals/user-scenario/README.md:35
+msgid "edge to FHIR examples"
+msgstr "حافة إلى أمثلة FHIR"
+
+#: docs/proposals/user-scenario/README.md:32
+msgid "edge to user stories"
+msgstr "حافة إلى قصص المستخدم"
+
+#: docs/proposals/user-scenario/README.md:23
+msgid "Field"
+msgstr "الحقل"
+
+#: docs/proposals/user-scenario/README.md:52
+msgid "Files"
+msgstr "الملفات"
+
+#: docs/proposals/user-scenario/README.md:23
+msgid "From"
+msgstr "من"
+
+#: docs/proposals/user-scenario/README.md:90
+#, python-brace-format
+msgid "Granularity. Should a scenario be one journey or one whole story? Decided 2026-11-05 (owner): one per journey, chained by {code0}. A journey is a BPMN process, so J4.0 and J4.1 are two scenarios, though vaxlink tells them in one chapter."
+msgstr "درجة التفصيل. هل ينبغي أن يكون السيناريو رحلة واحدة أم قصة كاملة واحدة؟ تقرّر في 2026-11-05 (المالك): سيناريو واحد لكل رحلة، مترابطة بواسطة {code0}. فالرحلة عملية BPMN، ولذا فإن J4.0 وJ4.1 سيناريوهان، وإن كانت vaxlink ترويهما في فصل واحد."
+
+#: docs/proposals/user-scenario/README.md:74
+#, python-brace-format
+msgid "J2 was told in the opposite order to its BPMN. The walkthrough had Vilay register Somsack (J2a) before reading the cards (J2b), while {code0} reads first and then registers. Resolved 2026-11-05 (owner): vaxlink was reordered to match the BPMN. J2a now reads the cards ({code1}, {code2}, {code3}), and J2b registers, saves the doses as reported and refers ({code4}, {code5}, {code6}). {code7} and {code8} follow."
+msgstr "رُويت J2 بترتيب معاكس لترتيب BPMN الخاص بها. ففي الجولة الإرشادية كانت Vilay تسجّل Somsack (J2a) قبل قراءة البطاقات (J2b)، في حين أن {code0} يقرأ أولًا ثم يسجّل. حُسم في 2026-11-05 (المالك): أُعيد ترتيب vaxlink ليطابق BPMN. فأصبحت J2a تقرأ البطاقات ({code1}، {code2}، {code3})، وJ2b تسجّل، وتحفظ الجرعات كما أُبلغ عنها وتُحيل ({code4}، {code5}، {code6}). ويتبعهما {code7} و{code8}."
+
+#: docs/proposals/user-scenario/README.md:85
+#, python-brace-format
+msgid "J4.0a has no BPMN task. Looking at the wallet is not a step of {code0}, so its {code1} is empty."
+msgstr "لا توجد مهمة BPMN لـ J4.0a. فالنظر إلى المحفظة ليس خطوة من خطوات {code0}، ولذا فإن {code1} الخاص بها فارغ."
+
+#: docs/proposals/user-scenario/README.md:28
+#: docs/proposals/user-scenario/README.md:29
+#: docs/proposals/user-scenario/README.md:30
+msgid "journey map"
+msgstr "خريطة الرحلة"
+
+#: docs/proposals/user-scenario/README.md:41
+msgid "Left out on purpose:"
+msgstr "ما أُغفل عمدًا:"
+
+#: docs/proposals/user-scenario/README.md:32
+msgid "many to many: a story may span steps"
+msgstr "متعدد إلى متعدد: قد تمتد القصة عبر عدة خطوات"
+
+#: docs/proposals/user-scenario/README.md:88
+msgid "Open questions"
+msgstr "الأسئلة المفتوحة"
+
+#: docs/proposals/user-scenario/README.md:81
+#, python-brace-format
+msgid "Pain points and enablers are worded twice. {code0} and vaxlink say the same thing in different words (and journeys.md says it once per journey, vaxlink once per step). The examples take vaxlink's wording, per step."
+msgstr "نقاط الألم والعوامل المُمكِّنة مصاغة مرتين. فـ {code0} وvaxlink يقولان الشيء نفسه بكلمات مختلفة (وjourneys.md يقوله مرة لكل رحلة، وvaxlink مرة لكل خطوة). وتأخذ الأمثلة صياغة vaxlink، لكل خطوة."
+
+#: docs/proposals/user-scenario/README.md:11
+msgid "partly in the BPMN."
+msgstr "جزئيًا في BPMN."
+
+#: docs/proposals/user-scenario/README.md:28
+msgid "per actor: doing, feeling, emotion −2..2"
+msgstr "لكل جهة فاعلة: ما تفعله، وما تشعر به، والانفعال −2..2"
+
+#: docs/proposals/user-scenario/README.md:49
+msgid "Presentation. A persona's colours, and a step's device screen (S1–S8), belong to vaxlink."
+msgstr "العرض. ألوان الشخصية الافتراضية، وشاشة الجهاز الخاصة بالخطوة (S1–S8)، تعود إلى vaxlink."
+
+#: docs/proposals/user-scenario/README.md:1
+#, python-brace-format
+msgid "Proposal: a {code0} kind"
+msgstr "مقترح: نوع {code0}"
+
+#: docs/proposals/user-scenario/README.md:6
+msgid "Question: the journeys are written three times, and no moment links to a story:"
+msgstr "سؤال: الرحلات مكتوبة ثلاث مرات، ولا توجد لحظة ترتبط بقصة:"
+
+#: docs/proposals/user-scenario/README.md:17
+#, python-brace-format
+msgid "smart-base's logical model {code0} has {code1}, {code2}, {code3} and {code4}. A DAK user story is a {code5}: actor, I want ({code6}), so that ({code7}), which is the shape of {code8}. The kind keeps the DAK fields as they are, and adds the ordered steps the journey map is made of:"
+msgstr "يتضمن النموذج المنطقي {code0} في smart-base الحقول {code1} و{code2} و{code3} و{code4}. وقصة المستخدم في مجموعة أدوات التكيُّف الرقمي (DAK) هي {code5}: جهة فاعلة، أريد ({code6})، لكي ({code7})، وهي بنية {code8}. ويُبقي النوع حقول DAK كما هي، ويضيف الخطوات المرتّبة التي تتكوّن منها خريطة الرحلة:"
+
+#: docs/proposals/user-scenario/README.md:3
+#, python-brace-format
+msgid "Status: draft, 2026-11-05. Bean {code0}, gap 1. Proposed for cat-harness; drafted here, where the content is."
+msgstr "الحالة: مسودة، 2026-11-05. Bean {code0}، الثغرة 1. مقترح لـ cat-harness؛ صيغت مسودته هنا، حيث يوجد المحتوى."
+
+#: docs/proposals/user-scenario/README.md:97
+#, python-brace-format
+msgid "Stories' kind. User stories already have one: cat-harness-tools {code0} ({code1}, {code2}, {code3}, {code4}, strict). The edge runs from the step to the story, so that kind needs no change. Its \"I want / so that\" fields overlap the bootstrap {code5} schema's {code6} and {code7}."
+msgstr "نوع القصص. لقصص المستخدم نوع بالفعل: {code0} في cat-harness-tools ({code1}، {code2}، {code3}، {code4}، صارم). وتمتد الحافة من الخطوة إلى القصة، ولذا لا يحتاج ذلك النوع إلى أي تغيير. وتتداخل حقوله «أريد / لكي» مع {code6} و{code7} في مخطط {code5} التمهيدي."
+
+#: docs/proposals/user-scenario/README.md:15
+msgid "The answer: the DAK user scenario, told as a journey map"
+msgstr "الإجابة: سيناريو المستخدم في مجموعة أدوات التكيُّف الرقمي (DAK)، مرويًا بوصفه خريطة رحلة"
+
+#: docs/proposals/user-scenario/README.md:27
+msgid "the ordered states of the record"
+msgstr "الحالات المرتّبة للسجل"
+
+#: docs/proposals/user-scenario/README.md:30
+msgid "the policy point the step makes"
+msgstr "نقطة السياسة التي تطرحها الخطوة"
+
+#: docs/proposals/user-scenario/README.md:31
+msgid "the prose the page is generated from; a precondition holds before the step and is not part of it"
+msgstr "النص الذي تُولَّد منه الصفحة؛ والشرط المسبق يتحقق قبل الخطوة وليس جزءًا منها"
+
+#: docs/proposals/user-scenario/README.md:26
+msgid "the story"
+msgstr "القصة"
+
+#: docs/proposals/user-scenario/README.md:47
+msgid "The technical layer. Which building block a step uses, in which role, is KG-01 gap 2."
+msgstr "الطبقة التقنية. أيّ لبنة بناء تستخدمها الخطوة، وبأي دور، هي الثغرة 2 في KG-01."
+
+#: docs/proposals/user-scenario/README.md:37
+#, python-brace-format
+msgid "The user stories stay role-level (caregiver, community health worker). A scenario's steps are persona-level (Khamla, Vilay). The {code0} edge is what joins the two."
+msgstr "تبقى قصص المستخدم على مستوى الأدوار (مقدِّم الرعاية، عامل الصحة المجتمعي). أما خطوات السيناريو فهي على مستوى الشخصيات الافتراضية (Khamla، Vilay). والحافة {code0} هي ما يربط بين الاثنين."
+
+#: docs/proposals/user-scenario/README.md:43
+#, python-brace-format
+msgid "The workshop layer. \"Ask the room\", the facilitator cue and the module questions are KG-01 gap 3. (The one-line policy point is kept, as {code0}, because {code1} states it under each step.) A workshop kind would point at step ids, so the scenario does not depend on any one workshop."
+msgstr "طبقة ورشة العمل. «اسأل الحاضرين»، وإشارة المُيسِّر، وأسئلة الوحدة هي الثغرة 3 في KG-01. (وقد أُبقيت نقطة السياسة ذات السطر الواحد، بوصفها {code0}، لأن {code1} يذكرها تحت كل خطوة.) وسيشير نوع خاص بورشة العمل إلى معرِّفات الخطوات، بحيث لا يعتمد السيناريو على ورشة عمل بعينها."
+
+#: docs/proposals/user-scenario/README.md:13
+msgid "What one node can they all come from?"
+msgstr "ما العقدة الواحدة التي يمكن أن تنبثق منها جميعًا؟"
+
+#: docs/proposals/user-scenario/README.md:72
+msgid "What the conversion found"
+msgstr "ما كشف عنه التحويل"
+
+#: docs/proposals/user-scenario/README.md:91
+#, python-brace-format
+msgid "Where the prose lives. Decided 2026-11-05 (owner): generate it. Done. {code0} writes the section from each step's {code1}, {code2}, {code3}, {code4} and {code5}. A step's {code6} is its one-line policy point; the workshop's questions stay for a workshop kind (KG-01 gap 3). The pain point, enabler and policy lines are now one per step, in the walkthrough's words."
+msgstr "مكان النص. تقرّر في 2026-11-05 (المالك): توليده. أُنجز. يكتب {code0} القسم من {code1} و{code2} و{code3} و{code4} و{code5} لكل خطوة. و{code6} الخاص بالخطوة هو نقطة سياستها ذات السطر الواحد؛ وتبقى أسئلة ورشة العمل لنوع خاص بورشة العمل (الثغرة 3 في KG-01). وأصبحت أسطر نقاط الألم والعوامل المُمكِّنة والسياسات الآن سطرًا واحدًا لكل خطوة، بكلمات الجولة الإرشادية."

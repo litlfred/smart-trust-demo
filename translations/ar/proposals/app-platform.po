@@ -1,0 +1,377 @@
+# Arabic translation of proposals/app-platform
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: smart-trust-demo\n"
+"POT-Creation-Date: 2026-11-06T09:26:50.952Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: docs/proposals/app-platform.md:23
+msgid "\"Maintenance\"; last commit Feb–Mar 2026. Workflow runs CQL (HAPI-based, heavy)."
+msgstr "«قيد الصيانة»؛ آخر إيداع في فبراير–مارس 2026. تشغّل مكتبة Workflow لغة CQL (مبنية على HAPI، وثقيلة)."
+
+#: docs/proposals/app-platform.md:141
+#, python-brace-format
+msgid "{code0} (Google Maven: AGP, AndroidX, the Android SDK) is blocked by this session's network policy. It is needed to write the Gradle verification metadata for any Android build. GitHub's runners can reach it, so CI is unaffected; local builds here are."
+msgstr "{code0} (Google Maven: AGP وAndroidX وAndroid SDK) محجوب بموجب سياسة الشبكة في هذه الجلسة. وهو لازم لكتابة بيانات التحقق الوصفية في Gradle لأي بناء Android. ويمكن لمشغّلات GitHub الوصول إليه، فلا يتأثر CI؛ أما البناءات المحلية هنا فتتأثر."
+
+#: docs/proposals/app-platform.md:24
+#, python-brace-format
+msgid "{code0} 1.0.0-rc03, {code1}, {code2} 2.0.0-alpha04, {code3} 2.0.0-alpha04, {code4} 2.0.0-alpha01; {code5} 1.0.0-alpha03"
+msgstr "{code0} 1.0.0-rc03، {code1}، {code2} 2.0.0-alpha04، {code3} 2.0.0-alpha04، {code4} 2.0.0-alpha01؛ {code5} 1.0.0-alpha03"
+
+#: docs/proposals/app-platform.md:97
+#, python-brace-format
+msgid "{code0} has no CQL yet: the J3 schedule rules must be expressed as {code1} applicability conditions in FHIRPath (enough for a birth-dose schedule; WHO SMART immunization CQL would wait)."
+msgstr "لا يدعم {code0} لغة CQL بعد: يجب التعبير عن قواعد جدول التطعيم في J3 بوصفها شروط انطباق {code1} بلغة FHIRPath (وهذا يكفي لجدول جرعة الولادة؛ أما CQL الخاصة بالتمنيع في SMART لدى منظمة الصحة العالمية (WHO) فتنتظر)."
+
+#: docs/proposals/app-platform.md:23
+#, python-brace-format
+msgid "{code0}, {code1} (SDC), {code2}, {code3}"
+msgstr "{code0}، {code1} (SDC)، {code2}، {code3}"
+
+#: docs/proposals/app-platform.md:40
+#, python-brace-format
+msgid "{code0}, {code1}: backend and deployment (FHIR gateway, data pipes)."
+msgstr "{code0}، {code1}: الواجهة الخلفية والنشر (بوابة FHIR، وأنابيب البيانات)."
+
+#: docs/proposals/app-platform.md:37
+#, python-brace-format
+msgid "<a0>{code0}</a0>: a TypeScript admin portal for workforce hierarchies (users, access). Not a clinical web app; not relevant to J1–J4."
+msgstr "<a0>{code0}</a0>: بوابة إدارية مكتوبة بلغة TypeScript للتسلسلات الهرمية للقوى العاملة (المستخدمون، والصلاحيات). ليست تطبيق ويب سريريًا؛ ولا صلة لها بـ J1–J4."
+
+#: docs/proposals/app-platform.md:29
+#, python-brace-format
+msgid "<a0>{code0}</a0>: the client, a GitHub template app in Compose Multiplatform (Android, iOS, desktop, web from one tree). Screens are driven by configuration (SQL-on-FHIR {code1}s compiled at build time), data entry by SDC questionnaires. It opens on an OIDC login and blocks on a first sync with a FHIR server; there is no bundled-data mode."
+msgstr "<a0>{code0}</a0>: العميل، وهو تطبيق قالب على GitHub مبني بـ Compose Multiplatform (Android وiOS وسطح المكتب والويب من شجرة واحدة). تُقاد الشاشات بالإعدادات ({code1} من نوع SQL-on-FHIR تُترجَم عند البناء)، ويُدخَل البيانات عبر استبيانات SDC. يُفتح على تسجيل دخول OIDC ويتوقف حتى أول مزامنة مع خادم FHIR؛ ولا يوجد وضع للبيانات المضمَّنة."
+
+#: docs/proposals/app-platform.md:35
+#, python-brace-format
+msgid "<a0>{code0}</a0>: the library behind it (configuration-driven FHIR views), usable on its own."
+msgstr "<a0>{code0}</a0>: المكتبة التي يقوم عليها (عروض FHIR مُقادة بالإعدادات)، ويمكن استخدامها وحدها."
+
+#: docs/proposals/app-platform.md:42
+#, python-brace-format
+msgid "<a0>{code0}</a0>: variants of the reference app (empty today). A natural place to offer the journeys upstream later — an OHS Foundation repository, so only by proposal, never from here."
+msgstr "<a0>{code0}</a0>: متغيرات التطبيق المرجعي (فارغ حاليًا). مكان طبيعي لعرض الرحلات على المصدر الأصلي لاحقًا — وهو مستودع تابع لمؤسسة OHS، فلا يكون ذلك إلا بمقترح، ولا يكون أبدًا من هنا."
+
+#: docs/proposals/app-platform.md:151
+msgid "<a0>Android FHIR SDK</a0> and its <a1>Workflow library</a1>."
+msgstr "<a0>Android FHIR SDK</a0> و<a1>مكتبة Workflow</a1> الخاصة به."
+
+#: docs/proposals/app-platform.md:148
+msgid "<a0>OHS Foundation on GitHub</a0> — repository list and descriptions, 2026-10-23."
+msgstr "<a0>مؤسسة OHS على GitHub</a0> — قائمة المستودعات وأوصافها، 2026-10-23."
+
+#: docs/proposals/app-platform.md:149
+msgid "<a0>ohs-player README</a0>, <a1>player-reference README</a1>, <a2>player-client README</a2>, <a3>kotlin-fhir-engine README</a3>, <a4>kotlin-fhir-workflow README</a4>."
+msgstr "<a0>ملف README الخاص بـ ohs-player</a0>، <a1>ملف README الخاص بـ player-reference</a1>، <a2>ملف README الخاص بـ player-client</a2>، <a3>ملف README الخاص بـ kotlin-fhir-engine</a3>، <a4>ملف README الخاص بـ kotlin-fhir-workflow</a4>."
+
+#: docs/proposals/app-platform.md:152
+msgid "<a0>WHO joins the Open Health Stack Software Foundation</a0>, WHO, July 2026."
+msgstr "<a0>منظمة الصحة العالمية (WHO) تنضم إلى مؤسسة Open Health Stack للبرمجيات</a0>، منظمة الصحة العالمية (WHO)، يوليو 2026."
+
+#: docs/proposals/app-platform.md:80
+msgid "~57 libraries and 8 plugins in its catalogue (Koin, Ktor CIO/Darwin, Kermit, ksafe, kotlinpoet, BigNum, Compose adaptive …), several alpha, plus their transitive graph: the largest pinning and verification burden of all options."
+msgstr "نحو 57 مكتبة و8 مكونات إضافية في فهرسه (Koin وKtor CIO/Darwin وKermit وksafe وkotlinpoet وBigNum وCompose adaptive …)، وعدة منها في مرحلة ألفا، إضافةً إلى رسمها البياني المتعدي: أكبر عبء تثبيت وتحقق بين جميع الخيارات."
+
+#: docs/proposals/app-platform.md:13
+msgid "1. What Open Health Stack is today"
+msgstr "1. ما هو Open Health Stack اليوم"
+
+#: docs/proposals/app-platform.md:50
+msgid "2. Constraints every option must meet"
+msgstr "2. القيود التي يجب أن يستوفيها كل خيار"
+
+#: docs/proposals/app-platform.md:70
+msgid "3. Options"
+msgstr "3. الخيارات"
+
+#: docs/proposals/app-platform.md:121
+msgid "4. Recommendation"
+msgstr "4. التوصية"
+
+#: docs/proposals/app-platform.md:139
+msgid "5. What any option needs from the environment"
+msgstr "5. ما يحتاجه أي خيار من البيئة"
+
+#: docs/proposals/app-platform.md:102
+#, python-brace-format
+msgid "A plain Android app on {code0} Engine + SDC (+ Workflow)."
+msgstr "تطبيق Android بسيط على {code0} Engine + SDC (+ Workflow)."
+
+#: docs/proposals/app-platform.md:86
+#, python-brace-format
+msgid "A small Compose Multiplatform app (Android first, web target alongside) written for the four journeys, using the same foundational libraries the Player uses — {code0}, {code1} (on-device store), {code2} (SDC questionnaires for J2 registration and J3 import), {code3} ({code4} for the J3 schedule) — and, optionally, {code5} for configuration-driven views."
+msgstr "تطبيق صغير بـ Compose Multiplatform (Android أولًا، ومعه هدف للويب) مكتوب للرحلات الأربع، يستخدم المكتبات الأساسية نفسها التي يستخدمها Player — {code0}، و{code1} (مخزن على الجهاز)، و{code2} (استبيانات SDC للتسجيل في J2 والاستيراد في J3)، و{code3} ({code4} لجدول التطعيم في J3) — واختياريًا {code5} للعروض المُقادة بالإعدادات."
+
+#: docs/proposals/app-platform.md:112
+msgid "A static page on gh-pages running J1–J4 in the browser with the Rust/wasm library (or a future browser build of hcert-core), plus only the Android test module for STT-GEN-004."
+msgstr "صفحة ثابتة على gh-pages تشغّل J1–J4 في المتصفح بمكتبة Rust/wasm (أو بنسخة مستقبلية من hcert-core للمتصفح)، إضافةً إلى وحدة اختبار Android فقط من أجل STT-GEN-004."
+
+#: docs/proposals/app-platform.md:24
+#, python-brace-format
+msgid "Active (commits this week); alpha APIs. Workflow does {code0}; CQL is \"still to come\"."
+msgstr "نشط (إيداعات هذا الأسبوع)؛ واجهات برمجية في مرحلة ألفا. تنفّذ Workflow {code0}؛ أما CQL فـ«لم تأتِ بعد»."
+
+#: docs/proposals/app-platform.md:23
+msgid "Android only"
+msgstr "Android فقط"
+
+#: docs/proposals/app-platform.md:125
+msgid "Android test module for STT-GEN-004 first (independent of this choice)."
+msgstr "وحدة اختبار Android من أجل STT-GEN-004 أولًا (مستقلة عن هذا الاختيار)."
+
+#: docs/proposals/app-platform.md:23
+msgid "android-fhir (first)"
+msgstr "android-fhir (الجيل الأول)"
+
+#: docs/proposals/app-platform.md:24
+msgid "Android, desktop JVM, iOS, web (wasmJs, and JS for some)"
+msgstr "Android، وJVM لسطح المكتب، وiOS، والويب (wasmJs، وJS لبعضها)"
+
+#: docs/proposals/app-platform.md:80
+msgid "Android, iOS, desktop and web from one tree; configuration-driven screens; SDC questionnaires for registration (J2) and import (J3) come wired."
+msgstr "Android وiOS وسطح المكتب والويب من شجرة واحدة؛ شاشات مُقادة بالإعدادات؛ واستبيانات SDC للتسجيل (J2) والاستيراد (J3) موصولة جاهزةً."
+
+#: docs/proposals/app-platform.md:77
+#: docs/proposals/app-platform.md:93
+#: docs/proposals/app-platform.md:104
+#: docs/proposals/app-platform.md:116
+msgid "Cons"
+msgstr "السلبيات"
+
+#: docs/proposals/app-platform.md:74
+#, python-brace-format
+msgid "Create the app from the {code0} template; add an offline demo mode (bundled FHIR bundle, no login), the J1–J4 screens and the HCERT calls."
+msgstr "إنشاء التطبيق من قالب {code0}؛ وإضافة وضع عرض توضيحي دون اتصال (حزمة FHIR مضمَّنة، دون تسجيل دخول)، وشاشات J1–J4، واستدعاءات HCERT."
+
+#: docs/proposals/app-platform.md:97
+#, python-brace-format
+msgid "Dependency set is roughly the libraries' own graph (Compose MP, Ktor client, Room3/SQLite, kotlinx) — still sizeable, but every addition is chosen and listed in {code0}."
+msgstr "مجموعة التبعيات هي تقريبًا الرسم البياني للمكتبات نفسها (Compose MP وKtor client وRoom3/SQLite وkotlinx) — ولا تزال كبيرة، لكن كل إضافة مختارة ومدرجة في {code0}."
+
+#: docs/proposals/app-platform.md:21
+msgid "Distribution"
+msgstr "التوزيع"
+
+#: docs/proposals/app-platform.md:21
+msgid "Generation"
+msgstr "الجيل"
+
+#: docs/proposals/app-platform.md:23
+msgid "Google Maven"
+msgstr "Google Maven"
+
+#: docs/proposals/app-platform.md:108
+#, python-brace-format
+msgid "Google Maven artifacts; the session's network policy currently blocks {code0} (needed for this and for AGP/AndroidX in every option)."
+msgstr "عناصر Google Maven؛ تحجب سياسة الشبكة في الجلسة حاليًا {code0} (اللازم لهذا الخيار ولـ AGP/AndroidX في كل خيار)."
+
+#: docs/proposals/app-platform.md:135
+msgid "If being the OHS Player matters more than dependency count and an offline demo, choose A: the plan is the same, with step 2 starting from the template and adding the offline mode first."
+msgstr "إذا كان كون التطبيق هو OHS Player أهم من عدد التبعيات ومن العرض التوضيحي دون اتصال، فاختر A: تبقى الخطة نفسها، مع بدء الخطوة 2 من القالب وإضافة الوضع دون اتصال أولًا."
+
+#: docs/proposals/app-platform.md:106
+msgid "In maintenance; not where OHS is going; Android only (no web)."
+msgstr "قيد الصيانة؛ وليس الاتجاه الذي تسير فيه OHS؛ وAndroid فقط (دون ويب)."
+
+#: docs/proposals/app-platform.md:79
+msgid "It is the OHS Player: the most visibly \"OHS\" outcome, and the closest to what OHS implementers will start from."
+msgstr "إنه OHS Player: النتيجة الأوضح انتماءً إلى «OHS»، والأقرب إلى ما سيبدأ منه منفّذو OHS."
+
+#: docs/proposals/app-platform.md:81
+#, python-brace-format
+msgid "Kotlin 2.3 / AGP 8.11 / JDK 21; its build-logic and code generation ({code0}) are ours to audit."
+msgstr "Kotlin 2.3 / AGP 8.11 / JDK 21؛ ومنطق البناء وتوليد الشيفرة فيه ({code0}) علينا تدقيقهما."
+
+#: docs/proposals/app-platform.md:24
+msgid "Kotlin Multiplatform (current)"
+msgstr "Kotlin Multiplatform (الحالي)"
+
+#: docs/proposals/app-platform.md:131
+#, python-brace-format
+msgid "Later, propose the journeys to the OHS Foundation as a {code0} variant (owner's call; never pushed from here)."
+msgstr "لاحقًا، اقتراح الرحلات على مؤسسة OHS بوصفها متغيرًا من {code0} (القرار للمالك؛ ولا يُدفَع أبدًا من هنا)."
+
+#: docs/proposals/app-platform.md:21
+msgid "Libraries"
+msgstr "المكتبات"
+
+#: docs/proposals/app-platform.md:106
+msgid "Mature, production-proven (OpenSRP, EmCare); most documentation and examples."
+msgstr "ناضج ومُثبَت في الإنتاج (OpenSRP وEmCare)؛ ولديه أكثر التوثيق والأمثلة."
+
+#: docs/proposals/app-platform.md:24
+msgid "Maven Central"
+msgstr "Maven Central"
+
+#: docs/proposals/app-platform.md:150
+#, python-brace-format
+msgid "Maven Central metadata for {code0} and {code1} (versions and publication dates)."
+msgstr "بيانات Maven Central الوصفية لـ {code0} و{code1} (الإصدارات وتواريخ النشر)."
+
+#: docs/proposals/app-platform.md:82
+msgid "Much of the template (auth, sync, workforce registers) is unrelated to the journeys and is noise in a demonstrator."
+msgstr "كثير من القالب (المصادقة، والمزامنة، وسجلات القوى العاملة) لا صلة له بالرحلات، وهو ضجيج في تطبيق توضيحي."
+
+#: docs/proposals/app-platform.md:118
+msgid "Not OHS; does not show the Kotlin library inside an OHS app, which is the stated goal."
+msgstr "ليس OHS؛ ولا يُظهر مكتبة Kotlin داخل تطبيق OHS، وهو الهدف المعلن."
+
+#: docs/proposals/app-platform.md:95
+msgid "Not the Player app itself; screens are ours."
+msgstr "ليس تطبيق Player نفسه؛ والشاشات من صنعنا."
+
+#: docs/proposals/app-platform.md:56
+msgid "Offline and serverless demo. J2 is offline by definition, and CI cannot stand up an OIDC provider and FHIR server for an emulator run cheaply. The app needs a bundled-data mode."
+msgstr "عرض توضيحي دون اتصال ودون خادم. فالرحلة J2 دون اتصال بطبيعتها، ولا يستطيع CI إقامة مزوّد OIDC وخادم FHIR لتشغيل المحاكي بتكلفة زهيدة. لذا يحتاج التطبيق إلى وضع للبيانات المضمَّنة."
+
+#: docs/proposals/app-platform.md:96
+msgid "Offline and serverless from the start; the emulator CI job can drive the journeys."
+msgstr "دون اتصال ودون خادم منذ البداية؛ ويمكن لمهمة CI على المحاكي أن تقود الرحلات."
+
+#: docs/proposals/app-platform.md:26
+msgid "On top of the KMP generation sits the OHS Player, described by the foundation as a cross-stack reference toolkit, \"reference, not product\":"
+msgstr "فوق جيل KMP يقع OHS Player، الذي تصفه المؤسسة بأنه مجموعة أدوات مرجعية عابرة للطبقات، «مرجع، لا منتج»:"
+
+#: docs/proposals/app-platform.md:15
+msgid "Open Health Stack (OHS) began as a Google-led set of components and is now the OHS Software Foundation, a community project under the Linux Foundation, which WHO joined in July 2026. Its code lives in <a0>github.com/ohs-foundation</a0> (28 repositories). There are two generations of the client libraries:"
+msgstr "بدأ Open Health Stack (OHS) مجموعةً من المكونات بقيادة Google، وهو الآن مؤسسة OHS للبرمجيات، وهي مشروع مجتمعي تحت مظلة Linux Foundation، انضمت إليه منظمة الصحة العالمية (WHO) في يوليو 2026. تقع شيفرته في <a0>github.com/ohs-foundation</a0> (28 مستودعًا). وهناك جيلان من مكتبات العميل:"
+
+#: docs/proposals/app-platform.md:72
+msgid "Option A — Fork the OHS Player reference app"
+msgstr "الخيار A — اشتقاق نسخة من التطبيق المرجعي OHS Player"
+
+#: docs/proposals/app-platform.md:84
+msgid "Option B — Own lean Compose Multiplatform app on the OHS KMP libraries (recommended)"
+msgstr "الخيار B — تطبيق خاص خفيف بـ Compose Multiplatform على مكتبات OHS KMP (موصى به)"
+
+#: docs/proposals/app-platform.md:123
+msgid "Option B, staged:"
+msgstr "الخيار B، على مراحل:"
+
+#: docs/proposals/app-platform.md:100
+msgid "Option C — Android only, on android-fhir (first generation)"
+msgstr "الخيار C — Android فقط، على android-fhir (الجيل الأول)"
+
+#: docs/proposals/app-platform.md:110
+msgid "Option D — Web first, no Android app"
+msgstr "الخيار D — الويب أولًا، دون تطبيق Android"
+
+#: docs/proposals/app-platform.md:21
+msgid "Platforms"
+msgstr "المنصات"
+
+#: docs/proposals/app-platform.md:6
+msgid "Proposal: which Open Health Stack base for the demonstrator app"
+msgstr "مقترح: أي أساس من Open Health Stack للتطبيق التوضيحي"
+
+#: docs/proposals/app-platform.md:77
+#: docs/proposals/app-platform.md:93
+#: docs/proposals/app-platform.md:104
+#: docs/proposals/app-platform.md:116
+msgid "Pros"
+msgstr "الإيجابيات"
+
+#: docs/proposals/app-platform.md:79
+msgid "Requires an OIDC provider and a FHIR server to start; the offline mode is ours to write and to keep merging against a template that moves weekly."
+msgstr "يتطلب مزوّد OIDC وخادم FHIR للبدء؛ والوضع دون اتصال علينا كتابته ومواصلة دمجه مع قالب يتغير أسبوعيًا."
+
+#: docs/proposals/app-platform.md:95
+msgid "Same current OHS libraries as the Player, so it demonstrates the stack the OHS Foundation is building towards, without the template's auth/sync/DI layer."
+msgstr "مكتبات OHS الحالية نفسها التي يستخدمها Player، فيُظهر الطبقة التي تبنيها مؤسسة OHS، دون طبقة المصادقة/المزامنة/حقن التبعيات (DI) في القالب."
+
+#: docs/proposals/app-platform.md:98
+#, python-brace-format
+msgid "Shapes the code so the journey screens can later be offered to {code0} as a Player variant."
+msgstr "يشكّل الشيفرة بحيث يمكن لاحقًا عرض شاشات الرحلات على {code0} بوصفها متغيرًا من Player."
+
+#: docs/proposals/app-platform.md:118
+msgid "Smallest: almost no dependencies; easiest to show anyone with a link."
+msgstr "الأصغر: تبعيات شبه معدومة؛ والأسهل في عرضه على أي شخص عبر رابط."
+
+#: docs/proposals/app-platform.md:146
+msgid "Sources"
+msgstr "المصادر"
+
+#: docs/proposals/app-platform.md:21
+msgid "State"
+msgstr "الحالة"
+
+#: docs/proposals/app-platform.md:8
+msgid "Status: decided 2026-10-23: option B, staged, with the Rust/wasm library for the web meanwhile (<a0>memory/dir-app-platform.md</a0>). Researched 2026-10-23. Question: on what should the J1–J4 app be built, so that it runs the Kotlin HCERT library on Android (and, ideally, the web) on the most recent, most Kotlin-native Open Health Stack?"
+msgstr "الحالة: تقرّر في 2026-10-23: الخيار B، على مراحل، مع مكتبة Rust/wasm للويب في الأثناء (<a0>memory/dir-app-platform.md</a0>). أُجري البحث في 2026-10-23. السؤال: على أي أساس يُبنى تطبيق J1–J4، بحيث يشغّل مكتبة HCERT بلغة Kotlin على Android (وعلى الويب، في الحالة المثلى) على أحدث إصدار من Open Health Stack وأكثره أصالةً في Kotlin؟"
+
+#: docs/proposals/app-platform.md:59
+msgid "Supply chain. Every artifact pinned with sha256, releases ≥ 14 days old, no install scripts. Fewer dependencies is better."
+msgstr "سلسلة الإمداد. كل عنصر مُثبَّت ببصمة sha256، والإصدارات عمرها ≥ 14 يومًا، ولا نصوص تثبيت. وكلما قلّت التبعيات كان أفضل."
+
+#: docs/proposals/app-platform.md:52
+msgid "The Android emulator test of the HCERT library (STT-GEN-004) must run in CI on an Android runtime, platform crypto included. This is independent of the app: it is a small Android test module that depends only on the HCERT jar (plan step 4). It can land before the app decision."
+msgstr "يجب أن يعمل اختبار المحاكي Android لمكتبة HCERT (STT-GEN-004) في CI على بيئة تشغيل Android، بما في ذلك تشفير المنصة. وهو مستقل عن التطبيق: إنه وحدة اختبار Android صغيرة لا تعتمد إلا على ملف jar الخاص بـ HCERT (الخطوة 4 من الخطة). ويمكن إدماجه قبل قرار التطبيق."
+
+#: docs/proposals/app-platform.md:126
+#, python-brace-format
+msgid "The B app, Android target, offline, J1–J4, on {code0} engine + data capture + workflow."
+msgstr "تطبيق B، بهدف Android، دون اتصال، J1–J4، على محرك {code0} + التقاط البيانات + سير العمل."
+
+#: docs/proposals/app-platform.md:61
+#, python-brace-format
+msgid "The HCERT library comes from a pinned smart-trust-tools commit as a JVM jar (owner's choice). On Android the JVM jar works as is. On the web it does not yet: hcert-core's Kotlin/JS target uses {code0} and {code1}, so it runs on Node, not in a browser, and there is no wasmJs target. Any web front end needs either a browser target in hcert-core (WebCrypto, {code2}), a library change in smart-trust-tools, or the Rust/wasm library, which already runs in the browser with WebCrypto keys."
+msgstr "تأتي مكتبة HCERT من إيداع مُثبَّت في smart-trust-tools بصيغة jar لـ JVM (اختيار المالك). على Android يعمل ملف jar لـ JVM كما هو. أما على الويب فلا يعمل بعد: هدف Kotlin/JS في hcert-core يستخدم {code0} و{code1}، فيعمل على Node لا في المتصفح، ولا يوجد هدف wasmJs. وأي واجهة أمامية للويب تحتاج إما إلى هدف للمتصفح في hcert-core (WebCrypto، {code2})، أو إلى تغيير في المكتبة في smart-trust-tools، أو إلى مكتبة Rust/wasm التي تعمل في المتصفح بالفعل بمفاتيح WebCrypto."
+
+#: docs/proposals/app-platform.md:96
+msgid "The KMP libraries are alpha: API breaks between alphas are ours to absorb."
+msgstr "مكتبات KMP في مرحلة ألفا: علينا استيعاب التغييرات الكاسرة في واجهات API بين إصدارات ألفا."
+
+#: docs/proposals/app-platform.md:119
+msgid "The Kotlin library on Android is exercised only by tests, not by a journey."
+msgstr "لا تُختبَر مكتبة Kotlin على Android إلا بالاختبارات، لا عبر رحلة."
+
+#: docs/proposals/app-platform.md:47
+msgid "The most recent and most Kotlin-native choice is therefore the KMP generation, with or without the Player template."
+msgstr "لذلك فإن الخيار الأحدث والأكثر أصالةً في Kotlin هو جيل KMP، مع قالب Player أو دونه."
+
+#: docs/proposals/app-platform.md:119
+msgid "The Rust/wasm library already runs in the browser."
+msgstr "مكتبة Rust/wasm تعمل في المتصفح بالفعل."
+
+#: docs/proposals/app-platform.md:128
+msgid "The web target of the same app once hcert-core has a browser target (to be requested in smart-trust-tools) — or, in the meantime, the journeys' QR steps on the web through the Rust/wasm library."
+msgstr "هدف الويب للتطبيق نفسه متى صار لـ hcert-core هدف للمتصفح (يُطلَب في smart-trust-tools) — أو، في الأثناء، خطوات QR في الرحلات على الويب عبر مكتبة Rust/wasm."
+
+#: docs/proposals/app-platform.md:81
+#, python-brace-format
+msgid "Upstreamable: journeys could later become a variant in {code0}."
+msgstr "قابل للرفع إلى المصدر الأصلي: يمكن أن تصبح الرحلات لاحقًا متغيرًا في {code0}."
+
+#: docs/proposals/app-platform.md:107
+msgid "Workflow library runs CQL today (WHO SMART Guidelines content)."
+msgstr "مكتبة Workflow تشغّل CQL اليوم (محتوى إرشادات SMART لدى منظمة الصحة العالمية (WHO))."
+
+#: docs/proposals/app-platform.md:107
+msgid "Workflow pulls HAPI FHIR + CQL engine: a very large, JVM-heavy dependency graph."
+msgstr "تجلب Workflow مكتبة HAPI FHIR + محرك CQL: رسم بياني ضخم جدًا للتبعيات، يعتمد بكثافة على JVM."

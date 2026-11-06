@@ -1,0 +1,267 @@
+# Arabic translation of plan
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: smart-trust-demo\n"
+"POT-Creation-Date: 2026-11-06T09:26:50.950Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: docs/plan.md:32
+#, python-brace-format
+msgid "(done) {code0} declaration and {code1} pinning the harness layers smart-trust-tools pins (fhir-harness and below) plus smart-trust-tools itself, so {code2} ids resolve; {code3}."
+msgstr "(مُنجَز) إعلان {code0} و{code1} لتثبيت طبقات harness التي يُثبّتها smart-trust-tools (fhir-harness وما دونها) إضافةً إلى smart-trust-tools نفسه، بحيث تُحَل معرِّفات {code2}؛ {code3}."
+
+#: docs/plan.md:72
+#, python-brace-format
+msgid "(In progress: {code0} and {code1}. The Gradle verification metadata is written on GitHub's runner, since this session cannot reach Google Maven.)"
+msgstr "(قيد التنفيذ: {code0} و{code1}. تُكتب بيانات التحقق الوصفية لـ Gradle على مُشغِّل GitHub، لأن هذه الجلسة لا تستطيع الوصول إلى Google Maven.)"
+
+#: docs/plan.md:95
+#, python-brace-format
+msgid "(Started: {code0}, J2's offline read, and J3's verification and import of the guide's DVCs on Android, workflow {code1}. A verified DVC becomes a FHIR R4 {code2} with its {code3} ({code4}); an unverified one is not imported. Next: J3's schedule, then J1 issuance.)"
+msgstr "(بدأ: {code0}، والقراءة دون اتصال في J2، والتحقق في J3 من شهادات التطعيم الرقمية (DVCs) الواردة في الدليل واستيرادها على Android، سير العمل {code1}. وتصبح شهادة التطعيم الرقمية المُتحقَّق منها {code2} في FHIR R4 مع {code3} الخاص بها ({code4})؛ أما غير المُتحقَّق منها فلا تُستورد. التالي: جدول التطعيم في J3، ثم الإصدار في J1.)"
+
+#: docs/plan.md:82
+#, python-brace-format
+msgid "{code0} of the same QR (J2);"
+msgstr "{code0} لرمز QR نفسه (J2)؛"
+
+#: docs/plan.md:62
+#, python-brace-format
+msgid "{code0}: a script and Gradle wiring that checks out smart-trust-tools at a pinned SHA, builds {code1} and {code2} (JVM) with that repository's own Gradle and {code3}, and copies the jars to {code4}, failing if a jar's sha256 differs from the one recorded in {code5} (the build is reproducible). The app and the Android tests depend on those files. Bumping the library is the commit in the lock plus {code6}."
+msgstr "{code0}: برنامج نصي وتوصيلات Gradle تسحب smart-trust-tools عند SHA مُثبَّت، وتبني {code1} و{code2} (JVM) باستخدام Gradle الخاص بذلك المستودع و{code3}، وتنسخ ملفات jar إلى {code4}، وتُخفق إذا اختلف sha256 لأي ملف jar عن القيمة المسجّلة في {code5} (البناء قابل لإعادة الإنتاج). ويعتمد التطبيق واختبارات Android على هذه الملفات. وتحديث المكتبة هو الإيداع في ملف القفل إضافةً إلى {code6}."
+
+#: docs/plan.md:76
+#, python-brace-format
+msgid "{code0}: an Android library module whose instrumented tests run on an emulator in CI (Android API levels to be chosen: one current, one old enough to matter for clinics, e.g. 26 and 35):"
+msgstr "{code0}: وحدة مكتبة Android تُشغَّل اختباراتها المُجهَّزة على محاكٍ في CI (مستويات Android API لم تُحدَّد بعد: مستوى حديث، وآخر قديم بما يكفي ليكون مهمًا للعيادات، مثل 26 و35):"
+
+#: docs/plan.md:40
+#, python-brace-format
+msgid "{code0}: one BPMN per journey (done in step 2a; checklists and the harness mount in 2b) (J1 issuance, J2 CHW discovery and referral, J3 verification, import and schedule, J4.0 VHL issuance to a shared phone, J4.1 VHL fetch at the point of care), lanes naming roles, tasks naming smart-trust-tools skills; checklists generated."
+msgstr "{code0}: ملف BPMN واحد لكل رحلة (أُنجز في الخطوة 2a؛ وقوائم التحقق وتركيب harness في 2b) (الإصدار في J1، والاكتشاف والإحالة من قِبل عامل الصحة المجتمعي (CHW) في J2، والتحقق والاستيراد ووضع الجدول في J3، وإصدار الروابط الصحية القابلة للتحقق (VHL) إلى هاتف مشترك في J4.0، وجلب الرابط الصحي القابل للتحقق (VHL) في نقطة تقديم الرعاية في J4.1)، مع مسارات تُسمّي الأدوار، ومهام تُسمّي مهارات smart-trust-tools؛ وتُولَّد قوائم التحقق."
+
+#: docs/plan.md:35
+#, python-brace-format
+msgid "{code0}: the actors (reusing smart-trust-tools' VHL Holder, Sharer, Receiver, Trust Network Participant), the roles that play lanes, and the personas: the mother and newborn (J1's IG example), the J1 clinic nurse, the CHW (J2), the home clinic provider (J3), the national portal and the border/clinic receiver abroad (J4)."
+msgstr "{code0}: الجهات الفاعلة (بإعادة استخدام VHL Holder وSharer وReceiver وTrust Network Participant من smart-trust-tools)، والأدوار التي تشغل المسارات، والشخصيات الافتراضية: الأم والمولود (مثال IG في J1)، وممرضة عيادة J1، وعامل الصحة المجتمعي (CHW) (J2)، ومقدِّم الخدمة في عيادة البلد الأم (J3)، والبوابة الوطنية والجهة المُستقبِلة عند الحدود أو في العيادة بالخارج (J4)."
+
+#: docs/plan.md:18
+msgid "<a0>memory/dir-app-platform.md</a0>"
+msgstr "<a0>memory/dir-app-platform.md</a0>"
+
+#: docs/plan.md:16
+msgid "<a0>memory/dir-downstream.md</a0>"
+msgstr "<a0>memory/dir-downstream.md</a0>"
+
+#: docs/plan.md:19
+msgid "<a0>memory/dir-ig-identity.md</a0>"
+msgstr "<a0>memory/dir-ig-identity.md</a0>"
+
+#: docs/plan.md:17
+msgid "<a0>memory/dir-journeys-demo.md</a0>"
+msgstr "<a0>memory/dir-journeys-demo.md</a0>"
+
+#: docs/plan.md:15
+msgid "<a0>memory/dir-library-consumption.md</a0>"
+msgstr "<a0>memory/dir-library-consumption.md</a0>"
+
+#: docs/plan.md:23
+msgid "1. Plan and skeleton (this PR)"
+msgstr "1. الخطة والهيكل الأولي (طلب السحب PR هذا)"
+
+#: docs/plan.md:30
+msgid "2. Journeys as cat-harness content"
+msgstr "2. الرحلات بوصفها محتوى cat-harness"
+
+#: docs/plan.md:49
+msgid "2c. L2 DAK and L3 FHIR IG"
+msgstr "2c. مجموعة أدوات التكيُّف الرقمي (DAK) من المستوى L2 ودليل تنفيذ FHIR IG من المستوى L3"
+
+#: docs/plan.md:60
+msgid "3. The HCERT library at a pinned commit"
+msgstr "3. مكتبة HCERT عند إيداع مُثبَّت"
+
+#: docs/plan.md:70
+msgid "4. Android emulator test of the library (STT-GEN-004)"
+msgstr "4. اختبار المكتبة على محاكي Android (STT-GEN-004)"
+
+#: docs/plan.md:93
+msgid "5. The app"
+msgstr "5. التطبيق"
+
+#: docs/plan.md:115
+msgid "6. Web and publication"
+msgstr "6. الويب والنشر"
+
+#: docs/plan.md:17
+#, python-brace-format
+msgid "A fictional GDHCN DEV participant; J1's issuer stays {code0}"
+msgstr "مشارك خيالي في GDHCN DEV؛ وتبقى الجهة المُصدِرة في J1 هي {code0}"
+
+#: docs/plan.md:113
+msgid "An emulator UI test drives the four journeys end to end."
+msgstr "يُشغِّل اختبار واجهة مستخدم (UI) على المحاكي الرحلات الأربع من البداية إلى النهاية."
+
+#: docs/plan.md:128
+#, python-brace-format
+msgid "Android algorithm names: hcert-core's JVM code asks for {code0}, which Android's providers may not offer under that name; step 4 will show."
+msgstr "أسماء الخوارزميات في Android: تطلب شيفرة JVM في hcert-core الاسم {code0}، الذي قد لا تقدّمه موفّرات Android بهذا الاسم؛ وستكشف الخطوة 4 ذلك."
+
+#: docs/plan.md:46
+msgid "Beans for gaps found on the way (in this repository, or tagged upstream for smart-trust-tools, smart-trust or smart-trust-phw)."
+msgstr "Beans للثغرات المكتشفة في الطريق (في هذا المستودع، أو موسومة للمنبع لـ smart-trust-tools أو smart-trust أو smart-trust-phw)."
+
+#: docs/plan.md:126
+msgid "Browser build of hcert-core (for the web target): to be raised in smart-trust-tools."
+msgstr "بناء hcert-core للمتصفح (لهدف الويب): ستُثار المسألة في smart-trust-tools."
+
+#: docs/plan.md:15
+msgid "Build the JVM jars in CI from a pinned smart-trust-tools commit"
+msgstr "بناء ملفات JVM jar في CI من إيداع مُثبَّت لـ smart-trust-tools"
+
+#: docs/plan.md:13
+msgid "Choice"
+msgstr "الخيار"
+
+#: docs/plan.md:13
+msgid "Decision"
+msgstr "القرار"
+
+#: docs/plan.md:11
+msgid "Decisions so far (2026-10-23)"
+msgstr "القرارات حتى الآن (2026-10-23)"
+
+#: docs/plan.md:8
+#, python-brace-format
+msgid "Each step is one pull request, merged when CI is green. Decisions that are the owner's are asked before the step that needs them and recorded in {code0}."
+msgstr "كل خطوة هي طلب سحب واحد، يُدمَج عندما يكون CI ناجحًا. والقرارات التي تعود إلى المالك تُطرح عليه قبل الخطوة التي تحتاج إليها وتُسجَّل في {code0}."
+
+#: docs/plan.md:16
+msgid "Full cat-harness downstream of smart-trust-tools"
+msgstr "مشروع تابع كامل لـ cat-harness ضمن smart-trust-tools"
+
+#: docs/plan.md:16
+msgid "Harness"
+msgstr "Harness"
+
+#: docs/plan.md:17
+msgid "Home country (J2–J4)"
+msgstr "البلد الأم (J2–J4)"
+
+#: docs/plan.md:19
+msgid "IG identity"
+msgstr "هوية IG"
+
+#: docs/plan.md:83
+msgid "issue with an Android Keystore key (prepare → Keystore sign → finish) and verify it, ES256, and PS256 where the platform offers it;"
+msgstr "الإصدار بمفتاح Android Keystore (التحضير ← التوقيع عبر Keystore ← الإنهاء) والتحقق منه، باستخدام ES256، وPS256 حيثما توفّره المنصة؛"
+
+#: docs/plan.md:103
+msgid "J1: clinic issues the newborn's DVC (bundled test key standing in for the clinic's DSC, or the Keystore), prints/shows the QR."
+msgstr "J1: تُصدر العيادة شهادة التطعيم الرقمية (DVC) للمولود (مفتاح اختبار مُضمَّن يقوم مقام شهادة موقِّع المستندات (DSC) للعيادة، أو Keystore)، وتطبع رمز QR أو تعرضه."
+
+#: docs/plan.md:105
+#, python-brace-format
+msgid "J2: CHW scans the paper QR offline ({code0}), registers the infant (SDC questionnaire), creates a referral ({code1})."
+msgstr "J2: يمسح عامل الصحة المجتمعي (CHW) رمز QR الورقي دون اتصال ({code0})، ويسجّل الرضيع (استبيان SDC)، وينشئ إحالة ({code1})."
+
+#: docs/plan.md:107
+#, python-brace-format
+msgid "J3: clinic verifies against the bundled DEV trust list, imports the {code0}s into the on-device FHIR engine, evaluates the schedule ({code1}), shows the next doses."
+msgstr "J3: تتحقق العيادة مقابل قائمة الثقة DEV المُضمَّنة، وتستورد موارد {code0} إلى محرك FHIR على الجهاز، وتُقيِّم جدول التطعيم ({code1})، وتعرض الجرعات التالية."
+
+#: docs/plan.md:110
+msgid "J4: portal issues per-member VHL QRs to the shared phone; a receiver fetches the manifest (ITI-YY5) from a local test sharer and decrypts."
+msgstr "J4: تُصدر البوابة رموز QR للروابط الصحية القابلة للتحقق (VHL) لكل فرد إلى الهاتف المشترك؛ وتجلب جهة مُستقبِلة البيان (ITI-YY5) من جهة مُشارِكة اختبارية محلية وتفك تشفيره."
+
+#: docs/plan.md:15
+msgid "Library consumption"
+msgstr "استهلاك المكتبة"
+
+#: docs/plan.md:123
+#, python-brace-format
+msgid "Network: this session cannot reach {code0} (Google Maven, the Android SDK). Steps 4–5 need it locally to write the verification metadata; the owner can allow it in the environment's network settings."
+msgstr "الشبكة: لا تستطيع هذه الجلسة الوصول إلى {code0} (Google Maven، وAndroid SDK). وتحتاج الخطوتان 4–5 إليه محليًا لكتابة بيانات التحقق الوصفية؛ ويمكن للمالك السماح به في إعدادات الشبكة للبيئة."
+
+#: docs/plan.md:18
+msgid "OHS base for the app"
+msgstr "قاعدة OHS للتطبيق"
+
+#: docs/plan.md:100
+msgid "On the base the owner chooses from the proposal (recommended: a lean Compose Multiplatform app on the OHS KMP libraries, Android first):"
+msgstr "على القاعدة التي يختارها المالك من المقترح (الموصى به: تطبيق Compose Multiplatform خفيف مبني على مكتبات OHS KMP، مع البدء بـ Android):"
+
+#: docs/plan.md:121
+msgid "Open items"
+msgstr "البنود المفتوحة"
+
+#: docs/plan.md:18
+msgid "Option B, staged; Rust/wasm for the web meanwhile (<a0>proposals/app-platform.md</a0>)"
+msgstr "الخيار B، على مراحل؛ وRust/wasm للويب في الأثناء (<a0>proposals/app-platform.md</a0>)"
+
+#: docs/plan.md:6
+msgid "Plan"
+msgstr "الخطة"
+
+#: docs/plan.md:25
+#, python-brace-format
+msgid "README (including the smart-trust-phw upstream note), AGENTS.md, this plan, the app-platform proposal, owner directives in {code0}, the dependency register, and a CI job that checks every GitHub Action is pinned by commit SHA and every JSON file parses."
+msgstr "README (بما في ذلك ملاحظة المنبع smart-trust-phw)، وAGENTS.md، وهذه الخطة، ومقترح منصة التطبيق، وتوجيهات المالك في {code0}، وسجل التبعيات، ومهمة CI تتحقق من أن كل GitHub Action مُثبَّت بـ SHA الإيداع وأن كل ملف JSON قابل للتحليل."
+
+#: docs/plan.md:13
+msgid "Record"
+msgstr "السجل"
+
+#: docs/plan.md:87
+msgid "Results are reported back to smart-trust-tools as evidence for STT-GEN-004 (and as beans there for anything Android refuses, e.g. algorithm names). Google Maven artifacts (AGP, AndroidX test) are pinned with sha256 like every other. The emulator job uses a pinned action by SHA and caches no unverified artifacts."
+msgstr "تُبلَّغ النتائج إلى smart-trust-tools بوصفها دليلًا على STT-GEN-004 (وبوصفها beans هناك لكل ما يرفضه Android، مثل أسماء الخوارزميات). وتُثبَّت عناصر Google Maven (AGP، وAndroidX test) بـ sha256 مثل غيرها. وتستخدم مهمة المحاكي إجراءً مُثبَّتًا بـ SHA ولا تُخزِّن مؤقتًا أي عناصر غير مُتحقَّق منها."
+
+#: docs/plan.md:21
+msgid "Steps"
+msgstr "الخطوات"
+
+#: docs/plan.md:51
+#, python-brace-format
+msgid "The journeys as a WHO SMART Guidelines DAK and FHIR IG, shaped as litlfred/smart-immunizations ({code0}, {code1}, the DAK in {code2} ({code3}), {code4}). The L2 content is generated from the harness sources by {code5}: roles become {code6}s, the BPMN is copied to {code7}, stories and scenarios become pages. CI checks the generated files are current and that SUSHI builds with no errors. Then: publish the IG on gh-pages and add example resources per journey (bean IG-01)."
+msgstr "الرحلات بوصفها مجموعة أدوات التكيُّف الرقمي (DAK) لإرشادات SMART لمنظمة الصحة العالمية (WHO) ودليل تنفيذ FHIR IG، بالبنية نفسها لـ litlfred/smart-immunizations ({code0}، {code1}، ومجموعة DAK في {code2} ({code3})، {code4}). ويُولَّد محتوى المستوى L2 من مصادر harness بواسطة {code5}: تصبح الأدوار موارد {code6}، ويُنسخ BPMN إلى {code7}، وتصبح القصص والسيناريوهات صفحات. ويتحقق CI من أن الملفات المولَّدة محدَّثة وأن SUSHI يبني دون أخطاء. ثم: نشر IG على gh-pages وإضافة موارد أمثلة لكل رحلة (bean IG-01)."
+
+#: docs/plan.md:117
+msgid "The web target (once hcert-core runs in a browser, or via the Rust/wasm library meanwhile), and the gh-pages site (agent-published): the journeys, BPMN viewers, personas and the test evidence."
+msgstr "هدف الويب (بمجرد أن يعمل hcert-core في المتصفح، أو عبر مكتبة Rust/wasm في الأثناء)، وموقع gh-pages (يُنشَر بواسطة وكيل): الرحلات، وعارضات BPMN، والشخصيات الافتراضية وأدلة الاختبار."
+
+#: docs/plan.md:44
+#, python-brace-format
+msgid "User scenarios: one per journey, each step tracing to {code0} nodes (e.g. J2 → STT-VER-011, J3 → STT-VER-001…, J4 → the VHL requirements)."
+msgstr "سيناريوهات المستخدم: سيناريو واحد لكل رحلة، تُتتبَّع كل خطوة منه إلى عُقد {code0} (مثل J2 ← STT-VER-011، وJ3 ← STT-VER-001…، وJ4 ← متطلبات VHL)."
+
+#: docs/plan.md:80
+msgid "verify the IG's §12 example against XXR's DSC DID document (the DEV trust list), on Android's platform providers;"
+msgstr "التحقق من مثال §12 في IG مقابل مستند DID لشهادة موقِّع المستندات (DSC) الخاصة بـ XXR (قائمة الثقة DEV)، باستخدام موفّرات منصة Android؛"
+
+#: docs/plan.md:85
+#, python-brace-format
+msgid "VHL: build and read a {code0}, decrypt the JWE fixture."
+msgstr "VHL: بناء {code0} وقراءته، وفك تشفير ملف JWE الاختباري."

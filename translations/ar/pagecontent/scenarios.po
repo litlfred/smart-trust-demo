@@ -1,0 +1,453 @@
+# Arabic translation of pagecontent/scenarios
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: smart-trust-demo\n"
+"POT-Creation-Date: 2026-11-06T09:26:50.991Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: input/pagecontent/scenarios.md:11
+msgid "<a0>STD-ACC-001</a0>, <a1>STT-VHL-001</a1>, <a2>STT-VHL-002</a2>, <a3>STT-VHL-004</a3>, <a4>STT-VHL-007</a4>"
+msgstr "<a0>STD-ACC-001</a0>، <a1>STT-VHL-001</a1>، <a2>STT-VHL-002</a2>، <a3>STT-VHL-004</a3>، <a4>STT-VHL-007</a4>"
+
+#: input/pagecontent/scenarios.md:12
+msgid "<a0>STD-ACC-001</a0>, <a1>STT-VHL-009</a1>, <a2>STT-VHL-008</a2>"
+msgstr "<a0>STD-ACC-001</a0>، <a1>STT-VHL-009</a1>، <a2>STT-VHL-008</a2>"
+
+#: input/pagecontent/scenarios.md:18
+msgid "<a0>STD-SCH-001</a0>"
+msgstr "<a0>STD-SCH-001</a0>"
+
+#: input/pagecontent/scenarios.md:19
+msgid "<a0>STD-SEM-001</a0>"
+msgstr "<a0>STD-SEM-001</a0>"
+
+#: input/pagecontent/scenarios.md:13
+msgid "<a0>STT-PAY-001</a0>, <a1>STT-PAY-003</a1>, <a2>STT-ISS-004</a2>, <a3>STT-COS-001</a3>, <a4>STT-HC1-001</a4>, <a5>STT-QR-001</a5>"
+msgstr "<a0>STT-PAY-001</a0>، <a1>STT-PAY-003</a1>، <a2>STT-ISS-004</a2>، <a3>STT-COS-001</a3>، <a4>STT-HC1-001</a4>، <a5>STT-QR-001</a5>"
+
+#: input/pagecontent/scenarios.md:16
+msgid "<a0>STT-PAY-005</a0>"
+msgstr "<a0>STT-PAY-005</a0>"
+
+#: input/pagecontent/scenarios.md:21
+msgid "<a0>STT-VER-001</a0>, <a1>STT-TRU-002</a1>, <a2>STT-KID-002</a2>"
+msgstr "<a0>STT-VER-001</a0>، <a1>STT-TRU-002</a1>، <a2>STT-KID-002</a2>"
+
+#: input/pagecontent/scenarios.md:17
+msgid "<a0>STT-VER-001</a0>, <a1>STT-VER-002</a1>, <a2>STT-VER-008</a2>, <a3>STT-TRU-001</a3>"
+msgstr "<a0>STT-VER-001</a0>، <a1>STT-VER-002</a1>، <a2>STT-VER-008</a2>، <a3>STT-TRU-001</a3>"
+
+#: input/pagecontent/scenarios.md:10
+msgid "<a0>STT-VER-001</a0>, <a1>STT-VER-009</a1>, <a2>STT-TRU-002</a2>"
+msgstr "<a0>STT-VER-001</a0>، <a1>STT-VER-009</a1>، <a2>STT-TRU-002</a2>"
+
+#: input/pagecontent/scenarios.md:15
+msgid "<a0>STT-VER-011</a0>"
+msgstr "<a0>STT-VER-011</a0>"
+
+#: input/pagecontent/scenarios.md:14
+msgid "<a0>STT-VER-011</a0>, <a1>STT-B45-002</a1>, <a2>STT-CBR-003</a2>"
+msgstr "<a0>STT-VER-011</a0>، <a1>STT-B45-002</a1>، <a2>STT-CBR-003</a2>"
+
+#: input/pagecontent/scenarios.md:20
+msgid "<a0>STT-VHL-005</a0>, <a1>STT-VHL-006</a1>, <a2>STT-VHL-007</a2>, <a3>STT-VHL-008</a3>"
+msgstr "<a0>STT-VHL-005</a0>، <a1>STT-VHL-006</a1>، <a2>STT-VHL-007</a2>، <a3>STT-VHL-008</a3>"
+
+#: input/pagecontent/scenarios.md:11
+msgid "a doctor abroad can treat us without paper or an app"
+msgstr "يتمكّن طبيب في الخارج من علاجنا دون ورق أو تطبيق"
+
+#: input/pagecontent/scenarios.md:154
+#, python-brace-format
+msgid "A wrong passcode is refused, and the attempt is still logged in Lao PDR ({code0}). If the HCERT does not verify (for example, Country B's DSC is missing from the cached list), there is no digital verification. The clinic names the step and the reason (<a0>STT-VER-008</a0>), does not follow the VHL, and Dr Anan treats whatever the family can show as he would a paper record."
+msgstr "يُرفض رمز المرور الخاطئ، ومع ذلك تُسجَّل المحاولة في جمهورية لاو الديمقراطية الشعبية (Lao PDR) ({code0}). وإذا لم يجتز HCERT التحقق (على سبيل المثال، إذا كانت شهادة موقِّع المستندات (DSC) الخاصة بالبلد B غائبة عن القائمة المخزَّنة مؤقتًا)، فلا يوجد تحقق رقمي. تذكر العيادة الخطوة والسبب (<a0>STT-VER-008</a0>)، ولا تتّبع رابط VHL، ويتعامل Dr Anan مع ما تستطيع الأسرة إظهاره كما يتعامل مع سجل ورقي."
+
+#: input/pagecontent/scenarios.md:144
+msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Chiang Rai. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Lao gateway take five steps:"
+msgstr "في المكان الذي بدأ فيه كل شيء، يفحص Dr Anan الطفل Somsack في عيادة رعاية أولية في تشيانغ راي. يعرض Bounmy رمز QR على هاتفه وينطق رمز المرور. ويُنفِّذ عارض العيادة وبوابة الربط اللاوية خمس خطوات:"
+
+#: input/pagecontent/scenarios.md:13
+msgid "Birth clinic vaccinator"
+msgstr "مُطعِّم عيادة الولادة"
+
+#: input/pagecontent/scenarios.md:10
+#: input/pagecontent/scenarios.md:11
+#: input/pagecontent/scenarios.md:12
+msgid "Caregiver"
+msgstr "مقدِّم الرعاية"
+
+#: input/pagecontent/scenarios.md:14
+#: input/pagecontent/scenarios.md:15
+#: input/pagecontent/scenarios.md:16
+msgid "Community health worker"
+msgstr "عامل صحة مجتمعي"
+
+#: input/pagecontent/scenarios.md:12
+msgid "Decide who sees my child's record, and for how long"
+msgstr "أن أقرر مَن يطّلع على سجل طفلي، ولأي مدة"
+
+#: input/pagecontent/scenarios.md:26
+#, python-brace-format
+msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
+msgstr "تذكر كل خطوة متطلبات <a0>smart-trust-tools</a0> التي تختبرها، وأمثلة FHIR من هذا الدليل التي تُنتجها. والقصص موجودة في <a1>{code0}</a1>. وتنتهي كل لحظة بنقطة الألم فيها، وما يُمكِّنها، والنقطة التي تطرحها في السياسات، كما تعرضها الجولة الإرشادية في VaxLink."
+
+#: input/pagecontent/scenarios.md:6
+msgid "Each story traces to the smart-trust-tools requirements that serve it (scenarios/story-requirements.json); where the HCERT library does not serve a story, the note says what does."
+msgstr "تُتتبَّع كل قصة إلى متطلبات smart-trust-tools التي تخدمها (scenarios/story-requirements.json)؛ وحيث لا تخدم مكتبة HCERT قصةً ما، توضّح الملاحظة ما يخدمها."
+
+#: input/pagecontent/scenarios.md:79
+msgid "Enabler (J2a): The phone reads the card offline, and keeps “what the family told us” clearly separate from “what we have verified”."
+msgstr "العامل المُمكِّن (J2a): يقرأ الهاتف البطاقة دون اتصال، ويُبقي «ما أخبرتنا به الأسرة» منفصلًا بوضوح عن «ما تحققنا منه»."
+
+#: input/pagecontent/scenarios.md:80
+msgid "Enabler (J2b): An offline form links the baby to his household immediately; it syncs once the phone finds a signal."
+msgstr "العامل المُمكِّن (J2b): نموذج يعمل دون اتصال يربط الرضيع بأسرته المعيشية فورًا؛ ويُزامَن حالما يلتقط الهاتف إشارة."
+
+#: input/pagecontent/scenarios.md:110
+msgid "Enabler (J3a): Thailand’s signing key is on the shared WHO trust list, so any clinic can check it locally."
+msgstr "العامل المُمكِّن (J3a): مفتاح التوقيع الخاص بتايلاند موجود في قائمة الثقة المشتركة لمنظمة الصحة العالمية (WHO)، بحيث تستطيع أي عيادة التحقق منه محليًا."
+
+#: input/pagecontent/scenarios.md:111
+msgid "Enabler (J3b): Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due."
+msgstr "العامل المُمكِّن (J3b): يُحتفظ برمز تايلاند الأصلي ويُضاف الرمز اللاوي بجانبه؛ ويحسب محرك جدول التطعيم ما هو مستحق."
+
+#: input/pagecontent/scenarios.md:135
+msgid "Enabler (J4.0a): A household wallet on one phone, with a separate health summary for each person."
+msgstr "العامل المُمكِّن (J4.0a): محفظة أسرية على هاتف واحد، مع ملخص صحي منفصل لكل شخص."
+
+#: input/pagecontent/scenarios.md:136
+msgid "Enabler (J4.0b): A Verifiable Health Link: the QR holds only a locked pointer; the data stays home until the passcode is given."
+msgstr "العامل المُمكِّن (J4.0b): رابط صحي قابل للتحقق: لا يحمل رمز QR سوى مؤشر مُقفَل؛ وتبقى البيانات في البلد الأم حتى يُعطى رمز المرور."
+
+#: input/pagecontent/scenarios.md:57
+msgid "Enabler: A digitally signed QR card travels with the family — no ID number or database lookup needed."
+msgstr "العامل المُمكِّن: بطاقة QR موقَّعة رقميًا ترافق الأسرة — دون الحاجة إلى رقم هوية (ID) أو بحث في قاعدة بيانات."
+
+#: input/pagecontent/scenarios.md:162
+msgid "Enabler: The record is fetched live from Lao PDR, viewed without being copied, and an access log is sent home."
+msgstr "العامل المُمكِّن: يُجلب السجل مباشرةً من جمهورية لاو الديمقراطية الشعبية (Lao PDR)، ويُعرض دون نسخه، ويُرسَل سجل وصول إلى البلد الأم."
+
+#: input/pagecontent/scenarios.md:10
+msgid "Have my son's birth doses from abroad recognised at home"
+msgstr "أن تُعترف في بلدي بجرعات الولادة التي تلقّاها ابني في الخارج"
+
+#: input/pagecontent/scenarios.md:10
+msgid "his care does not start over and nothing is repeated"
+msgstr "لا تبدأ رعايته من جديد ولا يتكرر أي شيء"
+
+#: input/pagecontent/scenarios.md:17
+#: input/pagecontent/scenarios.md:18
+#: input/pagecontent/scenarios.md:19
+msgid "Home clinic provider"
+msgstr "مقدِّم الخدمة في عيادة البلد الأم"
+
+#: input/pagecontent/scenarios.md:21
+msgid "I can rely on it as I would on my own clinic's record"
+msgstr "أستطيع الاعتماد عليه كما أعتمد على سجل عيادتي"
+
+#: input/pagecontent/scenarios.md:18
+msgid "I give only what is missing"
+msgstr "لا أعطي إلا ما ينقص"
+
+#: input/pagecontent/scenarios.md:8
+msgid "I want to"
+msgstr "أريد أن"
+
+#: input/pagecontent/scenarios.md:127
+msgid "It assembles the IPS and Somsack's DVCs."
+msgstr "يجمع ملخص المريض الدولي (IPS) وشهادات التطعيم الرقمية (DVC) الخاصة بـ Somsack."
+
+#: input/pagecontent/scenarios.md:44
+msgid "It builds a DVCMinPreQual payload: <a0>STT-PAY-001</a0>…<a1>005</a1> and <a2>STT-PAY-007</a2>, with subclaim −6 (<a3>STT-SEL-003</a3>). No identity document is needed (<a4>STT-PAY-005</a4>)."
+msgstr "يبني حمولة DVCMinPreQual: <a0>STT-PAY-001</a0>…<a1>005</a1> و<a2>STT-PAY-007</a2>، مع المطالبة الفرعية −6 (<a3>STT-SEL-003</a3>). ولا حاجة إلى أي وثيقة هوية (<a4>STT-PAY-005</a4>)."
+
+#: input/pagecontent/scenarios.md:128
+msgid "It encrypts them (<a0>STT-VHL-004</a0>, <a1>STT-VHL-007</a1>) behind a passcode-protected manifest with an expiry (<a2>STT-VHL-009</a2>)."
+msgstr "يشفّرها (<a0>STT-VHL-004</a0>، <a1>STT-VHL-007</a1>) خلف بيان محمي برمز مرور وله تاريخ انتهاء صلاحية (<a2>STT-VHL-009</a2>)."
+
+#: input/pagecontent/scenarios.md:46
+msgid "It has XXR's key sign them (<a0>STT-COS-002</a0>, <a1>STT-COS-006</a1>), then finishes the HC1 text: <a2>STT-COS-001</a2>, <a3>STT-ZIP-001</a3>, <a4>STT-B45-001</a4>, <a5>STT-HC1-001</a5>, <a6>STT-QR-001</a6>."
+msgstr "يجعل مفتاح XXR يوقّعها (<a0>STT-COS-002</a0>، <a1>STT-COS-006</a1>)، ثم يُكمل نص HC1: <a2>STT-COS-001</a2>، <a3>STT-ZIP-001</a3>، <a4>STT-B45-001</a4>، <a5>STT-HC1-001</a5>، <a6>STT-QR-001</a6>."
+
+#: input/pagecontent/scenarios.md:129
+msgid "It issues the link as an HCERT, with the VHL at key 5 (<a0>STT-VHL-001</a0>, <a1>STT-VHL-002</a1>), signed with Country B's DSC."
+msgstr "يُصدر الرابط بوصفه HCERT، مع VHL عند المفتاح 5 (<a0>STT-VHL-001</a0>، <a1>STT-VHL-002</a1>)، موقَّعًا بشهادة موقِّع المستندات (DSC) الخاصة بالبلد B."
+
+#: input/pagecontent/scenarios.md:45
+msgid "It prepares the CWT and the bytes to sign: <a0>STT-CWT-001</a0>…<a1>005</a1>, <a2>STT-ISS-004</a2>."
+msgstr "يُعِدّ CWT والبايتات المراد توقيعها: <a0>STT-CWT-001</a0>…<a1>005</a1>، <a2>STT-ISS-004</a2>."
+
+#: input/pagecontent/scenarios.md:149
+msgid "It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (<a0>STT-VHL-005</a0>, <a1>STT-VHL-006</a1>, <a2>STT-VHL-008</a2>)."
+msgstr "يطلب البيان عبر ITI-YY5، موقَّعًا بتواقيع رسائل HTTP (HTTP Message Signatures) (<a0>STT-VHL-005</a0>، <a1>STT-VHL-006</a1>، <a2>STT-VHL-008</a2>)."
+
+#: input/pagecontent/scenarios.md:152
+msgid "It shows them to Dr Anan: every dose since the birth, viewed, never copied."
+msgstr "يعرضها على Dr Anan: كل جرعة منذ الولادة، تُعرض ولا تُنسخ أبدًا."
+
+#: input/pagecontent/scenarios.md:35
+msgid "J1 — Born abroad (Thailand, birth day)"
+msgstr "J1 — وُلد في الخارج (تايلاند، يوم الولادة)"
+
+#: input/pagecontent/scenarios.md:60
+msgid "J2 — Found at home (Lao PDR, 3 weeks later)"
+msgstr "J2 — العثور عليه في البلد الأم (جمهورية لاو الديمقراطية الشعبية (Lao PDR)، بعد 3 أسابيع)"
+
+#: input/pagecontent/scenarios.md:62
+msgid "J2a. On a routine visit to Village 04, Vilay finds a newborn the Lao system does not know exists. Her phone has had no signal for weeks. Khamla shows the two cards. The CHW app reads them with read-unverified (<a0>STT-VER-011</a0>; <a1>STT-B45-002</a1>, <a2>STT-ZIP-002</a2>, <a3>STT-CBR-003</a3>), which needs no trust list. It shows the doses, but checks no signature and saves nothing yet."
+msgstr "J2a. خلال زيارة روتينية إلى القرية 04، تعثر Vilay على مولود جديد لا يعلم النظام اللاوي بوجوده. لم يلتقط هاتفها أي إشارة منذ أسابيع. تعرض Khamla البطاقتين. يقرؤهما تطبيق عامل الصحة المجتمعي (CHW) بوضع «القراءة دون تحقق» (<a0>STT-VER-011</a0>؛ <a1>STT-B45-002</a1>، <a2>STT-ZIP-002</a2>، <a3>STT-CBR-003</a3>)، الذي لا يحتاج إلى قائمة ثقة. فيعرض الجرعات، لكنه لا يتحقق من أي توقيع ولا يحفظ شيئًا بعد."
+
+#: input/pagecontent/scenarios.md:68
+#, python-brace-format
+msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she adds Somsack to the Sengmany household ({code1}), with a temporary id. Bounmy confirms the details as head of household. The app saves the doses read from the cards as reported by the family, not verified ({code2}, {code3}: {code4} false). Vilay refers Somsack to the district health center ({code5}). Everything stays queued on the phone, for 28 days if need be, and syncs when it next reaches a signal."
+msgstr "J2b. في نموذج المولود الجديد في تطبيق CHW (التقاط البيانات المُهيكلة، {code0}) تضيف Somsack إلى أسرة Sengmany المعيشية ({code1})، بمعرّف مؤقت. ويؤكد Bounmy التفاصيل بصفته ربّ الأسرة. ويحفظ التطبيق الجرعات المقروءة من البطاقتين على أنها مُبلَّغ عنها من الأسرة، لا مُتحقَّق منها ({code2}، {code3}: {code4} false). وتُحيل Vilay الطفل Somsack إلى المركز الصحي في المنطقة ({code5}). ويبقى كل شيء في قائمة الانتظار على الهاتف، لمدة 28 يومًا إن لزم الأمر، ويُزامَن عندما يلتقط إشارة في المرة التالية."
+
+#: input/pagecontent/scenarios.md:84
+msgid "J3 — Made official (Vientiane District Health Center, 4 weeks later)"
+msgstr "J3 — الاعتماد الرسمي (المركز الصحي في منطقة فينتيان، بعد 4 أسابيع)"
+
+#: input/pagecontent/scenarios.md:88
+#, python-brace-format
+msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), without contacting Thailand. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
+msgstr "J3a. تفتح الممرضة Chanthasone الإحالة وتمسح رموز QR ضوئيًا. ويتحقق نظام السجلات الصحية الإلكترونية (EHR) من كل DVC دون اتصال مقابل تلك النسخة (<a0>STT-VER-001</a0>…<a1>009</a1>، <a2>STT-KID-002</a2>)، دون التواصل مع تايلاند. وبما أن كلتيهما تجتازان التحقق، يستوردهما بوصفهما {code0} في FHIR ({code1}، {code2}) مع بيانات المصدر ({code3}؛ <a3>STT-VER-007</a3>، <a4>STT-VER-008</a4>)، لتحل محل الجرعات المُبلَّغ عنها في J2. وإذا فشلت شهادة DVC (بطاقة تم العبث بها مثلًا)، يذكر EHR الخطوة والسبب، وتبقى الجرعات غير مُتحقَّق منها، وتقرر الممرضة وفق السياسة الوطنية للتطعيم الاستدراكي."
+
+#: input/pagecontent/scenarios.md:97
+#, python-brace-format
+msgid "J3b. The Thai Hep B product matches nothing on the national schedule. The EHR keeps Thailand's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthasone makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsack gets those doses and measles-rubella at 9 months, in Lao PDR."
+msgstr "J3b. لا يطابق منتج Hep B التايلاندي أي شيء في جدول التطعيم الوطني. يحتفظ EHR بترميز المنتج الخاص بتايلاند ويضيف ترميز الجدول بجانبه، من الخريطة الوطنية ({code0}). ولا يوجد في الخريطة إدخال لمنتج Hep B، لذا تتخذ الممرضة Chanthasone القرار السريري بأنه جرعة الولادة في الجدول ({code1})، ويُضاف قرارها إلى الخريطة للعيادة التالية. ثم يُنفَّذ الجدول ({code2}): تُحتسب جرعات الولادة، وتستحق الجرعة الأولى من اللقاح الخماسي والجرعة الأولى من bOPV والجرعة الأولى من PCV عند عمر 6 أسابيع ({code3}). وتغادر Khamla ومعها الموعد ({code4}). وعلى مدار العام يتلقى Somsack تلك الجرعات ولقاح الحصبة والحصبة الألمانية عند عمر 9 أشهر، في جمهورية لاو الديمقراطية الشعبية (Lao PDR)."
+
+#: input/pagecontent/scenarios.md:115
+msgid "J4.0 — Crossing back: one family, one phone (Lao PDR, 12 months later)"
+msgstr "J4.0 — العودة عبر الحدود: أسرة واحدة، هاتف واحد (جمهورية لاو الديمقراطية الشعبية (Lao PDR)، بعد 12 شهرًا)"
+
+#: input/pagecontent/scenarios.md:117
+#, python-brace-format
+msgid "J4.0a. The family plans a trip to Thailand. Bounmy's phone holds the family wallet, with a profile for each of them. Somsack's summary ({code0}) shows six doses: two from Thailand, four from Lao PDR."
+msgstr "J4.0a. تخطط الأسرة لرحلة إلى تايلاند. يحمل هاتف Bounmy محفظة الأسرة، مع ملف شخصي لكل فرد منها. ويُظهر ملخص Somsack ({code0}) ست جرعات: اثنتان من تايلاند، وأربع من جمهورية لاو الديمقراطية الشعبية (Lao PDR)."
+
+#: input/pagecontent/scenarios.md:123
+#, python-brace-format
+msgid "J4.0b. For Somsack, Bounmy shares his record with a 4-digit passcode he can say aloud, valid for 14 days. The portal records his consent ({code0}), then does three things:"
+msgstr "J4.0b. يشارك Bounmy سجل Somsack برمز مرور من 4 أرقام يمكنه نطقه بصوت عالٍ، صالح لمدة 14 يومًا. ويسجّل البوابة الإلكترونية موافقته ({code0})، ثم تقوم بثلاثة أمور:"
+
+#: input/pagecontent/scenarios.md:140
+msgid "J4.1 — Crossing back: a Thai doctor sees the full history (Chiang Rai, 12 months later)"
+msgstr "J4.1 — العودة عبر الحدود: طبيب تايلاندي يرى السجل الكامل (تشيانغ راي، بعد 12 شهرًا)"
+
+#: input/pagecontent/scenarios.md:19
+msgid "Keep the foreign vaccine code and add our schedule code beside it, deciding myself when there is no match"
+msgstr "أن أحتفظ برمز اللقاح الأجنبي وأضيف رمز جدولنا بجانبه، وأن أقرر بنفسي عند عدم وجود تطابق"
+
+#: input/pagecontent/scenarios.md:39
+msgid "Khamla gives birth to Somsack on 2025-10-28 at Chiang Rai Provincial Hospital, away from home. He has no Thai identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
+msgstr "تلد Khamla الطفل Somsack في 2025-10-28 في مستشفى مقاطعة تشيانغ راي، بعيدًا عن بلدها. وليس لديه رقم هوية تايلاندي. يعطيه Dr Anan جرعتَي الولادة من لقاح Hep B ولقاح BCG ويسجّلهما مع رموز منتجات WHO PreQual الخاصة بهما. ولكل جرعة، يقوم نظام المستشفى بثلاثة أمور:"
+
+#: input/pagecontent/scenarios.md:48
+msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsack's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+msgstr "تغادر Khamla ومعها شهادتا تطعيم رقميتان (DVC) ورقيتان. في العرض التوضيحي: تستخدم اختبارات المكتبة سلسلتَي HC1 الموقَّعتين الواردتين في دليل منظمة الصحة العالمية (WHO) نفسه (<a0>توليد رمز QR §12</a0>)، واللتين تجتازان التحقق مقابل قائمة الثقة DEV الحية تحت مفتاح XXR نفسه. وحمولات DVC الخاصة بـ Somsack توضيحية، كما في VaxLink. ويستخدم الإصدار المباشر في التطبيق مفتاحًا TEST-ONLY (<a1>STT-ISS-003</a1>)، وشهادة DSC الخاصة به ليست في قائمة GDHCN، لذا لا تجتاز شهادات DVC الصادرة عنه التحقق في J3."
+
+#: input/pagecontent/scenarios.md:21
+msgid "Know the record I read abroad came from the child's home country and was not altered"
+msgstr "أن أعرف أن السجل الذي أقرؤه في الخارج صادر عن البلد الأم للطفل ولم يُعدَّل"
+
+#: input/pagecontent/scenarios.md:17
+msgid "Know whether a foreign certificate is genuine, and why not when it is not"
+msgstr "أن أعرف ما إذا كانت الشهادة الأجنبية أصلية، ولماذا ليست كذلك إن لم تكن"
+
+#: input/pagecontent/scenarios.md:16
+msgid "no newborn in my village is missed, even with no signal"
+msgstr "لا يُغفَل أي مولود جديد في قريتي، حتى في غياب الإشارة"
+
+#: input/pagecontent/scenarios.md:77
+msgid "Pain point (J2a): Without a check, a forged or mistyped card could quietly become an official record."
+msgstr "نقطة الألم (J2a): دون فحص، قد تتحول بطاقة مزوّرة أو مكتوبة بخطأ بصمت إلى سجل رسمي."
+
+#: input/pagecontent/scenarios.md:78
+msgid "Pain point (J2b): Babies born abroad are invisible to the home health system until civil registration catches up — sometimes months later."
+msgstr "نقطة الألم (J2b): يبقى الرضّع المولودون في الخارج غير مرئيين للنظام الصحي في بلدهم حتى يلحق بهم التسجيل المدني — بعد أشهر أحيانًا."
+
+#: input/pagecontent/scenarios.md:108
+msgid "Pain point (J3a): Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly."
+msgstr "نقطة الألم (J3a): إما أن يرتاب الممارسون السريريون في الأوراق الأجنبية فيعيدوا التطعيم، أو يثقوا بها ثقة عمياء."
+
+#: input/pagecontent/scenarios.md:109
+msgid "Pain point (J3b): Countries name and package vaccines differently, so doses get missed or repeated."
+msgstr "نقطة الألم (J3b): تختلف البلدان في تسمية اللقاحات وتعبئتها، فتُفوَّت جرعات أو تتكرر."
+
+#: input/pagecontent/scenarios.md:133
+msgid "Pain point (J4.0a): Many families share one smartphone; one-app-per-person designs leave them out."
+msgstr "نقطة الألم (J4.0a): تتشارك أسر كثيرة هاتفًا ذكيًا واحدًا؛ والتصاميم القائمة على تطبيق لكل شخص تستبعدها."
+
+#: input/pagecontent/scenarios.md:134
+msgid "Pain point (J4.0b): Sending photos or PDFs of records leaks data and can’t be verified by the receiver."
+msgstr "نقطة الألم (J4.0b): إرسال صور السجلات أو ملفات PDF منها يسرّب البيانات ولا يمكن للجهة المُستقبِلة التحقق منه."
+
+#: input/pagecontent/scenarios.md:56
+msgid "Pain point: The baby has no Thai ID number, so his records would normally stay locked inside the Thai hospital’s system."
+msgstr "نقطة الألم: ليس لدى الرضيع رقم هوية (ID) تايلاندي، لذا تبقى سجلاته عادةً مُقفلة داخل نظام المستشفى التايلاندي."
+
+#: input/pagecontent/scenarios.md:161
+msgid "Pain point: Without the history, the doctor would repeat vaccines or have to guess."
+msgstr "نقطة الألم: دون التاريخ التطعيمي، لكان الطبيب سيكرر اللقاحات أو يضطر إلى التخمين."
+
+#: input/pagecontent/scenarios.md:20
+#: input/pagecontent/scenarios.md:21
+msgid "Point-of-care provider"
+msgstr "مقدِّم الخدمة في نقطة تقديم الرعاية"
+
+#: input/pagecontent/scenarios.md:81
+msgid "Policy (J2a): Keep a clear line between what families report and what has been verified, and don’t grant trust too early."
+msgstr "السياسة (J2a): ضع حدًّا واضحًا بين ما تُبلغ عنه الأسر وما تم التحقق منه، ولا تمنح الثقة قبل أوانها."
+
+#: input/pagecontent/scenarios.md:82
+msgid "Policy (J2b): Newborns can be registered at home, offline, before civil registration or a national ID exists."
+msgstr "السياسة (J2b): يمكن تسجيل المواليد الجدد في البلد الأم، دون اتصال، قبل وجود تسجيل مدني أو هوية وطنية (ID)."
+
+#: input/pagecontent/scenarios.md:112
+msgid "Policy (J3a): Trust is decentralized: a Lao clinic verifies a Thai signature itself, without contacting Thailand."
+msgstr "السياسة (J3a): الثقة لا مركزية: تتحقق عيادة لاوية من توقيع تايلاندي بنفسها، دون التواصل مع تايلاند."
+
+#: input/pagecontent/scenarios.md:113
+msgid "Policy (J3b): Never overwrite another country’s record: keep the original coding alongside the national one."
+msgstr "السياسة (J3b): لا تَكتب أبدًا فوق سجل بلد آخر: احتفظ بالترميز الأصلي إلى جانب الترميز الوطني."
+
+#: input/pagecontent/scenarios.md:137
+msgid "Policy (J4.0a): Design for shared devices (“One Family, One Phone”) so families with only one phone aren’t left out."
+msgstr "السياسة (J4.0a): صمّم للأجهزة المشتركة («أسرة واحدة، هاتف واحد») كي لا تُستبعد الأسر التي لا تملك إلا هاتفًا واحدًا."
+
+#: input/pagecontent/scenarios.md:138
+msgid "Policy (J4.0b): Data sovereignty: the record stays in Lao PDR until the family authorizes someone to open it."
+msgstr "السياسة (J4.0b): سيادة البيانات: يبقى السجل في جمهورية لاو الديمقراطية الشعبية (Lao PDR) حتى تأذن الأسرة لشخص ما بفتحه."
+
+#: input/pagecontent/scenarios.md:58
+msgid "Policy: Babies born abroad can get a verifiable vaccine record before they have the host country’s civil registration or a national ID — and registering the birth at home still matters."
+msgstr "السياسة: يمكن للرضّع المولودين في الخارج الحصول على سجل لقاحات قابل للتحقق قبل حصولهم على التسجيل المدني في البلد المضيف أو هوية وطنية (ID) — ويظل تسجيل الولادة في البلد الأم مهمًا."
+
+#: input/pagecontent/scenarios.md:163
+msgid "Policy: Continuity of care across borders: each country keeps its own records, with no international patient registry and no vendor lock-in. What is agreed regionally is the data model and the trust list, not a shared copy of the data."
+msgstr "السياسة: استمرارية الرعاية عبر الحدود: يحتفظ كل بلد بسجلاته الخاصة، دون سجل دولي للمرضى ودون ارتهان لمورّد. وما يُتفق عليه إقليميًا هو نموذج البيانات وقائمة الثقة، لا نسخة مشتركة من البيانات."
+
+#: input/pagecontent/scenarios.md:121
+msgid "Precondition, as in J1: Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1."
+msgstr "شرط مسبق، كما في J1: شهادة DSC الخاصة بالبلد B، الصادرة تحت CSCA الخاصة بالبلد B، مُشارَكة بالفعل مع GDHCN، أي مرسى الثقة. وهذا ما يتيح للعيادة في تايلاند التحقق من الرابط في J4.1."
+
+#: input/pagecontent/scenarios.md:142
+msgid "Precondition, as in J3: the DID documents are already loaded. The clinic viewer's trust store is a cached copy of the GDHCN trust list, including Country B's DSC DID document (<a0>STT-TRU-001</a0>, <a1>STT-TRU-002</a1>, <a2>STT-TRU-005</a2>). The clinic refreshes it nightly or hourly, against about weekly at the offline J3 clinic. It does not need to be online to verify: verifying reads the cache and never fetches the list. A DSC published after the last refresh fails the trust-list check (<a3>STT-VER-006</a3>), naming that reason."
+msgstr "شرط مسبق، كما في J3: وثائق DID محمَّلة بالفعل. ومخزن الثقة في عارض العيادة نسخة مخزَّنة مؤقتًا من قائمة الثقة في GDHCN، تشمل وثيقة DID لشهادة DSC الخاصة بالبلد B (<a0>STT-TRU-001</a0>، <a1>STT-TRU-002</a1>، <a2>STT-TRU-005</a2>). وتحدّثها العيادة ليلًا أو كل ساعة، مقابل التحديث الأسبوعي تقريبًا في عيادة J3 غير المتصلة. ولا تحتاج إلى أن تكون متصلة للتحقق: فالتحقق يقرأ من الذاكرة المؤقتة ولا يجلب القائمة أبدًا. وتفشل شهادة DSC المنشورة بعد آخر تحديث في فحص قائمة الثقة (<a3>STT-VER-006</a3>)، مع ذكر هذا السبب."
+
+#: input/pagecontent/scenarios.md:86
+msgid "Precondition: the DID documents are already loaded. Loading them is not a step of this visit. The clinic may be offline all day, so the EHR fetches nothing during it: its trust store holds the GDHCN DEV trust list as it was last refreshed, including XXR's DSC DID document (<a0>STT-TRU-001</a0>, <a1>STT-TRU-002</a1>, <a2>STT-TRU-005</a2>). A clinic with no connection of its own refreshes it about weekly, when the CHW visits the base clinic or district health office, where Country B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in the clinic's copy, so its DVC fails the trust-list check (<a3>STT-VER-006</a3>) until the next refresh."
+msgstr "شرط مسبق: وثائق DID محمَّلة بالفعل. وتحميلها ليس خطوة من خطوات هذه الزيارة. فقد تبقى العيادة دون اتصال طوال اليوم، لذا لا يجلب EHR أي شيء خلالها: إذ يحتفظ مخزن الثقة لديه بقائمة الثقة DEV في GDHCN كما كانت عند آخر تحديث، بما في ذلك وثيقة DID لشهادة DSC الخاصة بـ XXR (<a0>STT-TRU-001</a0>، <a1>STT-TRU-002</a1>، <a2>STT-TRU-005</a2>). والعيادة التي لا تملك اتصالًا خاصًا بها تحدّثها أسبوعيًا تقريبًا، عندما يزور CHW العيادة الأساسية أو مكتب الصحة في المنطقة، حيث يسترجع البلد B القائمة التي يوزعها مرسى الثقة في GDHCN. وشهادة DSC المنشورة بعد ذلك التحديث لا تكون في نسخة العيادة، لذا تفشل شهادة DVC الخاصة بها في فحص قائمة الثقة (<a3>STT-VER-006</a3>) حتى التحديث التالي."
+
+#: input/pagecontent/scenarios.md:37
+msgid "Precondition: the issuer's DSC is on the trust list. XXR's document signer certificate (DSC), issued under XXR's Country Signing CA (CSCA), was shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN publishes it as a DID document. Sharing it is not a step of issuing. A DVC signed with a key whose DSC was never shared fails every receiver's trust-list check (<a0>STT-VER-006</a0>)."
+msgstr "شرط مسبق: شهادة DSC الخاصة بالجهة المُصدِرة موجودة في قائمة الثقة. فقد شوركت شهادة موقِّع المستندات (DSC) الخاصة بـ XXR، الصادرة تحت سلطة التصديق لتوقيع البلد (CSCA) الخاصة بـ XXR، مع GDHCN، أي مرسى الثقة، قبل توقيع أي DVC؛ وتنشرها GDHCN بوصفها وثيقة DID. ومشاركتها ليست خطوة من خطوات الإصدار. وأي DVC موقَّعة بمفتاح لم تُشارَك شهادة DSC الخاصة به قط تفشل في فحص قائمة الثقة لدى كل جهة مُستقبِلة (<a0>STT-VER-006</a0>)."
+
+#: input/pagecontent/scenarios.md:13
+msgid "Print a signed record of each birth dose the family can carry anywhere"
+msgstr "أن أطبع سجلًا موقَّعًا لكل جرعة ولادة يمكن للأسرة حمله إلى أي مكان"
+
+#: input/pagecontent/scenarios.md:14
+msgid "Read a foreign vaccination QR offline and register the child with it"
+msgstr "أن أقرأ رمز QR أجنبيًا للتطعيم دون اتصال وأسجّل الطفل بواسطته"
+
+#: input/pagecontent/scenarios.md:20
+msgid "Read a visiting child's summary and vaccinations from a QR the parent shows"
+msgstr "أن أقرأ ملخص طفل زائر وتطعيماته من رمز QR يعرضه الوالد"
+
+#: input/pagecontent/scenarios.md:15
+msgid "Refer a child whose foreign record needs checking"
+msgstr "أن أُحيل طفلًا يحتاج سجله الأجنبي إلى فحص"
+
+#: input/pagecontent/scenarios.md:16
+msgid "Register a newborn into the household offline, before civil registration"
+msgstr "أن أسجّل مولودًا جديدًا في أسرته المعيشية دون اتصال، قبل التسجيل المدني"
+
+#: input/pagecontent/scenarios.md:8
+msgid "Requirements"
+msgstr "المتطلبات"
+
+#: input/pagecontent/scenarios.md:8
+msgid "Role"
+msgstr "الدور"
+
+#: input/pagecontent/scenarios.md:18
+msgid "See which doses are due once the foreign doses are imported"
+msgstr "أن أرى الجرعات المستحقة بعد استيراد الجرعات الأجنبية"
+
+#: input/pagecontent/scenarios.md:11
+msgid "Show each family member's records abroad from our one shared phone, with a passcode I can say aloud"
+msgstr "أن أعرض سجلات كل فرد من الأسرة في الخارج من هاتفنا المشترك الوحيد، برمز مرور أستطيع نطقه بصوت عالٍ"
+
+#: input/pagecontent/scenarios.md:8
+msgid "So that"
+msgstr "كي"
+
+#: input/pagecontent/scenarios.md:14
+msgid "the clinic sees what was given before the family arrives"
+msgstr "ترى العيادة ما أُعطي قبل وصول الأسرة"
+
+#: input/pagecontent/scenarios.md:150
+#, python-brace-format
+msgid "The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
+msgstr "تتحقق بوابة الربط اللاوية من رمز المرور وتاريخ انتهاء الصلاحية والموافقة، وتُعيد البيان، وتسجّل الوصول في البلد الأم ({code0})."
+
+#: input/pagecontent/scenarios.md:19
+msgid "the other country's record is never overwritten and the next nurse need not decide again"
+msgstr "لا يُكتب أبدًا فوق سجل البلد الآخر ولا تحتاج الممرضة التالية إلى اتخاذ القرار مجددًا"
+
+#: input/pagecontent/scenarios.md:131
+msgid "The QR holds only a pointer and a key: the record stays in Lao PDR."
+msgstr "لا يحمل رمز QR سوى مؤشر ومفتاح: ويبقى السجل في جمهورية لاو الديمقراطية الشعبية (Lao PDR)."
+
+#: input/pagecontent/scenarios.md:12
+msgid "the record stays at home and I know who has looked"
+msgstr "يبقى السجل في البلد الأم وأعرف مَن اطّلع عليه"
+
+#: input/pagecontent/scenarios.md:151
+#, python-brace-format
+msgid "The viewer decrypts the IPS and DVCs (<a0>STT-VHL-007</a0>) ({code0})."
+msgstr "يفك العارض تشفير IPS وشهادات DVC (<a0>STT-VHL-007</a0>) ({code0})."
+
+#: input/pagecontent/scenarios.md:148
+msgid "The viewer verifies the HCERT against Country B's DSC in its copy of the trust list."
+msgstr "يتحقق العارض من HCERT مقابل شهادة DSC الخاصة بالبلد B في نسخته من قائمة الثقة."
+
+#: input/pagecontent/scenarios.md:24
+msgid "User scenarios"
+msgstr "سيناريوهات المستخدمين"
+
+#: input/pagecontent/scenarios.md:4
+msgid "User stories"
+msgstr "قصص المستخدمين"
+
+#: input/pagecontent/scenarios.md:15
+msgid "verification is done by someone who can"
+msgstr "يتولى التحقق شخص قادر عليه"
+
+#: input/pagecontent/scenarios.md:20
+msgid "without installing anything or calling another country"
+msgstr "دون تثبيت أي شيء أو الاتصال ببلد آخر"
