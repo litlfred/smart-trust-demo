@@ -1,0 +1,157 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S8",
+  "title": "Foreign Clinic VHL Viewer & Audit Trace",
+  "description": "Dr. Anan, in Thailand, opens the link with the passcode: Somsack's whole history, read from Lao PDR and kept nowhere here.",
+  "device": "tablet",
+  "owner": "anan",
+  "steps": [
+    {
+      "scenario": "j4-1-full-history-abroad",
+      "step": "J4.1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Thailand Clinic Point-of-Care VHL Viewer (Country A)",
+      "subtitle": "Practitioner: Dr. Anan • Chiang Rai Primary Care Clinic",
+      "icon": "clinic",
+      "chips": [
+        {
+          "text": "VHL Manifest Verified via GDHCN Trust List",
+          "tone": "success"
+        }
+      ]
+    },
+    {
+      "type": "statusBadge",
+      "status": "verified",
+      "text": "Passcode Verified (✓) • Read-Only Zero-Retention Clinical Session",
+      "detail": "Live AuditEvent: Logged at Lao OHS Info Gateway"
+    },
+    {
+      "type": "personCard",
+      "actor": "somsack-sengmany",
+      "name": "Somsack Sengmany",
+      "chips": [
+        {
+          "text": "12 Months (1st Birthday Visit)",
+          "tone": "info"
+        }
+      ],
+      "subtitle": "Guardian Present: Father Bounmy Sengmany • Sovereign Home: Lao PDR",
+      "fields": [
+        {
+          "label": "Source FHIR Repository",
+          "value": "sovereign-fhir.moh.gov.la",
+          "mono": true
+        }
+      ]
+    },
+    {
+      "type": "recordList",
+      "title": "International Patient Summary (IPS) — Immunization History",
+      "icon": "syringe",
+      "summary": {
+        "text": "6 Verified Immunizations",
+        "tone": "success"
+      },
+      "example": "Bundle/TrustDemoJ4Ips",
+      "rows": [
+        {
+          "icon": "globe",
+          "label": "Hepatitis B Birth Dose",
+          "code": "PreQual: vp-hepb-peds • Lao: LAO-EPI-HEPB-BD",
+          "detail": "2025-10-28 • Hepatitis B • Lot: TH-4821 • Born in Thailand → Verified in Lao PDR",
+          "status": {
+            "text": "primarySource: true",
+            "tone": "success",
+            "icon": "check"
+          }
+        },
+        {
+          "icon": "globe",
+          "label": "BCG Vaccine (Freeze-Dried)",
+          "code": "PreQual: vp-bcg-freeze • Lao: LAO-EPI-BCG-BD",
+          "detail": "2025-10-28 • Tuberculosis • Lot: TH-9012 • Born in Thailand → Verified in Lao PDR",
+          "status": {
+            "text": "primarySource: true",
+            "tone": "success",
+            "icon": "check"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Pentavalent (DTP-HepB-Hib-1)",
+          "code": "LAO-EPI-PENTA-1",
+          "detail": "2025-12-10 • Diphtheria, Tetanus, Pertussis, Hep B, Hib • Lot: LA-2201 • Vientiane District Health Center (Lao PDR)",
+          "status": {
+            "text": "Verified Lao EPI",
+            "tone": "info"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Bivalent Oral Polio (bOPV-1)",
+          "code": "LAO-EPI-OPV-1",
+          "detail": "2025-12-10 • Poliomyelitis • Lot: LA-5531 • Vientiane District Health Center (Lao PDR)",
+          "status": {
+            "text": "Verified Lao EPI",
+            "tone": "info"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Pneumococcal Conjugate (PCV-1)",
+          "code": "LAO-EPI-PCV-1",
+          "detail": "2025-12-10 • Streptococcus pneumoniae • Lot: LA-8819 • Vientiane District Health Center (Lao PDR)",
+          "status": {
+            "text": "Verified Lao EPI",
+            "tone": "info"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Measles-Rubella Vaccine (MR-1)",
+          "code": "LAO-EPI-MR-1",
+          "detail": "2026-07-28 • Measles, Rubella • Lot: LA-9923 • Vientiane District Health Center (Lao PDR)",
+          "status": {
+            "text": "Verified Lao EPI",
+            "tone": "info"
+          }
+        }
+      ],
+      "footnote": "Cross-border verified provenance linking Thailand birth doses and Lao national EPI"
+    },
+    {
+      "type": "fields",
+      "columns": 2,
+      "rows": [
+        {
+          "label": "Allergies & Intolerances (IPS Section)",
+          "value": "No known drug or vaccine allergies recorded."
+        },
+        {
+          "label": "Active Problems & Encounters",
+          "value": "Healthy 12-Month Pediatric Well-Child Checkup."
+        }
+      ]
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Inspect Fetched VHL Manifest & Lao AuditEvent JSON",
+          "style": "secondary",
+          "icon": "file"
+        },
+        {
+          "label": "Complete Walkthrough & Restart (J1)",
+          "style": "secondary"
+        }
+      ]
+    }
+  ],
+  "try": "Ask the room what happens on a wrong passcode: three tries, then the link is revoked, and Lao PDR sees each attempt"
+}
