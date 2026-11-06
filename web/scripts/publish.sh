@@ -27,8 +27,9 @@ repo=$(basename "$(git remote get-url origin)" .git)
 if [ "$branch" = main ]; then
   site=
 else
-  # The segment the site build uses (cat-harness-tools build-instance-site.ts stagingDir).
-  seg=$(printf '%s' "$branch" | sed 's/[^A-Za-z0-9._-][^A-Za-z0-9._-]*/-/g; s/^-*//; s/-*$//')
+  # The segment the IG site publish uses: the branch's last path segment
+  # (fhir-harness stage-local-ig.ts branchDirOf), so claude/x is branches/x/.
+  seg=$(printf '%s' "${branch##*/}" | sed 's/[^A-Za-z0-9._-][^A-Za-z0-9._-]*/-/g; s/^-*//; s/-*$//')
   site=branches/$seg/
 fi
 dest=${site}vaxlink
