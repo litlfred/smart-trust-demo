@@ -15,15 +15,17 @@ steps, each changing only what it says:
 2. route(): every line of an overlay view gets Archi <bendpoint>s for an
    orthogonal route: it leaves its source through a side, runs only
    horizontally and vertically through the gaps, and enters its target
-   through a side, never through a box it does not connect. A grouping is a
-   band a line may cross; an element box is not, except the boxes that hold
-   one of the line's ends. Lines are routed one at a time, shortest first,
+   through a side, never through a box it does not connect, nor through a
+   band (a grouping) unless the band holds one of its ends. Lines are routed
+   one at a time, shortest first,
    by A* over a grid of lanes 8 px apart through the gaps between boxes, at a
    cost that counts length, each bend, each crossing of a line already
    routed, and (much more) running along one, so lines take lanes of their
-   own. Each end leaves or enters at a port of its own on the box's side.
-   Flow and Triggering lines (where the two countries meet) are routed
-   before the rest, so they take the direct routes. A named line gets one
+   own, and crossing the title in the heading of a box that holds an end costs
+   more than crossing it beside the title. Each end leaves or enters at a port
+   of its own on the box's side, never under the box's type label at its top
+   right, and on a box holding a note (overlay.NOTES) only beside its name,
+   or, where the line starts, on its bottom edge. A named line gets one
    more bendpoint, on the line, where its label is clear of every box and
    every other label; cat-harness's renderer draws a label at a line's middle
    point, so the line's first or last point is repeated to make it that.
@@ -50,6 +52,25 @@ BEND, CROSS, OVERLAP, SHARED_PORT = 30, 200, 2000, 400
 AWAY = 100      # a line's end on a side that does not face the other end
 HEADING = 4      # per px of a line run along a heading strip
 HEAD = 28        # the heading strip of a box that holds others (add_views.py's)
+TYPE_LABEL_W, TYPE_LABEL_H = 116, 18  # cat-harness's renderer: a box's type label, in its top right corner
+NOTE_CHARS = 23  # cat-harness's renderer: the characters of a note line in a box 170 px wide (11 px font, 0.56 em a character)
+
+
+def note_lines(text):
+    """How many lines a note of text takes in a box 170 px wide."""
+    lines, line = 1, ""
+    for wd in text.split():
+        nxt = f"{line} {wd}".strip()
+        if len(nxt) > NOTE_CHARS and line:
+            lines, line = lines + 1, wd
+        else:
+            line = nxt
+    return lines
+
+
+def note_height(text):
+    return 8 + 14 * note_lines(text)
+ACROSS_TITLE = 300  # crossing the heading of a box that holds an end, through the middle, where its name is
 
 
 # --- 1. Layout ---------------------------------------------------------------
@@ -60,16 +81,22 @@ def _grid_rows(node):
     return [kids[i:i + cols] for i in range(0, len(kids), cols)]
 
 
+def _cell(node, L):
+    sizes = [_size(k, L) for k in node[2] if k is not None]
+    return (max(w for w, _ in sizes), max(h for _, h in sizes)) if sizes else (LEAF_W, LEAF_H)
+
+
 def _size(node, L):
     gap, pad, head = L["gap"], L["pad"], L["head"]
     if node[0] == "box":
-        return LEAF_W, LEAF_H
+        # ("box", key) is LEAF_W x LEAF_H; ("box", key, w, h) is a box of its own size.
+        return (node[2], node[3]) if len(node) > 2 else (LEAF_W, LEAF_H)
     if node[0] == "space":
         return node[1], node[2]
     if node[0] == "grid":
-        # ("grid", cols, kids, indent): cells LEAF_W x LEAF_H, gap apart, the first indent px in.
-        rows = _grid_rows(node)
-        return node[3] + node[1] * LEAF_W + (node[1] - 1) * gap, len(rows) * LEAF_H + (len(rows) - 1) * gap
+        # ("grid", cols, kids, indent): cells the size of the largest kid, gap apart, the first indent px in.
+        rows, (cw, ch) = _grid_rows(node), _cell(node, L)
+        return node[3] + node[1] * cw + (node[1] - 1) * gap, len(rows) * ch + (len(rows) - 1) * gap
     if node[0] == "col":
         sizes = [_size(k, L) for k in node[1]]
         return max(w for w, _ in sizes), sum(h for _, h in sizes) + gap * (len(sizes) - 1)
@@ -91,10 +118,11 @@ def _place(node, x, y, L, out, center):
     if node[0] == "space":
         return
     if node[0] == "grid":
+        cw, ch = _cell(node, L)
         for r, row in enumerate(_grid_rows(node)):
             for c, k in enumerate(row):
                 if k is not None:
-                    _place(k, x + node[3] + c * (LEAF_W + gap), y + r * (LEAF_H + gap), L, out, center)
+                    _place(k, x + node[3] + c * (cw + gap), y + r * (ch + gap), L, out, center)
         return
     if node[0] in ("col", "row"):
         W, H = _size(node, L)
@@ -226,8 +254,9 @@ def _ports(lo, length):
 
 
 class _Router:
-    def __init__(self, boxes):
+    def __init__(self, boxes, noted=None):
         self.boxes = boxes
+        self.noted = noted or {}  # box: the height of the note at its foot (overlay.NOTES)
         solid = [b for b in boxes.values() if not b[5]]
         xs = {b[0] - MARGIN for b in solid} | {b[0] + b[2] + MARGIN for b in solid}
         ys = {b[1] - MARGIN for b in solid} | {b[1] + b[3] + MARGIN for b in solid}
@@ -240,6 +269,26 @@ class _Router:
         self.heads = [(b[0], b[1], b[0] + b[2], b[1] + HEAD, HEADING) for b in boxes.values() if b[5]]
         self.used = []  # (horizontal?, fixed, lo, hi)
         self.ports = {}  # (box, side) -> set of offsets used
+
+    def _clear(self, b, oid, side, p, start=False):
+        """Whether a line may end at p on that side of box b: never on the type label, nor on a note.
+
+        cat-harness's renderer writes a box's type ("Application Component")
+        inside its top right corner, so no line ends on the top edge above it
+        or high on the right side beside it, where its arrowhead would touch
+        the label. A box holding a note
+        (overlay.NOTES) has it at its foot, so a line ends on its sides only
+        beside its name, and on its bottom edge only where it starts, with no
+        mark there to cover the note.
+        """
+        x0, y0, x1, y1 = b[0], b[1], b[0] + b[2], b[1] + b[3]
+        if side == "top" and p[0] > x1 - TYPE_LABEL_W:
+            return False
+        if side == "right" and p[1] < y0 + TYPE_LABEL_H:
+            return False
+        if oid in self.noted:
+            return side == "top" or (side == "bottom" and start) or (side in ("left", "right") and y0 + TYPE_LABEL_H <= p[1] <= y1 - 6 - self.noted[oid] - 6)
+        return True
 
     @staticmethod
     def _lanes(edges):
@@ -257,7 +306,7 @@ class _Router:
         B = self.boxes
         skip = {s, t, *_ancestors(B, s), *_ancestors(B, t)}
         obst = [(b[0] - MARGIN, b[1] - MARGIN, b[0] + b[2] + MARGIN, b[1] + b[3] + MARGIN)
-                for k, b in B.items() if not b[5] and k not in skip]
+                for k, b in B.items() if k not in skip]  # a band, too, unless it holds an end
         ends = [B[s], B[t]]
         hard = [(b[0], b[1], b[0] + b[2], b[1] + b[3]) for b in ends]
         # A box that holds an end may be crossed, and its heading strip too,
@@ -304,7 +353,7 @@ class _Router:
                     hcost[i * ny + j] += w * (xs[i + 1] - xs[i])
             for i in range(bl(xs, x0), br(xs, x1)):
                 for j in range(bl(ys, y0 - LANE), br(ys, y1 + LANE) - 1):
-                    vcost[i * ny + j] += 15
+                    vcost[i * ny + j] += ACROSS_TITLE if w != HEADING and abs(xs[i] - (x0 + x1) / 2) < (x1 - x0) * 0.3 else 15
         for horiz, uf, lo, hi in self.used:
             # a: the axis the used segment runs along; b: the other.
             a, b, par, perp = (xs, ys, hcost, vcost) if horiz else (ys, xs, vcost, hcost)
@@ -319,14 +368,14 @@ class _Router:
                     perp[idx(m, k)] += CROSS
 
         # Ports: (x, y, direction) on each end box's sides; direction outward for the source, inward for the target.
-        def side_ports(b, px, py, out):
+        def side_ports(b, px, py, out, oid):
             x0, y0, x1, y1 = b[0], b[1], b[0] + b[2], b[1] + b[3]
             res = []
             for x in px:
                 res += [((x, y0), (0, -1), "top", x - px[0]), ((x, y1), (0, 1), "bottom", x - px[0])]
             for y in py:
                 res += [((x0, y), (-1, 0), "left", y - py[0]), ((x1, y), (1, 0), "right", y - py[0])]
-            return [(p, d if out else (-d[0], -d[1]), side, off) for p, d, side, off in res]
+            return [(p, d if out else (-d[0], -d[1]), side, off) for p, d, side, off in res if self._clear(b, oid, side, p, out)]
 
         # A line leaves and enters by the sides that face the other end: by
         # top or bottom when the other box is more above or below than beside.
@@ -342,7 +391,7 @@ class _Router:
                     + (SHARED_PORT if off in self.ports.get((box, side), ()) else 0))
 
         goals = {}
-        for (gx, gy), d, side, off in side_ports(tb, tx, ty, False):
+        for (gx, gy), d, side, off in side_ports(tb, tx, ty, False, t):
             goals[xi[gx] * ny + yi[gy]] = (d, side, off)
         tx0, ty0, tx1, ty1 = tb[0], tb[1], tb[0] + tb[2], tb[1] + tb[3]
 
@@ -351,7 +400,7 @@ class _Router:
 
         DIRS = ((1, 0), (-1, 0), (0, 1), (0, -1))  # d ^ 1 is d reversed
         heap, best, came, n = [], {}, {}, 0
-        for p, d, side, off in side_ports(sb, sx, sy, True):
+        for p, d, side, off in side_ports(sb, sx, sy, True, s):
             # Step out of the box to the first grid line beyond it.
             i, j = xi[p[0]] + d[0], yi[p[1]] + d[1]
             if not (0 <= i < nx and 0 <= j < ny) or nblock[i * ny + j]:
@@ -486,12 +535,13 @@ def route(xml, o):
     """Write orthogonal bendpoints for every line of each of overlay o's views."""
     ids = _ids(o)
     groupings = {ids("element", k) for k, e in o.ELEMENTS.items() if e[0] == "Grouping"} | \
-                {o.EXISTING[k] for k in ("layer-pos", "layer-reusable", "layer-shared", "layer-dpif")}
+                {o.EXISTING[k] for k in o.RA_GROUPINGS}
     for name, _doc, _tree in o.VIEWS:
         start, end = _view_span(xml, ids("view", name))
         body = xml[start:end]
         boxes, conns = _boxes(body, groupings)
-        r = _Router(boxes)
+        noted = {ids("view", name, "obj", k): note_height(t) for k, t in getattr(o, "NOTES", {}).get(name, {}).items()}
+        r = _Router(boxes, noted)
 
         def centre(b):
             return b[0] + b[2] // 2, b[1] + b[3] // 2
@@ -501,11 +551,11 @@ def route(xml, o):
             return abs(ax - bx) + abs(ay - by)
 
         todo = [c for c in conns if c[1] not in _ancestors(boxes, c[2]) and c[2] not in _ancestors(boxes, c[1])]
-        # Where the countries meet is what a reader looks for: those lines take
-        # the direct routes, and the rest find their way around them.
+        # Shortest first: the many short lines straight down take their lanes,
+        # and the few long ones (where the countries meet) go round them
+        # rather than across them all.
         rel = {m.group(1): m.group(2) for m in re.finditer(r'<sourceConnection [^>]*id="([^"]+)"[^>]*archimateRelationship="([^"]+)"', body)}
-        first = set(re.findall(r'xsi:type="archimate:(?:Flow|Triggering)Relationship" id="([^"]+)"', xml))
-        order = sorted(todo, key=lambda c: (rel.get(c[0]) not in first, dist(c), c[0]))
+        order = sorted(todo, key=lambda c: (dist(c), c[0]))
         routes = {c[0]: r.route(*c) for c in order}
         named = dict(re.findall(r'<element xsi:type="archimate:\w+Relationship" id="([^"]+)"[^>]*? name="([^"]*)"', xml))
         solid = [(b[0], b[1], b[0] + b[2], b[1] + b[3]) for b in boxes.values() if not b[5]]

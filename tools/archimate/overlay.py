@@ -12,17 +12,19 @@ What it adds, and where each part comes from:
 - the people who take part, as BusinessRole elements: the roles in
   scenarios/roles.json whose actorKinds is "person", each assigned to the
   journeys whose BPMN has a lane played by that role;
-- the systems, as ApplicationComponent elements grouped by country: the
-  system actors of scenarios/actors/, each Serving the journeys whose BPMN
-  has a lane played by one of its roles, and Composed of its parts, the
-  components of VaxLink's architecture view (litlfred/vaxlink,
-  ArchitectureDiagram.tsx), each a Specialization of the RA building block
-  it is an instance of in its own country;
+- the systems, as ApplicationComponent elements grouped by country (the
+  family's phone, the Holder's device, as a Device): the system actors of
+  scenarios/actors/, each Serving the journeys whose BPMN has a lane played
+  by one of its roles, and Composed of its parts (the phone Realizes its
+  wallet), each part an actor's meta.parts entry (first drawn as the
+  components of VaxLink's architecture view, litlfred/vaxlink,
+  ArchitectureDiagram.tsx), named by what it does, and Realizing its own
+  country's instance of the RA building block it plays, as the RA draws a
+  concrete system realizing a component (Table 3.3);
 - each country's instance of every RA building block its parts play
   ("Provider Systems (Thailand)", "Provider Systems (Lao PDR)"): a
-  Specialization of the RA block, and what the country's parts specialize,
-  since Thailand and Lao PDR are different jurisdictions and neither's systems
-  are the other's;
+  Specialization of the RA block, since Thailand and Lao PDR are different
+  jurisdictions and neither's systems are the other's;
 - where the two countries meet, as Flow and Triggering relationships between
   their parts: read from the BPMN wherever a sequence flow leads from a task
   of one country's system to a task of the other's (through people's lanes
@@ -41,10 +43,13 @@ partitionElementRef.
 The relationship types are ones ArchiMate 3.2 allows between those element
 types (Appendix B): Assignment (BusinessRole to BusinessProcess), Serving
 (ApplicationComponent to BusinessProcess or ApplicationComponent),
-Composition, Specialization, Flow and Triggering (between two
-ApplicationComponents), Realization (BusinessProcess to Capability, and
-ApplicationComponent to Requirement), Association (BusinessRole to
-Stakeholder) and Aggregation (from a Grouping).
+Composition, Realization, Specialization, Flow and Triggering (between two
+ApplicationComponents), Realization (BusinessProcess to Capability,
+ApplicationComponent to Requirement, and Device to ApplicationComponent),
+Association (BusinessRole to Stakeholder) and Aggregation (from a Grouping).
+Every element names its concept in glossary/architecture.glossary.json
+(skosConcept), and every role and system the FHIR ActorDefinition it
+realizes (fhir-actor).
 
 build.py lays the overlay's views out again with room between the boxes
 (LAYOUT) and routes every line orthogonally through the gaps, writing the
@@ -67,6 +72,9 @@ EXISTING = {
     "layer-reusable": "id-08403902fa3e5df4920a1fbe8eddd82f",
     "layer-shared": "id-00d4ffa565f55eb996137917386ecac1",
     "layer-dpif": "id-077b000f20b95c899adb1143f8ee8cd5",
+    "layer-interop": "id-e12108f9f25257a9bfed47e23ac4205a",
+    "grp-clinical": "id-cf6d89c99137518a81cdd98cac0129ad",  # Clinical Services, in DPI-H reusable components
+    "grp-public-health": "id-a621c8cb4b915e8eb458fc3285cecd84",  # Public Health & Analytics, in DPI-H reusable components
     # Building blocks
     "ra-provider-systems": "id-270f6a946e9d5feea37702bdb93980ba",
     "ra-chw": "id-3384363f5f8d5ab09a43380f2f8962ba",
@@ -103,13 +111,17 @@ ROLE_STAKEHOLDER = {
     "poc-provider": "stk-health-workers",
 }
 
-# Which RA blocks each Integrated View layer shows here (all of them are
-# members of that layer's Grouping in smart-ra already).
+# Which RA blocks each Integrated View layer shows here, in the Grouping
+# smart-ra's Fig. 3.2 view draws each in: a member of that Grouping in
+# smart-ra's model, or (the decision support engine and the HMIS) of a
+# Grouping inside it, so that drawing one inside the other says what the
+# model says.
 RA_LAYERS = [
     ("layer-pos", ["ra-provider-systems", "ra-chw", "ra-citizen-apps"]),
-    ("layer-reusable", ["ra-terminology", "ra-cdss", "ra-hmis"]),
-    ("layer-shared", ["ra-client-registry", "ra-facility-registry", "ra-workforce-registry", "ra-product-registry", "ra-lhr"]),
-    ("layer-dpif", ["ra-trust-services", "ra-mediator"]),
+    ("layer-reusable", ["ra-cdss", "ra-hmis"]),
+    ("layer-shared", ["ra-terminology", "ra-client-registry", "ra-facility-registry", "ra-workforce-registry", "ra-product-registry", "ra-lhr"]),
+    ("layer-dpif", ["ra-trust-services"]),
+    ("layer-interop", ["ra-mediator"]),
 ]
 
 # The RA blocks' names in smart-ra's model, for their per-country instances.
@@ -128,7 +140,15 @@ RA_NAME = {
     "ra-trust-services": "National Trust Services",
     "ra-mediator": "DPI-F Information Mediator",
 }
+# The two blocks that are members of a Grouping inside their layer's, drawn inside it.
+RA_SUBGROUP = {"ra-cdss": "grp-clinical", "ra-hmis": "grp-public-health"}
+RA_GROUPINGS = [l for l, _bs in RA_LAYERS] + sorted(set(RA_SUBGROUP.values()))  # smart-ra's Groupings drawn: bands a line may cross
 ORDER = [b for _l, bs in RA_LAYERS for b in bs]
+
+
+def ra_box(b):
+    """An RA block's box, inside its sub-grouping if smart-ra puts it in one."""
+    return ("group", RA_SUBGROUP[b], 1, [("box", b)]) if b in RA_SUBGROUP else ("box", b)
 assert set(ORDER) == set(RA_NAME), "every RA block drawn has a name, and only those"
 
 # --- The journeys' graph: read once, by tools/journeys/graph.py ------------
@@ -212,40 +232,46 @@ SYSTEM_SHORT = {
     "chw-app": "CHW app (OHS)",
     "district-health-center-ehr": "Vientiane District Health Center EHR",
     "family-phone": "The family’s shared phone",
-    "lao-national-portal": "Lao national health portal and gateway",
+    "lao-national-portal": "Lao national health portal",
 }
+
+
+# A system actor is an ApplicationComponent, except one that is a device: the
+# family's shared phone is the Holder's device (its actor says so), a
+# technology Device that realizes the wallet app on it, not software.
+SYSTEM_TYPE = {"family-phone": "Device"}
+
+
+def system_type(actor_id):
+    return SYSTEM_TYPE.get(actor_id, "ApplicationComponent")
+
+
+def holds(actor_id):
+    """How a system relates to its parts, drawn as nesting: an application composes them; a device realizes them."""
+    return "Realization" if system_type(actor_id) == "Device" else "Composition"
 
 
 def skey(actor_id):
     return "sys-" + actor_id
 
 
-# (key, name, RA block, hosting system actor, what it is in the IG)
-COMPONENTS = [
-    ("th-birth-ehr", "Birth hospital EHR", "ra-provider-systems", "chiang-rai-provincial-hospital", "StructureDefinition/TrustDemoThImmunization"),
-    ("th-immunization-record", "Hospital immunization record service", "ra-lhr", "chiang-rai-provincial-hospital", "Immunization/TrustDemoJ1HepB"),
-    ("th-product-codes", "Vaccine product code registry", "ra-product-registry", "chiang-rai-provincial-hospital", "CodeSystem/TrustDemoVaccineProduct"),
-    ("th-dvc-signer", "DVC signer (HCERT)", "ra-trust-services", "chiang-rai-provincial-hospital", ""),
-    ("th-vhl-viewer", "Clinic VHL viewer", "ra-provider-systems", "chiang-rai-clinic-viewer", "StructureDefinition/TrustDemoThVhlReceipt"),
-    ("la-chw-app", "CHW app (OHS, SDC forms)", "ra-chw", "chw-app", "StructureDefinition/TrustDemoLaoRegistration"),
-    ("la-dhc-ehr", "District health centre EHR", "ra-provider-systems", "district-health-center-ehr", "StructureDefinition/TrustDemoLaoImmunization"),
-    ("la-conceptmap", "Terminology service (product to Lao EPI map)", "ra-terminology", "district-health-center-ehr", "ConceptMap/TrustDemoProductToLaoEpi"),
-    ("la-schedule", "Schedule engine (infant PlanDefinition)", "ra-cdss", "district-health-center-ehr", "PlanDefinition/TrustDemoLaoInfantSchedule"),
-    ("la-dvc-verifier", "DVC verifier", "ra-trust-services", "district-health-center-ehr", "StructureDefinition/TrustDemoLaoDvcVerification"),
-    ("la-family-wallet", "Family wallet", "ra-citizen-apps", "family-phone", "Consent/TrustDemoJ4Consent"),
-    ("la-national-fhir", "National FHIR server", "ra-lhr", "lao-national-portal", "Bundle/TrustDemoJ4Ips"),
-    ("la-vhl-issuer", "VHL issuer", "ra-trust-services", "lao-national-portal", ""),
-    ("la-info-gateway", "OHS Info Gateway and access log", "ra-mediator", "lao-national-portal", "StructureDefinition/TrustDemoLaoVhlAccess"),
-    ("la-client-registry", "Client registry (children, households)", "ra-client-registry", "lao-national-portal", "StructureDefinition/TrustDemoLaoPatient"),
-    ("la-facility-registry", "Facility registry (clinics, health centres)", "ra-facility-registry", "lao-national-portal", "Organization/TrustDemoVientianeDhc"),
-    ("la-workforce-registry", "Health workforce registry (CHWs, nurses)", "ra-workforce-registry", "lao-national-portal", "Practitioner/TrustDemoVilay"),
-    ("la-data-pipes", "OHS FHIR Data Pipes", "ra-hmis", "lao-national-portal", ""),
-]
+# The parts are each system actor's meta.parts in scenarios/actors/ (id,
+# title, the RA building block it plays by the RA's own name, what it is in
+# the IG, and what it does): read from there, in actor order, as
+# (key, name, RA block, hosting system actor, what it is in the IG).
+RA_KEY = {n: k for k, n in RA_NAME.items()}
+COMPONENTS = []
+for _a in ACTORS.values():
+    for _p in _a.get("meta", {}).get("parts", []):
+        assert _p["raBlock"] in RA_KEY, f"scenarios/actors/{_a['id']}.json: part {_p['id']} plays {_p['raBlock']!r}, not an RA block named in RA_NAME"
+        COMPONENTS.append((_p["id"], _p["title"], RA_KEY[_p["raBlock"]], _a["id"], _p.get("ig", "")))
+PART_DESCRIPTION = {_p["id"]: _p["description"] for _a in ACTORS.values() for _p in _a.get("meta", {}).get("parts", [])}
 for _k, _n, _ra, _a, _ig in COMPONENTS:
     assert _a in ACTORS and ACTORS[_a]["kind"] == "system", f"component {_k}: {_a} is not a system actor in scenarios/actors/"
 COUNTRY_OF = {"th": "Thailand", "la": "Lao PDR"}
 PARTS = {a["id"]: [c for c in COMPONENTS if c[3] == a["id"]] for a in SYSTEMS}
-SYSTEM_COUNTRY = {a: COUNTRY_OF[ps[0][0][:2]] for a, ps in PARTS.items() if ps}
+SYSTEM_COUNTRY = {a: ACTORS[a]["meta"]["country"] for a, ps in PARTS.items() if ps}
+assert set(SYSTEM_COUNTRY.values()) <= set(COUNTRY_OF.values()), "a system actor's meta.country is Thailand or Lao PDR"
 
 # WHO GDHCN, the trust network beneath both countries (an external actor,
 # with no lane of its own): it serves the trust components that publish a key
@@ -379,6 +405,37 @@ def _ig(ref):
     return {"ig": f"{IG_BASE}artifact/{kind}-{rid}.html"}
 
 
+# --- Glossary and FHIR actors ----------------------------------------------
+# Every element the overlay adds names its concept in this instance's glossary
+# (glossary/architecture.glossary.json, written by tools/ig-gen/ig_gen.py
+# from the same sources: scenarios/roles.json, scenarios/actors/ and the
+# BPMN), by the skosConcept property cat-harness's archimate pages read; the
+# model is drawn from the glossary's sources, never the other way. Each role
+# and system names the FHIR ActorDefinition it realizes (fhir-actor), as
+# cat-harness's archimate-models skill asks; ig_gen.py writes those too.
+GLOSSARY_FILE = ROOT / "glossary" / "architecture.glossary.json"
+GLOSSARY_NS = "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/"
+_TERMS = {t["id"] for t in __import__("json").loads(GLOSSARY_FILE.read_text(encoding="utf-8"))["terms"]}
+ACTOR_CANONICAL = "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role."
+
+
+def concept(term):
+    assert term in _TERMS, f"{term} is not a term of {GLOSSARY_FILE.relative_to(ROOT)}: run python3 tools/ig-gen/ig_gen.py"
+    return {"skosConcept": GLOSSARY_NS + term}
+
+
+def instance_term(country, ra_name):
+    """The glossary id of a country's instance of an RA block (tools/ig-gen/ig_gen.py names it the same)."""
+    import re as _re
+    slug = lambda t: _re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+    return f"instance-{slug(country)}-{slug(ra_name)}"
+
+
+def fhir_actor(role_id):
+    import re as _re
+    return ACTOR_CANONICAL + "".join(w[:1].upper() + w[1:] for w in _re.split(r"[^A-Za-z0-9]+", role_id) if w)
+
+
 # --- Elements --------------------------------------------------------------
 
 ELEMENTS = {
@@ -395,28 +452,33 @@ for code, p in JOURNEYS.items():
     ELEMENTS[jkey(code)] = ("BusinessProcess", short(code),
                             f"{p['name']}: journey {code} of the SMART Trust demonstrator. Its steps, lanes and the requirements they trace to are in the BPMN process.",
                             {"journey": code, "bpmn": f"processes/content/{p['stem']}.bpmn", "bpmnProcess": p["id"],
-                             "ig": f"{IG_BASE}business-processes.html"})
+                             "ig": f"{IG_BASE}business-processes.html", **concept(jkey(code))})
 
 for r in ROLES:
     ELEMENTS["role-" + r["id"]] = ("BusinessRole", r["title"], r["description"],
-                                   {"role": r["id"], **({"otherNames": "; ".join(r["otherNames"])} if r.get("otherNames") else {})})
+                                   {"role": r["id"], **({"otherNames": "; ".join(r["otherNames"])} if r.get("otherNames") else {}),
+                                    **concept("role-" + r["id"]), "fhir-actor": fhir_actor(r["id"])})
 
 for a in SYSTEMS:
     js = SYSTEM_JOURNEYS[a["id"]]
-    ELEMENTS[skey(a["id"])] = ("ApplicationComponent", SYSTEM_SHORT.get(a["id"], a["title"]),
+    assert len(a["roles"]) == 1, f"{a['id']}: one fhir-actor tag per element (add_views.py keys properties by name)"
+    ELEMENTS[skey(a["id"])] = (system_type(a["id"]), SYSTEM_SHORT.get(a["id"], a["title"]),
                                f"{a['title']}: {a.get('description', '')}".strip(),
                                {"scenarioActor": f"scenarios/actors/{a['id']}.json", "roles": ", ".join(a["roles"]),
                                 "journeys": ", ".join(js) if js else "none (no lane)",
-                                **({"country": SYSTEM_COUNTRY[a["id"]]} if a["id"] in SYSTEM_COUNTRY else {})})
+                                **({"country": SYSTEM_COUNTRY[a["id"]]} if a["id"] in SYSTEM_COUNTRY else {}),
+                                **concept("actor-" + a["id"]), "fhir-actor": fhir_actor(a["roles"][0])})
 
 for key, name, _ra, actor, ig in COMPONENTS:
     ELEMENTS[key] = ("ApplicationComponent", name,
-                     f"{SYSTEM_COUNTRY[actor]}: {name}, part of {SYSTEM_SHORT.get(actor, ACTORS[actor]['title'])}.",
-                     {"country": SYSTEM_COUNTRY[actor], "partOf": f"scenarios/actors/{actor}.json", **_ig(ig)})
+                     f"{SYSTEM_COUNTRY[actor]}, part of {SYSTEM_SHORT.get(actor, ACTORS[actor]['title'])}: {PART_DESCRIPTION[key]}",
+                     {"country": SYSTEM_COUNTRY[actor], "partOf": f"scenarios/actors/{actor}.json", "raBlock": RA_NAME[_ra], **_ig(ig),
+                      **concept("part-" + key)})
 
 ELEMENTS[GDHCN[0]] = ("ApplicationComponent", GDHCN[1],
                       "WHO’s Global Digital Health Certification Network: the trust list of participants’ public keys that lets a Lao clinic believe a Thai certificate, and a Thai clinic a Lao link, with no connection between the two countries' systems. Not a building block of the RA's Integrated View: it sits beneath both countries.",
-                      {"scenarioActor": f"scenarios/actors/{GDHCN[2]}.json", "spec": "https://smart.who.int/trust/"})
+                      {"scenarioActor": f"scenarios/actors/{GDHCN[2]}.json", "spec": "https://smart.who.int/trust/",
+                       **concept("actor-" + GDHCN[2]), "fhir-actor": fhir_actor(ACTORS[GDHCN[2]]["roles"][0])})
 
 ELEMENTS[TRUST_FRAMEWORK[0]] = ("Requirement", TRUST_FRAMEWORK[1],
                                 "The specifications both countries’ systems conform to, so that a certificate signed in one is read in the other: HCERT and the DVC payload (WHO SMART Trust), and the Verifiable Health Link (WHO SMART Trust and IHE ITI VHL). GDHCN realizes the trust network they assume.",
@@ -425,7 +487,7 @@ ELEMENTS[TRUST_FRAMEWORK[0]] = ("Requirement", TRUST_FRAMEWORK[1],
 for country, ra in INSTANCES:
     ELEMENTS[ikey(country, ra)] = ("ApplicationComponent", f"{RA_NAME[ra]} ({country})",
                                    f"{country}’s instance of the DPI-H RA building block {RA_NAME[ra]}: what {country}’s parts in the demonstrator that play this block are, and a specialization of the RA’s block. One per jurisdiction, since neither country’s systems are the other’s.",
-                                   {"country": country, "raBlock": EXISTING[ra]})
+                                   {"country": country, "raBlock": EXISTING[ra], **concept(instance_term(country, RA_NAME[ra]))})
 
 # --- Relationships ---------------------------------------------------------
 
@@ -434,9 +496,13 @@ for a in SYSTEMS:
     for j in SYSTEM_JOURNEYS[a["id"]]:
         RELATIONS.append(("Serving", skey(a["id"]), jkey(j)))
     for c in PARTS[a["id"]]:
-        RELATIONS.append(("Composition", skey(a["id"]), c[0]))
+        RELATIONS.append((holds(a["id"]), skey(a["id"]), c[0]))
+# A concrete part realizes its country's instance of an RA block, as the RA
+# draws a concrete system realizing the component (role) it plays (Table 3.3,
+# Application Component Realization Application Component); the country's
+# instance is a kind of the RA's block.
 for c in COMPONENTS:
-    RELATIONS.append(("Specialization", c[0], instance_of(c)))
+    RELATIONS.append(("Realization", c[0], instance_of(c)))
 for country, ra in INSTANCES:
     RELATIONS.append(("Specialization", ikey(country, ra), ra))
 for t, a, b, name, _js in INTERACTIONS:
@@ -529,7 +595,7 @@ def specializations(parts):
     """Each part's line to its country's RA instance, and each instance's to the RA block."""
     insts = country_instances(parts)
     by_key = {ikey(c, ra): ra for c, ra in INSTANCES}
-    return [("Specialization", c[0], instance_of(c)) for c in parts] + [("Specialization", i, by_key[i]) for i in insts]
+    return [("Realization", c[0], instance_of(c)) for c in parts] + [("Specialization", i, by_key[i]) for i in insts]
 
 
 def interactions(keys, code=None):
@@ -603,7 +669,7 @@ def journey_view(code):
     if bands:
         rows.append(("row", bands))
     if any(bs for _l, bs in layers):
-        rows.append(("group", "group-ra", 1, [("row", [("group", l, len(bs), [box(b) for b in bs]) for l, bs in layers if bs])]))
+        rows.append(("group", "group-ra", 1, [("row", [("group", l, len(bs), [ra_box(b) for b in bs]) for l, bs in layers if bs])]))
     _align(journey_view_name(code), parts)
     keys = {c[0] for c in parts}
     conns = [("Realization", jkey(code), c) for c in caps(code)]
@@ -624,19 +690,20 @@ def journey_view(code):
 # right, with what they share between them; LAYOUT_TREES gives build.py that
 # layout, and add_views.py draws the same boxes from lowered(), which has only
 # the node kinds it knows. In a column the country's systems stack top to
-# bottom in the order of the first journey each serves; a system's parts are a
-# grid of at most COLUMN_SLOTS[country] boxes across, the parts that meet the
-# other country or GDHCN on the side that faces the middle. Under the systems,
-# each RA instance stands in the slot (grid column) of the first part drawn
-# that specializes it, so that line runs straight down: under the system
-# whose part is the first to specialize it (so each system's instances stand
-# right under it, and the lines are short), not all under the last system,
-# which sent most lines down past the systems between (36 crossings, not 5).
-# The RA's own blocks are left out of this view: with them below both
-# columns, 16 more lines ran the height of the view.
+# bottom in the order of the first journey each serves, each holding its parts
+# (nesting is the composition, or for the phone the realization) as a grid of
+# at most COLUMN_SLOTS[country] boxes across, the parts that meet the other
+# country or GDHCN on the side that faces the middle. Each part says, inside
+# its own box, which DPI-H RA building block it plays («Provider Systems»: a
+# note build.py adds, NOTES), rather than a line to a box of its country's
+# instance of that block: those boxes stood outside the systems and drew 18
+# lines that said what a word can. The instances, the realizations and the
+# RA's own blocks are in the model and in each journey's view.
 COLUMN_SLOTS = {"Thailand": 2, "Lao PDR": 3}
 FACING = {"Thailand": "right", "Lao PDR": "left"}
 MEETS = {k for _t, a, b, _n, _j in INTERACTIONS for k in (a, b)} | set(GDHCN_SERVES)
+PART_W, PART_H = 170, 88  # room for a two-line name and a two-line «block» tag
+NOTES = {}  # view name: {part key: the tag build.py writes inside its box}
 
 
 def _first_journey(actor_id):
@@ -645,25 +712,7 @@ def _first_journey(actor_id):
 
 def space(slots):
     """Room for slots grid cells and the gaps after them, in a row."""
-    return ("space", slots * (_LEAF_W + LAYOUT["gap"]) - LAYOUT["gap"], 0)
-
-
-def _instance_grid(parts, slot_of, n_slots, drawn):
-    """The RA instances of parts not drawn yet, each in its first part's slot, as a grid (or nothing)."""
-    columns = [[] for _ in range(n_slots)]
-    for i in country_instances(parts):
-        if i in drawn:
-            continue
-        drawn.add(i)
-        first = next(c for c in parts if instance_of(c) == i)
-        columns[slot_of[first[0]]].append(i)
-    # Under each slot, the instance of the part drawn last stands first: its
-    # line is the shortest, and the others pass beside it rather than across.
-    columns = [c[::-1] for c in columns]
-    depth = max(len(c) for c in columns)
-    if not depth:
-        return []
-    return [("grid", n_slots, [box(columns[s][r]) if r < len(columns[s]) else None for r in range(depth) for s in range(n_slots)], LAYOUT["pad"])]
+    return ("space", slots * (PART_W + LAYOUT["gap"]) - LAYOUT["gap"], 0)
 
 
 def _load_layout():
@@ -682,45 +731,40 @@ def _height(node):
     return _layout._size(node, LAYOUT)[1]
 
 
-def country_column(country, gkey, actors=None, shown=None, level=None):
+def country_column(country, gkey, level=None):
     """(the country's band as a column, its parts in drawing order, the y of each system in it).
 
-    Systems stacked, each with the RA instances its parts are the first to
-    specialize under it. level = {system: y}: that system is pushed down to
-    stand at y (relative to the column's first box), if it would stand higher.
+    level = {system: y}: that system is pushed down to stand at y (relative
+    to the column's first box), if it would stand higher.
     """
     n_slots, right = COLUMN_SLOTS[country], FACING[country] == "right"
-    kids, parts, slot_of, drawn, at = [], [], {}, set(), {}
+    kids, parts, at = [], [], {}
     gap = LAYOUT["gap"]
     y = lambda: sum(_height(k) + gap for k in kids)
-    systems = country_systems(country, actors)
+    systems = country_systems(country)
     for a in sorted(systems, key=lambda a: (_first_journey(a), systems.index(a))):
-        ps = sorted(_parts_by_layer(a, shown), key=lambda c: c[0] not in MEETS)
+        ps = sorted(_parts_by_layer(a), key=lambda c: c[0] not in MEETS)
         n = min(n_slots, len(ps))
         cells = []
         for i in range(0, len(ps), n):
             row = ps[i:i + n]
             row = ([None] * (n - len(row)) + row[::-1]) if right else row + [None] * (n - len(row))
             cells += row
-        off = n_slots - n if right else 0
-        for i, c in enumerate(cells):
-            if c is not None:
-                slot_of[c[0]] = off + i % n
-                parts.append(c)
-        sysbox = ("group", skey(a), 1, [("grid", n, [box(c[0]) if c else None for c in cells], 0)])
+        parts += [c for c in cells if c is not None]
+        sysbox = ("group", skey(a), 1, [("grid", n, [("box", c[0], PART_W, PART_H) if c else None for c in cells], 0)])
         want = (level or {}).get(a)
         if want is not None and want - y() - gap >= 0:
             kids.append(("space", 0, want - y() - gap))
         at[a] = y()
+        off = n_slots - n if right else 0
         kids.append(("row", [space(off), sysbox]) if off else sysbox)
-        kids += _instance_grid(parts, slot_of, n_slots, drawn)
     return ("group", gkey, 1, kids), parts, at
 
 
 def lowered(node):
     """node with only add_views.py's kinds (box, group, row, col): a grid becomes a column of rows; a space goes."""
     if node[0] == "box":
-        return node
+        return node[:2]
     if node[0] == "grid":
         rows = [[k for k in node[2][i:i + node[1]] if k is not None] for i in range(0, len(node[2]), node[1])]
         return ("col", [("row", [lowered(k) for k in r]) for r in rows if r])
@@ -732,53 +776,34 @@ def lowered(node):
 LAYOUT_TREES = {}
 
 
-def _intl_level(la_at):
-    """How far down the shared band stands: midway between the first and last Lao systems GDHCN serves, so its lines to both are short."""
-    ys = [la_at[_HOST[k]] for k in GDHCN_SERVES if _HOST[k] in la_at]
-    return (min(ys) + max(ys)) // 4 * 2 if ys else 0
-
-
-def country_bands(actors=None, shown=None, code=None, shared=("gdhcn", TRUST_FRAMEWORK[0])):
-    """(Thailand's column, the shared band, Lao PDR's column, as a row; the parts drawn).
+def _systems_view():
+    """Thailand (left) and Lao PDR (right) as columns, what they share between them.
 
     Lao PDR is laid out first: each Thai system stands level with the first
-    Lao system it meets (in journey code's interactions, or all), so the lines
-    where they meet run across; the shared band stands midway between the Lao
-    systems GDHCN serves. A country with no system drawn, or no shared box, is
-    left out.
+    Lao system it meets, so the lines where they meet run across.
     """
-    la, la_parts, la_at = country_column("Lao PDR", "country-la", actors, shown) if country_systems("Lao PDR", actors) else (None, [], {})
+    la, la_parts, la_at = country_column("Lao PDR", "country-la")
     level = {}
-    for _t, a, b, _n, js in INTERACTIONS:
-        if code is not None and code not in js:
-            continue
+    for _t, a, b, _n, _js in INTERACTIONS:
         th_end, la_end = (a, b) if SYSTEM_COUNTRY[_HOST[a]] == "Thailand" else (b, a)
-        if _HOST[la_end] in la_at:
-            level[_HOST[th_end]] = min(level.get(_HOST[th_end], 1e9), la_at[_HOST[la_end]])
-    th, th_parts, _ = country_column("Thailand", "country-th", actors, shown, level) if country_systems("Thailand", actors) else (None, [], {})
-    bands = [th]
-    if shared:
-        intl = ("group", "intl", 1, [box(k) for k in shared])
-        lift = _intl_level(la_at)
-        bands.append(("col", [("space", 0, lift - LAYOUT["gap"]), intl]) if lift >= LAYOUT["gap"] else intl)
-    bands.append(la)
-    return ("row", [b for b in bands if b]), th_parts + la_parts
-
-
-def _systems_view():
-    """Thailand (left) and Lao PDR (right) as columns, what they share between them."""
-    layout, parts = country_bands()
+        level[_HOST[th_end]] = min(level.get(_HOST[th_end], 1e9), la_at[_HOST[la_end]])
+    th, th_parts, _ = country_column("Thailand", "country-th", level)
+    intl = ("group", "intl", 1, [box("gdhcn"), box(TRUST_FRAMEWORK[0])])
+    # The shared band stands just above the lowest level where the countries
+    # meet (the Thai system lowest down), so the lines there run straight
+    # across under it, and those above it over it.
+    lift = max(level.values()) - _height(intl) - LAYOUT["gap"]
+    layout = ("row", [th, ("col", [("space", 0, lift - LAYOUT["gap"]), intl]) if lift >= LAYOUT["gap"] else intl, la])
     LAYOUT_TREES[SYSTEMS_VIEW] = layout
-    _align(SYSTEMS_VIEW, parts)
-    keys = {c[0] for c in COMPONENTS}
-    conns = [("Specialization", c[0], instance_of(c)) for c in parts] + interactions(keys)
+    NOTES[SYSTEMS_VIEW] = {c[0]: f"«{RA_NAME[c[2]]}»" for c in th_parts + la_parts}
+    conns = interactions({c[0] for c in COMPONENTS})
     conns += [("Serving", "gdhcn", k) for k in GDHCN_SERVES] + [("Realization", "gdhcn", TRUST_FRAMEWORK[0])]
     doc = ("The two jurisdictions the demonstrator spans, Thailand (left) and Lao PDR (right), with what they share between them: "
-           "WHO GDHCN and the WHO SMART Trust specifications. In each country its systems, each holding its parts, stand above its "
-           "instances of the DPI-H RA building blocks; each part specializes its own country’s instance, which stands under it. "
-           "The RA’s own blocks, which each instance specializes, are drawn in the journeys’ views. The lines that run from one "
-           "country to the other are where they meet: the paper DVC the family carries from J1 to J2 and J3, and the VHL QR and "
-           "ITI-YY5 manifest fetch of J4.1, logged in Lao PDR.")
+           "WHO GDHCN and the WHO SMART Trust specifications. In each country its systems hold their parts, and each part says "
+           "inside its box which DPI-H RA building block it plays («Provider Systems»): it realizes its own country’s instance of "
+           "that block, a kind of the RA’s own, drawn in each journey’s view. The lines that run from one country to the other "
+           "are where they meet: the paper DVC the family carries from J1 to J2 and J3, and the VHL QR and ITI-YY5 manifest fetch "
+           "of J4.1, logged in Lao PDR.")
     return (SYSTEMS_VIEW, doc, lowered(layout)), conns
 
 
@@ -797,7 +822,7 @@ VIEWS = [
 
 VIEW_CONNECTIONS = {
     SYSTEMS_VIEW: _sv_conns,
-    JOURNEYS_VIEW: [r[:3] for r in RELATIONS if r[0] in ("Assignment", "Realization", "Association") and r[1] != "gdhcn"],
+    JOURNEYS_VIEW: [r[:3] for r in RELATIONS if r[0] in ("Assignment", "Association") or (r[0] == "Realization" and r[1].startswith("journey-"))],
 }
 for _code in JOURNEYS:
     _v, _c = journey_view(_code)

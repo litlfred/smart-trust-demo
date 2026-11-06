@@ -15,6 +15,36 @@
     ],
     "playsActor": [
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-sharer"
+    ],
+    "country": "Thailand",
+    "parts": [
+      {
+        "id": "th-birth-ehr",
+        "title": "Patient record (EHR)",
+        "raBlock": "Provider Systems",
+        "description": "The hospital's electronic health record, in which the vaccinator records each birth dose given to the newborn (J1).",
+        "ig": "StructureDefinition/TrustDemoThImmunization"
+      },
+      {
+        "id": "th-immunization-record",
+        "title": "Immunization record service",
+        "raBlock": "Lifelong Health Record",
+        "description": "Keeps the newborn's immunizations as FHIR Immunization resources, from which each DVC is made (J1).",
+        "ig": "Immunization/TrustDemoJ1HepB"
+      },
+      {
+        "id": "th-product-codes",
+        "title": "Vaccine product code registry",
+        "raBlock": "Product Registry",
+        "description": "Publishes the vaccine product codes the hospital records doses against, which the receiving country maps to its own schedule codes (J1, J3).",
+        "ig": "CodeSystem/TrustDemoVaccineProduct"
+      },
+      {
+        "id": "th-dvc-signer",
+        "title": "DVC signer (HCERT)",
+        "raBlock": "National Trust Services",
+        "description": "Builds each Digital Vaccination Certificate as an HCERT payload and has it signed with Thailand's document signer key, published to GDHCN (J1)."
+      }
     ]
   }
 }

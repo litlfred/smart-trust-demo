@@ -15,7 +15,8 @@ References, which a JSON Schema cannot express:
 - step.uses: each block is in the building-blocks catalogue, once per step,
   and a named component is one of that block's;
 - the catalogue itself: unique block ids, known layers, and components that
-  are element keys of tools/archimate/overlay.py.
+  are element keys of tools/archimate/overlay.py (a part in a system actor's
+  meta.parts, or GDHCN).
 step.requirements are not checked here: smart-trust-tools' req: nodes are a
 mounted layer.
 
@@ -43,8 +44,11 @@ def catalogue(errors, jsonschema):
         for e in jsonschema.Draft202012Validator(json.loads(BLOCKS_SCHEMA.read_text())).iter_errors(cat):
             errors.append(f"{rel}: {'/'.join(map(str, e.path)) or '(root)'}: {e.message}")
     layers = {l["id"] for l in cat.get("layers", [])}
+    # The overlay's parts are the system actors' meta.parts (scenarios/actors/); GDHCN is its own element.
     overlay = (ROOT / "tools" / "archimate" / "overlay.py").read_text()
-    elements = set(re.findall(r'^\s*\("([a-z0-9-]+)", "', overlay, re.M)) | set(re.findall(r'^GDHCN = \("([a-z0-9-]+)"', overlay, re.M))
+    elements = {p["id"] for f in sorted((ROOT / "scenarios" / "actors").glob("*.json"))
+                for p in json.loads(f.read_text()).get("meta", {}).get("parts", [])}
+    elements |= set(re.findall(r'^GDHCN = \("([a-z0-9-]+)"', overlay, re.M))
     out = {}
     for b in cat.get("blocks", []):
         if b["id"] in out:

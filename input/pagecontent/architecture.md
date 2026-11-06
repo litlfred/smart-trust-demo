@@ -17,12 +17,16 @@ The overlay adds:
   different element types, so ArchiMate allows an association, not a
   specialization);
 - the Thai and Lao systems, serving the journeys they take part in, each
-  holding its parts;
+  holding its parts, each part named by what it does (*Patient record*,
+  *Smart forms (SDC)*, *Health workforce registry (CHWs, nurses)*); the
+  family's shared phone is a technology **device** that realizes the wallet
+  app on it, not software;
 - for each country, its own **instance** of every RA building block its parts
   play, such as *Provider Systems (Thailand)* and *Provider Systems (Lao
-  PDR)*: Thailand and Lao PDR are different jurisdictions, so a Thai part is
-  a **specialization** of Thailand's instance, which is in turn a
-  specialization of the RA's block;
+  PDR)*: Thailand and Lao PDR are different jurisdictions, so a Thai part
+  **realizes** Thailand's instance, as the RA draws a concrete system
+  realizing the component it plays (its Table 3.3), and that instance is a
+  **specialization** of the RA's block;
 - **where the two countries meet**, as flow and triggering relationships
   between their parts, read from the BPMN: the paper DVC that J1 prints and
   the family carries to J2 and J3; in J4.1, the VHL QR the family's phone
@@ -35,7 +39,12 @@ The overlay adds:
 - each journey's **realization** of the RA capabilities it exercises.
 
 Every line is routed orthogonally through the gaps between boxes and never
-through a box.
+through a box, and ends on a side of its box clear of the box's type label.
+
+Every element names its concept in the
+[glossary](https://github.com/litlfred/smart-trust-demo/blob/main/glossary/architecture.glossary.json)
+(`skosConcept`), drawn from the same sources as the model, and every role and
+system names the FHIR `ActorDefinition` it realizes (`fhir-actor`).
 
 Every box in a drawing links to its element's page.
 [All views and elements](en/smart-trust-demo/archimate/0.1.0/).
@@ -44,15 +53,14 @@ Every box in a drawing links to its element's page.
 
 Two columns: Thailand on the left, Lao PDR on the right. In each, the
 country's systems stack top to bottom in the order of the first journey they
-serve, and under each system stand the country's instances of the RA building
-blocks its parts are the first to play, each instance in the same column as
-that part, so the specialization runs straight down. A system's parts that
-meet the other country, or GDHCN, sit on the side facing the middle, and each
-Thai system stands level with the first Lao system it meets, so the dashed
-lines where the countries meet run across. Between the columns, only what
-both share: WHO GDHCN and the SMART Trust specifications. The RA's own blocks,
-which each country's instance specializes, are left out of this view (each
-instance's name says which block it is) and drawn in each journey's view,
+serve, each holding its parts, and each part says inside its own box which
+DPI-H RA building block it plays, as a tag such as «Provider Systems». A
+system's parts that meet the other country, or GDHCN, sit on the side facing
+the middle, and each Thai system stands level with the first Lao system it
+meets, so the dashed lines where the countries meet run across. Between the
+columns, only what both share: WHO GDHCN and the SMART Trust specifications.
+The countries' instances of the RA blocks, the parts' realizations of them,
+and the RA's own blocks are in the model and drawn in each journey's view,
 which keeps this one narrow and its lines few.
 
 [![Systems on the DPI-H Integrated View](archimate/0.1.0/views/id-249a1002c32e50199e27a502ef0ec3d8.svg)](en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/)
@@ -81,6 +89,8 @@ between the boxes and routes every line orthogonally as Archi bendpoints
 (`tools/archimate/layout.py`), and writes `archimate/0.1.0/smart-trust-demo.archimate`.
 The journeys and their people are read from `processes/content/` and
 `scenarios/roles.json`, and where the countries meet from the BPMN's sequence
-flows; the systems are those of VaxLink's architecture view.
+flows; the systems are the system actors of `scenarios/actors/`, and their
+parts each actor's `meta.parts` (first drawn as VaxLink's architecture view).
+`tools/ig-gen/ig_gen.py` writes the glossary from the same sources.
 CI fails if the committed model is not what the build makes. The drawings are
 cat-harness's `archimate` subgraph's: no Archi, no Java.
