@@ -220,6 +220,30 @@ def gen_personas(roles, by_role):
     return "\n".join(out) + "\n"
 
 
+# The IGs whose actor definitions the journeys' actors derive from, by canonical base.
+IG_LABEL = {
+    "smart.who.int/trust": "WHO SMART Trust",
+    "smart.who.int/trust-phw": "WHO SMART Trust PHW",
+    "profiles.ihe.net/ITI/VHL": "IHE VHL",
+}
+
+
+def canonical_link(url):
+    """A FHIR canonical as a link to its page in the IG that publishes it.
+
+    A canonical (http://smart.who.int/trust/ActorDefinition/Issuer) names a
+    resource; it is not a page. The IG Publisher writes the resource's page
+    at <base>/<Type>-<id>.html, served over https
+    (https://smart.who.int/trust/ActorDefinition-Issuer.html). The text names
+    the IG and the id.
+    """
+    m = re.match(r"https?://(.+)/([A-Z][A-Za-z]+)/([A-Za-z0-9.\-]+)$", url)
+    if not m:
+        return f"<{url}>"
+    base, rtype, rid = m.groups()
+    return f"[{IG_LABEL.get(base, base)} {rid}](https://{base}/{rtype}-{rid}.html)"
+
+
 def gen_system_actors(roles, by_role):
     out = [HEADER.format(src="scenarios/roles.json and scenarios/actors/*.json")]
     out.append("The system and external actors of the journeys, and the actor definitions of WHO SMART Trust, "
@@ -232,7 +256,7 @@ def gen_system_actors(roles, by_role):
         for a in by_role.get(r["id"], []):
             urls += [u for u in a.get("meta", {}).get("definedBy", []) if u not in urls]
         link = f"[{cell(r['title'])}](ActorDefinition-{actor_instance(r)}.html)"
-        out.append(f"| {link} | {'<br/>'.join(f'<{u}>' for u in urls)} |")
+        out.append(f"| {link} | {'<br/>'.join(canonical_link(u) for u in urls)} |")
     out.append("{: .grid }")
     return "\n".join(out) + "\n"
 
