@@ -1,0 +1,201 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J1BirthDoseDvc",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc",
+ "tasks": {
+  "Task_Vaccinate": {
+   "id": "Task_Vaccinate",
+   "name": "Give Hep B and BCG birth doses and record them",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/node/Task_Vaccinate",
+   "lane": "Birth clinic vaccinator",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/lane/Lane_birth-clinic-vaccinator",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-vaccinator",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/birth-clinic-vaccinator",
+    "title": "Birth clinic vaccinator",
+    "skills": []
+   }
+  },
+  "Task_Payload": {
+   "id": "Task_Payload",
+   "name": "Build one DVCMinPreQual payload per dose",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/node/Task_Payload",
+   "lane": "Birth clinic issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/lane/Lane_birth-clinic-system",
+   "skills": [
+    {
+     "name": "hcert-select-payload"
+    }
+   ],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Prepare": {
+   "id": "Task_Prepare",
+   "name": "Prepare: CWT claims and the COSE Sig_structure",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/node/Task_Prepare",
+   "lane": "Birth clinic issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/lane/Lane_birth-clinic-system",
+   "skills": [
+    {
+     "name": "hcert-build-cwt"
+    }
+   ],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "Sign the bytes with XXR's DSC key",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/node/Task_Sign",
+   "lane": "Issuer signing key",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/lane/Lane_issuer-key",
+   "skills": [
+    {
+     "name": "hcert-sign-cose"
+    }
+   ],
+   "role": {
+    "name": "issuer-key",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/issuer-key",
+    "title": "Issuer signing key",
+    "skills": [
+     {
+      "name": "hcert-sign-cose"
+     }
+    ]
+   }
+  },
+  "Task_Finish": {
+   "id": "Task_Finish",
+   "name": "Finish: COSE_Sign1, deflate, Base45, HC1:",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/node/Task_Finish",
+   "lane": "Birth clinic issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/lane/Lane_birth-clinic-system",
+   "skills": [
+    {
+     "name": "hcert-prefix-context"
+    }
+   ],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Print": {
+   "id": "Task_Print",
+   "name": "Print the paper DVC, one QR per dose",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/node/Task_Print",
+   "lane": "Birth clinic vaccinator",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J1BirthDoseDvc/lane/Lane_birth-clinic-vaccinator",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-vaccinator",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/birth-clinic-vaccinator",
+    "title": "Birth clinic vaccinator",
+    "skills": []
+   }
+  }
+ }
+}

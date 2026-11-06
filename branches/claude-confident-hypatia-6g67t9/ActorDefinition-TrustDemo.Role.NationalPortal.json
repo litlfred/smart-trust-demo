@@ -1,0 +1,30 @@
+{
+  "resourceType" : "ActorDefinition",
+  "id" : "TrustDemo.Role.NationalPortal",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.NationalPortal</b></p><a name=\"TrustDemo.Role.NationalPortal\"> </a><a name=\"hcTrustDemo.Role.NationalPortal\"> </a><table class=\"grid\"><tr><td><b>Actor: NationalPortal </b></td><td>National health portal</td><td>Type: system </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td><td>Derived From</td><td colspan=\"2\"/></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.NationalPortal",
+  "version" : "0.1.0",
+  "name" : "NationalPortal",
+  "title" : "National health portal",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-05T17:26:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer.\n\n**Persona**: A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.\n\n**Also known as**: VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer)\n\n**Played in the journeys by**: Lao PDR national health portal and gateway (Country B, XXH) (fictional).",
+  "type" : "system",
+  "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
+  "derivedFrom" : ["https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLSharer",
+  "http://smart.who.int/trust/ActorDefinition/Issuer",
+  "http://smart.who.int/trust-phw/ActorDefinition/Issuer",
+  "http://smart.who.int/trust/ActorDefinition/TrustNetworkParticipant"]
+}

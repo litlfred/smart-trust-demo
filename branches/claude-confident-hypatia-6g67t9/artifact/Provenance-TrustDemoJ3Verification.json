@@ -1,0 +1,43 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "Provenance-TrustDemoJ3Verification.jsonld",
+  "@type": "fhir:Provenance",
+  "dcterms:identifier": "Provenance/TrustDemoJ3Verification",
+  "dcterms:title": "TrustDemoJ3Verification",
+  "dcterms:type": "Other",
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/Provenance/TrustDemoJ3Verification--c60512f4.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "22c25cd529c3c6c5cf911cf506f90f2b56db002a"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  },
+  "dcterms:conformsTo": [
+    {
+      "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoDvcVerification"
+    }
+  ]
+}

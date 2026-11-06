@@ -1,0 +1,456 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_HcertIssuance",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance",
+ "tasks": {
+  "Task_SelectPayload": {
+   "id": "Task_SelectPayload",
+   "name": "Select the payload type and subclaim",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_SelectPayload",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_AssemblePayload": {
+   "id": "Task_AssemblePayload",
+   "name": "Assemble and validate the payload",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_AssemblePayload",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_BuildCwt": {
+   "id": "Task_BuildCwt",
+   "name": "Build the CWT claim set",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_BuildCwt",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_EncodeCbor": {
+   "id": "Task_EncodeCbor",
+   "name": "Serialise as deterministic CBOR",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_EncodeCbor",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Prepare": {
+   "id": "Task_Prepare",
+   "name": "Prepare the Sig_structure",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_Prepare",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "Sign the bytes with the DSC key",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_Sign",
+   "lane": "Signing key holder",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Key",
+   "skills": [],
+   "role": {
+    "name": "hcert-key-holder",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-key-holder",
+    "title": "Signing key holder",
+    "skills": [
+     {
+      "name": "hcert-sign-cose"
+     }
+    ]
+   }
+  },
+  "Task_Finish": {
+   "id": "Task_Finish",
+   "name": "Attach the signature as COSE_Sign1",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_Finish",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Compress": {
+   "id": "Task_Compress",
+   "name": "Compress with ZLIB",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_Compress",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Base45": {
+   "id": "Task_Base45",
+   "name": "Encode as Base45",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_Base45",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Prefix": {
+   "id": "Task_Prefix",
+   "name": "Prefix HC1:",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_Prefix",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Render": {
+   "id": "Task_Render",
+   "name": "Render the QR code (Alphanumeric, EC Q)",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/node/Task_Render",
+   "lane": "HCERT issuing system",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertIssuance/lane/Lane_Issuer",
+   "skills": [],
+   "role": {
+    "name": "hcert-issuing-system",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/hcert-issuing-system",
+    "title": "HCERT issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  }
+ }
+}

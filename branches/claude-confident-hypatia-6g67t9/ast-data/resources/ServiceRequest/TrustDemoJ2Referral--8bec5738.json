@@ -1,0 +1,49 @@
+{
+  "resourceType" : "ServiceRequest",
+  "id" : "TrustDemoJ2Referral",
+  "meta" : {
+    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReferral"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest TrustDemoJ2Referral</b></p><a name=\"TrustDemoJ2Referral\"> </a><a name=\"hcTrustDemoJ2Referral\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoReferral.html\">Lao PDR: CHW referral to verify foreign cards</a></p></div><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>priority</b>: Routine</p><h3>Codes</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Concept</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://snomed.info/sct 3457005}\">Verify foreign paper DVCs and map the birth doses to the national schedule</span></td></tr></table><p><b>subject</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>authoredOn</b>: 2025-11-18 10:20:00+0700</p><p><b>requester</b>: <a href=\"Practitioner-TrustDemoVilay.html\">Vilay</a></p><p><b>performer</b>: <a href=\"Organization-TrustDemoVientianeDhc.html\">Vientiane District Health Center (demonstrator)</a></p><h3>Reasons</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Concept</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:\">Unverified foreign vaccination cards presented on a home visit (primarySource false)</span></td></tr></table><h3>SupportingInfos</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Immunization-TrustDemoJ2HepBReported.html\">Immunization: status = completed; vaccineCode = Hepatitis B vaccine, paediatric, monovalent; lotNumber = TH-4821; occurrence[x] = 2025-10-28; primarySource = false; note = Read from a paper DVC without verifying its signature (triage read): reported, not verified.</a></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Immunization-TrustDemoJ2BcgReported.html\">Immunization: status = completed; vaccineCode = BCG vaccine, freeze-dried; lotNumber = TH-9012; occurrence[x] = 2025-10-28; primarySource = false; note = Read from a paper DVC without verifying its signature (triage read): reported, not verified.</a></td></tr></table></div>"
+  },
+  "status" : "active",
+  "intent" : "order",
+  "priority" : "routine",
+  "code" : {
+    "concept" : {
+      "coding" : [{
+        "system" : "http://snomed.info/sct",
+        "code" : "3457005",
+        "display" : "Patient referral"
+      }],
+      "text" : "Verify foreign paper DVCs and map the birth doses to the national schedule"
+    }
+  },
+  "subject" : {
+    "reference" : "Patient/TrustDemoSomsack"
+  },
+  "authoredOn" : "2025-11-18T10:20:00+07:00",
+  "requester" : {
+    "reference" : "Practitioner/TrustDemoVilay"
+  },
+  "performer" : [{
+    "reference" : "Organization/TrustDemoVientianeDhc"
+  }],
+  "reason" : [{
+    "concept" : {
+      "text" : "Unverified foreign vaccination cards presented on a home visit (primarySource false)"
+    }
+  }],
+  "supportingInfo" : [{
+    "reference" : {
+      "reference" : "Immunization/TrustDemoJ2HepBReported"
+    }
+  },
+  {
+    "reference" : {
+      "reference" : "Immunization/TrustDemoJ2BcgReported"
+    }
+  }]
+}

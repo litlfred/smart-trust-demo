@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.BirthClinicSystem.jsonld",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.BirthClinicSystem",
+  "schema:name": "BirthClinicSystem",
+  "dcterms:title": "Birth clinic issuing system",
+  "dcterms:description": "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by**: Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) (fictional).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicSystem"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/ActorDefinition/TrustDemo.Role.BirthClinicSystem--c77ae0bd.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "22c25cd529c3c6c5cf911cf506f90f2b56db002a"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

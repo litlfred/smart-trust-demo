@@ -1,0 +1,42 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationResult",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationResult</b></p><a name=\"TrustDemoVerificationResult\"> </a><a name=\"hcTrustDemoVerificationResult\"> </a><p>This case-sensitive code system <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">verified<a name=\"TrustDemoVerificationResult-verified\"> </a></td><td>Verified</td><td>Every step of verification passed (STT-VER-001).</td></tr><tr><td style=\"white-space:nowrap\">failed<a name=\"TrustDemoVerificationResult-failed\"> </a></td><td>Failed</td><td>Verification stopped at a step, for a reason from the closed set of STT-VER-008.</td></tr><tr><td style=\"white-space:nowrap\">unverified<a name=\"TrustDemoVerificationResult-unverified\"> </a></td><td>Read, not verified</td><td>The payload was read by read-unverified, with no trust lookup or signature check (STT-VER-011).</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationResult",
+  "title" : "Result of reading a DVC",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-05T17:26:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "What the HCERT library returns for one scanned DVC: a verified result, a failed result naming the step and reason (STT-VER-008), or the distinct result of the unverified triage read (STT-VER-011).",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "verified",
+    "display" : "Verified",
+    "definition" : "Every step of verification passed (STT-VER-001)."
+  },
+  {
+    "code" : "failed",
+    "display" : "Failed",
+    "definition" : "Verification stopped at a step, for a reason from the closed set of STT-VER-008."
+  },
+  {
+    "code" : "unverified",
+    "display" : "Read, not verified",
+    "definition" : "The payload was read by read-unverified, with no trust lookup or signature check (STT-VER-011)."
+  }]
+}

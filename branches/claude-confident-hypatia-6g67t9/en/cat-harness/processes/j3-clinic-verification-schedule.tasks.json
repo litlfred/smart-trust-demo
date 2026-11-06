@@ -1,0 +1,192 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J3ClinicVerification",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification",
+ "tasks": {
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan the QRs and open the referral",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/node/Task_Scan",
+   "lane": "Home clinic provider",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/lane/Lane_home-clinic-provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  },
+  "Task_Verify": {
+   "id": "Task_Verify",
+   "name": "Verify each HCERT against the trust list",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/node/Task_Verify",
+   "lane": "Home clinic EHR",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/lane/Lane_home-clinic-ehr",
+   "skills": [
+    {
+     "name": "hcert-verify"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Unverified": {
+   "id": "Task_Unverified",
+   "name": "Record the failure reason; decide doses by national policy",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/node/Task_Unverified",
+   "lane": "Home clinic provider",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/lane/Lane_home-clinic-provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  },
+  "Task_Import": {
+   "id": "Task_Import",
+   "name": "Import the doses as FHIR Immunization resources",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/node/Task_Import",
+   "lane": "Home clinic EHR",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/lane/Lane_home-clinic-ehr",
+   "skills": [
+    {
+     "name": "ehr-import-immunization"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Map": {
+   "id": "Task_Map",
+   "name": "Add the national schedule code beside the foreign vaccine code",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/node/Task_Map",
+   "lane": "Home clinic EHR",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/lane/Lane_home-clinic-ehr",
+   "skills": [
+    {
+     "name": "map-vaccine-codes"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Schedule": {
+   "id": "Task_Schedule",
+   "name": "Evaluate the national schedule",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/node/Task_Schedule",
+   "lane": "Home clinic EHR",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/lane/Lane_home-clinic-ehr",
+   "skills": [
+    {
+     "name": "schedule-evaluate"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Plan": {
+   "id": "Task_Plan",
+   "name": "Give due doses and book the next visit",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/node/Task_Plan",
+   "lane": "Home clinic provider",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J3ClinicVerification/lane/Lane_home-clinic-provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  }
+ }
+}

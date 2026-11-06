@@ -1,0 +1,175 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J2ChwDiscovery",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery",
+ "tasks": {
+  "Task_Show": {
+   "id": "Task_Show",
+   "name": "Show the paper DVCs from Country A",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/node/Task_Show",
+   "lane": "Caregiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/lane/Lane_caregiver",
+   "skills": [],
+   "role": {
+    "name": "caregiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/caregiver",
+    "title": "Caregiver",
+    "skills": []
+   }
+  },
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan each QR with the CHW app",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/node/Task_Scan",
+   "lane": "Community health worker",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/lane/Lane_community-health-worker",
+   "skills": [],
+   "role": {
+    "name": "community-health-worker",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/community-health-worker",
+    "title": "Community health worker",
+    "skills": []
+   }
+  },
+  "Task_Read": {
+   "id": "Task_Read",
+   "name": "Read each DVC unverified (triage)",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/node/Task_Read",
+   "lane": "CHW app",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/lane/Lane_chw-app",
+   "skills": [
+    {
+     "name": "hcert-verify"
+    }
+   ],
+   "role": {
+    "name": "chw-app",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/chw-app",
+    "title": "CHW app",
+    "skills": [
+     {
+      "name": "chw-refer"
+     },
+     {
+      "name": "chw-register-infant"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-verify"
+     }
+    ]
+   }
+  },
+  "Task_Register": {
+   "id": "Task_Register",
+   "name": "Add the infant to the household; save the doses as reported, not verified",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/node/Task_Register",
+   "lane": "CHW app",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/lane/Lane_chw-app",
+   "skills": [
+    {
+     "name": "chw-register-infant"
+    }
+   ],
+   "role": {
+    "name": "chw-app",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/chw-app",
+    "title": "CHW app",
+    "skills": [
+     {
+      "name": "chw-refer"
+     },
+     {
+      "name": "chw-register-infant"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-verify"
+     }
+    ]
+   }
+  },
+  "Task_Refer": {
+   "id": "Task_Refer",
+   "name": "Create a referral to the home clinic for verification",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/node/Task_Refer",
+   "lane": "CHW app",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/lane/Lane_chw-app",
+   "skills": [
+    {
+     "name": "chw-refer"
+    }
+   ],
+   "role": {
+    "name": "chw-app",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/chw-app",
+    "title": "CHW app",
+    "skills": [
+     {
+      "name": "chw-refer"
+     },
+     {
+      "name": "chw-register-infant"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-verify"
+     }
+    ]
+   }
+  },
+  "Task_Slip": {
+   "id": "Task_Slip",
+   "name": "Explain the referral to the family",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/node/Task_Slip",
+   "lane": "Community health worker",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J2ChwDiscovery/lane/Lane_community-health-worker",
+   "skills": [],
+   "role": {
+    "name": "community-health-worker",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/community-health-worker",
+    "title": "Community health worker",
+    "skills": []
+   }
+  }
+ }
+}

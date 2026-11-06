@@ -1,0 +1,168 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_VhlSharing",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing",
+ "tasks": {
+  "Task_Key": {
+   "id": "Task_Key",
+   "name": "Generate the link key and encrypt each document",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/node/Task_Key",
+   "lane": "VHL sharer",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/lane/Lane_Sharer",
+   "skills": [],
+   "role": {
+    "name": "vhl-sharer",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/vhl-sharer",
+    "title": "VHL sharer",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Link": {
+   "id": "Task_Link",
+   "name": "Issue the VHL payload as an HCERT (key 5, CBOR map)",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/node/Task_Link",
+   "lane": "VHL sharer",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/lane/Lane_Sharer",
+   "skills": [],
+   "role": {
+    "name": "vhl-sharer",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/vhl-sharer",
+    "title": "VHL sharer",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_VerifyLink": {
+   "id": "Task_VerifyLink",
+   "name": "Verify the VHL HCERT and its exp",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/node/Task_VerifyLink",
+   "lane": "VHL receiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/lane/Lane_Receiver",
+   "skills": [],
+   "role": {
+    "name": "vhl-receiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/vhl-receiver",
+    "title": "VHL receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Request": {
+   "id": "Task_Request",
+   "name": "Build and sign the ITI-YY5 manifest request",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/node/Task_Request",
+   "lane": "VHL receiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/lane/Lane_Receiver",
+   "skills": [],
+   "role": {
+    "name": "vhl-receiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/vhl-receiver",
+    "title": "VHL receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Read": {
+   "id": "Task_Read",
+   "name": "Read the manifest Bundle and decrypt each document",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/node/Task_Read",
+   "lane": "VHL receiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_VhlSharing/lane/Lane_Receiver",
+   "skills": [],
+   "role": {
+    "name": "vhl-receiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/vhl-receiver",
+    "title": "VHL receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  }
+ }
+}

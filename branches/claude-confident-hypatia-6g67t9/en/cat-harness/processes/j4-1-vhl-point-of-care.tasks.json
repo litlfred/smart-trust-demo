@@ -1,0 +1,218 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J41VhlFetch",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch",
+ "tasks": {
+  "Task_Open": {
+   "id": "Task_Open",
+   "name": "Show the child's VHL QR",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Open",
+   "lane": "Family phone",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_family-phone",
+   "skills": [
+    {
+     "name": "wallet-hold-vhl"
+    }
+   ],
+   "role": {
+    "name": "family-phone",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/family-phone",
+    "title": "Family phone",
+    "skills": [
+     {
+      "name": "wallet-hold-vhl"
+     }
+    ]
+   }
+  },
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan the QR and enter the passcode the caregiver says",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Scan",
+   "lane": "Point-of-care provider",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_poc-provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  },
+  "Task_Verify": {
+   "id": "Task_Verify",
+   "name": "Verify the HCERT and read the VHL at key 5",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Verify",
+   "lane": "Point-of-care receiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_poc-receiver",
+   "skills": [
+    {
+     "name": "hcert-verify"
+    }
+   ],
+   "role": {
+    "name": "poc-receiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Unverified": {
+   "id": "Task_Unverified",
+   "name": "No digital verification: treat the records like paper",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Unverified",
+   "lane": "Point-of-care provider",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_poc-provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  },
+  "Task_Fetch": {
+   "id": "Task_Fetch",
+   "name": "Request the manifest (ITI-YY5), signed",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Fetch",
+   "lane": "Point-of-care receiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_poc-receiver",
+   "skills": [
+    {
+     "name": "vhl-receive"
+    }
+   ],
+   "role": {
+    "name": "poc-receiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Release": {
+   "id": "Task_Release",
+   "name": "Check the passcode, return the manifest and log the access",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Release",
+   "lane": "National health portal",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_national-portal",
+   "skills": [
+    {
+     "name": "portal-serve-manifest"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Decrypt": {
+   "id": "Task_Decrypt",
+   "name": "Decrypt the IPS and DVCs",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Decrypt",
+   "lane": "Point-of-care receiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_poc-receiver",
+   "skills": [
+    {
+     "name": "vhl-receive"
+    }
+   ],
+   "role": {
+    "name": "poc-receiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Review": {
+   "id": "Task_Review",
+   "name": "Review history, allergies and vaccinations",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/node/Task_Review",
+   "lane": "Point-of-care provider",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J41VhlFetch/lane/Lane_poc-provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  }
+ }
+}

@@ -1,0 +1,486 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TrustDemoDdVhlShare",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureDefinition TrustDemoDdVhlShare</b></p><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;\"><tr style=\"border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top\"><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"The logical name of the element\">Name</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Information about the use of the element\">Flags</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Minimum and Maximum # of times the element can appear in the instance\">Card.</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px; width: 100px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Reference to the type of the element\">Type</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Additional information about the element\">Description &amp; Constraints</a><span style=\"float: right\"><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/></a></span></th></tr><tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_element.gif\" alt=\"\" style=\"background-color: white; background-color: inherit\" title=\"Element\" class=\"hierarchy\"/> <a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare\" title=\"What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.\">TrustDemoDdVhlShare</a><a name=\"TrustDemoDdVhlShare\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><span style=\"opacity: 0.50\">0</span><span style=\"opacity: 0.50\">..</span><span style=\"opacity: 0.50\">*</span></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/types.html#Base\">Base</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">TD.J40 Shared link and consent</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_reference.png\" alt=\"\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Reference to another Resource\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.subject\" title=\"The family member whose summary is shared.\">subject</a><a name=\"TrustDemoDdVhlShare.subject\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/references.html\">Reference</a>(<a href=\"http://hl7.org/fhir/R5/patient.html\">Patient</a>)</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Subject</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_reference.png\" alt=\"\" style=\"background-color: white; background-color: inherit\" title=\"Reference to another Resource\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.holder\" title=\"The person who shares the link and decides who may open it.\">holder</a><a name=\"TrustDemoDdVhlShare.holder\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/references.html\">Reference</a>(<a href=\"http://hl7.org/fhir/R5/relatedperson.html\">RelatedPerson</a>)</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Holder</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_reference.png\" alt=\"\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Reference to another Resource\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.custodian\" title=\"The home-country service that hosts the record and checks every request.\">custodian</a><a name=\"TrustDemoDdVhlShare.custodian\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/references.html\">Reference</a>(<a href=\"http://hl7.org/fhir/R5/organization.html\">Organization</a>)</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Custodian</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_reference.png\" alt=\"\" style=\"background-color: white; background-color: inherit\" title=\"Reference to another Resource\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.sharedDocument\" title=\"The patient summary the link releases.\">sharedDocument</a><a name=\"TrustDemoDdVhlShare.sharedDocument\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/references.html\">Reference</a>(<a href=\"http://hl7.org/fhir/R5/bundle.html\">Bundle</a>)</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Shared document</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\"\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.validFrom\" title=\"The first day the link may be opened.\">validFrom</a><a name=\"TrustDemoDdVhlShare.validFrom\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/datatypes.html#date\">date</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Valid from</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\"\" style=\"background-color: white; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.validUntil\" title=\"The expiry the holder chose; after it the link releases nothing (STD-ACC-001).\">validUntil</a><a name=\"TrustDemoDdVhlShare.validUntil\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/datatypes.html#date\">date</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Valid until</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_datatype.gif\" alt=\"\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Data Type\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.purpose\" title=\"The purpose of use the holder allows (J4: treatment).\">purpose</a><a name=\"TrustDemoDdVhlShare.purpose\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/datatypes.html#Coding\">Coding</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Purpose</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\"\" style=\"background-color: white; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.passcodeSet\" title=\"Whether the holder protected the link with a passcode. The passcode itself is never stored in the record.\">passcodeSet</a><a name=\"TrustDemoDdVhlShare.passcodeSet\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">1..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/datatypes.html#boolean\">boolean</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Passcode set</td></tr>\r\n<tr style=\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_primitive.png\" alt=\"\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Primitive Data Type\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">TrustDemoDdVhlShare.</span><a href=\"StructureDefinition-TrustDemoDdVhlShare-definitions.html#TrustDemoDdVhlShare.withdrawnAt\" title=\"When the holder withdrew the link, if they did.\">withdrawnAt</a><a name=\"TrustDemoDdVhlShare.withdrawnAt\"> </a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0..1</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><a href=\"http://hl7.org/fhir/R5/datatypes.html#dateTime\">dateTime</a></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Withdrawn at</td></tr>\r\n<tr><td colspan=\"5\" class=\"hierarchy\"><br/><a href=\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/> Documentation for this format</a></td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdVhlShare",
+  "version" : "0.1.0",
+  "name" : "TrustDemoDdVhlShare",
+  "title" : "TD.J40 Shared link and consent",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-05T17:26:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+  "fhirVersion" : "5.0.0",
+  "mapping" : [{
+    "identity" : "realisation",
+    "uri" : "http://smart.who.int/trust-demo",
+    "name" : "Realised in this guide's profiles and examples",
+    "comment" : "Where this guide realises each element: a profile or example path, a DVC payload element (smart.who.int.trust-phw), or a CWT or COSE field."
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  }],
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdVhlShare",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "5.0.0"
+    }],
+    "element" : [{
+      "id" : "TrustDemoDdVhlShare",
+      "path" : "TrustDemoDdVhlShare",
+      "short" : "TD.J40 Shared link and consent",
+      "definition" : "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Base",
+        "min" : 0,
+        "max" : "*"
+      },
+      "isModifier" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.subject",
+      "path" : "TrustDemoDdVhlShare.subject",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE01",
+        "display" : "Subject"
+      }],
+      "short" : "Subject",
+      "definition" : "The family member whose summary is shared.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.subject",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Patient"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.subject"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.holder",
+      "path" : "TrustDemoDdVhlShare.holder",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE02",
+        "display" : "Holder"
+      }],
+      "short" : "Holder",
+      "definition" : "The person who shares the link and decides who may open it.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.holder",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/RelatedPerson"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.grantor"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.custodian",
+      "path" : "TrustDemoDdVhlShare.custodian",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE03",
+        "display" : "Custodian"
+      }],
+      "short" : "Custodian",
+      "definition" : "The home-country service that hosts the record and checks every request.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.custodian",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Organization"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.controller"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.sharedDocument",
+      "path" : "TrustDemoDdVhlShare.sharedDocument",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE04",
+        "display" : "Shared document"
+      }],
+      "short" : "Shared document",
+      "definition" : "The patient summary the link releases.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.sharedDocument",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Bundle"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.data.reference"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.validFrom",
+      "path" : "TrustDemoDdVhlShare.validFrom",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE05",
+        "display" : "Valid from"
+      }],
+      "short" : "Valid from",
+      "definition" : "The first day the link may be opened.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.validFrom",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "date"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.period.start"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.validUntil",
+      "path" : "TrustDemoDdVhlShare.validUntil",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE06",
+        "display" : "Valid until"
+      }],
+      "short" : "Valid until",
+      "definition" : "The expiry the holder chose; after it the link releases nothing (STD-ACC-001).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.validUntil",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "date"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.period.end"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.purpose",
+      "path" : "TrustDemoDdVhlShare.purpose",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE07",
+        "display" : "Purpose"
+      }],
+      "short" : "Purpose",
+      "definition" : "The purpose of use the holder allows (J4: treatment).",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.purpose",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "Coding"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.purpose"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.passcodeSet",
+      "path" : "TrustDemoDdVhlShare.passcodeSet",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE08",
+        "display" : "Passcode set"
+      }],
+      "short" : "Passcode set",
+      "definition" : "Whether the holder protected the link with a passcode. The passcode itself is never stored in the record.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.passcodeSet",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "the link's passcode flag (IHE ITI VHL); not in Consent"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.withdrawnAt",
+      "path" : "TrustDemoDdVhlShare.withdrawnAt",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE09",
+        "display" : "Withdrawn at"
+      }],
+      "short" : "Withdrawn at",
+      "definition" : "When the holder withdrew the link, if they did.",
+      "min" : 0,
+      "max" : "1",
+      "base" : {
+        "path" : "TrustDemoDdVhlShare.withdrawnAt",
+        "min" : 0,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.status = inactive; not yet realised in the examples"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "TrustDemoDdVhlShare",
+      "path" : "TrustDemoDdVhlShare",
+      "short" : "TD.J40 Shared link and consent",
+      "definition" : "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it."
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.subject",
+      "path" : "TrustDemoDdVhlShare.subject",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE01",
+        "display" : "Subject"
+      }],
+      "short" : "Subject",
+      "definition" : "The family member whose summary is shared.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Patient"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.subject"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.holder",
+      "path" : "TrustDemoDdVhlShare.holder",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE02",
+        "display" : "Holder"
+      }],
+      "short" : "Holder",
+      "definition" : "The person who shares the link and decides who may open it.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/RelatedPerson"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.grantor"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.custodian",
+      "path" : "TrustDemoDdVhlShare.custodian",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE03",
+        "display" : "Custodian"
+      }],
+      "short" : "Custodian",
+      "definition" : "The home-country service that hosts the record and checks every request.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Organization"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.controller"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.sharedDocument",
+      "path" : "TrustDemoDdVhlShare.sharedDocument",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE04",
+        "display" : "Shared document"
+      }],
+      "short" : "Shared document",
+      "definition" : "The patient summary the link releases.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Bundle"]
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.data.reference"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.validFrom",
+      "path" : "TrustDemoDdVhlShare.validFrom",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE05",
+        "display" : "Valid from"
+      }],
+      "short" : "Valid from",
+      "definition" : "The first day the link may be opened.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.period.start"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.validUntil",
+      "path" : "TrustDemoDdVhlShare.validUntil",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE06",
+        "display" : "Valid until"
+      }],
+      "short" : "Valid until",
+      "definition" : "The expiry the holder chose; after it the link releases nothing (STD-ACC-001).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.period.end"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.purpose",
+      "path" : "TrustDemoDdVhlShare.purpose",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE07",
+        "display" : "Purpose"
+      }],
+      "short" : "Purpose",
+      "definition" : "The purpose of use the holder allows (J4: treatment).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Coding"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.provision.purpose"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.passcodeSet",
+      "path" : "TrustDemoDdVhlShare.passcodeSet",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE08",
+        "display" : "Passcode set"
+      }],
+      "short" : "Passcode set",
+      "definition" : "Whether the holder protected the link with a passcode. The passcode itself is never stored in the record.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "the link's passcode flag (IHE ITI VHL); not in Consent"
+      }]
+    },
+    {
+      "id" : "TrustDemoDdVhlShare.withdrawnAt",
+      "path" : "TrustDemoDdVhlShare.withdrawnAt",
+      "code" : [{
+        "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+        "code" : "TD.J40.DE09",
+        "display" : "Withdrawn at"
+      }],
+      "short" : "Withdrawn at",
+      "definition" : "When the holder withdrew the link, if they did.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "mapping" : [{
+        "identity" : "realisation",
+        "map" : "Consent.status = inactive; not yet realised in the examples"
+      }]
+    }]
+  }
+}

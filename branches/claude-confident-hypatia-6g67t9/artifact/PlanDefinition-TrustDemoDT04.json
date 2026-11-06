@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "PlanDefinition-TrustDemoDT04.jsonld",
+  "@type": "fhir:PlanDefinition",
+  "dcterms:identifier": "PlanDefinition/TrustDemoDT04",
+  "schema:name": "TrustDemoDT04",
+  "dcterms:title": "TD.DT.04 Is this dose of the national schedule due?",
+  "dcterms:description": "For one action of the national schedule, decide whether the evaluation recommends it now, and from which date. Requirements: STD-SCH-001. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Other",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT04"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/PlanDefinition/TrustDemoDT04--33af1632.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "22c25cd529c3c6c5cf911cf506f90f2b56db002a"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

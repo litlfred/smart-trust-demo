@@ -1,0 +1,119 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_HcertContractChange",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange",
+ "tasks": {
+  "Task_Requirements": {
+   "id": "Task_Requirements",
+   "name": "Amend the requirements within the architecture rules",
+   "type": "bpmn:Task",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/node/Task_Requirements",
+   "lane": "Library maintainer",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/lane/Lane_Maintainer",
+   "skills": [],
+   "role": {
+    "name": "library-maintainer",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/library-maintainer",
+    "title": "Library maintainer",
+    "skills": [
+     {
+      "name": "hcert-conformance-testing"
+     },
+     {
+      "name": "hcert-contract-maintenance"
+     },
+     {
+      "name": "hcert-kg-publication"
+     },
+     {
+      "name": "hcert-library-architecture"
+     }
+    ]
+   }
+  },
+  "Task_Contract": {
+   "id": "Task_Contract",
+   "name": "Change the WIT or CDDL and regenerate its views",
+   "type": "bpmn:Task",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/node/Task_Contract",
+   "lane": "Library maintainer",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/lane/Lane_Maintainer",
+   "skills": [],
+   "role": {
+    "name": "library-maintainer",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/library-maintainer",
+    "title": "Library maintainer",
+    "skills": [
+     {
+      "name": "hcert-conformance-testing"
+     },
+     {
+      "name": "hcert-contract-maintenance"
+     },
+     {
+      "name": "hcert-kg-publication"
+     },
+     {
+      "name": "hcert-library-architecture"
+     }
+    ]
+   }
+  },
+  "Task_Test": {
+   "id": "Task_Test",
+   "name": "Test against the shared vectors",
+   "type": "bpmn:Task",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/node/Task_Test",
+   "lane": "Library maintainer",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/lane/Lane_Maintainer",
+   "skills": [],
+   "role": {
+    "name": "library-maintainer",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/library-maintainer",
+    "title": "Library maintainer",
+    "skills": [
+     {
+      "name": "hcert-conformance-testing"
+     },
+     {
+      "name": "hcert-contract-maintenance"
+     },
+     {
+      "name": "hcert-kg-publication"
+     },
+     {
+      "name": "hcert-library-architecture"
+     }
+    ]
+   }
+  },
+  "Task_Publish": {
+   "id": "Task_Publish",
+   "name": "Check the graph and publish the site",
+   "type": "bpmn:Task",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/node/Task_Publish",
+   "lane": "Library maintainer",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-tools/process/Process_HcertContractChange/lane/Lane_Maintainer",
+   "skills": [],
+   "role": {
+    "name": "library-maintainer",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-tools/role/library-maintainer",
+    "title": "Library maintainer",
+    "skills": [
+     {
+      "name": "hcert-conformance-testing"
+     },
+     {
+      "name": "hcert-contract-maintenance"
+     },
+     {
+      "name": "hcert-kg-publication"
+     },
+     {
+      "name": "hcert-library-architecture"
+     }
+    ]
+   }
+  }
+ }
+}

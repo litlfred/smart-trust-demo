@@ -1,0 +1,292 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J40FamilyVhl",
+ "processHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl",
+ "tasks": {
+  "Task_Request": {
+   "id": "Task_Request",
+   "name": "Choose who to share, with a passcode and an expiry",
+   "type": "bpmn:UserTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/node/Task_Request",
+   "lane": "Caregiver",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/lane/Lane_caregiver",
+   "skills": [],
+   "role": {
+    "name": "caregiver",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/caregiver",
+    "title": "Caregiver",
+    "skills": []
+   }
+  },
+  "Task_Assemble": {
+   "id": "Task_Assemble",
+   "name": "Assemble each member's IPS and DVCs",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/node/Task_Assemble",
+   "lane": "National health portal",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/lane/Lane_national-portal",
+   "skills": [
+    {
+     "name": "portal-assemble-records"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Share": {
+   "id": "Task_Share",
+   "name": "Encrypt the documents and publish a passcode-protected manifest",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/node/Task_Share",
+   "lane": "National health portal",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/lane/Lane_national-portal",
+   "skills": [
+    {
+     "name": "vhl-share"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Prepare": {
+   "id": "Task_Prepare",
+   "name": "Prepare the HCERT carrying the VHL at key 5",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/node/Task_Prepare",
+   "lane": "National health portal",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/lane/Lane_national-portal",
+   "skills": [
+    {
+     "name": "hcert-build-cwt"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "Sign with Country B's DSC key",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/node/Task_Sign",
+   "lane": "Issuer signing key",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/lane/Lane_issuer-key",
+   "skills": [
+    {
+     "name": "hcert-sign-cose"
+    }
+   ],
+   "role": {
+    "name": "issuer-key",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/issuer-key",
+    "title": "Issuer signing key",
+    "skills": [
+     {
+      "name": "hcert-sign-cose"
+     }
+    ]
+   }
+  },
+  "Task_Finish": {
+   "id": "Task_Finish",
+   "name": "Finish the HC1 QR text",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/node/Task_Finish",
+   "lane": "National health portal",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/lane/Lane_national-portal",
+   "skills": [
+    {
+     "name": "hcert-prefix-context"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Store": {
+   "id": "Task_Store",
+   "name": "Store one VHL QR per member on the shared phone",
+   "type": "bpmn:ServiceTask",
+   "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/node/Task_Store",
+   "lane": "Family phone",
+   "laneHref": "https://litlfred.github.io/folio-assistant/smart-trust-demo/process/Process_J40FamilyVhl/lane/Lane_family-phone",
+   "skills": [
+    {
+     "name": "wallet-hold-vhl"
+    }
+   ],
+   "role": {
+    "name": "family-phone",
+    "href": "https://litlfred.github.io/folio-assistant/smart-trust-demo/role/family-phone",
+    "title": "Family phone",
+    "skills": [
+     {
+      "name": "wallet-hold-vhl"
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "StructureDefinition-TrustDemoLaoVhlAccess.jsonld",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/TrustDemoLaoVhlAccess",
+  "schema:name": "TrustDemoLaoVhlAccess",
+  "dcterms:title": "Lao PDR: every VHL access logged at home",
+  "dcterms:description": "How it is used: J4.1. The Lao national gateway records each attempt by a clinic abroad to fetch a family member's VHL manifest, the refused ones included.\n\nWhy: the family shares a link, not a copy, and the data stays in Lao PDR. Logging every access at home, following IHE Basic Audit Log Patterns, is what lets the family and the ministry see who looked, from where and when. A wrong passcode is logged too.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Resource Profiles",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/StructureDefinition/TrustDemoLaoVhlAccess--45ae436a.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "22c25cd529c3c6c5cf911cf506f90f2b56db002a"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "resourceType" : "Measure",
+  "id" : "TrustDemoIND04",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <table class=\"narrative-table\">\n    <tbody>\n<tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Knowledge Artifact Metadata</th>\n\n</tr>\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Name (machine-readable)</th>\n\n<td class=\"content-container\">TrustDemoIND04</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Title (human-readable)</th>\n\n<td class=\"content-container\">TD.IND.04 Imported doses carrying a national schedule code</td>\n</tr>\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Status</th>\n\n<td class=\"content-container\">Draft</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Experimental</th>\n\n<td class=\"content-container\">true</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n<td class=\"content-container\"><div><p>Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer's code, and so count toward the schedule.</p>\n</div></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Measure Steward</th>\n\n<td class=\"content-container\">litlfred</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Steward Contact Details</th>\n\n<td class=\"content-container\">litlfred: <a href=\"https://github.com/litlfred/smart-trust-demo\">https://github.com/litlfred/smart-trust-demo</a></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Measure Metadata</th>\n\n</tr>\n\n\n\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Version Number</th>\n\n<td class=\"content-container\">0.1.0</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Measure Scoring</th>\n\n<td class=\"content-container\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/measure-scoring proportion}\">Proportion</span></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    <tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Measure Population Criteria</th>\n\n</tr>\n  \n  \n  \n  \n    <tr>\n      \n        \n<th scope=\"row\" class=\"row-header\">Denominator</th>\n\n      \n      <td class=\"content-container\">\n        \n        \n          <em>Description</em>:\n          <p style=\"white-space: pre-line\" class=\"tab-one\"><div><p>Doses imported as verified in the reporting period. Computation: COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND &quot;Mapping basis&quot; != not-imported</p>\n</div></p>\n        \n        \n      </td>\n    </tr>\n  \n\n  \n    <tr>\n      \n        \n<th scope=\"row\" class=\"row-header\">Numerator</th>\n\n      \n      <td class=\"content-container\">\n        \n        \n          <em>Description</em>:\n          <p style=\"white-space: pre-line\" class=\"tab-one\"><div><p>Doses imported as verified in the reporting period that carry a national schedule code. Computation: COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND &quot;Mapping basis&quot; in (concept-map, clinician-confirmed)</p>\n</div></p>\n        \n        \n      </td>\n    </tr>\n  \n\n  \n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Mapping basis</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: <div><p>concept-map, clinician-confirmed, unmapped (TD.DT.02)</p>\n</div>\n    \n  </td>\n</tr>\n\n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Issuer's product code</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: <div><p>the product as signed</p>\n</div>\n    \n  </td>\n</tr>\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n  <th colspan=\"2\" scope=\"row\" class=\"row-header\">Generated using version 0.4.6 of the sample-content-ig Liquid templates</th>\n</tr>\n    </tbody>\n  </table>\n</div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/Measure/TrustDemoIND04",
+  "version" : "0.1.0",
+  "name" : "TrustDemoIND04",
+  "title" : "TD.IND.04 Imported doses carrying a national schedule code",
+  "status" : "draft",
+  "experimental" : true,
+  "basis" : "Immunization",
+  "date" : "2026-11-05T17:26:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer's code, and so count toward the schedule.",
+  "scoring" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring",
+      "code" : "proportion",
+      "display" : "Proportion"
+    }]
+  },
+  "group" : [{
+    "population" : [{
+      "code" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code" : "denominator",
+          "display" : "Denominator"
+        }]
+      },
+      "description" : "Doses imported as verified in the reporting period. Computation: COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" != not-imported"
+    },
+    {
+      "code" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code" : "numerator",
+          "display" : "Numerator"
+        }]
+      },
+      "description" : "Doses imported as verified in the reporting period that carry a national schedule code. Computation: COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" in (concept-map, clinician-confirmed)"
+    }],
+    "stratifier" : [{
+      "code" : {
+        "text" : "Mapping basis"
+      },
+      "description" : "concept-map, clinician-confirmed, unmapped (TD.DT.02)"
+    },
+    {
+      "code" : {
+        "text" : "Issuer's product code"
+      },
+      "description" : "the product as signed"
+    }]
+  }]
+}

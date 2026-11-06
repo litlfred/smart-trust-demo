@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en" data-presenter="on">
+<head>
+<meta name="rendered-by" content="journeys-viewer">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J4.0a One phone holds the whole family’s records — VaxLink</title>
+<meta name="folio-navbar" content="none">
+<link rel="stylesheet" href="../../../../../assets/present.css">
+<script>try{if(localStorage.getItem("jp:presenter")==="off")document.documentElement.setAttribute("data-presenter","off")}catch(_){}</script>
+<script src="../../../../../assets/present.js" defer></script>
+
+<link rel="prev" href="../J3b/"><link rel="next" href="../J4.0b/">
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../../../assets/ig-artifact.css"></head>
+<body class="jp jp-walkthrough"><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+function el(t,a,x){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+function link(href,text,extra){var a=el('a',{href:href,style:'color:#fff;text-decoration:underline'},text);if(extra)a.setAttribute('style',a.getAttribute('style')+';'+extra);return a;}
+function chip(text){return el('span',{style:"font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(0,0,0,.22);color:#fff;padding:1px 6px;border-radius:3px"},text);}
+function sep(){return document.createTextNode(' \u00b7 ');}
+function root(){var m=location.pathname.match(/^(.*\/(?:branches|STAGING)\/[^/]+\/)/);return m?m[1]:null;}
+// Release or preview (owner, 2026-11-05): a full build is a release and is
+// drawn purple, a preview green. Set here from staging.json, not in the
+// fragment, so the fragment stays byte-identical on every build.
+function kind(f){if(f.buildType!=='full')return;var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;b.style.background="#6B3FA0";b.setAttribute('data-fa-build-type','full');var t=b.querySelector('b');if(t)t.textContent='RELEASE BUILD';}
+function measure(){var b=document.querySelector('[data-fa-staging-banner]');if(!b)return;document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');}
+function fill(d,f,r){
+  kind(f);
+  while(d.firstChild)d.removeChild(d.firstChild);
+  d.appendChild(document.createTextNode('\u2014 '));
+  var b=link(f.branchUrl,'');b.appendChild(chip(f.branch));d.appendChild(b);
+  var rv=el('span',{'data-fa-staging-review':''});d.appendChild(rv);
+  d.appendChild(sep());d.appendChild(document.createTextNode('commit '));d.appendChild(chip(f.sha));
+  d.appendChild(sep());d.appendChild(document.createTextNode('built '+f.built));
+  d.appendChild(sep());d.appendChild(link(f.prUrl,f.pr&&f.pr!=='n/a'?'PR #'+f.pr:'no open PR found'));
+  if(f.issue){d.appendChild(sep());d.appendChild(link(f.issueUrl,'issue #'+f.issue));}
+  d.appendChild(sep());
+  var rel=location.pathname.slice(r.length);
+  if(rel===''||rel.charAt(rel.length-1)==='/')rel+='index.html';
+  if(!f.mainPagesKnown){
+    d.appendChild(link(f.mainSite+'/','compare with '+(f.beforeRef||'main')+' \u2197'));
+  }else if(f.newPages.indexOf(rel)>=0){
+    d.appendChild(link(f.mainSite+'/',(f.beforeRef||'main')+' \u2197'));
+    d.appendChild(document.createTextNode(' '));
+    d.appendChild(el('span',{style:'opacity:.85'},'(new page)'));
+  }else{
+    d.appendChild(link(f.mainSite+'/'+rel,'compare with '+(f.beforeRef||'main')+' \u2197'));
+  }
+  d.appendChild(sep());d.appendChild(link(f.runUrl,'build log'));
+  if(f.checksUrl){d.appendChild(sep());d.appendChild(link(f.checksUrl,'CI results'));}
+  stamp(f);
+  measure();
+  fresh(d,f);
+  review(rv,r,rel);
+}
+// The preview's review page (owner, 2026-11-01, Q-REV-1): reviewers could not
+// find it from a staging page. A folio writes it at <root>/<locale>/review/,
+// an IG at <root>/review/. Asked with HEAD, which the staging worker passes
+// through, so a 404 here is not answered with the live site's page. No review
+// page, no link.
+function review(s,r,rel){
+  if(typeof fetch!=='function')return;
+  var c=[],m=rel.match(/^([a-z]{2,3}(?:-[A-Za-z0-9]+)?)\//);
+  if(m)c.push(r+m[1]+'/review/');
+  c.push(r+'review/');
+  (function next(i){
+    if(i>=c.length)return;
+    fetch(c[i]+'index.html',{method:'HEAD',cache:'no-store'}).then(function(x){
+      if(!x.ok)return next(i+1);
+      s.appendChild(sep());
+      s.appendChild(link(c[i],'\ud83d\udd0d Review changes','font-weight:bold'));
+      measure();
+    }).catch(function(){next(i+1);});
+  })(0);
+}
+// Live staleness (owner, 2026-10-31, option C): ask GitHub for the branch's
+// head now and say so when it has moved past the commit this preview was
+// built from. Unauthenticated, one request per page view; on any failure
+// (rate limit, offline, a deleted branch) it says nothing rather than guess.
+function fresh(d,f){
+  var m=String(f.branchUrl||'').match(/^https:\/\/github\.com\/([^/]+)\/([^/]+)\//);
+  if(!m||!f.branch||!f.sha||typeof fetch!=='function')return;
+  fetch('https://api.github.com/repos/'+m[1]+'/'+m[2]+'/commits/'+encodeURIComponent(f.branch),
+    {headers:{Accept:'application/vnd.github.sha'},cache:'no-store'})
+    .then(function(x){if(!x.ok)throw 0;return x.text();})
+    .then(function(head){
+      head=String(head).trim();
+      if(!/^[0-9a-f]{7,40}$/.test(head)||head.indexOf(f.sha)===0)return;
+      d.appendChild(sep());
+      var w=el('strong',{'data-fa-staging-stale':'',style:'background:#b00020;padding:0 .4em;border-radius:3px'},'\u26a0 stale: the branch is now at ');
+      w.appendChild(chip(head.slice(0,7)));
+      w.appendChild(document.createTextNode(', newer than this preview'));
+      d.appendChild(w);measure();
+    }).catch(function(){});
+}
+function stamp(f){
+  var p=document.querySelector('.fa-build-stamp');if(!p)return;
+  while(p.firstChild)p.removeChild(p.firstChild);
+  p.appendChild(document.createTextNode('deployed '));
+  var a=link(f.runUrl,'');a.appendChild(el('code',null,f.sha));p.appendChild(a);
+  p.appendChild(document.createTextNode(' · '+f.built));
+}
+function go(){
+  measure();
+  var d=document.querySelector('[data-fa-staging-detail]');if(!d)return;
+  var r=root();
+  if(!r){d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+  fetch(r+'staging.json',{cache:'no-store'}).then(function(x){if(!x.ok)throw 0;return x.json();})
+    .then(function(f){fill(d,f,r);})
+    .catch(function(){d.textContent='\u2014 build details unavailable';measure();});
+}
+// First visit to a preview: the shared stylesheets 404 until the worker is
+// in control, so the page would paint unstyled (a page-wide search icon) for
+// the moment before the reload. Hide it until then, only when a stylesheet
+// in the head actually failed, and show it again if no reload comes.
+function unstyled(){var l=document.querySelectorAll('link[rel="stylesheet"]');for(var i=0;i<l.length;i++){if(l[i].disabled)continue;try{if(!l[i].sheet||!l[i].sheet.cssRules.length)return true;}catch(e){}}return false;}
+function share(){
+  var r=root();if(!r||!('serviceWorker' in navigator))return;
+  var k='fa-share:'+r,s=document.documentElement.style;
+  var hide=!navigator.serviceWorker.controller&&!sessionStorage.getItem(k)&&unstyled();
+  function show(){if(hide){hide=false;s.removeProperty('visibility');}}
+  if(hide){s.setProperty('visibility','hidden');setTimeout(show,4000);}
+  navigator.serviceWorker.register(r+'staging-sw.js',{scope:r}).then(function(){
+    if(navigator.serviceWorker.controller||sessionStorage.getItem(k))return show();
+    return navigator.serviceWorker.ready.then(function(){sessionStorage.setItem(k,'1');location.reload();});
+  }).catch(show);
+}
+measure();share();
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+window.addEventListener('resize',measure);window.addEventListener('load',measure);
+})();</script>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header>
+<header class="jp-head">
+<div class="jp-top">
+<div class="jp-top-l"><span class="jp-occasion"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span>WHO Pre-GDHF Vignette</span></span><span class="jp-bar">|</span><span>Cross-Border Digital Immunization Portability</span><span class="jp-range">J1 → J4.1 (Thailand ⇄ Lao PDR)</span></div>
+<div class="jp-top-r"><span class="jp-status"><i></i>GDHCN DEV Trust List: XXR Active</span><button type="button" class="jp-presenter-btn" data-jp-presenter title="Show or hide the presenter's notes"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="jp-on-only">Presenter Mode: ON</span><span class="jp-off-only">Presenter Notes</span></button></div>
+</div>
+<div class="jp-app">
+<div class="jp-brand"><span class="jp-logo" aria-hidden="true">V</span><div><div class="jp-brand-name"><span class="jp-name">VaxLink</span><span class="jp-badge">Interactive Spec</span></div><p class="jp-tagline">Open Health Stack (OHS) • WHO GDHCN • Verifiable Health Links (VHL)</p></div></div>
+<div class="jp-mode"><a class="is-on" href="../../overview/"><svg class="jp-i jp-rose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H17a3.5 3.5 0 0 0 0-7H7a3.5 3.5 0 0 1 0-7h8.5"/></svg><span>Journeys</span></a><a href="../../demo/"><svg class="jp-i jp-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg><span>Device Demo</span></a></div>
+<div class="jp-links"><a class="jp-btn-link jp-btn-ig" href="https://litlfred.github.io/smart-trust-demo/" target="_blank" rel="noopener noreferrer"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg><span>FHIR IG</span></a><a class="jp-btn-link" href="https://github.com/litlfred/smart-trust-demo" target="_blank" rel="noopener noreferrer"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><span>IG source</span></a></div>
+</div>
+</header>
+<div class="jp-note jp-presenter-only"><div><span class="jp-note-tag">PRESENTER NOTE</span><span>Moment J4.0a — Notice Khamla’s mood dips here. Ask the room why — this is the equity tension in the story.</span></div><button type="button" data-jp-dismiss>Dismiss</button></div>
+<main class="jp-main"><div class="jp-wrap">
+<nav class="jp-tabs" aria-label="Views"><a class="jp-tab" href="../../overview/"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.1 6.3-6.3 2.1 2.1-6.3z"/></svg><span><b>Overview</b><small>The story &amp; the cast</small></span></a><a class="jp-tab is-on" href="../../walkthrough/J1/" aria-current="page"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4M8 21h8"/></svg><span><b>Walkthrough</b><small>Present one moment at a time</small></span></a><a class="jp-tab" href="../../map/"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg><span><b>Journey map</b><small>Everyone, every step</small></span></a><a class="jp-tab" href="../../personas/"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span><b>Persona lens</b><small>One person end-to-end</small></span></a><a class="jp-tab" href="../../how/"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg><span><b>How it works</b><small>Standards &amp; tools behind each moment</small></span></a><a class="jp-tab" href="../../discuss/"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.3 7.6L3 21l1.5-5.2A8.5 8.5 0 1 1 21 12z"/><path d="M10 9.5a2 2 0 1 1 2.5 2c-.5.2-.5.6-.5 1.5M12 16h.01"/></svg><span><b>Discussion</b><small>Policy questions to close</small></span></a><a class="jp-tab" href="../../sheets/"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span><b>Table sheets</b><small>Print the A3 canvas</small></span></a></nav>
+<div class="jp-card jp-prog">
+<a class="jp-pbtn" href="../J3b/" aria-label="Previous moment"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></a>
+<div class="jp-prog-grid" style="grid-template-columns:1fr 2fr 2fr 3fr"><div><div class="jp-prog-label" title="1. Born abroad">1.<span> Born abroad</span></div><div class="jp-dots"><a href="../J1/" class="is-done" aria-label="J1: A Lao baby is born in Thailand" title="J1: A Lao baby is born in Thailand"></a></div></div><div><div class="jp-prog-label" title="2. Found at home">2.<span> Found at home</span></div><div class="jp-dots"><a href="../J2a/" class="is-done" aria-label="J2a: A health worker finds the baby — and reads his cards" title="J2a: A health worker finds the baby — and reads his cards"></a><a href="../J2b/" class="is-done" aria-label="J2b: Registered at home, and referred" title="J2b: Registered at home, and referred"></a></div></div><div><div class="jp-prog-label" title="3. Made official">3.<span> Made official</span></div><div class="jp-dots"><a href="../J3a/" class="is-done" aria-label="J3a: The clinic confirms the cards are genuine" title="J3a: The clinic confirms the cards are genuine"></a><a href="../J3b/" class="is-done" aria-label="J3b: Thai vaccines are fitted to the Lao schedule" title="J3b: Thai vaccines are fitted to the Lao schedule"></a></div></div><div><div class="jp-prog-label is-on" title="4. One family, one phone, a history abroad">4.<span> One family, one phone, a history abroad</span></div><div class="jp-dots"><a href="../J4.0a/" class="is-on" aria-label="J4.0a: One phone holds the whole family’s records" title="J4.0a: One phone holds the whole family’s records" aria-current="step"></a><a href="../J4.0b/" class="" aria-label="J4.0b: Dad creates a link to share at the clinic" title="J4.0b: Dad creates a link to share at the clinic"></a><a href="../J4.1/" class="" aria-label="J4.1: A Thai doctor sees the full history" title="J4.1: A Thai doctor sees the full history"></a></div></div></div>
+<span class="jp-keys"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg> ← → · W · T</span>
+<a class="jp-pbtn jp-pbtn-next" href="../J4.0b/" aria-label="Next moment" title="Next moment"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a>
+</div>
+<div class="jp-walk">
+<div class="jp-walk-l">
+<section class="jp-card jp-story">
+<div class="jp-story-top"><span class="jp-chapter">Chapter 4 · One family, one phone, a history abroad</span><span class="jp-chip jp-chip-indigo">Cross-Border</span><span class="jp-pos">J4.0a · 6/8</span></div>
+<div class="jp-story-head"><h2><a href="./" title="Link to this moment">One phone holds the whole family’s records</a></h2><div class="jp-story-pic"><img class="jp-pic" src="../../../../../smart-trust-demo/j4-0-one-family-one-phone/img/step-J4.0a.jpg" alt="Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them" title="Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them" loading="lazy"><figure class="jp-scene jp-scene-sm jp-scene-indigo" aria-label="Passcode link on Dad’s phone, then Lao PDR ⇄ Thailand, then Thai doctor sees it all"><span title="Passcode link on Dad’s phone"><span class="jp-scene-i"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span></span><svg class="jp-i jp-scene-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg><span title="Lao PDR ⇄ Thailand"><span class="jp-scene-i"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3L4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"/></svg></span></span><svg class="jp-i jp-scene-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg><span title="Thai doctor sees it all"><span class="jp-scene-i"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v6a4 4 0 0 0 8 0V3M9 13v2a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="2"/></svg></span></span></figure></div></div>
+<p class="jp-headline">A year on, the family plans a trip to Thailand. <span class="jp-named">Bounmy<span class="jp-av jp-av-sm" style="--c:#7c3aed" title="Bounmy" aria-hidden="true">BS</span></span>’s phone holds records for all three of them, including <span class="jp-named">Somsack<span class="jp-av jp-av-sm" style="--c:#65a30d" title="Somsack" aria-hidden="true"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M10.2 7.5h.01M13.8 7.5h.01M10.5 9.8a2 2 0 0 0 3 0M6 21v-1.5a6 6 0 0 1 12 0V21"/></svg></span></span>’s six verified doses.</p>
+<div class="jp-meta"><span>🕒 T0 + 12 months</span><span>📍 Vientiane, Lao PDR</span><span><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg> Family wallet app on Dad’s phone</span></div>
+<div class="jp-sees"><a class="jp-see" href="../../demo/S6/"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg><span>See what Bounmy sees <small>(screen S6)</small></span><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></a></div>
+</section>
+<section><h3 class="jp-h jp-h-pad">Who’s in this moment</h3><div class="jp-whos"><div class="jp-who" style="--c:#7c3aed"><div class="jp-who-h"><span class="jp-av jp-av-md" style="--c:#7c3aed" title="Bounmy" aria-hidden="true">BS</span><div><b>Bounmy</b><span>Father · holds the family phone</span></div><span class="jp-emo jp-emo-emerald" title="Reassured"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg><span>Reassured</span></span></div><p>Opens the family wallet: profiles for himself, <span class="jp-named">Khamla<span class="jp-av jp-av-sm" style="--c:#e11d48" title="Khamla" aria-hidden="true">KS</span></span> and <span class="jp-named">Somsack<span class="jp-av jp-av-sm" style="--c:#65a30d" title="Somsack" aria-hidden="true"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M10.2 7.5h.01M13.8 7.5h.01M10.5 9.8a2 2 0 0 0 3 0M6 21v-1.5a6 6 0 0 1 12 0V21"/></svg></span></span>.</p><p class="jp-feel">“One phone, three people — I can manage all of us.”</p></div><div class="jp-who" style="--c:#e11d48"><div class="jp-who-h"><span class="jp-av jp-av-md" style="--c:#e11d48" title="Khamla" aria-hidden="true">KS</span><div><b>Khamla</b><span>Mother</span></div><span class="jp-emo jp-emo-amber" title="Worried"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 16.5s1.5-2 4-2 4 2 4 2M9 9h.01M15 9h.01"/></svg><span>Worried</span></span></div><p>Relies on <span class="jp-named">Bounmy<span class="jp-av jp-av-sm" style="--c:#7c3aed" title="Bounmy" aria-hidden="true">BS</span></span>’s phone for her own and the baby’s records.</p><p class="jp-feel">“It’s on his phone. What if I travel without him?”</p></div></div></section>
+<section class="jp-pe"><div class="jp-pain"><div class="jp-h"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3L2 21h20zM12 10v4M12 17h.01"/></svg> Without this</div><p>Many families share one smartphone; one-app-per-person designs leave them out.</p></div><div class="jp-enable"><div class="jp-h"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg> What makes it work</div><p>A household wallet on one phone, with a separate health summary for each person.</p></div></section>
+</div>
+<div class="jp-walk-r">
+<section class="jp-card jp-pad jp-tone-emerald jp-record"><div class="jp-row"><h3 class="jp-h jp-emerald8"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></svg> Somsack’s record</h3><span class="jp-moved">▲ Moved up</span></div>
+<div class="jp-meter"><div class="jp-meter-bars"><i style="background:#cbd5e1" title="On paper: Signed cards in the family&#39;s hands."></i><i style="background:#94a3b8" title="Reported: Captured, but marked unverified."></i><i style="background:#64748b" title="Verified: Signature checked against the WHO trust list."></i><i style="background:#475569" title="Scheduled: Counts toward the Lao schedule."></i><i style="background:#334155" title="Portable: A full summary the family can share."></i><i style="" title="Shared and audited: Viewed abroad, and every access logged at home."></i></div><div class="jp-meter-labels"><span>On paper</span><span>Reported</span><span>Verified</span><span>Scheduled</span><span class="is-on">Portable</span><span>Shared and audited</span></div></div>
+<div class="jp-state">Portable</div>
+<p>12-month summary: 2 Thai + 4 Lao doses</p>
+<p class="jp-small">Held in: Lao national records + family wallet</p>
+<div class="jp-handoff"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg><span><b>Hand-off:</b> <span class="jp-named">Somsack<span class="jp-av jp-av-sm" style="--c:#65a30d" title="Somsack" aria-hidden="true"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M10.2 7.5h.01M13.8 7.5h.01M10.5 9.8a2 2 0 0 0 3 0M6 21v-1.5a6 6 0 0 1 12 0V21"/></svg></span></span>’s summary is ready to share</span></div></section><section class="jp-ask"><h3 class="jp-h"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.3 7.6L3 21l1.5-5.2A8.5 8.5 0 1 1 21 12z"/><path d="M10 9.5a2 2 0 1 1 2.5 2c-.5.2-.5.6-.5 1.5M12 16h.01"/></svg> Ask the room</h3><p>How do we design for shared phones without compromising each person’s privacy?</p></section><section class="jp-card jp-pad jp-tone-amber jp-whatif" data-jp-whatif><h3 class="jp-h jp-amber8"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10M18 9c0 5-6 4-11 8"/></svg> What if…</h3><p class="jp-wf-q">Khamla travels alone with Somsack.</p><button type="button" class="jp-reveal" data-jp-reveal>Let the room guess, then reveal</button><p class="jp-wf-a">Who can access the baby’s record without Bounmy’s phone? Delegated access within a household is still an open design question.</p></section><section class="jp-card jp-pad jp-tone-indigo"><h3 class="jp-h jp-indigo"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-6 10 6z"/></svg> Policy takeaway</h3><p>Design for shared devices (“One Family, One Phone”) so families with only one phone aren’t left out.</p></section><section class="jp-card jp-pad jp-tone-indigo jp-policy">
+<h3 class="jp-h jp-indigo"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg> Policy questions for the table</h3><ol class="jp-qs"><li><a class="jp-mod" href="../../m4/" title="Trust, credentials and wallets">M4</a><span>Is a family wallet a national service, a private app, or both — and who decides which apps may hold a record?</span></li><li><a class="jp-mod" href="../../m5/" title="Governance, decision rights and the legal basis">M5</a><span>Who may hold and share a child’s record: either parent, a guardian, the child from what age? What does your law say about dependants?</span></li></ol>
+<dl class="jp-forces"><div><dt>Decision rights</dt><dd><span class="jp-pill" title="Who can require suppliers to conform to the national implementation guide — in a tender, for example?">Standards mandate</span></dd></div><div><dt>Legal basis</dt><dd><span class="jp-pill" title="">Consent, including for minors and dependants</span></dd></div><div><dt>Substitution patterns</dt><dd><span class="jp-pill" title="One population, one credential, one facility type.">Start narrow ★</span><span class="jp-why">— One credential first: the child’s vaccination record, on the phone the family already has.</span></dd></div><div><dt>Cost drivers</dt><dd><span class="jp-pill" title="">Devices and connectivity at the point of care</span></dd></div></dl>
+<div class="jp-gap"><h4 class="jp-h"><svg class="jp-i jp-indigo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9zM9 14l2 2 4-4"/></svg> Gap strip: what this moment needs, in your country</h4><div class="jp-cap"><div class="jp-cap-label">A wallet or citizen app that holds a family’s records</div><div class="jp-choices" role="radiogroup" aria-label="A wallet or citizen app that holds a family’s records: Where we stand"><label class="jp-choice jp-choice-0"><input type="radio" name="dpi-h-policy-track:family-wallet:status" value="exists" data-jv-store class="jp-first"><span>Exists</span></label><label class="jp-choice jp-choice-1"><input type="radio" name="dpi-h-policy-track:family-wallet:status" value="partial" data-jv-store><span>Partial</span></label><label class="jp-choice jp-choice-2"><input type="radio" name="dpi-h-policy-track:family-wallet:status" value="absent" data-jv-store><span>Absent</span></label></div><div class="jp-choices jp-choices-more" role="radiogroup" aria-label="A wallet or citizen app that holds a family’s records: How urgent"><label class="jp-choice jp-choice-0"><input type="radio" name="dpi-h-policy-track:family-wallet:urgency" value="now" data-jv-store class="jp-first"><span>Blocks us now</span></label><label class="jp-choice jp-choice-1"><input type="radio" name="dpi-h-policy-track:family-wallet:urgency" value="12m" data-jv-store><span>Needed within 12 months</span></label><label class="jp-choice jp-choice-2"><input type="radio" name="dpi-h-policy-track:family-wallet:urgency" value="wait" data-jv-store><span>Can wait</span></label></div></div><div class="jp-cap"><div class="jp-cap-label">Rules for a parent holding a child’s record</div><div class="jp-choices" role="radiogroup" aria-label="Rules for a parent holding a child’s record: Where we stand"><label class="jp-choice jp-choice-0"><input type="radio" name="dpi-h-policy-track:dependant-consent:status" value="exists" data-jv-store class="jp-first"><span>Exists</span></label><label class="jp-choice jp-choice-1"><input type="radio" name="dpi-h-policy-track:dependant-consent:status" value="partial" data-jv-store><span>Partial</span></label><label class="jp-choice jp-choice-2"><input type="radio" name="dpi-h-policy-track:dependant-consent:status" value="absent" data-jv-store><span>Absent</span></label></div><div class="jp-choices jp-choices-more" role="radiogroup" aria-label="Rules for a parent holding a child’s record: How urgent"><label class="jp-choice jp-choice-0"><input type="radio" name="dpi-h-policy-track:dependant-consent:urgency" value="now" data-jv-store class="jp-first"><span>Blocks us now</span></label><label class="jp-choice jp-choice-1"><input type="radio" name="dpi-h-policy-track:dependant-consent:urgency" value="12m" data-jv-store><span>Needed within 12 months</span></label><label class="jp-choice jp-choice-2"><input type="radio" name="dpi-h-policy-track:dependant-consent:urgency" value="wait" data-jv-store><span>Can wait</span></label></div></div><p class="jp-standing">“Absent” is a finding, not a failure — the question is only whether it blocks this use case.</p></div>
+</section><section class="jp-cue jp-presenter-only"><div class="jp-cue-h"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg> Facilitator cue</div><p>Notice Khamla’s mood dips here. Ask the room why — this is the equity tension in the story.</p></section>
+</div>
+</div>
+<div class="jp-hood-toggle"><i></i><button type="button" class="is-on" data-jp-hood-toggle aria-controls="hood" aria-expanded="true"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg><span class="jp-hood-hide">Hide what’s under the hood</span><span class="jp-hood-show">Show what’s under the hood</span></button><i></i></div>
+<section class="jp-hood" id="hood" data-jp-hood>
+<div class="jp-hood-h"><svg class="jp-i jp-sky3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg><h3>Under the hood</h3><span>What the standards and tools are doing at this moment</span></div>
+<div class="jp-hood-in">
+<div class="jp-sowhat"><svg class="jp-i jp-amber jp-i-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg><div><span class="jp-label jp-amber8">Technical so-what</span><p>A year of records from two countries is assembled into one International Patient Summary, a format any clinician abroad knows how to read.</p></div></div>
+<div class="jp-layers">
+<div class="jp-layer jp-layer-rose"><div class="jp-layer-h"><b><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></svg> Experience</b><span>What people see and do</span></div><div class="jp-layer-cells jp-exp"><span class="jp-named">Bounmy<span class="jp-av jp-av-sm" style="--c:#7c3aed" title="Bounmy" aria-hidden="true">BS</span></span>: Opens the family wallet: profiles for himself, <span class="jp-named">Khamla<span class="jp-av jp-av-sm" style="--c:#e11d48" title="Khamla" aria-hidden="true">KS</span></span> and <span class="jp-named">Somsack<span class="jp-av jp-av-sm" style="--c:#65a30d" title="Somsack" aria-hidden="true"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4.5"/><path d="M10.2 7.5h.01M13.8 7.5h.01M10.5 9.8a2 2 0 0 0 3 0M6 21v-1.5a6 6 0 0 1 12 0V21"/></svg></span></span>.</div></div>
+<div class="jp-layer jp-layer-teal"><div class="jp-layer-h"><b>Tools &amp; apps</b><span>What software is in people’s hands?</span></div><div class="jp-layer-cells"><a class="jp-block" href="https://profiles.ihe.net/ITI/VHL/" target="_blank" rel="noopener noreferrer" title="Family wallet app: A phone app that holds health summaries for several household members and can create shareable links."><b>Family wallet</b><span>Holds 3 household profiles on one phone</span></a><a class="jp-block" href="https://hl7.org/fhir/" target="_blank" rel="noopener noreferrer" title="Lao national FHIR repository: The national store of immunization and health summary data, using the FHIR standard API."><b>National FHIR server</b><span>Source of truth for all 6 doses</span></a><a class="jp-block" href="https://github.com/google/fhir-gateway" target="_blank" rel="noopener noreferrer" title="OHS FHIR Info Gateway: The authorization (AuthZ) layer in front of the national FHIR server. It checks the caller’s access token from the identity provider, applies access rules (role, facility, household, consent) to every request, and records each access."><b>Info Gateway (AuthZ)</b><span>Lets Bounmy’s wallet read only his own household’s records</span></a></div></div><div class="jp-layer jp-layer-sky"><div class="jp-layer-h"><b>Data standards</b><span>How is the information structured so others can read it?</span></div><div class="jp-layer-cells"><a class="jp-block" href="https://hl7.org/fhir/uv/ips/" target="_blank" rel="noopener noreferrer" title="HL7 International Patient Summary (IPS): A standard, minimal health summary (immunizations, allergies, medications, problems) designed for care across borders."><b>IPS</b><span>Somsack’s summary packaged as an IPS Bundle</span></a><a class="jp-block" href="https://hl7.org/fhir/provenance.html" target="_blank" rel="noopener noreferrer" title="FHIR Provenance: Records where a piece of data came from, who verified it and how."><b>Provenance</b><span>Thai origin of birth doses still visible</span></a></div></div><div class="jp-layer jp-layer-indigo"><div class="jp-layer-h"><b>Trust &amp; exchange</b><span>How is it signed, shared, consented and audited?</span></div><div class="jp-layer-cells"><span class="jp-none">Not involved at this moment</span></div></div>
+</div>
+<div class="jp-two"><div class="jp-box"><div class="jp-box-h"><span class="jp-label">Data hand-off</span><span class="jp-net is-on"><svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg>Online</span></div>
+<div class="jp-flow"><span class="jp-end">Lao national FHIR server</span><div class="jp-flow-mid"><span>FHIR API (HTTPS) via Info Gateway</span><i></i></div><span class="jp-end">Family wallet</span></div>
+<div class="jp-payload">IPS Bundle per family member</div></div><div class="jp-box"><div class="jp-box-h"><span class="jp-label">FHIR resources created or changed</span></div><ul class="jp-fhir"><li><svg class="jp-i jp-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M10 13l-1.5 2 1.5 2M14 13l1.5 2-1.5 2"/></svg><div><div class="jp-fhir-row"><a class="jp-mono" href="../../../../../../../../artifact/Bundle-TrustDemoJ4Ips.html" target="_blank" rel="noopener noreferrer">Bundle (IPS)</a><span class="jp-fhir-change">Generated: 2 Thai + 4 Lao doses</span><button type="button" class="jp-inspect" data-jp-inspect="Bundle/TrustDemoJ4Ips">Inspect JSON</button></div><p class="jp-fhir-why">An International Patient Summary is what any country’s clinic can read, whatever its own system.</p><div class="jp-fhir-links"><a class="jp-ext" href="../../../../../../../../artifact/Bundle-TrustDemoJ4Ips.html" target="_blank" rel="noopener noreferrer">TrustDemoJ4Ips<svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a><a class="jp-ext" href="../../../../../../../../artifact/Immunization-TrustDemoLaoPenta1.html" target="_blank" rel="noopener noreferrer">TrustDemoLaoPenta1<svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a><a class="jp-ext jp-ext-soft" href="https://hl7.org/fhir/uv/ips/" target="_blank" rel="noopener noreferrer">base standard<svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div></div></li><li><svg class="jp-i jp-sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M10 13l-1.5 2 1.5 2M14 13l1.5 2-1.5 2"/></svg><div><div class="jp-fhir-row"><a class="jp-mono" href="../../../../../../../../artifact/Group-TrustDemoHousehold.html" target="_blank" rel="noopener noreferrer">Group (household)</a><a class="jp-prof" href="../../../../../../../../artifact/StructureDefinition-TrustDemoLaoHousehold.html" target="_blank" rel="noopener noreferrer" title="TrustDemoLaoHousehold">LA profile</a><span class="jp-fhir-change">Drives the profile switcher</span><button type="button" class="jp-inspect" data-jp-inspect="Group/TrustDemoHousehold">Inspect JSON</button></div><p class="jp-fhir-why">One shared phone, three family members: the household decides whose records the wallet shows.</p><div class="jp-fhir-links"><a class="jp-ext" href="../../../../../../../../artifact/Group-TrustDemoHousehold.html" target="_blank" rel="noopener noreferrer">TrustDemoHousehold<svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a><a class="jp-ext jp-ext-soft" href="https://hl7.org/fhir/group.html" target="_blank" rel="noopener noreferrer">base standard<svg class="jp-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div></div></li></ul></div></div>
+
+</div>
+</section>
+</div></main>
+<aside class="jp-drawer" data-jp-drawer aria-label="FHIR payload inspector">
+<button type="button" class="jp-drawer-bar" data-jp-drawer-toggle aria-expanded="false"><svg class="jp-i jp-sky3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><b>FHIR payload inspector</b><span class="jp-drawer-n">3 resources at this moment</span><span class="jp-drawer-hint">Click to inspect the raw FHIR JSON</span></button>
+<div class="jp-drawer-body" hidden><div class="jp-drawer-tabs" role="tablist"><button type="button" role="tab" data-jp-tab="Bundle/TrustDemoJ4Ips" aria-selected="true" class="is-on">Bundle/TrustDemoJ4Ips</button><button type="button" role="tab" data-jp-tab="Immunization/TrustDemoLaoPenta1" aria-selected="false">Immunization/TrustDemoLaoPenta1</button><button type="button" role="tab" data-jp-tab="Group/TrustDemoHousehold" aria-selected="false">Group/TrustDemoHousehold</button><button type="button" class="jp-copy" data-jp-copy>Copy</button></div><div class="jp-pane" role="tabpanel" data-jp-pane="Bundle/TrustDemoJ4Ips"><pre class="jp-json"><code><span class="jp-j-pun">{</span>
+  <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Bundle&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoJ4Ips&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;identifier&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;urn:ietf:rfc:3986&quot;</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-key">&quot;value&quot;</span>: <span class="jp-j-str">&quot;urn:uuid:8d3f1c52-6a4e-4b0f-9c1d-2e7a5b9f0c31&quot;</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;type&quot;</span>: <span class="jp-j-str">&quot;document&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;timestamp&quot;</span>: <span class="jp-j-str">&quot;2026-10-26T09:00:00+07:00&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;entry&quot;</span>: <span class="jp-j-pun">[</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Composition/TrustDemoJ4Composition&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Composition&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoJ4Composition&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Composition_TrustDemoJ4Composition\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Composition TrustDemoJ4Composition&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoJ4Composition\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoJ4Composition\&quot;&gt; &lt;/a&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://loinc.org 60591-5}\&quot;&gt;Patient summary Document&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: 2026-10-26 09:00:00+0700&lt;/p&gt;&lt;p&gt;&lt;b&gt;author&lt;/b&gt;: Lao PDR national health portal (Country B, XXH)&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: Patient summary: Somsack SENGMANY&lt;/p&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;final&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;type&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://loinc.org&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;60591-5&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Patient summary Document&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;subject&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;date&quot;</span>: <span class="jp-j-str">&quot;2026-10-26T09:00:00+07:00&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;author&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Lao PDR national health portal (Country B, XXH)&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;title&quot;</span>: <span class="jp-j-str">&quot;Patient summary: Somsack SENGMANY&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;section&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;title&quot;</span>: <span class="jp-j-str">&quot;Allergies and intolerances&quot;</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-pun">{</span>
+                  <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://loinc.org&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;48765-2&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Allergies and adverse reactions Document&quot;</span>
+                <span class="jp-j-pun">}</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;emptyReason&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-pun">{</span>
+                  <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://terminology.hl7.org/CodeSystem/list-empty-reason&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;unavailable&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Unavailable&quot;</span>
+                <span class="jp-j-pun">}</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;title&quot;</span>: <span class="jp-j-str">&quot;Medication summary&quot;</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-pun">{</span>
+                  <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://loinc.org&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;10160-0&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;History of Medication use Narrative&quot;</span>
+                <span class="jp-j-pun">}</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;emptyReason&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-pun">{</span>
+                  <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://terminology.hl7.org/CodeSystem/list-empty-reason&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;unavailable&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Unavailable&quot;</span>
+                <span class="jp-j-pun">}</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;title&quot;</span>: <span class="jp-j-str">&quot;Problems&quot;</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-pun">{</span>
+                  <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://loinc.org&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;11450-4&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Problem list - Reported&quot;</span>
+                <span class="jp-j-pun">}</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;emptyReason&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-pun">{</span>
+                  <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://terminology.hl7.org/CodeSystem/list-empty-reason&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;unavailable&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Unavailable&quot;</span>
+                <span class="jp-j-pun">}</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;title&quot;</span>: <span class="jp-j-str">&quot;Immunizations&quot;</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-pun">{</span>
+                  <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://loinc.org&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;11369-6&quot;</span><span class="jp-j-pun">,</span>
+                  <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;History of Immunization Narrative&quot;</span>
+                <span class="jp-j-pun">}</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;entry&quot;</span>: <span class="jp-j-pun">[</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Immunization/TrustDemoJ3HepB&quot;</span>
+              <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Immunization/TrustDemoJ3Bcg&quot;</span>
+              <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Immunization/TrustDemoLaoPenta1&quot;</span>
+              <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Immunization/TrustDemoLaoBopv1&quot;</span>
+              <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Immunization/TrustDemoLaoPcv1&quot;</span>
+              <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Immunization/TrustDemoLaoMr1&quot;</span>
+              <span class="jp-j-pun">}</span>
+            <span class="jp-j-pun">]</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Patient/TrustDemoSomsack&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Patient&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoSomsack&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoPatient&quot;</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Patient_TrustDemoSomsack\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Patient TrustDemoSomsack&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoSomsack\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoSomsack\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoPatient.html\&quot;&gt;Lao PDR: child registered by the community health worker&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p style=\&quot;border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/p&gt;&lt;hr/&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;Record is active\&quot;&gt;Active:&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;Nominated Contact: mother\&quot;&gt;mother:&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;&lt;ul&gt;&lt;li&gt;Khamla SENGMANY &lt;/li&gt;&lt;/ul&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;Nominated Contact: father\&quot;&gt;father:&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;&lt;ul&gt;&lt;li&gt;Bounmy SENGMANY &lt;/li&gt;&lt;/ul&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;identifier&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/sid/lao-temporary-id&quot;</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;value&quot;</span>: <span class="jp-j-str">&quot;LAO-TMP-2025-00918&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;active&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;name&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;use&quot;</span>: <span class="jp-j-str">&quot;official&quot;</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;family&quot;</span>: <span class="jp-j-str">&quot;SENGMANY&quot;</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;given&quot;</span>: <span class="jp-j-pun">[</span>
+              <span class="jp-j-str">&quot;Somsack&quot;</span>
+            <span class="jp-j-pun">]</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;gender&quot;</span>: <span class="jp-j-str">&quot;male&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;birthDate&quot;</span>: <span class="jp-j-str">&quot;2025-10-28&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;contact&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;relationship&quot;</span>: <span class="jp-j-pun">[</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                  <span class="jp-j-pun">{</span>
+                    <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://terminology.hl7.org/CodeSystem/v3-RoleCode&quot;</span><span class="jp-j-pun">,</span>
+                    <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;MTH&quot;</span><span class="jp-j-pun">,</span>
+                    <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;mother&quot;</span>
+                  <span class="jp-j-pun">}</span>
+                <span class="jp-j-pun">]</span>
+              <span class="jp-j-pun">}</span>
+            <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;name&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;family&quot;</span>: <span class="jp-j-str">&quot;SENGMANY&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;given&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-str">&quot;Khamla&quot;</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;relationship&quot;</span>: <span class="jp-j-pun">[</span>
+              <span class="jp-j-pun">{</span>
+                <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+                  <span class="jp-j-pun">{</span>
+                    <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://terminology.hl7.org/CodeSystem/v3-RoleCode&quot;</span><span class="jp-j-pun">,</span>
+                    <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;FTH&quot;</span><span class="jp-j-pun">,</span>
+                    <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;father&quot;</span>
+                  <span class="jp-j-pun">}</span>
+                <span class="jp-j-pun">]</span>
+              <span class="jp-j-pun">}</span>
+            <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-key">&quot;name&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;family&quot;</span>: <span class="jp-j-str">&quot;SENGMANY&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;given&quot;</span>: <span class="jp-j-pun">[</span>
+                <span class="jp-j-str">&quot;Bounmy&quot;</span>
+              <span class="jp-j-pun">]</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Immunization/TrustDemoJ3HepB&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Immunization&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoJ3HepB&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization&quot;</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Immunization_TrustDemoJ3HepB\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Immunization TrustDemoJ3HepB&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoJ3HepB\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoJ3HepB\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoImmunization.html\&quot;&gt;Lao PDR: dose on the national schedule&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;vaccineCode&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-HEPB-BD}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-hepb-peds-monovalent}, {http://hl7.org/fhir/sid/cvx 08}\&quot;&gt;Hepatitis B paediatric birth dose&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;lotNumber&lt;/b&gt;: TH-4821&lt;/p&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;occurrence&lt;/b&gt;: 2025-10-28 09:15:00+0700&lt;/p&gt;&lt;p&gt;&lt;b&gt;primarySource&lt;/b&gt;: true&lt;/p&gt;&lt;h3&gt;InformationSources&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Reference&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Organization-TrustDemoChiangRaiHospital.html\&quot;&gt;Chiang Rai Provincial Hospital (demonstrator)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;&lt;b&gt;location&lt;/b&gt;: Chiang Rai Provincial Hospital, Thailand&lt;/p&gt;&lt;h3&gt;Performers&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Actor&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Practitioner-TrustDemoAnan.html\&quot;&gt;Dr Anan&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;ProtocolApplieds&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;DoseNumber&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;completed&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;vaccineCode&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;LAO-EPI-HEPB-BD&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Hepatitis B birth dose&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;vp-hepb-peds-monovalent&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Hepatitis B vaccine, paediatric, monovalent&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://hl7.org/fhir/sid/cvx&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;08&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Hep B, adolescent or pediatric&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-str">&quot;Hepatitis B paediatric birth dose&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;lotNumber&quot;</span>: <span class="jp-j-str">&quot;TH-4821&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;patient&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;occurrenceDateTime&quot;</span>: <span class="jp-j-str">&quot;2025-10-28T09:15:00+07:00&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;primarySource&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;informationSource&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Organization/TrustDemoChiangRaiHospital&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;location&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Chiang Rai Provincial Hospital, Thailand&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;performer&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;actor&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Practitioner/TrustDemoAnan&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;protocolApplied&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;doseNumber&quot;</span>: <span class="jp-j-str">&quot;1&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Immunization/TrustDemoJ3Bcg&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Immunization&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoJ3Bcg&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization&quot;</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Immunization_TrustDemoJ3Bcg\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Immunization TrustDemoJ3Bcg&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoJ3Bcg\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoJ3Bcg\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoImmunization.html\&quot;&gt;Lao PDR: dose on the national schedule&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;vaccineCode&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-BCG}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-bcg-freeze-dried}, {http://hl7.org/fhir/sid/cvx 19}\&quot;&gt;BCG&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;lotNumber&lt;/b&gt;: TH-9012&lt;/p&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;occurrence&lt;/b&gt;: 2025-10-28 09:20:00+0700&lt;/p&gt;&lt;p&gt;&lt;b&gt;primarySource&lt;/b&gt;: true&lt;/p&gt;&lt;h3&gt;InformationSources&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Reference&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Organization-TrustDemoChiangRaiHospital.html\&quot;&gt;Chiang Rai Provincial Hospital (demonstrator)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;&lt;b&gt;location&lt;/b&gt;: Chiang Rai Provincial Hospital, Thailand&lt;/p&gt;&lt;h3&gt;Performers&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Actor&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Practitioner-TrustDemoAnan.html\&quot;&gt;Dr Anan&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;ProtocolApplieds&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;DoseNumber&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;completed&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;vaccineCode&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;LAO-EPI-BCG&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;BCG&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;vp-bcg-freeze-dried&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;BCG vaccine, freeze-dried&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://hl7.org/fhir/sid/cvx&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;19&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;BCG&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-str">&quot;BCG&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;lotNumber&quot;</span>: <span class="jp-j-str">&quot;TH-9012&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;patient&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;occurrenceDateTime&quot;</span>: <span class="jp-j-str">&quot;2025-10-28T09:20:00+07:00&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;primarySource&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;informationSource&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Organization/TrustDemoChiangRaiHospital&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;location&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Chiang Rai Provincial Hospital, Thailand&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;performer&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;actor&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Practitioner/TrustDemoAnan&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;protocolApplied&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;doseNumber&quot;</span>: <span class="jp-j-str">&quot;1&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Immunization/TrustDemoLaoPenta1&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Immunization&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoLaoPenta1&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization&quot;</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Immunization_TrustDemoLaoPenta1\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Immunization TrustDemoLaoPenta1&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoLaoPenta1\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoLaoPenta1\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoImmunization.html\&quot;&gt;Lao PDR: dose on the national schedule&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;basedOn&lt;/b&gt;: &lt;a href=\&quot;ImmunizationRecommendation-TrustDemoJ3Recommendation.html\&quot;&gt;ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;vaccineCode&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-PENTA-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-pentavalent-liquid}\&quot;&gt;Pentavalent (DTP-HepB-Hib), dose 1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;lotNumber&lt;/b&gt;: LA-2201&lt;/p&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;occurrence&lt;/b&gt;: 2025-12-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;primarySource&lt;/b&gt;: true&lt;/p&gt;&lt;p&gt;&lt;b&gt;location&lt;/b&gt;: Vientiane District Health Center, Lao PDR&lt;/p&gt;&lt;h3&gt;Performers&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Actor&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Practitioner-TrustDemoChanthasone.html\&quot;&gt;Nurse Chanthasone&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;ProtocolApplieds&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;DoseNumber&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;basedOn&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;ImmunizationRecommendation/TrustDemoJ3Recommendation&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;completed&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;vaccineCode&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;LAO-EPI-PENTA-1&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Pentavalent (DTP-HepB-Hib), dose 1&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;vp-pentavalent-liquid&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;DTP-HepB-Hib (pentavalent), liquid&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;lotNumber&quot;</span>: <span class="jp-j-str">&quot;LA-2201&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;patient&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;occurrenceDateTime&quot;</span>: <span class="jp-j-str">&quot;2025-12-10&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;primarySource&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;location&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Vientiane District Health Center, Lao PDR&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;performer&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;actor&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Practitioner/TrustDemoChanthasone&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;protocolApplied&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;doseNumber&quot;</span>: <span class="jp-j-str">&quot;1&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Immunization/TrustDemoLaoBopv1&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Immunization&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoLaoBopv1&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization&quot;</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Immunization_TrustDemoLaoBopv1\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Immunization TrustDemoLaoBopv1&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoLaoBopv1\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoLaoBopv1\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoImmunization.html\&quot;&gt;Lao PDR: dose on the national schedule&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;basedOn&lt;/b&gt;: &lt;a href=\&quot;ImmunizationRecommendation-TrustDemoJ3Recommendation.html\&quot;&gt;ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;vaccineCode&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-OPV-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-bopv-drops}\&quot;&gt;bOPV, dose 1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;lotNumber&lt;/b&gt;: LA-5531&lt;/p&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;occurrence&lt;/b&gt;: 2025-12-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;primarySource&lt;/b&gt;: true&lt;/p&gt;&lt;p&gt;&lt;b&gt;location&lt;/b&gt;: Vientiane District Health Center, Lao PDR&lt;/p&gt;&lt;h3&gt;Performers&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Actor&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Practitioner-TrustDemoChanthasone.html\&quot;&gt;Nurse Chanthasone&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;ProtocolApplieds&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;DoseNumber&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;basedOn&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;ImmunizationRecommendation/TrustDemoJ3Recommendation&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;completed&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;vaccineCode&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;LAO-EPI-OPV-1&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;bOPV, dose 1&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;vp-bopv-drops&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Bivalent oral polio vaccine (bOPV), drops&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;lotNumber&quot;</span>: <span class="jp-j-str">&quot;LA-5531&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;patient&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;occurrenceDateTime&quot;</span>: <span class="jp-j-str">&quot;2025-12-10&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;primarySource&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;location&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Vientiane District Health Center, Lao PDR&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;performer&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;actor&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Practitioner/TrustDemoChanthasone&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;protocolApplied&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;doseNumber&quot;</span>: <span class="jp-j-str">&quot;1&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Immunization/TrustDemoLaoPcv1&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Immunization&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoLaoPcv1&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization&quot;</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Immunization_TrustDemoLaoPcv1\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Immunization TrustDemoLaoPcv1&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoLaoPcv1\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoLaoPcv1\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoImmunization.html\&quot;&gt;Lao PDR: dose on the national schedule&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;basedOn&lt;/b&gt;: &lt;a href=\&quot;ImmunizationRecommendation-TrustDemoJ3Recommendation.html\&quot;&gt;ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;vaccineCode&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-PCV-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-pcv-13-dose}\&quot;&gt;PCV, dose 1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;lotNumber&lt;/b&gt;: LA-8819&lt;/p&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;occurrence&lt;/b&gt;: 2025-12-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;primarySource&lt;/b&gt;: true&lt;/p&gt;&lt;p&gt;&lt;b&gt;location&lt;/b&gt;: Vientiane District Health Center, Lao PDR&lt;/p&gt;&lt;h3&gt;Performers&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Actor&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Practitioner-TrustDemoChanthasone.html\&quot;&gt;Nurse Chanthasone&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;ProtocolApplieds&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;DoseNumber&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;basedOn&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;ImmunizationRecommendation/TrustDemoJ3Recommendation&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;completed&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;vaccineCode&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;LAO-EPI-PCV-1&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;PCV, dose 1&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;vp-pcv-13-dose&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Pneumococcal conjugate vaccine (PCV)&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;lotNumber&quot;</span>: <span class="jp-j-str">&quot;LA-8819&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;patient&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;occurrenceDateTime&quot;</span>: <span class="jp-j-str">&quot;2025-12-10&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;primarySource&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;location&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Vientiane District Health Center, Lao PDR&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;performer&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;actor&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Practitioner/TrustDemoChanthasone&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;protocolApplied&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;doseNumber&quot;</span>: <span class="jp-j-str">&quot;1&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;fullUrl&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/Immunization/TrustDemoLaoMr1&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;resource&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Immunization&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoLaoMr1&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization&quot;</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+          <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;a name=\&quot;Immunization_TrustDemoLaoMr1\&quot;&gt; &lt;/a&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Immunization TrustDemoLaoMr1&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoLaoMr1\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoLaoMr1\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoImmunization.html\&quot;&gt;Lao PDR: dose on the national schedule&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;vaccineCode&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-MR-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-mr-freeze-dried}\&quot;&gt;Measles-rubella, dose 1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;lotNumber&lt;/b&gt;: LA-9923&lt;/p&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;occurrence&lt;/b&gt;: 2026-07-28&lt;/p&gt;&lt;p&gt;&lt;b&gt;primarySource&lt;/b&gt;: true&lt;/p&gt;&lt;p&gt;&lt;b&gt;location&lt;/b&gt;: Vientiane District Health Center, Lao PDR&lt;/p&gt;&lt;h3&gt;Performers&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Actor&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Practitioner-TrustDemoChanthasone.html\&quot;&gt;Nurse Chanthasone&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;ProtocolApplieds&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;DoseNumber&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;completed&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;vaccineCode&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;LAO-EPI-MR-1&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Measles-rubella, dose 1&quot;</span>
+            <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+            <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;vp-mr-freeze-dried&quot;</span><span class="jp-j-pun">,</span>
+              <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Measles-rubella vaccine, freeze-dried&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">]</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;lotNumber&quot;</span>: <span class="jp-j-str">&quot;LA-9923&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;patient&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;occurrenceDateTime&quot;</span>: <span class="jp-j-str">&quot;2026-07-28&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;primarySource&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;location&quot;</span>: <span class="jp-j-pun">{</span>
+          <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Vientiane District Health Center, Lao PDR&quot;</span>
+        <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;performer&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;actor&quot;</span>: <span class="jp-j-pun">{</span>
+              <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Practitioner/TrustDemoChanthasone&quot;</span>
+            <span class="jp-j-pun">}</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;protocolApplied&quot;</span>: <span class="jp-j-pun">[</span>
+          <span class="jp-j-pun">{</span>
+            <span class="jp-j-key">&quot;doseNumber&quot;</span>: <span class="jp-j-str">&quot;1&quot;</span>
+          <span class="jp-j-pun">}</span>
+        <span class="jp-j-pun">]</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span>
+  <span class="jp-j-pun">]</span>
+<span class="jp-j-pun">}</span></code></pre></div><div class="jp-pane" role="tabpanel" data-jp-pane="Immunization/TrustDemoLaoPenta1" hidden><pre class="jp-json"><code><span class="jp-j-pun">{</span>
+  <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Immunization&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoLaoPenta1&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+      <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization&quot;</span>
+    <span class="jp-j-pun">]</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Immunization TrustDemoLaoPenta1&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoLaoPenta1\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoLaoPenta1\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoImmunization.html\&quot;&gt;Lao PDR: dose on the national schedule&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;basedOn&lt;/b&gt;: &lt;a href=\&quot;ImmunizationRecommendation-TrustDemoJ3Recommendation.html\&quot;&gt;ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;vaccineCode&lt;/b&gt;: &lt;span title=\&quot;Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-PENTA-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-pentavalent-liquid}\&quot;&gt;Pentavalent (DTP-HepB-Hib), dose 1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;lotNumber&lt;/b&gt;: LA-2201&lt;/p&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;occurrence&lt;/b&gt;: 2025-12-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;primarySource&lt;/b&gt;: true&lt;/p&gt;&lt;p&gt;&lt;b&gt;location&lt;/b&gt;: Vientiane District Health Center, Lao PDR&lt;/p&gt;&lt;h3&gt;Performers&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Actor&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;Practitioner-TrustDemoChanthasone.html\&quot;&gt;Nurse Chanthasone&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;ProtocolApplieds&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;DoseNumber&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;display: none\&quot;&gt;*&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;basedOn&quot;</span>: <span class="jp-j-pun">[</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;ImmunizationRecommendation/TrustDemoJ3Recommendation&quot;</span>
+    <span class="jp-j-pun">}</span>
+  <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;completed&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;vaccineCode&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+      <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;LAO-EPI-PENTA-1&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Pentavalent (DTP-HepB-Hib), dose 1&quot;</span>
+      <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;vp-pentavalent-liquid&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;DTP-HepB-Hib (pentavalent), liquid&quot;</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">]</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;lotNumber&quot;</span>: <span class="jp-j-str">&quot;LA-2201&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;patient&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;occurrenceDateTime&quot;</span>: <span class="jp-j-str">&quot;2025-12-10&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;primarySource&quot;</span>: <span class="jp-j-lit">true</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;location&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;Vientiane District Health Center, Lao PDR&quot;</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;performer&quot;</span>: <span class="jp-j-pun">[</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;actor&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Practitioner/TrustDemoChanthasone&quot;</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span>
+  <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;protocolApplied&quot;</span>: <span class="jp-j-pun">[</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;doseNumber&quot;</span>: <span class="jp-j-str">&quot;1&quot;</span>
+    <span class="jp-j-pun">}</span>
+  <span class="jp-j-pun">]</span>
+<span class="jp-j-pun">}</span></code></pre></div><div class="jp-pane" role="tabpanel" data-jp-pane="Group/TrustDemoHousehold" hidden><pre class="jp-json"><code><span class="jp-j-pun">{</span>
+  <span class="jp-j-key">&quot;resourceType&quot;</span>: <span class="jp-j-str">&quot;Group&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;id&quot;</span>: <span class="jp-j-str">&quot;TrustDemoHousehold&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;meta&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;profile&quot;</span>: <span class="jp-j-pun">[</span>
+      <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoHousehold&quot;</span>
+    <span class="jp-j-pun">]</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;status&quot;</span>: <span class="jp-j-str">&quot;generated&quot;</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-key">&quot;div&quot;</span>: <span class="jp-j-str">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: Group TrustDemoHousehold&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;TrustDemoHousehold\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcTrustDemoHousehold\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-TrustDemoLaoHousehold.html\&quot;&gt;Lao PDR: household on the CHW&#39;s roster&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p style=\&quot;border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\&quot;&gt;Sengmany household (Person, Enumerated, 3 members) (http://smart.who.int/trust-demo/sid/lao-household-id#HH-LAO-204)&lt;/p&gt;&lt;hr/&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;The kind of things that are members of the group\&quot;&gt;Type:&lt;/td&gt;&lt;td&gt;Person&lt;/td&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;Whether the members are listed (enumerated), or the group is a definition of what could be a member (definitional)\&quot;&gt;Membership:&lt;/td&gt;&lt;td&gt;Enumerated&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;The number of members in the group\&quot;&gt;Quantity:&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;The kind of members of the group, beyond the basic type\&quot;&gt;Kind:&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;&lt;span title=\&quot;Codes:{http://terminology.hl7.org/CodeSystem/v3-RoleCode FAMMEMB}\&quot;&gt;Household&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;The entity responsible for the group\&quot;&gt;Managed By:&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;&lt;a href=\&quot;RelatedPerson-TrustDemoBounmy.html\&quot;&gt;Bounmy SENGMANY - father&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;&lt;b&gt;Members&lt;/b&gt;&lt;/p&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;th&gt;Member&lt;/th&gt;&lt;th&gt;Period&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=\&quot;RelatedPerson-TrustDemoBounmy.html\&quot;&gt;Bounmy SENGMANY - father&lt;/a&gt;&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=\&quot;RelatedPerson-TrustDemoKhamla.html\&quot;&gt;Khamla SENGMANY - mother&lt;/a&gt;&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=\&quot;Patient-TrustDemoSomsack.html\&quot;&gt;Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;2025-11-18 --&amp;gt; (ongoing)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;identifier&quot;</span>: <span class="jp-j-pun">[</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://smart.who.int/trust-demo/sid/lao-household-id&quot;</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;value&quot;</span>: <span class="jp-j-str">&quot;HH-LAO-204&quot;</span>
+    <span class="jp-j-pun">}</span>
+  <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;type&quot;</span>: <span class="jp-j-str">&quot;person&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;membership&quot;</span>: <span class="jp-j-str">&quot;enumerated&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;coding&quot;</span>: <span class="jp-j-pun">[</span>
+      <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;system&quot;</span>: <span class="jp-j-str">&quot;http://terminology.hl7.org/CodeSystem/v3-RoleCode&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;code&quot;</span>: <span class="jp-j-str">&quot;FAMMEMB&quot;</span><span class="jp-j-pun">,</span>
+        <span class="jp-j-key">&quot;display&quot;</span>: <span class="jp-j-str">&quot;family member&quot;</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">]</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-key">&quot;text&quot;</span>: <span class="jp-j-str">&quot;Household&quot;</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;name&quot;</span>: <span class="jp-j-str">&quot;Sengmany household&quot;</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;quantity&quot;</span>: <span class="jp-j-num">3</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;managingEntity&quot;</span>: <span class="jp-j-pun">{</span>
+    <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;RelatedPerson/TrustDemoBounmy&quot;</span>
+  <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+  <span class="jp-j-key">&quot;member&quot;</span>: <span class="jp-j-pun">[</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;entity&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;RelatedPerson/TrustDemoBounmy&quot;</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;entity&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;RelatedPerson/TrustDemoKhamla&quot;</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+    <span class="jp-j-pun">{</span>
+      <span class="jp-j-key">&quot;entity&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;reference&quot;</span>: <span class="jp-j-str">&quot;Patient/TrustDemoSomsack&quot;</span>
+      <span class="jp-j-pun">}</span><span class="jp-j-pun">,</span>
+      <span class="jp-j-key">&quot;period&quot;</span>: <span class="jp-j-pun">{</span>
+        <span class="jp-j-key">&quot;start&quot;</span>: <span class="jp-j-str">&quot;2025-11-18&quot;</span>
+      <span class="jp-j-pun">}</span>
+    <span class="jp-j-pun">}</span>
+  <span class="jp-j-pun">]</span>
+<span class="jp-j-pun">}</span></code></pre></div></div>
+</aside>
+<footer class="jp-foot">Drawn by the journeys viewer from the <code>workshop</code> and <code>user-scenario</code> nodes of smart-trust-demo. Every person is fictional.</footer>
+<script src="../../../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>
