@@ -15,7 +15,27 @@ The home country's portal that issues each family member's records (IPS, DVCs) a
 
 **Also known as**: VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer)
 
-**Played in the journeys by**: Lao PDR national health portal and gateway (Country B, XXH) (fictional).
+**Played in the journeys by** (fictional):
+
+- Lao PDR national health portal and gateway (Country B, XXH)
+
+**In the user scenarios**:
+
+- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later): J4.0b Dad creates a link to share at the clinic
+- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history
+
+**Lanes and tasks in the business processes**:
+
+- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Assemble each member's IPS and DVCs; Encrypt the documents and publish a passcode-protected manifest; Prepare the HCERT carrying the VHL at key 5; Finish the HC1 QR text
+- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Check the passcode, return the manifest and log the access
+
+**Decisions it makes**:
+
+- Decision table [TD.DT.05 Does the portal release the manifest for this request?](decision-logic.html#tddt05-does-the-portal-release-the-manifest-for-this-request), in: Check the passcode, return the manifest and log the access
+
+**Data sets its tasks record or read**: [TD.J40 Shared link and consent](dictionary.html#tdj40-shared-link-and-consent); [TD.J41 Access to a shared link](dictionary.html#tdj41-access-to-a-shared-link)
+
+**Indicators that count its decisions**: [TD.IND.02 Shared-link openings that were authorised](indicators.html#tdind02-shared-link-openings-that-were-authorised)
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLSharer"

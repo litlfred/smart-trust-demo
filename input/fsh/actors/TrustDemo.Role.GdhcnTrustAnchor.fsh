@@ -15,7 +15,9 @@ WHO's GDHCN, which receives participants' PKI material and distributes it as DID
 
 **Also known as**: Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL)
 
-**Played in the journeys by**: GDHCN DEV trust network (WHO) (fictional).
+**Played in the journeys by** (fictional):
+
+- GDHCN DEV trust network (WHO)
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/TrustNetworkAnchor"
