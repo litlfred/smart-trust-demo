@@ -13,6 +13,20 @@ The clinician abroad who gives the birth doses and hands over the signed paper D
 
 **Persona**: A maternity-ward clinician who records doses in the hospital system and prints what it produces.
 
-**Played in the journeys by**: Dr Anan (clinician, Chiang Rai, Thailand) (fictional).
+**Played in the journeys by** (fictional):
+
+- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjNjQ3NDhiIi8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-thai-clinician--birth--follow-up-thailand), Dr Anan (clinician, Chiang Rai, Thailand)
+
+**In the user scenarios**:
+
+- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand (told through Dr. Anan)
+
+**User stories** ([all stories](scenarios.html#user-stories)):
+
+- I want to print a signed record of each birth dose the family can carry anywhere
+
+**Lanes and tasks in the business processes**:
+
+- [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): Give Hep B and BCG birth doses and record them; Print the paper DVC, one QR per dose
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

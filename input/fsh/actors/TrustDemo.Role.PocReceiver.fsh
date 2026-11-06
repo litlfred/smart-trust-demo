@@ -15,7 +15,24 @@ The clinic system abroad that scans a VHL, verifies it, fetches the manifest (IT
 
 **Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)
 
-**Played in the journeys by**: Chiang Rai primary care clinic viewer, Thailand (J4.1) (fictional).
+**Played in the journeys by** (fictional):
+
+- Chiang Rai primary care clinic viewer, Thailand (J4.1)
+
+**In the user scenarios**:
+
+- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history
+
+**Lanes and tasks in the business processes**:
+
+- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Verify the HCERT and read the VHL at key 5; Request the manifest (ITI-YY5), signed; Decrypt the IPS and DVCs
+
+**Decisions it makes**:
+
+- Decision table [TD.DT.06 Does the receiver follow the VHL?](decision-logic.html#tddt06-does-the-receiver-follow-the-vhl), in: Verify the HCERT and read the VHL at key 5; HCERT verified?; Request the manifest (ITI-YY5), signed
+- Gateway "HCERT verified?" in [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad)
+
+**Data sets its tasks record or read**: [TD.J41 Access to a shared link](dictionary.html#tdj41-access-to-a-shared-link)
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver"
