@@ -37,7 +37,9 @@ const TR = join(ROOT, "translations");
 /** One entry: its raw lines (comments included), msgctxt + msgid as key, msgstr, fuzzy. */
 interface Entry { lines: string[]; key: string; msgid: string; msgstr: string; fuzzy: boolean }
 
-const unq = (s: string) => JSON.parse(s) as string;
+/** A PO string literal's value: C escapes as gettext writes them (\\n \\t \\" \\\\, others kept as the bare character). */
+const unq = (s: string) =>
+  s.slice(1, -1).replace(/\\(.)/g, (_, c: string) => ({ n: "\n", t: "\t", r: "\r" } as Record<string, string>)[c] ?? c);
 
 /** Split a PO/POT into its header (first entry, empty msgid) and entries; `#~` lines are kept with the header-less tail. */
 export function parsePo(text: string): { header: string[]; entries: Entry[]; obsolete: string[] } {
