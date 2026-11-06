@@ -1,0 +1,123 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S3",
+  "title": "Newborn Registration & Clinic Referral",
+  "description": "Vilay registers Somsack into his household, with the reported doses, and refers him to the clinic.",
+  "device": "phone",
+  "owner": "vilay",
+  "steps": [
+    {
+      "scenario": "j2-found-at-home",
+      "step": "J2b"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Lao PDR Community Health",
+      "subtitle": "Catchment Village 04 • CHW: Vilay",
+      "icon": "users",
+      "status": {
+        "text": "Offline (28d)",
+        "tone": "warning",
+        "icon": "wifi-off"
+      }
+    },
+    {
+      "type": "recordList",
+      "title": "Sengmany Household",
+      "icon": "users",
+      "summary": {
+        "text": "2 Members",
+        "tone": "info"
+      },
+      "rows": [
+        {
+          "icon": "user",
+          "label": "Bounmy Sengmany",
+          "detail": "Father (29y) • Head"
+        },
+        {
+          "icon": "user",
+          "label": "Khamla Sengmany",
+          "detail": "Mother (26y)"
+        }
+      ],
+      "footnote": "#HH-LAO-204 • FHIR Group"
+    },
+    {
+      "type": "alert",
+      "severity": "warning",
+      "title": "Newborn Reported at Home Visit:",
+      "text": "Infant born abroad in Thailand. Not yet recorded in village civil register or national EPI."
+    },
+    {
+      "type": "fields",
+      "title": "Register Newborn Household Member (SDC)",
+      "icon": "baby",
+      "columns": 2,
+      "rows": [
+        {
+          "label": "Given Name",
+          "value": "Somsack"
+        },
+        {
+          "label": "Family Name",
+          "value": "Sengmany"
+        },
+        {
+          "label": "Date of Birth (T0)",
+          "value": "2025-10-28"
+        },
+        {
+          "label": "Sex",
+          "value": "Male"
+        },
+        {
+          "label": "Household Relationship",
+          "value": "Child of Khamla Sengmany • RelatedPerson"
+        },
+        {
+          "label": "Birthplace & Identity Status",
+          "value": "Born Abroad — Thailand [No Lao National ID Yet]"
+        }
+      ]
+    },
+    {
+      "type": "alert",
+      "severity": "info",
+      "title": "Doses read from the paper cards (2)",
+      "text": "Hep B & BCG, saved with Somsack as reported by the family (primarySource: false), not verified"
+    },
+    {
+      "type": "fields",
+      "title": "Clinic Verification Referral (FHIR ServiceRequest)",
+      "icon": "file",
+      "rows": [
+        {
+          "label": "Target Facility",
+          "value": "Vientiane District Health Center [Seeded Facility]"
+        },
+        {
+          "label": "Referral Reason",
+          "value": "Verify foreign DVC signature & map birth doses to Lao schedule"
+        },
+        {
+          "label": "Priority",
+          "value": "Routine Checkup"
+        }
+      ]
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Save Newborn, Reported Doses & Clinic Referral",
+          "style": "primary",
+          "icon": "send"
+        }
+      ],
+      "caption": "Patient, Group, Immunization x2 (primarySource: false) and ServiceRequest queued for Info Gateway sync"
+    }
+  ]
+}

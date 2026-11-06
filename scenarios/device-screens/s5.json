@@ -1,0 +1,172 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S5",
+  "title": "Terminology Adjudication & National Schedule",
+  "description": "The Thai product code is kept as issued; the nurse confirms its Lao equivalent, and the national schedule is worked out from there.",
+  "device": "tablet",
+  "owner": "chanthasone",
+  "steps": [
+    {
+      "scenario": "j3-made-official",
+      "step": "J3b"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Somsack Sengmany (4 Weeks Old)",
+      "subtitle": "#HH-LAO-204",
+      "icon": "user",
+      "chips": [
+        {
+          "text": "2 Foreign Doses Cryptographically Verified • Provenance Attached",
+          "tone": "success",
+          "icon": "check"
+        },
+        {
+          "text": "AuditEvent Logged at OHS Info Gateway",
+          "tone": "info"
+        }
+      ]
+    },
+    {
+      "type": "recordList",
+      "title": "3-Layer Terminology & ConceptMap Adjudication",
+      "icon": "layers",
+      "rows": [
+        {
+          "label": "Layer 1: Certificate product code (issued Thailand)",
+          "code": "vp-hepb-peds-monovalent",
+          "detail": "Stored exactly as issued in DVCMinPreQual logical model.",
+          "status": {
+            "text": "Foreign Source",
+            "tone": "neutral"
+          }
+        },
+        {
+          "label": "Layer 2: Derived vaccine type (WHO SMART IG)",
+          "code": "Hepatitis B Pediatric Monovalent (WHO PreQual Class)",
+          "detail": "Derived from global WHO Prequalification metadata catalogue.",
+          "status": {
+            "text": "WHO IG PreQual",
+            "tone": "info"
+          }
+        },
+        {
+          "label": "Layer 3: Lao PDR national schedule ValueSet",
+          "detail": "No automated ConceptMap match found in Lao national registry for Thai GPO lot TH-4821.",
+          "status": {
+            "text": "ConceptMap Gap",
+            "tone": "warning"
+          }
+        }
+      ],
+      "footnote": "Resolve missing national concept mapping for foreign birth doses"
+    },
+    {
+      "type": "statusBadge",
+      "status": "verified",
+      "text": "Clinician Adjudication & Equivalence Confirmation",
+      "verdict": "CONFIRMED",
+      "fields": [
+        {
+          "label": "Proposed Lao EPI Match",
+          "value": "Lao EPI: HepB-BD (Birth Dose Monovalent)"
+        },
+        {
+          "label": "Code",
+          "value": "LAO-EPI-HEPB-BD",
+          "mono": true
+        }
+      ],
+      "detail": "Equivalence Confirmed & Dual-Coding Active"
+    },
+    {
+      "type": "recordList",
+      "column": "side",
+      "title": "Calculated National Schedule (PlanDefinition)",
+      "icon": "calendar",
+      "rows": [
+        {
+          "label": "Birth (T0)",
+          "code": "BCG + HepB-BD",
+          "status": {
+            "text": "Verified",
+            "tone": "success",
+            "icon": "check"
+          }
+        },
+        {
+          "label": "6 Weeks (T0+2w)",
+          "code": "Penta-1, OPV-1, PCV-1",
+          "status": {
+            "text": "Due in 2 Wks",
+            "tone": "warning"
+          }
+        },
+        {
+          "label": "10 Weeks",
+          "code": "Penta-2, OPV-2, PCV-2",
+          "status": {
+            "text": "Upcoming",
+            "tone": "neutral"
+          }
+        },
+        {
+          "label": "14 Weeks",
+          "code": "Penta-3, OPV-3, PCV-3, IPV-1",
+          "status": {
+            "text": "Upcoming",
+            "tone": "neutral"
+          }
+        },
+        {
+          "label": "9 Months",
+          "code": "Measles-Rubella (MR-1), JE",
+          "status": {
+            "text": "Upcoming",
+            "tone": "neutral"
+          }
+        }
+      ],
+      "footnote": "Evaluated via FHIRPath against Lao PDR Pediatric Immunization Plan"
+    },
+    {
+      "type": "fields",
+      "column": "side",
+      "title": "Book Next Routine EPI Appointment",
+      "icon": "clock",
+      "rows": [
+        {
+          "label": "Recommended date",
+          "value": "2 Weeks from today for Pentavalent-1 & OPV-1 catchup"
+        },
+        {
+          "label": "Date",
+          "value": "2025-11-25",
+          "mono": true
+        },
+        {
+          "label": "FHIR Task / Appointment",
+          "value": "✓ Appointment Booked"
+        }
+      ]
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Inspect Dual Coding Array",
+          "style": "secondary",
+          "icon": "file"
+        },
+        {
+          "label": "Fast-Forward 1 Year & Open Family Wallet (J4.0a)",
+          "style": "primary"
+        }
+      ],
+      "caption": "Dual coding saved in local OHS FHIR database • Ready to sync to national EPI"
+    }
+  ],
+  "try": "Walk through the 3-layer match on this screen"
+}
