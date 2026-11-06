@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "StructureDefinition-TrustDemoThPatient.jsonld",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/TrustDemoThPatient",
+  "schema:name": "TrustDemoThPatient",
+  "dcterms:title": "Thailand: newborn at the birth hospital",
+  "dcterms:description": "How it is used: J1. Chiang Rai Provincial Hospital registers Somsack under its own hospital number on the day he is born.\n\nWhy: a baby born to Lao parents in Thailand has no Thai citizen id, so the hospital number is the only identifier the hospital can put behind the dose records it signs. The DVCs it prints carry the name and date of birth, not this number. The family's home country therefore cannot rely on any Thai identifier, and links the doses to its own patient (see the Lao patient profile).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Resource Profiles",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThPatient"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/StructureDefinition/TrustDemoThPatient--7376b965.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "1f534f64c18aac4ce284f9f2821c251b7ed92532"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

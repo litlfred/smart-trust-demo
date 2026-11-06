@@ -1,0 +1,87 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationStep",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationStep</b></p><a name=\"TrustDemoVerificationStep\"> </a><a name=\"hcTrustDemoVerificationStep\"> </a><p>This case-sensitive code system <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">prefix<a name=\"TrustDemoVerificationStep-prefix\"> </a></td><td>Prefix</td><td>The HC1: context prefix and version.</td></tr><tr><td style=\"white-space:nowrap\">base45<a name=\"TrustDemoVerificationStep-base45\"> </a></td><td>Base45</td><td>Base45 decoding of the QR text.</td></tr><tr><td style=\"white-space:nowrap\">inflate<a name=\"TrustDemoVerificationStep-inflate\"> </a></td><td>Inflate</td><td>ZLIB decompression, within limits.</td></tr><tr><td style=\"white-space:nowrap\">cose<a name=\"TrustDemoVerificationStep-cose\"> </a></td><td>COSE</td><td>Parsing the COSE_Sign1 structure.</td></tr><tr><td style=\"white-space:nowrap\">header<a name=\"TrustDemoVerificationStep-header\"> </a></td><td>Header</td><td>The protected and unprotected headers.</td></tr><tr><td style=\"white-space:nowrap\">trust-lookup<a name=\"TrustDemoVerificationStep-trust-lookup\"> </a></td><td>Trust lookup</td><td>Finding the signer's certificate by kid on the trust list.</td></tr><tr><td style=\"white-space:nowrap\">signature<a name=\"TrustDemoVerificationStep-signature\"> </a></td><td>Signature</td><td>Checking the signature with the signer's key.</td></tr><tr><td style=\"white-space:nowrap\">key-usage<a name=\"TrustDemoVerificationStep-key-usage\"> </a></td><td>Key usage</td><td>Checking the signer's certificate may sign this kind of certificate.</td></tr><tr><td style=\"white-space:nowrap\">cwt<a name=\"TrustDemoVerificationStep-cwt\"> </a></td><td>CWT</td><td>Reading the CWT claim set.</td></tr><tr><td style=\"white-space:nowrap\">time<a name=\"TrustDemoVerificationStep-time\"> </a></td><td>Time</td><td>Checking issued-at and expiry against the verifier's clock.</td></tr><tr><td style=\"white-space:nowrap\">hcert<a name=\"TrustDemoVerificationStep-hcert\"> </a></td><td>HCERT</td><td>Finding the hcert claim and its subclaim.</td></tr><tr><td style=\"white-space:nowrap\">payload<a name=\"TrustDemoVerificationStep-payload\"> </a></td><td>Payload</td><td>Reading the payload against its logical model.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationStep",
+  "title" : "Verification steps",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-06T08:51:07+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The steps of DVC verification in the order they run (STT-VER-001), as the HCERT library names them in its typed result (STT-VER-008).",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 12,
+  "concept" : [{
+    "code" : "prefix",
+    "display" : "Prefix",
+    "definition" : "The HC1: context prefix and version."
+  },
+  {
+    "code" : "base45",
+    "display" : "Base45",
+    "definition" : "Base45 decoding of the QR text."
+  },
+  {
+    "code" : "inflate",
+    "display" : "Inflate",
+    "definition" : "ZLIB decompression, within limits."
+  },
+  {
+    "code" : "cose",
+    "display" : "COSE",
+    "definition" : "Parsing the COSE_Sign1 structure."
+  },
+  {
+    "code" : "header",
+    "display" : "Header",
+    "definition" : "The protected and unprotected headers."
+  },
+  {
+    "code" : "trust-lookup",
+    "display" : "Trust lookup",
+    "definition" : "Finding the signer's certificate by kid on the trust list."
+  },
+  {
+    "code" : "signature",
+    "display" : "Signature",
+    "definition" : "Checking the signature with the signer's key."
+  },
+  {
+    "code" : "key-usage",
+    "display" : "Key usage",
+    "definition" : "Checking the signer's certificate may sign this kind of certificate."
+  },
+  {
+    "code" : "cwt",
+    "display" : "CWT",
+    "definition" : "Reading the CWT claim set."
+  },
+  {
+    "code" : "time",
+    "display" : "Time",
+    "definition" : "Checking issued-at and expiry against the verifier's clock."
+  },
+  {
+    "code" : "hcert",
+    "display" : "HCERT",
+    "definition" : "Finding the hcert claim and its subclaim."
+  },
+  {
+    "code" : "payload",
+    "display" : "Payload",
+    "definition" : "Reading the payload against its logical model."
+  }]
+}

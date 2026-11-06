@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "PlanDefinition-TrustDemoDT02.jsonld",
+  "@type": "fhir:PlanDefinition",
+  "dcterms:identifier": "PlanDefinition/TrustDemoDT02",
+  "schema:name": "TrustDemoDT02",
+  "dcterms:title": "TD.DT.02 Which national schedule code does an imported dose carry?",
+  "dcterms:description": "For one dose, decide whether and how the national schedule code is added beside the issuer's product code, which is always kept. Requirements: STD-SEM-001. Hit policy FIRST: the rules are tried in order and the first that matches applies.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Other",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoDT02"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/PlanDefinition/TrustDemoDT02--322d55e8.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "1f534f64c18aac4ce284f9f2821c251b7ed92532"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

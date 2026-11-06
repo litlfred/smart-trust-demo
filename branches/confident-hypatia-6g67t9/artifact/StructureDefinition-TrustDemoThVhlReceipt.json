@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "StructureDefinition-TrustDemoThVhlReceipt.jsonld",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/TrustDemoThVhlReceipt",
+  "schema:name": "TrustDemoThVhlReceipt",
+  "dcterms:title": "Thailand: record of a summary read through a VHL",
+  "dcterms:description": "How it is used: J4.1. The Chiang Rai clinic viewer keeps this record when it opens Somsack's patient summary through the Verifiable Health Link that his father shows.\n\nWhy: the Thai clinic views the Lao record and does not copy it into a Thai registry. So the clinic keeps a note of what it saw, where it came from, and how it was verified: the VHL's signature against Lao PDR's key on the GDHCN trust list, the manifest fetch, and the passcode. The Lao side keeps its own log of the same access (the Lao audit profile).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Resource Profiles",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThVhlReceipt"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/StructureDefinition/TrustDemoThVhlReceipt--fd584b9f.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "1f534f64c18aac4ce284f9f2821c251b7ed92532"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

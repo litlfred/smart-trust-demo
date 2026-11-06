@@ -1,0 +1,177 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J3ClinicVerification",
+ "tasks": {
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan the QRs and open the referral",
+   "type": "bpmn:UserTask",
+   "lane": "Home clinic provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  },
+  "Task_Verify": {
+   "id": "Task_Verify",
+   "name": "Verify each HCERT against the trust list",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [
+    {
+     "name": "hcert-verify"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Unverified": {
+   "id": "Task_Unverified",
+   "name": "Record the failure reason; decide doses by national policy",
+   "type": "bpmn:UserTask",
+   "lane": "Home clinic provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  },
+  "Task_Import": {
+   "id": "Task_Import",
+   "name": "Import the doses as FHIR Immunization resources",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [
+    {
+     "name": "ehr-import-immunization"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Map": {
+   "id": "Task_Map",
+   "name": "Add the national schedule code beside the foreign vaccine code",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [
+    {
+     "name": "map-vaccine-codes"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Schedule": {
+   "id": "Task_Schedule",
+   "name": "Evaluate the national schedule",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [
+    {
+     "name": "schedule-evaluate"
+    }
+   ],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": [
+     {
+      "name": "ehr-import-immunization"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "map-vaccine-codes"
+     },
+     {
+      "name": "schedule-evaluate"
+     }
+    ]
+   }
+  },
+  "Task_Plan": {
+   "id": "Task_Plan",
+   "name": "Give due doses and book the next visit",
+   "type": "bpmn:UserTask",
+   "lane": "Home clinic provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  }
+ }
+}

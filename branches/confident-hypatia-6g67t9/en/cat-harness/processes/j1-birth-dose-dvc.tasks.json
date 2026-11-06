@@ -1,0 +1,188 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J1BirthDoseDvc",
+ "tasks": {
+  "Task_Vaccinate": {
+   "id": "Task_Vaccinate",
+   "name": "Give Hep B and BCG birth doses and record them",
+   "type": "bpmn:UserTask",
+   "lane": "Birth clinic vaccinator",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-vaccinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-vaccinator",
+    "title": "Birth clinic vaccinator",
+    "skills": []
+   }
+  },
+  "Task_Payload": {
+   "id": "Task_Payload",
+   "name": "Build one DVCMinPreQual payload per dose",
+   "type": "bpmn:ServiceTask",
+   "lane": "Birth clinic issuing system",
+   "skills": [
+    {
+     "name": "hcert-select-payload"
+    }
+   ],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Prepare": {
+   "id": "Task_Prepare",
+   "name": "Prepare: CWT claims and the COSE Sig_structure",
+   "type": "bpmn:ServiceTask",
+   "lane": "Birth clinic issuing system",
+   "skills": [
+    {
+     "name": "hcert-build-cwt"
+    }
+   ],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "Sign the bytes with XXR's DSC key",
+   "type": "bpmn:ServiceTask",
+   "lane": "Issuer signing key",
+   "skills": [
+    {
+     "name": "hcert-sign-cose"
+    }
+   ],
+   "role": {
+    "name": "issuer-key",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-issuer-key",
+    "title": "Issuer signing key",
+    "skills": [
+     {
+      "name": "hcert-sign-cose"
+     }
+    ]
+   }
+  },
+  "Task_Finish": {
+   "id": "Task_Finish",
+   "name": "Finish: COSE_Sign1, deflate, Base45, HC1:",
+   "type": "bpmn:ServiceTask",
+   "lane": "Birth clinic issuing system",
+   "skills": [
+    {
+     "name": "hcert-prefix-context"
+    }
+   ],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     }
+    ]
+   }
+  },
+  "Task_Print": {
+   "id": "Task_Print",
+   "name": "Print the paper DVC, one QR per dose",
+   "type": "bpmn:UserTask",
+   "lane": "Birth clinic vaccinator",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-vaccinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-vaccinator",
+    "title": "Birth clinic vaccinator",
+    "skills": []
+   }
+  }
+ }
+}

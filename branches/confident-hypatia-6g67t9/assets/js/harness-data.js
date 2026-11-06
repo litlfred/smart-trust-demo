@@ -1,0 +1,22 @@
+// The harness data that is the same on every page of a build, written ONCE
+// here instead of into each page (bean `gp2f`, page weight). Measured on
+// gh-pages 1ad53fa, 2026-10-23: the tiles list was 12.5 KB and the navbar icon
+// row 2.5 KB of every Jekyll page, about 15 KB of a 42 KB page.
+//
+// `head_custom.html` keeps the two places the readers look, empty, and loads
+// this as the FIRST deferred script. Deferred scripts run in document order,
+// so `navbar-row.js` and `docs-ui.js` find them filled, exactly as when the
+// data was inlined. If this file does not load, the islands stay named and
+// empty, and the readers report a failed load instead of "declared none".
+(function () {
+  var row = document.getElementById("fa-navbar-row");
+  if (row && row.getAttribute("data-fa-row-src") === "harness-data" && !row.textContent) {
+    row.textContent = "{\"icons\":[\"close\",\"todos\",\"beans\",\"fsh-guts\",\"qr\",\"launcher\"],\"hrefs\":{},\"notes\":{\"beans\":\"smart-trust-demo's beans graph is not published on this site\"},\"folders\":[{\"kind\":\"archimate\",\"label\":\"Archimate\",\"note\":\"no viewer yet\"},{\"kind\":\"basic-cdn-site\",\"label\":\"Basic CDN site\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/site/\"},{\"kind\":\"beans\",\"label\":\"Plans and work\",\"note\":\"smart-trust-demo's beans graph is not published on this site\"},{\"kind\":\"building-blocks\",\"label\":\"Building blocks\",\"note\":\"no viewer yet\"},{\"kind\":\"code\",\"label\":\"Code\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/code/smart-trust-demo/\"},{\"kind\":\"code-list\",\"label\":\"Code lists\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/code-lists/smart-trust-demo/\"},{\"kind\":\"device-screen\",\"label\":\"Device screens\",\"note\":\"no viewer yet\"},{\"kind\":\"fhir-artifact-index\",\"label\":\"FHIR artefact index\",\"note\":\"no viewer yet\"},{\"kind\":\"glossary\",\"label\":\"Glossary\",\"note\":\"no viewer yet\"},{\"kind\":\"memory\",\"label\":\"Memory\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/memory/smart-trust-demo/\"},{\"kind\":\"processes\",\"label\":\"Processes\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/processes/smart-trust-demo/\"},{\"kind\":\"scenarios\",\"label\":\"Scenarios\",\"path\":\"https://litlfred.github.io/folio-assistant/en/cat-harness/scenarios/smart-trust-demo/\"},{\"kind\":\"skills\",\"label\":\"Skills\",\"note\":\"no viewer yet\"},{\"kind\":\"user-scenario\",\"label\":\"User scenarios\",\"note\":\"no viewer yet\"},{\"kind\":\"workshop\",\"label\":\"Workshops\",\"note\":\"no viewer yet\"}]}";
+    row.removeAttribute("data-fa-row-src");
+  }
+  var tiles = document.querySelector('meta[name="fa-tiles"][data-fa-src="harness-data"]');
+  if (tiles && !tiles.getAttribute("content")) {
+    tiles.setAttribute("content", "[{\"id\":\"archimate/1\",\"directory\":\"archimate\",\"title\":\"Archimate\",\"qualifier\":\"SMART Trust demonstrator\",\"ref\":\"docs/en/smart-trust-demo/archimate/index.html\",\"surfaces\":[\"navbar\",\"board\",\"glass\"],\"hidden\":false},{\"id\":\"archimate/2\",\"directory\":\"archimate\",\"title\":\"Archimate\",\"qualifier\":\"SMART Trust demonstrator\",\"ref\":\"docs/en/smart-trust-demo/archimate/index.html\",\"surfaces\":[\"navbar\",\"board\",\"glass\"],\"hidden\":false}]");
+    tiles.removeAttribute("data-fa-src");
+  }
+})();

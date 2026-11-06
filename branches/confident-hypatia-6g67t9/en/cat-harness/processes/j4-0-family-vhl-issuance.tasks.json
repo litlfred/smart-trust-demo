@@ -1,0 +1,277 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J40FamilyVhl",
+ "tasks": {
+  "Task_Request": {
+   "id": "Task_Request",
+   "name": "Choose who to share, with a passcode and an expiry",
+   "type": "bpmn:UserTask",
+   "lane": "Caregiver",
+   "skills": [],
+   "role": {
+    "name": "caregiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-caregiver",
+    "title": "Caregiver",
+    "skills": []
+   }
+  },
+  "Task_Assemble": {
+   "id": "Task_Assemble",
+   "name": "Assemble each member's IPS and DVCs",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [
+    {
+     "name": "portal-assemble-records"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Share": {
+   "id": "Task_Share",
+   "name": "Encrypt the documents and publish a passcode-protected manifest",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [
+    {
+     "name": "vhl-share"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Prepare": {
+   "id": "Task_Prepare",
+   "name": "Prepare the HCERT carrying the VHL at key 5",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [
+    {
+     "name": "hcert-build-cwt"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "Sign with Country B's DSC key",
+   "type": "bpmn:ServiceTask",
+   "lane": "Issuer signing key",
+   "skills": [
+    {
+     "name": "hcert-sign-cose"
+    }
+   ],
+   "role": {
+    "name": "issuer-key",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-issuer-key",
+    "title": "Issuer signing key",
+    "skills": [
+     {
+      "name": "hcert-sign-cose"
+     }
+    ]
+   }
+  },
+  "Task_Finish": {
+   "id": "Task_Finish",
+   "name": "Finish the HC1 QR text",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [
+    {
+     "name": "hcert-prefix-context"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Store": {
+   "id": "Task_Store",
+   "name": "Store one VHL QR per member on the shared phone",
+   "type": "bpmn:ServiceTask",
+   "lane": "Family phone",
+   "skills": [
+    {
+     "name": "wallet-hold-vhl"
+    }
+   ],
+   "role": {
+    "name": "family-phone",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-family-phone",
+    "title": "Family phone",
+    "skills": [
+     {
+      "name": "wallet-hold-vhl"
+     }
+    ]
+   }
+  }
+ }
+}

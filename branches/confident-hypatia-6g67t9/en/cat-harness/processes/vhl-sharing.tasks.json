@@ -1,0 +1,157 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_VhlSharing",
+ "tasks": {
+  "Task_Key": {
+   "id": "Task_Key",
+   "name": "Generate the link key and encrypt each document",
+   "type": "bpmn:ServiceTask",
+   "lane": "VHL sharer",
+   "skills": [],
+   "role": {
+    "name": "vhl-sharer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-smart-trust-tools-scenarios-roles-json-vhl-sharer",
+    "title": "VHL sharer",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Link": {
+   "id": "Task_Link",
+   "name": "Issue the VHL payload as an HCERT (key 5, CBOR map)",
+   "type": "bpmn:ServiceTask",
+   "lane": "VHL sharer",
+   "skills": [],
+   "role": {
+    "name": "vhl-sharer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-smart-trust-tools-scenarios-roles-json-vhl-sharer",
+    "title": "VHL sharer",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_VerifyLink": {
+   "id": "Task_VerifyLink",
+   "name": "Verify the VHL HCERT and its exp",
+   "type": "bpmn:ServiceTask",
+   "lane": "VHL receiver",
+   "skills": [],
+   "role": {
+    "name": "vhl-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-smart-trust-tools-scenarios-roles-json-vhl-receiver",
+    "title": "VHL receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Request": {
+   "id": "Task_Request",
+   "name": "Build and sign the ITI-YY5 manifest request",
+   "type": "bpmn:ServiceTask",
+   "lane": "VHL receiver",
+   "skills": [],
+   "role": {
+    "name": "vhl-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-smart-trust-tools-scenarios-roles-json-vhl-receiver",
+    "title": "VHL receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Read": {
+   "id": "Task_Read",
+   "name": "Read the manifest Bundle and decrypt each document",
+   "type": "bpmn:ServiceTask",
+   "lane": "VHL receiver",
+   "skills": [],
+   "role": {
+    "name": "vhl-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-smart-trust-tools-scenarios-roles-json-vhl-receiver",
+    "title": "VHL receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  }
+ }
+}

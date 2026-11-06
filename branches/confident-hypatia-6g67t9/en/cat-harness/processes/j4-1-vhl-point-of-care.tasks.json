@@ -1,0 +1,201 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J41VhlFetch",
+ "tasks": {
+  "Task_Open": {
+   "id": "Task_Open",
+   "name": "Show the child's VHL QR",
+   "type": "bpmn:ServiceTask",
+   "lane": "Family phone",
+   "skills": [
+    {
+     "name": "wallet-hold-vhl"
+    }
+   ],
+   "role": {
+    "name": "family-phone",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-family-phone",
+    "title": "Family phone",
+    "skills": [
+     {
+      "name": "wallet-hold-vhl"
+     }
+    ]
+   }
+  },
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan the QR and enter the passcode the caregiver says",
+   "type": "bpmn:UserTask",
+   "lane": "Point-of-care provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  },
+  "Task_Verify": {
+   "id": "Task_Verify",
+   "name": "Verify the HCERT and read the VHL at key 5",
+   "type": "bpmn:ServiceTask",
+   "lane": "Point-of-care receiver",
+   "skills": [
+    {
+     "name": "hcert-verify"
+    }
+   ],
+   "role": {
+    "name": "poc-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Unverified": {
+   "id": "Task_Unverified",
+   "name": "No digital verification: treat the records like paper",
+   "type": "bpmn:UserTask",
+   "lane": "Point-of-care provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  },
+  "Task_Fetch": {
+   "id": "Task_Fetch",
+   "name": "Request the manifest (ITI-YY5), signed",
+   "type": "bpmn:ServiceTask",
+   "lane": "Point-of-care receiver",
+   "skills": [
+    {
+     "name": "vhl-receive"
+    }
+   ],
+   "role": {
+    "name": "poc-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Release": {
+   "id": "Task_Release",
+   "name": "Check the passcode, return the manifest and log the access",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [
+    {
+     "name": "portal-serve-manifest"
+    }
+   ],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": [
+     {
+      "name": "hcert-assemble-payload"
+     },
+     {
+      "name": "hcert-build-cwt"
+     },
+     {
+      "name": "hcert-compress"
+     },
+     {
+      "name": "hcert-encode-base45"
+     },
+     {
+      "name": "hcert-encode-cbor"
+     },
+     {
+      "name": "hcert-prefix-context"
+     },
+     {
+      "name": "hcert-select-payload"
+     },
+     {
+      "name": "hcert-sign-cose"
+     },
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "portal-assemble-records"
+     },
+     {
+      "name": "portal-serve-manifest"
+     },
+     {
+      "name": "vhl-share"
+     }
+    ]
+   }
+  },
+  "Task_Decrypt": {
+   "id": "Task_Decrypt",
+   "name": "Decrypt the IPS and DVCs",
+   "type": "bpmn:ServiceTask",
+   "lane": "Point-of-care receiver",
+   "skills": [
+    {
+     "name": "vhl-receive"
+    }
+   ],
+   "role": {
+    "name": "poc-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": [
+     {
+      "name": "hcert-trust-list"
+     },
+     {
+      "name": "hcert-verify"
+     },
+     {
+      "name": "vhl-receive"
+     }
+    ]
+   }
+  },
+  "Task_Review": {
+   "id": "Task_Review",
+   "name": "Review history, allergies and vaccinations",
+   "type": "bpmn:UserTask",
+   "lane": "Point-of-care provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  }
+ }
+}

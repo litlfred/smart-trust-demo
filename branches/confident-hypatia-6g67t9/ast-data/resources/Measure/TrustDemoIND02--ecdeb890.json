@@ -1,0 +1,66 @@
+{
+  "resourceType" : "Measure",
+  "id" : "TrustDemoIND02",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <table class=\"narrative-table\">\n    <tbody>\n<tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Knowledge Artifact Metadata</th>\n\n</tr>\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Name (machine-readable)</th>\n\n<td class=\"content-container\">TrustDemoIND02</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Title (human-readable)</th>\n\n<td class=\"content-container\">TD.IND.02 Shared-link openings that were authorised</td>\n</tr>\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Status</th>\n\n<td class=\"content-container\">Draft</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Experimental</th>\n\n<td class=\"content-container\">true</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n<td class=\"content-container\"><div><p>Of the requests to open a family member's shared link, the proportion the home country released.</p>\n</div></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Measure Steward</th>\n\n<td class=\"content-container\">litlfred</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Steward Contact Details</th>\n\n<td class=\"content-container\">litlfred: <a href=\"https://github.com/litlfred/smart-trust-demo\">https://github.com/litlfred/smart-trust-demo</a></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Measure Metadata</th>\n\n</tr>\n\n\n\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Version Number</th>\n\n<td class=\"content-container\">0.1.0</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Measure Scoring</th>\n\n<td class=\"content-container\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/measure-scoring proportion}\">Proportion</span></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    <tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Measure Population Criteria</th>\n\n</tr>\n  \n  \n  \n  \n    <tr>\n      \n        \n<th scope=\"row\" class=\"row-header\">Denominator</th>\n\n      \n      <td class=\"content-container\">\n        \n        \n          <em>Description</em>:\n          <p style=\"white-space: pre-line\" class=\"tab-one\"><div><p>Manifest requests in the reporting period, released or refused. Computation: COUNT of access records (TD.J41) WHERE &quot;Requested at&quot; is in the reporting period</p>\n</div></p>\n        \n        \n      </td>\n    </tr>\n  \n\n  \n    <tr>\n      \n        \n<th scope=\"row\" class=\"row-header\">Numerator</th>\n\n      \n      <td class=\"content-container\">\n        \n        \n          <em>Description</em>:\n          <p style=\"white-space: pre-line\" class=\"tab-one\"><div><p>Manifest requests in the reporting period that were released. Computation: COUNT of access records (TD.J41) WHERE &quot;Requested at&quot; is in the reporting period AND &quot;Released&quot; = true</p>\n</div></p>\n        \n        \n      </td>\n    </tr>\n  \n\n  \n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Refusal reason</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: <div><p>wrong-passcode, expired, withdrawn (TD.DT.05)</p>\n</div>\n    \n  </td>\n</tr>\n\n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Requesting system</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: <div><p>the receiver abroad, and its country</p>\n</div>\n    \n  </td>\n</tr>\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n  <th colspan=\"2\" scope=\"row\" class=\"row-header\">Generated using version 0.4.6 of the sample-content-ig Liquid templates</th>\n</tr>\n    </tbody>\n  </table>\n</div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/Measure/TrustDemoIND02",
+  "version" : "0.1.0",
+  "name" : "TrustDemoIND02",
+  "title" : "TD.IND.02 Shared-link openings that were authorised",
+  "status" : "draft",
+  "experimental" : true,
+  "basis" : "AuditEvent",
+  "date" : "2026-11-06T08:51:07+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Of the requests to open a family member's shared link, the proportion the home country released.",
+  "scoring" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring",
+      "code" : "proportion",
+      "display" : "Proportion"
+    }]
+  },
+  "group" : [{
+    "population" : [{
+      "code" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code" : "denominator",
+          "display" : "Denominator"
+        }]
+      },
+      "description" : "Manifest requests in the reporting period, released or refused. Computation: COUNT of access records (TD.J41) WHERE \"Requested at\" is in the reporting period"
+    },
+    {
+      "code" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code" : "numerator",
+          "display" : "Numerator"
+        }]
+      },
+      "description" : "Manifest requests in the reporting period that were released. Computation: COUNT of access records (TD.J41) WHERE \"Requested at\" is in the reporting period AND \"Released\" = true"
+    }],
+    "stratifier" : [{
+      "code" : {
+        "text" : "Refusal reason"
+      },
+      "description" : "wrong-passcode, expired, withdrawn (TD.DT.05)"
+    },
+    {
+      "code" : {
+        "text" : "Requesting system"
+      },
+      "description" : "the receiver abroad, and its country"
+    }]
+  }]
+}

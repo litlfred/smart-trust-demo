@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ActorDefinition",
+  "id" : "TrustDemo.Role.GdhcnTrustAnchor",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.GdhcnTrustAnchor</b></p><a name=\"TrustDemo.Role.GdhcnTrustAnchor\"> </a><a name=\"hcTrustDemo.Role.GdhcnTrustAnchor\"> </a><table class=\"grid\"><tr><td><b>Actor: GdhcnTrustAnchor </b></td><td>GDHCN trust anchor</td><td>Type: system </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td><td>Derived From</td><td colspan=\"2\"/></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor",
+  "version" : "0.1.0",
+  "name" : "GdhcnTrustAnchor",
+  "title" : "GDHCN trust anchor",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-06T08:51:07+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL).\n\n**Persona**: A WHO service publishing DID documents over did:web; verifiers fetch it when online and keep a copy.\n\n**Also known as**: Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL)\n\n**Played in the journeys by**: GDHCN DEV trust network (WHO) (fictional).",
+  "type" : "system",
+  "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
+  "derivedFrom" : ["http://smart.who.int/trust/ActorDefinition/TrustNetworkAnchor",
+  "http://smart.who.int/trust-phw/ActorDefinition/TrustNetworkAnchor",
+  "https://profiles.ihe.net/ITI/VHL/ActorDefinition/TrustAnchor"]
+}
