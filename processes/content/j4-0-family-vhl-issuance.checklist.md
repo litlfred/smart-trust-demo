@@ -23,13 +23,13 @@ J4.0, Outbound family travel, "One Family, One Phone".
 - Who: the `National health portal` lane (role `national-portal`).
 - Skill: `portal-assemble-records`.
 - Record it: `workflow_complete` with `node: "Task_Assemble"`.
-- next: → `Task_Share` (Encrypt the documents and publish a passcode-protected manifest)
+- next: → `Task_Share` (Encrypt, publish a passcode manifest)
 
-### 3. Encrypt the documents and publish a passcode-protected manifest (`Task_Share`)
+### 3. Encrypt, publish a passcode manifest (`Task_Share`)
 
 - Who: the `National health portal` lane (role `national-portal`).
 - Skill: `vhl-share`.
-- What: VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010).
+- What: Encrypt the documents and publish a passcode-protected manifest.
 - Record it: `workflow_complete` with `node: "Task_Share"`.
 - next: → `Task_Prepare` (Prepare the HCERT carrying the VHL at key 5)
 
@@ -53,12 +53,13 @@ J4.0, Outbound family travel, "One Family, One Phone".
 - Who: the `National health portal` lane (role `national-portal`).
 - Skill: `hcert-prefix-context`.
 - Record it: `workflow_complete` with `node: "Task_Finish"`.
-- next: → `Task_Store` (Store one VHL QR per member on the shared phone)
+- next: → `Task_Store` (Store each member's VHL QR on the phone)
 
-### 7. Store one VHL QR per member on the shared phone (`Task_Store`)
+### 7. Store each member's VHL QR on the phone (`Task_Store`)
 
 - Who: the `Family phone` lane (role `family-phone`).
 - Skill: `wallet-hold-vhl`.
+- What: Store one VHL QR per member on the shared phone.
 - Record it: `workflow_complete` with `node: "Task_Store"`.
 - next: → `End` (One phone, one QR per family member)
 
