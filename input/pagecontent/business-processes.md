@@ -3,6 +3,9 @@
 
 One business process per journey. Each lane is a role on the [personas](personas.html) page; each task names the skill that performs it. The BPMN source of each process is in `processes/content/`, copied into the guide as `input/business-processes/`. Select a step's title to open it, or open a process in the [process viewer](cat-harness/processes/), which lists each task and the skill that performs it.
 
+<link rel="stylesheet" href="en/cat-harness/processes/task-panel.css" />
+<script src="en/cat-harness/processes/task-panel.js" defer></script>
+
 | Process | Lanes | BPMN |
 |---|---|---|
 | [J1 Issue the newborn's birth-dose DVCs in Country A](#j1-issue-the-newborns-birth-dose-dvcs-in-country-a) | Caregiver, Birth clinic vaccinator, Birth clinic issuing system, Issuer signing key | [j1-birth-dose-dvc.bpmn](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j1-birth-dose-dvc.bpmn) |
@@ -14,7 +17,7 @@ One business process per journey. Each lane is a role on the [personas](personas
 
 ### J1 Issue the newborn's birth-dose DVCs in Country A
 
-<figure class="bpmn-figure"><img src="assets/img/workflows/j1-birth-dose-dvc.svg" alt="BPMN diagram: J1 Issue the newborn's birth-dose DVCs in Country A" /></figure>
+<figure class="bpmn-figure pt-diagram" data-panel="en/cat-harness/processes/j1-birth-dose-dvc.tasks.json"><img src="assets/img/workflows/j1-birth-dose-dvc.svg" alt="BPMN diagram: J1 Issue the newborn's birth-dose DVCs in Country A" /></figure>
 
 Process id `Process_J1BirthDoseDvc`. [Open in the process viewer](cat-harness/processes/j1-birth-dose-dvc.html).
 
@@ -25,7 +28,7 @@ Task checklist: [j1-birth-dose-dvc.checklist.md](https://github.com/litlfred/sma
 
 ### J2 Discover and refer an unregistered infant in Country B
 
-<figure class="bpmn-figure"><img src="assets/img/workflows/j2-chw-discovery-referral.svg" alt="BPMN diagram: J2 Discover and refer an unregistered infant in Country B" /></figure>
+<figure class="bpmn-figure pt-diagram" data-panel="en/cat-harness/processes/j2-chw-discovery-referral.tasks.json"><img src="assets/img/workflows/j2-chw-discovery-referral.svg" alt="BPMN diagram: J2 Discover and refer an unregistered infant in Country B" /></figure>
 
 Process id `Process_J2ChwDiscovery`. [Open in the process viewer](cat-harness/processes/j2-chw-discovery-referral.html).
 
@@ -36,7 +39,7 @@ Task checklist: [j2-chw-discovery-referral.checklist.md](https://github.com/litl
 
 ### J3 Verify, import and schedule at the home clinic
 
-<figure class="bpmn-figure"><img src="assets/img/workflows/j3-clinic-verification-schedule.svg" alt="BPMN diagram: J3 Verify, import and schedule at the home clinic" /></figure>
+<figure class="bpmn-figure pt-diagram" data-panel="en/cat-harness/processes/j3-clinic-verification-schedule.tasks.json"><img src="assets/img/workflows/j3-clinic-verification-schedule.svg" alt="BPMN diagram: J3 Verify, import and schedule at the home clinic" /></figure>
 
 Process id `Process_J3ClinicVerification`. [Open in the process viewer](cat-harness/processes/j3-clinic-verification-schedule.html).
 
@@ -47,7 +50,7 @@ Task checklist: [j3-clinic-verification-schedule.checklist.md](https://github.co
 
 ### J4.0 Issue the family's records to one phone as VHLs
 
-<figure class="bpmn-figure"><img src="assets/img/workflows/j4-0-family-vhl-issuance.svg" alt="BPMN diagram: J4.0 Issue the family's records to one phone as VHLs" /></figure>
+<figure class="bpmn-figure pt-diagram" data-panel="en/cat-harness/processes/j4-0-family-vhl-issuance.tasks.json"><img src="assets/img/workflows/j4-0-family-vhl-issuance.svg" alt="BPMN diagram: J4.0 Issue the family's records to one phone as VHLs" /></figure>
 
 Process id `Process_J40FamilyVhl`. [Open in the process viewer](cat-harness/processes/j4-0-family-vhl-issuance.html).
 
@@ -58,7 +61,7 @@ Task checklist: [j4-0-family-vhl-issuance.checklist.md](https://github.com/litlf
 
 ### J4.1 Read a family member's records at the point of care abroad
 
-<figure class="bpmn-figure"><img src="assets/img/workflows/j4-1-vhl-point-of-care.svg" alt="BPMN diagram: J4.1 Read a family member's records at the point of care abroad" /></figure>
+<figure class="bpmn-figure pt-diagram" data-panel="en/cat-harness/processes/j4-1-vhl-point-of-care.tasks.json"><img src="assets/img/workflows/j4-1-vhl-point-of-care.svg" alt="BPMN diagram: J4.1 Read a family member's records at the point of care abroad" /></figure>
 
 Process id `Process_J41VhlFetch`. [Open in the process viewer](cat-harness/processes/j4-1-vhl-point-of-care.html).
 

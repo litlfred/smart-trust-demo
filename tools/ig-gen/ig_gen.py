@@ -73,6 +73,10 @@ REPO = "https://github.com/litlfred/smart-trust-demo/blob/main/"
 SITE = "https://litlfred.github.io/smart-trust-demo/"
 # Where the site build puts its drawing of each diagram, from a page at the site root.
 WORKFLOWS = "assets/img/workflows/"
+# The processes viewer's directory, from a page at the site root: each
+# process's task-panel data (<stem>.tasks.json) and the panel's client
+# (task-panel.js, task-panel.css), written by the harness at publish.
+PROCESS_VIEWER = "en/cat-harness/processes/"
 # Each requirement id (STT-VER-006) links to its entry on smart-trust-tools'
 # requirements page, which gives every requirement an anchor (stt-ver-006).
 REQS = "https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#"
@@ -248,6 +252,9 @@ def gen_processes(procs, roles):
                "`processes/content/`, copied into the guide as `input/business-processes/`. "
                "Select a step's title to open it, or open a process in the [process viewer](cat-harness/processes/), "
                "which lists each task and the skill that performs it.\n")
+    # The harness's task panel: the same client and styles the process pages use.
+    out.append(f'<link rel="stylesheet" href="{PROCESS_VIEWER}task-panel.css" />\n'
+               f'<script src="{PROCESS_VIEWER}task-panel.js" defer></script>\n')
     out.append("| Process | Lanes | BPMN |\n|---|---|---|")
     for p in procs:
         lanes = ", ".join(titles[l] for l in p["lanes"])  # an unknown role is an error (repo_checks names it)
@@ -257,15 +264,13 @@ def gen_processes(procs, roles):
         stem = p["file"].stem
         viewer = f"cat-harness/processes/{stem}.html"
         out.append(f"\n### {p['name']}\n")
-        # The site's own drawing, the one its process pages show: the harness's
-        # render:bpmn writes it to assets/img/workflows/ at publish (the IG
-        # route runs it, fhir-harness#295), with each step's title linked. The
-        # site's docs-ui.js inlines a .bpmn-figure's SVG, so the links work and
-        # the figure gets the same frame, pan and zoom as a process page. A
-        # data URI is never inlined (its links stay inert) and the copy beside
-        # the source carries no step links, so neither is used here. No
-        # skill markers: those are the process viewer's, not the guide's.
-        out.append(f'<figure class="bpmn-figure">'
+        # The drawing as the process pages show it, through the same harness
+        # parts: render:bpmn's drawing (assets/img/workflows/, written at
+        # publish, each step's title linked), inlined and framed by the site's
+        # docs-ui.js, and the task panel's ⓘ markers from the process's panel
+        # data. Whether that panel shows skills is the site's declaration
+        # (index.config.json site.taskSkills), not this page's.
+        out.append(f'<figure class="bpmn-figure pt-diagram" data-panel="{PROCESS_VIEWER}{stem}.tasks.json">'
                    f'<img src="{WORKFLOWS}{stem}.svg" alt="BPMN diagram: {html_attr(p["name"])}" />'
                    f"</figure>\n")
         out.append(f"Process id `{p['id']}`. [Open in the process viewer]({viewer}).\n")
