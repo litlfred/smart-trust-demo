@@ -11,7 +11,7 @@ Instance: TrustDemoJ4Composition
 InstanceOf: Composition
 Title: "J4.0 Somsack's patient summary (Composition)"
 Description: "The patient summary the Lao portal assembles for Somsack before the trip: six doses, two from Thailand (verified in J3) and four given in Lao PDR."
-Usage: #inline
+Usage: #example
 * status = #final
 * type = $loinc#60591-5 "Patient summary Document"
 * subject = Reference(Patient/TrustDemoSomsack)

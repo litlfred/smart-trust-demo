@@ -15,6 +15,16 @@
     ],
     "playsActor": [
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-receiver"
+    ],
+    "country": "Thailand",
+    "parts": [
+      {
+        "id": "th-vhl-viewer",
+        "title": "VHL viewer",
+        "raBlock": "Provider Systems",
+        "description": "Reads a Verifiable Health Link QR at the point of care, checks its signature against the GDHCN trust list, fetches the manifest from Lao PDR with a signed request and shows the decrypted records (J4.1).",
+        "ig": "StructureDefinition/TrustDemoThVhlReceipt"
+      }
     ]
   }
 }
