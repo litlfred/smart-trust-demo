@@ -37,7 +37,7 @@ msgstr "{code0} del mismo QR (J2);"
 #: docs/plan.md:62
 #, python-brace-format
 msgid "{code0}: a script and Gradle wiring that checks out smart-trust-tools at a pinned SHA, builds {code1} and {code2} (JVM) with that repository's own Gradle and {code3}, and copies the jars to {code4}, failing if a jar's sha256 differs from the one recorded in {code5} (the build is reproducible). The app and the Android tests depend on those files. Bumping the library is the commit in the lock plus {code6}."
-msgstr "{code0}: un script y una configuración de Gradle que obtiene smart-trust-tools en un SHA fijado, compila {code1} y {code2} (JVM) con el propio Gradle de ese repositorio y {code3}, y copia los jars a {code4}, con error si el sha256 de un jar difiere del registrado en {code5} (la compilación es reproducible). La aplicación y las pruebas Android dependen de esos archivos. Actualizar la biblioteca es el commit en el archivo de bloqueo más {code6}."
+msgstr "{code0}: un script y una configuración de Gradle que hace checkout de smart-trust-tools en un SHA fijado, compila {code1} y {code2} (JVM) con el propio Gradle de ese repositorio y {code3}, y copia los jars a {code4}, con error si el sha256 de un jar difiere del registrado en {code5} (la compilación es reproducible). La aplicación y las pruebas Android dependen de esos archivos. Actualizar la biblioteca es el commit en el archivo de bloqueo más {code6}."
 
 #: docs/plan.md:76
 #, python-brace-format
@@ -47,7 +47,7 @@ msgstr "{code0}: un módulo de biblioteca Android cuyas pruebas instrumentadas s
 #: docs/plan.md:40
 #, python-brace-format
 msgid "{code0}: one BPMN per journey (done in step 2a; checklists and the harness mount in 2b) (J1 issuance, J2 CHW discovery and referral, J3 verification, import and schedule, J4.0 VHL issuance to a shared phone, J4.1 VHL fetch at the point of care), lanes naming roles, tasks naming smart-trust-tools skills; checklists generated."
-msgstr "{code0}: un BPMN por recorrido (hecho en el paso 2a; listas de verificación y montaje del harness en el 2b) (J1 emisión, J2 detección y derivación por el CHW, J3 verificación, importación y calendario, J4.0 emisión del VHL a un teléfono compartido, J4.1 obtención del VHL en el punto de atención), con carriles que nombran roles y tareas que nombran skills de smart-trust-tools; listas de verificación generadas."
+msgstr "{code0}: un BPMN por recorrido (hecho en el paso 2a; listas de verificación y montaje del harness en el 2b) (J1 emisión, J2 detección y derivación por el CHW, J3 verificación, importación y calendario, J4.0 emisión del VHL a un teléfono compartido, J4.1 obtención del VHL en el punto de atención), con carriles que nombran roles y tareas que nombran habilidades de smart-trust-tools; listas de verificación generadas."
 
 #: docs/plan.md:35
 #, python-brace-format
@@ -219,7 +219,7 @@ msgstr "README (incluida la nota sobre smart-trust-phw aguas arriba), AGENTS.md,
 
 #: docs/plan.md:13
 msgid "Record"
-msgstr "Registro"
+msgstr "Constancia"
 
 #: docs/plan.md:87
 msgid "Results are reported back to smart-trust-tools as evidence for STT-GEN-004 (and as beans there for anything Android refuses, e.g. algorithm names). Google Maven artifacts (AGP, AndroidX test) are pinned with sha256 like every other. The emulator job uses a pinned action by SHA and caches no unverified artifacts."

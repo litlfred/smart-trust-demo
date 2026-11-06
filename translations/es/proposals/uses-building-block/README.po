@@ -22,12 +22,12 @@ msgstr "{code0} (OHS FHIR SDK), {code1} (el servidor FHIR nacional lao), {code2}
 #: docs/proposals/uses-building-block/README.md:45
 #, python-brace-format
 msgid "{code0} (optional) names which deployment plays it, when a block has more than one ({code1} → {code2}, {code3})."
-msgstr "{code0} (opcional) indica qué despliegue lo desempeña, cuando un componente tiene más de uno ({code1} → {code2}, {code3})."
+msgstr "{code0} (opcional) indica qué despliegue lo desempeña, cuando un bloque tiene más de uno ({code1} → {code2}, {code3})."
 
 #: docs/proposals/uses-building-block/README.md:43
 #, python-brace-format
 msgid "{code0} is the point of the edge: the same block plays a different role in each step."
-msgstr "{code0} es la razón de ser de la arista: el mismo componente desempeña un rol distinto en cada paso."
+msgstr "{code0} es la razón de ser de la arista: el mismo bloque desempeña un rol distinto en cada paso."
 
 #: docs/proposals/uses-building-block/README.md:58
 #, python-brace-format
@@ -42,7 +42,7 @@ msgstr "{code0}, {code1} o {code2}. El sistema desplegado de un país es de ese 
 #: docs/proposals/uses-building-block/README.md:16
 #, python-brace-format
 msgid "{code0}: 18 deployed components ({code1}), each a part of a Thai or Lao system and a specialization of a DPI-H RA block."
-msgstr "{code0}: 18 componentes desplegados ({code1}), cada uno parte de un sistema tailandés o lao y especialización de un componente de la RA DPI-H."
+msgstr "{code0}: 18 componentes desplegados ({code1}), cada uno parte de un sistema tailandés o lao y especialización de un bloque de la RA DPI-H."
 
 #: docs/proposals/uses-building-block/README.md:55
 #, python-brace-format
@@ -52,12 +52,12 @@ msgstr "{code0}: cada paso tiene ahora {code1} y {code2}, y su traspaso tiene {c
 #: docs/proposals/uses-building-block/README.md:52
 #, python-brace-format
 msgid "{code0}: the catalogue, converted once from vaxlink's {code1}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
-msgstr "{code0}: el catálogo, convertido una sola vez a partir del {code1} de vaxlink. Tiene 19 componentes, 10 de ellos vinculados a componentes de la superposición. El tipo, la jurisdicción y los componentes se hicieron corresponder a mano."
+msgstr "{code0}: el catálogo, convertido una sola vez a partir del {code1} de vaxlink. Tiene 19 bloques, 10 de ellos vinculados a componentes de la superposición. El tipo, la jurisdicción y los componentes se hicieron corresponder a mano."
 
 #: docs/proposals/uses-building-block/README.md:21
 #, python-brace-format
 msgid "<a0>{code0}</a0> ({code1}): one catalogue of blocks. Each block has:"
-msgstr "<a0>{code0}</a0> ({code1}): un único catálogo de componentes. Cada componente tiene:"
+msgstr "<a0>{code0}</a0> ({code1}): un único catálogo de bloques. Cada bloque tiene:"
 
 #: docs/proposals/uses-building-block/README.md:29
 msgid "as the walkthrough shows them"
@@ -66,7 +66,7 @@ msgstr "tal como los muestra el recorrido guiado"
 #: docs/proposals/uses-building-block/README.md:59
 #, python-brace-format
 msgid "each {code0} names a block in the catalogue, once per step, and a {code1} is one of that block's;"
-msgstr "cada {code0} nombra un componente del catálogo, una vez por paso, y cada {code1} es uno de los de ese componente;"
+msgstr "cada {code0} nombra un bloque del catálogo, una vez por paso, y cada {code1} es uno de los de ese bloque;"
 
 #: docs/proposals/uses-building-block/README.md:24
 msgid "Field"
@@ -94,7 +94,7 @@ msgstr "Preguntas abiertas"
 
 #: docs/proposals/uses-building-block/README.md:1
 msgid "Proposal: the \"uses a building block, in this role\" edge"
-msgstr "Propuesta: la arista \"usa un componente básico, con este rol\""
+msgstr "Propuesta: la arista \"usa un bloque básico, con este rol\""
 
 #: docs/proposals/uses-building-block/README.md:6
 msgid "Question: each step of a journey uses tools, standards and trust services, and each one does something particular to that step. For example, the OHS FHIR SDK caches the trust list in J3a and decodes a QR in J2a. Where does that fact live, so that the walkthrough, the IG and the ArchiMate views all read it from one place?"
@@ -117,7 +117,7 @@ msgstr "La respuesta: un catálogo y una arista desde el paso"
 #: docs/proposals/uses-building-block/README.md:61
 #, python-brace-format
 msgid "the catalogue's block ids are unique, its layers are known, and its components are element keys of {code0}."
-msgstr "los id de componente del catálogo son únicos, sus capas son conocidas y sus componentes son claves de elemento de {code0}."
+msgstr "los id de bloque del catálogo son únicos, sus capas son conocidas y sus componentes son claves de elemento de {code0}."
 
 #: docs/proposals/uses-building-block/README.md:32
 #, python-brace-format
@@ -132,12 +132,12 @@ msgstr "Los cambios FHIR por paso ({code0} de vaxlink: recurso, cambio, perfil, 
 #: docs/proposals/uses-building-block/README.md:30
 #, python-brace-format
 msgid "the overlay's ArchiMate element keys that deploy the block ({code0} for the OHS Info Gateway)"
-msgstr "las claves de elemento ArchiMate de la superposición que despliegan el componente ({code0} para el OHS Info Gateway)"
+msgstr "las claves de elemento ArchiMate de la superposición que despliegan el bloque ({code0} para el OHS Info Gateway)"
 
 #: docs/proposals/uses-building-block/README.md:71
 #, python-brace-format
 msgid "The RA building blocks themselves. They are smart-ra's ArchiMate elements, which {code0} already reads. A catalogue {code1} block points at overlay components, and those components specialize RA blocks, so the path from a step to the RA is step → block → component → RA block."
-msgstr "Los propios componentes básicos de la RA. Son los elementos ArchiMate de smart-ra, que {code0} ya lee. Un componente {code1} del catálogo apunta a componentes de la superposición, y estos especializan componentes de la RA, de modo que el camino de un paso a la RA es paso → componente básico → componente desplegado → componente de la RA."
+msgstr "Los propios bloques básicos de la RA. Son los elementos ArchiMate de smart-ra, que {code0} ya lee. Un bloque {code1} del catálogo apunta a componentes de la superposición, y esos componentes especializan bloques de la RA, de modo que el camino de un paso a la RA es paso → bloque → componente → bloque de la RA."
 
 #: docs/proposals/uses-building-block/README.md:47
 #, python-brace-format
@@ -151,7 +151,7 @@ msgstr "Hoy está en dos lugares que no se conocen entre sí:"
 #: docs/proposals/uses-building-block/README.md:14
 #, python-brace-format
 msgid "vaxlink's {code0}: 19 generic blocks ({code1}), and per step the blocks it uses with a one-line role ({code2});"
-msgstr "el {code0} de vaxlink: 19 componentes genéricos ({code1}) y, por paso, los componentes que usa con un rol de una línea ({code2});"
+msgstr "el {code0} de vaxlink: 19 bloques genéricos ({code1}) y, por paso, los bloques que usa con un rol de una línea ({code2});"
 
 #: docs/proposals/uses-building-block/README.md:78
 #, python-brace-format

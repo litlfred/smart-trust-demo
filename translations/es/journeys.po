@@ -66,7 +66,7 @@ msgstr "<a0>Titular</a0>"
 
 #: docs/journeys.md:61
 msgid "<a0>Issue the family's records to one phone as VHLs</a0>"
-msgstr "<a0>Emitir los registros de la familia a un solo teléfono como VHL</a0>"
+msgstr "<a0>Emitir los registros de la familia a un solo teléfono como VHL individuales</a0>"
 
 #: docs/journeys.md:58
 msgid "<a0>Issue the newborn's birth-dose DVCs</a0>"
@@ -153,7 +153,7 @@ msgstr "Actor aquí"
 
 #: docs/journeys.md:211
 msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Chiang Rai. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Lao gateway take five steps:"
-msgstr "De vuelta donde empezó todo, el Dr. Anan atiende a Somsack en una clínica de atención primaria de Chiang Rai. Bounmy muestra el QR en su teléfono y dice el código de acceso. El visor de la clínica y la pasarela lao siguen cinco pasos:"
+msgstr "De vuelta donde empezó todo, el Dr. Anan atiende a Somsack en una clínica de atención primaria de Chiang Rai. Bounmy muestra el QR en su teléfono y dice el código de acceso. El visor de la clínica y la puerta de enlace lao siguen cinco pasos:"
 
 #: docs/journeys.md:39
 msgid "birth day, 2025-10-28"
@@ -216,7 +216,7 @@ msgstr "País B"
 
 #: docs/journeys.md:24
 msgid "Country B (country of residence, \"home\") is Lao PDR. The family lives there (J2, J3, J4.0). On the DEV network it is played by a fictional participant, written XXH."
-msgstr "El País B (país de residencia, \"origen\") es la RDP Lao. La familia vive allí (J2, J3, J4.0). En la red DEV lo representa un participante ficticio, denominado XXH."
+msgstr "El País B (país de residencia, \"casa\") es la RDP Lao. La familia vive allí (J2, J3, J4.0). En la red DEV lo representa un participante ficticio, denominado XXH."
 
 #: docs/journeys.md:241
 msgid "Cross-border access and audit (J4.0b, J4.1): what agreements do countries need so that a clinician viewing a record abroad triggers an audit entry in the patient's home country?"
@@ -246,7 +246,7 @@ msgstr "Cada carril es un rol en <a0>{code0}</a0>. Cada actor en <a1>{code1}</a1
 #: docs/journeys.md:93
 #, python-brace-format
 msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
-msgstr "Cada paso nombra los requisitos de <a0>smart-trust-tools</a0> que ejercita y los ejemplos FHIR de esta guía que produce. Las historias están en <a1>{code0}</a1>. Cada momento termina con su punto crítico, lo que lo hace posible y la conclusión de política que plantea, tal como los presenta el recorrido guiado de VaxLink."
+msgstr "Cada paso nombra los requisitos de <a0>smart-trust-tools</a0> que ejercita y los ejemplos FHIR de esta guía que produce. Las historias están en <a1>{code0}</a1>. Cada momento termina con su punto crítico, lo que lo hace posible y el punto de política que expone, tal como los presenta el recorrido guiado de VaxLink."
 
 #: docs/journeys.md:146
 msgid "Enabler (J2a): The phone reads the card offline, and keeps “what the family told us” clearly separate from “what we have verified”."
@@ -393,7 +393,7 @@ msgstr "J2b"
 #: docs/journeys.md:135
 #, python-brace-format
 msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she adds Somsack to the Sengmany household ({code1}), with a temporary id. Bounmy confirms the details as head of household. The app saves the doses read from the cards as reported by the family, not verified ({code2}, {code3}: {code4} false). Vilay refers Somsack to the district health center ({code5}). Everything stays queued on the phone, for 28 days if need be, and syncs when it next reaches a signal."
-msgstr "J2b. En el formulario de recién nacido de la aplicación del CHW (captura estructurada de datos, {code0}), añade a Somsack al hogar Sengmany ({code1}) con un identificador temporal. Bounmy confirma los datos como cabeza de familia. La aplicación guarda las dosis leídas de las tarjetas como notificadas por la familia, no verificadas ({code2}, {code3}: {code4} false). Vilay deriva a Somsack al centro de salud de distrito ({code5}). Todo queda en cola en el teléfono, hasta 28 días si es necesario, y se sincroniza la próxima vez que haya señal."
+msgstr "J2b. En el formulario de recién nacido de la aplicación del CHW (captura estructurada de datos, {code0}), añade a Somsack al hogar Sengmany ({code1}) con un identificador temporal. Bounmy confirma los datos como cabeza de familia. La aplicación guarda las dosis leídas de las tarjetas como notificadas por la familia, no verificadas ({code2}, {code3}: {code4} false). Vilay deriva a Somsack al centro de salud de distrito ({code5}). Todo queda en cola en el teléfono, durante 28 días si hace falta, y se sincroniza la próxima vez que haya señal."
 
 #: docs/journeys.md:151
 msgid "J3 — Made official (Vientiane District Health Center, 4 weeks later)"
@@ -410,7 +410,7 @@ msgstr "J3a"
 #: docs/journeys.md:155
 #, python-brace-format
 msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (STT-VER-001…009, STT-KID-002), without contacting Thailand. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; STT-VER-007, STT-VER-008), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
-msgstr "J3a. La enfermera Chanthasone abre la derivación y escanea los QR. La EHR verifica cada DVC sin conexión contra esa copia (STT-VER-001…009, STT-KID-002), sin contactar con Tailandia. Ambos se verifican, así que los importa como {code0} de FHIR ({code1}, {code2}) con su procedencia ({code3}; STT-VER-007, STT-VER-008), en sustitución de las dosis notificadas en J2. Si un DVC no se verifica (por ejemplo, una tarjeta manipulada), la EHR indica el paso y el motivo, las dosis siguen sin verificar y la enfermera decide según la política nacional de vacunación de puesta al día."
+msgstr "J3a. La enfermera Chanthasone abre la derivación y escanea los QR. La EHR verifica cada DVC sin conexión contra esa copia (STT-VER-001…009, STT-KID-002), sin contactar con Tailandia. Ambos se verifican, así que la EHR los importa como {code0} de FHIR ({code1}, {code2}) con su procedencia ({code3}; STT-VER-007, STT-VER-008), en sustitución de las dosis notificadas en J2. Si un DVC no se verifica (por ejemplo, una tarjeta manipulada), la EHR indica el paso y el motivo, las dosis siguen sin verificar y la enfermera decide según la política nacional de vacunación de puesta al día."
 
 #: docs/journeys.md:52
 msgid "J3b"
@@ -474,7 +474,7 @@ msgstr "Registros nacionales lao"
 
 #: docs/journeys.md:81
 msgid "Lao PDR national portal and gateway (XXH)"
-msgstr "Portal nacional y pasarela de la RDP Lao (XXH)"
+msgstr "Portal nacional y puerta de enlace de la RDP Lao (XXH)"
 
 #: docs/journeys.md:42
 msgid "Lao PDR to Thailand"
@@ -518,7 +518,7 @@ msgstr "Punto crítico (J3a): Los profesionales clínicos o bien desconfían de 
 
 #: docs/journeys.md:176
 msgid "Pain point (J3b): Countries name and package vaccines differently, so doses get missed or repeated."
-msgstr "Punto crítico (J3b): Los países nombran y presentan las vacunas de forma distinta, por lo que se omiten o se repiten dosis."
+msgstr "Punto crítico (J3b): Los países nombran y combinan las vacunas de forma distinta, por lo que se omiten o se repiten dosis."
 
 #: docs/journeys.md:200
 msgid "Pain point (J4.0a): Many families share one smartphone; one-app-per-person designs leave them out."
@@ -586,7 +586,7 @@ msgstr "Condición previa, como en J3: los documentos DID ya están cargados. El
 
 #: docs/journeys.md:153
 msgid "Precondition: the DID documents are already loaded. Loading them is not a step of this visit. The clinic may be offline all day, so the EHR fetches nothing during it: its trust store holds the GDHCN DEV trust list as it was last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). A clinic with no connection of its own refreshes it about weekly, when the CHW visits the base clinic or district health office, where Country B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until the next refresh."
-msgstr "Condición previa: los documentos DID ya están cargados. Cargarlos no es un paso de esta visita. La clínica puede estar sin conexión todo el día, por lo que la EHR no descarga nada durante la visita: su almacén de confianza contiene la lista de confianza GDHCN DEV tal como estaba en la última actualización, incluido el documento DID del DSC de XXR (STT-TRU-001, STT-TRU-002, STT-TRU-005). Una clínica sin conexión propia la actualiza aproximadamente una vez por semana, cuando el CHW visita la clínica de referencia o la oficina sanitaria de distrito, donde el País B obtiene la lista que distribuye el ancla de confianza de la GDHCN. Un DSC publicado después de esa actualización no está en la copia de la clínica, por lo que su DVC no supera la comprobación de la lista de confianza (STT-VER-006) hasta la siguiente actualización."
+msgstr "Condición previa: los documentos DID ya están cargados. Cargarlos no es un paso de esta visita. La clínica puede estar sin conexión todo el día, por lo que la EHR no descarga nada durante la visita: su almacén de confianza contiene la lista de confianza GDHCN DEV tal como estaba en la última actualización, incluido el documento DID del DSC de XXR (STT-TRU-001, STT-TRU-002, STT-TRU-005). Una clínica que no tiene conexión propia la actualiza aproximadamente una vez por semana, cuando el CHW visita la clínica de base o la oficina sanitaria de distrito, donde el País B obtiene la lista que distribuye el ancla de confianza de la GDHCN. Un DSC publicado después de esa actualización no está en la copia de la clínica, por lo que su DVC no supera la comprobación de la lista de confianza (STT-VER-006) hasta la siguiente actualización."
 
 #: docs/journeys.md:104
 msgid "Precondition: the issuer's DSC is on the trust list. XXR's document signer certificate (DSC), issued under XXR's Country Signing CA (CSCA), was shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN publishes it as a DID document. Sharing it is not a step of issuing. A DVC signed with a key whose DSC was never shared fails every receiver's trust-list check (STT-VER-006)."
@@ -663,7 +663,7 @@ msgstr "Los personajes: Khamla SENGMANY (madre), Bounmy SENGMANY (padre, tiene e
 #: docs/journeys.md:217
 #, python-brace-format
 msgid "The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
-msgstr "La pasarela lao comprueba el código de acceso, la caducidad y el consentimiento, devuelve el manifiesto y registra el acceso en el país de residencia ({code0})."
+msgstr "La puerta de enlace lao comprueba el código de acceso, la caducidad y el consentimiento, devuelve el manifiesto y registra el acceso en el país de residencia ({code0})."
 
 #: docs/journeys.md:198
 msgid "The QR holds only a pointer and a key: the record stays in Lao PDR."
@@ -765,7 +765,7 @@ msgstr "smart-trust-phw de la OMS"
 
 #: docs/journeys.md:29
 msgid "XXR and XXH are DEV test participants, not either country's production keys, and nothing here implies a real ministry. Every person is fictional."
-msgstr "XXR y XXH son participantes de prueba DEV, no claves de producción de ninguno de los dos países, y nada de lo aquí expuesto hace referencia a un ministerio real. Todas las personas son ficticias."
+msgstr "XXR y XXH son participantes de prueba DEV, no claves de producción de ninguno de los dos países, y nada de lo aquí expuesto implica a ningún ministerio real. Todas las personas son ficticias."
 
 #: docs/journeys.md:77
 msgid "XXR's DSC key (plays Thailand)"
