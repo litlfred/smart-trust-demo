@@ -1,0 +1,7 @@
+- bt1: 'home clinic' read back as 'local clinic' (العيادة المحلية) — term of art lost the home-country sense; now عيادة البلد الأم everywhere (29 strings).
+- bt4: 'clinician' read back as 'doctor' (الطبيب) — narrowed; now الممارس السريري in generic uses (personas naming Dr Anan keep طبيب).
+- bt4: decision-logic 'the harness's interpreter' read back as 'the package's' and 'entries' as 'constraints' — fixed.
+- bt4: 'national portal and gateway' read back as two 'gateways' — gateway now بوابة الربط.
+- bt4: 'Chiang Rai Provincial Hospital' read back as 'Regional Hospital' — named entity; now مستشفى مقاطعة تشيانغ راي.
+- bt4: 'the doctor would repeat' read back as 'will repeat' — conditional restored.
+- bt2: 'Lao gateway' read back as 'Lao portal' (بوابة ambiguous between portal and gateway) — gateway now بوابة الربط; portal stays البوابة (الإلكترونية/الصحية) الوطنية.
