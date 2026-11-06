@@ -72,17 +72,17 @@ msgstr "J1 Emitir en el País A los DVC de las dosis al nacer del recién nacido
 #: processes/content/j1-birth-dose-dvc.bpmn:12
 #. Diagram element documentation
 msgid "J1, Cross-border birth and initial vaccination. In Country A (XXR, the birth country) the provincial hospital gives a newborn who is not its own country's national the Hep B and BCG birth doses and issues one signed DVC per dose (DVCMinPreQual at subclaim -6) as a paper QR, with no national identity number needed (the WHO guide's QR Code Generation section 12 example is such a pair). The hospital system is the Issuer (SMART Trust) and the HCERT side of the VHL Sharer; the private key stays with the key holder (two-phase signing, STT-ISS-004, STT-COS-006). XXR's DSC, under its CSCA, being on the GDHCN trust list is a PRECONDITION of issuing, declared below, not a step. The caregiver is the Holder (SMART Trust, smart-trust-phw) and VHL Holder (IHE ITI VHL)."
-msgstr "J1, Nacimiento transfronterizo y vacunación inicial. En el País A (XXR, el país de nacimiento), el hospital provincial administra a un recién nacido que no es nacional de ese país las dosis al nacer de Hep B y BCG y emite un DVC firmado por dosis (DVCMinPreQual en la subreclamación -6) como código QR en papel, sin necesidad de número de identidad nacional (el ejemplo de la sección 12, Generación de códigos QR, de la guía de la OMS es un par de este tipo). El sistema del hospital es el Emisor (SMART Trust) y la parte HCERT del Compartidor VHL; la clave privada queda en manos de quien la custodia (firma en dos fases, STT-ISS-004, STT-COS-006). Que el DSC de XXR, bajo su CSCA, figure en la lista de confianza de la GDHCN es una PRECONDICIÓN de la emisión, declarada más abajo, no un paso. El cuidador es el Titular (SMART Trust, smart-trust-phw) y el Titular VHL (IHE ITI VHL)."
+msgstr "J1, Nacimiento transfronterizo y vacunación inicial. En el País A (XXR, el país de nacimiento), el hospital provincial administra a un recién nacido que no es nacional de ese país las dosis al nacer de Hep B y BCG y emite un DVC firmado por dosis (DVCMinPreQual en la subdeclaración -6) como código QR en papel, sin necesidad de número de identidad nacional (el ejemplo de la sección 12, Generación de códigos QR, de la guía de la OMS es un par de este tipo). El sistema del hospital es el Emisor (SMART Trust) y la parte HCERT del Compartidor VHL; la clave privada queda en manos de quien la custodia (firma en dos fases, STT-ISS-004, STT-COS-006). Que el DSC de XXR, bajo su CSCA, figure en la lista de confianza de la GDHCN es una PRECONDICIÓN de la emisión, declarada más abajo, no un paso. El cuidador es el Titular (SMART Trust, smart-trust-phw) y el Titular VHL (IHE ITI VHL)."
 
 #: processes/content/j1-birth-dose-dvc.bpmn:38
 #. Diagram element documentation
 msgid "One immunization event per DVC (STT-PAY-003), typed DVCMin models (STT-PAY-001, STT-PAY-002), nationality alpha-3 LAO (STT-PAY-007), subject with no identity document (STT-PAY-005); subclaim -6 in the development range, opted into explicitly (STT-SEL-003)."
-msgstr "Un evento de inmunización por DVC (STT-PAY-003), modelos DVCMin tipados (STT-PAY-001, STT-PAY-002), nacionalidad alfa-3 LAO (STT-PAY-007), sujeto sin documento de identidad (STT-PAY-005); subreclamación -6 en el rango de desarrollo, elegida de forma explícita (STT-SEL-003)."
+msgstr "Un evento de inmunización por DVC (STT-PAY-003), modelos DVCMin tipados (STT-PAY-001, STT-PAY-002), nacionalidad alfa-3 LAO (STT-PAY-007), sujeto sin documento de identidad (STT-PAY-005); subdeclaración -6 en el rango de desarrollo, elegida de forma explícita (STT-SEL-003)."
 
 #: processes/content/j1-birth-dose-dvc.bpmn:39
 #. Diagram label
 msgid "Prepare: CWT claims and the COSE Sig_structure"
-msgstr "Preparar: reclamaciones CWT y la Sig_structure de COSE"
+msgstr "Preparar: declaraciones (claims) CWT y la Sig_structure de COSE"
 
 #: processes/content/j1-birth-dose-dvc.bpmn:42
 #. Diagram label

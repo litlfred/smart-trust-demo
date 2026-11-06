@@ -344,7 +344,7 @@ msgstr "Reúne el IPS y los DVC de Somsack."
 
 #: docs/journeys.md:111
 msgid "It builds a DVCMinPreQual payload: STT-PAY-001…005 and STT-PAY-007, with subclaim −6 (STT-SEL-003). No identity document is needed (STT-PAY-005)."
-msgstr "Construye una carga útil DVCMinPreQual: STT-PAY-001…005 y STT-PAY-007, con la subreclamación −6 (STT-SEL-003). No se necesita ningún documento de identidad (STT-PAY-005)."
+msgstr "Construye una carga útil DVCMinPreQual: STT-PAY-001…005 y STT-PAY-007, con la subdeclaración −6 (STT-SEL-003). No se necesita ningún documento de identidad (STT-PAY-005)."
 
 #: docs/journeys.md:195
 msgid "It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009)."
@@ -384,7 +384,7 @@ msgstr "J2 (J2a leer las tarjetas, J2b registrar y derivar)"
 
 #: docs/journeys.md:129
 msgid "J2a. On a routine visit to Village 04, Vilay finds a newborn the Lao system does not know exists. Her phone has had no signal for weeks. Khamla shows the two cards. The CHW app reads them with read-unverified (STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), which needs no trust list. It shows the doses, but checks no signature and saves nothing yet."
-msgstr "J2a. En una visita de rutina a la Aldea 04, Vilay encuentra a un recién nacido cuya existencia desconoce el sistema lao. Su teléfono lleva semanas sin señal. Khamla muestra las dos tarjetas. La aplicación del CHW las lee con read-unverified (STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), que no necesita lista de confianza. Muestra las dosis, pero no comprueba ninguna firma ni guarda nada todavía."
+msgstr "J2a. En una visita de rutina a Village 04, Vilay encuentra a un recién nacido cuya existencia desconoce el sistema lao. Su teléfono lleva semanas sin señal. Khamla muestra las dos tarjetas. La aplicación del CHW las lee con read-unverified (STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), que no necesita lista de confianza. Muestra las dosis, pero no comprueba ninguna firma ni guarda nada todavía."
 
 #: docs/journeys.md:50
 msgid "J2b"
@@ -410,7 +410,7 @@ msgstr "J3a"
 #: docs/journeys.md:155
 #, python-brace-format
 msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (STT-VER-001…009, STT-KID-002), without contacting Thailand. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; STT-VER-007, STT-VER-008), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
-msgstr "J3a. La enfermera Chanthasone abre la derivación y escanea los QR. La EHR verifica cada DVC sin conexión contra esa copia (STT-VER-001…009, STT-KID-002), sin contactar con Tailandia. Ambos se verifican, así que los importa como {code0} de FHIR ({code1}, {code2}) con su procedencia ({code3}; STT-VER-007, STT-VER-008), en sustitución de las dosis notificadas en J2. Si un DVC no se verifica (por ejemplo, una tarjeta manipulada), la EHR indica el paso y el motivo, las dosis siguen sin verificar y la enfermera decide según la política nacional de vacunación de recuperación."
+msgstr "J3a. La enfermera Chanthasone abre la derivación y escanea los QR. La EHR verifica cada DVC sin conexión contra esa copia (STT-VER-001…009, STT-KID-002), sin contactar con Tailandia. Ambos se verifican, así que los importa como {code0} de FHIR ({code1}, {code2}) con su procedencia ({code3}; STT-VER-007, STT-VER-008), en sustitución de las dosis notificadas en J2. Si un DVC no se verifica (por ejemplo, una tarjeta manipulada), la EHR indica el paso y el motivo, las dosis siguen sin verificar y la enfermera decide según la política nacional de vacunación de puesta al día."
 
 #: docs/journeys.md:52
 msgid "J3b"
@@ -658,7 +658,7 @@ msgstr "Paso"
 
 #: docs/journeys.md:32
 msgid "The cast: Khamla SENGMANY (mother), Bounmy SENGMANY (father, holds the family phone), Vilay (community health worker, Village 04), Nurse Chanthasone (Vientiane District Health Center) and Dr Anan (Thai clinician, at the birth and a year later)."
-msgstr "Los personajes: Khamla SENGMANY (madre), Bounmy SENGMANY (padre, tiene el teléfono de la familia), Vilay (agente comunitaria de salud, Aldea 04), la enfermera Chanthasone (Centro de Salud de Distrito de Vientiane) y el Dr. Anan (profesional clínico tailandés, en el nacimiento y un año después)."
+msgstr "Los personajes: Khamla SENGMANY (madre), Bounmy SENGMANY (padre, tiene el teléfono de la familia), Vilay (agente comunitaria de salud, Village 04), la enfermera Chanthasone (Centro de Salud de Distrito de Vientiane) y el Dr. Anan (profesional clínico tailandés, en el nacimiento y un año después)."
 
 #: docs/journeys.md:217
 #, python-brace-format
@@ -740,7 +740,7 @@ msgstr "EHR del Centro de Salud de Distrito de Vientiane"
 
 #: docs/journeys.md:40
 msgid "Village 04, Lao PDR"
-msgstr "Aldea 04, RDP Lao"
+msgstr "Village 04, RDP Lao"
 
 #: docs/journeys.md:37
 msgid "When"
