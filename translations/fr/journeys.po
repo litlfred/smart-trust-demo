@@ -220,7 +220,7 @@ msgstr "Le Pays B (pays de résidence, « domicile ») est la RDP lao. La famill
 
 #: docs/journeys.md:241
 msgid "Cross-border access and audit (J4.0b, J4.1): what agreements do countries need so that a clinician viewing a record abroad triggers an audit entry in the patient's home country?"
-msgstr "Accès transfrontalier et audit (J4.0b, J4.1) : de quels accords les pays ont-ils besoin pour que la consultation d’un dossier par un clinicien à l’étranger déclenche une entrée d’audit dans le pays d’origine du patient ?"
+msgstr "Accès transfrontalier et audit (J4.0b, J4.1) : de quels accords les pays ont-ils besoin pour que la consultation d’un dossier par un clinicien à l’étranger déclenche une entrée d’audit dans le pays de résidence du patient ?"
 
 #: docs/journeys.md:42
 msgid "Crossing back"
@@ -246,7 +246,7 @@ msgstr "Chaque couloir est un rôle dans <a0>{code0}</a0>. Chaque acteur dans <a
 #: docs/journeys.md:93
 #, python-brace-format
 msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
-msgstr "Chaque étape nomme les exigences de <a0>smart-trust-tools</a0> qu’elle met en œuvre, ainsi que les exemples FHIR de ce guide qu’elle produit. Les récits se trouvent dans <a1>{code0}</a1>. Chaque moment se termine par son point de friction, ce qui le rend possible et le point de politique qu’il illustre, tels que les présente la présentation guidée VaxLink."
+msgstr "Chaque étape nomme les exigences de <a0>smart-trust-tools</a0> qu’elle sollicite, ainsi que les exemples FHIR de ce guide qu’elle produit. Les récits se trouvent dans <a1>{code0}</a1>. Chaque moment se termine par son point de friction, ce qui le rend possible et le point de politique qu’il illustre, tels que les présente la présentation guidée VaxLink."
 
 #: docs/journeys.md:146
 msgid "Enabler (J2a): The phone reads the card offline, and keeps “what the family told us” clearly separate from “what we have verified”."
@@ -270,7 +270,7 @@ msgstr "Facilitateur (J4.0a) : un portefeuille du ménage sur un seul téléphon
 
 #: docs/journeys.md:203
 msgid "Enabler (J4.0b): A Verifiable Health Link: the QR holds only a locked pointer; the data stays home until the passcode is given."
-msgstr "Facilitateur (J4.0b) : un lien de santé vérifiable : le code QR ne contient qu’un pointeur verrouillé ; les données restent dans le pays d’origine jusqu’à ce que le code d’accès soit donné."
+msgstr "Facilitateur (J4.0b) : un lien de santé vérifiable : le code QR ne contient qu’un pointeur verrouillé ; les données restent dans le pays de résidence jusqu’à ce que le code d’accès soit donné."
 
 #: docs/journeys.md:124
 msgid "Enabler: A digitally signed QR card travels with the family — no ID number or database lookup needed."
@@ -278,7 +278,7 @@ msgstr "Facilitateur : une carte QR signée numériquement voyage avec la famill
 
 #: docs/journeys.md:229
 msgid "Enabler: The record is fetched live from Lao PDR, viewed without being copied, and an access log is sent home."
-msgstr "Facilitateur : le dossier est récupéré en direct depuis la RDP lao, consulté sans être copié, et un journal d’accès est envoyé dans le pays d’origine."
+msgstr "Facilitateur : le dossier est récupéré en direct depuis la RDP lao, consulté sans être copié, et un journal d’accès est envoyé dans le pays de résidence."
 
 #: docs/journeys.md:75
 msgid "family-phone"
@@ -410,7 +410,7 @@ msgstr "J3a"
 #: docs/journeys.md:155
 #, python-brace-format
 msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (STT-VER-001…009, STT-KID-002), without contacting Thailand. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; STT-VER-007, STT-VER-008), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
-msgstr "J3a. L’infirmière Chanthasone ouvre l’orientation et scanne les codes QR. Le DSE vérifie chaque DVC hors ligne par rapport à cette copie (STT-VER-001…009, STT-KID-002), sans contacter la Thaïlande. Les deux sont vérifiés ; il les importe donc en tant que {code0} FHIR ({code1}, {code2}) avec leur provenance ({code3} ; STT-VER-007, STT-VER-008), en remplacement des doses déclarées de J2. Si un DVC échoue (une carte falsifiée, par exemple), le DSE indique l’étape et le motif, les doses restent non vérifiées et l’infirmière décide selon la politique nationale de rattrapage."
+msgstr "J3a. L’infirmière Chanthasone ouvre l’orientation et scanne les codes QR. Le DSE vérifie chaque DVC hors ligne par rapport à cette copie (STT-VER-001…009, STT-KID-002), sans contacter la Thaïlande. Les deux sont vérifiés ; il les importe donc en tant que {code0} FHIR ({code1}, {code2}) avec leur provenance ({code3} ; STT-VER-007, STT-VER-008), en remplacement des doses déclarées de J2. Si un DVC échoue (une carte altérée, par exemple), le DSE indique l’étape et le motif, les doses restent non vérifiées et l’infirmière décide selon la politique nationale de rattrapage."
 
 #: docs/journeys.md:52
 msgid "J3b"
@@ -490,7 +490,7 @@ msgstr "Rendu officiel"
 
 #: docs/journeys.md:240
 msgid "Matching vaccines across countries (J3b): when a monovalent vaccine is given abroad but the home schedule uses a combination (pentavalent), how should schedule rules count the doses still due?"
-msgstr "Correspondance des vaccins entre pays (J3b) : lorsqu’un vaccin monovalent est administré à l’étranger mais que le calendrier du pays d’origine utilise une association (pentavalent), comment les règles du calendrier devraient-elles compter les doses encore dues ?"
+msgstr "Correspondance des vaccins entre pays (J3b) : lorsqu’un vaccin monovalent est administré à l’étranger mais que le calendrier du pays de résidence utilise une association (pentavalent), comment les règles du calendrier devraient-elles compter les doses encore dues ?"
 
 #: docs/journeys.md:37
 msgid "Moment"
@@ -510,7 +510,7 @@ msgstr "Point de friction (J2a) : sans vérification, une carte falsifiée ou ma
 
 #: docs/journeys.md:145
 msgid "Pain point (J2b): Babies born abroad are invisible to the home health system until civil registration catches up — sometimes months later."
-msgstr "Point de friction (J2b) : les bébés nés à l’étranger sont invisibles pour le système de santé du pays d’origine jusqu’à ce que l’enregistrement à l’état civil soit effectué — parfois des mois plus tard."
+msgstr "Point de friction (J2b) : les bébés nés à l’étranger sont invisibles pour le système de santé du pays de résidence jusqu’à ce que l’enregistrement à l’état civil soit effectué — parfois des mois plus tard."
 
 #: docs/journeys.md:175
 msgid "Pain point (J3a): Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly."
@@ -566,7 +566,7 @@ msgstr "Politique (J4.0b) : souveraineté des données : le dossier reste en RDP
 
 #: docs/journeys.md:125
 msgid "Policy: Babies born abroad can get a verifiable vaccine record before they have the host country’s civil registration or a national ID — and registering the birth at home still matters."
-msgstr "Politique : les bébés nés à l’étranger peuvent obtenir un dossier de vaccination vérifiable avant d’avoir l’enregistrement à l’état civil du pays d’accueil ou une pièce d’identité nationale — et l’enregistrement de la naissance dans le pays d’origine reste important."
+msgstr "Politique : les bébés nés à l’étranger peuvent obtenir un dossier de vaccination vérifiable avant d’avoir l’enregistrement à l’état civil du pays d’accueil ou une pièce d’identité nationale — et l’enregistrement de la naissance dans le pays de résidence reste important."
 
 #: docs/journeys.md:230
 msgid "Policy: Continuity of care across borders: each country keeps its own records, with no international patient registry and no vendor lock-in. What is agreed regionally is the data model and the trust list, not a shared copy of the data."
@@ -638,7 +638,7 @@ msgstr "Planifié : compte pour le calendrier national"
 
 #: docs/journeys.md:54
 msgid "Shared and audited: viewed abroad, logged at home"
-msgstr "Partagé et audité : consulté à l’étranger, journalisé dans le pays d’origine"
+msgstr "Partagé et audité : consulté à l’étranger, journalisé dans le pays de résidence"
 
 #: docs/journeys.md:85
 msgid "smart-trust-phw's requirements map onto the journeys as follows:"
@@ -663,7 +663,7 @@ msgstr "Les personnages : Khamla SENGMANY (mère), Bounmy SENGMANY (père, déti
 #: docs/journeys.md:217
 #, python-brace-format
 msgid "The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
-msgstr "La passerelle lao vérifie le code d’accès, l’expiration et le consentement, renvoie le manifeste et journalise l’accès dans le pays d’origine ({code0})."
+msgstr "La passerelle lao vérifie le code d’accès, l’expiration et le consentement, renvoie le manifeste et journalise l’accès dans le pays de résidence ({code0})."
 
 #: docs/journeys.md:198
 msgid "The QR holds only a pointer and a key: the record stays in Lao PDR."

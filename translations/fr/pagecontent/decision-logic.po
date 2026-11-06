@@ -17,22 +17,22 @@ msgstr ""
 #: input/pagecontent/decision-logic.md:10
 #, python-brace-format
 msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})<a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
-msgstr "<a0>J2 Repérer et orienter un nourrisson non enregistré dans le Pays B</a0> : Lire chaque DVC sans vérification (triage) ({code0}) ; Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées ({code1})<a1>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a1> : Vérifier chaque HCERT par rapport à la liste de confiance ({code2}) ; Tous les DVC sont-ils vérifiés ? ({code3}) ; Consigner le motif de l'échec ; décider des doses selon la politique nationale ({code4}) ; Importer les doses en tant que ressources FHIR Immunization ({code5})"
+msgstr "<a0>J2 Repérer et orienter un nourrisson non enregistré dans le Pays B</a0> : Lire chaque DVC sans vérification (triage) ({code0}) ; Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées ({code1})<a1>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a1> : Vérifier chaque HCERT par rapport à la liste de confiance ({code2}) ; Tous les DVC sont-ils vérifiés ? ({code3}) ; Consigner le motif de l'échec ; décider des doses selon la politique nationale ({code4}) ; Importer les doses en tant que ressources FHIR Immunization ({code5})"
 
 #: input/pagecontent/decision-logic.md:11
 #, python-brace-format
 msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
-msgstr "<a0>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a0> : Ajouter le code du calendrier national à côté du code de vaccin étranger ({code0})"
+msgstr "<a0>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a0> : Ajouter le code du calendrier national à côté du code de vaccin étranger ({code0})"
 
 #: input/pagecontent/decision-logic.md:12
 #, python-brace-format
 msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0})"
-msgstr "<a0>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a0> : Évaluer le calendrier national ({code0})"
+msgstr "<a0>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a0> : Évaluer le calendrier national ({code0})"
 
 #: input/pagecontent/decision-logic.md:13
 #, python-brace-format
 msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0}); Give due doses and book the next visit ({code1})"
-msgstr "<a0>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a0> : Évaluer le calendrier national ({code0}) ; Administrer les doses dues et fixer la prochaine visite ({code1})"
+msgstr "<a0>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a0> : Évaluer le calendrier national ({code0}) ; Administrer les doses dues et fixer la prochaine visite ({code1})"
 
 #: input/pagecontent/decision-logic.md:14
 #, python-brace-format
@@ -54,7 +54,7 @@ msgstr "<a0>STD-ACC-001</a0> (expiration) : un lien ouvert en dehors de la péri
 
 #: input/pagecontent/decision-logic.md:104
 msgid "<a0>STD-ACC-001</a0> (passcode): a wrong passcode releases nothing and is logged at home (AuditEvent TrustDemoJ41WrongPasscode)."
-msgstr "<a0>STD-ACC-001</a0> (code d'accès) : un code d'accès erroné ne communique rien et est journalisé dans le pays d'origine (AuditEvent TrustDemoJ41WrongPasscode)."
+msgstr "<a0>STD-ACC-001</a0> (code d'accès) : un code d'accès erroné ne communique rien et est journalisé dans le pays de résidence (AuditEvent TrustDemoJ41WrongPasscode)."
 
 #: input/pagecontent/decision-logic.md:102
 msgid "<a0>STD-ACC-001</a0> (revoke): a withdrawn link releases nothing; the attempt is logged."
@@ -481,22 +481,22 @@ msgstr "Au service de"
 #: input/pagecontent/decision-logic.md:22
 #, python-brace-format
 msgid "Serves: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
-msgstr "Au service de : <a0>J2 Repérer et orienter un nourrisson non enregistré dans le Pays B</a0> : Lire chaque DVC sans vérification (triage) ({code0}) ; Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées ({code1}) ; <a1>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a1> : Vérifier chaque HCERT par rapport à la liste de confiance ({code2}) ; Tous les DVC sont-ils vérifiés ? ({code3}) ; Consigner le motif de l'échec ; décider des doses selon la politique nationale ({code4}) ; Importer les doses en tant que ressources FHIR Immunization ({code5})"
+msgstr "Au service de : <a0>J2 Repérer et orienter un nourrisson non enregistré dans le Pays B</a0> : Lire chaque DVC sans vérification (triage) ({code0}) ; Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées ({code1}) ; <a1>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a1> : Vérifier chaque HCERT par rapport à la liste de confiance ({code2}) ; Tous les DVC sont-ils vérifiés ? ({code3}) ; Consigner le motif de l'échec ; décider des doses selon la politique nationale ({code4}) ; Importer les doses en tant que ressources FHIR Immunization ({code5})"
 
 #: input/pagecontent/decision-logic.md:42
 #, python-brace-format
 msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
-msgstr "Au service de : <a0>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a0> : Ajouter le code du calendrier national à côté du code de vaccin étranger ({code0})"
+msgstr "Au service de : <a0>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a0> : Ajouter le code du calendrier national à côté du code de vaccin étranger ({code0})"
 
 #: input/pagecontent/decision-logic.md:60
 #, python-brace-format
 msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0})"
-msgstr "Au service de : <a0>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a0> : Évaluer le calendrier national ({code0})"
+msgstr "Au service de : <a0>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a0> : Évaluer le calendrier national ({code0})"
 
 #: input/pagecontent/decision-logic.md:77
 #, python-brace-format
 msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0}); Give due doses and book the next visit ({code1})"
-msgstr "Au service de : <a0>J3 Vérifier, importer et planifier au centre de santé du pays d'origine</a0> : Évaluer le calendrier national ({code0}) ; Administrer les doses dues et fixer la prochaine visite ({code1})"
+msgstr "Au service de : <a0>J3 Vérifier, importer et planifier au centre de santé du pays de résidence</a0> : Évaluer le calendrier national ({code0}) ; Administrer les doses dues et fixer la prochaine visite ({code1})"
 
 #: input/pagecontent/decision-logic.md:94
 #, python-brace-format
@@ -575,7 +575,7 @@ msgstr "Le certificat du signataire ne figure pas dans la liste de confiance en 
 #: input/pagecontent/decision-logic.md:6
 #, python-brace-format
 msgid "The sources are {code0}; this page and the PlanDefinitions are generated from them. The entries use the FEEL subset the harness's decision-table interpreter accepts: {code1} (any), literals, comparisons and one-of. Every table's hit policy is FIRST: the rules are tried in order and the first that matches applies, so the order is part of the logic. Where a rule says \"by national policy\", the policy is the home country's; the tables illustrate the decisions, they are not a country's rules."
-msgstr "Les sources sont {code0} ; cette page et les PlanDefinitions sont générées à partir d'elles. Les entrées utilisent le sous-ensemble FEEL qu'accepte l'interpréteur de tables de décision du harness : {code1} (tout), littéraux, comparaisons et « l'un de ». La politique de résultat de chaque table est FIRST : les règles sont essayées dans l'ordre et la première qui correspond s'applique ; l'ordre fait donc partie de la logique. Lorsqu'une règle indique « selon la politique nationale », il s'agit de la politique du pays d'origine ; les tables illustrent les décisions, elles ne sont pas les règles d'un pays."
+msgstr "Les sources sont {code0} ; cette page et les PlanDefinitions sont générées à partir d'elles. Les entrées utilisent le sous-ensemble FEEL qu'accepte l'interpréteur de tables de décision du harness : {code1} (tout), littéraux, comparaisons et « l'un de ». La politique de résultat de chaque table est FIRST : les règles sont essayées dans l'ordre et la première qui correspond s'applique ; l'ordre fait donc partie de la logique. Lorsqu'une règle indique « selon la politique nationale », il s'agit de la politique du pays de résidence ; les tables illustrent les décisions, elles ne sont pas les règles d'un pays."
 
 #: input/pagecontent/decision-logic.md:118
 #, python-brace-format
