@@ -12,7 +12,8 @@ Usage:
    model name; nothing else in it changes.
 3. Apply overlay.py with smart-ra's own add_views.py.
 4. Lay the overlay's views out again with room between the boxes, move the
-   boxes VIEW_BOUNDS names, and route every line orthogonally (layout.py).
+   boxes VIEW_BOUNDS names, route every line orthogonally (layout.py), and
+   write the tags NOTES names inside their boxes.
 5. Re-zip with fixed timestamps, so the output depends only on its inputs
    and --check can compare bytes.
 
@@ -21,6 +22,7 @@ archimate-models skill asks. Standard library only.
 """
 
 import hashlib
+import html
 import importlib.util
 import json
 import re
@@ -129,6 +131,36 @@ def apply_bounds(xml, o):
     return xml
 
 
+def add_notes(xml, o, lay):
+    """Write overlay o's NOTES: a note inside each named box of the view, at its foot, holding the tag.
+
+    A note is Archi's own diagram object for words with no model meaning; it
+    sits in the box it tags, so it moves with it. Written after route(), so no
+    line is routed around it: every line ends on its box's side.
+    """
+    ns = uuid.uuid5(uuid.NAMESPACE_URL, o.NAMESPACE)
+    eid = lambda key: o.EXISTING.get(key) or "id-" + uuid.uuid5(ns, "element/" + key).hex
+    for view, notes in getattr(o, "NOTES", {}).items():
+        m = re.search(r'<element xsi:type="archimate:ArchimateDiagramModel" name="%s" id="[^"]+">' % re.escape(view), xml)
+        end = xml.index("\n      </element>", m.end())
+        body = xml[m.end():end]
+        for key, text in notes.items():
+            c = re.search(r'\n( *)<child xsi:type="archimate:DiagramObject" id="[^"]+" archimateElement="%s"[^>]*>\s*'
+                          r'<bounds x="-?\d+" y="-?\d+" width="(\d+)" height="(\d+)"/>' % eid(key), body)
+            if not c:
+                raise SystemExit(f"NOTES: {key} is not drawn in {view!r}")
+            ind, w, h = c.group(1), int(c.group(2)), int(c.group(3))
+            nh = lay.note_height(text)
+            nid = "id-" + uuid.uuid5(ns, f"view/{view}/note/{key}").hex
+            note = (f'\n{ind}  <child xsi:type="archimate:Note" id="{nid}">'
+                    f'\n{ind}    <bounds x="8" y="{h - 6 - nh}" width="{w - 16}" height="{nh}"/>'
+                    f'\n{ind}    <content>{html.escape(text, quote=False)}</content>'
+                    f'\n{ind}  </child>')
+            body = body[:c.end()] + note + body[c.end():]
+        xml = xml[:m.end()] + body + xml[end:]
+    return xml
+
+
 def build(out):
     model, add_views = fetch()
     with tempfile.TemporaryDirectory() as t:
@@ -141,7 +173,7 @@ def build(out):
         with zipfile.ZipFile(applied) as z:
             o, lay = _load("overlay"), _load("layout")
             xml = z.read("model.xml").decode("utf-8")
-            xml = lay.route(apply_bounds(lay.relayout(xml, o), o), o).encode("utf-8")
+            xml = add_notes(lay.route(apply_bounds(lay.relayout(xml, o), o), o), o, lay).encode("utf-8")
             others = {n: z.read(n) for n in z.namelist() if n != "model.xml"}
         out.parent.mkdir(parents=True, exist_ok=True)
         write_zip(out, xml, others)

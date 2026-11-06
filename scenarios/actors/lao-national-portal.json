@@ -17,6 +17,56 @@
     "playsActor": [
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-sharer",
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/trust-network-participant"
+    ],
+    "country": "Lao PDR",
+    "parts": [
+      {
+        "id": "la-national-fhir",
+        "title": "FHIR record server",
+        "raBlock": "Lifelong Health Record",
+        "description": "Holds each person's records (IPS, DVCs) as FHIR resources, from which the portal assembles what a VHL shares (J4.0, J4.1).",
+        "ig": "Bundle/TrustDemoJ4Ips"
+      },
+      {
+        "id": "la-vhl-issuer",
+        "title": "VHL issuer",
+        "raBlock": "National Trust Services",
+        "description": "Issues a passcode-protected Verifiable Health Link per family member, in an HCERT signed with Lao PDR's document signer key (J4.0)."
+      },
+      {
+        "id": "la-info-gateway",
+        "title": "Information gateway and access log (OHS)",
+        "raBlock": "DPI-F Information Mediator",
+        "description": "Answers a VHL manifest request after checking its signature, the passcode, the expiry and the consent, and logs each access in Lao PDR (J4.1).",
+        "ig": "StructureDefinition/TrustDemoLaoVhlAccess"
+      },
+      {
+        "id": "la-client-registry",
+        "title": "Client registry (children, households)",
+        "raBlock": "Client Registry for Health",
+        "description": "Identifies each person the portal serves, children and their households included.",
+        "ig": "StructureDefinition/TrustDemoLaoPatient"
+      },
+      {
+        "id": "la-facility-registry",
+        "title": "Facility registry (clinics, health centres)",
+        "raBlock": "Health Facility Registry",
+        "description": "Lists the clinics and health centres that record and share care.",
+        "ig": "Organization/TrustDemoVientianeDhc"
+      },
+      {
+        "id": "la-workforce-registry",
+        "title": "Health workforce registry (CHWs, nurses)",
+        "raBlock": "Health Workforce Registry",
+        "description": "Lists the health workers, community health workers and nurses among them, who record care.",
+        "ig": "Practitioner/TrustDemoVilay"
+      },
+      {
+        "id": "la-data-pipes",
+        "title": "Analytics pipeline (OHS FHIR Data Pipes)",
+        "raBlock": "Health Management Information System",
+        "description": "Copies the portal's FHIR data into an analytics store for reporting."
+      }
     ]
   }
 }
