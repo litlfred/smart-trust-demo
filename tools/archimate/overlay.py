@@ -106,6 +106,7 @@ EXISTING = {
 # supply-chain handbook (Fig. 1) and mean the actors of supply chain processes.
 ROLE_STAKEHOLDER = {
     "caregiver": "stk-care-recipients",
+    "subject-of-care": "stk-care-recipients",
     "birth-clinic-vaccinator": "stk-health-workers",
     "community-health-worker": "stk-health-workers",
     "home-clinic-provider": "stk-health-workers",

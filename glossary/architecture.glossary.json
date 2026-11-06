@@ -18,6 +18,18 @@
       "status": "candidate"
     },
     {
+      "id": "role-subject-of-care",
+      "prefLabel": "Subject of care",
+      "definition": "The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes.",
+      "altLabel": [
+        "Patient",
+        "Care recipient"
+      ],
+      "isDefinedBy": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.SubjectOfCare",
+      "source": "scenarios/roles.json#subject-of-care",
+      "status": "candidate"
+    },
+    {
       "id": "role-birth-clinic-vaccinator",
       "prefLabel": "Birth clinic vaccinator",
       "definition": "The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1).",
