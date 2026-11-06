@@ -475,6 +475,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Composition"
+      }],
+      "reference" : {
+        "reference" : "Composition/TrustDemoJ4Composition"
+      },
+      "name" : "J4.0 Somsack's patient summary (Composition)",
+      "description" : "The patient summary the Lao portal assembles for Somsack before the trip: six doses, two from Thailand (verified in J3) and four given in Lao PDR.",
+      "isExample" : true
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Consent"
       }],
       "reference" : {

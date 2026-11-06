@@ -596,18 +596,6 @@
       "viewId": "id-249a1002c32e50199e27a502ef0ec3d8",
       "participants": [
         {
-          "id": "id-ffb73de262f057bd97c3d94d388f3d56",
-          "name": "Clinic VHL viewer",
-          "type": "ApplicationComponent",
-          "elementId": "id-ffb73de262f057bd97c3d94d388f3d56"
-        },
-        {
-          "id": "id-d87eae4466985575a8b9f78882f86565",
-          "name": "OHS Info Gateway and access log",
-          "type": "ApplicationComponent",
-          "elementId": "id-d87eae4466985575a8b9f78882f86565"
-        },
-        {
           "id": "id-b8885086e3c95a88ba3a7972fcde0f2d",
           "name": "DVC signer (HCERT)",
           "type": "ApplicationComponent",
@@ -615,7 +603,7 @@
         },
         {
           "id": "id-9cf65fade07d53ffbb3e88d415819366",
-          "name": "CHW app (OHS, SDC forms)",
+          "name": "Smart forms (SDC)",
           "type": "ApplicationComponent",
           "elementId": "id-9cf65fade07d53ffbb3e88d415819366"
         },
@@ -626,6 +614,18 @@
           "elementId": "id-361ff71137da5ab1b0ae73394a4c0d6e"
         },
         {
+          "id": "id-ffb73de262f057bd97c3d94d388f3d56",
+          "name": "VHL viewer",
+          "type": "ApplicationComponent",
+          "elementId": "id-ffb73de262f057bd97c3d94d388f3d56"
+        },
+        {
+          "id": "id-d87eae4466985575a8b9f78882f86565",
+          "name": "Information gateway and access log (OHS)",
+          "type": "ApplicationComponent",
+          "elementId": "id-d87eae4466985575a8b9f78882f86565"
+        },
+        {
           "id": "id-278ea491eabd5bed9ca42fa314190228",
           "name": "Family wallet",
           "type": "ApplicationComponent",
@@ -633,13 +633,6 @@
         }
       ],
       "messages": [
-        {
-          "from": "id-ffb73de262f057bd97c3d94d388f3d56",
-          "to": "id-d87eae4466985575a8b9f78882f86565",
-          "label": "ITI-YY5 manifest request, signed",
-          "kind": "triggering",
-          "relationshipId": "id-3bc48dc4a4325c19b2d87dd2d7bda3e0"
-        },
         {
           "from": "id-b8885086e3c95a88ba3a7972fcde0f2d",
           "to": "id-9cf65fade07d53ffbb3e88d415819366",
@@ -653,6 +646,13 @@
           "label": "paper DVC (HC1 QR), carried by the family",
           "kind": "flow",
           "relationshipId": "id-2d7438e387f151d48346ea9fdecada1a"
+        },
+        {
+          "from": "id-ffb73de262f057bd97c3d94d388f3d56",
+          "to": "id-d87eae4466985575a8b9f78882f86565",
+          "label": "ITI-YY5 manifest request, signed",
+          "kind": "triggering",
+          "relationshipId": "id-3bc48dc4a4325c19b2d87dd2d7bda3e0"
         },
         {
           "from": "id-278ea491eabd5bed9ca42fa314190228",
@@ -684,7 +684,7 @@
         },
         {
           "id": "id-9cf65fade07d53ffbb3e88d415819366",
-          "name": "CHW app (OHS, SDC forms)",
+          "name": "Smart forms (SDC)",
           "type": "ApplicationComponent",
           "elementId": "id-9cf65fade07d53ffbb3e88d415819366"
         },
@@ -726,7 +726,7 @@
         },
         {
           "id": "id-9cf65fade07d53ffbb3e88d415819366",
-          "name": "CHW app (OHS, SDC forms)",
+          "name": "Smart forms (SDC)",
           "type": "ApplicationComponent",
           "elementId": "id-9cf65fade07d53ffbb3e88d415819366"
         }
@@ -778,13 +778,13 @@
       "participants": [
         {
           "id": "id-ffb73de262f057bd97c3d94d388f3d56",
-          "name": "Clinic VHL viewer",
+          "name": "VHL viewer",
           "type": "ApplicationComponent",
           "elementId": "id-ffb73de262f057bd97c3d94d388f3d56"
         },
         {
           "id": "id-d87eae4466985575a8b9f78882f86565",
-          "name": "OHS Info Gateway and access log",
+          "name": "Information gateway and access log (OHS)",
           "type": "ApplicationComponent",
           "elementId": "id-d87eae4466985575a8b9f78882f86565"
         },

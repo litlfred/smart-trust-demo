@@ -46,25 +46,28 @@ classDiagram
   <<Application>> ApplicationInterface
   class BusinessCollaboration["Business Collaboration"]
   <<Business>> BusinessCollaboration
+  class Device["Device"]
+  <<Technology>> Device
   class Product["Product"]
   <<Business>> Product
   class Requirement["Requirement"]
   <<Motivation>> Requirement
-  Grouping o-- ApplicationComponent : aggregates ×75
-  ApplicationComponent --|> ApplicationComponent : specialises ×34
+  Grouping o-- ApplicationComponent : aggregates ×74
   Grouping o-- Capability : aggregates ×30
   Grouping o-- BusinessRole : aggregates ×26
+  ApplicationComponent ..|> ApplicationComponent : realises ×23
   Capability ..> Goal : influences ×21
-  ApplicationComponent *-- ApplicationComponent : composed of ×19
   ApplicationComponent ..> ApplicationComponent : flows to ×19
+  ApplicationComponent *-- ApplicationComponent : composed of ×18
+  Grouping o-- Grouping : aggregates ×17
   ApplicationComponent ..|> Capability : realises ×16
-  Grouping o-- Grouping : aggregates ×16
+  ApplicationComponent --|> ApplicationComponent : specialises ×16
   ApplicationComponent --> ApplicationComponent : serves ×14
   ApplicationComponent ..> DataObject : accesses ×13
   Goal o-- Goal : aggregates ×13
-  ApplicationComponent --> BusinessProcess : serves ×12
   Capability --> Capability : serves ×11
   Grouping o-- Stakeholder : aggregates ×11
+  ApplicationComponent --> BusinessProcess : serves ×10
   BusinessProcess ..|> Capability : realises ×10
   BusinessRole --> BusinessProcess : assigned to ×10
   Stakeholder -- Value : associated with ×10
@@ -75,7 +78,6 @@ classDiagram
   Capability ..|> Outcome : realises ×6
   Grouping o-- ApplicationFunction : aggregates ×6
   Value -- Stakeholder : associated with ×6
-  ApplicationComponent ..|> ApplicationComponent : realises ×5
   ApplicationProcess ..|> Capability : realises ×5
   BusinessRole -- Stakeholder : associated with ×5
   Grouping o-- BusinessProcess : aggregates ×5
@@ -112,6 +114,7 @@ classDiagram
   DataObject o-- DataObject : aggregates ×2
   DataObject -- DataObject : associated with ×2
   DataObject --|> DataObject : specialises ×2
+  Device --> BusinessProcess : serves ×2
   ApplicationComponent ..> BusinessObject : accesses ×1
   ApplicationComponent -- ApplicationComponent : associated with ×1
   ApplicationComponent -- ApplicationService : associated with ×1
@@ -140,7 +143,9 @@ classDiagram
   Capability -- Product : associated with ×1
   Capability ..> Capability : flows to ×1
   DataObject -- Outcome : associated with ×1
+  Device ..|> ApplicationComponent : realises ×1
   Grouping o-- BusinessCollaboration : aggregates ×1
+  Grouping o-- Device : aggregates ×1
   Grouping o-- Requirement : aggregates ×1
   Outcome -- Capability : associated with ×1
   Outcome *-- Outcome : composed of ×1

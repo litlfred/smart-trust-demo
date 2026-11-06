@@ -7,7 +7,7 @@
     {
       "type": "ApplicationComponent",
       "layer": "Application",
-      "elements": 109,
+      "elements": 108,
       "ids": [
         "id-5f6d9b9678824b37b95952735420ae8d",
         "id-35d0806bcb5c46fab5102d75de09558f",
@@ -81,13 +81,12 @@
         "id-1a2a01eda67b587999d594a609bd6223",
         "id-9a550d0686f85daaacfd81e767f27db4",
         "id-e068aafbfa4e5314a68a353a174cd1a0",
-        "id-41f476ffb7c35d6386bdd9087c789d34",
         "id-436dac7b002150b2b7f5a708aa35037c",
+        "id-ffb73de262f057bd97c3d94d388f3d56",
         "id-c00274ecce005abe90721f070a990fd0",
         "id-0b64cf17d6aa5bada910fdeb1873bdc7",
         "id-665ae5ed12c358beb8a38f9c32ffc486",
         "id-b8885086e3c95a88ba3a7972fcde0f2d",
-        "id-ffb73de262f057bd97c3d94d388f3d56",
         "id-9cf65fade07d53ffbb3e88d415819366",
         "id-207877617342534d8bbf9ba7f0321d54",
         "id-87f598d330f0598db8050827938031b2",
@@ -109,9 +108,9 @@
         "id-c11d501a31615e8fb5c6ddf99c994c36",
         "id-520486ae3de45136995376884547fa30",
         "id-db2f2b4ebb095b16b8ce8a82f10ea3b9",
-        "id-b19829e1dece5000a44f201b4e678df0",
         "id-05b47af15e09597c9e2bb30b89ed582a",
         "id-f0a8ca88b0235750af6a22664e793272",
+        "id-b19829e1dece5000a44f201b4e678df0",
         "id-3e2133e0b2965eb8bda7b8a67f088ec6",
         "id-fc0847dd22e053819e1c2840baaad167",
         "id-7ec832cc42b358a89183236f7cba9a64",
@@ -563,6 +562,14 @@
       ]
     },
     {
+      "type": "Device",
+      "layer": "Technology",
+      "elements": 1,
+      "ids": [
+        "id-41f476ffb7c35d6386bdd9087c789d34"
+      ]
+    },
+    {
       "type": "Product",
       "layer": "Business",
       "elements": 1,
@@ -584,7 +591,7 @@
       "source": "Grouping",
       "relationship": "Aggregation",
       "target": "ApplicationComponent",
-      "count": 75,
+      "count": 74,
       "allowed": true,
       "relationships": [
         "id-660cd19b336a5a9f8b6eb8af40b19d05",
@@ -647,14 +654,13 @@
         "id-7266b4a65cf75d2b9e2e0bac5cb8d67d",
         "id-091156c38b7e52df857ca703e7fa411f",
         "id-bbba0cdfc82055499826411c8b4b5ed0",
-        "id-063f053cfc705a638629eca4ff999bb6",
         "id-1355ae43ee4c530791158d2f6b552bb4",
         "id-ddc15320f89d5f9bb22b8797f739138d",
         "id-41c73ac3e81750649076ac498030a4e8",
         "id-4d2cb4c6de655d60b1499cd34adc8f64",
-        "id-0a26705479e95af38aeeda43dc7e0d50",
         "id-a640be4252c757328a3996674b2d5aff",
         "id-85c5bb7f809f50fcbbf3df348bb314a9",
+        "id-0a26705479e95af38aeeda43dc7e0d50",
         "id-f66a351dcde9545bae4d9a948c24eb3f",
         "id-3bd8c8cdd5ee5f51b0eb8c4363af6d99",
         "id-8b2b862d4eac58f8beb91e561eef91b5",
@@ -662,49 +668,6 @@
         "id-08eeeb682c2554e7ab9b9e4bc96bcb7a",
         "id-ad72fc5145a55e0a8014ccf4d12edf66",
         "id-a997515c8f2752ff80cdcfc96a6cc6f3"
-      ]
-    },
-    {
-      "source": "ApplicationComponent",
-      "relationship": "Specialization",
-      "target": "ApplicationComponent",
-      "count": 34,
-      "allowed": true,
-      "relationships": [
-        "id-130d4aadb73d5528872e1c6312010132",
-        "id-0be0f08e603a59928c0aa2b90ce48bc5",
-        "id-c416a29125c15855a970d60cf6a2c0c1",
-        "id-d759fc0a0faf515d985bcfcb9f1a5268",
-        "id-3bac62fc4897522caf449b8af1a9db67",
-        "id-38c4c1f88c655e7daa6ddca5d15d1341",
-        "id-b41d6957673c5eafb3b7705aece34282",
-        "id-c0469e24b62b5262a8431e0d710601ab",
-        "id-1152cb6d75925165a4d561f231a718fe",
-        "id-809abe00f6cc5511b27c0acd2897a4a4",
-        "id-73f6865ab0cc5ddc815b5735533abd41",
-        "id-a9005b923a87509f9f78e2a882525abb",
-        "id-78f0de07b92a5397a36c99a9f862c32d",
-        "id-ebb4c7fadf17511b8fd68668c68eac1f",
-        "id-da1509f223ff5def8d3f8113e2d19057",
-        "id-62878cb5f5c05212994f091e745e784f",
-        "id-2ccb4b287a025906b46b7026539b6140",
-        "id-189ea589137751279df2baa62fe84632",
-        "id-5a4b9430bee35b6c96035de2cfd2638b",
-        "id-05d79f4977a55c208be92a45c9128006",
-        "id-f8bee7d183195cd9bb5b0d792c7aacce",
-        "id-1960f17ca1d75d54943fc2f697e3fdca",
-        "id-c6f24ece0a775e8d87dbc6f10b754ae7",
-        "id-c9cdc47a028450ef84b1e54468899c3d",
-        "id-1f5201fe219f506ab2d9cdcc0786b391",
-        "id-63ca8f46a7ff5103a202616b52904f95",
-        "id-3d3d434cca7f5488b1eb4f638b3954d7",
-        "id-65c8ebba528254a7a7e74a594aa22af6",
-        "id-1cc8a3fcbac754a1b502f91174219f9e",
-        "id-5c599b468dce5443bc77783dec0bcb4e",
-        "id-c5c283e84eb15695bece56efd2d4cb60",
-        "id-5bde9c8874ca5f438466bddd38351351",
-        "id-c42b50ac1bea5102b2fa8c7c1a0eef2d",
-        "id-5e38ef538e6553838b8740f6d6bff548"
       ]
     },
     {
@@ -782,6 +745,38 @@
       ]
     },
     {
+      "source": "ApplicationComponent",
+      "relationship": "Realization",
+      "target": "ApplicationComponent",
+      "count": 23,
+      "allowed": true,
+      "relationships": [
+        "id-f6fa7dd8ae714e8ebf7e0b07c785f8ef",
+        "id-2b0a4eb868484397abe4c02f1cbe4066",
+        "id-c6543207d6574b368ca2d88310999cbd",
+        "id-1c597408d33f411da29797255c86d117",
+        "id-a7c1f850644044e880458706763f4604",
+        "id-d91d70fa7dde5d5296f0b33b586a693a",
+        "id-357c6e84da95589981decac60399f4cf",
+        "id-bb76b79529f65d25bb21e3d78f393e83",
+        "id-53da8a10ce40598d97e34f22aaed052a",
+        "id-7044c9b7f82755ef96195f0cb20496fa",
+        "id-3ba1c42aa1775bccb2fd63f1326e8f72",
+        "id-335f06f3d5d25c25bdc277e06c8dcd9b",
+        "id-c874ed504a895c4e8c48337247e69aba",
+        "id-289c78cd94625d7baeafc45979c42aac",
+        "id-ae0cf0e96dda508eac88ed86e3fc5fd4",
+        "id-92010d7a6b0c5263be461161844042a4",
+        "id-3b5b16d0de0a51e191945d2ef1b3b646",
+        "id-0350190332fe5b3ea86b05a6f99e36ae",
+        "id-ee541282f70d55b58d75163aedc1ee47",
+        "id-2e66137994685db4a57843cb3808c248",
+        "id-8470cd1458b2574cbe85604e48e2aec9",
+        "id-be478d355689519983c258e2208a9bff",
+        "id-4b69795cf13e5d389fb596eaad822c6a"
+      ]
+    },
+    {
       "source": "Capability",
       "relationship": "Influence",
       "target": "Goal",
@@ -809,34 +804,6 @@
         "id-755522b40b88478fb5ac642294d47167",
         "id-bbf5afe84ced4469a70c507a4d705077",
         "id-d99f0f3f2af043d8885e624db3967ff0"
-      ]
-    },
-    {
-      "source": "ApplicationComponent",
-      "relationship": "Composition",
-      "target": "ApplicationComponent",
-      "count": 19,
-      "allowed": true,
-      "relationships": [
-        "id-9a55834aa1d24724b9078e89eb05e0de",
-        "id-446f67202b295153a3de02e2e24b864d",
-        "id-a7ab43a4b2345711ad4c6cca26c4e4e7",
-        "id-c9bd148d4cae563c9455a92fa28ea1ba",
-        "id-021361f5b51f5223b563e68d836a911e",
-        "id-9a49c7592c3a5deba330cfa61d6e566f",
-        "id-7f357efc7cf0534985ef31ca9e100a8f",
-        "id-f679c2f00414571ca66ae14595af2bc0",
-        "id-ea24854e5a6b54dc9c25725b63dfbc19",
-        "id-9d25fbf56bd75d2cbd60ac9f506402a9",
-        "id-83c75dcd68885e9a8fc9909c025f9f9b",
-        "id-6b206cf5ba2359a4b8f5495deb44c0f5",
-        "id-7d03082f573f515a9f8d4127f76e45b0",
-        "id-948e7a97a6ef570cb085ee8c091aef95",
-        "id-4304f6c9e08f59b5b5731edec991db5e",
-        "id-0ba92a46d5e45e0b8f0b8222b5d8d25f",
-        "id-5f4e428bc4ea5995ac95f1a4df99ef14",
-        "id-7c2a8f4a88e650cda5daeb147f033e29",
-        "id-f9a721161c1857ad9ee609f443e95024"
       ]
     },
     {
@@ -869,6 +836,59 @@
     },
     {
       "source": "ApplicationComponent",
+      "relationship": "Composition",
+      "target": "ApplicationComponent",
+      "count": 18,
+      "allowed": true,
+      "relationships": [
+        "id-9a55834aa1d24724b9078e89eb05e0de",
+        "id-446f67202b295153a3de02e2e24b864d",
+        "id-a7ab43a4b2345711ad4c6cca26c4e4e7",
+        "id-c9bd148d4cae563c9455a92fa28ea1ba",
+        "id-021361f5b51f5223b563e68d836a911e",
+        "id-9a49c7592c3a5deba330cfa61d6e566f",
+        "id-7f357efc7cf0534985ef31ca9e100a8f",
+        "id-f679c2f00414571ca66ae14595af2bc0",
+        "id-ea24854e5a6b54dc9c25725b63dfbc19",
+        "id-9d25fbf56bd75d2cbd60ac9f506402a9",
+        "id-83c75dcd68885e9a8fc9909c025f9f9b",
+        "id-7d03082f573f515a9f8d4127f76e45b0",
+        "id-948e7a97a6ef570cb085ee8c091aef95",
+        "id-4304f6c9e08f59b5b5731edec991db5e",
+        "id-0ba92a46d5e45e0b8f0b8222b5d8d25f",
+        "id-5f4e428bc4ea5995ac95f1a4df99ef14",
+        "id-7c2a8f4a88e650cda5daeb147f033e29",
+        "id-f9a721161c1857ad9ee609f443e95024"
+      ]
+    },
+    {
+      "source": "Grouping",
+      "relationship": "Aggregation",
+      "target": "Grouping",
+      "count": 17,
+      "allowed": true,
+      "relationships": [
+        "id-caa4fb1c34215a1aaca4e5b4148f4748",
+        "id-7760498b5b8e5825a01d16112022172a",
+        "id-14af2fec68de5cdfbfaf62ac2d88d55c",
+        "id-df37ac2742af56828f7543fc1ef3dee3",
+        "id-ee629118fae95ac3b7574f16e750fdf4",
+        "id-e783cbfe696e57ae885a07b42bbc4c19",
+        "id-89cecc1a7668545592e346abf278e8a9",
+        "id-3507380224ab50b298725e3e6d6eb762",
+        "id-9e9ace84cd30599b87f709b2e35ebac9",
+        "id-be4257c7fdd9583e8075ce8ead3277ac",
+        "id-e61daf9bb61f5a01a0beedbb9c45d3cb",
+        "id-4fe33ec0bd4d53e09db861b9a3b94e15",
+        "id-aa5a2d93f7ad5d2881ac10e7ae3e4936",
+        "id-a852c172ed3c50e085327d1d926bba39",
+        "id-1002e5edcbff585ea93c742430489cfd",
+        "id-8ae7f6b341da5694b4a78fce69c01c3d",
+        "id-658557f534765e888bd6cfd68b391a45"
+      ]
+    },
+    {
+      "source": "ApplicationComponent",
       "relationship": "Realization",
       "target": "Capability",
       "count": 16,
@@ -893,28 +913,28 @@
       ]
     },
     {
-      "source": "Grouping",
-      "relationship": "Aggregation",
-      "target": "Grouping",
+      "source": "ApplicationComponent",
+      "relationship": "Specialization",
+      "target": "ApplicationComponent",
       "count": 16,
       "allowed": true,
       "relationships": [
-        "id-caa4fb1c34215a1aaca4e5b4148f4748",
-        "id-7760498b5b8e5825a01d16112022172a",
-        "id-14af2fec68de5cdfbfaf62ac2d88d55c",
-        "id-df37ac2742af56828f7543fc1ef3dee3",
-        "id-ee629118fae95ac3b7574f16e750fdf4",
-        "id-e783cbfe696e57ae885a07b42bbc4c19",
-        "id-89cecc1a7668545592e346abf278e8a9",
-        "id-3507380224ab50b298725e3e6d6eb762",
-        "id-9e9ace84cd30599b87f709b2e35ebac9",
-        "id-be4257c7fdd9583e8075ce8ead3277ac",
-        "id-e61daf9bb61f5a01a0beedbb9c45d3cb",
-        "id-4fe33ec0bd4d53e09db861b9a3b94e15",
-        "id-aa5a2d93f7ad5d2881ac10e7ae3e4936",
-        "id-a852c172ed3c50e085327d1d926bba39",
-        "id-1002e5edcbff585ea93c742430489cfd",
-        "id-8ae7f6b341da5694b4a78fce69c01c3d"
+        "id-5a4b9430bee35b6c96035de2cfd2638b",
+        "id-05d79f4977a55c208be92a45c9128006",
+        "id-f8bee7d183195cd9bb5b0d792c7aacce",
+        "id-1960f17ca1d75d54943fc2f697e3fdca",
+        "id-c6f24ece0a775e8d87dbc6f10b754ae7",
+        "id-c9cdc47a028450ef84b1e54468899c3d",
+        "id-1f5201fe219f506ab2d9cdcc0786b391",
+        "id-3d3d434cca7f5488b1eb4f638b3954d7",
+        "id-65c8ebba528254a7a7e74a594aa22af6",
+        "id-63ca8f46a7ff5103a202616b52904f95",
+        "id-1cc8a3fcbac754a1b502f91174219f9e",
+        "id-5c599b468dce5443bc77783dec0bcb4e",
+        "id-c5c283e84eb15695bece56efd2d4cb60",
+        "id-5bde9c8874ca5f438466bddd38351351",
+        "id-c42b50ac1bea5102b2fa8c7c1a0eef2d",
+        "id-5e38ef538e6553838b8740f6d6bff548"
       ]
     },
     {
@@ -985,27 +1005,6 @@
       ]
     },
     {
-      "source": "ApplicationComponent",
-      "relationship": "Serving",
-      "target": "BusinessProcess",
-      "count": 12,
-      "allowed": true,
-      "relationships": [
-        "id-72f80697f8db53c9953e6c72d3c22480",
-        "id-99c077b2f6175c99a890b5a5a0947b77",
-        "id-a55976d3a9f65bec8485ffc9c1c1c60e",
-        "id-3337437019995f87a58bad7762f551c5",
-        "id-aaaabbe59abd58ef98e45c12ca9f2bcc",
-        "id-ad7d466c1f955233aedea088ad691178",
-        "id-e27b32d2354e5237bac5cff9632c2950",
-        "id-0fe1ba40e9c15e8884e0926f3f18754f",
-        "id-8728901bb3a25c9f91af44a38c7eb297",
-        "id-f733c58eb3a4597188628800548ad392",
-        "id-707b767b414854faba5ac128fdd47351",
-        "id-8714b6d94c0a54b09776754b94b7cc21"
-      ]
-    },
-    {
       "source": "Capability",
       "relationship": "Serving",
       "target": "Capability",
@@ -1043,6 +1042,25 @@
         "id-a5319a15f2fb55a7aff44c051f0b4691",
         "id-8557abcb8fc85102b8dc46083eebb06c",
         "id-fea8382dd9ba55c69304ece12311b4da"
+      ]
+    },
+    {
+      "source": "ApplicationComponent",
+      "relationship": "Serving",
+      "target": "BusinessProcess",
+      "count": 10,
+      "allowed": true,
+      "relationships": [
+        "id-72f80697f8db53c9953e6c72d3c22480",
+        "id-99c077b2f6175c99a890b5a5a0947b77",
+        "id-a55976d3a9f65bec8485ffc9c1c1c60e",
+        "id-3337437019995f87a58bad7762f551c5",
+        "id-e27b32d2354e5237bac5cff9632c2950",
+        "id-0fe1ba40e9c15e8884e0926f3f18754f",
+        "id-8728901bb3a25c9f91af44a38c7eb297",
+        "id-f733c58eb3a4597188628800548ad392",
+        "id-707b767b414854faba5ac128fdd47351",
+        "id-8714b6d94c0a54b09776754b94b7cc21"
       ]
     },
     {
@@ -1209,20 +1227,6 @@
         "id-1089effac280430582f75d8dc4c4e537",
         "id-dc5562cc158c4412a51a0b2c105a01ac",
         "id-c085772426764fcfb67c5e083cd09ad2"
-      ]
-    },
-    {
-      "source": "ApplicationComponent",
-      "relationship": "Realization",
-      "target": "ApplicationComponent",
-      "count": 5,
-      "allowed": true,
-      "relationships": [
-        "id-f6fa7dd8ae714e8ebf7e0b07c785f8ef",
-        "id-2b0a4eb868484397abe4c02f1cbe4066",
-        "id-c6543207d6574b368ca2d88310999cbd",
-        "id-1c597408d33f411da29797255c86d117",
-        "id-a7c1f850644044e880458706763f4604"
       ]
     },
     {
@@ -1664,6 +1668,17 @@
       ]
     },
     {
+      "source": "Device",
+      "relationship": "Serving",
+      "target": "BusinessProcess",
+      "count": 2,
+      "allowed": true,
+      "relationships": [
+        "id-aaaabbe59abd58ef98e45c12ca9f2bcc",
+        "id-ad7d466c1f955233aedea088ad691178"
+      ]
+    },
+    {
       "source": "ApplicationComponent",
       "relationship": "Access",
       "target": "BusinessObject",
@@ -1944,6 +1959,16 @@
       ]
     },
     {
+      "source": "Device",
+      "relationship": "Realization",
+      "target": "ApplicationComponent",
+      "count": 1,
+      "allowed": true,
+      "relationships": [
+        "id-111aa124274b5aae8c1e65c50abe25c2"
+      ]
+    },
+    {
       "source": "Grouping",
       "relationship": "Aggregation",
       "target": "BusinessCollaboration",
@@ -1951,6 +1976,16 @@
       "allowed": true,
       "relationships": [
         "id-dca77329c7ef5cb78ac22339f7bb5024"
+      ]
+    },
+    {
+      "source": "Grouping",
+      "relationship": "Aggregation",
+      "target": "Device",
+      "count": 1,
+      "allowed": true,
+      "relationships": [
+        "id-063f053cfc705a638629eca4ff999bb6"
       ]
     },
     {

@@ -14,7 +14,7 @@
     "@id": "http://smart.who.int/trust-demo"
   },
   "dcterms:title": "SMART Trust demonstrator: journeys J1 to J4",
-  "schema:numberOfItems": 100,
+  "schema:numberOfItems": 101,
   "schema:hasPart": [
     {
       "@id": "ActorDefinition-TrustDemo.Role.BirthClinicSystem.jsonld",
@@ -200,6 +200,13 @@
       "@type": "fhir:Bundle",
       "dcterms:identifier": "Bundle/TrustDemoJ4Ips",
       "dcterms:title": "TrustDemoJ4Ips",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Composition-TrustDemoJ4Composition.jsonld",
+      "@type": "fhir:Composition",
+      "dcterms:identifier": "Composition/TrustDemoJ4Composition",
+      "dcterms:title": "Patient summary: Somsack SENGMANY",
       "dcterms:type": "Other"
     },
     {

@@ -118,15 +118,15 @@ id_4269b5141b6347698b67225759884a71 -> id_85d7590270dc483cb500963dbe5a4fc8 : Pro
 ' SMART Trust demo on the DPI-H Integrated View (id-249a1002c32e50199e27a502ef0ec3d8): sequence diagram, derived by archimate-diagrams. Do not edit.
 title SMART Trust demo on the DPI-H Integrated View
 hide footbox
-participant "Clinic VHL viewer" as id_ffb73de262f057bd97c3d94d388f3d56 <<ApplicationComponent>>
-participant "OHS Info Gateway and access log" as id_d87eae4466985575a8b9f78882f86565 <<ApplicationComponent>>
 participant "DVC signer (HCERT)" as id_b8885086e3c95a88ba3a7972fcde0f2d <<ApplicationComponent>>
-participant "CHW app (OHS, SDC forms)" as id_9cf65fade07d53ffbb3e88d415819366 <<ApplicationComponent>>
+participant "Smart forms (SDC)" as id_9cf65fade07d53ffbb3e88d415819366 <<ApplicationComponent>>
 participant "DVC verifier" as id_361ff71137da5ab1b0ae73394a4c0d6e <<ApplicationComponent>>
+participant "VHL viewer" as id_ffb73de262f057bd97c3d94d388f3d56 <<ApplicationComponent>>
+participant "Information gateway and access log (OHS)" as id_d87eae4466985575a8b9f78882f86565 <<ApplicationComponent>>
 participant "Family wallet" as id_278ea491eabd5bed9ca42fa314190228 <<ApplicationComponent>>
-id_ffb73de262f057bd97c3d94d388f3d56 -> id_d87eae4466985575a8b9f78882f86565 : ITI-YY5 manifest request, signed
 id_b8885086e3c95a88ba3a7972fcde0f2d ->> id_9cf65fade07d53ffbb3e88d415819366 : paper DVC (HC1 QR), carried by the family
 id_b8885086e3c95a88ba3a7972fcde0f2d ->> id_361ff71137da5ab1b0ae73394a4c0d6e : paper DVC (HC1 QR), carried by the family
+id_ffb73de262f057bd97c3d94d388f3d56 -> id_d87eae4466985575a8b9f78882f86565 : ITI-YY5 manifest request, signed
 id_278ea491eabd5bed9ca42fa314190228 ->> id_ffb73de262f057bd97c3d94d388f3d56 : VHL QR, shown
 id_d87eae4466985575a8b9f78882f86565 ->> id_ffb73de262f057bd97c3d94d388f3d56 : manifest; access logged in Lao PDR
 @enduml
@@ -136,7 +136,7 @@ id_d87eae4466985575a8b9f78882f86565 ->> id_ffb73de262f057bd97c3d94d388f3d56 : ma
 title J1 on the DPI-H RA
 hide footbox
 participant "DVC signer (HCERT)" as id_b8885086e3c95a88ba3a7972fcde0f2d <<ApplicationComponent>>
-participant "CHW app (OHS, SDC forms)" as id_9cf65fade07d53ffbb3e88d415819366 <<ApplicationComponent>>
+participant "Smart forms (SDC)" as id_9cf65fade07d53ffbb3e88d415819366 <<ApplicationComponent>>
 participant "DVC verifier" as id_361ff71137da5ab1b0ae73394a4c0d6e <<ApplicationComponent>>
 id_b8885086e3c95a88ba3a7972fcde0f2d ->> id_9cf65fade07d53ffbb3e88d415819366 : paper DVC (HC1 QR), carried by the family
 id_b8885086e3c95a88ba3a7972fcde0f2d ->> id_361ff71137da5ab1b0ae73394a4c0d6e : paper DVC (HC1 QR), carried by the family
@@ -147,7 +147,7 @@ id_b8885086e3c95a88ba3a7972fcde0f2d ->> id_361ff71137da5ab1b0ae73394a4c0d6e : pa
 title J2 on the DPI-H RA
 hide footbox
 participant "DVC signer (HCERT)" as id_b8885086e3c95a88ba3a7972fcde0f2d <<ApplicationComponent>>
-participant "CHW app (OHS, SDC forms)" as id_9cf65fade07d53ffbb3e88d415819366 <<ApplicationComponent>>
+participant "Smart forms (SDC)" as id_9cf65fade07d53ffbb3e88d415819366 <<ApplicationComponent>>
 id_b8885086e3c95a88ba3a7972fcde0f2d ->> id_9cf65fade07d53ffbb3e88d415819366 : paper DVC (HC1 QR), carried by the family
 @enduml
 
@@ -164,8 +164,8 @@ id_b8885086e3c95a88ba3a7972fcde0f2d ->> id_361ff71137da5ab1b0ae73394a4c0d6e : pa
 ' J4.1 on the DPI-H RA (id-42b408eba96159c187c0612ce7c2c6cf): sequence diagram, derived by archimate-diagrams. Do not edit.
 title J4.1 on the DPI-H RA
 hide footbox
-participant "Clinic VHL viewer" as id_ffb73de262f057bd97c3d94d388f3d56 <<ApplicationComponent>>
-participant "OHS Info Gateway and access log" as id_d87eae4466985575a8b9f78882f86565 <<ApplicationComponent>>
+participant "VHL viewer" as id_ffb73de262f057bd97c3d94d388f3d56 <<ApplicationComponent>>
+participant "Information gateway and access log (OHS)" as id_d87eae4466985575a8b9f78882f86565 <<ApplicationComponent>>
 participant "Family wallet" as id_278ea491eabd5bed9ca42fa314190228 <<ApplicationComponent>>
 id_ffb73de262f057bd97c3d94d388f3d56 -> id_d87eae4466985575a8b9f78882f86565 : ITI-YY5 manifest request, signed
 id_278ea491eabd5bed9ca42fa314190228 ->> id_ffb73de262f057bd97c3d94d388f3d56 : VHL QR, shown
