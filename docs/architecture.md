@@ -36,7 +36,7 @@ The overlay adds:
 - **what they share**, and nothing else, between them: WHO GDHCN and the WHO
   SMART Trust specifications it realizes;
 - the RA's own building blocks, generic and no country's, in a band of their
-  own below both countries;
+  own below both countries in each journey's view;
 - each journey's **realization** of the RA capabilities it exercises.
 
 Every line is routed orthogonally through the gaps between boxes and never
@@ -47,12 +47,18 @@ Every box in a drawing links to its element's page.
 
 ## Systems on the Integrated View
 
-Thailand on the left, Lao PDR on the right, each with its systems above its
-instances of the RA building blocks (each instance under the part that plays
-it); between them, only what both share: WHO GDHCN and the SMART Trust
-specifications. Below both, the RA's own building blocks, by the layers of its
-Integrated View (Fig. 3.2). The dashed lines that run from one country to the
-other are where they meet.
+Two columns: Thailand on the left, Lao PDR on the right. In each, the
+country's systems stack top to bottom in the order of the first journey they
+serve, and under each system stand the country's instances of the RA building
+blocks its parts are the first to play, each instance in the same column as
+that part, so the specialization runs straight down. A system's parts that
+meet the other country, or GDHCN, sit on the side facing the middle, and each
+Thai system stands level with the first Lao system it meets, so the dashed
+lines where the countries meet run across. Between the columns, only what
+both share: WHO GDHCN and the SMART Trust specifications. The RA's own blocks,
+which each country's instance specializes, are left out of this view (each
+instance's name says which block it is) and drawn in each journey's view,
+which keeps this one narrow and its lines few.
 
 [![Systems on the DPI-H Integrated View](archimate/0.1.0/views/id-249a1002c32e50199e27a502ef0ec3d8.svg)](en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/)
 

@@ -4,7 +4,9 @@ Used by build.py, after smart-ra's add_views.py has written the views. Two
 steps, each changing only what it says:
 
 1. relayout(): every box of an overlay view gets new <bounds>, worked out from
-   the same layout tree add_views.py drew (overlay.VIEWS) but with
+   the same layout tree add_views.py drew (overlay.VIEWS), or the richer one
+   overlay.LAYOUT_TREES gives for the view (which adds "grid" and "space"
+   nodes, holding the same boxes in the same groups), but with
    overlay.LAYOUT's gaps instead of add_views.py's 12 px, so a line has room to
    pass between two boxes. Nesting, ids and order are add_views.py's. Every
    size and position is even, so every box's centre is a whole pixel and the
@@ -52,10 +54,22 @@ HEAD = 28        # the heading strip of a box that holds others (add_views.py's)
 
 # --- 1. Layout ---------------------------------------------------------------
 
+def _grid_rows(node):
+    """A grid's kids (None is an empty cell) in rows of its column count."""
+    cols, kids = node[1], node[2]
+    return [kids[i:i + cols] for i in range(0, len(kids), cols)]
+
+
 def _size(node, L):
     gap, pad, head = L["gap"], L["pad"], L["head"]
     if node[0] == "box":
         return LEAF_W, LEAF_H
+    if node[0] == "space":
+        return node[1], node[2]
+    if node[0] == "grid":
+        # ("grid", cols, kids, indent): cells LEAF_W x LEAF_H, gap apart, the first indent px in.
+        rows = _grid_rows(node)
+        return node[3] + node[1] * LEAF_W + (node[1] - 1) * gap, len(rows) * LEAF_H + (len(rows) - 1) * gap
     if node[0] == "col":
         sizes = [_size(k, L) for k in node[1]]
         return max(w for w, _ in sizes), sum(h for _, h in sizes) + gap * (len(sizes) - 1)
@@ -74,6 +88,14 @@ def _size(node, L):
 def _place(node, x, y, L, out, center):
     """out[key] = (x, y, w, h), relative to the box or group that holds it."""
     gap, pad, head = L["gap"], L["pad"], L["head"]
+    if node[0] == "space":
+        return
+    if node[0] == "grid":
+        for r, row in enumerate(_grid_rows(node)):
+            for c, k in enumerate(row):
+                if k is not None:
+                    _place(k, x + node[3] + c * (LEAF_W + gap), y + r * (LEAF_H + gap), L, out, center)
+        return
     if node[0] in ("col", "row"):
         W, H = _size(node, L)
         c = x if node[0] == "row" else y
@@ -105,6 +127,13 @@ def _place(node, x, y, L, out, center):
 def _absolute(node, out, ox=0, oy=0, acc=None):
     """{key: (x, y)} in the view's coordinates, from out's positions relative to their holders."""
     acc = {} if acc is None else acc
+    if node[0] == "space":
+        return acc
+    if node[0] == "grid":
+        for k in node[2]:
+            if k is not None:
+                _absolute(k, out, ox, oy, acc)
+        return acc
     if node[0] in ("col", "row"):
         for k in node[1]:
             _absolute(k, out, ox, oy, acc)
@@ -120,6 +149,7 @@ def relayout(xml, o):
     """Give every box of each of overlay o's views the bounds of o.LAYOUT; nothing else changes."""
     ids = _ids(o)
     for name, _doc, tree in o.VIEWS:
+        tree = getattr(o, "LAYOUT_TREES", {}).get(name, tree)
         L = dict(o.LAYOUT)
         out = {}
         _place(tree, 24, 24, L, out, name in getattr(o, "LAYOUT_CENTERED", ()))
