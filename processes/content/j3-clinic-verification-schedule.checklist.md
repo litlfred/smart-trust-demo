@@ -43,6 +43,7 @@ J3, Clinic verification and schedule generation, in Country B.
 ### 4. Note the failure; decide doses by policy (`Task_Unverified`)
 
 - Who: the `Home clinic provider` lane (role `home-clinic-provider`).
+- Skill: `review-decision-support-guidance`.
 - What: Record the failure reason; decide doses by national policy.
 - Record it: `workflow_complete` with `node: "Task_Unverified"`.
 - next: → `Task_Plan` (Give due doses and book the next visit)

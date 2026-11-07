@@ -52,6 +52,7 @@ J2, Return home, CHW discovery and referral.
 ### 6. Explain the referral to the family (`Task_Slip`)
 
 - Who: the `Community health worker` lane (role `community-health-worker`).
+- Skill: `inform-client`.
 - Record it: `workflow_complete` with `node: "Task_Slip"`.
 - next: → `End` (Family has a referral; the record syncs when online)
 
