@@ -192,13 +192,13 @@ msgstr "Обоснование"
 
 #: docs/dependencies.md:33
 #, python-brace-format
-msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
-msgstr "Пакеты FHIR: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.2.0-litlfred"
+msgstr "Пакеты FHIR: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.2.0-litlfred"
 
 #: docs/dependencies.md:33
 #, python-brace-format
-msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
-msgstr "Пакеты, относительно которых разрешается FSH руководства по внедрению (IG): FHIR R4 4.0.1 (как в smart-base, smart-trust и smart-trust-phw), три пакета, которые SUSHI предоставляет для руководства R4, и руководства SMART ВОЗ, от которых зависит IG. Взяты из зеркал реестра пакетов FHIR на registry.npmjs.org, поскольку SUSHI не должен ничего загружать во время выполнения; {code0} (в npm есть только заглушка) и {code1} 5.3.0 (в npm есть только версия для голосования) — из <a0>litlfred/fhir-package-mirror</a0> на закреплённом коммите, с проверкой по тому же sha512."
+msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512. {code2} 0.2.0-litlfred is the fork build of the Personal Health Wallet guide (R4, with consent): the {code3} on litlfred/smart-trust-phw's gh-pages, pinned by commit and sha512, never published to packages.fhir.org under WHO's id."
+msgstr "Пакеты, относительно которых разрешается FSH руководства по внедрению (IG): FHIR R4 4.0.1 (как в smart-base, smart-trust и smart-trust-phw), три пакета, которые SUSHI предоставляет для руководства R4, и руководства SMART ВОЗ, от которых зависит IG. Взяты из зеркал реестра пакетов FHIR на registry.npmjs.org, поскольку SUSHI не должен ничего загружать во время выполнения; {code0} (в npm есть только заглушка) и {code1} 5.3.0 (в npm есть только версия для голосования) — из <a0>litlfred/fhir-package-mirror</a0> на закреплённом коммите, с проверкой по тому же sha512. {code2} 0.2.0-litlfred — это сборка форка руководства по персональному кошельку медицинских данных (R4, с согласием): {code3} из gh-pages репозитория litlfred/smart-trust-phw, закреплённый по коммиту и sha512 и никогда не публиковавшийся в packages.fhir.org под идентификатором ВОЗ."
 
 #~ #, python-brace-format
 #~ msgid "FHIR packages: {code0} 5.0.0, {code1} 7.0.1, {code2} 5.3.0-ballot-tc1, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
@@ -206,3 +206,11 @@ msgstr "Пакеты, относительно которых разрешает
 
 #~ msgid "The packages the IG's FSH is resolved against: FHIR R5 (as smart-trust and smart-trust-phw use), the three SUSHI provides for an R5 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time."
 #~ msgstr "Пакеты, относительно которых разрешается FSH руководства по внедрению (IG): FHIR R5 (как в smart-trust и smart-trust-phw), три пакета, которые SUSHI предоставляет для руководства R5, и руководства SMART ВОЗ, от которых зависит IG. Взяты из зеркал реестра пакетов FHIR на registry.npmjs.org, поскольку SUSHI не должен ничего загружать во время выполнения."
+
+#~ #, python-brace-format
+#~ msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+#~ msgstr "Пакеты FHIR: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+
+#~ #, python-brace-format
+#~ msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
+#~ msgstr "Пакеты, относительно которых разрешается FSH руководства по внедрению (IG): FHIR R4 4.0.1 (как в smart-base, smart-trust и smart-trust-phw), три пакета, которые SUSHI предоставляет для руководства R4, и руководства SMART ВОЗ, от которых зависит IG. Взяты из зеркал реестра пакетов FHIR на registry.npmjs.org, поскольку SUSHI не должен ничего загружать во время выполнения; {code0} (в npm есть только заглушка) и {code1} 5.3.0 (в npm есть только версия для голосования) — из <a0>litlfred/fhir-package-mirror</a0> на закреплённом коммите, с проверкой по тому же sha512."
