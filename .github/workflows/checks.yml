@@ -67,6 +67,7 @@ jobs:
         run: |
           bun run cat translate-bpmn:check -- --instance .
           bun tools/translation/pages-pot.ts --check
+          bun run cat translate-user-scenarios:check -- --instance .
           bun run cat kg:locale:check -- --instance .
           bun run cat check:translation-officiality
       - name: How far each translation is behind its template (warns, never fails)
