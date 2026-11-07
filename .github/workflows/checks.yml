@@ -69,6 +69,13 @@ jobs:
         run: bun tools/translation/po-status.ts --github
       - name: Translation QA (fails only on a lost placeholder, tag or URL, or an official claim)
         run: python3 -I tools/translation/glossary_qa.py --check
+      - name: A glossary term used in its sense uses its fixed translation (translation:glossary:check)
+        # Where a narrative uses a glossary term in the term's sense (by rule,
+        # or by the adjudicator's verdict in translations/glossary-sense.json),
+        # the translation must use the glossary's fixed rendering; an
+        # exception needs a recorded verdict. Uses still pending adjudication
+        # are listed and fail nothing.
+        run: bun run cat translation:glossary:check -- --instance . --all-locales
       - name: Chromium, for the BPMN renderer
         # The renderer draws through bpmn-js in Chromium. The lockfile's own
         # Playwright installs the browser build it expects, as the harness
