@@ -73,10 +73,11 @@ Usage: #example
 Instance: TrustDemoJ4Consent
 InstanceOf: Consent
 Title: "J4.0b Bounmy's consent to share Somsack's summary for 14 days"
-Description: "Recorded when Bounmy creates Somsack's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): Bounmy's own act on the family wallet is the evidence. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Lao portal enforces the copy in its own record."
+Description: "Recorded when Bounmy creates Somsack's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN), with Bounmy's own act on the family wallet as the evidence. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Lao portal enforces the copy in its own record."
 Usage: #example
 * status = #active
-* category = $loinc#59284-0 "Consent Document"
+* category[+] = $loinc#59284-0 "Consent Document"
+* category[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#OPTIN "opt-in"
 * subject = Reference(TrustDemoSomsack)
 * date = "2026-10-26"
 * period.start = "2026-10-26"
@@ -85,8 +86,6 @@ Usage: #example
 * controller = Reference(TrustDemoLaoPortalOrg)
 * sourceAttachment.contentType = #application/json
 * sourceAttachment.title = "Bounmy's confirmation on the family wallet when he created Somsack's VHL (explicit consent)"
-* regulatoryBasis = TrustDemoConsent#SHARE-SUMMARY-FOR-CARE "Share my child's summary for care across the border"
-* regulatoryBasis.coding.version = "0.1.0"
 * decision = #permit
 * provision.period.start = "2026-10-26"
 * provision.period.end = "2026-11-09"
