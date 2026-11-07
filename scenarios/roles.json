@@ -40,7 +40,10 @@
       "actorKinds": [
         "person"
       ],
-      "skills": [],
+      "skills": [
+        "complete-sdc-questionnaire",
+        "hand-over-credential"
+      ],
       "persona": "A maternity-ward clinician who records doses in the hospital system and prints what it produces."
     },
     {
@@ -59,7 +62,8 @@
         "hcert-compress",
         "hcert-encode-base45",
         "hcert-prefix-context",
-        "hcert-trust-list"
+        "hcert-trust-list",
+        "extract-questionnaire-response"
       ],
       "persona": "Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.",
       "otherNames": [
@@ -90,7 +94,8 @@
       ],
       "skills": [
         "receiver-scan-credential",
-        "complete-sdc-questionnaire"
+        "complete-sdc-questionnaire",
+        "inform-client"
       ],
       "persona": "Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity."
     },
@@ -233,7 +238,8 @@
         "person"
       ],
       "skills": [
-        "receiver-scan-credential"
+        "receiver-scan-credential",
+        "review-client-history"
       ],
       "persona": "Has minutes, no prior relationship with the family, and her own hospital's system."
     }
