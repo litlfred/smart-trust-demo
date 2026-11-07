@@ -1,0 +1,167 @@
+# Arabic translation of architecture
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: smart-trust-demo\n"
+"POT-Creation-Date: 2026-11-06T09:26:50.931Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: docs/architecture.md:81
+msgid "<a0>J1 on the DPI-H RA</a0>"
+msgstr "<a0>J1 على البنية المرجعية DPI-H RA</a0>"
+
+#: docs/architecture.md:82
+msgid "<a0>J2 on the DPI-H RA</a0>"
+msgstr "<a0>J2 على البنية المرجعية DPI-H RA</a0>"
+
+#: docs/architecture.md:83
+msgid "<a0>J3 on the DPI-H RA</a0>"
+msgstr "<a0>J3 على البنية المرجعية DPI-H RA</a0>"
+
+#: docs/architecture.md:84
+msgid "<a0>J4.0 on the DPI-H RA</a0>"
+msgstr "<a0>J4.0 على البنية المرجعية DPI-H RA</a0>"
+
+#: docs/architecture.md:85
+msgid "<a0>J4.1 on the DPI-H RA</a0>"
+msgstr "<a0>J4.1 على البنية المرجعية DPI-H RA</a0>"
+
+#: docs/architecture.md:75
+msgid "<a0>Journeys, people and capabilities</a0>"
+msgstr "<a0>الرحلات والأشخاص والقدرات</a0>"
+
+#: docs/architecture.md:71
+msgid "<a0>Systems on the DPI-H Integrated View</a0>"
+msgstr "<a0>الأنظمة على العرض المتكامل لـ DPI-H</a0>"
+
+#: docs/architecture.md:6
+msgid "Architecture: the demonstrator on the DPI-H RA"
+msgstr "البنية: النموذج التوضيحي على البنية المرجعية DPI-H RA"
+
+#: docs/architecture.md:44
+msgid "each journey's realization of the RA capabilities it exercises."
+msgstr "تجسيد كل رحلة لقدرات البنية المرجعية (RA) التي تمارسها."
+
+#: docs/architecture.md:19
+msgid "each of those roles associated with the RA stakeholder it belongs to: the caregiver with Citizens / Care recipients, the clinicians and the community health worker with Health Workers (a role and a stakeholder are different element types, so ArchiMate allows an association, not a specialization);"
+msgstr "ربط كلٍّ من تلك الأدوار بصاحب المصلحة في البنية المرجعية (RA) الذي ينتمي إليه: مقدِّم الرعاية مع «المواطنين / متلقي الرعاية»، والممارسين السريريين وعامل الصحة المجتمعي مع «العاملين الصحيين» (الدور وصاحب المصلحة نوعان مختلفان من العناصر، ولذلك تسمح ArchiMate بعلاقة ارتباط لا بعلاقة تخصيص)؛"
+
+#: docs/architecture.md:54
+msgid "Every box in a drawing links to its element's page. <a0>All views and elements</a0>."
+msgstr "كل مربع في الرسم مرتبط بصفحة عنصره. <a0>جميع العروض والعناصر</a0>."
+
+#: docs/architecture.md:49
+#, python-brace-format
+msgid "Every element names its concept in the <a0>glossary</a0> ({code0}), drawn from the same sources as the model, and every role and system names the FHIR {code1} it realizes ({code2})."
+msgstr "يُسمّي كل عنصر مفهومه في <a0>المسرد</a0> ({code0})، المستمد من المصادر نفسها التي يُستمد منها النموذج، ويُسمّي كل دور وكل نظام مورد FHIR من نوع {code1} الذي يجسّده ({code2})."
+
+#: docs/architecture.md:46
+msgid "Every line is routed orthogonally through the gaps between boxes and never through a box, and ends on a side of its box clear of the box's type label."
+msgstr "يُوجَّه كل خط توجيهاً متعامداً عبر الفجوات بين المربعات ولا يمر أبداً عبر مربع، وينتهي على جانب من مربعه بعيد عن تسمية نوع المربع."
+
+#: docs/architecture.md:29
+msgid "for each country, its own instance of every RA building block its parts play, such as Provider Systems (Thailand) and Provider Systems (Lao PDR): Thailand and Lao PDR are different jurisdictions, so a Thai part realizes Thailand's instance, as the RA draws a concrete system realizing the component it plays (its Table 3.3), and that instance is a specialization of the RA's block;"
+msgstr "لكل بلد، نسخته الخاصة من كل لبنة بناء في البنية المرجعية (RA) تؤديها أجزاؤه، مثل «أنظمة مقدمي الخدمات (تايلاند)» و«أنظمة مقدمي الخدمات (Lao PDR)»: فتايلاند وجمهورية لاو الديمقراطية الشعبية ولايتان قضائيتان مختلفتان، ولذلك يجسّد الجزء التايلاندي نسخة تايلاند، كما ترسم البنية المرجعية نظاماً ملموساً يجسّد المكوِّن الذي يؤديه (جدولها 3.3)، وتلك النسخة تخصيص للبنة البنية المرجعية؛"
+
+#: docs/architecture.md:87
+msgid "How it is made"
+msgstr "كيف صُنع"
+
+#: docs/architecture.md:81
+msgid "J1 Issue the birth-dose DVCs"
+msgstr "J1 إصدار شهادات التطعيم الرقمية (DVC) لجرعات الولادة"
+
+#: docs/architecture.md:82
+msgid "J2 Discover and refer the infant"
+msgstr "J2 اكتشاف الرضيع وإحالته"
+
+#: docs/architecture.md:83
+msgid "J3 Verify, import and schedule"
+msgstr "J3 التحقق والاستيراد والجدولة"
+
+#: docs/architecture.md:84
+msgid "J4.0 Issue the family's VHLs"
+msgstr "J4.0 إصدار روابط VHL للأسرة"
+
+#: docs/architecture.md:85
+msgid "J4.1 Read records at the point of care"
+msgstr "J4.1 قراءة السجلات في نقطة تقديم الرعاية"
+
+#: docs/architecture.md:79
+msgid "Journey"
+msgstr "الرحلة"
+
+#: docs/architecture.md:73
+msgid "Journeys (use cases)"
+msgstr "الرحلات (حالات الاستخدام)"
+
+#: docs/architecture.md:77
+msgid "One view per journey"
+msgstr "عرض واحد لكل رحلة"
+
+#: docs/architecture.md:57
+msgid "Systems on the Integrated View"
+msgstr "الأنظمة على العرض المتكامل"
+
+#: docs/architecture.md:8
+msgid "The journeys and systems of this demonstrator, drawn as an ArchiMate overlay on the <a0>DPI-H Reference Architecture</a0>'s own ArchiMate model (smart-ra, version 0.3.0-draft.1). The RA's elements are unchanged and keep their ids, so each RA box here is the element <a1>smart-ra publishes</a1>. The overlay adds:"
+msgstr "رحلات هذا النموذج التوضيحي وأنظمته، مرسومة على هيئة طبقة ArchiMate فوق نموذج ArchiMate الخاص بـ<a0>البنية المرجعية DPI-H</a0> (smart-ra، الإصدار 0.3.0-draft.1). تبقى عناصر البنية المرجعية (RA) دون تغيير وتحتفظ بمعرّفاتها، فكل مربع للبنية المرجعية هنا هو العنصر الذي <a1>تنشره smart-ra</a1>. وتضيف الطبقة ما يلي:"
+
+#: docs/architecture.md:15
+msgid "the journeys J1 to J4.1 (the use cases) as business processes, one per <a0>BPMN process</a0>;"
+msgstr "الرحلات من J1 إلى J4.1 (حالات الاستخدام) بوصفها عمليات عمل، واحدة لكل <a0>عملية BPMN</a0>؛"
+
+#: docs/architecture.md:89
+#, python-brace-format
+msgid "The model is generated, not drawn: {code0} fetches smart-ra's model and its {code1} at the commit in {code2} (sha256 checked), applies {code3}, lays the overlay's views out again with room between the boxes and routes every line orthogonally as Archi bendpoints ({code4}), and writes {code5}. The journeys and their people are read from {code6} and {code7}, and where the countries meet from the BPMN's sequence flows; the systems are the system actors of {code8}, and their parts each actor's {code9} (first drawn as VaxLink's architecture view). {code10} writes the glossary from the same sources. CI fails if the committed model is not what the build makes. The drawings are cat-harness's {code11} subgraph's: no Archi, no Java."
+msgstr "النموذج مُولَّد لا مرسوم: يجلب {code0} نموذج smart-ra وملفه {code1} عند الإيداع المحدد في {code2} (مع التحقق من sha256)، ويطبّق {code3}، ويعيد تخطيط عروض الطبقة مع ترك مسافة بين المربعات ويوجّه كل خط توجيهاً متعامداً على هيئة نقاط انحناء Archi ({code4})، ثم يكتب {code5}. تُقرأ الرحلات والأشخاص المشاركون فيها من {code6} و{code7}، وتُقرأ نقاط التقاء البلدين من تدفقات التسلسل في BPMN؛ والأنظمة هي الجهات الفاعلة النظامية في {code8}، وأجزاؤها هي {code9} الخاص بكل جهة فاعلة (رُسمت أولاً بوصفها عرض البنية في VaxLink). ويكتب {code10} المسرد من المصادر نفسها. ويفشل التكامل المستمر (CI) إذا لم يكن النموذج المودَع هو ما ينتجه البناء. والرسوم هي رسوم الرسم الفرعي {code11} في cat-harness: لا Archi ولا Java."
+
+#: docs/architecture.md:17
+msgid "the people who take part, as business roles assigned to the journeys whose BPMN has their lane;"
+msgstr "الأشخاص المشاركون، بوصفهم أدوار عمل مُسنَدة إلى الرحلات التي يتضمن مخطط BPMN الخاص بها مسارهم؛"
+
+#: docs/architecture.md:42
+msgid "the RA's own building blocks, generic and no country's, in a band of their own below both countries in each journey's view;"
+msgstr "لبنات البناء الخاصة بالبنية المرجعية (RA)، العامة وغير المنتمية إلى أي بلد، في شريط مستقل أسفل البلدين في عرض كل رحلة؛"
+
+#: docs/architecture.md:24
+msgid "the Thai and Lao systems, serving the journeys they take part in, each holding its parts, each part named by what it does (Patient record, Smart forms (SDC), Health workforce registry (CHWs, nurses)); the family's shared phone is a technology device that realizes the wallet app on it, not software;"
+msgstr "الأنظمة التايلاندية واللاوية، التي تخدم الرحلات التي تشارك فيها، ويحتوي كلٌّ منها على أجزائه، ويُسمّى كل جزء بحسب وظيفته (سجل المريض، النماذج الذكية (SDC)، سجل القوى العاملة الصحية (عمال الصحة المجتمعيون، الممرضون))؛ أما هاتف الأسرة المشترك فهو جهاز تقني يجسّد تطبيق المحفظة الموجود عليه، وليس برمجيات؛"
+
+#: docs/architecture.md:59
+msgid "Two columns: Thailand on the left, Lao PDR on the right. In each, the country's systems stack top to bottom in the order of the first journey they serve, each holding its parts, and each part says inside its own box which DPI-H RA building block it plays, as a tag such as «Provider Systems». A system's parts that meet the other country, or GDHCN, sit on the side facing the middle, and each Thai system stands level with the first Lao system it meets, so the dashed lines where the countries meet run across. Between the columns, only what both share: WHO GDHCN and the SMART Trust specifications. The countries' instances of the RA blocks, the parts' realizations of them, and the RA's own blocks are in the model and drawn in each journey's view, which keeps this one narrow and its lines few."
+msgstr "عمودان: تايلاند على اليسار، وجمهورية لاو الديمقراطية الشعبية (Lao PDR) على اليمين. في كلٍّ منهما تتراص أنظمة البلد من الأعلى إلى الأسفل بترتيب أول رحلة تخدمها، ويحتوي كل نظام على أجزائه، ويذكر كل جزء داخل مربعه لبنة البناء في البنية المرجعية DPI-H RA التي يؤديها، على هيئة وسم مثل «أنظمة مقدمي الخدمات». وتقع أجزاء النظام التي تلتقي بالبلد الآخر أو بـ GDHCN على الجانب المواجه للوسط، ويقف كل نظام تايلاندي على مستوى أول نظام لاوي يلتقيه، بحيث تمتد الخطوط المتقطعة عند نقاط التقاء البلدين أفقياً. وبين العمودين لا يوجد إلا ما يشترك فيه البلدان: GDHCN التابعة لمنظمة الصحة العالمية (WHO) ومواصفات SMART Trust. أما نسخ البلدين من لبنات البنية المرجعية، وتجسيدات الأجزاء لها، ولبنات البنية المرجعية نفسها، فهي موجودة في النموذج ومرسومة في عرض كل رحلة، مما يُبقي هذا العرض ضيقاً وخطوطه قليلة."
+
+#: docs/architecture.md:79
+msgid "View"
+msgstr "العرض"
+
+#: docs/architecture.md:40
+msgid "what they share, and nothing else, between them: WHO GDHCN and the WHO SMART Trust specifications it realizes;"
+msgstr "ما يشتركان فيه، ولا شيء غيره، بينهما: GDHCN التابعة لمنظمة الصحة العالمية (WHO) ومواصفات WHO SMART Trust التي تجسّدها؛"
+
+#: docs/architecture.md:35
+msgid "where the two countries meet, as flow and triggering relationships between their parts, read from the BPMN: the paper DVC that J1 prints and the family carries to J2 and J3; in J4.1, the VHL QR the family's phone shows the Thai clinic, the clinic's signed ITI-YY5 manifest request to the Lao gateway, and the manifest it returns, the access logged in Lao PDR;"
+msgstr "نقاط التقاء البلدين، بوصفها علاقات تدفق وتشغيل بين أجزائهما، مقروءة من BPMN: شهادة التطعيم الرقمية (DVC) الورقية التي تطبعها J1 وتحملها الأسرة إلى J2 وJ3؛ وفي J4.1، رمز QR الخاص بـ VHL الذي يعرضه هاتف الأسرة على العيادة التايلاندية، وطلب البيان الموقَّع ITI-YY5 من العيادة إلى بوابة الربط اللاوية، والبيان الذي تعيده، مع تسجيل الوصول في جمهورية لاو الديمقراطية الشعبية (Lao PDR)؛"
