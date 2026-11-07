@@ -7,7 +7,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/fhir-harness",
-          "ref": "60aa67361364ce7439279372405ba5cbc0b3b00d",
+          "ref": "29c20f1371d2defa00da52cfbad48fea491f9bbc",
           "overrides": {
             "fhir-harness": {
               "whole": true
@@ -17,8 +17,8 @@
             "consent": {
               "by": "litlfred",
               "on": "2026-11-07",
-              "ref": "60aa67361364ce7439279372405ba5cbc0b3b00d",
-              "evidence": "Owner (litlfred), 2026-11-06: \"repin as needed. merge when green and ready\"; 2026-11-07 ~05:25Z: \"repin + merge open 12 hrs\"; by card ~09:50Z: \"Revert #52, land now\". This session (https://claude.ai/code/session_01VQDpPddqAquBX5nGLsQq3H): re-pinned to fhir-harness main, which includes #299 (IG footer, combined FHIR+KG QA page)."
+              "ref": "29c20f1371d2defa00da52cfbad48fea491f9bbc",
+              "evidence": "Owner (litlfred), 2026-11-07 17:30Z: \"merge what green. window +12hrs. cooridnate merge manager\". This session (https://claude.ai/code/session_01VQDpPfnNBcEn8FqLCVMb6f), at the harness coordinator's request: re-pinned fhir-harness to 29c20f1 (#309, an IG FHIR-package lock seeds the cache in ig-ast-refresh) so the refresh loads trust-phw 0.2.0-litlfred from the lock."
             }
           }
         }
