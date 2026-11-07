@@ -25,7 +25,7 @@ The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage
 
 **Lanes and tasks in the business processes**:
 
-- [J2 Discover and refer an unregistered infant in Country B](business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b): Read each DVC unverified (triage); Add the infant; save doses as reported; Create a referral to the home clinic for verification
+- [J2 Discover and refer an unregistered infant in Country B](business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b): Read each DVC unverified (triage); Create a referral to the home clinic for verification
 
 **Decisions it makes**:
 
