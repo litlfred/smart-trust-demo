@@ -30,11 +30,6 @@ msgstr "{code0} (необязательно) указывает, какое ра
 msgid "{code0} is the point of the edge: the same block plays a different role in each step."
 msgstr "{code0} — суть этого ребра: один и тот же блок исполняет на каждом шаге свою роль."
 
-#: docs/proposals/uses-building-block/README.md:58
-#, python-brace-format
-msgid "{code0} now also checks:"
-msgstr "{code0} теперь также проверяет:"
-
 #: docs/proposals/uses-building-block/README.md:28
 #, python-brace-format
 msgid "{code0}, {code1}, or {code2}. A country's deployed system is that country's; what anyone can adopt is International. The ArchiMate views are to split the RA by jurisdiction on this field (owner, 2026-11-05)"
@@ -50,11 +45,6 @@ msgstr "{code0}: 18 развёрнутых компонентов ({code1}), к�
 msgid "{code0}: every step now has {code1} and {code2}, and its hand-off has {code3} and {code4}, converted from {code5}."
 msgstr "{code0}: каждый шаг теперь имеет {code1} и {code2}, а его передача — {code3} и {code4}, преобразованные из {code5}."
 
-#: docs/proposals/uses-building-block/README.md:52
-#, python-brace-format
-msgid "{code0}: the catalogue, converted once from vaxlink's {code1}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
-msgstr "{code0}: каталог, однократно преобразованный из {code1} vaxlink. Он содержит 19 блоков, 10 из которых связаны с компонентами наложения. Вид, юрисдикция и компоненты сопоставлены вручную."
-
 #: docs/proposals/uses-building-block/README.md:21
 #, python-brace-format
 msgid "<a0>{code0}</a0> ({code1}): one catalogue of blocks. Each block has:"
@@ -64,11 +54,6 @@ msgstr "<a0>{code0}</a0> ({code1}): единый каталог блоков. У
 msgid "as the walkthrough shows them"
 msgstr "как их показывает пошаговый обзор"
 
-#: docs/proposals/uses-building-block/README.md:59
-#, python-brace-format
-msgid "each {code0} names a block in the catalogue, once per step, and a {code1} is one of that block's;"
-msgstr "каждый {code0} называет блок из каталога, по одному разу на шаг, а {code1} — одно из значений этого блока;"
-
 #: docs/proposals/uses-building-block/README.md:24
 msgid "Field"
 msgstr "Поле"
@@ -76,10 +61,6 @@ msgstr "Поле"
 #: docs/proposals/uses-building-block/README.md:50
 msgid "Files"
 msgstr "Файлы"
-
-#: docs/proposals/uses-building-block/README.md:64
-msgid "It passes, and reports each of three seeded errors."
-msgstr "Проверка проходит и сообщает о каждой из трёх внесённых намеренно ошибок."
 
 #: docs/proposals/uses-building-block/README.md:66
 msgid "Left out on purpose"
@@ -114,11 +95,6 @@ msgstr "Статус: черновик, 2026-11-05. Bean {code0}, пробел 2
 #: docs/proposals/uses-building-block/README.md:19
 msgid "The answer: a catalogue, and an edge from the step"
 msgstr "Ответ: каталог и ребро от шага"
-
-#: docs/proposals/uses-building-block/README.md:61
-#, python-brace-format
-msgid "the catalogue's block ids are unique, its layers are known, and its components are element keys of {code0}."
-msgstr "идентификаторы блоков каталога уникальны, его уровни известны, а его компоненты являются ключами элементов {code0}."
 
 #: docs/proposals/uses-building-block/README.md:32
 #, python-brace-format
@@ -158,3 +134,32 @@ msgstr "{code0} vaxlink: 19 обобщённых блоков ({code1}) и дл�
 #, python-brace-format
 msgid "Where the catalogue lives once adopted. It could live in {code0}, with {code1} reading it instead of its own {code2} list, so the components are kept once. That is the ArchiMate session's file, so it is their call."
 msgstr "Где будет находиться каталог после принятия. Он мог бы находиться в {code0}, а {code1} читал бы его вместо собственного списка {code2}, чтобы компоненты хранились в одном месте. Это файл сеанса ArchiMate, поэтому решение за ними."
+
+#: docs/proposals/uses-building-block/README.md:52
+#, python-brace-format
+msgid "{code0} (now at {code1}, a directory declaring the harness's {code2} kind, beside the ArchiMate model; {code3} reads it): the catalogue, converted once from vaxlink's {code4}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
+msgstr "{code0} (теперь в {code1} — каталоге, объявляющем вид {code2} harness, рядом с моделью ArchiMate; его читает {code3}): каталог, однократно преобразованный из {code4} vaxlink. Он содержит 19 блоков, 10 из которых связаны с компонентами наложения. Вид, юрисдикция и компоненты сопоставлены вручную."
+
+#: docs/proposals/uses-building-block/README.md:58
+#, python-brace-format
+msgid "Checks: the harness's {code0} resolves each {code1} to a block of a declared catalogue, and its kind validator checks the catalogue's shape; {code2} refuses a component that is not an element of the overlay and records each element's blocks as a property. ({code3}, which did this first, is retired.)"
+msgstr "Проверки: {code0} harness сопоставляет каждый {code1} с блоком объявленного каталога, а его валидатор вида проверяет форму каталога; {code2} отклоняет компонент, не являющийся элементом наложения, и записывает блоки каждого элемента как свойство. ({code3}, который делал это первым, выведен из эксплуатации.)"
+
+#~ #, python-brace-format
+#~ msgid "{code0} now also checks:"
+#~ msgstr "{code0} теперь также проверяет:"
+
+#~ #, python-brace-format
+#~ msgid "{code0}: the catalogue, converted once from vaxlink's {code1}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
+#~ msgstr "{code0}: каталог, однократно преобразованный из {code1} vaxlink. Он содержит 19 блоков, 10 из которых связаны с компонентами наложения. Вид, юрисдикция и компоненты сопоставлены вручную."
+
+#~ #, python-brace-format
+#~ msgid "each {code0} names a block in the catalogue, once per step, and a {code1} is one of that block's;"
+#~ msgstr "каждый {code0} называет блок из каталога, по одному разу на шаг, а {code1} — одно из значений этого блока;"
+
+#~ msgid "It passes, and reports each of three seeded errors."
+#~ msgstr "Проверка проходит и сообщает о каждой из трёх внесённых намеренно ошибок."
+
+#~ #, python-brace-format
+#~ msgid "the catalogue's block ids are unique, its layers are known, and its components are element keys of {code0}."
+#~ msgstr "идентификаторы блоков каталога уникальны, его уровни известны, а его компоненты являются ключами элементов {code0}."
