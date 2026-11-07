@@ -18,7 +18,7 @@ msgstr ""
 #: docs/plan.md:32
 #, python-brace-format
 msgid "(done) {code0} declaration and {code1} pinning the harness layers smart-trust-tools pins (fhir-harness and below) plus smart-trust-tools itself, so {code2} ids resolve; {code3}."
-msgstr "(выполнено) Объявление {code0} и {code1}, закрепляющий слои harness, которые закрепляет smart-trust-tools (fhir-harness и ниже), а также сам smart-trust-tools, чтобы идентификаторы {code2} разрешались; {code3}."
+msgstr "(выполнено) Декларация {code0} и {code1}, закрепляющий слои обвязки, которые закрепляет smart-trust-tools (fhir-harness и ниже), а также сам smart-trust-tools, чтобы идентификаторы {code2} разрешались; {code3}."
 
 #: docs/plan.md:72
 #, python-brace-format
@@ -48,7 +48,7 @@ msgstr "{code0}: модуль библиотеки Android, инструмент
 #: docs/plan.md:40
 #, python-brace-format
 msgid "{code0}: one BPMN per journey (done in step 2a; checklists and the harness mount in 2b) (J1 issuance, J2 CHW discovery and referral, J3 verification, import and schedule, J4.0 VHL issuance to a shared phone, J4.1 VHL fetch at the point of care), lanes naming roles, tasks naming smart-trust-tools skills; checklists generated."
-msgstr "{code0}: по одному BPMN на путь (выполнено на шаге 2a; чек-листы и монтирование harness — в 2b) (J1 — выдача, J2 — выявление и направление общинным медицинским работником (CHW), J3 — проверка, импорт и график, J4.0 — выдача VHL на общий телефон, J4.1 — получение VHL в месте оказания помощи); дорожки именуют роли, задачи именуют навыки smart-trust-tools; чек-листы сгенерированы."
+msgstr "{code0}: по одному BPMN на путь (выполнено на шаге 2a; чек-листы и монтирование обвязки — в 2b) (J1 — выдача, J2 — выявление и направление общинным медицинским работником (CHW), J3 — проверка, импорт и график, J4.0 — выдача VHL на общий телефон, J4.1 — получение VHL в месте оказания помощи); дорожки именуют роли, задачи именуют навыки smart-trust-tools; чек-листы сгенерированы."
 
 #: docs/plan.md:35
 #, python-brace-format
@@ -152,7 +152,7 @@ msgstr "Полноценный нижестоящий cat-harness для smart-t
 
 #: docs/plan.md:16
 msgid "Harness"
-msgstr "Harness"
+msgstr "Обвязка"
 
 #: docs/plan.md:17
 msgid "Home country (J2–J4)"
@@ -233,7 +233,7 @@ msgstr "Шаги"
 #: docs/plan.md:51
 #, python-brace-format
 msgid "The journeys as a WHO SMART Guidelines DAK and FHIR IG, shaped as litlfred/smart-immunizations ({code0}, {code1}, the DAK in {code2} ({code3}), {code4}). The L2 content is generated from the harness sources by {code5}: roles become {code6}s, the BPMN is copied to {code7}, stories and scenarios become pages. CI checks the generated files are current and that SUSHI builds with no errors. Then: publish the IG on gh-pages and add example resources per journey (bean IG-01)."
-msgstr "Пути в виде DAK и FHIR IG по руководящим принципам SMART ВОЗ (WHO SMART Guidelines), устроенные как litlfred/smart-immunizations ({code0}, {code1}, DAK в {code2} ({code3}), {code4}). Содержимое L2 генерируется из исходников harness с помощью {code5}: роли становятся {code6}, BPMN копируется в {code7}, истории и сценарии становятся страницами. CI проверяет, что сгенерированные файлы актуальны и что SUSHI собирается без ошибок. Затем: опубликовать IG на gh-pages и добавить примеры ресурсов для каждого пути (bean IG-01)."
+msgstr "Пути в виде DAK и FHIR IG по руководящим принципам SMART ВОЗ (WHO SMART Guidelines), устроенные как litlfred/smart-immunizations ({code0}, {code1}, DAK в {code2} ({code3}), {code4}). Содержимое L2 генерируется из исходников обвязки с помощью {code5}: роли становятся {code6}, BPMN копируется в {code7}, истории и сценарии становятся страницами. CI проверяет, что сгенерированные файлы актуальны и что SUSHI собирается без ошибок. Затем: опубликовать IG на gh-pages и добавить примеры ресурсов для каждого пути (bean IG-01)."
 
 #: docs/plan.md:117
 msgid "The web target (once hcert-core runs in a browser, or via the Rust/wasm library meanwhile), and the gh-pages site (agent-published): the journeys, BPMN viewers, personas and the test evidence."
