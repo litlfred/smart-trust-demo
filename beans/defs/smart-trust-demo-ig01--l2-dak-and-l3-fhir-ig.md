@@ -14,7 +14,7 @@ The journeys existed only as harness content (BPMN in `processes/content/`, role
 
 Shape, as litlfred/smart-immunizations: `sushi-config.yaml`, `ig.ini`, `dak.json` and the DAK pages under `input/pagecontent/`. The L2 content is generated from the harness sources by `tools/ig-gen/ig_gen.py` (single source; CI fails if stale): roles become `ActorDefinition`s (generic personas, system actors), the BPMN is copied to `input/business-processes/`, stories and the journeys' user scenarios become pages.
 
-FHIR R5 (5.0.0), as smart-trust and smart-trust-phw are. IG id `smart.who.int.trust-demo`, canonical `http://smart.who.int/trust-demo` (owner, 2026-10-23: memory/dir-ig-identity.md).
+FHIR R4 (4.0.1), as smart-base, smart-trust and smart-trust-phw are (moved from R5 on 2026-11-07, owner: R4 like smart-base). IG id `smart.who.int.trust-demo`, canonical `http://smart.who.int/trust-demo` (owner, 2026-10-23: memory/dir-ig-identity.md).
 
 ## Open
 

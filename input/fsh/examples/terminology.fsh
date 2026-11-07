@@ -54,29 +54,29 @@ Usage: #definition
 * name = "TrustDemoProductToLaoEpi"
 * status = #draft
 * experimental = true
-* sourceScopeCanonical = Canonical(TrustDemoVaccineProducts)
-* targetScopeCanonical = Canonical(TrustDemoLaoEpiScheduleCodes)
+* sourceCanonical = Canonical(TrustDemoVaccineProducts)
+* targetCanonical = Canonical(TrustDemoLaoEpiScheduleCodes)
 * group[+].source = Canonical(TrustDemoVaccineProduct)
 * group[=].target = Canonical(TrustDemoLaoEpiSchedule)
 * group[=].element[+].code = #vp-hepb-peds-monovalent
 * group[=].element[=].target[+].code = #LAO-EPI-HEPB-BD
-* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[=].target[=].comment = "Added from the nurse's adjudication at Vientiane District Health Center, 2025-11-25: a monovalent paediatric Hep B dose given within 24 hours of birth counts as the schedule's birth dose."
 * group[=].element[+].code = #vp-bcg-freeze-dried
 * group[=].element[=].target[+].code = #LAO-EPI-BCG
-* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-pentavalent-liquid
 * group[=].element[=].target[+].code = #LAO-EPI-PENTA-1
-* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-bopv-drops
 * group[=].element[=].target[+].code = #LAO-EPI-OPV-1
-* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-pcv-13-dose
 * group[=].element[=].target[+].code = #LAO-EPI-PCV-1
-* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-mr-freeze-dried
 * group[=].element[=].target[+].code = #LAO-EPI-MR-1
-* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].equivalence = #equivalent
 
 Instance: TrustDemoLaoInfantSchedule
 InstanceOf: PlanDefinition

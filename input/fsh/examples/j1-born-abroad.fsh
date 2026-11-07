@@ -34,7 +34,7 @@ Usage: #example
 * performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-4821"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1
 
 Instance: TrustDemoJ1Bcg
 InstanceOf: TrustDemoThImmunization
@@ -47,4 +47,4 @@ Usage: #example
 * performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-9012"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1

@@ -12,12 +12,15 @@ Usage: #definition
 * experimental = true
 * description = "Of the foreign doses imported as verified, the proportion that carry a national schedule code beside the issuer's code, and so count toward the schedule."
 * scoring = http://terminology.hl7.org/CodeSystem/measure-scoring#proportion "Proportion"
-* basis = #Immunization
 * guidance = "A definition only: it states no target and no value. Data elements: TD.J3B.DE01 Issuer's product code; TD.J3B.DE02 National schedule code; TD.J3B.DE03 Mapping basis; TD.J3B.DE05 Counts toward the schedule. Decision tables: TD.DT.02, TD.DT.03. Requirements: STD-SEM-001, STD-SCH-001. The populations are described, not computable: this guide carries no CQL."
 * group[+].population[+].code = http://terminology.hl7.org/CodeSystem/measure-population#denominator "Denominator"
-* group[=].population[=].description = "Doses imported as verified in the reporting period. Computation: COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" != not-imported"
+* group[=].population[=].description = "Doses imported as verified in the reporting period."
+* group[=].population[=].criteria.language = #text/plain
+* group[=].population[=].criteria.expression = "COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" != not-imported"
 * group[=].population[+].code = http://terminology.hl7.org/CodeSystem/measure-population#numerator "Numerator"
-* group[=].population[=].description = "Doses imported as verified in the reporting period that carry a national schedule code. Computation: COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" in (concept-map, clinician-confirmed)"
+* group[=].population[=].description = "Doses imported as verified in the reporting period that carry a national schedule code."
+* group[=].population[=].criteria.language = #text/plain
+* group[=].population[=].criteria.expression = "COUNT of imported doses (TD.J3B) WHERE imported in the reporting period AND \"Mapping basis\" in (concept-map, clinician-confirmed)"
 * group[=].stratifier[+].code.text = "Mapping basis"
 * group[=].stratifier[=].description = "concept-map, clinician-confirmed, unmapped (TD.DT.02)"
 * group[=].stratifier[+].code.text = "Issuer's product code"

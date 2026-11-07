@@ -49,7 +49,7 @@ Why: the DVC can only carry what this record holds. The vaccine product, date, l
 * performer 1..* MS
 * lotNumber 1..1 MS
 * protocolApplied 1..* MS
-* protocolApplied.doseNumber 1..1
+* protocolApplied.doseNumber[x] 1..1
 
 Profile: TrustDemoThVhlReceipt
 Parent: Provenance

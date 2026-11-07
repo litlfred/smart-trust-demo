@@ -73,20 +73,20 @@ Usage: #example
 Instance: TrustDemoJ4Consent
 InstanceOf: Consent
 Title: "J4.0b Bounmy's consent to share Somsack's summary for 14 days"
-Description: "Recorded when Bounmy creates Somsack's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN), with Bounmy's own act on the family wallet as the evidence. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Lao portal enforces the copy in its own record."
+Description: "Recorded when Bounmy creates Somsack's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN) that adds this permission to the opt-in default, the IHE PCF implicit policy Policy-deny, with Bounmy's own act on the family wallet as the evidence. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Lao portal enforces the copy in its own record."
 Usage: #example
 * status = #active
+* scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
 * category[+] = $loinc#59284-0 "Consent Document"
 * category[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#OPTIN "opt-in"
-* subject = Reference(TrustDemoSomsack)
-* date = "2026-10-26"
-* period.start = "2026-10-26"
-* period.end = "2026-11-09"
-* grantor = Reference(TrustDemoBounmy)
-* controller = Reference(TrustDemoLaoPortalOrg)
+* patient = Reference(TrustDemoSomsack)
+* dateTime = "2026-10-26"
+* performer = Reference(TrustDemoBounmy)
+* organization = Reference(TrustDemoLaoPortalOrg)
 * sourceAttachment.contentType = #application/json
 * sourceAttachment.title = "Bounmy's confirmation on the family wallet when he created Somsack's VHL (explicit consent)"
-* decision = #permit
+* policy.uri = "https://profiles.ihe.net/ITI/PCF/Policy-deny"
+* provision.type = #permit
 * provision.period.start = "2026-10-26"
 * provision.period.end = "2026-11-09"
 * provision.action = http://terminology.hl7.org/CodeSystem/consentaction#access "Access"
@@ -116,16 +116,17 @@ InstanceOf: TrustDemoLaoVhlAccess
 Title: "J4.1 access logged in Lao PDR: manifest released"
 Description: "The record the Lao gateway keeps when the Chiang Rai clinic viewer retrieves Somsack's VHL manifest with the right passcode (IHE Basic Audit Log Patterns): who looked, from where, and when."
 Usage: #example
-* category = http://dicom.nema.org/resources/ontology/DCM#110112 "Query"
-* code.text = "IHE ITI VHL manifest retrieval (ITI-YY5)"
+* type = http://dicom.nema.org/resources/ontology/DCM#110112 "Query"
+* subtype.display = "IHE ITI VHL manifest retrieval (ITI-YY5)"
 * action = #E
 * recorded = "2026-10-28T14:30:15+07:00"
-* outcome.code = http://terminology.hl7.org/CodeSystem/audit-event-outcome#0 "Success"
-* outcome.detail.text = "Passcode verified; manifest released to the receiver"
+* outcome = #0
+* outcomeDesc = "Passcode verified; manifest released to the receiver"
 * agent[+].type = http://terminology.hl7.org/CodeSystem/v3-ParticipationType#IRCP "information recipient"
 * agent[=].who = Reference(TrustDemoClinicViewer)
 * agent[=].requestor = true
-* agent[=].networkString = "clinic-viewer.chiang-rai.example"
+* agent[=].network.address = "clinic-viewer.chiang-rai.example"
+* agent[=].network.type = #1
 * agent[+].type = http://terminology.hl7.org/CodeSystem/v3-ParticipationType#CST "custodian"
 * agent[=].who = Reference(TrustDemoLaoGateway)
 * agent[=].requestor = false
@@ -140,16 +141,17 @@ InstanceOf: TrustDemoLaoVhlAccess
 Title: "J4.1 wrong passcode: refused, and still logged in Lao PDR"
 Description: "The 'what if' of J4.1: a manifest request with the wrong passcode is refused, and the attempt is logged at home all the same."
 Usage: #example
-* category = http://dicom.nema.org/resources/ontology/DCM#110112 "Query"
-* code.text = "IHE ITI VHL manifest retrieval (ITI-YY5)"
+* type = http://dicom.nema.org/resources/ontology/DCM#110112 "Query"
+* subtype.display = "IHE ITI VHL manifest retrieval (ITI-YY5)"
 * action = #E
 * recorded = "2026-10-28T14:29:02+07:00"
-* outcome.code = http://terminology.hl7.org/CodeSystem/audit-event-outcome#4 "Minor failure"
-* outcome.detail.text = "Wrong passcode; manifest not released"
+* outcome = #4
+* outcomeDesc = "Wrong passcode; manifest not released"
 * agent[+].type = http://terminology.hl7.org/CodeSystem/v3-ParticipationType#IRCP "information recipient"
 * agent[=].who = Reference(TrustDemoClinicViewer)
 * agent[=].requestor = true
-* agent[=].networkString = "clinic-viewer.chiang-rai.example"
+* agent[=].network.address = "clinic-viewer.chiang-rai.example"
+* agent[=].network.type = #1
 * agent[+].type = http://terminology.hl7.org/CodeSystem/v3-ParticipationType#CST "custodian"
 * agent[=].who = Reference(TrustDemoLaoGateway)
 * agent[=].requestor = false
