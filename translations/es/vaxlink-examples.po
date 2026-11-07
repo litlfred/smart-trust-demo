@@ -218,11 +218,6 @@ msgstr "Fechas. Como en el recorrido guiado: nacimiento 2025-10-28, J2 2025-11-1
 msgid "Each country records only what its own step needs, so the guide has a small profile per country where the two differ. Each profile's description says how it is used in the journey and why its constraints are there. These are demonstrator profiles: they show what each step relies on and are not a ministry's national specification."
 msgstr "Cada país registra solo lo que necesita su propio paso, por lo que la guía tiene un pequeño perfil por país allí donde ambos difieren. La descripción de cada perfil indica cómo se usa en el recorrido y por qué tiene sus restricciones. Son perfiles de demostración: muestran aquello en lo que se basa cada paso y no son la especificación nacional de un ministerio."
 
-#: docs/vaxlink-examples.md:14
-#, python-brace-format
-msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R5, as this guide is."
-msgstr "Cada ejemplo se publica dos veces: como página y como JSON sin procesar en una URL estable que el recorrido guiado puede obtener ({code0}). Son FHIR R5, como esta guía."
-
 #: docs/vaxlink-examples.md:47
 msgid "Every VHL access logged at home, refusals included (IHE BALP pattern)."
 msgstr "Cada acceso al VHL queda registrado en el país de residencia, incluidos los rechazos (patrón IHE BALP)."
@@ -333,16 +328,6 @@ msgstr "Perfil"
 #: docs/vaxlink-examples.md:61
 msgid "Provenance"
 msgstr "Provenance"
-
-#: docs/vaxlink-examples.md:62
-#, python-brace-format
-msgid "R5 shape: {code0}, {code1}, {code2}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
-msgstr "Estructura R5: {code0}, {code1}, {code2}; el receptor es el solicitante, y la puerta de enlace lao, el custodio y observador. El código de acceso nunca se registra."
-
-#: docs/vaxlink-examples.md:58
-#, python-brace-format
-msgid "R5: {code0} replaces {code1}; the household code is {code2} with the text \"Household\"."
-msgstr "R5: {code0} sustituye a {code1}; el código del hogar es {code2} con el texto \"Household\"."
 
 #: docs/vaxlink-examples.md:20
 msgid "Screen"
@@ -466,3 +451,30 @@ msgstr "Quién verificó qué DVC con la lista de confianza de la GDHCN y qué d
 #: docs/vaxlink-examples.md:35
 msgid "Why it is there"
 msgstr "Por qué está ahí"
+
+#: docs/vaxlink-examples.md:58
+#, python-brace-format
+msgid "{code0}; the members are Patients (FHIR R4 Group lists Patients, so each parent is a Patient beside their RelatedPerson role); the household code is {code1} with the text \"Household\"."
+msgstr "{code0}; los miembros son recursos Patient (en FHIR R4, Group enumera recursos Patient, así que cada progenitor es un Patient junto a su rol RelatedPerson); el código del hogar es {code1} con el texto \"Household\"."
+
+#: docs/vaxlink-examples.md:14
+#, python-brace-format
+msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R4 (4.0.1), as this guide is, like smart-base and the Personal Health Wallet guide."
+msgstr "Cada ejemplo se publica dos veces: como página y como JSON sin procesar en una URL estable que el recorrido guiado puede obtener ({code0}). Son FHIR R4 (4.0.1), como esta guía, al igual que smart-base y la guía Personal Health Wallet."
+
+#: docs/vaxlink-examples.md:62
+#, python-brace-format
+msgid "R4 shape: {code0}, {code1}, {code2}, {code3}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
+msgstr "Estructura R4: {code0}, {code1}, {code2}, {code3}; el receptor es el solicitante, y la puerta de enlace lao, el custodio y observador. El código de acceso nunca se registra."
+
+#~ #, python-brace-format
+#~ msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R5, as this guide is."
+#~ msgstr "Cada ejemplo se publica dos veces: como página y como JSON sin procesar en una URL estable que el recorrido guiado puede obtener ({code0}). Son FHIR R5, como esta guía."
+
+#~ #, python-brace-format
+#~ msgid "R5 shape: {code0}, {code1}, {code2}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
+#~ msgstr "Estructura R5: {code0}, {code1}, {code2}; el receptor es el solicitante, y la puerta de enlace lao, el custodio y observador. El código de acceso nunca se registra."
+
+#~ #, python-brace-format
+#~ msgid "R5: {code0} replaces {code1}; the household code is {code2} with the text \"Household\"."
+#~ msgstr "R5: {code0} sustituye a {code1}; el código del hogar es {code2} con el texto \"Household\"."
