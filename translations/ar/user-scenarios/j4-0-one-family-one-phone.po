@@ -1,0 +1,364 @@
+# Arabic translation of user scenario j4-0-one-family-one-phone
+#
+# UNOFFICIAL — drafted by an agent from the template beside it. No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# requirement ids, placeholders, numbers and URLs are kept as written;
+# persona names are fictional and kept as written. Modern Standard Arabic,
+# right-to-left. msgctxt is the scenario field path.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: j4-0-one-family-one-phone\n"
+"POT-Creation-Date: 2026-11-07T21:58:55.906Z\n"
+"PO-Revision-Date: 2026-11-07\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:12
+msgctxt "country"
+msgid "Cross-Border"
+msgstr "عابر للحدود"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:5
+msgctxt "description"
+msgid "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses."
+msgstr "بعد عام، تخطط الأسرة لرحلة إلى تايلاند. يحمل هاتف Bounmy سجلات أفرادها الثلاثة جميعًا، بما فيها جرعات Somsack الست المُتحقَّق منها."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:242
+msgctxt "references.label"
+msgid "User scenario in the IG"
+msgstr "سيناريو المستخدم في دليل التنفيذ (IG)"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:39
+msgctxt "step.enabler"
+msgid "A household wallet on one phone, with a separate health summary for each person."
+msgstr "محفظة للأسرة المعيشية على هاتف واحد، مع ملخص صحي مستقل لكل فرد."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:142
+msgctxt "step.enabler"
+msgid "A Verifiable Health Link: the QR holds only a locked pointer; the data stays home until the passcode is given."
+msgstr "رابط صحي قابل للتحقق: لا يحمل رمز QR سوى مؤشر مُقفَل؛ وتبقى البيانات في البلد الأم إلى أن يُعطى رمز المرور."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:136
+msgctxt "step.experiences.doing"
+msgid "Creates a passcode-protected QR link for Somsack, valid for 14 days."
+msgstr "يُنشئ رابط QR محميًّا برمز مرور لـ Somsack، صالحًا لمدة 14 يومًا."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:27
+msgctxt "step.experiences.doing"
+msgid "Opens the family wallet: profiles for himself, Khamla and Somsack."
+msgstr "يفتح محفظة الأسرة: ملفات تعريف له ولـ Khamla ولـ Somsack."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:33
+msgctxt "step.experiences.doing"
+msgid "Relies on Bounmy’s phone for her own and the baby’s records."
+msgstr "تعتمد على هاتف Bounmy لسجلاتها وسجلات الرضيع."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:137
+msgctxt "step.experiences.feeling"
+msgid "“I decide who sees it, and for how long.”"
+msgstr "«أنا من يقرر من يطّلع عليه، ولكم من الوقت.»"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:34
+msgctxt "step.experiences.feeling"
+msgid "“It’s on his phone. What if I travel without him?”"
+msgstr "«إنه على هاتفه. ماذا لو سافرتُ من دونه؟»"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:28
+msgctxt "step.experiences.feeling"
+msgid "“One phone, three people — I can manage all of us.”"
+msgstr "«هاتف واحد، ثلاثة أشخاص — أستطيع أن أدير شؤوننا جميعًا.»"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:218
+msgctxt "step.fhirChanges.change"
+msgid "Created: scope = IPS, expires in 14 days"
+msgstr "أُنشئ: النطاق = IPS، تنتهي صلاحيته بعد 14 يومًا"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:106
+msgctxt "step.fhirChanges.change"
+msgid "Drives the profile switcher"
+msgstr "يُشغِّل أداة التبديل بين ملفات التعريف"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:96
+msgctxt "step.fhirChanges.change"
+msgid "Generated: 2 Thai + 4 Lao doses"
+msgstr "أُنتج: 2 من الجرعات التايلاندية + 4 من الجرعات اللاوية"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:227
+msgctxt "step.fhirChanges.change"
+msgid "Signed pointer to encrypted IPS"
+msgstr "مؤشر موقَّع إلى IPS مُشفَّر"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:97
+msgctxt "step.fhirChanges.why"
+msgid "An International Patient Summary is what any country’s clinic can read, whatever its own system."
+msgstr "ملخص المريض الدولي هو ما تستطيع عيادة أي بلد قراءته، أيًّا كان نظامها الخاص."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:219
+msgctxt "step.fhirChanges.why"
+msgid "Bounmy decides what is shared and for how long; the gateway checks this before releasing anything."
+msgstr "يقرر Bounmy ما يُشارَك ولكم من الوقت؛ وتتحقق بوابة الربط من ذلك قبل الإفراج عن أي شيء."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:228
+msgctxt "step.fhirChanges.why"
+msgid "Not a copy of the record: a signed, passcode-protected pointer back to Lao PDR."
+msgstr "ليس نسخة من السجل: بل مؤشر موقَّع ومحمي برمز مرور يعود إلى جمهورية لاو الديمقراطية الشعبية (Lao PDR)."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:107
+msgctxt "step.fhirChanges.why"
+msgid "One shared phone, three family members: the household decides whose records the wallet shows."
+msgstr "هاتف واحد مشترك، وثلاثة أفراد من الأسرة: تقرر الأسرة المعيشية سجلاتِ مَن تعرضها المحفظة."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:48
+msgctxt "step.handoff.carrier"
+msgid "FHIR API (HTTPS) via Info Gateway"
+msgstr "FHIR API (HTTPS) عبر بوابة ربط المعلومات (Info Gateway)"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:48
+msgctxt "step.handoff.carrier"
+msgid "HTTPS"
+msgstr "HTTPS"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:49
+msgctxt "step.handoff.payload"
+msgid "IPS Bundle per family member"
+msgstr "IPS Bundle لكل فرد من أفراد الأسرة"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:152
+msgctxt "step.handoff.payload"
+msgid "VHL manifest + Consent registered"
+msgstr "بيان VHL + الموافقة (Consent) مُسجَّلان"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:150
+msgctxt "step.handoff.summary"
+msgid "A QR on Dad’s phone + a passcode he can say aloud"
+msgstr "رمز QR على هاتف الأب + رمز مرور يستطيع أن يقوله بصوت عالٍ"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:47
+msgctxt "step.handoff.summary"
+msgid "Somsack’s summary is ready to share"
+msgstr "ملخص Somsack جاهز للمشاركة"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:5
+msgctxt "step.headline"
+msgid "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses."
+msgstr "بعد عام، تخطط الأسرة لرحلة إلى تايلاند. يحمل هاتف Bounmy سجلات أفرادها الثلاثة جميعًا، بما فيها جرعات Somsack الست المُتحقَّق منها."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:120
+msgctxt "step.headline"
+msgid "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR."
+msgstr "قبل الرحلة، يُنشئ Bounmy رابط QR لسجل Somsack، مُقفَلًا برمز مرور من 4 أرقام وصالحًا لمدة 14 يومًا (وهذه إعدادات العرض التوضيحي: إذ يحدد كل بلد إعداداته الخاصة). أما السجل نفسه فيبقى في جمهورية لاو الديمقراطية الشعبية (Lao PDR)."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:91
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:91
+msgctxt "step.illustration.alt"
+msgid "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+msgstr "بعد العودة إلى تايلاند، يشارك Bounmy رابط سجل تطعيم من هاتفه فيطّلع د. Anan على تاريخ تطعيم Somsack؛ وتقف Khamla والطفل الصغير Somsack بجانبهما"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:131
+msgctxt "step.narrative"
+msgid ""
+"For Somsack, Bounmy shares his record with a 4-digit passcode he\n"
+"can say aloud, valid for 14 days. The portal records his consent\n"
+"(`TrustDemoJ4Consent`), then does three things:\n"
+"\n"
+"1. It assembles the IPS and Somsack's DVCs.\n"
+"2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n"
+"3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n"
+"\n"
+"The QR holds only a pointer and a key: the record stays in Lao PDR.\n"
+msgstr "بالنسبة إلى Somsack، يشارك Bounmy سجله برمز مرور من 4 أرقام يستطيع\nأن يقوله بصوت عالٍ، صالحًا لمدة 14 يومًا. تسجّل البوابة موافقته\n(`TrustDemoJ4Consent`)، ثم تقوم بثلاثة أمور:\n\n1. تُجمِّع IPS وشهادات DVC الخاصة بـ Somsack.\n2. تُشفِّرها (STT-VHL-004، STT-VHL-007) خلف بيان محمي برمز مرور وله تاريخ انتهاء صلاحية (STT-VHL-009).\n3. تُصدِر الرابط بوصفه HCERT، مع وضع VHL عند المفتاح 5 (STT-VHL-001، STT-VHL-002)، موقَّعًا بشهادة DSC الخاصة بالبلد B.\n\nلا يحمل رمز QR سوى مؤشر ومفتاح: ويبقى السجل في جمهورية لاو الديمقراطية الشعبية (Lao PDR).\n"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:22
+msgctxt "step.narrative"
+msgid ""
+"The family plans a trip to Thailand. Bounmy's phone holds the\n"
+"family wallet, with a profile for each of them. Somsack's summary\n"
+"(`TrustDemoJ4Ips`) shows six doses: two from Thailand, four from Lao PDR.\n"
+msgstr "تخطط الأسرة لرحلة إلى تايلاند. يحمل هاتف Bounmy\nمحفظة الأسرة، مع ملف تعريف لكل فرد منهم. يُظهر ملخص Somsack\n(`TrustDemoJ4Ips`) ست جرعات: اثنتان من تايلاند، وأربع من جمهورية لاو الديمقراطية الشعبية (Lao PDR).\n"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:38
+msgctxt "step.painPoint"
+msgid "Many families share one smartphone; one-app-per-person designs leave them out."
+msgstr "تتشارك أسر كثيرة هاتفًا ذكيًّا واحدًا؛ والتصاميم القائمة على تطبيق لكل شخص تستبعدها."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:141
+msgctxt "step.painPoint"
+msgid "Sending photos or PDFs of records leaks data and can’t be verified by the receiver."
+msgstr "إرسال صور السجلات أو ملفات PDF منها يُسرِّب البيانات، ولا يمكن للجهة المُستقبِلة التحقق منها."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:143
+msgctxt "step.policy"
+msgid "Data sovereignty: the record stays in Lao PDR until the family authorizes someone to open it."
+msgstr "سيادة البيانات: يبقى السجل في جمهورية لاو الديمقراطية الشعبية (Lao PDR) إلى أن تأذن الأسرة لشخص ما بفتحه."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:40
+msgctxt "step.policy"
+msgid "Design for shared devices (“One Family, One Phone”) so families with only one phone aren’t left out."
+msgstr "التصميم للأجهزة المشتركة («أسرة واحدة، هاتف واحد») حتى لا تُستبعَد الأسر التي لا تملك إلا هاتفًا واحدًا."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:127
+msgctxt "step.preconditions.description"
+msgid "**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1."
+msgstr "**الشرط المسبق، كما في J1:** شهادة DSC الخاصة بالبلد B، الصادرة تحت سلطة CSCA الخاصة بالبلد B، مُشارَكة بالفعل مع GDHCN، مرسى الثقة. وهذا ما يتيح للعيادة في تايلاند التحقق من الرابط في J4.1."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:126
+msgctxt "step.preconditions.title"
+msgid "Country B's DSC is shared with the trust anchor"
+msgstr "شهادة DSC الخاصة بالبلد B مُشارَكة مع مرسى الثقة"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:43
+msgctxt "step.record.description"
+msgid "12-month summary: 2 Thai + 4 Lao doses"
+msgstr "ملخص 12 شهرًا: 2 من الجرعات التايلاندية + 4 من الجرعات اللاوية"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:146
+msgctxt "step.record.description"
+msgid "Shareable link created; data stays in Lao PDR"
+msgstr "أُنشئ رابط قابل للمشاركة؛ وتبقى البيانات في جمهورية لاو الديمقراطية الشعبية (Lao PDR)"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:147
+msgctxt "step.record.heldWhere"
+msgid "Lao national records (QR is just a pointer)"
+msgstr "السجلات الوطنية اللاوية (رمز QR مجرد مؤشر)"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:44
+msgctxt "step.record.heldWhere"
+msgid "Lao national records + family wallet"
+msgstr "السجلات الوطنية اللاوية + محفظة الأسرة"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:63
+msgctxt "step.technicalSummary"
+msgid "A year of records from two countries is assembled into one International Patient Summary, a format any clinician abroad knows how to read."
+msgstr "تُجمَّع سجلات عام كامل من بلدين في ملخص مريض دولي واحد، وهو تنسيق يعرف أي ممارس سريري في الخارج كيف يقرؤه."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:181
+msgctxt "step.technicalSummary"
+msgid "The QR is a key, not a copy. The record stays on the Lao server, and the family’s consent (who, how long) is recorded in a standard form and enforced."
+msgstr "رمز QR مفتاح، لا نسخة. يبقى السجل على الخادم اللاوي، وتُسجَّل موافقة الأسرة (مَن، ولكم من الوقت) في صيغة معيارية ويُفرَض تطبيقها."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:119
+msgctxt "step.title"
+msgid "Dad creates a link to share at the clinic"
+msgstr "الأب يُنشئ رابطًا لمشاركته في العيادة"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:17
+msgctxt "step.title"
+msgid "One phone holds the whole family’s records"
+msgstr "هاتف واحد يحمل سجلات الأسرة كلها"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:123
+msgctxt "step.touchpoint"
+msgid "Family wallet app (share link)"
+msgstr "تطبيق محفظة الأسرة (مشاركة الرابط)"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:21
+msgctxt "step.touchpoint"
+msgid "Family wallet app on Dad’s phone"
+msgstr "تطبيق محفظة الأسرة على هاتف الأب"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:193
+msgctxt "step.uses.role"
+msgid "14-day, passcode-protected sharing consent"
+msgstr "موافقة على المشاركة لمدة 14 يومًا، محمية برمز مرور"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:185
+msgctxt "step.uses.role"
+msgid "Generates the link and passcode"
+msgstr "يُنتج الرابط ورمز المرور"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:67
+msgctxt "step.uses.role"
+msgid "Holds 3 household profiles on one phone"
+msgstr "يحمل 3 ملفات تعريف للأسرة المعيشية على هاتف واحد"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:75
+msgctxt "step.uses.role"
+msgid "Lets Bounmy’s wallet read only his own household’s records"
+msgstr "يتيح لمحفظة Bounmy قراءة سجلات أسرته المعيشية فقط"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:197
+msgctxt "step.uses.role"
+msgid "Registers the consent it will enforce when the link is used"
+msgstr "تسجّل الموافقة التي ستفرض تطبيقها عند استخدام الرابط"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:189
+msgctxt "step.uses.role"
+msgid "Signed QR holding a manifest URL + decryption key"
+msgstr "رمز QR موقَّع يحمل URL البيان + مفتاح فك التشفير"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:79
+msgctxt "step.uses.role"
+msgid "Somsack’s summary packaged as an IPS Bundle"
+msgstr "ملخص Somsack مُعبَّأ في صورة IPS Bundle"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:71
+msgctxt "step.uses.role"
+msgid "Source of truth for all 6 doses"
+msgstr "المصدر المرجعي لجميع الجرعات الـ 6"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:83
+msgctxt "step.uses.role"
+msgid "Thai origin of birth doses still visible"
+msgstr "لا يزال المنشأ التايلاندي لجرعات الولادة ظاهرًا"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:160
+msgctxt "step.whatIf.outcome"
+msgid "The link could be printed in advance, and the original paper cards still prove the birth doses."
+msgstr "كان يمكن طباعة الرابط مسبقًا، ولا تزال البطاقات الورقية الأصلية تُثبت جرعات الولادة."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:57
+msgctxt "step.whatIf.outcome"
+msgid "Who can access the baby’s record without Bounmy’s phone? Delegated access within a household is still an open design question."
+msgstr "مَن يمكنه الوصول إلى سجل الرضيع من دون هاتف Bounmy؟ لا يزال الوصول المُفوَّض داخل الأسرة المعيشية مسألة تصميم مفتوحة."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:159
+msgctxt "step.whatIf.scenario"
+msgid "Bounmy’s phone battery dies at the clinic."
+msgstr "نفدت بطارية هاتف Bounmy في العيادة."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:56
+msgctxt "step.whatIf.scenario"
+msgid "Khamla travels alone with Somsack."
+msgstr "تسافر Khamla وحدها مع Somsack."
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:19
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:19
+msgctxt "step.when"
+msgid "T0 + 12 months"
+msgstr "T0 + 12 شهرًا"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:122
+msgctxt "step.where"
+msgid "Lao–Thai Friendship Bridge"
+msgstr "جسر الصداقة اللاوي–التايلاندي"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:20
+msgctxt "step.where"
+msgid "Vientiane, Lao PDR"
+msgstr "فيينتيان، جمهورية لاو الديمقراطية الشعبية (Lao PDR)"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:4
+msgctxt "title"
+msgid "J4.0 — Crossing back: one family, one phone"
+msgstr "J4.0 — العودة عبر الحدود: أسرة واحدة، هاتف واحد"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:4
+msgctxt "views.label"
+msgid "J4.0"
+msgstr "J4.0"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:10
+msgctxt "when"
+msgid "12 months later"
+msgstr "بعد 12 شهرًا"
+
+#: scenarios/user-scenarios/j4-0-one-family-one-phone.json:11
+msgctxt "where"
+msgid "Lao PDR"
+msgstr "جمهورية لاو الديمقراطية الشعبية (Lao PDR)"
