@@ -15,14 +15,12 @@ J2, Return home, CHW discovery and referral.
 ### 1. Show the paper DVCs from Country A (`Task_Show`)
 
 - Who: the `Caregiver` lane (role `caregiver`).
-- Skill: `holder-present-credential`.
 - Record it: `workflow_complete` with `node: "Task_Show"`.
 - next: → `Task_Scan` (Scan each QR with the CHW app)
 
 ### 2. Scan each QR with the CHW app (`Task_Scan`)
 
 - Who: the `Community health worker` lane (role `community-health-worker`).
-- Skill: `receiver-scan-credential`.
 - Record it: `workflow_complete` with `node: "Task_Scan"`.
 - next: → `Task_Read` (Read each DVC unverified (triage))
 
@@ -39,7 +37,7 @@ J2, Return home, CHW discovery and referral.
 - Who: the `CHW app` lane (role `chw-app`).
 - Skill: `chw-register-infant`.
 - What: Add the infant to the household; save the doses as reported, not verified.
-- A subprocess (`Process_QuestionnaireDataCapture`): `workflow_next` reports its own steps; complete those — this call activity itself is not completable.
+- Record it: `workflow_complete` with `node: "Task_Register"`.
 - next: → `Task_Refer` (Create a referral to the home clinic for verification)
 
 ### 5. Create a referral to the home clinic for verification (`Task_Refer`)

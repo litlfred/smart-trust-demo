@@ -7,9 +7,9 @@
 - Every Markdown file under memory/ has the folio-memory front matter.
 - The journeys hang together: every BPMN lane, actor and story names a role
   in scenarios/roles.json, and every skill a task or role names is one of
-  this instance's (skills/*/package-manifest.json) or a package's of a layer
-  it needs: smart-trust-tools (hcert, vhl, wallet) or smart-base
-  (point-of-care), at the pinned commit.
+  this instance's (skills/*/package-manifest.json) or of smart-trust-tools'
+  hcert and vhl packages (names hcert-*, vhl-*), whose existence the harness
+  check verifies once mounted.
 - Every user story traces to requirements (scenarios/story-requirements.json:
   every story has an entry, an empty one says why in `note`), and every
   requirement id cited there, in docs/journeys.md and in the BPMN exists:
@@ -25,12 +25,11 @@
   harness interprets (tools/dak/dak.py).
 
 - Every skill a BPMN task names exists (this instance's, or a smart-trust-tools
-  or smart-base package's at the pinned commit); a task's skill is one its
-  lane's role has; and every person and system role plays a lane in some
-  journey.
+  package's at the pinned commit); a task's skill is one its lane's role
+  has; and every person and system role plays a lane in some journey.
 
-Run from anywhere: python3 tools/repo-checks/repo_checks.py [--smart-trust-tools DIR] [--smart-base DIR]
-(each DIR defaults to that layer's mount; CI fetches their skills/ there.)
+Run from anywhere: python3 tools/repo-checks/repo_checks.py [--smart-trust-tools DIR]
+(DIR defaults to the smart-trust-tools mount; CI fetches its skills/ there.)
 """
 import fnmatch
 import json
@@ -100,12 +99,10 @@ def main():
         head = md.read_text().split("---")
         if len(head) < 3 or "$schema: folio-memory/v1" not in head[1] or f"id: {md.stem}" not in head[1]:
             errors.append(f"{md.relative_to(ROOT)}: missing folio-memory/v1 front matter with id {md.stem}")
+    errors += journey_errors()
     stt = pathlib.Path(_arg("--smart-trust-tools") or ROOT / "smart-trust-tools")
-    sb = pathlib.Path(_arg("--smart-base") or ROOT / "smart-base")
-    upstream = upstream_skills(stt / "skills", sb / "skills")
-    errors += journey_errors(upstream)
     errors += requirement_errors(stt / "skills" / "requirements")
-    errors += binding_errors(upstream)
+    errors += binding_errors(stt / "skills")
     errors += dak_errors(stt / "skills" / "requirements")
     for e in errors:
         print(e, file=sys.stderr)
@@ -115,18 +112,10 @@ def main():
 
 BPMN = "{http://www.omg.org/spec/BPMN/20100524/MODEL}"
 SKILL = "{https://litlfred.github.io/bootstrap/v0/processes/ns/}skill"
+UPSTREAM_SKILL = re.compile(r"^(hcert|vhl)-[a-z0-9-]+$")
 
 
-def upstream_skills(*skill_dirs):
-    """The skills the layers this instance needs declare: every package-manifest.json under each skills/ (a missing directory is reported by binding_errors)."""
-    known = set()
-    for d in skill_dirs:
-        for m in pathlib.Path(d).glob("**/package-manifest.json"):
-            known.update(json.loads(m.read_text()).get("skills", []))
-    return known
-
-
-def journey_errors(upstream):
+def journey_errors():
     errors = []
     roles_file = ROOT / "scenarios" / "roles.json"
     if not roles_file.exists():
@@ -147,7 +136,7 @@ def journey_errors(upstream):
                 errors.append(f"{m.relative_to(ROOT)}: skill {name} has no {name}.md")
 
     def skill_ok(name):
-        return name in own_skills or name in upstream
+        return name in own_skills or UPSTREAM_SKILL.match(name)
 
     for rid, r in roles.items():
         for s in r.get("skills", []):
@@ -241,13 +230,13 @@ def requirement_errors(req_dir):
     return errors
 
 
-def binding_errors(upstream):
+def binding_errors(stt_skills):
     """Task skills exist and belong to their lane's role; every person and system role plays a lane, or (a person's) is a scenario persona's."""
     errors = []
-    if not upstream:
-        return ["no smart-trust-tools or smart-base skills found; mount the pinned layers or pass --smart-trust-tools DIR and --smart-base DIR"]
-    known = set(upstream)
-    for m in (ROOT / "skills").glob("*/package-manifest.json"):
+    if not stt_skills.is_dir():
+        return [f"{stt_skills}: no smart-trust-tools skills here; mount the pinned layers or pass --smart-trust-tools DIR"]
+    known = set()
+    for m in [*stt_skills.glob("*/package-manifest.json"), *(ROOT / "skills").glob("*/package-manifest.json")]:
         known.update(json.loads(m.read_text()).get("skills", []))
     roles = {r["id"]: r for r in graph.roles(ROOT)}
     in_lanes = set()

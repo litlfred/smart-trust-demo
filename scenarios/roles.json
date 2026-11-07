@@ -1,5 +1,5 @@
 {
-  "_comment": "Roles that play a lane in this instance's journey processes (processes/content/), each with the skills its lane's tasks need: smart-trust-tools' library skills (hcert-*, vhl-*) and its wallet skills (what the holder and the receiving health worker do), smart-base's point-of-care skills (completing an SDC form, acting on decision support), and this instance's own (skills/journeys/). Schema: cat-harness-tools/schemas/process/role-graph.ts. Every person is fictional.",
+  "_comment": "Roles that play a lane in this instance's journey processes (processes/content/), each with the skills its lane's tasks need: smart-trust-tools' library skills (hcert-*, vhl-*) and this instance's own (skills/journeys/). Schema: cat-harness-tools/schemas/process/role-graph.ts. Every person is fictional.",
   "name": "smart-trust-demo",
   "roles": [
     {
@@ -9,10 +9,7 @@
       "actorKinds": [
         "person"
       ],
-      "skills": [
-        "holder-present-credential",
-        "holder-consent-to-share"
-      ],
+      "skills": [],
       "persona": "A parent carrying a newborn's records across borders on paper and one shared phone; no health training, little time, limited connectivity.",
       "otherNames": [
         "VHL Holder (IHE ITI VHL)",
@@ -88,10 +85,7 @@
       "actorKinds": [
         "person"
       ],
-      "skills": [
-        "receiver-scan-credential",
-        "complete-sdc-questionnaire"
-      ],
+      "skills": [],
       "persona": "Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity."
     },
     {
@@ -108,8 +102,7 @@
         "hcert-encode-cbor",
         "hcert-verify",
         "chw-register-infant",
-        "chw-refer",
-        "extract-questionnaire-response"
+        "chw-refer"
       ],
       "persona": "Offline-first Android app; must never present an unverified record as verified.",
       "otherNames": [
@@ -123,11 +116,7 @@
       "actorKinds": [
         "person"
       ],
-      "skills": [
-        "receiver-scan-credential",
-        "review-decision-support-guidance",
-        "record-decision-rationale"
-      ],
+      "skills": [],
       "persona": "Trusts the system's verdict and needs a reason when a certificate fails."
     },
     {
@@ -232,9 +221,7 @@
       "actorKinds": [
         "person"
       ],
-      "skills": [
-        "receiver-scan-credential"
-      ],
+      "skills": [],
       "persona": "Has minutes, no prior relationship with the family, and her own hospital's system."
     }
   ]
