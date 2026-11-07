@@ -25,11 +25,6 @@ msgstr "家中孩子在境外需要就医"
 msgid "Caregiver"
 msgstr "照护者"
 
-#: processes/content/j4-1-vhl-point-of-care.bpmn:51
-#. Diagram label
-msgid "Check the passcode, return the manifest and log the access"
-msgstr "核验通行码、返回清单并记录访问"
-
 #: processes/content/j4-1-vhl-point-of-care.bpmn:52
 #. Diagram label
 msgid "Decrypt the IPS and DVCs"
@@ -69,11 +64,6 @@ msgstr "国家健康门户"
 #. Diagram label
 msgid "no"
 msgstr "否"
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:49
-#. Diagram label
-msgid "No digital verification: treat the records like paper"
-msgstr "无数字验证：按纸质记录对待"
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:29
 #. Diagram label
@@ -120,16 +110,6 @@ msgstr "STT-VHL-005、STT-VHL-006、STT-VHL-008；HTTP 由宿主执行，库负�
 msgid "The child is treated with the full record"
 msgstr "依据完整记录为孩子诊治"
 
-#: processes/content/j4-1-vhl-point-of-care.bpmn:49
-#. Diagram element documentation
-msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
-msgstr "HCERT 未通过验证。类型化结果注明步骤和原因（STT-VER-008），例如缓存的信任列表中缺少某个 DSC（STT-VER-006）。没有任何内容经过数字验证，因此不跟随该 VHL，也不请求清单。家人能出示的任何内容，例如纸质 DVC 或未经验证读取的 QR 码（STT-VER-011），其效力与纸质记录相同：临床医生依据临床判断和当地政策作出决定，并记录未能验证的原因。"
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:51
-#. Diagram element documentation
-msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
-msgstr "本国门户托管清单（ITI-YY5）。它核验通行码、链接有效期以及持有人共享时给出的同意（IHE PCF），成功时返回加密文件的清单，并将每一次请求（无论允许或拒绝）作为 AuditEvent（IHE BALP）记录在本国。错误的通行码会被拒绝，但仍会被记录。记录仍托管在本国：接收方只查看这些记录，不会将任何内容复制到境外的登记系统中。"
-
 #: processes/content/j4-1-vhl-point-of-care.bpmn:47
 #. Diagram label
 msgid "Verify the HCERT and read the VHL at key 5"
@@ -139,3 +119,39 @@ msgstr "验证 HCERT 并读取键 5 处的 VHL"
 #. Diagram label
 msgid "yes"
 msgstr "是"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram label
+msgid "Check passcode, log access, return manifest"
+msgstr "核验通行码、记录访问、返回清单"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram element documentation
+msgid "Check the passcode, return the manifest and log the access. The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
+msgstr "核验通行码、返回清单并记录访问。本国门户托管清单（ITI-YY5）。它核验通行码、链接有效期以及持有人共享时给出的同意（IHE PCF），成功时返回加密文件的清单，并将每一次请求（无论允许或拒绝）作为 AuditEvent（IHE BALP）记录在本国。错误的通行码会被拒绝，但仍会被记录。记录仍托管在本国：接收方只查看这些记录，不会将任何内容复制到境外的登记系统中。"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram element documentation
+msgid "No digital verification: treat the records like paper. The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+msgstr "无数字验证：按纸质记录对待。HCERT 未通过验证。类型化结果注明步骤和原因（STT-VER-008），例如缓存的信任列表中缺少某个 DSC（STT-VER-006）。没有任何内容经过数字验证，因此不跟随该 VHL，也不请求清单。家人能出示的任何内容，例如纸质 DVC 或未经验证读取的 QR 码（STT-VER-011），其效力与纸质记录相同：临床医生依据临床判断和当地政策作出决定，并记录未能验证的原因。"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram label
+msgid "Not verified: treat records as paper"
+msgstr "未验证：按纸质记录对待"
+
+#. Diagram label
+#~ msgid "Check the passcode, return the manifest and log the access"
+#~ msgstr "核验通行码、返回清单并记录访问"
+
+#. Diagram label
+#~ msgid "No digital verification: treat the records like paper"
+#~ msgstr "无数字验证：按纸质记录对待"
+
+#. Diagram element documentation
+#~ msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+#~ msgstr "HCERT 未通过验证。类型化结果注明步骤和原因（STT-VER-008），例如缓存的信任列表中缺少某个 DSC（STT-VER-006）。没有任何内容经过数字验证，因此不跟随该 VHL，也不请求清单。家人能出示的任何内容，例如纸质 DVC 或未经验证读取的 QR 码（STT-VER-011），其效力与纸质记录相同：临床医生依据临床判断和当地政策作出决定，并记录未能验证的原因。"
+
+#. Diagram element documentation
+#~ msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
+#~ msgstr "本国门户托管清单（ITI-YY5）。它核验通行码、链接有效期以及持有人共享时给出的同意（IHE PCF），成功时返回加密文件的清单，并将每一次请求（无论允许或拒绝）作为 AuditEvent（IHE BALP）记录在本国。错误的通行码会被拒绝，但仍会被记录。记录仍托管在本国：接收方只查看这些记录，不会将任何内容复制到境外的登记系统中。"
