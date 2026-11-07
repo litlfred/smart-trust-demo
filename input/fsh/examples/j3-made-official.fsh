@@ -19,11 +19,10 @@ Usage: #example
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-10-28T09:15:00+07:00"
 * primarySource = true
-* informationSource.reference = Reference(TrustDemoChiangRaiHospital)
 * performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-4821"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1
 
 Instance: TrustDemoJ3Bcg
 InstanceOf: TrustDemoLaoImmunization
@@ -38,11 +37,10 @@ Usage: #example
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-10-28T09:20:00+07:00"
 * primarySource = true
-* informationSource.reference = Reference(TrustDemoChiangRaiHospital)
 * performer.actor = Reference(TrustDemoAnan)
 * lotNumber = "TH-9012"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1
 
 Instance: TrustDemoJ3Verification
 InstanceOf: TrustDemoLaoDvcVerification
@@ -115,8 +113,8 @@ Usage: #example
 * for = Reference(TrustDemoSomsack)
 * authoredOn = "2025-11-25T10:22:00+07:00"
 * requester = Reference(TrustDemoVientianeDhc)
-* requestedPeriod.start = "2025-12-09"
-* requestedPeriod.end = "2025-12-16"
+* restriction.period.start = "2025-12-09"
+* restriction.period.end = "2025-12-16"
 
 // The doses Somsack is given in Lao PDR over his first year, recorded at the
 // district health center (primary source).
@@ -135,8 +133,7 @@ Usage: #example
 * performer.actor = Reference(TrustDemoChanthasone)
 * lotNumber = "LA-2201"
 * location.display = "Vientiane District Health Center, Lao PDR"
-* basedOn = Reference(TrustDemoJ3Recommendation)
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1
 
 Instance: TrustDemoLaoBopv1
 InstanceOf: TrustDemoLaoImmunization
@@ -152,8 +149,7 @@ Usage: #example
 * performer.actor = Reference(TrustDemoChanthasone)
 * lotNumber = "LA-5531"
 * location.display = "Vientiane District Health Center, Lao PDR"
-* basedOn = Reference(TrustDemoJ3Recommendation)
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1
 
 Instance: TrustDemoLaoPcv1
 InstanceOf: TrustDemoLaoImmunization
@@ -169,8 +165,7 @@ Usage: #example
 * performer.actor = Reference(TrustDemoChanthasone)
 * lotNumber = "LA-8819"
 * location.display = "Vientiane District Health Center, Lao PDR"
-* basedOn = Reference(TrustDemoJ3Recommendation)
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1
 
 Instance: TrustDemoLaoMr1
 InstanceOf: TrustDemoLaoImmunization
@@ -186,4 +181,4 @@ Usage: #example
 * performer.actor = Reference(TrustDemoChanthasone)
 * lotNumber = "LA-9923"
 * location.display = "Vientiane District Health Center, Lao PDR"
-* protocolApplied.doseNumber = "1"
+* protocolApplied.doseNumberPositiveInt = 1

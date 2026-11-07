@@ -15,16 +15,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: input/pagecontent/decision-logic.md:10
-#, python-brace-format
-msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})<a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
-msgstr "<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；将婴儿添加到家庭；将各剂次保存为已报告、未验证（{code1}）<a1>J3 在所属诊所验证、导入并安排接种计划</a1>：针对信任列表验证每个 HCERT（{code2}）；每个 DVC 都已验证？（{code3}）；记录失败原因；根据国家政策决定剂次（{code4}）；将各剂次作为 FHIR Immunization 资源导入（{code5}）"
-
-#: input/pagecontent/decision-logic.md:11
-#, python-brace-format
-msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
-msgstr "<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国疫苗编码旁添加国家接种计划编码（{code0}）"
-
 #: input/pagecontent/decision-logic.md:12
 #, python-brace-format
 msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0})"
@@ -34,16 +24,6 @@ msgstr "<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：评估
 #, python-brace-format
 msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0}); Give due doses and book the next visit ({code1})"
 msgstr "<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：评估国家接种计划（{code0}）；接种到期剂次并预约下次就诊（{code1}）"
-
-#: input/pagecontent/decision-logic.md:14
-#, python-brace-format
-msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
-msgstr "<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：检查通行码，返回清单并记录访问日志（{code0}）"
-
-#: input/pagecontent/decision-logic.md:15
-#, python-brace-format
-msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
-msgstr "<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：验证 HCERT 并读取键 5 处的 VHL（{code0}）；HCERT 已验证？（{code1}）；无数字验证：将记录当作纸质记录对待（{code2}）；请求清单（ITI-YY5），已签名（{code3}）"
 
 #: input/pagecontent/decision-logic.md:14
 msgid "<a0>STD-ACC-001</a0>"
@@ -479,16 +459,6 @@ msgstr "重新扫描；如果仍然失败，则将该卡片当作纸质记录对
 msgid "Serves"
 msgstr "服务于"
 
-#: input/pagecontent/decision-logic.md:22
-#, python-brace-format
-msgid "Serves: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
-msgstr "服务于：<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；将婴儿添加到家庭；将各剂次保存为已报告、未验证（{code1}）；<a1>J3 在所属诊所验证、导入并安排接种计划</a1>：针对信任列表验证每个 HCERT（{code2}）；每个 DVC 都已验证？（{code3}）；记录失败原因；根据国家政策决定剂次（{code4}）；将各剂次作为 FHIR Immunization 资源导入（{code5}）"
-
-#: input/pagecontent/decision-logic.md:42
-#, python-brace-format
-msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
-msgstr "服务于：<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国疫苗编码旁添加国家接种计划编码（{code0}）"
-
 #: input/pagecontent/decision-logic.md:60
 #, python-brace-format
 msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0})"
@@ -498,16 +468,6 @@ msgstr "服务于：<a0>J3 在所属诊所验证、导入并安排接种计划</
 #, python-brace-format
 msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0}); Give due doses and book the next visit ({code1})"
 msgstr "服务于：<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：评估国家接种计划（{code0}）；接种到期剂次并预约下次就诊（{code1}）"
-
-#: input/pagecontent/decision-logic.md:94
-#, python-brace-format
-msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
-msgstr "服务于：<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：检查通行码，返回清单并记录访问日志（{code0}）"
-
-#: input/pagecontent/decision-logic.md:112
-#, python-brace-format
-msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
-msgstr "服务于：<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：验证 HCERT 并读取键 5 处的 VHL（{code0}）；HCERT 已验证？（{code1}）；无数字验证：将记录当作纸质记录对待（{code2}）；请求清单（ITI-YY5），已签名（{code3}）"
 
 #: input/pagecontent/decision-logic.md:18
 msgid "TD.DT.01 What does a scanned DVC become in the child's record?"
@@ -576,7 +536,7 @@ msgstr "签名者的证书不在诊所缓存的信任列表中（<a0>STT-VER-006
 #: input/pagecontent/decision-logic.md:6
 #, python-brace-format
 msgid "The sources are {code0}; this page and the PlanDefinitions are generated from them. The entries use the FEEL subset the harness's decision-table interpreter accepts: {code1} (any), literals, comparisons and one-of. Every table's hit policy is FIRST: the rules are tried in order and the first that matches applies, so the order is part of the logic. Where a rule says \"by national policy\", the policy is the home country's; the tables illustrate the decisions, they are not a country's rules."
-msgstr "源文件为 {code0}；本页面和各 PlanDefinition 均由其生成。各条目使用框架（harness）决策表解释器所接受的 FEEL 子集：{code1}（任意）、字面量、比较以及 one-of。每个表的命中策略都是 FIRST：按顺序尝试各规则，第一条匹配的规则生效，因此顺序是逻辑的一部分。凡规则写明“根据国家政策”之处，该政策指本国的政策；这些表用于说明决策，并非某个国家的规则。"
+msgstr "源文件为 {code0}；本页面和各 PlanDefinition 均由其生成。各条目使用工具框架决策表解释器所接受的 FEEL 子集：{code1}（任意）、字面量、比较以及 one-of。每个表的命中策略都是 FIRST：按顺序尝试各规则，第一条匹配的规则生效，因此顺序是逻辑的一部分。凡规则写明“根据国家政策”之处，该政策指本国的政策；这些表用于说明决策，并非某个国家的规则。"
 
 #: input/pagecontent/decision-logic.md:118
 #, python-brace-format
@@ -601,3 +561,75 @@ msgstr "验证结果（{code0}）"
 #, python-brace-format
 msgid "Why ({code0})"
 msgstr "原因（{code0}）"
+
+#: input/pagecontent/decision-logic.md:10
+#, python-brace-format
+msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1})<a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Note the failure; decide doses by policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+msgstr "<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；添加婴儿；将剂次保存为已报告（{code1}）<a1>J3 在所属诊所验证、导入并安排接种计划</a1>：针对信任列表验证每个 HCERT（{code2}）；每个 DVC 都已验证？（{code3}）；记录失败；按政策决定剂次（{code4}）；将剂次作为 FHIR Immunization 资源导入（{code5}）"
+
+#: input/pagecontent/decision-logic.md:11
+#, python-brace-format
+msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0})"
+msgstr "<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国编码旁添加国家编码（{code0}）"
+
+#: input/pagecontent/decision-logic.md:14
+#, python-brace-format
+msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check passcode, log access, return manifest ({code0})"
+msgstr "<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：核验通行码、记录访问、返回清单（{code0}）"
+
+#: input/pagecontent/decision-logic.md:15
+#, python-brace-format
+msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); Not verified: treat records as paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+msgstr "<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：验证 HCERT 并读取键 5 处的 VHL（{code0}）；HCERT 已验证？（{code1}）；未验证：按纸质记录对待（{code2}）；请求清单（ITI-YY5），已签名（{code3}）"
+
+#: input/pagecontent/decision-logic.md:22
+#, python-brace-format
+msgid "Serves: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Note the failure; decide doses by policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+msgstr "服务于：<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；添加婴儿；将剂次保存为已报告（{code1}）；<a1>J3 在所属诊所验证、导入并安排接种计划</a1>：针对信任列表验证每个 HCERT（{code2}）；每个 DVC 都已验证？（{code3}）；记录失败；按政策决定剂次（{code4}）；将剂次作为 FHIR Immunization 资源导入（{code5}）"
+
+#: input/pagecontent/decision-logic.md:42
+#, python-brace-format
+msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0})"
+msgstr "服务于：<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国编码旁添加国家编码（{code0}）"
+
+#: input/pagecontent/decision-logic.md:94
+#, python-brace-format
+msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check passcode, log access, return manifest ({code0})"
+msgstr "服务于：<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：核验通行码、记录访问、返回清单（{code0}）"
+
+#: input/pagecontent/decision-logic.md:112
+#, python-brace-format
+msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); Not verified: treat records as paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+msgstr "服务于：<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：验证 HCERT 并读取键 5 处的 VHL（{code0}）；HCERT 已验证？（{code1}）；未验证：按纸质记录对待（{code2}）；请求清单（ITI-YY5），已签名（{code3}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})<a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+#~ msgstr "<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；将婴儿添加到家庭；将各剂次保存为已报告、未验证（{code1}）<a1>J3 在所属诊所验证、导入并安排接种计划</a1>：针对信任列表验证每个 HCERT（{code2}）；每个 DVC 都已验证？（{code3}）；记录失败原因；根据国家政策决定剂次（{code4}）；将各剂次作为 FHIR Immunization 资源导入（{code5}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
+#~ msgstr "<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国疫苗编码旁添加国家接种计划编码（{code0}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
+#~ msgstr "<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：检查通行码，返回清单并记录访问日志（{code0}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+#~ msgstr "<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：验证 HCERT 并读取键 5 处的 VHL（{code0}）；HCERT 已验证？（{code1}）；无数字验证：将记录当作纸质记录对待（{code2}）；请求清单（ITI-YY5），已签名（{code3}）"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+#~ msgstr "服务于：<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；将婴儿添加到家庭；将各剂次保存为已报告、未验证（{code1}）；<a1>J3 在所属诊所验证、导入并安排接种计划</a1>：针对信任列表验证每个 HCERT（{code2}）；每个 DVC 都已验证？（{code3}）；记录失败原因；根据国家政策决定剂次（{code4}）；将各剂次作为 FHIR Immunization 资源导入（{code5}）"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
+#~ msgstr "服务于：<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国疫苗编码旁添加国家接种计划编码（{code0}）"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
+#~ msgstr "服务于：<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：检查通行码，返回清单并记录访问日志（{code0}）"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+#~ msgstr "服务于：<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：验证 HCERT 并读取键 5 处的 VHL（{code0}）；HCERT 已验证？（{code1}）；无数字验证：将记录当作纸质记录对待（{code2}）；请求清单（ITI-YY5），已签名（{code3}）"

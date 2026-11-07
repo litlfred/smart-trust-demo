@@ -43,9 +43,9 @@ Why: Lao community health work is organized by household. The roster is how a CH
 * identifier contains household 1..1 MS
 * identifier[household].system = $HouseholdId
 * type = #person
-* membership = #enumerated
+* actual = true
 * member 1..* MS
-* member.entity only Reference(TrustDemoLaoPatient or RelatedPerson)
+* member.entity only Reference(Patient)
 
 Profile: TrustDemoLaoRegistration
 Parent: QuestionnaireResponse
@@ -70,12 +70,12 @@ Title: "Lao PDR: foreign dose as reported (not yet verified)"
 Description: """
 How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.
 
-Why: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false and the family as the information source keeps them visibly "reported, not verified". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.
+Why: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false, the paper card as the report origin and the family named in the note keeps them visibly "reported, not verified". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.
 """
 * status = #completed
 * patient only Reference(TrustDemoLaoPatient)
 * primarySource = false
-* informationSource 1..1 MS
+* reportOrigin 1..1 MS
 * note 1..* MS
 * lotNumber MS
 

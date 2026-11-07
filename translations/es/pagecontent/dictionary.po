@@ -45,31 +45,6 @@ msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Creat
 msgstr "<a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Crear una derivación a la clínica del país de residencia para su verificación ({code0})<a1>J3 Verificar, importar y programar en la clínica del país de residencia</a1>: Escanear los códigos QR y abrir la derivación ({code1})"
 
 #: input/pagecontent/dictionary.md:11
-#, python-brace-format
-msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
-msgstr "<a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Leer cada DVC sin verificarlo (triaje) ({code0}); Añadir al lactante al hogar; guardar las dosis como notificadas, no verificadas ({code1})"
-
-#: input/pagecontent/dictionary.md:14
-#, python-brace-format
-msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
-msgstr "<a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Añadir el código del calendario nacional junto al código de vacuna extranjero ({code0}); Evaluar el calendario nacional ({code1}); Administrar las dosis pendientes y programar la próxima visita ({code2})"
-
-#: input/pagecontent/dictionary.md:13
-#, python-brace-format
-msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
-msgstr "<a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Verificar cada HCERT con la lista de confianza ({code0}); ¿Se verificaron todos los DVC? ({code1}); Registrar el motivo del fallo; decidir las dosis según la política nacional ({code2}); Importar las dosis como recursos FHIR Immunization ({code3})"
-
-#: input/pagecontent/dictionary.md:15
-#, python-brace-format
-msgid "<a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
-msgstr "<a0>J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a0>: Reunir el IPS y los DVC de cada miembro ({code0}); Cifrar los documentos y publicar un manifiesto protegido con código de acceso ({code1})"
-
-#: input/pagecontent/dictionary.md:16
-#, python-brace-format
-msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
-msgstr "<a0>J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a0>: Solicitar el manifiesto (ITI-YY5), firmado ({code0}); Comprobar el código de acceso, devolver el manifiesto y registrar el acceso ({code1})"
-
-#: input/pagecontent/dictionary.md:11
 msgid "<a0>Questionnaire TrustDemoHouseholdRegistration</a0>, <a1>StructureDefinition TrustDemoLaoRegistration</a1>, <a2>StructureDefinition TrustDemoLaoHousehold</a2>, <a3>StructureDefinition TrustDemoLaoPatient</a3>, <a4>StructureDefinition TrustDemoLaoReportedImmunization</a4>, <a5>QuestionnaireResponse TrustDemoJ2Registration</a5>, <a6>Group TrustDemoHousehold</a6>, <a7>Immunization TrustDemoJ2HepBReported</a7>, <a8>Immunization TrustDemoJ2BcgReported</a8>"
 msgstr "<a0>Questionnaire TrustDemoHouseholdRegistration</a0>, <a1>StructureDefinition TrustDemoLaoRegistration</a1>, <a2>StructureDefinition TrustDemoLaoHousehold</a2>, <a3>StructureDefinition TrustDemoLaoPatient</a3>, <a4>StructureDefinition TrustDemoLaoReportedImmunization</a4>, <a5>QuestionnaireResponse TrustDemoJ2Registration</a5>, <a6>Group TrustDemoHousehold</a6>, <a7>Immunization TrustDemoJ2HepBReported</a7>, <a8>Immunization TrustDemoJ2BcgReported</a8>"
 
@@ -725,31 +700,6 @@ msgstr "Registrado o leído en: <a0>J1 Emitir los DVC de las dosis al nacer del 
 #, python-brace-format
 msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Create a referral to the home clinic for verification ({code0}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Scan the QRs and open the referral ({code1})"
 msgstr "Registrado o leído en: <a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Crear una derivación a la clínica del país de residencia para su verificación ({code0}); <a1>J3 Verificar, importar y programar en la clínica del país de residencia</a1>: Escanear los códigos QR y abrir la derivación ({code1})"
-
-#: input/pagecontent/dictionary.md:50
-#, python-brace-format
-msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
-msgstr "Registrado o leído en: <a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Leer cada DVC sin verificarlo (triaje) ({code0}); Añadir al lactante al hogar; guardar las dosis como notificadas, no verificadas ({code1})"
-
-#: input/pagecontent/dictionary.md:124
-#, python-brace-format
-msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
-msgstr "Registrado o leído en: <a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Añadir el código del calendario nacional junto al código de vacuna extranjero ({code0}); Evaluar el calendario nacional ({code1}); Administrar las dosis pendientes y programar la próxima visita ({code2})"
-
-#: input/pagecontent/dictionary.md:99
-#, python-brace-format
-msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
-msgstr "Registrado o leído en: <a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Verificar cada HCERT con la lista de confianza ({code0}); ¿Se verificaron todos los DVC? ({code1}); Registrar el motivo del fallo; decidir las dosis según la política nacional ({code2}); Importar las dosis como recursos FHIR Immunization ({code3})"
-
-#: input/pagecontent/dictionary.md:147
-#, python-brace-format
-msgid "Recorded or read in: <a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
-msgstr "Registrado o leído en: <a0>J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a0>: Reunir el IPS y los DVC de cada miembro ({code0}); Cifrar los documentos y publicar un manifiesto protegido con código de acceso ({code1})"
-
-#: input/pagecontent/dictionary.md:169
-#, python-brace-format
-msgid "Recorded or read in: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
-msgstr "Registrado o leído en: <a0>J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a0>: Solicitar el manifiesto (ITI-YY5), firmado ({code0}); Comprobar el código de acceso, devolver el manifiesto y registrar el acceso ({code1})"
 
 #: input/pagecontent/dictionary.md:156
 #: input/pagecontent/dictionary.md:184
@@ -1862,3 +1812,93 @@ msgstr "Por qué se detuvo la verificación, cuando falló: la entrada de la tab
 #: input/pagecontent/dictionary.md:161
 msgid "Withdrawn at"
 msgstr "Retirado el"
+
+#: input/pagecontent/dictionary.md:11
+#, python-brace-format
+msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1})"
+msgstr "<a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Leer cada DVC sin verificarlo (triaje) ({code0}); Añadir al lactante; guardar las dosis como notificadas ({code1})"
+
+#: input/pagecontent/dictionary.md:14
+#, python-brace-format
+msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+msgstr "<a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Añadir los códigos nacionales junto a los extranjeros ({code0}); Evaluar el calendario nacional ({code1}); Administrar las dosis pendientes y programar la próxima visita ({code2})"
+
+#: input/pagecontent/dictionary.md:13
+#, python-brace-format
+msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Note the failure; decide doses by policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+msgstr "<a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Verificar cada HCERT con la lista de confianza ({code0}); ¿Se verificaron todos los DVC? ({code1}); Anotar el fallo; decidir las dosis según la política ({code2}); Importar las dosis como recursos FHIR Immunization ({code3})"
+
+#: input/pagecontent/dictionary.md:15
+#, python-brace-format
+msgid "<a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt, publish a passcode manifest ({code1})"
+msgstr "<a0>J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a0>: Reunir el IPS y los DVC de cada miembro ({code0}); Cifrar y publicar un manifiesto con código de acceso ({code1})"
+
+#: input/pagecontent/dictionary.md:16
+#, python-brace-format
+msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check passcode, log access, return manifest ({code1})"
+msgstr "<a0>J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a0>: Solicitar el manifiesto (ITI-YY5), firmado ({code0}); Comprobar el código de acceso, registrar el acceso, devolver el manifiesto ({code1})"
+
+#: input/pagecontent/dictionary.md:50
+#, python-brace-format
+msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1})"
+msgstr "Registrado o leído en: <a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Leer cada DVC sin verificarlo (triaje) ({code0}); Añadir al lactante; guardar las dosis como notificadas ({code1})"
+
+#: input/pagecontent/dictionary.md:124
+#, python-brace-format
+msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+msgstr "Registrado o leído en: <a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Añadir los códigos nacionales junto a los extranjeros ({code0}); Evaluar el calendario nacional ({code1}); Administrar las dosis pendientes y programar la próxima visita ({code2})"
+
+#: input/pagecontent/dictionary.md:99
+#, python-brace-format
+msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Note the failure; decide doses by policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+msgstr "Registrado o leído en: <a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Verificar cada HCERT con la lista de confianza ({code0}); ¿Se verificaron todos los DVC? ({code1}); Anotar el fallo; decidir las dosis según la política ({code2}); Importar las dosis como recursos FHIR Immunization ({code3})"
+
+#: input/pagecontent/dictionary.md:147
+#, python-brace-format
+msgid "Recorded or read in: <a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt, publish a passcode manifest ({code1})"
+msgstr "Registrado o leído en: <a0>J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a0>: Reunir el IPS y los DVC de cada miembro ({code0}); Cifrar y publicar un manifiesto con código de acceso ({code1})"
+
+#: input/pagecontent/dictionary.md:169
+#, python-brace-format
+msgid "Recorded or read in: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check passcode, log access, return manifest ({code1})"
+msgstr "Registrado o leído en: <a0>J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a0>: Solicitar el manifiesto (ITI-YY5), firmado ({code0}); Comprobar el código de acceso, registrar el acceso, devolver el manifiesto ({code1})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
+#~ msgstr "<a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Leer cada DVC sin verificarlo (triaje) ({code0}); Añadir al lactante al hogar; guardar las dosis como notificadas, no verificadas ({code1})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+#~ msgstr "<a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Añadir el código del calendario nacional junto al código de vacuna extranjero ({code0}); Evaluar el calendario nacional ({code1}); Administrar las dosis pendientes y programar la próxima visita ({code2})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+#~ msgstr "<a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Verificar cada HCERT con la lista de confianza ({code0}); ¿Se verificaron todos los DVC? ({code1}); Registrar el motivo del fallo; decidir las dosis según la política nacional ({code2}); Importar las dosis como recursos FHIR Immunization ({code3})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
+#~ msgstr "<a0>J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a0>: Reunir el IPS y los DVC de cada miembro ({code0}); Cifrar los documentos y publicar un manifiesto protegido con código de acceso ({code1})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
+#~ msgstr "<a0>J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a0>: Solicitar el manifiesto (ITI-YY5), firmado ({code0}); Comprobar el código de acceso, devolver el manifiesto y registrar el acceso ({code1})"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
+#~ msgstr "Registrado o leído en: <a0>J2 Detectar y derivar a un lactante no registrado en el País B</a0>: Leer cada DVC sin verificarlo (triaje) ({code0}); Añadir al lactante al hogar; guardar las dosis como notificadas, no verificadas ({code1})"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+#~ msgstr "Registrado o leído en: <a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Añadir el código del calendario nacional junto al código de vacuna extranjero ({code0}); Evaluar el calendario nacional ({code1}); Administrar las dosis pendientes y programar la próxima visita ({code2})"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+#~ msgstr "Registrado o leído en: <a0>J3 Verificar, importar y programar en la clínica del país de residencia</a0>: Verificar cada HCERT con la lista de confianza ({code0}); ¿Se verificaron todos los DVC? ({code1}); Registrar el motivo del fallo; decidir las dosis según la política nacional ({code2}); Importar las dosis como recursos FHIR Immunization ({code3})"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
+#~ msgstr "Registrado o leído en: <a0>J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a0>: Reunir el IPS y los DVC de cada miembro ({code0}); Cifrar los documentos y publicar un manifiesto protegido con código de acceso ({code1})"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
+#~ msgstr "Registrado o leído en: <a0>J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a0>: Solicitar el manifiesto (ITI-YY5), firmado ({code0}); Comprobar el código de acceso, devolver el manifiesto y registrar el acceso ({code1})"

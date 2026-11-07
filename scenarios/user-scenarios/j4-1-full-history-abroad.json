@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.2.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j4-1-full-history-abroad",
   "title": "J4.1 — Crossing back: a Thai doctor sees the full history",
   "description": "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Lao PDR is told who looked.",
@@ -9,7 +9,6 @@
     "bounmy-sengmany",
     "khamla-sengmany"
   ],
-  "follows": "j4-0-one-family-one-phone",
   "when": "12 months later",
   "where": "Chiang Rai",
   "country": "Cross-Border",
@@ -182,10 +181,27 @@
           ],
           "spec": "https://profiles.ihe.net/ITI/BALP/"
         }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdVhlAccess",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT05",
+          "rel": "decides"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT06",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND02",
+          "rel": "measures"
+        }
       ]
     }
   ],
-  "partOf": "j4-family-records-abroad",
   "views": [
     {
       "model": "0.1.0",

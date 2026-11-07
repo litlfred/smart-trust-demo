@@ -1,19 +1,20 @@
 {
-  "$schema": "user-scenario/0.2.0",
+  "$schema": "user-scenario/0.4.0",
   "id": "j4-family-records-abroad",
   "title": "J4 — One family, one phone, a history abroad",
   "description": "The family's records go on one shared phone as Verified Health Links (J4.0), and a year later a doctor back in Thailand reads the whole history from Lao PDR (J4.1). One chapter of the walkthrough, two BPMN processes, so two sub-journeys.",
-  "personas": [
-    "bounmy-sengmany",
-    "khamla-sengmany",
-    "somsack-sengmany",
-    "anan"
+  "parts": [
+    {
+      "scenario": "j4-0-one-family-one-phone"
+    },
+    {
+      "scenario": "j4-1-full-history-abroad"
+    }
   ],
   "follows": "j3-made-official",
   "when": "6 to 12 months later",
   "where": "Lao PDR and Chiang Rai",
   "country": "Cross-Border",
-  "steps": [],
   "scene": [
     {
       "icon": "link",

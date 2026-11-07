@@ -38,11 +38,6 @@ msgstr "طفل من الأسرة يحتاج إلى رعاية في الخارج"
 msgid "Caregiver"
 msgstr "مقدِّم الرعاية"
 
-#: processes/content/j4-1-vhl-point-of-care.bpmn:51
-#. Diagram label
-msgid "Check the passcode, return the manifest and log the access"
-msgstr "التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول"
-
 #: processes/content/j4-1-vhl-point-of-care.bpmn:52
 #. Diagram label
 msgid "Decrypt the IPS and DVCs"
@@ -82,11 +77,6 @@ msgstr "البوابة الصحية الوطنية"
 #. Diagram label
 msgid "no"
 msgstr "لا"
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:49
-#. Diagram label
-msgid "No digital verification: treat the records like paper"
-msgstr "لا تحقق رقمي: تُعامَل السجلات معاملة السجلات الورقية"
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:29
 #. Diagram label
@@ -133,16 +123,6 @@ msgstr "STT-VHL-005، STT-VHL-006، STT-VHL-008؛ يتولى المضيف عمل
 msgid "The child is treated with the full record"
 msgstr "يُعالَج الطفل بالاستناد إلى السجل الكامل"
 
-#: processes/content/j4-1-vhl-point-of-care.bpmn:49
-#. Diagram element documentation
-msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
-msgstr "أخفق HCERT في التحقق. تسمّي النتيجة المُنمَّطة الخطوة والسبب (STT-VER-008)، مثل غياب شهادة DSC عن قائمة الثقة المخزّنة مؤقتاً (STT-VER-006). لم يُتحقق رقمياً من أي شيء، فلا يُتَّبع رابط VHL ولا يُطلب أي بيان. وأيّاً كان ما تستطيع الأسرة عرضه، مثل شهادات DVC الورقية أو رمز QR مقروء دون تحقق (STT-VER-011)، فإن له وزن السجل الورقي نفسه: يبتّ فيه الممارس السريري بالاجتهاد السريري والسياسة المحلية، ويسجّل سبب عدم التحقق منه."
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:51
-#. Diagram element documentation
-msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
-msgstr "تستضيف بوابة البلد الأم البيان (ITI-YY5). وتتحقق من رمز المرور وتاريخ انتهاء الرابط والموافقة التي منحها الحامل عند المشاركة (IHE PCF)، وتعيد بيان الملفات المشفّرة عند النجاح، وتسجّل كل طلب، مقبولاً كان أو مرفوضاً، بوصفه AuditEvent (IHE BALP) في البلد الأم. ويُرفض رمز المرور الخاطئ ويُسجَّل مع ذلك. وتبقى السجلات مستضافة في البلد الأم: تطّلع عليها الجهة المُستقبِلة ولا يُنسخ شيء إلى سجلّ مركزي في الخارج."
-
 #: processes/content/j4-1-vhl-point-of-care.bpmn:47
 #. Diagram label
 msgid "Verify the HCERT and read the VHL at key 5"
@@ -152,3 +132,39 @@ msgstr "التحقق من HCERT وقراءة VHL عند المفتاح 5"
 #. Diagram label
 msgid "yes"
 msgstr "نعم"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram label
+msgid "Check passcode, log access, return manifest"
+msgstr "التحقق من رمز المرور، وتسجيل الوصول، وإعادة البيان"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram element documentation
+msgid "Check the passcode, return the manifest and log the access. The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
+msgstr "التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول. تستضيف بوابة البلد الأم البيان (ITI-YY5). وتتحقق من رمز المرور وتاريخ انتهاء الرابط والموافقة التي منحها الحامل عند المشاركة (IHE PCF)، وتعيد بيان الملفات المشفّرة عند النجاح، وتسجّل كل طلب، مقبولاً كان أو مرفوضاً، بوصفه AuditEvent (IHE BALP) في البلد الأم. ويُرفض رمز المرور الخاطئ ويُسجَّل مع ذلك. وتبقى السجلات مستضافة في البلد الأم: تطّلع عليها الجهة المُستقبِلة ولا يُنسخ شيء إلى سجلّ مركزي في الخارج."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram element documentation
+msgid "No digital verification: treat the records like paper. The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+msgstr "لا تحقق رقمي: تُعامَل السجلات معاملة السجلات الورقية. أخفق HCERT في التحقق. تسمّي النتيجة المُنمَّطة الخطوة والسبب (STT-VER-008)، مثل غياب شهادة DSC عن قائمة الثقة المخزّنة مؤقتاً (STT-VER-006). لم يُتحقق رقمياً من أي شيء، فلا يُتَّبع رابط VHL ولا يُطلب أي بيان. وأيّاً كان ما تستطيع الأسرة عرضه، مثل شهادات DVC الورقية أو رمز QR مقروء دون تحقق (STT-VER-011)، فإن له وزن السجل الورقي نفسه: يبتّ فيه الممارس السريري بالاجتهاد السريري والسياسة المحلية، ويسجّل سبب عدم التحقق منه."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram label
+msgid "Not verified: treat records as paper"
+msgstr "لم يُتحقَّق منها: تُعامَل السجلات كالورق"
+
+#. Diagram label
+#~ msgid "Check the passcode, return the manifest and log the access"
+#~ msgstr "التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول"
+
+#. Diagram label
+#~ msgid "No digital verification: treat the records like paper"
+#~ msgstr "لا تحقق رقمي: تُعامَل السجلات معاملة السجلات الورقية"
+
+#. Diagram element documentation
+#~ msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+#~ msgstr "أخفق HCERT في التحقق. تسمّي النتيجة المُنمَّطة الخطوة والسبب (STT-VER-008)، مثل غياب شهادة DSC عن قائمة الثقة المخزّنة مؤقتاً (STT-VER-006). لم يُتحقق رقمياً من أي شيء، فلا يُتَّبع رابط VHL ولا يُطلب أي بيان. وأيّاً كان ما تستطيع الأسرة عرضه، مثل شهادات DVC الورقية أو رمز QR مقروء دون تحقق (STT-VER-011)، فإن له وزن السجل الورقي نفسه: يبتّ فيه الممارس السريري بالاجتهاد السريري والسياسة المحلية، ويسجّل سبب عدم التحقق منه."
+
+#. Diagram element documentation
+#~ msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
+#~ msgstr "تستضيف بوابة البلد الأم البيان (ITI-YY5). وتتحقق من رمز المرور وتاريخ انتهاء الرابط والموافقة التي منحها الحامل عند المشاركة (IHE PCF)، وتعيد بيان الملفات المشفّرة عند النجاح، وتسجّل كل طلب، مقبولاً كان أو مرفوضاً، بوصفه AuditEvent (IHE BALP) في البلد الأم. ويُرفض رمز المرور الخاطئ ويُسجَّل مع ذلك. وتبقى السجلات مستضافة في البلد الأم: تطّلع عليها الجهة المُستقبِلة ولا يُنسخ شيء إلى سجلّ مركزي في الخارج."

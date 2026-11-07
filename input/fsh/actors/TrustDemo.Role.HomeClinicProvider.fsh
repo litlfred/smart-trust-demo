@@ -21,6 +21,10 @@ The nurse at the home clinic who receives the referral, has the foreign DVCs ver
 
 - [J3 — Made official](scenarios.html#j3--made-official-vientiane-district-health-center-4-weeks-later): J3a The clinic confirms the cards are genuine (told through Chanthasone); J3b Thai vaccines are fitted to the Lao schedule (told through Chanthasone)
 
+**On the device screens**: [S4 Clinic Referral & GDHCN Verification (Chanthasone's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S4/); [S5 Terminology Adjudication & National Schedule (Chanthasone's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S5/)
+
+**Discussed in the workshop modules**: [M1 From journey to capabilities](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m1/); [M3 Standards, specifications and the core data set](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m3/); [M4 Trust, credentials and wallets](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m4/); [M6 Doing it once, together](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m6/)
+
 **User stories** ([all stories](scenarios.html#user-stories)):
 
 - I want to know whether a foreign certificate is genuine, and why not when it is not

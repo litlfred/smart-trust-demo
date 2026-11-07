@@ -31,7 +31,7 @@ msgstr ""
 #: docs/plan.md:32
 #, python-brace-format
 msgid "(done) {code0} declaration and {code1} pinning the harness layers smart-trust-tools pins (fhir-harness and below) plus smart-trust-tools itself, so {code2} ids resolve; {code3}."
-msgstr "(مُنجَز) إعلان {code0} و{code1} لتثبيت طبقات harness التي يُثبّتها smart-trust-tools (fhir-harness وما دونها) إضافةً إلى smart-trust-tools نفسه، بحيث تُحَل معرِّفات {code2}؛ {code3}."
+msgstr "(مُنجَز) إعلان {code0} و{code1} لتثبيت طبقات الإطار (harness) التي يُثبّتها smart-trust-tools (fhir-harness وما دونها) إضافةً إلى smart-trust-tools نفسه، بحيث تُحَل معرِّفات {code2}؛ {code3}."
 
 #: docs/plan.md:72
 #, python-brace-format
@@ -61,7 +61,7 @@ msgstr "{code0}: وحدة مكتبة Android تُشغَّل اختباراتها
 #: docs/plan.md:40
 #, python-brace-format
 msgid "{code0}: one BPMN per journey (done in step 2a; checklists and the harness mount in 2b) (J1 issuance, J2 CHW discovery and referral, J3 verification, import and schedule, J4.0 VHL issuance to a shared phone, J4.1 VHL fetch at the point of care), lanes naming roles, tasks naming smart-trust-tools skills; checklists generated."
-msgstr "{code0}: ملف BPMN واحد لكل رحلة (أُنجز في الخطوة 2a؛ وقوائم التحقق وتركيب harness في 2b) (الإصدار في J1، والاكتشاف والإحالة من قِبل عامل الصحة المجتمعي (CHW) في J2، والتحقق والاستيراد ووضع الجدول في J3، وإصدار الروابط الصحية القابلة للتحقق (VHL) إلى هاتف مشترك في J4.0، وجلب الرابط الصحي القابل للتحقق (VHL) في نقطة تقديم الرعاية في J4.1)، مع مسارات تُسمّي الأدوار، ومهام تُسمّي مهارات smart-trust-tools؛ وتُولَّد قوائم التحقق."
+msgstr "{code0}: ملف BPMN واحد لكل رحلة (أُنجز في الخطوة 2a؛ وقوائم التحقق وتركيب الإطار في 2b) (الإصدار في J1، والاكتشاف والإحالة من قِبل عامل الصحة المجتمعي (CHW) في J2، والتحقق والاستيراد ووضع الجدول في J3، وإصدار الروابط الصحية القابلة للتحقق (VHL) إلى هاتف مشترك في J4.0، وجلب الرابط الصحي القابل للتحقق (VHL) في نقطة تقديم الرعاية في J4.1)، مع مسارات تُسمّي الأدوار، ومهام تُسمّي مهارات smart-trust-tools؛ وتُولَّد قوائم التحقق."
 
 #: docs/plan.md:35
 #, python-brace-format
@@ -165,7 +165,7 @@ msgstr "مشروع تابع كامل لـ cat-harness ضمن smart-trust-tools"
 
 #: docs/plan.md:16
 msgid "Harness"
-msgstr "Harness"
+msgstr "الإطار (Harness)"
 
 #: docs/plan.md:17
 msgid "Home country (J2–J4)"
@@ -246,7 +246,7 @@ msgstr "الخطوات"
 #: docs/plan.md:51
 #, python-brace-format
 msgid "The journeys as a WHO SMART Guidelines DAK and FHIR IG, shaped as litlfred/smart-immunizations ({code0}, {code1}, the DAK in {code2} ({code3}), {code4}). The L2 content is generated from the harness sources by {code5}: roles become {code6}s, the BPMN is copied to {code7}, stories and scenarios become pages. CI checks the generated files are current and that SUSHI builds with no errors. Then: publish the IG on gh-pages and add example resources per journey (bean IG-01)."
-msgstr "الرحلات بوصفها مجموعة أدوات التكيُّف الرقمي (DAK) لإرشادات SMART لمنظمة الصحة العالمية (WHO) ودليل تنفيذ FHIR IG، بالبنية نفسها لـ litlfred/smart-immunizations ({code0}، {code1}، ومجموعة DAK في {code2} ({code3})، {code4}). ويُولَّد محتوى المستوى L2 من مصادر harness بواسطة {code5}: تصبح الأدوار موارد {code6}، ويُنسخ BPMN إلى {code7}، وتصبح القصص والسيناريوهات صفحات. ويتحقق CI من أن الملفات المولَّدة محدَّثة وأن SUSHI يبني دون أخطاء. ثم: نشر IG على gh-pages وإضافة موارد أمثلة لكل رحلة (bean IG-01)."
+msgstr "الرحلات بوصفها مجموعة أدوات التكيُّف الرقمي (DAK) لإرشادات SMART لمنظمة الصحة العالمية (WHO) ودليل تنفيذ FHIR IG، بالبنية نفسها لـ litlfred/smart-immunizations ({code0}، {code1}، ومجموعة DAK في {code2} ({code3})، {code4}). ويُولَّد محتوى المستوى L2 من مصادر الإطار بواسطة {code5}: تصبح الأدوار موارد {code6}، ويُنسخ BPMN إلى {code7}، وتصبح القصص والسيناريوهات صفحات. ويتحقق CI من أن الملفات المولَّدة محدَّثة وأن SUSHI يبني دون أخطاء. ثم: نشر IG على gh-pages وإضافة موارد أمثلة لكل رحلة (bean IG-01)."
 
 #: docs/plan.md:117
 msgid "The web target (once hcert-core runs in a browser, or via the Rust/wasm library meanwhile), and the gh-pages site (agent-published): the journeys, BPMN viewers, personas and the test evidence."

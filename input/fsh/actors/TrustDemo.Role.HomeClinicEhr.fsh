@@ -23,6 +23,10 @@ The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list
 
 - [J3 — Made official](scenarios.html#j3--made-official-vientiane-district-health-center-4-weeks-later): J3a The clinic confirms the cards are genuine; J3b Thai vaccines are fitted to the Lao schedule
 
+**On the device screens**: [S4 Clinic Referral & GDHCN Verification (Chanthasone's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S4/); [S5 Terminology Adjudication & National Schedule (Chanthasone's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S5/)
+
+**Discussed in the workshop modules**: [M1 From journey to capabilities](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m1/); [M3 Standards, specifications and the core data set](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m3/); [M4 Trust, credentials and wallets](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m4/); [M6 Doing it once, together](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m6/)
+
 **Lanes and tasks in the business processes**:
 
 - [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic): Verify each HCERT against the trust list; Import the doses as FHIR Immunization resources; Add national codes beside foreign ones; Evaluate the national schedule

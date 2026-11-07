@@ -30,11 +30,6 @@ msgstr "{code0} — это идентификаторы акторов"
 msgid "{code0} chains J1 → J4 into one story"
 msgstr "{code0} связывает J1 → J4 в одну историю"
 
-#: docs/proposals/user-scenario/README.md:66
-#, python-brace-format
-msgid "<a0>{code0}</a0>: checks the shape, and the references a schema cannot express (actors, stories, BPMN task ids, ladder codes, FSH instances, the {code1} chain). It runs in CI ({code2}, job repo-checks). Without the {code3} package, which CI does not install, only the references are checked."
-msgstr "<a0>{code0}</a0>: проверяет форму и ссылки, которые схема не может выразить (акторы, истории, идентификаторы задач BPMN, коды лестницы, экземпляры FSH, цепочку {code1}). Выполняется в CI ({code2}, задание repo-checks). Без пакета {code3}, который CI не устанавливает, проверяются только ссылки."
-
 #: docs/proposals/user-scenario/README.md:56
 #, python-brace-format
 msgid "<a0>{code0}</a0>: one scenario per journey, chained by {code1}: J1, J2 (J2a, J2b), J3 (J3a, J3b), J4.0 (J4.0a, J4.0b), J4.1, and the trust ladder as a code list. They were converted once from vaxlink's {code2} (the steps, experiences, pain points, enablers, policy points, record and what-ifs) and the prose of {code3} (narrative and preconditions; requirements and named examples are read from it). Stories and BPMN tasks were mapped by hand."
@@ -217,3 +212,12 @@ msgstr "Что выявило преобразование"
 #, python-brace-format
 msgid "Where the prose lives. Decided 2026-11-05 (owner): generate it. Done. {code0} writes the section from each step's {code1}, {code2}, {code3}, {code4} and {code5}. A step's {code6} is its one-line policy point; the workshop's questions stay for a workshop kind (KG-01 gap 3). The pain point, enabler and policy lines are now one per step, in the walkthrough's words."
 msgstr "Где находится текст. Решено 2026-11-05 (владелец): генерировать его. Выполнено. {code0} записывает раздел из {code1}, {code2}, {code3}, {code4} и {code5} каждого шага. {code6} шага — это его однострочное политическое положение; вопросы практического семинара остаются для вида практического семинара (пробел 3 KG-01). Строки о болевой точке, способствующем факторе и политике теперь даны по одной на шаг, словами пошагового обзора."
+
+#: docs/proposals/user-scenario/README.md:66
+#, python-brace-format
+msgid "The shape and the references a schema cannot express (actors, stories, BPMN task ids, ladder codes, examples, {code0}, ArchiMate views) are checked by the harness's {code1} and {code2} in CI ({code3}, job bpmn-generated); {code4} refuses a {code5} chain that is not one chain. They replace {code6} (owner, 2026-11-06)."
+msgstr "Форму и ссылки, которые схема не может выразить (акторы, истории, идентификаторы задач BPMN, коды лестницы, примеры, {code0}, представления ArchiMate), проверяют {code1} и {code2} обвязки в CI ({code3}, задание bpmn-generated); {code4} отклоняет цепочку {code5}, которая не является одной цепочкой. Они заменяют {code6} (решение владельца, 2026-11-06)."
+
+#~ #, python-brace-format
+#~ msgid "<a0>{code0}</a0>: checks the shape, and the references a schema cannot express (actors, stories, BPMN task ids, ladder codes, FSH instances, the {code1} chain). It runs in CI ({code2}, job repo-checks). Without the {code3} package, which CI does not install, only the references are checked."
+#~ msgstr "<a0>{code0}</a0>: проверяет форму и ссылки, которые схема не может выразить (акторы, истории, идентификаторы задач BPMN, коды лестницы, экземпляры FSH, цепочку {code1}). Выполняется в CI ({code2}, задание repo-checks). Без пакета {code3}, который CI не устанавливает, проверяются только ссылки."

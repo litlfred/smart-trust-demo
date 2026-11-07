@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.2.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j4-0-one-family-one-phone",
   "title": "J4.0 — Crossing back: one family, one phone",
   "description": "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
@@ -7,7 +7,6 @@
     "bounmy-sengmany",
     "khamla-sengmany"
   ],
-  "follows": "j3-made-official",
   "when": "12 months later",
   "where": "Lao PDR",
   "country": "Cross-Border",
@@ -229,10 +228,15 @@
           "why": "Not a copy of the record: a signed, passcode-protected pointer back to Lao PDR.",
           "spec": "https://profiles.ihe.net/ITI/VHL/volume-1.html"
         }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdVhlShare",
+          "rel": "data"
+        }
       ]
     }
   ],
-  "partOf": "j4-family-records-abroad",
   "references": [
     {
       "label": "User scenario in the IG",

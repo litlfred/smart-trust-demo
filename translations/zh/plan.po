@@ -18,7 +18,7 @@ msgstr ""
 #: docs/plan.md:32
 #, python-brace-format
 msgid "(done) {code0} declaration and {code1} pinning the harness layers smart-trust-tools pins (fhir-harness and below) plus smart-trust-tools itself, so {code2} ids resolve; {code3}."
-msgstr "（已完成）{code0} 声明和 {code1}，固定 smart-trust-tools 所固定的框架 (harness) 层（fhir-harness 及以下）以及 smart-trust-tools 本身，使 {code2} id 可以解析；{code3}。"
+msgstr "（已完成）{code0} 声明和 {code1}，固定 smart-trust-tools 所固定的工具框架层（fhir-harness 及以下）以及 smart-trust-tools 本身，使 {code2} id 可以解析；{code3}。"
 
 #: docs/plan.md:72
 #, python-brace-format
@@ -48,7 +48,7 @@ msgstr "{code0}：一个 Android 库模块，其插桩测试在 CI 中的模拟�
 #: docs/plan.md:40
 #, python-brace-format
 msgid "{code0}: one BPMN per journey (done in step 2a; checklists and the harness mount in 2b) (J1 issuance, J2 CHW discovery and referral, J3 verification, import and schedule, J4.0 VHL issuance to a shared phone, J4.1 VHL fetch at the point of care), lanes naming roles, tasks naming smart-trust-tools skills; checklists generated."
-msgstr "{code0}：每段旅程一个 BPMN（已在步骤 2a 完成；检查清单和框架 (harness) 挂载在 2b 完成）（J1 签发，J2 CHW 发现与转诊，J3 验证、导入与接种计划，J4.0 向共享手机签发 VHL，J4.1 在医疗服务点获取 VHL），泳道以角色命名，任务以 smart-trust-tools 技能命名；检查清单为生成的。"
+msgstr "{code0}：每段旅程一个 BPMN（已在步骤 2a 完成；检查清单和工具框架挂载在 2b 完成）（J1 签发，J2 CHW 发现与转诊，J3 验证、导入与接种计划，J4.0 向共享手机签发 VHL，J4.1 在医疗服务点获取 VHL），泳道以角色命名，任务以 smart-trust-tools 技能命名；检查清单为生成的。"
 
 #: docs/plan.md:35
 #, python-brace-format
@@ -152,7 +152,7 @@ msgstr "smart-trust-tools 的完整 cat-harness 下游"
 
 #: docs/plan.md:16
 msgid "Harness"
-msgstr "框架 (harness)"
+msgstr "工具框架"
 
 #: docs/plan.md:17
 msgid "Home country (J2–J4)"
@@ -233,7 +233,7 @@ msgstr "步骤"
 #: docs/plan.md:51
 #, python-brace-format
 msgid "The journeys as a WHO SMART Guidelines DAK and FHIR IG, shaped as litlfred/smart-immunizations ({code0}, {code1}, the DAK in {code2} ({code3}), {code4}). The L2 content is generated from the harness sources by {code5}: roles become {code6}s, the BPMN is copied to {code7}, stories and scenarios become pages. CI checks the generated files are current and that SUSHI builds with no errors. Then: publish the IG on gh-pages and add example resources per journey (bean IG-01)."
-msgstr "将旅程作为 WHO SMART 指南 DAK 和 FHIR IG，结构仿照 litlfred/smart-immunizations（{code0}、{code1}、位于 {code2}（{code3}）中的 DAK、{code4}）。L2 内容由 {code5} 从框架 (harness) 源文件生成：角色成为 {code6}，BPMN 被复制到 {code7}，故事和场景成为页面。CI 检查生成的文件是否为最新，以及 SUSHI 构建是否无错误。然后：在 gh-pages 上发布 IG，并为每段旅程添加示例资源（bean IG-01）。"
+msgstr "将旅程作为 WHO SMART 指南 DAK 和 FHIR IG，结构仿照 litlfred/smart-immunizations（{code0}、{code1}、位于 {code2}（{code3}）中的 DAK、{code4}）。L2 内容由 {code5} 从工具框架源文件生成：角色成为 {code6}，BPMN 被复制到 {code7}，故事和场景成为页面。CI 检查生成的文件是否为最新，以及 SUSHI 构建是否无错误。然后：在 gh-pages 上发布 IG，并为每段旅程添加示例资源（bean IG-01）。"
 
 #: docs/plan.md:117
 msgid "The web target (once hcert-core runs in a browser, or via the Rust/wasm library meanwhile), and the gh-pages site (agent-published): the journeys, BPMN viewers, personas and the test evidence."
