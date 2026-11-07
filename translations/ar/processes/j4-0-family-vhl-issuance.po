@@ -43,11 +43,6 @@ msgstr "مقدِّم الرعاية"
 msgid "Choose who to share, with a passcode and an expiry"
 msgstr "اختيار من تُشارَك سجلاته، مع رمز مرور وتاريخ انتهاء"
 
-#: processes/content/j4-0-family-vhl-issuance.bpmn:40
-#. Diagram label
-msgid "Encrypt the documents and publish a passcode-protected manifest"
-msgstr "تشفير المستندات ونشر بيان محمي برمز مرور"
-
 #: processes/content/j4-0-family-vhl-issuance.bpmn:33
 #. Diagram label
 msgid "Family phone"
@@ -98,17 +93,39 @@ msgstr "تحضير HCERT يحمل VHL عند المفتاح 5"
 msgid "Sign with Country B&#x27;s DSC key"
 msgstr "التوقيع بمفتاح DSC الخاص بالبلد B"
 
-#: processes/content/j4-0-family-vhl-issuance.bpmn:44
-#. Diagram label
-msgid "Store one VHL QR per member on the shared phone"
-msgstr "تخزين رمز QR واحد لـ VHL لكل فرد على الهاتف المشترك"
-
-#: processes/content/j4-0-family-vhl-issuance.bpmn:40
-#. Diagram element documentation
-msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
-msgstr "توليد مفتاح VHL (STT-VHL-004)، وJWE dir/A256GCM (STT-VHL-007)، وعلامة رمز المرور وتاريخ الانتهاء (STT-VHL-009)؛ ولا تُجري المكتبة أي عمليات إدخال/إخراج (STT-VHL-010)."
-
 #: processes/content/j4-0-family-vhl-issuance.bpmn:41
 #. Diagram element documentation
 msgid "VHL payload as a CBOR map at key 5 (STT-VHL-002); two-phase signing (STT-ISS-004)."
 msgstr "حمولة VHL بوصفها خريطة CBOR عند المفتاح 5 (STT-VHL-002)؛ والتوقيع على مرحلتين (STT-ISS-004)."
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram element documentation
+msgid "Encrypt the documents and publish a passcode-protected manifest. VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+msgstr "تشفير المستندات ونشر بيان محمي برمز مرور. توليد مفتاح VHL (STT-VHL-004)، وJWE dir/A256GCM (STT-VHL-007)، وعلامة رمز المرور وتاريخ الانتهاء (STT-VHL-009)؛ ولا تُجري المكتبة أي عمليات إدخال/إخراج (STT-VHL-010)."
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram label
+msgid "Encrypt, publish a passcode manifest"
+msgstr "التشفير، ونشر بيان برمز مرور"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
+#. Diagram label
+msgid "Store each member&#x27;s VHL QR on the phone"
+msgstr "تخزين رمز QR لـ VHL الخاص بكل فرد على الهاتف"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
+#. Diagram element documentation
+msgid "Store one VHL QR per member on the shared phone."
+msgstr "تخزين رمز QR واحد لـ VHL لكل فرد على الهاتف المشترك."
+
+#. Diagram label
+#~ msgid "Encrypt the documents and publish a passcode-protected manifest"
+#~ msgstr "تشفير المستندات ونشر بيان محمي برمز مرور"
+
+#. Diagram label
+#~ msgid "Store one VHL QR per member on the shared phone"
+#~ msgstr "تخزين رمز QR واحد لـ VHL لكل فرد على الهاتف المشترك"
+
+#. Diagram element documentation
+#~ msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+#~ msgstr "توليد مفتاح VHL (STT-VHL-004)، وJWE dir/A256GCM (STT-VHL-007)، وعلامة رمز المرور وتاريخ الانتهاء (STT-VHL-009)؛ ولا تُجري المكتبة أي عمليات إدخال/إخراج (STT-VHL-010)."

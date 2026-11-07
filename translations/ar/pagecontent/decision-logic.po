@@ -28,16 +28,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-#: input/pagecontent/decision-logic.md:10
-#, python-brace-format
-msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})<a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
-msgstr "<a0>J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a0>: قراءة كل شهادة DVC دون تحقق (الفرز) ({code0})؛ إضافة الرضيع إلى الأسرة المعيشية؛ حفظ الجرعات على أنها مُبلَّغ عنها، غير متحقَّق منها ({code1})<a1>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a1>: التحقق من كل HCERT مقابل قائمة الثقة ({code2})؛ هل تم التحقق من كل شهادة DVC؟ ({code3})؛ تسجيل سبب الفشل؛ البتّ في الجرعات وفق السياسة الوطنية ({code4})؛ استيراد الجرعات بوصفها موارد Immunization في FHIR ({code5})"
-
-#: input/pagecontent/decision-logic.md:11
-#, python-brace-format
-msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
-msgstr "<a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: إضافة رمز الجدول الوطني بجانب رمز اللقاح الأجنبي ({code0})"
-
 #: input/pagecontent/decision-logic.md:12
 #, python-brace-format
 msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0})"
@@ -47,16 +37,6 @@ msgstr "<a0>J3 التحقق والاستيراد والجدولة في عياد�
 #, python-brace-format
 msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0}); Give due doses and book the next visit ({code1})"
 msgstr "<a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: تقييم الجدول الوطني ({code0})؛ إعطاء الجرعات المستحقة وحجز الزيارة التالية ({code1})"
-
-#: input/pagecontent/decision-logic.md:14
-#, python-brace-format
-msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
-msgstr "<a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول ({code0})"
-
-#: input/pagecontent/decision-logic.md:15
-#, python-brace-format
-msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
-msgstr "<a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 ({code0})؛ هل تم التحقق من HCERT؟ ({code1})؛ لا يوجد تحقق رقمي: التعامل مع السجلات كالورق ({code2})؛ طلب البيان (ITI-YY5)، موقَّعًا ({code3})"
 
 #: input/pagecontent/decision-logic.md:14
 msgid "<a0>STD-ACC-001</a0>"
@@ -492,16 +472,6 @@ msgstr "إعادة المسح الضوئي؛ وإذا استمر الفشل، ا
 msgid "Serves"
 msgstr "يخدم"
 
-#: input/pagecontent/decision-logic.md:22
-#, python-brace-format
-msgid "Serves: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
-msgstr "يخدم: <a0>J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a0>: قراءة كل شهادة DVC دون تحقق (الفرز) ({code0})؛ إضافة الرضيع إلى الأسرة المعيشية؛ حفظ الجرعات على أنها مُبلَّغ عنها، غير متحقَّق منها ({code1})؛ <a1>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a1>: التحقق من كل HCERT مقابل قائمة الثقة ({code2})؛ هل تم التحقق من كل شهادة DVC؟ ({code3})؛ تسجيل سبب الفشل؛ البتّ في الجرعات وفق السياسة الوطنية ({code4})؛ استيراد الجرعات بوصفها موارد Immunization في FHIR ({code5})"
-
-#: input/pagecontent/decision-logic.md:42
-#, python-brace-format
-msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
-msgstr "يخدم: <a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: إضافة رمز الجدول الوطني بجانب رمز اللقاح الأجنبي ({code0})"
-
 #: input/pagecontent/decision-logic.md:60
 #, python-brace-format
 msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0})"
@@ -511,16 +481,6 @@ msgstr "يخدم: <a0>J3 التحقق والاستيراد والجدولة في
 #, python-brace-format
 msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Evaluate the national schedule ({code0}); Give due doses and book the next visit ({code1})"
 msgstr "يخدم: <a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: تقييم الجدول الوطني ({code0})؛ إعطاء الجرعات المستحقة وحجز الزيارة التالية ({code1})"
-
-#: input/pagecontent/decision-logic.md:94
-#, python-brace-format
-msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
-msgstr "يخدم: <a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول ({code0})"
-
-#: input/pagecontent/decision-logic.md:112
-#, python-brace-format
-msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
-msgstr "يخدم: <a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 ({code0})؛ هل تم التحقق من HCERT؟ ({code1})؛ لا يوجد تحقق رقمي: التعامل مع السجلات كالورق ({code2})؛ طلب البيان (ITI-YY5)، موقَّعًا ({code3})"
 
 #: input/pagecontent/decision-logic.md:18
 msgid "TD.DT.01 What does a scanned DVC become in the child's record?"
@@ -614,3 +574,75 @@ msgstr "نتيجة التحقق ({code0})"
 #, python-brace-format
 msgid "Why ({code0})"
 msgstr "السبب ({code0})"
+
+#: input/pagecontent/decision-logic.md:10
+#, python-brace-format
+msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1})<a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Note the failure; decide doses by policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+msgstr "<a0>J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a0>: قراءة كل شهادة DVC دون تحقق (الفرز) ({code0})؛ إضافة الرضيع؛ حفظ الجرعات على أنها مُبلَّغ عنها ({code1})<a1>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a1>: التحقق من كل HCERT مقابل قائمة الثقة ({code2})؛ هل تم التحقق من كل شهادة DVC؟ ({code3})؛ تدوين الإخفاق؛ البتّ في الجرعات وفق السياسة ({code4})؛ استيراد الجرعات بوصفها موارد Immunization في FHIR ({code5})"
+
+#: input/pagecontent/decision-logic.md:11
+#, python-brace-format
+msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0})"
+msgstr "<a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: إضافة الرموز الوطنية بجانب الرموز الأجنبية ({code0})"
+
+#: input/pagecontent/decision-logic.md:14
+#, python-brace-format
+msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check passcode, log access, return manifest ({code0})"
+msgstr "<a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من رمز المرور، وتسجيل الوصول، وإعادة البيان ({code0})"
+
+#: input/pagecontent/decision-logic.md:15
+#, python-brace-format
+msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); Not verified: treat records as paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+msgstr "<a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 ({code0})؛ هل تم التحقق من HCERT؟ ({code1})؛ لم يُتحقَّق منها: التعامل مع السجلات كالورق ({code2})؛ طلب البيان (ITI-YY5)، موقَّعًا ({code3})"
+
+#: input/pagecontent/decision-logic.md:22
+#, python-brace-format
+msgid "Serves: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Note the failure; decide doses by policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+msgstr "يخدم: <a0>J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a0>: قراءة كل شهادة DVC دون تحقق (الفرز) ({code0})؛ إضافة الرضيع؛ حفظ الجرعات على أنها مُبلَّغ عنها ({code1})؛ <a1>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a1>: التحقق من كل HCERT مقابل قائمة الثقة ({code2})؛ هل تم التحقق من كل شهادة DVC؟ ({code3})؛ تدوين الإخفاق؛ البتّ في الجرعات وفق السياسة ({code4})؛ استيراد الجرعات بوصفها موارد Immunization في FHIR ({code5})"
+
+#: input/pagecontent/decision-logic.md:42
+#, python-brace-format
+msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0})"
+msgstr "يخدم: <a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: إضافة الرموز الوطنية بجانب الرموز الأجنبية ({code0})"
+
+#: input/pagecontent/decision-logic.md:94
+#, python-brace-format
+msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check passcode, log access, return manifest ({code0})"
+msgstr "يخدم: <a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من رمز المرور، وتسجيل الوصول، وإعادة البيان ({code0})"
+
+#: input/pagecontent/decision-logic.md:112
+#, python-brace-format
+msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); Not verified: treat records as paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+msgstr "يخدم: <a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 ({code0})؛ هل تم التحقق من HCERT؟ ({code1})؛ لم يُتحقَّق منها: التعامل مع السجلات كالورق ({code2})؛ طلب البيان (ITI-YY5)، موقَّعًا ({code3})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})<a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+#~ msgstr "<a0>J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a0>: قراءة كل شهادة DVC دون تحقق (الفرز) ({code0})؛ إضافة الرضيع إلى الأسرة المعيشية؛ حفظ الجرعات على أنها مُبلَّغ عنها، غير متحقَّق منها ({code1})<a1>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a1>: التحقق من كل HCERT مقابل قائمة الثقة ({code2})؛ هل تم التحقق من كل شهادة DVC؟ ({code3})؛ تسجيل سبب الفشل؛ البتّ في الجرعات وفق السياسة الوطنية ({code4})؛ استيراد الجرعات بوصفها موارد Immunization في FHIR ({code5})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
+#~ msgstr "<a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: إضافة رمز الجدول الوطني بجانب رمز اللقاح الأجنبي ({code0})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
+#~ msgstr "<a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول ({code0})"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+#~ msgstr "<a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 ({code0})؛ هل تم التحقق من HCERT؟ ({code1})؛ لا يوجد تحقق رقمي: التعامل مع السجلات كالورق ({code2})؛ طلب البيان (ITI-YY5)، موقَّعًا ({code3})"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Verify each HCERT against the trust list ({code2}); Every DVC verified? ({code3}); Record the failure reason; decide doses by national policy ({code4}); Import the doses as FHIR Immunization resources ({code5})"
+#~ msgstr "يخدم: <a0>J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a0>: قراءة كل شهادة DVC دون تحقق (الفرز) ({code0})؛ إضافة الرضيع إلى الأسرة المعيشية؛ حفظ الجرعات على أنها مُبلَّغ عنها، غير متحقَّق منها ({code1})؛ <a1>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a1>: التحقق من كل HCERT مقابل قائمة الثقة ({code2})؛ هل تم التحقق من كل شهادة DVC؟ ({code3})؛ تسجيل سبب الفشل؛ البتّ في الجرعات وفق السياسة الوطنية ({code4})؛ استيراد الجرعات بوصفها موارد Immunization في FHIR ({code5})"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0})"
+#~ msgstr "يخدم: <a0>J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a0>: إضافة رمز الجدول الوطني بجانب رمز اللقاح الأجنبي ({code0})"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Check the passcode, return the manifest and log the access ({code0})"
+#~ msgstr "يخدم: <a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من رمز المرور، وإعادة البيان، وتسجيل الوصول ({code0})"
+
+#~ #, python-brace-format
+#~ msgid "Serves: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Verify the HCERT and read the VHL at key 5 ({code0}); HCERT verified? ({code1}); No digital verification: treat the records like paper ({code2}); Request the manifest (ITI-YY5), signed ({code3})"
+#~ msgstr "يخدم: <a0>J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a0>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 ({code0})؛ هل تم التحقق من HCERT؟ ({code1})؛ لا يوجد تحقق رقمي: التعامل مع السجلات كالورق ({code2})؛ طلب البيان (ITI-YY5)، موقَّعًا ({code3})"

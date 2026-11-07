@@ -232,11 +232,6 @@ msgstr "التواريخ. كما في الجولة الإرشادية: الول�
 msgid "Each country records only what its own step needs, so the guide has a small profile per country where the two differ. Each profile's description says how it is used in the journey and why its constraints are there. These are demonstrator profiles: they show what each step relies on and are not a ministry's national specification."
 msgstr "يسجّل كل بلد ما تحتاجه خطوته فقط، لذا يتضمن الدليل ملف تعريف صغيرًا لكل بلد حيث يختلف البلدان. ويبيّن وصف كل ملف تعريف كيفية استخدامه في الرحلة وسبب وجود قيوده. وهذه ملفات تعريف توضيحية: تُظهر ما تعتمد عليه كل خطوة، وليست مواصفة وطنية لوزارة."
 
-#: docs/vaxlink-examples.md:14
-#, python-brace-format
-msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R5, as this guide is."
-msgstr "يُنشَر كل مثال مرتين: صفحةً، وJSON خامًا على URL ثابت يمكن للجولة الإرشادية جلبه ({code0}). وهي بصيغة FHIR R5، كهذا الدليل."
-
 #: docs/vaxlink-examples.md:47
 msgid "Every VHL access logged at home, refusals included (IHE BALP pattern)."
 msgstr "كل وصول إلى VHL يُسجَّل في البلد الأم، بما في ذلك حالات الرفض (نمط IHE BALP)."
@@ -347,16 +342,6 @@ msgstr "ملف التعريف"
 #: docs/vaxlink-examples.md:61
 msgid "Provenance"
 msgstr "Provenance"
-
-#: docs/vaxlink-examples.md:62
-#, python-brace-format
-msgid "R5 shape: {code0}, {code1}, {code2}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
-msgstr "بنية R5: {code0}، {code1}، {code2}؛ الجهة المُستقبِلة هي الطالب، وبوابة الربط اللاوية هي الأمين والمراقب. ولا يُسجَّل رمز المرور أبدًا."
-
-#: docs/vaxlink-examples.md:58
-#, python-brace-format
-msgid "R5: {code0} replaces {code1}; the household code is {code2} with the text \"Household\"."
-msgstr "R5: يحلّ {code0} محل {code1}؛ ورمز الأسرة هو {code2} مع النص «Household»."
 
 #: docs/vaxlink-examples.md:20
 msgid "Screen"
@@ -480,3 +465,30 @@ msgstr "مَن تحقّق من أيّ DVC مقابل قائمة الثقة في 
 #: docs/vaxlink-examples.md:35
 msgid "Why it is there"
 msgstr "سبب وجوده"
+
+#: docs/vaxlink-examples.md:58
+#, python-brace-format
+msgid "{code0}; the members are Patients (FHIR R4 Group lists Patients, so each parent is a Patient beside their RelatedPerson role); the household code is {code1} with the text \"Household\"."
+msgstr "{code0}؛ والأفراد موارد Patient (إذ يسرد Group في FHIR R4 موارد Patient، فيكون كل والد موردَ Patient إلى جانب دوره بوصفه RelatedPerson)؛ ورمز الأسرة هو {code1} مع النص «Household»."
+
+#: docs/vaxlink-examples.md:14
+#, python-brace-format
+msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R4 (4.0.1), as this guide is, like smart-base and the Personal Health Wallet guide."
+msgstr "يُنشَر كل مثال مرتين: صفحةً، وJSON خامًا على URL ثابت يمكن للجولة الإرشادية جلبه ({code0}). وهي بصيغة FHIR R4 (4.0.1)، كهذا الدليل، مثل smart-base ودليل المحفظة الصحية الشخصية (Personal Health Wallet)."
+
+#: docs/vaxlink-examples.md:62
+#, python-brace-format
+msgid "R4 shape: {code0}, {code1}, {code2}, {code3}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
+msgstr "بنية R4: {code0}، {code1}، {code2}، {code3}؛ الجهة المُستقبِلة هي الطالب، وبوابة الربط اللاوية هي الأمين والمراقب. ولا يُسجَّل رمز المرور أبدًا."
+
+#~ #, python-brace-format
+#~ msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R5, as this guide is."
+#~ msgstr "يُنشَر كل مثال مرتين: صفحةً، وJSON خامًا على URL ثابت يمكن للجولة الإرشادية جلبه ({code0}). وهي بصيغة FHIR R5، كهذا الدليل."
+
+#~ #, python-brace-format
+#~ msgid "R5 shape: {code0}, {code1}, {code2}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
+#~ msgstr "بنية R5: {code0}، {code1}، {code2}؛ الجهة المُستقبِلة هي الطالب، وبوابة الربط اللاوية هي الأمين والمراقب. ولا يُسجَّل رمز المرور أبدًا."
+
+#~ #, python-brace-format
+#~ msgid "R5: {code0} replaces {code1}; the household code is {code2} with the text \"Household\"."
+#~ msgstr "R5: يحلّ {code0} محل {code1}؛ ورمز الأسرة هو {code2} مع النص «Household»."

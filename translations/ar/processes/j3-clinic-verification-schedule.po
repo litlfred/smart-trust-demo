@@ -28,11 +28,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-#: processes/content/j3-clinic-verification-schedule.bpmn:43
-#. Diagram label
-msgid "Add the national schedule code beside the foreign vaccine code"
-msgstr "إضافة رمز جدول التطعيم الوطني إلى جانب رمز اللقاح الأجنبي"
-
 #: processes/content/j3-clinic-verification-schedule.bpmn:20
 #. Diagram label
 msgid "Caregiver"
@@ -98,11 +93,6 @@ msgstr "لا"
 msgid "PlanDefinition/$apply over the imported Immunizations, read by their national schedule codes: the Hep B and BCG birth doses count; the 6-week doses (pentavalent, bOPV, PCV) are due, and a reminder Task is created for that date."
 msgstr "PlanDefinition/$apply على موارد Immunization المستوردة، مقروءةً برموز جدول التطعيم الوطني الخاصة بها: تُحتسب جرعتا الولادة من لقاحي التهاب الكبد B وBCG؛ وتستحق جرعات الأسبوع السادس (6) (اللقاح الخماسي، وbOPV، وPCV)، ويُنشأ Task تذكير لذلك التاريخ."
 
-#: processes/content/j3-clinic-verification-schedule.bpmn:41
-#. Diagram label
-msgid "Record the failure reason; decide doses by national policy"
-msgstr "تسجيل سبب الفشل؛ والبتّ في الجرعات وفق السياسة الوطنية"
-
 #: processes/content/j3-clinic-verification-schedule.bpmn:38
 #. Diagram label
 msgid "Scan the QRs and open the referral"
@@ -113,11 +103,6 @@ msgstr "مسح رموز QR وفتح الإحالة"
 msgid "The child is on Country B&#x27;s schedule"
 msgstr "الطفل مُدرَج في جدول التطعيم الخاص بالبلد B"
 
-#: processes/content/j3-clinic-verification-schedule.bpmn:43
-#. Diagram element documentation
-msgid "The imported doses keep the issuer&#x27;s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it."
-msgstr "تحتفظ الجرعات المستوردة بترميز اللقاح الخاص بالجهة المُصدِرة (منتج WHO PreQual، كما وُقِّع في شهادة DVC) وتكتسب ترميز جدول التطعيم الوطني إلى جانبه، لا مكانه أبداً. يترجم السجل الصحي الإلكتروني (EHR) باستخدام ConceptMap الوطني؛ ويُحال المنتج الذي لا تعيين له إلى الممرضة، التي تؤكد المستضد والجرعة المكافئين في الجدول، ويُسجَّل ذلك القرار كي لا تضطر العيادة التالية إلى تكراره."
-
 #: processes/content/j3-clinic-verification-schedule.bpmn:39
 #. Diagram label
 msgid "Verify each HCERT against the trust list"
@@ -127,3 +112,35 @@ msgstr "التحقق من كل HCERT مقابل قائمة الثقة"
 #. Diagram label
 msgid "yes"
 msgstr "نعم"
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:43
+#. Diagram label
+msgid "Add national codes beside foreign ones"
+msgstr "إضافة الرموز الوطنية إلى جانب الرموز الأجنبية"
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:43
+#. Diagram element documentation
+msgid "Add the national schedule code beside the foreign vaccine code. The imported doses keep the issuer&#x27;s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it."
+msgstr "إضافة رمز جدول التطعيم الوطني إلى جانب رمز اللقاح الأجنبي. تحتفظ الجرعات المستوردة بترميز اللقاح الخاص بالجهة المُصدِرة (منتج WHO PreQual، كما وُقِّع في شهادة DVC) وتكتسب ترميز جدول التطعيم الوطني إلى جانبه، لا مكانه أبداً. يترجم السجل الصحي الإلكتروني (EHR) باستخدام ConceptMap الوطني؛ ويُحال المنتج الذي لا تعيين له إلى الممرضة، التي تؤكد المستضد والجرعة المكافئين في الجدول، ويُسجَّل ذلك القرار كي لا تضطر العيادة التالية إلى تكراره."
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:41
+#. Diagram label
+msgid "Note the failure; decide doses by policy"
+msgstr "تدوين الإخفاق؛ والبتّ في الجرعات وفق السياسة"
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:41
+#. Diagram element documentation
+msgid "Record the failure reason; decide doses by national policy."
+msgstr "تسجيل سبب الإخفاق؛ والبتّ في الجرعات وفق السياسة الوطنية."
+
+#. Diagram label
+#~ msgid "Add the national schedule code beside the foreign vaccine code"
+#~ msgstr "إضافة رمز جدول التطعيم الوطني إلى جانب رمز اللقاح الأجنبي"
+
+#. Diagram label
+#~ msgid "Record the failure reason; decide doses by national policy"
+#~ msgstr "تسجيل سبب الفشل؛ والبتّ في الجرعات وفق السياسة الوطنية"
+
+#. Diagram element documentation
+#~ msgid "The imported doses keep the issuer&#x27;s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it."
+#~ msgstr "تحتفظ الجرعات المستوردة بترميز اللقاح الخاص بالجهة المُصدِرة (منتج WHO PreQual، كما وُقِّع في شهادة DVC) وتكتسب ترميز جدول التطعيم الوطني إلى جانبه، لا مكانه أبداً. يترجم السجل الصحي الإلكتروني (EHR) باستخدام ConceptMap الوطني؛ ويُحال المنتج الذي لا تعيين له إلى الممرضة، التي تؤكد المستضد والجرعة المكافئين في الجدول، ويُسجَّل ذلك القرار كي لا تضطر العيادة التالية إلى تكراره."
