@@ -58,6 +58,8 @@ jobs:
         # as a warning per catalogue, not a failure. A stale template fails
         # above. Refresh: bun tools/translation/po-status.ts --merge.
         run: bun tools/translation/po-status.ts --github
+      - name: Translation QA (fails only on a lost placeholder, tag or URL, or an official claim)
+        run: python3 -I tools/translation/glossary_qa.py --check
       - name: Chromium, for the BPMN renderer
         # The renderer draws through bpmn-js in Chromium. The lockfile's own
         # Playwright installs the browser build it expects, as the harness
