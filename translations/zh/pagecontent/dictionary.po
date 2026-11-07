@@ -46,31 +46,6 @@ msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Creat
 msgstr "<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：创建转诊至所属诊所进行验证（{code0}）<a1>J3 在所属诊所验证、导入并制定接种计划</a1>：扫描二维码（QR）并打开转诊（{code1}）"
 
 #: input/pagecontent/dictionary.md:11
-#, python-brace-format
-msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
-msgstr "<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：在不验证的情况下读取每份 DVC（分诊）（{code0}）；将婴儿加入家庭；将剂次保存为已报告、未验证（{code1}）"
-
-#: input/pagecontent/dictionary.md:14
-#, python-brace-format
-msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
-msgstr "<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：在外国疫苗代码旁添加国家接种计划代码（{code0}）；评估国家接种计划（{code1}）；接种到期剂次并预约下次就诊（{code2}）"
-
-#: input/pagecontent/dictionary.md:13
-#, python-brace-format
-msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
-msgstr "<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：对照信任列表验证每个 HCERT（{code0}）；每份 DVC 都已验证？（{code1}）；记录失败原因；按国家政策决定剂次（{code2}）；将剂次作为 FHIR Immunization 资源导入（{code3}）"
-
-#: input/pagecontent/dictionary.md:15
-#, python-brace-format
-msgid "<a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
-msgstr "<a0>J4.0 将家庭的记录作为 VHL 签发到一部手机</a0>：汇集每位成员的 IPS 和 DVC（{code0}）；加密文档并发布受通行码保护的清单（{code1}）"
-
-#: input/pagecontent/dictionary.md:16
-#, python-brace-format
-msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
-msgstr "<a0>J4.1 在国外医疗服务点读取家庭成员的记录</a0>：请求清单（ITI-YY5），已签名（{code0}）；检查通行码，返回清单并记录访问（{code1}）"
-
-#: input/pagecontent/dictionary.md:11
 msgid "<a0>Questionnaire TrustDemoHouseholdRegistration</a0>, <a1>StructureDefinition TrustDemoLaoRegistration</a1>, <a2>StructureDefinition TrustDemoLaoHousehold</a2>, <a3>StructureDefinition TrustDemoLaoPatient</a3>, <a4>StructureDefinition TrustDemoLaoReportedImmunization</a4>, <a5>QuestionnaireResponse TrustDemoJ2Registration</a5>, <a6>Group TrustDemoHousehold</a6>, <a7>Immunization TrustDemoJ2HepBReported</a7>, <a8>Immunization TrustDemoJ2BcgReported</a8>"
 msgstr "<a0>Questionnaire TrustDemoHouseholdRegistration</a0>, <a1>StructureDefinition TrustDemoLaoRegistration</a1>, <a2>StructureDefinition TrustDemoLaoHousehold</a2>, <a3>StructureDefinition TrustDemoLaoPatient</a3>, <a4>StructureDefinition TrustDemoLaoReportedImmunization</a4>, <a5>QuestionnaireResponse TrustDemoJ2Registration</a5>, <a6>Group TrustDemoHousehold</a6>, <a7>Immunization TrustDemoJ2HepBReported</a7>, <a8>Immunization TrustDemoJ2BcgReported</a8>"
 
@@ -726,31 +701,6 @@ msgstr "记录或读取于：<a0>J1 在 A 国为新生儿签发出生剂次 DVC<
 #, python-brace-format
 msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Create a referral to the home clinic for verification ({code0}); <a1>J3 Verify, import and schedule at the home clinic</a1>: Scan the QRs and open the referral ({code1})"
 msgstr "记录或读取于：<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：创建转诊至所属诊所进行验证（{code0}）；<a1>J3 在所属诊所验证、导入并制定接种计划</a1>：扫描二维码（QR）并打开转诊（{code1}）"
-
-#: input/pagecontent/dictionary.md:50
-#, python-brace-format
-msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
-msgstr "记录或读取于：<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：在不验证的情况下读取每份 DVC（分诊）（{code0}）；将婴儿加入家庭；将剂次保存为已报告、未验证（{code1}）"
-
-#: input/pagecontent/dictionary.md:124
-#, python-brace-format
-msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
-msgstr "记录或读取于：<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：在外国疫苗代码旁添加国家接种计划代码（{code0}）；评估国家接种计划（{code1}）；接种到期剂次并预约下次就诊（{code2}）"
-
-#: input/pagecontent/dictionary.md:99
-#, python-brace-format
-msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
-msgstr "记录或读取于：<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：对照信任列表验证每个 HCERT（{code0}）；每份 DVC 都已验证？（{code1}）；记录失败原因；按国家政策决定剂次（{code2}）；将剂次作为 FHIR Immunization 资源导入（{code3}）"
-
-#: input/pagecontent/dictionary.md:147
-#, python-brace-format
-msgid "Recorded or read in: <a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
-msgstr "记录或读取于：<a0>J4.0 将家庭的记录作为 VHL 签发到一部手机</a0>：汇集每位成员的 IPS 和 DVC（{code0}）；加密文档并发布受通行码保护的清单（{code1}）"
-
-#: input/pagecontent/dictionary.md:169
-#, python-brace-format
-msgid "Recorded or read in: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
-msgstr "记录或读取于：<a0>J4.1 在国外医疗服务点读取家庭成员的记录</a0>：请求清单（ITI-YY5），已签名（{code0}）；检查通行码，返回清单并记录访问（{code1}）"
 
 #: input/pagecontent/dictionary.md:156
 #: input/pagecontent/dictionary.md:184
@@ -1863,3 +1813,93 @@ msgstr "验证失败时停止的原因：决策表 TD.DT.01 的输入。"
 #: input/pagecontent/dictionary.md:161
 msgid "Withdrawn at"
 msgstr "撤回时间"
+
+#: input/pagecontent/dictionary.md:11
+#, python-brace-format
+msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1})"
+msgstr "<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；添加婴儿；将剂次保存为已报告（{code1}）"
+
+#: input/pagecontent/dictionary.md:14
+#, python-brace-format
+msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+msgstr "<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国编码旁添加国家编码（{code0}）；评估国家接种计划（{code1}）；接种到期剂次并预约下次就诊（{code2}）"
+
+#: input/pagecontent/dictionary.md:13
+#, python-brace-format
+msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Note the failure; decide doses by policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+msgstr "<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：针对信任列表验证每个 HCERT（{code0}）；每个 DVC 都已验证？（{code1}）；记录失败；按政策决定剂次（{code2}）；将剂次作为 FHIR Immunization 资源导入（{code3}）"
+
+#: input/pagecontent/dictionary.md:15
+#, python-brace-format
+msgid "<a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt, publish a passcode manifest ({code1})"
+msgstr "<a0>J4.0 将家庭的记录作为 VHL 签发到一部手机</a0>：汇集每位成员的 IPS 和 DVC（{code0}）；加密并发布受通行码保护的清单（{code1}）"
+
+#: input/pagecontent/dictionary.md:16
+#, python-brace-format
+msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check passcode, log access, return manifest ({code1})"
+msgstr "<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：请求清单（ITI-YY5），已签名（{code0}）；核验通行码、记录访问、返回清单（{code1}）"
+
+#: input/pagecontent/dictionary.md:50
+#, python-brace-format
+msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant; save doses as reported ({code1})"
+msgstr "记录或读取于：<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：以未验证方式读取每个 DVC（分诊）（{code0}）；添加婴儿；将剂次保存为已报告（{code1}）"
+
+#: input/pagecontent/dictionary.md:124
+#, python-brace-format
+msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add national codes beside foreign ones ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+msgstr "记录或读取于：<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：在外国编码旁添加国家编码（{code0}）；评估国家接种计划（{code1}）；接种到期剂次并预约下次就诊（{code2}）"
+
+#: input/pagecontent/dictionary.md:99
+#, python-brace-format
+msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Note the failure; decide doses by policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+msgstr "记录或读取于：<a0>J3 在所属诊所验证、导入并安排接种计划</a0>：针对信任列表验证每个 HCERT（{code0}）；每个 DVC 都已验证？（{code1}）；记录失败；按政策决定剂次（{code2}）；将剂次作为 FHIR Immunization 资源导入（{code3}）"
+
+#: input/pagecontent/dictionary.md:147
+#, python-brace-format
+msgid "Recorded or read in: <a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt, publish a passcode manifest ({code1})"
+msgstr "记录或读取于：<a0>J4.0 将家庭的记录作为 VHL 签发到一部手机</a0>：汇集每位成员的 IPS 和 DVC（{code0}）；加密并发布受通行码保护的清单（{code1}）"
+
+#: input/pagecontent/dictionary.md:169
+#, python-brace-format
+msgid "Recorded or read in: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check passcode, log access, return manifest ({code1})"
+msgstr "记录或读取于：<a0>J4.1 在国外的医疗服务点读取家庭成员的记录</a0>：请求清单（ITI-YY5），已签名（{code0}）；核验通行码、记录访问、返回清单（{code1}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
+#~ msgstr "<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：在不验证的情况下读取每份 DVC（分诊）（{code0}）；将婴儿加入家庭；将剂次保存为已报告、未验证（{code1}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+#~ msgstr "<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：在外国疫苗代码旁添加国家接种计划代码（{code0}）；评估国家接种计划（{code1}）；接种到期剂次并预约下次就诊（{code2}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+#~ msgstr "<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：对照信任列表验证每个 HCERT（{code0}）；每份 DVC 都已验证？（{code1}）；记录失败原因；按国家政策决定剂次（{code2}）；将剂次作为 FHIR Immunization 资源导入（{code3}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
+#~ msgstr "<a0>J4.0 将家庭的记录作为 VHL 签发到一部手机</a0>：汇集每位成员的 IPS 和 DVC（{code0}）；加密文档并发布受通行码保护的清单（{code1}）"
+
+#~ #, python-brace-format
+#~ msgid "<a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
+#~ msgstr "<a0>J4.1 在国外医疗服务点读取家庭成员的记录</a0>：请求清单（ITI-YY5），已签名（{code0}）；检查通行码，返回清单并记录访问（{code1}）"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J2 Discover and refer an unregistered infant in Country B</a0>: Read each DVC unverified (triage) ({code0}); Add the infant to the household; save the doses as reported, not verified ({code1})"
+#~ msgstr "记录或读取于：<a0>J2 在 B 国发现并转诊未登记的婴儿</a0>：在不验证的情况下读取每份 DVC（分诊）（{code0}）；将婴儿加入家庭；将剂次保存为已报告、未验证（{code1}）"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Add the national schedule code beside the foreign vaccine code ({code0}); Evaluate the national schedule ({code1}); Give due doses and book the next visit ({code2})"
+#~ msgstr "记录或读取于：<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：在外国疫苗代码旁添加国家接种计划代码（{code0}）；评估国家接种计划（{code1}）；接种到期剂次并预约下次就诊（{code2}）"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J3 Verify, import and schedule at the home clinic</a0>: Verify each HCERT against the trust list ({code0}); Every DVC verified? ({code1}); Record the failure reason; decide doses by national policy ({code2}); Import the doses as FHIR Immunization resources ({code3})"
+#~ msgstr "记录或读取于：<a0>J3 在所属诊所验证、导入并制定接种计划</a0>：对照信任列表验证每个 HCERT（{code0}）；每份 DVC 都已验证？（{code1}）；记录失败原因；按国家政策决定剂次（{code2}）；将剂次作为 FHIR Immunization 资源导入（{code3}）"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J4.0 Issue the family's records to one phone as VHLs</a0>: Assemble each member's IPS and DVCs ({code0}); Encrypt the documents and publish a passcode-protected manifest ({code1})"
+#~ msgstr "记录或读取于：<a0>J4.0 将家庭的记录作为 VHL 签发到一部手机</a0>：汇集每位成员的 IPS 和 DVC（{code0}）；加密文档并发布受通行码保护的清单（{code1}）"
+
+#~ #, python-brace-format
+#~ msgid "Recorded or read in: <a0>J4.1 Read a family member's records at the point of care abroad</a0>: Request the manifest (ITI-YY5), signed ({code0}); Check the passcode, return the manifest and log the access ({code1})"
+#~ msgstr "记录或读取于：<a0>J4.1 在国外医疗服务点读取家庭成员的记录</a0>：请求清单（ITI-YY5），已签名（{code0}）；检查通行码，返回清单并记录访问（{code1}）"
