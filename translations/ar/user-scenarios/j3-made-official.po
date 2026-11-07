@@ -1,0 +1,416 @@
+# Arabic translation of user scenario j3-made-official
+#
+# UNOFFICIAL — drafted by an agent from the template beside it. No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# requirement ids, placeholders, numbers and URLs are kept as written;
+# persona names are fictional and kept as written. Modern Standard Arabic,
+# right-to-left. msgctxt is the scenario field path.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: j3-made-official\n"
+"POT-Creation-Date: 2026-11-07T21:58:55.904Z\n"
+"PO-Revision-Date: 2026-11-07\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: scenarios/user-scenarios/j3-made-official.json:13
+msgctxt "country"
+msgid "Lao PDR"
+msgstr "جمهورية لاو الديمقراطية الشعبية (Lao PDR)"
+
+#: scenarios/user-scenarios/j3-made-official.json:5
+msgctxt "description"
+msgid "A nurse verifies the cards are genuine and fits the Thai doses into the Lao schedule."
+msgstr "ممرضةٌ تتحقق من أن البطاقات أصلية وتُدرج الجرعات التايلاندية في جدول التطعيم اللاوي."
+
+#: scenarios/user-scenarios/j3-made-official.json:373
+msgctxt "references.label"
+msgid "User scenario in the IG"
+msgstr "سيناريو المستخدم في دليل التنفيذ (IG)"
+
+#: scenarios/user-scenarios/j3-made-official.json:22
+msgctxt "scene.label"
+msgid "Clinic tablet"
+msgstr "الجهاز اللوحي في العيادة"
+
+#: scenarios/user-scenarios/j3-made-official.json:368
+msgctxt "scene.label"
+msgid "On the Lao schedule"
+msgstr "على جدول التطعيم اللاوي"
+
+#: scenarios/user-scenarios/j3-made-official.json:364
+msgctxt "scene.label"
+msgid "Signature verified"
+msgstr "التوقيع مُتحقَّق منه"
+
+#: scenarios/user-scenarios/j3-made-official.json:209
+msgctxt "step.enabler"
+msgid "Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due."
+msgstr "يُحتفَظ بالرمز الأصلي لتايلاند ويُضاف الرمز اللاوي إلى جانبه؛ ويحسب محرّك جدول التطعيم ما هو مستحق."
+
+#: scenarios/user-scenarios/j3-made-official.json:52
+msgctxt "step.enabler"
+msgid "Thailand’s signing key is on the shared WHO trust list, so any clinic can check it locally."
+msgstr "مفتاح التوقيع الخاص بتايلاند مُدرَج في قائمة الثقة المشتركة لمنظمة الصحة العالمية (WHO)، لذا يمكن لأي عيادة التحقق منه محليًا."
+
+#: scenarios/user-scenarios/j3-made-official.json:46
+msgctxt "step.experiences.doing"
+msgid "Brings Somsack in for the referral visit."
+msgstr "تُحضِر Somsack إلى زيارة الإحالة."
+
+#: scenarios/user-scenarios/j3-made-official.json:197
+msgctxt "step.experiences.doing"
+msgid "Confirms the Thai product equals the Lao birth dose; the system books the 6-week vaccines."
+msgstr "تؤكد أن المنتج التايلاندي يعادل جرعة الولادة في الجدول اللاوي؛ ويحجز النظام لقاحات عمر 6 أسابيع."
+
+#: scenarios/user-scenarios/j3-made-official.json:203
+msgctxt "step.experiences.doing"
+msgid "Leaves with a date for Somsack’s next vaccines."
+msgstr "تغادر ومعها موعد للقاحات Somsack التالية."
+
+#: scenarios/user-scenarios/j3-made-official.json:40
+msgctxt "step.experiences.doing"
+msgid "Scans the card; the tablet confirms the Thai signature and marks the doses verified."
+msgstr "تمسح البطاقة ضوئيًا؛ فيؤكد الجهاز اللوحي التوقيع التايلاندي ويَسِم الجرعات بأنها مُتحقَّق منها."
+
+#: scenarios/user-scenarios/j3-made-official.json:41
+msgctxt "step.experiences.feeling"
+msgid "“A green tick — I can trust a hospital I’ve never heard of.”"
+msgstr "«علامة صحّ خضراء — يمكنني أن أثق بمستشفى لم أسمع به من قبل.»"
+
+#: scenarios/user-scenarios/j3-made-official.json:198
+msgctxt "step.experiences.feeling"
+msgid "“Different name, same vaccine — I can make that call.”"
+msgstr "«اسم مختلف، واللقاح نفسه — بإمكاني أن أتخذ هذا القرار.»"
+
+#: scenarios/user-scenarios/j3-made-official.json:204
+msgctxt "step.experiences.feeling"
+msgid "“Now I know exactly when to come back.”"
+msgstr "«الآن أعرف بالضبط متى أعود.»"
+
+#: scenarios/user-scenarios/j3-made-official.json:47
+msgctxt "step.experiences.feeling"
+msgid "“They believe the Thai papers!”"
+msgstr "«إنهم يصدّقون الأوراق التايلاندية!»"
+
+#: scenarios/user-scenarios/j3-made-official.json:316
+msgctxt "step.fhirChanges.change"
+msgid "6-week pentavalent booked"
+msgstr "حُجزت جرعة اللقاح الخماسي لعمر 6 أسابيع"
+
+#: scenarios/user-scenarios/j3-made-official.json:148
+msgctxt "step.fhirChanges.change"
+msgid "Created: author = Thailand MOPH, verifier = nurse"
+msgstr "أُنشئ: المؤلِّف = وزارة الصحة العامة في تايلاند (MOPH)، والجهة المُتحقِّقة = الممرضة"
+
+#: scenarios/user-scenarios/j3-made-official.json:294
+msgctxt "step.fhirChanges.change"
+msgid "Lao EPI code added; PreQual code kept"
+msgstr "أُضيف رمز EPI اللاوي؛ وأُبقي على رمز PreQual"
+
+#: scenarios/user-scenarios/j3-made-official.json:306
+msgctxt "step.fhirChanges.change"
+msgid "Nurse’s mapping decision recorded"
+msgstr "سُجِّل قرار المطابقة الذي اتخذته الممرضة"
+
+#: scenarios/user-scenarios/j3-made-official.json:136
+msgctxt "step.fhirChanges.change"
+msgid "primarySource flipped to true"
+msgstr "تغيّرت قيمة primarySource إلى true"
+
+#: scenarios/user-scenarios/j3-made-official.json:137
+msgctxt "step.fhirChanges.why"
+msgid "A verified DVC is the signing hospital’s own record, so the dose now counts; the Thai record it came from is unchanged."
+msgstr "شهادة التطعيم الرقمية (DVC) المُتحقَّق منها هي السجل الخاص بالمستشفى الموقِّع، لذا تُحتسب الجرعة الآن؛ ويبقى السجل التايلاندي الذي صدرت عنه دون تغيير."
+
+#: scenarios/user-scenarios/j3-made-official.json:149
+msgctxt "step.fhirChanges.why"
+msgid "Anyone who later doubts a dose can follow it back to the signed certificate and Thailand’s key."
+msgstr "يمكن لأي شخص يشكّ لاحقًا في جرعةٍ ما أن يتتبّعها إلى الشهادة الموقَّعة ومفتاح تايلاند."
+
+#: scenarios/user-scenarios/j3-made-official.json:307
+msgctxt "step.fhirChanges.why"
+msgid "Lao PDR’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse."
+msgstr "خريطة جمهورية لاو الديمقراطية الشعبية (Lao PDR) الخاصة بها لمطابقة منتجات اللقاحات مع جدولها؛ والمنتج الذي لا مطابقة له يُحال إلى الممرضة."
+
+#: scenarios/user-scenarios/j3-made-official.json:317
+msgctxt "step.fhirChanges.why"
+msgid "The Lao schedule (PlanDefinition) finds the 6-week doses due; the reminder brings him back."
+msgstr "يحدّد جدول التطعيم اللاوي (PlanDefinition) جرعات عمر 6 أسابيع المستحقة؛ ويعيده التذكير إلى العيادة."
+
+#: scenarios/user-scenarios/j3-made-official.json:295
+msgctxt "step.fhirChanges.why"
+msgid "The Lao schedule runs on Lao EPI codes, so one is required; the Thai product code stays beside it, never overwritten."
+msgstr "يعمل جدول التطعيم اللاوي برموز EPI اللاوية، لذا يلزم وجود رمز منها؛ ويبقى رمز المنتج التايلاندي إلى جانبه، ولا يُستبدَل أبدًا."
+
+#: scenarios/user-scenarios/j3-made-official.json:61
+msgctxt "step.handoff.carrier"
+msgid "Camera scan + local trust-list check"
+msgstr "مسح ضوئي بالكاميرا + تحقق محلي من قائمة الثقة"
+
+#: scenarios/user-scenarios/j3-made-official.json:218
+msgctxt "step.handoff.carrier"
+msgid "FHIR API via Info Gateway"
+msgstr "FHIR API عبر بوابة ربط المعلومات (Info Gateway)"
+
+#: scenarios/user-scenarios/j3-made-official.json:219
+msgctxt "step.handoff.payload"
+msgid "Dual-coded Immunization + next-dose Task"
+msgstr "سجل Immunization مزدوج الترميز + Task للجرعة التالية"
+
+#: scenarios/user-scenarios/j3-made-official.json:62
+msgctxt "step.handoff.payload"
+msgid "Verified DVC → Immunization updated"
+msgstr "DVC مُتحقَّق منها → تحديث Immunization"
+
+#: scenarios/user-scenarios/j3-made-official.json:217
+msgctxt "step.handoff.summary"
+msgid "Somsack continues on the Lao schedule for a year"
+msgstr "يواصل Somsack على جدول التطعيم اللاوي لمدة عام"
+
+#: scenarios/user-scenarios/j3-made-official.json:60
+msgctxt "step.handoff.summary"
+msgid "Verified doses, ready to schedule"
+msgstr "جرعات مُتحقَّق منها، جاهزة للجدولة"
+
+#: scenarios/user-scenarios/j3-made-official.json:19
+msgctxt "step.headline"
+msgid "Nurse Chanthasone scans the card, and her tablet checks Thailand’s digital signature against the WHO trust list — without contacting Thailand."
+msgstr "تمسح الممرضة Chanthasone البطاقة ضوئيًا، فيتحقق جهازها اللوحي من التوقيع الرقمي لتايلاند مقابل قائمة الثقة لمنظمة الصحة العالمية (WHO) — دون الاتصال بتايلاند."
+
+#: scenarios/user-scenarios/j3-made-official.json:188
+msgctxt "step.headline"
+msgid "The Thai Hep B product doesn’t match anything on the Lao schedule. Chanthasone makes the clinical call, and the system works out what’s due next."
+msgstr "لا يطابق منتج Hep B التايلاندي أي شيء في جدول التطعيم اللاوي. تتخذ Chanthasone القرار السريري، ويحدّد النظام ما هو مستحق بعد ذلك."
+
+#: scenarios/user-scenarios/j3-made-official.json:131
+#: scenarios/user-scenarios/j3-made-official.json:131
+msgctxt "step.illustration.alt"
+msgid "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Lao schedule; Khamla and Bounmy hold Somsack"
+msgstr "في المركز الصحي للمنطقة، تفحص الممرضة Chanthasone البطاقات على جهاز لوحي: التوقيع مُتحقَّق منه، على جدول التطعيم اللاوي؛ وتحمل Khamla و Bounmy الطفل Somsack"
+
+#: scenarios/user-scenarios/j3-made-official.json:35
+msgctxt "step.narrative"
+msgid ""
+"Nurse Chanthasone opens the referral and scans the QRs. The EHR\n"
+"**verifies** each DVC offline against that copy (STT-VER-001…009,\n"
+"STT-KID-002), without contacting Thailand. Both verify, so it imports them as\n"
+"FHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n"
+"(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\n"
+"doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\n"
+"the reason, the doses stay unverified, and the nurse decides by national\n"
+"catch-up policy.\n"
+msgstr "تفتح الممرضة Chanthasone الإحالة وتمسح رموز QR ضوئيًا. ويقوم السجل الصحي الإلكتروني (EHR)\n**بالتحقق** من كل DVC دون اتصال مقابل تلك النسخة (STT-VER-001…009،\nSTT-KID-002)، دون الاتصال بتايلاند. وتجتاز كلتاهما التحقق، فيستوردهما بوصفهما\nموارد FHIR من نوع `Immunization` (`TrustDemoJ3HepB`، `TrustDemoJ3Bcg`) مع بيانات المصدر\n(`TrustDemoJ3Verification`؛ STT-VER-007، STT-VER-008)، لتحلّ محل الجرعات المُبلَّغ عنها\nفي J2. وإذا فشل التحقق من DVC (بطاقة عُبث بها مثلًا)، يحدّد EHR الخطوة\nوالسبب، وتبقى الجرعات غير مُتحقَّق منها، وتقرر الممرضة وفق السياسة الوطنية\nللتطعيم الاستدراكي.\n"
+
+#: scenarios/user-scenarios/j3-made-official.json:192
+msgctxt "step.narrative"
+msgid ""
+"The Thai Hep B product matches nothing on the national schedule.\n"
+"The EHR keeps Thailand's product coding and adds the schedule coding beside\n"
+"it, from the national map (`TrustDemoProductToLaoEpi`). For the Hep B product\n"
+"the map has no entry, so Nurse Chanthasone makes the clinical call that it is\n"
+"the schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is\n"
+"added to the map for the next clinic. The schedule (`TrustDemoLaoInfantSchedule`)\n"
+"then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\n"
+"at 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n"
+"(`TrustDemoJ3Reminder`). Over the year Somsack gets those doses and\n"
+"measles-rubella at 9 months, in Lao PDR.\n"
+msgstr "لا يطابق منتج Hep B التايلاندي أي شيء في جدول التطعيم الوطني.\nيحتفظ EHR بترميز المنتج الخاص بتايلاند ويضيف ترميز الجدول إلى جانبه،\nمن الخريطة الوطنية (`TrustDemoProductToLaoEpi`). وبما أن الخريطة لا تتضمن مدخلًا\nلمنتج Hep B، تتخذ الممرضة Chanthasone القرار السريري بأنه\nجرعة الولادة في الجدول (`TrustDemoJ3Adjudication`)، ويُضاف قرارها\nإلى الخريطة لصالح العيادة التالية. ثم يُشغَّل الجدول (`TrustDemoLaoInfantSchedule`):\nفتُحتسب جرعات الولادة، وتستحق الجرعة 1 من اللقاح الخماسي و bOPV 1 و PCV 1\nعند عمر 6 أسابيع (`TrustDemoJ3Recommendation`). وتغادر Khamla ومعها الموعد\n(`TrustDemoJ3Reminder`). وعلى مدار العام يتلقى Somsack تلك الجرعات\nولقاح الحصبة والحصبة الألمانية في عمر 9 أشهر، في جمهورية لاو الديمقراطية الشعبية (Lao PDR).\n"
+
+#: scenarios/user-scenarios/j3-made-official.json:51
+msgctxt "step.painPoint"
+msgid "Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly."
+msgstr "إما أن يرتاب الممارسون السريريون في الأوراق الأجنبية فيعيدوا التطعيم، أو يثقوا بها ثقة عمياء."
+
+#: scenarios/user-scenarios/j3-made-official.json:208
+msgctxt "step.painPoint"
+msgid "Countries name and package vaccines differently, so doses get missed or repeated."
+msgstr "تختلف البلدان في تسمية اللقاحات وتعبئتها، فتُفوَّت جرعات أو تتكرر."
+
+#: scenarios/user-scenarios/j3-made-official.json:210
+msgctxt "step.policy"
+msgid "Never overwrite another country’s record: keep the original coding alongside the national one."
+msgstr "لا يُستبدَل سجل بلد آخر أبدًا: يُحتفَظ بالترميز الأصلي إلى جانب الترميز الوطني."
+
+#: scenarios/user-scenarios/j3-made-official.json:53
+msgctxt "step.policy"
+msgid "Trust is decentralized: a Lao clinic verifies a Thai signature itself, without contacting Thailand."
+msgstr "الثقة لا مركزية: تتحقق عيادة لاوية بنفسها من توقيع تايلاندي، دون الاتصال بتايلاند."
+
+#: scenarios/user-scenarios/j3-made-official.json:26
+msgctxt "step.preconditions.description"
+msgid "**Precondition: the DID documents are already loaded.** Loading them is not a step of this visit. The clinic may be offline all day, so the EHR fetches nothing during it: its trust store holds the GDHCN DEV trust list as it was last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). A clinic with no connection of its own refreshes it about weekly, when the CHW visits the base clinic or district health office, where Country B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until the next refresh."
+msgstr "**شرط مسبق: وثائق DID محمَّلة مسبقًا.** تحميلها ليس خطوة من خطوات هذه الزيارة. قد تكون العيادة غير متصلة طوال اليوم، لذا لا يجلب EHR أي شيء خلالها: يحتفظ مخزن الثقة لديه بقائمة الثقة DEV التابعة لـ GDHCN كما كانت عند آخر تحديث، بما في ذلك وثيقة DID الخاصة بشهادة DSC لـ XXR (STT-TRU-001، STT-TRU-002، STT-TRU-005). والعيادة التي لا تملك اتصالًا خاصًا بها تحدّثها أسبوعيًا تقريبًا، عندما يزور عامل الصحة المجتمعي (CHW) العيادة الأساسية أو مكتب الصحة في المنطقة، حيث يسترجع البلد B القائمة التي يوزّعها مرسى الثقة لـ GDHCN. وشهادة DSC المنشورة بعد ذلك التحديث ليست في نسخة العيادة، لذا تفشل شهادة DVC الخاصة بها في التحقق من قائمة الثقة (STT-VER-006) حتى التحديث التالي."
+
+#: scenarios/user-scenarios/j3-made-official.json:25
+msgctxt "step.preconditions.title"
+msgid "The DID documents are already loaded"
+msgstr "وثائق DID محمَّلة مسبقًا"
+
+#: scenarios/user-scenarios/j3-made-official.json:213
+msgctxt "step.record.description"
+msgid "Birth doses count; next appointment booked"
+msgstr "تُحتسب جرعات الولادة؛ وحُجز الموعد التالي"
+
+#: scenarios/user-scenarios/j3-made-official.json:56
+msgctxt "step.record.description"
+msgid "Doses verified; Thailand recorded as the source"
+msgstr "جرعات مُتحقَّق منها؛ وتايلاند مسجَّلة بوصفها المصدر"
+
+#: scenarios/user-scenarios/j3-made-official.json:57
+msgctxt "step.record.heldWhere"
+msgid "District clinic records"
+msgstr "سجلات عيادة المنطقة"
+
+#: scenarios/user-scenarios/j3-made-official.json:214
+msgctxt "step.record.heldWhere"
+msgid "Lao national health records"
+msgstr "السجلات الصحية الوطنية في لاو"
+
+#: scenarios/user-scenarios/j3-made-official.json:245
+msgctxt "step.technicalSummary"
+msgid "Shared WHO codes and a FHIR ConceptMap translate Thai vaccines into the Lao schedule. Computable schedule logic then works out what’s due next."
+msgstr "تترجم رموز منظمة الصحة العالمية (WHO) المشتركة ومورد ConceptMap في FHIR اللقاحات التايلاندية إلى جدول التطعيم اللاوي. ثم يحدّد منطق الجدول القابل للحوسبة ما هو مستحق بعد ذلك."
+
+#: scenarios/user-scenarios/j3-made-official.json:89
+msgctxt "step.technicalSummary"
+msgid "The clinic checks Thailand’s signature against WHO’s trust list, stored locally. One check turns a foreign paper card into trusted clinical data, with no call to Thailand."
+msgstr "تتحقق العيادة من توقيع تايلاند مقابل قائمة الثقة لمنظمة الصحة العالمية (WHO)، المخزَّنة محليًا. فحص واحد يحوّل بطاقة ورقية أجنبية إلى بيانات سريرية موثوقة، دون أي اتصال بتايلاند."
+
+#: scenarios/user-scenarios/j3-made-official.json:187
+msgctxt "step.title"
+msgid "Thai vaccines are fitted to the Lao schedule"
+msgstr "تُدرَج اللقاحات التايلاندية في جدول التطعيم اللاوي"
+
+#: scenarios/user-scenarios/j3-made-official.json:18
+msgctxt "step.title"
+msgid "The clinic confirms the cards are genuine"
+msgstr "العيادة تؤكد أن البطاقات أصلية"
+
+#: scenarios/user-scenarios/j3-made-official.json:191
+msgctxt "step.touchpoint"
+msgid "Clinic tablet (vaccine matching + schedule)"
+msgstr "الجهاز اللوحي في العيادة (مطابقة اللقاحات + جدول التطعيم)"
+
+#: scenarios/user-scenarios/j3-made-official.json:22
+msgctxt "step.touchpoint"
+msgid "Clinic tablet (verification)"
+msgstr "الجهاز اللوحي في العيادة (التحقق)"
+
+#: scenarios/user-scenarios/j3-made-official.json:265
+msgctxt "step.uses.role"
+msgid "Checks the nurse’s role and facility before accepting the update"
+msgstr "يتحقق من دور الممرضة ومرفقها الصحي قبل قبول التحديث"
+
+#: scenarios/user-scenarios/j3-made-official.json:93
+msgctxt "step.uses.role"
+msgid "Clinic tablet app; caches the trust list"
+msgstr "تطبيق الجهاز اللوحي في العيادة؛ يخزّن قائمة الثقة مؤقتًا"
+
+#: scenarios/user-scenarios/j3-made-official.json:249
+msgctxt "step.uses.role"
+msgid "Common PreQual codes make the mapping possible"
+msgstr "رموز PreQual المشتركة تجعل المطابقة ممكنة"
+
+#: scenarios/user-scenarios/j3-made-official.json:105
+msgctxt "step.uses.role"
+msgid "COSE_Sign1 signature verified (ES256)"
+msgstr "التوقيع COSE_Sign1 مُتحقَّق منه (ES256)"
+
+#: scenarios/user-scenarios/j3-made-official.json:97
+msgctxt "step.uses.role"
+msgid "Delivers the CHW’s referral to this clinic; the nurse can only see patients referred to her facility"
+msgstr "يوصل إحالة عامل الصحة المجتمعي (CHW) إلى هذه العيادة؛ ولا يمكن للممرضة أن ترى إلا المرضى المُحالين إلى مرفقها الصحي"
+
+#: scenarios/user-scenarios/j3-made-official.json:257
+msgctxt "step.uses.role"
+msgid "Lao schedule logic calculates the 6-week doses"
+msgstr "يحسب منطق جدول التطعيم اللاوي جرعات عمر 6 أسابيع"
+
+#: scenarios/user-scenarios/j3-made-official.json:253
+msgctxt "step.uses.role"
+msgid "PreQual product → WHO vaccine type → Lao EPI code"
+msgstr "منتج PreQual → نوع اللقاح لدى منظمة الصحة العالمية (WHO) → رمز EPI اللاوي"
+
+#: scenarios/user-scenarios/j3-made-official.json:273
+msgctxt "step.uses.role"
+msgid "Receives the verified, mapped record"
+msgstr "يستقبل السجل المُتحقَّق منه والمُطابَق"
+
+#: scenarios/user-scenarios/j3-made-official.json:109
+msgctxt "step.uses.role"
+msgid "Records that Thailand authored and Lao PDR verified the doses"
+msgstr "يسجّل أن تايلاند هي التي أعدّت سجل الجرعات وأن جمهورية لاو الديمقراطية الشعبية (Lao PDR) تحققت منها"
+
+#: scenarios/user-scenarios/j3-made-official.json:261
+msgctxt "step.uses.role"
+msgid "Saves dual-coded record and syncs it to the national server"
+msgstr "يحفظ السجل مزدوج الترميز ويزامنه مع الخادم الوطني"
+
+#: scenarios/user-scenarios/j3-made-official.json:101
+msgctxt "step.uses.role"
+msgid "Supplies Thailand’s public key (downloaded in advance)"
+msgstr "يوفّر المفتاح العمومي لتايلاند (المُنزَّل مسبقًا)"
+
+#: scenarios/user-scenarios/j3-made-official.json:269
+msgctxt "step.uses.role"
+msgid "Verified Thai doses, with their Provenance, count toward Lao coverage reports"
+msgstr "تُحتسب الجرعات التايلاندية المُتحقَّق منها، مع Provenance الخاص بها، ضمن تقارير التغطية في لاو"
+
+#: scenarios/user-scenarios/j3-made-official.json:227
+msgctxt "step.whatIf.outcome"
+msgid "That is exactly this step. The nurse decides — and her decision could be shared so the next nurse doesn’t have to."
+msgstr "هذا بالضبط ما تتناوله هذه الخطوة. تقرر الممرضة — ويمكن مشاركة قرارها حتى لا تضطر الممرضة التالية إلى ذلك."
+
+#: scenarios/user-scenarios/j3-made-official.json:70
+msgctxt "step.whatIf.outcome"
+msgid "The signature check fails, the doses stay unverified and the nurse follows the local catch-up policy."
+msgstr "يفشل التحقق من التوقيع، وتبقى الجرعات غير مُتحقَّق منها، وتتبع الممرضة السياسة المحلية للتطعيم الاستدراكي."
+
+#: scenarios/user-scenarios/j3-made-official.json:69
+msgctxt "step.whatIf.scenario"
+msgid "The card has been tampered with."
+msgstr "عُبث بالبطاقة."
+
+#: scenarios/user-scenarios/j3-made-official.json:226
+msgctxt "step.whatIf.scenario"
+msgid "There is no automatic match for the foreign vaccine."
+msgstr "لا توجد مطابقة تلقائية للقاح الأجنبي."
+
+#: scenarios/user-scenarios/j3-made-official.json:20
+#: scenarios/user-scenarios/j3-made-official.json:20
+msgctxt "step.when"
+msgid "T0 + 4 weeks"
+msgstr "T0 + 4 أسابيع"
+
+#: scenarios/user-scenarios/j3-made-official.json:12
+#: scenarios/user-scenarios/j3-made-official.json:12
+msgctxt "step.where"
+msgid "Vientiane District Health Center"
+msgstr "المركز الصحي لمنطقة فيينتيان"
+
+#: scenarios/user-scenarios/j3-made-official.json:4
+msgctxt "title"
+msgid "J3 — Made official"
+msgstr "J3 — إضفاء الصفة الرسمية"
+
+#: scenarios/user-scenarios/j3-made-official.json:4
+msgctxt "views.label"
+msgid "J3"
+msgstr "J3"
+
+#: scenarios/user-scenarios/j3-made-official.json:11
+msgctxt "when"
+msgid "4 weeks later"
+msgstr "بعد 4 أسابيع"
+
+#: scenarios/user-scenarios/j3-made-official.json:12
+msgctxt "where"
+msgid "Vientiane District Health Center"
+msgstr "المركز الصحي لمنطقة فيينتيان"
