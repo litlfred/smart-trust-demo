@@ -88,11 +88,6 @@ msgstr "نموذج DPI-H RA ArchiMate ({code0}) و{code1}"
 msgid "Every dependency of this repository, with its reason. A new or bumped dependency is a release at least 14 days old, pinned (lockfile or {code0} with sha256) and added here in the same pull request."
 msgstr "كل تبعية لهذا المستودع، مع سببها. والتبعية الجديدة أو المُحدَّثة هي إصدار لا يقل عمره عن 14 يومًا، مُثبَّت (بملف القفل أو {code0} مع sha256) ومُضاف هنا في طلب السحب نفسه."
 
-#: docs/dependencies.md:33
-#, python-brace-format
-msgid "FHIR packages: {code0} 5.0.0, {code1} 7.0.1, {code2} 5.3.0-ballot-tc1, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
-msgstr "حزم FHIR: {code0} 5.0.0، و{code1} 7.0.1، و{code2} 5.3.0-ballot-tc1، و{code3} 1.1.0، و{code4} 0.2.0، و{code5} 0.1.0"
-
 #: docs/dependencies.md:13
 msgid "GitHub Actions (pinned by commit SHA)"
 msgstr "GitHub Actions (مُثبَّتة بـ SHA الإيداع)"
@@ -194,10 +189,6 @@ msgstr "المكتبة التي وُجد هذا العرض التوضيحي لت
 msgid "The model the <a0>ArchiMate overlay</a0> is drawn on, and smart-ra's own script for adding to it without rewriting it. Source files, not a package; the generated model is committed, so the site build does not fetch."
 msgstr "النموذج الذي يُرسم عليه <a0>تراكب ArchiMate</a0>، والبرنامج النصي الخاص بـ smart-ra للإضافة إليه دون إعادة كتابته. ملفات مصدرية، لا حزمة؛ والنموذج المولَّد مُودَع، بحيث لا يجلب بناء الموقع أي شيء."
 
-#: docs/dependencies.md:33
-msgid "The packages the IG's FSH is resolved against: FHIR R5 (as smart-trust and smart-trust-phw use), the three SUSHI provides for an R5 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time."
-msgstr "الحزم التي يُحَل مقابلها FSH الخاص بدليل التنفيذ (IG): FHIR R5 (كما يستخدمه smart-trust وsmart-trust-phw)، والحزم الثلاث التي يوفّرها SUSHI لدليل R5، وأدلة SMART لمنظمة الصحة العالمية (WHO) التي يعتمد عليها دليل التنفيذ. وهي مأخوذة من مرايا registry.npmjs.org لسجل حزم FHIR، لأن SUSHI يجب ألا يُنزِّل شيئًا في وقت التشغيل."
-
 #: docs/dependencies.md:36
 msgid "The workshop walkthrough of the journeys, moved from litlfred/vaxlink with its dependencies unchanged except that the lock was re-resolved to the 14-day cutoff. A static site: nothing here runs on a server."
 msgstr "الجولة الإرشادية لورشة العمل عن الرحلات، المنقولة من litlfred/vaxlink مع تبعياتها دون تغيير، باستثناء أن ملف القفل أُعيد حلّه وفق حدّ الأيام الـ 14. موقع ثابت: لا يعمل شيء هنا على خادم."
@@ -211,3 +202,20 @@ msgstr "الجولة الإرشادية VaxLink ({code0}): React 18.3.1، و{cod
 #: docs/dependencies.md:27
 msgid "Why"
 msgstr "السبب"
+
+#: docs/dependencies.md:33
+#, python-brace-format
+msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+msgstr "حزم FHIR: {code0} 4.0.1، و{code1} 7.0.1، و{code2} 5.3.0، و{code3} 1.1.0، و{code4} 0.2.0، و{code5} 0.1.0"
+
+#: docs/dependencies.md:33
+#, python-brace-format
+msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
+msgstr "الحزم التي يُحَل مقابلها FSH الخاص بدليل التنفيذ (IG): FHIR R4 4.0.1 (كما يستخدمه smart-base وsmart-trust وsmart-trust-phw)، والحزم الثلاث التي يوفّرها SUSHI لدليل R4، وأدلة SMART لمنظمة الصحة العالمية (WHO) التي يعتمد عليها دليل التنفيذ. وهي مأخوذة من مرايا registry.npmjs.org لسجل حزم FHIR، لأن SUSHI يجب ألا يُنزِّل شيئًا في وقت التشغيل؛ أما {code0} (لا يحوي npm منها إلا عنصرًا نائبًا) و{code1} 5.3.0 (لا يحوي npm منها إلا نسخة الاقتراع) فمن <a0>litlfred/fhir-package-mirror</a0> عند إيداع مثبَّت، ويُتحقَّق منها مقابل قيمة sha512 نفسها."
+
+#~ #, python-brace-format
+#~ msgid "FHIR packages: {code0} 5.0.0, {code1} 7.0.1, {code2} 5.3.0-ballot-tc1, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+#~ msgstr "حزم FHIR: {code0} 5.0.0، و{code1} 7.0.1، و{code2} 5.3.0-ballot-tc1، و{code3} 1.1.0، و{code4} 0.2.0، و{code5} 0.1.0"
+
+#~ msgid "The packages the IG's FSH is resolved against: FHIR R5 (as smart-trust and smart-trust-phw use), the three SUSHI provides for an R5 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time."
+#~ msgstr "الحزم التي يُحَل مقابلها FSH الخاص بدليل التنفيذ (IG): FHIR R5 (كما يستخدمه smart-trust وsmart-trust-phw)، والحزم الثلاث التي يوفّرها SUSHI لدليل R5، وأدلة SMART لمنظمة الصحة العالمية (WHO) التي يعتمد عليها دليل التنفيذ. وهي مأخوذة من مرايا registry.npmjs.org لسجل حزم FHIR، لأن SUSHI يجب ألا يُنزِّل شيئًا في وقت التشغيل."

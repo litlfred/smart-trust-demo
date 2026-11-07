@@ -43,11 +43,6 @@ msgstr "يُسمّي {code0} (اختياري) النشر الذي يؤديها،
 msgid "{code0} is the point of the edge: the same block plays a different role in each step."
 msgstr "{code0} هو جوهر الحافة: اللبنة نفسها تؤدي دوراً مختلفاً في كل خطوة."
 
-#: docs/proposals/uses-building-block/README.md:58
-#, python-brace-format
-msgid "{code0} now also checks:"
-msgstr "يتحقق {code0} الآن أيضاً مما يلي:"
-
 #: docs/proposals/uses-building-block/README.md:28
 #, python-brace-format
 msgid "{code0}, {code1}, or {code2}. A country's deployed system is that country's; what anyone can adopt is International. The ArchiMate views are to split the RA by jurisdiction on this field (owner, 2026-11-05)"
@@ -63,11 +58,6 @@ msgstr "{code0}: 18 مكوِّناً منشوراً ({code1})، كلٌّ منه�
 msgid "{code0}: every step now has {code1} and {code2}, and its hand-off has {code3} and {code4}, converted from {code5}."
 msgstr "{code0}: لكل خطوة الآن {code1} و{code2}، ولتسليمها {code3} و{code4}، محوَّلة من {code5}."
 
-#: docs/proposals/uses-building-block/README.md:52
-#, python-brace-format
-msgid "{code0}: the catalogue, converted once from vaxlink's {code1}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
-msgstr "{code0}: الفهرس، محوَّل مرة واحدة من {code1} الخاص بـ vaxlink. يضم 19 لبنة، 10 منها مرتبطة بمكوِّنات الطبقة. وقد رُبطت الأنواع والولايات القضائية والمكوِّنات يدوياً."
-
 #: docs/proposals/uses-building-block/README.md:21
 #, python-brace-format
 msgid "<a0>{code0}</a0> ({code1}): one catalogue of blocks. Each block has:"
@@ -77,11 +67,6 @@ msgstr "<a0>{code0}</a0> ({code1}): فهرس واحد للبنات. لكل لب�
 msgid "as the walkthrough shows them"
 msgstr "كما تعرضها الجولة الإرشادية"
 
-#: docs/proposals/uses-building-block/README.md:59
-#, python-brace-format
-msgid "each {code0} names a block in the catalogue, once per step, and a {code1} is one of that block's;"
-msgstr "كل {code0} يُسمّي لبنة في الفهرس، مرة واحدة لكل خطوة، و{code1} هو أحد الأدوار الخاصة بتلك اللبنة؛"
-
 #: docs/proposals/uses-building-block/README.md:24
 msgid "Field"
 msgstr "الحقل"
@@ -89,10 +74,6 @@ msgstr "الحقل"
 #: docs/proposals/uses-building-block/README.md:50
 msgid "Files"
 msgstr "الملفات"
-
-#: docs/proposals/uses-building-block/README.md:64
-msgid "It passes, and reports each of three seeded errors."
-msgstr "ينجح، ويُبلغ عن كلٍّ من الأخطاء الثلاثة المزروعة عمداً."
 
 #: docs/proposals/uses-building-block/README.md:66
 msgid "Left out on purpose"
@@ -127,11 +108,6 @@ msgstr "الحالة: مسودة، 2026-11-05. البند {code0}، الفجوة
 #: docs/proposals/uses-building-block/README.md:19
 msgid "The answer: a catalogue, and an edge from the step"
 msgstr "الإجابة: فهرس، وحافة من الخطوة"
-
-#: docs/proposals/uses-building-block/README.md:61
-#, python-brace-format
-msgid "the catalogue's block ids are unique, its layers are known, and its components are element keys of {code0}."
-msgstr "معرّفات اللبنات في الفهرس فريدة، وطبقاته معروفة، ومكوِّناته مفاتيح عناصر في {code0}."
 
 #: docs/proposals/uses-building-block/README.md:32
 #, python-brace-format
@@ -171,3 +147,32 @@ msgstr "{code0} الخاص بـ vaxlink: 19 لبنة عامة ({code1})، ولك
 #, python-brace-format
 msgid "Where the catalogue lives once adopted. It could live in {code0}, with {code1} reading it instead of its own {code2} list, so the components are kept once. That is the ArchiMate session's file, so it is their call."
 msgstr "أين يُحفظ الفهرس بعد اعتماده. يمكن أن يُحفظ في {code0}، فيقرؤه {code1} بدلاً من قائمة {code2} الخاصة به، فتُحفظ المكوِّنات مرة واحدة. ذلك ملف جلسة ArchiMate، فالقرار قرارهم."
+
+#: docs/proposals/uses-building-block/README.md:52
+#, python-brace-format
+msgid "{code0} (now at {code1}, a directory declaring the harness's {code2} kind, beside the ArchiMate model; {code3} reads it): the catalogue, converted once from vaxlink's {code4}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
+msgstr "{code0} (موجود الآن في {code1}، وهو دليل يُعلن النوع {code2} الخاص بالحاضنة (harness)، بجانب نموذج ArchiMate؛ ويقرؤه {code3}): الفهرس، محوَّل مرة واحدة من {code4} الخاص بـ vaxlink. يضم 19 لبنة، 10 منها مرتبطة بمكوِّنات الطبقة. وقد رُبطت الأنواع والولايات القضائية والمكوِّنات يدوياً."
+
+#: docs/proposals/uses-building-block/README.md:58
+#, python-brace-format
+msgid "Checks: the harness's {code0} resolves each {code1} to a block of a declared catalogue, and its kind validator checks the catalogue's shape; {code2} refuses a component that is not an element of the overlay and records each element's blocks as a property. ({code3}, which did this first, is retired.)"
+msgstr "عمليات التحقق: يَحُلّ {code0} الخاص بالحاضنة (harness) كل {code1} إلى لبنة في فهرس مُعلَن، ويتحقق مُدقِّق النوع الخاص به من بنية الفهرس؛ ويرفض {code2} أي مكوِّن ليس عنصرًا في الطبقة، ويسجّل لبنات كل عنصر بوصفها خاصية. (وقد أُحيل {code3}، الذي كان يؤدي ذلك أولًا، إلى التقاعد.)"
+
+#~ #, python-brace-format
+#~ msgid "{code0} now also checks:"
+#~ msgstr "يتحقق {code0} الآن أيضاً مما يلي:"
+
+#~ #, python-brace-format
+#~ msgid "{code0}: the catalogue, converted once from vaxlink's {code1}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
+#~ msgstr "{code0}: الفهرس، محوَّل مرة واحدة من {code1} الخاص بـ vaxlink. يضم 19 لبنة، 10 منها مرتبطة بمكوِّنات الطبقة. وقد رُبطت الأنواع والولايات القضائية والمكوِّنات يدوياً."
+
+#~ #, python-brace-format
+#~ msgid "each {code0} names a block in the catalogue, once per step, and a {code1} is one of that block's;"
+#~ msgstr "كل {code0} يُسمّي لبنة في الفهرس، مرة واحدة لكل خطوة، و{code1} هو أحد الأدوار الخاصة بتلك اللبنة؛"
+
+#~ msgid "It passes, and reports each of three seeded errors."
+#~ msgstr "ينجح، ويُبلغ عن كلٍّ من الأخطاء الثلاثة المزروعة عمداً."
+
+#~ #, python-brace-format
+#~ msgid "the catalogue's block ids are unique, its layers are known, and its components are element keys of {code0}."
+#~ msgstr "معرّفات اللبنات في الفهرس فريدة، وطبقاته معروفة، ومكوِّناته مفاتيح عناصر في {code0}."
