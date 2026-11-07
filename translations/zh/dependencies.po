@@ -192,13 +192,13 @@ msgstr "理由"
 
 #: docs/dependencies.md:33
 #, python-brace-format
-msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
-msgstr "FHIR 包：{code0} 4.0.1、{code1} 7.0.1、{code2} 5.3.0、{code3} 1.1.0、{code4} 0.2.0、{code5} 0.1.0"
+msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.2.0-litlfred"
+msgstr "FHIR 包：{code0} 4.0.1、{code1} 7.0.1、{code2} 5.3.0、{code3} 1.1.0、{code4} 0.2.0、{code5} 0.2.0-litlfred"
 
 #: docs/dependencies.md:33
 #, python-brace-format
-msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
-msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R4 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载；{code0}（npm 上只有占位包）和 {code1} 5.3.0（npm 上只有投票版）取自固定提交的 <a0>litlfred/fhir-package-mirror</a0>，并以同一 sha512 校验。"
+msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512. {code2} 0.2.0-litlfred is the fork build of the Personal Health Wallet guide (R4, with consent): the {code3} on litlfred/smart-trust-phw's gh-pages, pinned by commit and sha512, never published to packages.fhir.org under WHO's id."
+msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R4 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载；{code0}（npm 上只有占位包）和 {code1} 5.3.0（npm 上只有投票版）取自固定提交的 <a0>litlfred/fhir-package-mirror</a0>，并以同一 sha512 校验。{code2} 0.2.0-litlfred 是 Personal Health Wallet 指南（个人健康钱包，R4，含同意）的派生构建版本：即 litlfred/smart-trust-phw 的 gh-pages 上的 {code3}，按提交和 sha512 固定，从未以世卫组织（WHO）的 id 发布到 packages.fhir.org。"
 
 #~ #, python-brace-format
 #~ msgid "FHIR packages: {code0} 5.0.0, {code1} 7.0.1, {code2} 5.3.0-ballot-tc1, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
@@ -206,3 +206,11 @@ msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、sma
 
 #~ msgid "The packages the IG's FSH is resolved against: FHIR R5 (as smart-trust and smart-trust-phw use), the three SUSHI provides for an R5 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time."
 #~ msgstr "解析 IG 的 FSH 所依据的包：FHIR R5（与 smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R5 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载。"
+
+#~ #, python-brace-format
+#~ msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+#~ msgstr "FHIR 包：{code0} 4.0.1、{code1} 7.0.1、{code2} 5.3.0、{code3} 1.1.0、{code4} 0.2.0、{code5} 0.1.0"
+
+#~ #, python-brace-format
+#~ msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
+#~ msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R4 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载；{code0}（npm 上只有占位包）和 {code1} 5.3.0（npm 上只有投票版）取自固定提交的 <a0>litlfred/fhir-package-mirror</a0>，并以同一 sha512 校验。"
