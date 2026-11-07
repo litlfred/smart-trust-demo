@@ -49,19 +49,17 @@ Today it is in two places that do not know about each other:
 
 ## Files
 
-- `building-blocks.json`: the catalogue, converted once from vaxlink's
+- `building-blocks.json` (now at `archimate/building-blocks/building-blocks.json`, a directory declaring the harness's `building-blocks` kind, beside the ArchiMate model; `tools/archimate/overlay.py` reads it): the catalogue, converted once from vaxlink's
   `techData.ts`. It has 19 blocks, 10 of them linked to overlay components.
   Kind, jurisdiction and components were mapped by hand.
 - `scenarios/user-scenarios/*.json`: every step now has `technicalSummary` and
   `uses`, and its hand-off has `carrier` and `payload`, converted from
   `STEP_TECH`.
-- `tools/user-scenarios/check.py` now also checks:
-  - each `uses` names a block in the catalogue, once per step, and a
-    `component` is one of that block's;
-  - the catalogue's block ids are unique, its layers are known, and its
-    components are element keys of `overlay.py`.
-
-  It passes, and reports each of three seeded errors.
+- Checks: the harness's `check:journey-refs` resolves each `uses` to a block
+  of a declared catalogue, and its kind validator checks the catalogue's
+  shape; `tools/archimate/overlay.py` refuses a component that is not an
+  element of the overlay and records each element's blocks as a property.
+  (`tools/user-scenarios/check.py`, which did this first, is retired.)
 
 ## Left out on purpose
 

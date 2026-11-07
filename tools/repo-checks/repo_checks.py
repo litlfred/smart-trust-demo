@@ -231,7 +231,7 @@ def requirement_errors(req_dir):
 
 
 def binding_errors(stt_skills):
-    """Task skills exist and belong to their lane's role; every person and system role plays a lane."""
+    """Task skills exist and belong to their lane's role; every person and system role plays a lane, or (a person's) is a scenario persona's."""
     errors = []
     if not stt_skills.is_dir():
         return [f"{stt_skills}: no smart-trust-tools skills here; mount the pinned layers or pass --smart-trust-tools DIR"]
@@ -252,11 +252,18 @@ def binding_errors(stt_skills):
                 errors.append(f"{rel}: task {t['id']} is in no lane")
             elif role in roles and t["skill"] not in roles[role].get("skills", []):
                 errors.append(f"{rel}: task {t['id']}'s skill {t['skill']} is not one of its lane role {role}'s skills (scenarios/roles.json)")
+    # A person who takes part in a journey without a lane of their own (the
+    # newborn, the subject of care, acts through the caregiver) plays a role
+    # that is in a journey by a user scenario naming one of its actors as a
+    # persona; a role nobody in any journey plays is still an error.
+    personas = {a for f in (ROOT / "scenarios" / "user-scenarios").glob("*.json") for a in json.loads(f.read_text(encoding="utf-8")).get("personas", [])}
+    in_scenes = {rr for f in (ROOT / "scenarios" / "actors").glob("*.json") for a in [json.loads(f.read_text(encoding="utf-8"))]
+                 if a["id"] in personas and a.get("kind") == "person" for rr in a.get("roles", [])}
     for rid, r in roles.items():
         for s in r.get("skills", []):
             if s not in known:
                 errors.append(f"scenarios/roles.json: role {rid} names skill {s}, which no skill package defines")
-        if rid not in in_lanes and set(r.get("actorKinds", [])) & {"person", "system"}:
+        if rid not in in_lanes and rid not in in_scenes and set(r.get("actorKinds", [])) & {"person", "system"}:
             errors.append(f"scenarios/roles.json: role {rid} plays no lane in any journey")
     return errors
 

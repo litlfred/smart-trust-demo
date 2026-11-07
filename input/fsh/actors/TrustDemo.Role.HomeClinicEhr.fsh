@@ -25,12 +25,12 @@ The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list
 
 **Lanes and tasks in the business processes**:
 
-- [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic): Verify each HCERT against the trust list; Import the doses as FHIR Immunization resources; Add the national schedule code beside the foreign vaccine code; Evaluate the national schedule
+- [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic): Verify each HCERT against the trust list; Import the doses as FHIR Immunization resources; Add national codes beside foreign ones; Evaluate the national schedule
 
 **Decisions it makes**:
 
 - Decision table [TD.DT.01 What does a scanned DVC become in the child's record?](decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record), in: Verify each HCERT against the trust list; Every DVC verified?; Import the doses as FHIR Immunization resources
-- Decision table [TD.DT.02 Which national schedule code does an imported dose carry?](decision-logic.html#tddt02-which-national-schedule-code-does-an-imported-dose-carry), in: Add the national schedule code beside the foreign vaccine code
+- Decision table [TD.DT.02 Which national schedule code does an imported dose carry?](decision-logic.html#tddt02-which-national-schedule-code-does-an-imported-dose-carry), in: Add national codes beside foreign ones
 - Decision table [TD.DT.03 Does the national schedule count this dose?](decision-logic.html#tddt03-does-the-national-schedule-count-this-dose), in: Evaluate the national schedule
 - Decision table [TD.DT.04 Is this dose of the national schedule due?](decision-logic.html#tddt04-is-this-dose-of-the-national-schedule-due), in: Evaluate the national schedule
 - Gateway "Every DVC verified?" in [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic)

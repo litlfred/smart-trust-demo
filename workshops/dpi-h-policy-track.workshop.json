@@ -1,0 +1,942 @@
+{
+  "$schema": "workshop/0.1.0",
+  "id": "dpi-h-policy-track",
+  "title": "Verifiable immunization records across borders: the policy-maker track",
+  "description": "The seven modules (M1 to M7) of the DPI-H workshop's policy-maker track, taught from the journeys J1 to J4.1 of one cross-border family: domestic and cross-border verifiable immunization records as the entry point to a personal health record. Converted from the VaxLink walkthrough's policyData.ts (scratch proof).",
+  "audience": "Ministry of Health policy makers and digital health leads, at tables of one country each",
+  "promise": "You will not leave with an assessment or a plan. You will leave knowing what each consists of, where your country stands on its first page, and who you would do the rest with.",
+  "useCaseStatement": "A child vaccinated in ___ should be able to ___ in ___.",
+  "scenarios": [
+    "j1-born-abroad",
+    "j2-found-at-home",
+    "j3-made-official",
+    "j4-0-one-family-one-phone",
+    "j4-1-full-history-abroad"
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "title": "From journey to capabilities",
+      "day": 1,
+      "carries": "What had to exist for this moment to work — and where does our version of the journey break?",
+      "sheet": "sheet-1",
+      "tables": [
+        "patterns"
+      ],
+      "objectives": [
+        "Name the capabilities each moment of the journey needs",
+        "Say where your country's version of the journey breaks",
+        "Choose a substitution pattern that gets you moving"
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "The reference architecture and where you stand",
+      "day": 1,
+      "carries": "Which system do we use today for each block — and is it there, partly there, or absent?",
+      "sheet": "sheet-2"
+    },
+    {
+      "id": "M3",
+      "title": "Standards, specifications and the core data set",
+      "day": 1,
+      "carries": "Which standards do we adopt rather than author — and who owns the national core data set?",
+      "sheet": "sheet-3"
+    },
+    {
+      "id": "M4",
+      "title": "Trust, credentials and wallets",
+      "day": 2,
+      "carries": "Who signs, who verifies, and who would hold the national trust anchor? Name it; do not decide it.",
+      "sheet": "sheet-4"
+    },
+    {
+      "id": "M5",
+      "title": "Governance, decision rights and the legal basis",
+      "day": 2,
+      "carries": "Who holds each decision — and what legal basis lets the record cross a border and be shared for a child?",
+      "sheet": "sheet-4",
+      "tables": [
+        "decision-rights",
+        "legal-bases"
+      ],
+      "objectives": [
+        "Name who holds each of the four decision rights today",
+        "Name the legal basis that lets a record cross a border and be shared for a child"
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "Doing it once, together",
+      "day": 2,
+      "carries": "Would your neighbour need this too? If yes, why would you each build it?",
+      "sheet": "sheet-5"
+    },
+    {
+      "id": "M7",
+      "title": "Our first move, what it costs, and what we ask for",
+      "day": 2,
+      "carries": "What is realistic in twelve months with the people and money we have — and who owns it?",
+      "sheet": "sheet-6",
+      "tables": [
+        "cost-drivers"
+      ],
+      "objectives": [
+        "Write a realistic twelve-month first move with a named owner",
+        "Name the cost driver that dominates it"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "decision-rights",
+      "title": "Decision rights",
+      "module": "M5",
+      "description": "The four decision rights the use case forces.",
+      "rows": [
+        {
+          "id": "architecture",
+          "label": "Architecture authority",
+          "question": "Who decides which national systems play which part, and that they must connect?"
+        },
+        {
+          "id": "standards",
+          "label": "Standards mandate",
+          "question": "Who can require suppliers to conform to the national implementation guide — in a tender, for example?"
+        },
+        {
+          "id": "core-data-set",
+          "label": "Core data set custodian",
+          "question": "Who owns the national core data set, its codes and its mappings to other countries’ codes?"
+        },
+        {
+          "id": "trust-anchor",
+          "label": "Trust anchor",
+          "question": "Which institution signs on behalf of the health sector, and who accepts a foreign signature?"
+        }
+      ]
+    },
+    {
+      "id": "legal-bases",
+      "title": "Legal basis",
+      "module": "M5",
+      "rows": [
+        {
+          "id": "cross-border",
+          "label": "Legal basis for cross-border sharing"
+        },
+        {
+          "id": "consent-dependants",
+          "label": "Consent, including for minors and dependants"
+        }
+      ]
+    },
+    {
+      "id": "patterns",
+      "title": "Substitution patterns",
+      "module": "M1",
+      "description": "Taught at the end of M1 and reused all workshop.",
+      "rows": [
+        {
+          "id": "narrow",
+          "label": "Start narrow",
+          "what": "One population, one credential, one facility type.",
+          "example": "Malaysia’s Hajj Health Card"
+        },
+        {
+          "id": "shared",
+          "label": "Start shared",
+          "what": "Build the foundation once for several programmes, not once for immunization.",
+          "example": "Thailand’s registry shared across parts of government"
+        },
+        {
+          "id": "borrowed",
+          "label": "Start borrowed",
+          "what": "Adopt a regional or international artefact rather than authoring your own.",
+          "example": "The ICVP IG, the IPS, a SNOMED subset"
+        }
+      ]
+    },
+    {
+      "id": "cost-drivers",
+      "title": "Cost drivers",
+      "module": "M7",
+      "description": "Drivers, not unit costs.",
+      "rows": [
+        {
+          "id": "integration",
+          "label": "Integration effort"
+        },
+        {
+          "id": "licensing",
+          "label": "Terminology licensing"
+        },
+        {
+          "id": "devices",
+          "label": "Devices and connectivity at the point of care"
+        },
+        {
+          "id": "recurrent",
+          "label": "Recurrent cost of running shared infrastructure"
+        },
+        {
+          "id": "not-once",
+          "label": "The cost of not doing it once"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "scenario": "j1-born-abroad",
+      "step": "J1",
+      "askTheRoom": "What is the minimum a family should leave hospital with when their baby has no national ID?",
+      "facilitatorCue": "Start with Khamla, not the technology. Hold up a paper card: this is the only thing that crosses the border.",
+      "questions": [
+        {
+          "module": "M1",
+          "text": "Write your country’s use-case statement: “A child vaccinated in ___ should be able to ___ in ___.”"
+        },
+        {
+          "module": "M4",
+          "text": "Who in your government would sign this card on behalf of the health sector: the hospital, the ministry, or a national trust service?"
+        },
+        {
+          "module": "M5",
+          "text": "Does your law let a facility issue a health credential to a child who is not a citizen and has no national ID?"
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "issuer-signing",
+          "label": "A national service that signs vaccination certificates"
+        },
+        {
+          "id": "facility-immz-record",
+          "label": "An immunization record at the birth facility"
+        },
+        {
+          "id": "product-codes",
+          "label": "Vaccine product codes"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "trust-anchor"
+        },
+        {
+          "table": "legal-bases",
+          "row": "consent-dependants"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "integration"
+        },
+        {
+          "table": "patterns",
+          "row": "borrowed",
+          "why": "Issue to the WHO digital certificate specification rather than design a national card."
+        }
+      ]
+    },
+    {
+      "scenario": "j2-found-at-home",
+      "step": "J2a",
+      "askTheRoom": "Is an “unverified but recorded” vaccine useful to the next clinician — or a risk?",
+      "facilitatorCue": "This is the key trust boundary in the story. Pause and make sure everyone sees why the CHW does not verify.",
+      "questions": [
+        {
+          "module": "M3",
+          "text": "Does your national core data set tell a dose the family reported from one that was verified? Who defines that element?"
+        },
+        {
+          "module": "M4",
+          "text": "Who is allowed to verify a foreign credential: a health worker’s phone, a clinic, or only a national service?"
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "reported-vs-verified",
+          "label": "A core data set that marks a dose as reported or verified"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "core-data-set"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "integration"
+        },
+        {
+          "table": "patterns",
+          "row": "borrowed",
+          "why": "Take the element from the WHO immunization core data dictionary rather than define it nationally."
+        }
+      ]
+    },
+    {
+      "scenario": "j2-found-at-home",
+      "step": "J2b",
+      "askTheRoom": "Who should be allowed to create a health identity for a newborn — and how early?",
+      "facilitatorCue": "Ask who in the room has worked with CHWs. What does “offline” really mean in their context?",
+      "questions": [
+        {
+          "module": "M2",
+          "text": "Which block gives this child his first identifier in your country: birth registration, the national ID, or the health client registry? Exists, partial or absent?"
+        },
+        {
+          "module": "M2",
+          "text": "When a birth happened abroad and is not registered at home, how does the child enter your registries — and your coverage denominator?"
+        },
+        {
+          "module": "M5",
+          "text": "Who may create a health identity for a newborn at a home visit, and on whose consent?"
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "client-registry",
+          "label": "A client registry that can hold a child with no birth record"
+        },
+        {
+          "id": "crvs-link",
+          "label": "A link from birth registration (CRVS) to the health registries"
+        },
+        {
+          "id": "chw-offline-app",
+          "label": "An offline app for community health workers"
+        },
+        {
+          "id": "referral",
+          "label": "A referral from the community to a facility"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "architecture"
+        },
+        {
+          "table": "legal-bases",
+          "row": "consent-dependants"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "devices"
+        },
+        {
+          "table": "patterns",
+          "row": "narrow",
+          "why": "One population first: newborns found in border districts."
+        }
+      ]
+    },
+    {
+      "scenario": "j3-made-official",
+      "step": "J3a",
+      "askTheRoom": "When verification fails, what should the nurse do — and how is it explained to the family?",
+      "facilitatorCue": "Open the screen and flip the tamper toggle live. The contrast lands better than any explanation.",
+      "questions": [
+        {
+          "module": "M1",
+          "text": "What must be true for this nurse to trust a record she did not create?"
+        },
+        {
+          "module": "M4",
+          "text": "Who would hold your national trust anchor, and who accepts a foreign signature on behalf of your health sector?"
+        },
+        {
+          "module": "M4",
+          "text": "What must your country have, and what must it decide, before it can verify a neighbour’s card offline? Name it; do not decide it here."
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "trust-list",
+          "label": "Membership of a trust network, its list cached for offline use"
+        },
+        {
+          "id": "clinic-verification",
+          "label": "Verification inside the clinic’s system"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "trust-anchor"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "recurrent"
+        },
+        {
+          "table": "patterns",
+          "row": "shared",
+          "why": "The trust network is built once, for every programme that signs credentials, not for immunization alone."
+        }
+      ]
+    },
+    {
+      "scenario": "j3-made-official",
+      "step": "J3b",
+      "askTheRoom": "Who should own the mapping between countries’ vaccine codes — WHO, each country, or each clinic?",
+      "facilitatorCue": "Emphasize: the Thai record is never overwritten. Both codes live side by side.",
+      "questions": [
+        {
+          "module": "M3",
+          "text": "Who owns the national core data set and the mapping between other countries’ vaccine codes and yours?"
+        },
+        {
+          "module": "M3",
+          "text": "Which code systems do you use for vaccine products, and is the licence question settled?"
+        },
+        {
+          "module": "M6",
+          "text": "Would your neighbour need this mapping too? If yes, why would you each build it?"
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "terminology-service",
+          "label": "A terminology service holding vaccine codes and mappings"
+        },
+        {
+          "id": "schedule-logic",
+          "label": "The national schedule as computable decision logic"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "core-data-set"
+        },
+        {
+          "table": "decision-rights",
+          "row": "standards"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "licensing"
+        },
+        {
+          "table": "patterns",
+          "row": "borrowed",
+          "why": "Map to a shared regional or international code set rather than one country at a time."
+        }
+      ]
+    },
+    {
+      "scenario": "j4-0-one-family-one-phone",
+      "step": "J4.0a",
+      "askTheRoom": "How do we design for shared phones without compromising each person’s privacy?",
+      "facilitatorCue": "Notice Khamla’s mood dips here. Ask the room why — this is the equity tension in the story.",
+      "questions": [
+        {
+          "module": "M4",
+          "text": "Is a family wallet a national service, a private app, or both — and who decides which apps may hold a record?"
+        },
+        {
+          "module": "M5",
+          "text": "Who may hold and share a child’s record: either parent, a guardian, the child from what age? What does your law say about dependants?"
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "family-wallet",
+          "label": "A wallet or citizen app that holds a family’s records"
+        },
+        {
+          "id": "dependant-consent",
+          "label": "Rules for a parent holding a child’s record"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "standards"
+        },
+        {
+          "table": "legal-bases",
+          "row": "consent-dependants"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "devices"
+        },
+        {
+          "table": "patterns",
+          "row": "narrow",
+          "why": "One credential first: the child’s vaccination record, on the phone the family already has."
+        }
+      ]
+    },
+    {
+      "scenario": "j4-0-one-family-one-phone",
+      "step": "J4.0b",
+      "askTheRoom": "Is a 4-digit spoken passcode the right balance of security and ease for this family?",
+      "facilitatorCue": "Ask: what is inside this QR? (Answer: not the health data — just a pointer and a key.)",
+      "questions": [
+        {
+          "module": "M5",
+          "text": "What legal basis lets a record held at home be opened by a clinician abroad, on the family’s consent?"
+        },
+        {
+          "module": "M5",
+          "text": "Would one clause in your procurement — conformance to the national IG — be enough for your portal to issue this link?"
+        },
+        {
+          "module": "M5",
+          "text": "Who sets how a shared link is protected — the passcode, how long it lasts, who may open it: a national rule, or the family’s choice?"
+        },
+        {
+          "module": "M6",
+          "text": "Should the part of the record that crosses borders (IPS plus an immunization core) be profiled once for the region, with national extensions left sovereign?"
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "national-record",
+          "label": "A national health record the family’s link points to"
+        },
+        {
+          "id": "share-link",
+          "label": "A service that issues time-limited links on the family’s consent"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "architecture"
+        },
+        {
+          "table": "decision-rights",
+          "row": "standards"
+        },
+        {
+          "table": "legal-bases",
+          "row": "cross-border"
+        },
+        {
+          "table": "legal-bases",
+          "row": "consent-dependants"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "recurrent"
+        },
+        {
+          "table": "patterns",
+          "row": "borrowed",
+          "why": "Adopt the IPS and an existing link specification rather than author a national format."
+        }
+      ]
+    },
+    {
+      "scenario": "j4-1-full-history-abroad",
+      "step": "J4.1",
+      "askTheRoom": "Should the family be notified every time their child’s record is viewed abroad?",
+      "facilitatorCue": "Close the loop: the story started and ends in Thailand. Ask what changed for each persona since step 1.",
+      "questions": [
+        {
+          "module": "M5",
+          "text": "What agreement makes every view abroad leave an entry in the home country’s log — and who reads it?"
+        },
+        {
+          "module": "M6",
+          "text": "What would your country send to a regional connectathon within twelve months to prove this moment works?"
+        },
+        {
+          "module": "M7",
+          "text": "What is a realistic twelve-month first move toward this moment, with a named owner — and which cost driver dominates it?"
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "poc-viewer",
+          "label": "A point-of-care viewer that accepts a foreign link"
+        },
+        {
+          "id": "access-log",
+          "label": "An access log kept in the home country"
+        }
+      ],
+      "tags": [
+        {
+          "table": "decision-rights",
+          "row": "trust-anchor"
+        },
+        {
+          "table": "decision-rights",
+          "row": "architecture"
+        },
+        {
+          "table": "legal-bases",
+          "row": "cross-border"
+        },
+        {
+          "table": "cost-drivers",
+          "row": "not-once"
+        },
+        {
+          "table": "patterns",
+          "row": "shared",
+          "why": "Shared testing and one regional data model, rather than each pair of countries agreeing its own."
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "standingLine": "“Absent” is a finding, not a failure — the question is only whether it blocks this use case.",
+    "scales": [
+      {
+        "id": "status",
+        "label": "Where we stand",
+        "options": [
+          {
+            "id": "exists",
+            "label": "Exists"
+          },
+          {
+            "id": "partial",
+            "label": "Partial"
+          },
+          {
+            "id": "absent",
+            "label": "Absent"
+          }
+        ]
+      },
+      {
+        "id": "urgency",
+        "label": "How urgent",
+        "options": [
+          {
+            "id": "now",
+            "label": "Blocks us now"
+          },
+          {
+            "id": "12m",
+            "label": "Needed within 12 months"
+          },
+          {
+            "id": "wait",
+            "label": "Can wait"
+          }
+        ]
+      }
+    ]
+  },
+  "discussion": [
+    {
+      "id": "q1",
+      "module": "M2",
+      "theme": "Identity for babies born abroad",
+      "question": "How should national immunization systems handle temporary IDs for cross-border infants before civil registration is complete?",
+      "steps": [
+        "j1-born-abroad#J1",
+        "j2-found-at-home#J2b"
+      ]
+    },
+    {
+      "id": "q2",
+      "module": "M4",
+      "theme": "Where trust begins",
+      "question": "Why should offline CHW devices store foreign cards as “reported, not verified” rather than trying to verify them in the field?",
+      "steps": [
+        "j2-found-at-home#J2a",
+        "j3-made-official#J3a"
+      ]
+    },
+    {
+      "id": "q3",
+      "module": "M3",
+      "theme": "Matching vaccines across countries",
+      "question": "When a monovalent vaccine is given abroad but the home schedule uses a combination (e.g. pentavalent), how should schedule rules calculate the doses still due?",
+      "steps": [
+        "j3-made-official#J3b"
+      ]
+    },
+    {
+      "id": "q4",
+      "module": "M5",
+      "theme": "Cross-border access and audit",
+      "question": "What agreements do countries need so that a clinician viewing a record abroad triggers an audit entry back in the patient’s home country?",
+      "steps": [
+        "j4-0-one-family-one-phone#J4.0b",
+        "j4-1-full-history-abroad#J4.1"
+      ]
+    }
+  ],
+  "sheets": [
+    {
+      "id": "sheet-1",
+      "label": "Sheet 1",
+      "title": "Our journey and where it breaks",
+      "size": "A3",
+      "modules": [
+        "M1"
+      ],
+      "assessmentStrip": true
+    },
+    {
+      "id": "sheet-2",
+      "label": "Sheet 2",
+      "title": "Our architecture today",
+      "size": "A3",
+      "modules": [
+        "M2"
+      ],
+      "assessmentStrip": true
+    },
+    {
+      "id": "sheet-3",
+      "label": "Sheet 3",
+      "title": "Core data set, terminology and specifications",
+      "size": "A3",
+      "modules": [
+        "M3"
+      ],
+      "assessmentStrip": true
+    },
+    {
+      "id": "sheet-4",
+      "label": "Sheet 4",
+      "title": "Trust, and who decides",
+      "size": "A3",
+      "modules": [
+        "M4",
+        "M5"
+      ],
+      "assessmentStrip": true
+    },
+    {
+      "id": "sheet-5",
+      "label": "Sheet 5",
+      "title": "Doing it once, together: our nomination",
+      "size": "A3",
+      "modules": [
+        "M6"
+      ],
+      "assessmentStrip": true
+    },
+    {
+      "id": "sheet-6",
+      "label": "Sheet 6",
+      "title": "Our first move and our ask",
+      "size": "A3",
+      "modules": [
+        "M7"
+      ],
+      "assessmentStrip": true,
+      "fields": [
+        {
+          "label": "Our first move in twelve months",
+          "lines": 3
+        },
+        {
+          "label": "Named owner",
+          "lines": 1
+        },
+        {
+          "label": "What we ask of partners",
+          "lines": 3
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "facilitator-card-j4-1",
+      "title": "Facilitator card: J4.1, crossing back",
+      "kind": "job-aid",
+      "steps": [
+        "j4-1-full-history-abroad#J4.1"
+      ],
+      "modules": [
+        "M5",
+        "M6",
+        "M7"
+      ],
+      "body": "1. Show the QR on the family phone; say the passcode aloud.\n2. Ask: *what is inside this QR?* (a pointer and a key, not the health data).\n3. Try a wrong passcode: the attempt is still logged in Lao PDR.\n4. Close the loop: ask what changed for each persona since J1."
+    },
+    {
+      "id": "dpi-h-ra",
+      "title": "DPI-H Reference Architecture",
+      "kind": "reading",
+      "href": "https://litlfred.github.io/smart-ra/en/dpi-h-ra/index.html",
+      "modules": [
+        "M2"
+      ],
+      "description": "The reference architecture each table maps its systems onto."
+    },
+    {
+      "id": "smart-trust",
+      "title": "WHO SMART Trust",
+      "kind": "reading",
+      "href": "https://smart.who.int/trust/",
+      "modules": [
+        "M4"
+      ]
+    },
+    {
+      "id": "ihe-vhl",
+      "title": "IHE ITI Verified Health Link (VHL)",
+      "kind": "reading",
+      "href": "https://profiles.ihe.net/ITI/VHL/volume-1.html",
+      "modules": [
+        "M4",
+        "M5"
+      ]
+    },
+    {
+      "id": "a3-canvas",
+      "title": "The table canvas, Sheets 1 to 6 (A3)",
+      "kind": "handout",
+      "href": "sheets/",
+      "description": "Print one set per table, A3 landscape."
+    }
+  ],
+  "presentation": {
+    "name": "VaxLink",
+    "badge": "Interactive Spec",
+    "tagline": "Open Health Stack (OHS) • WHO GDHCN • Verifiable Health Links (VHL)",
+    "occasion": "WHO Pre-GDHF Vignette",
+    "subject": "Cross-Border Digital Immunization Portability",
+    "scope": "Thailand ⇄ Lao PDR",
+    "status": "GDHCN DEV Trust List: XXR Active",
+    "story": "Somsack is born in Thailand, grows up in Lao PDR, and one year later a Thai doctor can see every vaccine he has ever had — without a single record being copied across the border.",
+    "lede": "A baby and five people around him, four moments, twelve months. Follow the people first; the technology is what makes each hand-off possible.",
+    "recordOf": "somsack-sengmany",
+    "presenterNote": "Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \"what does that look like?\"",
+    "about": {
+      "title": "This walkthrough is the demo of a FHIR implementation guide",
+      "text": "The same journey is documented as a WHO SMART Guidelines DAK and FHIR IG: personas, business processes (BPMN), requirements, and every payload shown here as a published FHIR example."
+    },
+    "links": [
+      {
+        "label": "The IG",
+        "href": "https://litlfred.github.io/smart-trust-demo/",
+        "frame": "FHIR IG"
+      },
+      {
+        "label": "Journeys",
+        "href": "https://litlfred.github.io/smart-trust-demo/journeys.html"
+      },
+      {
+        "label": "Business processes",
+        "href": "https://litlfred.github.io/smart-trust-demo/business-processes.html"
+      },
+      {
+        "label": "FHIR examples",
+        "href": "https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html"
+      },
+      {
+        "label": "Source",
+        "href": "https://github.com/litlfred/smart-trust-demo",
+        "frame": "IG source"
+      }
+    ],
+    "deviceDemo": {
+      "href": "https://litlfred.github.io/smart-trust-demo/vaxlink/",
+      "label": "Device Demo",
+      "screens": [
+        {
+          "id": "S1",
+          "title": "Birth Abroad & Printed DVC QR Cards",
+          "device": "tablet",
+          "steps": [
+            "J1"
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Offline QR Scan of the Foreign Cards",
+          "device": "phone",
+          "steps": [
+            "J2a"
+          ]
+        },
+        {
+          "id": "S3",
+          "title": "Newborn Registration & Clinic Referral",
+          "device": "phone",
+          "steps": [
+            "J2b"
+          ]
+        },
+        {
+          "id": "S4",
+          "title": "Clinic Referral & GDHCN Verification",
+          "device": "tablet",
+          "steps": [
+            "J3a"
+          ],
+          "try": "Try “Simulate Tampered QR Card” on this screen"
+        },
+        {
+          "id": "S5",
+          "title": "Terminology Adjudication & National Schedule",
+          "device": "tablet",
+          "steps": [
+            "J3b"
+          ],
+          "try": "Walk through the 3-layer match on this screen"
+        },
+        {
+          "id": "S6",
+          "title": "One Family, One Phone Household Wallet",
+          "device": "phone",
+          "steps": [
+            "J4.0a"
+          ]
+        },
+        {
+          "id": "S7",
+          "title": "VHL QR Display & Passcode Protection",
+          "device": "phone",
+          "steps": [
+            "J4.0b"
+          ]
+        },
+        {
+          "id": "S8",
+          "title": "Foreign Clinic VHL Viewer & Audit Trace",
+          "device": "tablet",
+          "steps": [
+            "J4.1"
+          ],
+          "try": "Try the wrong-passcode test on this screen"
+        }
+      ]
+    },
+    "ig": {
+      "href": "",
+      "example": "artifact/{type}-{id}.html",
+      "profile": "artifact/StructureDefinition-{id}.html",
+      "processes": "business-processes.html"
+    },
+    "notes": {
+      "map": "Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \"what does that look like?\"",
+      "personas": "Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \"what does that look like?\"",
+      "how": "Use this when the room asks \"how?\": start from a big idea, then show which moments in the journey depend on it.",
+      "discuss": "Close the session: take one question per table, and use the moment links to revisit the story.",
+      "sheets": "Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \"what does that look like?\""
+    },
+    "closingQuestion": "The technology works. What do countries need to agree on to make it real?",
+    "views": [
+      {
+        "model": "0.1.0",
+        "view": "id-249a1002c32e50199e27a502ef0ec3d8",
+        "label": "Systems"
+      },
+      {
+        "model": "0.1.0",
+        "view": "id-c6cae81c85da5fc197ab58547274a481",
+        "label": "Journeys"
+      }
+    ]
+  }
+}

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-06T09:26:50.960Z\n"
+"POT-Creation-Date: 2026-11-07T05:27:52.130Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: es\n"
@@ -27,11 +27,6 @@ msgstr ""
 #: docs/proposals/user-scenario/README.md:26
 #, python-brace-format
 msgid "{code0} chains J1 → J4 into one story"
-msgstr ""
-
-#: docs/proposals/user-scenario/README.md:66
-#, python-brace-format
-msgid "<a0>{code0}</a0>: checks the shape, and the references a schema cannot express (actors, stories, BPMN task ids, ladder codes, FSH instances, the {code1} chain). It runs in CI ({code2}, job repo-checks). Without the {code3} package, which CI does not install, only the references are checked."
 msgstr ""
 
 #: docs/proposals/user-scenario/README.md:56
@@ -96,17 +91,17 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:90
+#: docs/proposals/user-scenario/README.md:91
 #, python-brace-format
 msgid "Granularity. Should a scenario be one journey or one whole story? Decided 2026-11-05 (owner): one per journey, chained by {code0}. A journey is a BPMN process, so J4.0 and J4.1 are two scenarios, though vaxlink tells them in one chapter."
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:74
+#: docs/proposals/user-scenario/README.md:75
 #, python-brace-format
 msgid "J2 was told in the opposite order to its BPMN. The walkthrough had Vilay register Somsack (J2a) before reading the cards (J2b), while {code0} reads first and then registers. Resolved 2026-11-05 (owner): vaxlink was reordered to match the BPMN. J2a now reads the cards ({code1}, {code2}, {code3}), and J2b registers, saves the doses as reported and refers ({code4}, {code5}, {code6}). {code7} and {code8} follow."
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:85
+#: docs/proposals/user-scenario/README.md:86
 #, python-brace-format
 msgid "J4.0a has no BPMN task. Looking at the wallet is not a step of {code0}, so its {code1} is empty."
 msgstr ""
@@ -125,11 +120,11 @@ msgstr ""
 msgid "many to many: a story may span steps"
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:88
+#: docs/proposals/user-scenario/README.md:89
 msgid "Open questions"
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:81
+#: docs/proposals/user-scenario/README.md:82
 #, python-brace-format
 msgid "Pain points and enablers are worded twice. {code0} and vaxlink say the same thing in different words (and journeys.md says it once per journey, vaxlink once per step). The examples take vaxlink's wording, per step."
 msgstr ""
@@ -165,7 +160,7 @@ msgstr ""
 msgid "Status: draft, 2026-11-05. Bean {code0}, gap 1. Proposed for cat-harness; drafted here, where the content is."
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:97
+#: docs/proposals/user-scenario/README.md:98
 #, python-brace-format
 msgid "Stories' kind. User stories already have one: cat-harness-tools {code0} ({code1}, {code2}, {code3}, {code4}, strict). The edge runs from the step to the story, so that kind needs no change. Its \"I want / so that\" fields overlap the bootstrap {code5} schema's {code6} and {code7}."
 msgstr ""
@@ -184,6 +179,11 @@ msgstr ""
 
 #: docs/proposals/user-scenario/README.md:31
 msgid "the prose the page is generated from; a precondition holds before the step and is not part of it"
+msgstr ""
+
+#: docs/proposals/user-scenario/README.md:66
+#, python-brace-format
+msgid "The shape and the references a schema cannot express (actors, stories, BPMN task ids, ladder codes, examples, {code0}, ArchiMate views) are checked by the harness's {code1} and {code2} in CI ({code3}, job bpmn-generated); {code4} refuses a {code5} chain that is not one chain. They replace {code6} (owner, 2026-11-06)."
 msgstr ""
 
 #: docs/proposals/user-scenario/README.md:26
@@ -208,11 +208,11 @@ msgstr ""
 msgid "What one node can they all come from?"
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:72
+#: docs/proposals/user-scenario/README.md:73
 msgid "What the conversion found"
 msgstr ""
 
-#: docs/proposals/user-scenario/README.md:91
+#: docs/proposals/user-scenario/README.md:92
 #, python-brace-format
 msgid "Where the prose lives. Decided 2026-11-05 (owner): generate it. Done. {code0} writes the section from each step's {code1}, {code2}, {code3}, {code4} and {code5}. A step's {code6} is its one-line policy point; the workshop's questions stay for a workshop kind (KG-01 gap 3). The pain point, enabler and policy lines are now one per step, in the walkthrough's words."
 msgstr ""

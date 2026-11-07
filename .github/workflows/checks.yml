@@ -26,8 +26,6 @@ jobs:
           git -C smart-trust-tools checkout -q "$ref"
       - name: Actions pinned, JSON parses, memory front matter; the journeys, their skills and their requirements hang together
         run: python3 tools/repo-checks/repo_checks.py --smart-trust-tools smart-trust-tools
-      - name: User scenarios reference real actors, stories, BPMN tasks and examples
-        run: python3 tools/user-scenarios/check.py
 
   bpmn-generated:
     # The BPMN drawings and checklists are generated from processes/content/
@@ -44,6 +42,17 @@ jobs:
           while read -r h r ref; do git clone -q --filter=blob:none --no-checkout "https://github.com/$r" "$h" && git -C "$h" checkout -q "$ref" && rm -rf "$h/.git"; done < "$RUNNER_TEMP/mounts.txt"
           bun install --frozen-lockfile
           bun run cat mount:lock
+      - name: The journeys and the workshop are well-formed and every reference they name resolves
+        # The harness's gate over the user-scenario, workshop and
+        # building-blocks kinds (it replaces tools/user-scenarios/check.py):
+        # a file that does not parse as its kind is a finding too. An
+        # example a step names is looked up in the artefact index the site's
+        # publish builds (fhir-artifact-index/, gitignored), so here those
+        # references can only be undetermined: every other reference must
+        # resolve, and the examples are checked where the index exists.
+        run: |
+          bun run cat-harness-tools/scripts/check-journey-refs.ts --json > "$RUNNER_TEMP/journey-refs.json" || true
+          python3 -c "import json,sys;r=json.load(open(sys.argv[1]));bad=r['findings']+[f for f in r['couldNotDetermine'] if 'built at publish' not in f['message']];[print('✗',f['file'],f['at'],f['message']) for f in bad];sys.exit(1 if bad or r.get('undetermined') else 0)" "$RUNNER_TEMP/journey-refs.json"
       - name: The translation templates are current (translations/)
         # One extraction for every translator: BPMN by the harness's
         # translate-bpmn, the pages by tools/translation/pages-pot.ts (the

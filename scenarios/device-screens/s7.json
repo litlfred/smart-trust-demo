@@ -1,0 +1,75 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S7",
+  "title": "VHL QR Display & Passcode Protection",
+  "description": "The link Bounmy shows abroad: a QR code holding only a link and a key, and a passcode he says out loud.",
+  "device": "phone",
+  "owner": "bounmy-sengmany",
+  "steps": [
+    {
+      "scenario": "j4-0-one-family-one-phone",
+      "step": "J4.0b"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Travel Credential — Somsack Sengmany",
+      "subtitle": "Traveller 1 of 3 • Infant (12m)",
+      "icon": "qr",
+      "status": {
+        "text": "Cycle (1/3)",
+        "tone": "neutral",
+        "icon": "users"
+      }
+    },
+    {
+      "type": "qr",
+      "title": "IHE ITI Verifiable Health Link (VHL)",
+      "label": "Somsack Sengmany",
+      "payload": "https://portal.moh.gov.la/vhl/manifest/vhl-lao-somsack-2026?token=e4a899bc01&exp=1797292800#key=f91b7c3d2e5a8812",
+      "badge": {
+        "text": "Signed VHL Manifest • Lao National Portal",
+        "tone": "success",
+        "icon": "shield-check"
+      },
+      "caption": "QR contains secure token link & key only. Patient data stays in Lao PDR. Host: sovereign-fhir.moh.gov.la (HTTPS)"
+    },
+    {
+      "type": "passcode",
+      "label": "Passcode Protection (Required at PoC) — Father's Verbal Passcode",
+      "digits": "4829",
+      "shown": false,
+      "note": "ACTIVE • Reveal to read it out to the clinician"
+    },
+    {
+      "type": "fields",
+      "columns": 2,
+      "rows": [
+        {
+          "label": "Link Validity",
+          "value": "14 Days (Dec 15, 2026)"
+        },
+        {
+          "label": "Rate Limit",
+          "value": "Max 3 Failed Attempts"
+        }
+      ]
+    },
+    {
+      "type": "note",
+      "icon": "shield-check",
+      "text": "Consent to share recorded at generation (IHE PCF / FHIR Consent)."
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Show Passcode to Clinician in Thailand (J4.1)",
+          "style": "primary"
+        }
+      ],
+      "caption": "Father presents Somsack's VHL QR & verbal code 4829"
+    }
+  ]
+}

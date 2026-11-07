@@ -26,7 +26,7 @@ The one smartphone the family shares, holding one VHL QR per member (J4); holds 
 
 **Lanes and tasks in the business processes**:
 
-- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Store one VHL QR per member on the shared phone
+- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Store each member's VHL QR on the phone
 - [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Show the child's VHL QR
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

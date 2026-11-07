@@ -63,11 +63,12 @@ what joins the two.
 - **`docs/journeys.md` "User scenarios" is generated from them** by
   `tools/ig-gen/ig_gen.py`, between its markers; `ig_gen.py --check` fails in
   CI when it is stale.
-- [`tools/user-scenarios/check.py`](../../../tools/user-scenarios/check.py):
-  checks the shape, and the references a schema cannot express (actors,
-  stories, BPMN task ids, ladder codes, FSH instances, the `follows` chain).
-  It runs in CI (`checks.yml`, job repo-checks). Without the `jsonschema`
-  package, which CI does not install, only the references are checked.
+- The shape and the references a schema cannot express (actors, stories,
+  BPMN task ids, ladder codes, examples, `partOf`, ArchiMate views) are
+  checked by the harness's `check:kind-validators` and `check:journey-refs`
+  in CI (`checks.yml`, job bpmn-generated); `ig_gen.py` refuses a `follows`
+  chain that is not one chain. They replace `tools/user-scenarios/check.py`
+  (owner, 2026-11-06).
 
 ## What the conversion found
 

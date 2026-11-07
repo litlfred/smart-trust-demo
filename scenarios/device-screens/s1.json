@@ -1,0 +1,147 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S1",
+  "title": "Birth Abroad & Printed DVC QR Cards",
+  "description": "The hospital's discharge screen: Somsack's two birth doses, and one signed paper card per dose, each a QR code the family carries home.",
+  "device": "tablet",
+  "owner": "anan",
+  "steps": [
+    {
+      "scenario": "j1-born-abroad",
+      "step": "J1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Chiang Rai Provincial Hospital — Newborn Immunization Discharge",
+      "subtitle": "Maternity Ward • Bed 304",
+      "icon": "hospital",
+      "brand": "#b45309",
+      "chips": [
+        {
+          "text": "GDHCN DEV Participant: XXR (Thailand MOPH)",
+          "tone": "success"
+        }
+      ],
+      "status": {
+        "text": "Online • CA Key Active",
+        "tone": "success"
+      }
+    },
+    {
+      "type": "personCard",
+      "actor": "somsack-sengmany",
+      "name": "Somsack Sengmany",
+      "banner": true,
+      "subtitle": "Born: Today (T0) • Guardian/Mother: Khamla Sengmany • Nationality: Lao PDR",
+      "chips": [
+        {
+          "text": "Temporary ID: TH-NB-2025-8812",
+          "tone": "warning"
+        },
+        {
+          "text": "No Thai CID",
+          "tone": "neutral"
+        },
+        {
+          "text": "Cross-Border Visitor — Paper DVC Required",
+          "tone": "warning"
+        }
+      ]
+    },
+    {
+      "type": "recordList",
+      "title": "Administered Birth Vaccines",
+      "icon": "syringe",
+      "summary": {
+        "text": "2 Doses Completed",
+        "tone": "success"
+      },
+      "rows": [
+        {
+          "icon": "syringe",
+          "label": "Hepatitis B Birth Dose",
+          "code": "vp-hepb-peds-monovalent",
+          "detail": "Lot TH-4821 • Left anterolateral thigh • 0.5 mL • IM",
+          "status": {
+            "text": "Completed (T0)",
+            "tone": "success"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "BCG Vaccine (Freeze-Dried)",
+          "code": "vp-bcg-freeze-dried",
+          "detail": "Lot TH-9012 • Right upper arm • 0.05 mL • ID",
+          "status": {
+            "text": "Completed (T0)",
+            "tone": "success"
+          }
+        }
+      ]
+    },
+    {
+      "type": "alert",
+      "severity": "warning",
+      "title": "Technical Implementation Rule:",
+      "text": "WHO PreQual product codes are stored in the digital certificate as issued. Thailand does not translate codes into Lao PDR national schedule codes prior to departure."
+    },
+    {
+      "type": "note",
+      "column": "side",
+      "icon": "printer",
+      "text": "Printable Paper DVC Wallet Cards — physical laser/thermal cards carried by family returning to Lao PDR • Format: WHO DVC v16"
+    },
+    {
+      "type": "qr",
+      "column": "side",
+      "title": "Digital Vaccine Certificate",
+      "holder": "Somsack Sengmany",
+      "holderNote": "Guardian: Khamla Sengmany",
+      "label": "Vaccine: Hep B Birth Dose",
+      "payload": "HC1:6BFOXN%TSMAHN-H8/N2S$K980F2A.0K.136D/S6A5$P*Q0*3YF3$G4*43-C3XED9/D:98$H:836XDXK7/93.3%J9$6K90K:98-H$H83-D:837W6V5R254G59$6-C66O4442*96/3DF98%HN-HM/G$07*G7-G4$C4*D3*K3%J47/D%HN-H/8E/N2$Q9.0K8E%J9*K9$6-C6604%J9$6-C6604-A7*G4%J9*K9$6-C6604*E3*K3%J47/D8HN",
+      "badge": {
+        "text": "Signed by XXR",
+        "tone": "info"
+      },
+      "caption": "Card 1 of 2 • Key ID: 916ffa567c0f44a2 • Single Vaccine Embedded • ES256",
+      "example": "Immunization/TrustDemoJ1HepB"
+    },
+    {
+      "type": "qr",
+      "column": "side",
+      "title": "Digital Vaccine Certificate",
+      "holder": "Somsack Sengmany",
+      "holderNote": "Guardian: Khamla Sengmany",
+      "label": "Vaccine: BCG Freeze-Dried",
+      "payload": "HC1:6BFOXN%TSMAHN-H8/N2S$K980F2A.0K.136D/S6A5$P*Q0*3YF3$G4*43-C3XED9/D:98$H:836XDXK7/93.3%J9$6K90K:98-H$H83-D:837W6V5R254G59$6-C66O4442*96/3DF98%HN-HM/G$07*G7-G4$C4*D3*K3%J47/D%HN-H/8E/N2$Q9.0K8E%J9*K9$6-C6604%J9$6-C6604-A7*G4%J9*K9$6-C6604*E3*K3%J47/D8HN-BCG",
+      "badge": {
+        "text": "Signed by XXR",
+        "tone": "info"
+      },
+      "caption": "Card 2 of 2 • Key ID: 916ffa567c0f44a2 • Single Vaccine Embedded • ES256",
+      "example": "Immunization/TrustDemoJ1Bcg"
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Inspect Raw DVCMinPreQual & CBOR",
+          "style": "secondary",
+          "icon": "file"
+        },
+        {
+          "label": "Print 2 DVC Cards (Hep B & BCG)",
+          "style": "secondary",
+          "icon": "printer"
+        },
+        {
+          "label": "Proceed to J2a (Return to Lao PDR)",
+          "style": "primary"
+        }
+      ]
+    }
+  ],
+  "try": "Ask who signed the cards, and what a Lao health worker can check without a network"
+}
