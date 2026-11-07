@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.2.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j3-made-official",
   "title": "J3 — Made official",
   "description": "A nurse verifies the cards are genuine and fits the Thai doses into the Lao schedule.",
@@ -154,6 +154,32 @@
           ],
           "spec": "https://hl7.org/fhir/provenance.html"
         }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdChwReferral",
+          "rel": "data"
+        },
+        {
+          "key": "StructureDefinition/TrustDemoDdDvcVerification",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT01",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND01",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND03",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND04",
+          "rel": "measures"
+        }
       ]
     },
     {
@@ -294,6 +320,36 @@
             "Task/TrustDemoJ3Reminder"
           ],
           "spec": "https://hl7.org/fhir/plandefinition.html"
+        }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdImportedDose",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT02",
+          "rel": "decides"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT03",
+          "rel": "decides"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT04",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND01",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND03",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND04",
+          "rel": "measures"
         }
       ]
     }

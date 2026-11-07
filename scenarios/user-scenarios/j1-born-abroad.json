@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.2.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j1-born-abroad",
   "title": "J1 — Born abroad",
   "description": "A Lao baby gets his first vaccines in Thailand and leaves with signed paper cards.",
@@ -159,6 +159,12 @@
           "change": "Signed CBOR/COSE certificate",
           "why": "Not FHIR: the HCERT certificate that travels on paper, verifiable offline with Thailand’s key from GDHCN.",
           "spec": "https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode"
+        }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdBirthDoseDvc",
+          "rel": "data"
         }
       ]
     }
