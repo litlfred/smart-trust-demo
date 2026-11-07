@@ -502,20 +502,39 @@ SCENARIOS_END = "<!-- END user scenarios -->"
 
 
 def user_scenarios():
-    """scenarios/user-scenarios/*.json in story order: the first follows none, each next follows the last.
-
-    A group journey (one another names as its partOf, such as J4 over J4.0 and
-    J4.1) holds no steps of its own and is left out: its parts are in the chain."""
+    """scenarios/user-scenarios/*.json in story order: the journeys no parent lists
+    make one `follows` chain (the first follows none), and a journey with `parts`
+    (user-scenario/0.4.0, such as J4 over J4.0 and J4.1) stands for its parts,
+    in their order, in its place in the chain. Only journeys with steps of their
+    own are returned."""
     docs = [load(str(f.relative_to(ROOT))) for f in sorted((ROOT / "scenarios" / "user-scenarios").glob("j*.json"))]
-    groups = {d.get("partOf") for d in docs} - {None}
-    docs = [d for d in docs if d["id"] not in groups]
-    nxt = {d.get("follows"): d for d in docs}
-    out, cur = [], nxt.get(None)
+    by_id = {d["id"]: d for d in docs}
+    listed = {p["scenario"] for d in docs for p in d.get("parts", [])}
+    chain = [d for d in docs if d["id"] not in listed]
+    nxt = {d.get("follows"): d for d in chain}
+    order, cur = [], nxt.get(None)
     while cur:
-        out.append(cur)
+        order.append(cur)
         cur = nxt.get(cur["id"])
-    if len(out) != len(docs):
+    if len(order) != len(chain):
         sys.exit("ig-gen: scenarios/user-scenarios/ is not one follows chain (follows must make one chain, without a loop)")
+
+    out, seen = [], set()
+
+    def place(d):
+        if d["id"] in seen:
+            sys.exit(f"ig-gen: {d['id']} is placed twice (a loop in parts, or a journey both chained and listed)")
+        seen.add(d["id"])
+        if d.get("parts"):
+            for p in d["parts"]:
+                if p["scenario"] not in by_id:
+                    sys.exit(f"ig-gen: {d['id']} lists a part {p['scenario']} that has no file")
+                place(by_id[p["scenario"]])
+        else:
+            out.append(d)
+
+    for d in order:
+        place(d)
     return out
 
 
