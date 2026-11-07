@@ -1,7 +1,7 @@
 Feature: The demo app's journeys J2 and J3 on the JVM, against the pinned vectors the app bundles
   The clock is fixed an hour after the guide's iat, inside the DVCs' validity.
 
-  @test:app/src/androidUnitTest/kotlin/org/smarttrust/demo/app/AndroidHcertJourneysTest.kt::j2ReadsBothDvcsOfflineAndMarksThemUnverified
+  @test:app/src/androidUnitTest/kotlin/org/smarttrust/demo/app/AndroidHcertJourneysTest.kt::AndroidHcertJourneysTest::j2ReadsBothDvcsOfflineAndMarksThemUnverified
   Scenario: j2ReadsBothDvcsOfflineAndMarksThemUnverified
     Given the guide's two example DVCs
     When each is read offline
@@ -10,13 +10,13 @@ Feature: The demo app's journeys J2 and J3 on the JVM, against the pinned vector
     And each view's offline reading says "NOT verified"
     And no view carries a verification result
 
-  @test:app/src/androidUnitTest/kotlin/org/smarttrust/demo/app/AndroidHcertJourneysTest.kt::j3VerifiesBothAgainstXxrsDsc
+  @test:app/src/androidUnitTest/kotlin/org/smarttrust/demo/app/AndroidHcertJourneysTest.kt::AndroidHcertJourneysTest::j3VerifiesBothAgainstXxrsDsc
   Scenario: j3VerifiesBothAgainstXxrsDsc
     Given the guide's two example DVCs, each read offline
     When each is verified
     Then each has a verification result that starts with "Verified"
 
-  @test:app/src/androidUnitTest/kotlin/org/smarttrust/demo/app/AndroidHcertJourneysTest.kt::j3ImportsOnlyVerifiedDvcsAsImmunizationWithProvenance
+  @test:app/src/androidUnitTest/kotlin/org/smarttrust/demo/app/AndroidHcertJourneysTest.kt::AndroidHcertJourneysTest::j3ImportsOnlyVerifiedDvcsAsImmunizationWithProvenance
   Scenario: j3ImportsOnlyVerifiedDvcsAsImmunizationWithProvenance
     Given the first of the guide's example DVCs, read offline
     When it is imported before it is verified
