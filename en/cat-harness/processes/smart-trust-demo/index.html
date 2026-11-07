@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -924,7 +924,7 @@
     <tr>
       <td><a href="../j3-clinic-verification-schedule.html">J3 Verify, import and schedule at the home clinic</a></td>
       <td>7</td>
-      <td>3</td>
+      <td>2</td>
       <td>none recorded</td>
     </tr>
     <tr>
@@ -941,6 +941,8 @@
     </tr>
   </tbody>
 </table></div>
+
+<p>Instances of <code class="language-plaintext highlighter-rouge">smart-trust-tools</code> could not be read in this build, so “none recorded” above does not cover them.</p>
 <h2 id="what-runs-this-skill">
   
   
@@ -952,7 +954,7 @@
 
 <p>The reverse of <code class="language-plaintext highlighter-rouge">&lt;bootstrap.processes:skill ref&gt;</code>, which is the join nothing else exposes: a skill says what to do, and until now nothing said which processes ask for it.</p>
 
-<p><strong>15</strong> distinct skill(s) are named by an activity.</p>
+<p><strong>22</strong> distinct skill(s) are named by an activity.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -975,6 +977,10 @@
       <td><a href="../j3-clinic-verification-schedule.html"><code class="language-plaintext highlighter-rouge">j3-clinic-verification-schedule.bpmn</code></a></td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">hand-over-credential</code></td>
+      <td><a href="../j1-birth-dose-dvc.html"><code class="language-plaintext highlighter-rouge">j1-birth-dose-dvc.bpmn</code></a></td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">hcert-build-cwt</code></td>
       <td><a href="../j1-birth-dose-dvc.html"><code class="language-plaintext highlighter-rouge">j1-birth-dose-dvc.bpmn</code></a>, <a href="../j4-0-family-vhl-issuance.html"><code class="language-plaintext highlighter-rouge">j4-0-family-vhl-issuance.bpmn</code></a></td>
     </tr>
@@ -995,6 +1001,18 @@
       <td><a href="../j2-chw-discovery-referral.html"><code class="language-plaintext highlighter-rouge">j2-chw-discovery-referral.bpmn</code></a>, <a href="../j3-clinic-verification-schedule.html"><code class="language-plaintext highlighter-rouge">j3-clinic-verification-schedule.bpmn</code></a>, <a href="../j4-1-vhl-point-of-care.html"><code class="language-plaintext highlighter-rouge">j4-1-vhl-point-of-care.bpmn</code></a></td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">holder-consent-to-share</code></td>
+      <td><a href="../j4-0-family-vhl-issuance.html"><code class="language-plaintext highlighter-rouge">j4-0-family-vhl-issuance.bpmn</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">holder-present-credential</code></td>
+      <td><a href="../j2-chw-discovery-referral.html"><code class="language-plaintext highlighter-rouge">j2-chw-discovery-referral.bpmn</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">inform-client</code></td>
+      <td><a href="../j2-chw-discovery-referral.html"><code class="language-plaintext highlighter-rouge">j2-chw-discovery-referral.bpmn</code></a></td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">map-vaccine-codes</code></td>
       <td><a href="../j3-clinic-verification-schedule.html"><code class="language-plaintext highlighter-rouge">j3-clinic-verification-schedule.bpmn</code></a></td>
     </tr>
@@ -1005,6 +1023,18 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">portal-serve-manifest</code></td>
       <td><a href="../j4-1-vhl-point-of-care.html"><code class="language-plaintext highlighter-rouge">j4-1-vhl-point-of-care.bpmn</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">receiver-scan-credential</code></td>
+      <td><a href="../j2-chw-discovery-referral.html"><code class="language-plaintext highlighter-rouge">j2-chw-discovery-referral.bpmn</code></a>, <a href="../j3-clinic-verification-schedule.html"><code class="language-plaintext highlighter-rouge">j3-clinic-verification-schedule.bpmn</code></a>, <a href="../j4-1-vhl-point-of-care.html"><code class="language-plaintext highlighter-rouge">j4-1-vhl-point-of-care.bpmn</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">review-client-history</code></td>
+      <td><a href="../j4-1-vhl-point-of-care.html"><code class="language-plaintext highlighter-rouge">j4-1-vhl-point-of-care.bpmn</code></a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">review-decision-support-guidance</code></td>
+      <td><a href="../j3-clinic-verification-schedule.html"><code class="language-plaintext highlighter-rouge">j3-clinic-verification-schedule.bpmn</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">schedule-evaluate</code></td>
@@ -1159,42 +1189,14 @@
 </h3>
     
 
-<p><strong>12</strong> across <strong>5</strong> diagram(s). This section reported them as defects in its first version, and that was wrong: beans <code class="language-plaintext highlighter-rouge">luke</code> and <code class="language-plaintext highlighter-rouge">uuhu</code> worked this corpus from 90 down to this remainder and settled what is left. <code class="language-plaintext highlighter-rouge">luke</code>: <em>“coverage is deliberately NOT gated — a human sign-off step has no skill”</em>. <code class="language-plaintext highlighter-rouge">uuhu</code> added the call-activity exemption and recorded that its own remainder <em>“are not gaps”</em>.</p>
+<p><strong>1</strong> across <strong>1</strong> diagram(s). This section reported them as defects in its first version, and that was wrong: beans <code class="language-plaintext highlighter-rouge">luke</code> and <code class="language-plaintext highlighter-rouge">uuhu</code> worked this corpus from 90 down to this remainder and settled what is left. <code class="language-plaintext highlighter-rouge">luke</code>: <em>“coverage is deliberately NOT gated — a human sign-off step has no skill”</em>. <code class="language-plaintext highlighter-rouge">uuhu</code> added the call-activity exemption and recorded that its own remainder <em>“are not gaps”</em>.</p>
 
-<p><strong>0</strong> are call activities, which delegate to a subprocess — the skill is named there, and naming it twice would be one fact in two places. The other <strong>12</strong> are listed by lane, because the lane is what says whether a person, a pipeline or an agent performs the step, and only the last of those has a skill to run.</p>
+<p><strong>1</strong> are call activities, which delegate to a subprocess — the skill is named there, and naming it twice would be one fact in two places. The other <strong>0</strong> are listed by lane, because the lane is what says whether a person, a pipeline or an agent performs the step, and only the last of those has a skill to run.</p>
 
-<div class="table-wrapper"><table>
-  <thead>
-    <tr>
-      <th>lane</th>
-      <th>steps</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Home clinic provider</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Point-of-care provider</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Birth clinic vaccinator</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Caregiver</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Community health worker</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table></div>
+<p>| lane | steps |
+|—|—|</p>
 
-<p><strong>No verdict is offered on which of these is a gap</strong>, and that is the honest state rather than a hedge: distinguishing a person’s judgement step from an agent step somebody forgot needs the lane’s actor KIND, which a free-text lane name does not give — <code class="language-plaintext highlighter-rouge">process-model.ts</code> notes sixty lanes spell two dozen positions. The lane’s <code class="language-plaintext highlighter-rouge">partitionElementRef</code> is the join that would answer it, and it is present on <strong>12</strong> of these <strong>12</strong> steps — which is the measurement, not an impression. An earlier draft of this sentence said <em>few of these</em> and was counting whether the lane had a NAME, a different question with a different answer.</p>
+<p><strong>No verdict is offered on which of these is a gap</strong>, and that is the honest state rather than a hedge: distinguishing a person’s judgement step from an agent step somebody forgot needs the lane’s actor KIND, which a free-text lane name does not give — <code class="language-plaintext highlighter-rouge">process-model.ts</code> notes sixty lanes spell two dozen positions. The lane’s <code class="language-plaintext highlighter-rouge">partitionElementRef</code> is the join that would answer it, and it is present on <strong>0</strong> of these <strong>0</strong> steps — which is the measurement, not an impression. An earlier draft of this sentence said <em>few of these</em> and was counting whether the lane had a NAME, a different question with a different answer.</p>
 
           
 

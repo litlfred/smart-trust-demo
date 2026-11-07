@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -978,8 +978,10 @@
 <li><a href="fhir-harness-scenarios/">fhir-harness-scenarios</a> <span class="p">fhir-harness/scenarios</span> <span class="n" data-da-count="index/roles/fhir-harness-scenarios" data-da-count-state="pending">…</span></li>
 <li><a href="folio-assistant-core-scenarios/">folio-assistant-core-scenarios</a> <span class="p">folio-assistant-core/scenarios</span> <span class="n" data-da-count="index/roles/folio-assistant-core-scenarios" data-da-count-state="pending">…</span></li>
 <li><a href="scenarios/">scenarios</a> <span class="p">cat-harness/scenarios</span> <span class="n" data-da-count="index/roles/scenarios" data-da-count-state="pending">…</span></li>
+<li><a href="smart-base-scenarios/">smart-base-scenarios</a> <span class="p">smart-base/scenarios</span> <span class="n" data-da-count="index/roles/smart-base-scenarios" data-da-count-state="pending">…</span></li>
 <li><a href="smart-trust-demo-scenarios/">smart-trust-demo-scenarios</a> <span class="p">scenarios</span> <span class="n" data-da-count="index/roles/smart-trust-demo-scenarios" data-da-count-state="pending">…</span></li>
 <li><a href="smart-trust-tools-scenarios/">smart-trust-tools-scenarios</a> <span class="p">smart-trust-tools/scenarios</span> <span class="n" data-da-count="index/roles/smart-trust-tools-scenarios" data-da-count-state="pending">…</span></li>
+<li><a href="who-iris-scenarios/">who-iris-scenarios</a> <span class="p">who-iris/scenarios</span> <span class="n" data-da-count="index/roles/who-iris-scenarios" data-da-count-state="pending">…</span></li>
 </ul>
 
 <div class="fa-table-filter">
@@ -1009,6 +1011,10 @@
 <tr id="a-cat-harness-scenarios-roles-json-authoring-agent">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#authoring-agent"><code>Authoring agent</code></a><br><span class="p">cat-harness/scenarios/roles.json#authoring-agent</span></td>
   <td>The session agent doing the work.</td>
+</tr>
+<tr id="a-cat-harness-scenarios-roles-json-back-translator">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#back-translator"><code>Back-translator</code></a><br><span class="p">cat-harness/scenarios/roles.json#back-translator</span></td>
+  <td>The checker of a translation round trip: renders a sample of the target-language text back into the source language from the target text alone, with no tools and without seeing the source.</td>
 </tr>
 <tr id="a-cat-harness-scenarios-roles-json-board-renderer">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#board-renderer"><code>Board renderer</code></a><br><span class="p">cat-harness/scenarios/roles.json#board-renderer</span></td>
@@ -1070,6 +1076,10 @@
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#librarian"><code>Librarian</code></a><br><span class="p">cat-harness/scenarios/roles.json#librarian</span></td>
   <td>Acquires a source and files it.</td>
 </tr>
+<tr id="a-cat-harness-scenarios-roles-json-locale-translator">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#locale-translator"><code>Locale translator</code></a><br><span class="p">cat-harness/scenarios/roles.json#locale-translator</span></td>
+  <td>Produces one locale's catalogues from the shared templates: the <code>.po</code> files, their unofficial translation-node manifests and the locale's terminology supplement, then the gates, the QA report and the locale PR.</td>
+</tr>
 <tr id="a-cat-harness-scenarios-roles-json-log">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#log"><code>Activity log</code></a><br><span class="p">cat-harness/scenarios/roles.json#log</span></td>
   <td>The agent activity log.</td>
@@ -1110,6 +1120,10 @@
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#reviewer"><code>Reviewer / SME</code></a><br><span class="p">cat-harness/scenarios/roles.json#reviewer</span></td>
   <td>Reads a change and judges it.</td>
 </tr>
+<tr id="a-cat-harness-scenarios-roles-json-round-trip-adjudicator">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#round-trip-adjudicator"><code>Round-trip adjudicator</code></a><br><span class="p">cat-harness/scenarios/roles.json#round-trip-adjudicator</span></td>
+  <td>Rules on a translation round trip: given the source strings and the back-translation, and never the target text, it pre-screens every pair mechanically, reads each flagged pair in full, and records drift or not-drift fo…</td>
+</tr>
 <tr id="a-cat-harness-scenarios-roles-json-session-coordinator">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#session-coordinator"><code>Session coordinator</code></a><br><span class="p">cat-harness/scenarios/roles.json#session-coordinator</span></td>
   <td>The authoring agent managing the SESSION rather than the content: what this session intends, what is already in flight elsewhere, and what to pick up next.</td>
@@ -1145,6 +1159,10 @@
 <tr id="a-cat-harness-scenarios-roles-json-translation-coordinator">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#translation-coordinator"><code>Translation coordinator</code></a><br><span class="p">cat-harness/scenarios/roles.json#translation-coordinator</span></td>
   <td>Decides what is translated, into which languages, and when a translation is accepted.</td>
+</tr>
+<tr id="a-cat-harness-scenarios-roles-json-translation-source-lead">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#translation-source-lead"><code>Source-language lead</code></a><br><span class="p">cat-harness/scenarios/roles.json#translation-source-lead</span></td>
+  <td>Owns the source-language side of a translation into several locales: extracts every template once, in one shared source PR merged to main before any locale starts, validates each locale PR and merges it inside the owner…</td>
 </tr>
 <tr id="a-cat-harness-scenarios-roles-json-translator">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/scenarios/roles.json#translator"><code>Human translator</code></a><br><span class="p">cat-harness/scenarios/roles.json#translator</span></td>
@@ -1246,6 +1264,18 @@
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/scenarios/roles.json#subject-of-care"><code>Subject of care</code></a><br><span class="p">scenarios/roles.json#subject-of-care</span></td>
   <td>The person the records are about: the child whose doses are given, signed, registered, verified and shared.</td>
 </tr>
+<tr id="a-smart-base-scenarios-roles-json-health-worker">
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/scenarios/roles.json#health-worker"><code>Health worker</code></a><br><span class="p">smart-base/scenarios/roles.json#health-worker</span></td>
+  <td>The generic DAK persona who delivers care at the point of care and records it on a device: completes the DAK's SDC forms and acts on its decision-support guidance (<code>questionnaire-data-capture.bpmn</code>, `act-on-decision-sup…</td>
+</tr>
+<tr id="a-smart-base-scenarios-roles-json-l1-extraction-reviewer">
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/scenarios/roles.json#l1-extraction-reviewer"><code>L1 extraction reviewer</code></a><br><span class="p">smart-base/scenarios/roles.json#l1-extraction-reviewer</span></td>
+  <td>Signs, or rejects, the exclusions an L1 extraction proposes: each normative-looking sentence of a WHO publication that the curation says is not a recommendation, an implementation practice or a remark.</td>
+</tr>
+<tr id="a-smart-base-scenarios-roles-json-point-of-care-system">
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/scenarios/roles.json#point-of-care-system"><code>Point-of-care system</code></a><br><span class="p">smart-base/scenarios/roles.json#point-of-care-system</span></td>
+  <td>The app or EHR the health worker uses: renders the DAK's forms, extracts their resources, applies the DAK's decision tables (PlanDefinitions) and writes what the health worker accepted.</td>
+</tr>
 <tr id="a-smart-trust-tools-scenarios-roles-json-hcert-issuing-system">
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#hcert-issuing-system"><code>HCERT issuing system</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#hcert-issuing-system</span></td>
   <td>The HCERT side of the VHL Sharer (smart-trust: Issuer): a clinic system or national portal that issues HCERT certificates, embedding the Kotlin or Rust library.</td>
@@ -1258,9 +1288,21 @@
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#hcert-verifying-system"><code>HCERT verifying system</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#hcert-verifying-system</span></td>
   <td>The HCERT side of the VHL Receiver (smart-trust: Receiver): a clinic EMR, border system or CHW app that verifies, or triage-reads, an HCERT.</td>
 </tr>
+<tr id="a-smart-trust-tools-scenarios-roles-json-issuing-health-worker">
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#issuing-health-worker"><code>Issuing health worker</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#issuing-health-worker</span></td>
+  <td>The health worker of an issuing participant who hands the holder the credentials the issuing system made: prints them, one QR per certificate, or sends them to the holder's wallet.</td>
+</tr>
 <tr id="a-smart-trust-tools-scenarios-roles-json-library-maintainer">
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#library-maintainer"><code>Library maintainer</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#library-maintainer</span></td>
   <td>The person or agent who keeps the contract, its generated artefacts, the conformance tests and the published graph current.</td>
+</tr>
+<tr id="a-smart-trust-tools-scenarios-roles-json-receiving-health-worker">
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#receiving-health-worker"><code>Receiving health worker</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#receiving-health-worker</span></td>
+  <td>The health worker who operates a receiving system (CHW app, clinic EHR, point-of-care viewer): scans the QR the holder shows and enters the passcode the holder says.</td>
+</tr>
+<tr id="a-smart-trust-tools-scenarios-roles-json-vhl-holder">
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#vhl-holder"><code>VHL Holder</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#vhl-holder</span></td>
+  <td>IHE ITI VHL VHL Holder (smart-trust Holder): the person who holds certificates or a health link (a Verifiable Health Link, or a SMART Health Link: the same holder's work over the HL7 specification VHL profiles), present…</td>
 </tr>
 <tr id="a-smart-trust-tools-scenarios-roles-json-vhl-receiver">
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#vhl-receiver"><code>VHL receiver</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#vhl-receiver</span></td>
@@ -1269,6 +1311,30 @@
 <tr id="a-smart-trust-tools-scenarios-roles-json-vhl-sharer">
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#vhl-sharer"><code>VHL sharer</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#vhl-sharer</span></td>
   <td>The IHE ITI VHL Sharer side: issues Verifiable Health Links and hosts their manifests.</td>
+</tr>
+<tr id="a-who-iris-scenarios-roles-json-cloudflare-git">
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/scenarios/roles.json#cloudflare-git"><code>Cloudflare git (Artifacts)</code></a><br><span class="p">who-iris/scenarios/roles.json#cloudflare-git</span></td>
+  <td>A git repository hosted on Cloudflare Artifacts, not GitHub.</td>
+</tr>
+<tr id="a-who-iris-scenarios-roles-json-cloudflare-r2-cdn">
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/scenarios/roles.json#cloudflare-r2-cdn"><code>Cloudflare R2 and CDN</code></a><br><span class="p">who-iris/scenarios/roles.json#cloudflare-r2-cdn</span></td>
+  <td>Object storage behind the CDN.</td>
+</tr>
+<tr id="a-who-iris-scenarios-roles-json-iris-cdn-exporter">
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/scenarios/roles.json#iris-cdn-exporter"><code>IRIS CDN Exporter</code></a><br><span class="p">who-iris/scenarios/roles.json#iris-cdn-exporter</span></td>
+  <td>The agent role.</td>
+</tr>
+<tr id="a-who-iris-scenarios-roles-json-iris-cdn-owner">
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/scenarios/roles.json#iris-cdn-owner"><code>IRIS CDN owner</code></a><br><span class="p">who-iris/scenarios/roles.json#iris-cdn-owner</span></td>
+  <td>A person: decides the export's scope, budget and storage target.</td>
+</tr>
+<tr id="a-who-iris-scenarios-roles-json-release-signer">
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/scenarios/roles.json#release-signer"><code>Release signer</code></a><br><span class="p">who-iris/scenarios/roles.json#release-signer</span></td>
+  <td>Holds the P-256 private key (GitHub environment secret IRIS_CDN_SIGNING_JWK) and signs each changed item manifest and the release tag manifest.</td>
+</tr>
+<tr id="a-who-iris-scenarios-roles-json-verifier">
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/scenarios/roles.json#verifier"><code>IRIS CDN verifier</code></a><br><span class="p">who-iris/scenarios/roles.json#verifier</span></td>
+  <td>Anyone.</td>
 </tr>
 </tbody>
 </table></div>

@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -938,7 +938,10 @@
   // Every href in the sidecar is relative to the sidecar (it sits beside the
   // process page), so a page elsewhere on the site that shows the same
   // drawing resolves them to the same targets.
-  var base = new URL(root.getAttribute("data-panel"), location.href);
+  // A drawing with no sidecar (a page that only highlights steps, where no
+  // processes viewer is published) gets the highlight and nothing else.
+  var sidecar = root.getAttribute("data-panel");
+  var base = new URL(sidecar || "", location.href);
   function abs(h) { try { return new URL(h, base).href; } catch (e) { return h; } }
   // A page with no server-drawn markers gets them from the sidecar.
   var drawn = !!root.querySelector(".pt-layer");
@@ -1065,7 +1068,7 @@
     var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
     var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
     if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
-    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[\s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
     // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
     if (vw > 0 && vh > 0 && w > 0 && h > 0) {
       var k = vw / vh;
@@ -1091,7 +1094,7 @@
   root.addEventListener("load", schedule, true);
   window.addEventListener("resize", schedule);
   schedule();
-  if (!drawn) load().then(function (j) {
+  if (!drawn && sidecar) load().then(function (j) {
     (j.markers || []).forEach(function (m) {
       var t = j.tasks[m.id], to = t && t.calls ? (t.calls.diagram || t.calls.href) : null;
       if (to && m.box) {

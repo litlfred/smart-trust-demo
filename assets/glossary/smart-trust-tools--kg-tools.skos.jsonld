@@ -74,6 +74,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-tools/check-upstream-patches",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Check the upstream patches are well-formed"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Check every file under upstream/ (the upstream-patches graph, kept on the state branch cat/smart-trust-tools/upstream-patches and mounted by state:mount): each is a numbered git format-patch file, upstream/<target>/NNNN-<subject>.patch, with the mbox From line, an author, a date, a [PATCH] subject, a --- separator and at least one diff --git hunk."
+        }
+      ],
+      "skos:notation": "check-upstream-patches",
+      "dcterms:source": "smart-trust-tools/tools/check-upstream-patches/check-upstream-patches.ts#check-upstream-patches",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-tools/conformance-ts",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -251,6 +271,26 @@
       ],
       "skos:notation": "release-packaging",
       "dcterms:source": "smart-trust-tools/tools/release-packaging/release-packaging.ts#release-packaging",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-tools/test-gherkin",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Every test has a Gherkin Scenario"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Check test/features/*.feature against the suites: every Rust #[test], Kotlin @Test and TypeScript conformance run(...) has a Scenario tagged @test:<path>::<test>, every such tag names a test, WHO-ITB Scenarios carry @itb:<suite>/<testcase>, and every test-plan case names its feature file. Temporary, until cat-harness check:test-gherkin is pinned."
+        }
+      ],
+      "skos:notation": "test-gherkin",
+      "dcterms:source": "smart-trust-tools/tools/test-gherkin/test-gherkin.ts#test-gherkin",
       "skos:note": "candidate"
     },
     {

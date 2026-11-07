@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -978,11 +978,17 @@
 <li><a href="../cat-harness-tools-tools/">cat-harness-tools-tools</a> <span class="p">cat-harness-tools/tools</span> <span class="n" data-da-count="index/tools/cat-harness-tools-tools" data-da-count-state="pending">…</span></li>
 <li><a href="../core-tools/">core-tools</a> <span class="p">folio-assistant-core/tools</span> <span class="n" data-da-count="index/tools/core-tools" data-da-count-state="pending">…</span></li>
 <li><a href="../fhir-ig-tools/">fhir-ig-tools</a> <span class="p">fhir-harness/tools</span> <span class="n" data-da-count="index/tools/fhir-ig-tools" data-da-count-state="pending">…</span></li>
+<li><a href="../smart-base-tools/">smart-base-tools</a> <span class="p">smart-base/tools</span> <span class="n" data-da-count="index/tools/smart-base-tools" data-da-count-state="pending">…</span></li>
 <li><strong>smart-trust-tools-tools</strong> <span class="p">smart-trust-tools/tools</span> <span class="n" data-da-count="index/tools/smart-trust-tools-tools" data-da-count-state="pending">…</span></li>
+<li><a href="../who-iris-tools/">who-iris-tools</a> <span class="p">who-iris/tools</span> <span class="n" data-da-count="index/tools/who-iris-tools" data-da-count-state="pending">…</span></li>
 </ul>
 
-
-<div class="table-wrapper"><table id="da-index">
+<div class="fa-table-filter">
+<label for="fa-table-filter-0">Filter this table</label>
+<input type="search" id="fa-table-filter-0" autocomplete="off" spellcheck="false" aria-describedby="fa-table-filter-0-count">
+<span class="fa-table-filter-count" id="fa-table-filter-0-count" aria-live="polite"></span>
+</div>
+<div class="table-wrapper"><table id="da-index" data-fa-filtered="true">
 <thead><tr><th>Artefact</th><th>What it declares about itself</th></tr></thead>
 <tbody>
 <tr>
@@ -994,12 +1000,24 @@
   <td><span class="none">no description in the artefact</span></td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/check-models/check-sources.ts"><code>check-sources</code></a><br><span class="p">smart-trust-tools/tools/check-models/check-sources.ts</span></td>
+  <td>Every set of test vectors says where it came from.</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/check-req-nodes/check-req-nodes.ts"><code>check-req-nodes</code></a><br><span class="p">smart-trust-tools/tools/check-req-nodes/check-req-nodes.ts</span></td>
   <td><span class="none">no description in the artefact</span></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/check-req-nodes/check.ts"><code>check</code></a><br><span class="p">smart-trust-tools/tools/check-req-nodes/check.ts</span></td>
   <td>The requirement graph of this instance resolves: no edge points at nothing.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/check-upstream-patches/check-upstream-patches.ts"><code>check-upstream-patches</code></a><br><span class="p">smart-trust-tools/tools/check-upstream-patches/check-upstream-patches.ts</span></td>
+  <td><span class="none">no description in the artefact</span></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/check-upstream-patches/check.ts"><code>check</code></a><br><span class="p">smart-trust-tools/tools/check-upstream-patches/check.ts</span></td>
+  <td>Every upstream patch is a well-formed git format-patch file.</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/conformance-ts/conformance-ts.ts"><code>conformance-ts</code></a><br><span class="p">smart-trust-tools/tools/conformance-ts/conformance-ts.ts</span></td>
@@ -1022,6 +1040,10 @@
   <td><span class="none">no description in the artefact</span></td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/gen-api-types/check.ts"><code>check</code></a><br><span class="p">smart-trust-tools/tools/gen-api-types/check.ts</span></td>
+  <td>The TypeScript view in api/generated/ts has the shape of the WIT contract it is generated from, without running the generator.</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/gen-api-types/gen-api-types.ts"><code>gen-api-types</code></a><br><span class="p">smart-trust-tools/tools/gen-api-types/gen-api-types.ts</span></td>
   <td><span class="none">no description in the artefact</span></td>
 </tr>
@@ -1036,6 +1058,10 @@
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/index.ts"><code>index</code></a><br><span class="p">smart-trust-tools/tools/index.ts</span></td>
   <td>smart-trust-tools's Tool nodes — the <code>tools</code> graph of this instance.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/lm-derive/check.ts"><code>check</code></a><br><span class="p">smart-trust-tools/tools/lm-derive/check.ts</span></td>
+  <td>The derived payload models are current with the logical models: the gate form of lm-derive's own <code>--check</code>.</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/lm-derive/lm-derive.ts"><code>lm-derive</code></a><br><span class="p">smart-trust-tools/tools/lm-derive/lm-derive.ts</span></td>
@@ -1054,6 +1080,10 @@
   <td><span class="none">no description in the artefact</span></td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/test-gherkin/test-gherkin.ts"><code>test-gherkin</code></a><br><span class="p">smart-trust-tools/tools/test-gherkin/test-gherkin.ts</span></td>
+  <td><span class="none">no description in the artefact</span></td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/test-plan/test-plan.ts"><code>test-plan</code></a><br><span class="p">smart-trust-tools/tools/test-plan/test-plan.ts</span></td>
   <td><span class="none">no description in the artefact</span></td>
 </tr>
@@ -1064,6 +1094,10 @@
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/vhl-jwe-fixture/vhl-jwe-fixture.ts"><code>vhl-jwe-fixture</code></a><br><span class="p">smart-trust-tools/tools/vhl-jwe-fixture/vhl-jwe-fixture.ts</span></td>
   <td><span class="none">no description in the artefact</span></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/wit2kotlin/check.ts"><code>check</code></a><br><span class="p">smart-trust-tools/tools/wit2kotlin/check.ts</span></td>
+  <td>The WIT contract parses and its Kotlin skeleton is current: the gate form of wit2kotlin's own <code>--check</code>.</td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/tools/wit2kotlin/wit2kotlin.ts"><code>wit2kotlin</code></a><br><span class="p">smart-trust-tools/tools/wit2kotlin/wit2kotlin.ts</span></td>
@@ -1077,7 +1111,28 @@
    ownership before pruning — the same line the viewer generators emit. */
 var SCOPE = "smart-trust-tools-tools";
 </script>
-
+<script>
+(function () {
+  var input = document.getElementById("fa-table-filter-0");
+  var count = document.getElementById("fa-table-filter-0-count");
+  var table = document.querySelector("table[data-fa-filtered]");
+  if (!input || !count || !table || !table.tBodies[0]) return;
+  var rows = Array.prototype.slice.call(table.tBodies[0].rows);
+  var texts = rows.map(function (r) { return (r.textContent || "").toLowerCase(); });
+  function apply() {
+    var words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+    var shown = 0;
+    rows.forEach(function (row, n) {
+      var hit = words.every(function (w) { return texts[n].indexOf(w) !== -1; });
+      row.hidden = !hit;
+      if (hit) shown++;
+    });
+    count.textContent = shown + " of " + rows.length + " rows";
+  }
+  input.addEventListener("input", apply);
+  apply();
+})();
+</script>
 <script>
 (function () {
   var badges = document.querySelectorAll(".da-page [data-da-count]");

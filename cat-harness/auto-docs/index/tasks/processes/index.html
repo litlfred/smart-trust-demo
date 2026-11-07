@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -979,8 +979,11 @@
 <li><a href="../fhir-harness-processes/">fhir-harness-processes</a> <span class="p">fhir-harness/processes</span> <span class="n" data-da-count="index/tasks/fhir-harness-processes" data-da-count-state="pending">…</span></li>
 <li><strong>processes</strong> <span class="p">cat-harness/processes</span> <span class="n" data-da-count="index/tasks/processes" data-da-count-state="pending">…</span></li>
 <li><a href="../sdlc-processes/">sdlc-processes</a> <span class="p">cat-harness/sdlc/processes</span> <span class="n" data-da-count="index/tasks/sdlc-processes" data-da-count-state="pending">…</span></li>
+<li><a href="../smart-base-house-processes/">smart-base-house-processes</a> <span class="p">smart-base/processes</span> <span class="n" data-da-count="index/tasks/smart-base-house-processes" data-da-count-state="pending">…</span></li>
+<li><a href="../smart-base-processes/">smart-base-processes</a> <span class="p">smart-base/methodologies/processes</span> <span class="n" data-da-count="index/tasks/smart-base-processes" data-da-count-state="pending">…</span></li>
 <li><a href="../smart-trust-demo-processes/">smart-trust-demo-processes</a> <span class="p">processes</span> <span class="n" data-da-count="index/tasks/smart-trust-demo-processes" data-da-count-state="pending">…</span></li>
 <li><a href="../smart-trust-tools-processes/">smart-trust-tools-processes</a> <span class="p">smart-trust-tools/processes</span> <span class="n" data-da-count="index/tasks/smart-trust-tools-processes" data-da-count-state="pending">…</span></li>
+<li><a href="../who-iris-processes/">who-iris-processes</a> <span class="p">who-iris/processes</span> <span class="n" data-da-count="index/tasks/who-iris-processes" data-da-count-state="pending">…</span></li>
 </ul>
 
 <div class="fa-table-filter">
@@ -1635,6 +1638,58 @@
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/methodology-from-source.bpmn#Review the adoption"><code>Review the adoption</code></a><br><span class="p">cat-harness/processes/library/methodology-from-source.bpmn#Review the adoption</span></td>
   <td>task in methodology-from-source</td>
 </tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Check-glossary-consistency">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Check glossary consistency"><code>Check glossary consistency</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Check glossary consistency</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Extract-every-template-once">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Extract every template once"><code>Extract every template once</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Extract every template once</span></td>
+  <td>callActivity in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-File-the-source-errors-as-one-issue">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#File the source errors as one issue"><code>File the source errors as one issue</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#File the source errors as one issue</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Fix-each-drift-on-the-PR">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Fix each drift on the PR"><code>Fix each drift on the PR</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Fix each drift on the PR</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Merge-the-one-source-PR-to-main">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Merge the one source PR to main"><code>Merge the one source PR to main</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Merge the one source PR to main</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Open-the-locale-PR-to-main">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Open the locale PR to main"><code>Open the locale PR to main</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Open the locale PR to main</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Run-the-deterministic-gates">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Run the deterministic gates"><code>Run the deterministic gates</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Run the deterministic gates</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Schedule-the-refresh-watcher">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Schedule the refresh watcher"><code>Schedule the refresh watcher</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Schedule the refresh watcher</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Set-locales-scope-and-merge-window">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Set locales, scope and merge window"><code>Set locales, scope and merge window</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Set locales, scope and merge window</span></td>
+  <td>userTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Translate-one-locale">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Translate one locale"><code>Translate one locale</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Translate one locale</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Untainted-round-trip-on-a-sample">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Untainted round trip on a sample"><code>Untainted round trip on a sample</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Untainted round trip on a sample</span></td>
+  <td>callActivity in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Validate-and-merge-in-the-window">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Validate and merge in the window"><code>Validate and merge in the window</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Validate and merge in the window</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
+<tr id="a-cat-harness-processes-library-multi-locale-translation-bpmn-Write-the-locale-s-QA-report">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn#Write the locale's QA report"><code>Write the locale's QA report</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn#Write the locale's QA report</span></td>
+  <td>serviceTask in multi-locale-translation</td>
+</tr>
 <tr id="a-cat-harness-processes-library-refresh-materialized-bpmn-Adjudicate-the-conflict">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/refresh-materialized.bpmn#Adjudicate the conflict"><code>Adjudicate the conflict</code></a><br><span class="p">cat-harness/processes/library/refresh-materialized.bpmn#Adjudicate the conflict</span></td>
   <td>callActivity in refresh-materialized</td>
@@ -1738,6 +1793,70 @@
 <tr id="a-cat-harness-processes-library-subscribe-kg-bpmn-Write-the-entry-and-cache-the-declaration">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/subscribe-kg.bpmn#Write the entry and cache the declaration"><code>Write the entry and cache the declaration</code></a><br><span class="p">cat-harness/processes/library/subscribe-kg.bpmn#Write the entry and cache the declaration</span></td>
   <td>serviceTask in subscribe-kg</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Cold-start-mount-and-attach">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Cold start: mount and attach"><code>Cold start: mount and attach</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Cold start: mount and attach</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Detect-what-moved">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Detect what moved"><code>Detect what moved</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Detect what moved</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Merge-into-each-locale">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Merge into each locale"><code>Merge into each locale</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Merge into each locale</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Merge-the-PR">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Merge the PR"><code>Merge the PR</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Merge the PR</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-QA-report-and-one-PR-to-main">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#QA report and one PR to main"><code>QA report and one PR to main</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#QA report and one PR to main</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Re-run-the-gates">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Re-run the gates"><code>Re-run the gates</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Re-run the gates</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Refresh-the-templates">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Refresh the templates"><code>Refresh the templates</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Refresh the templates</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Report-source-errors-as-one-issue">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Report source errors as one issue"><code>Report source errors as one issue</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Report source errors as one issue</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Round-trip-on-the-changed-strings">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Round trip on the changed strings"><code>Round trip on the changed strings</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Round trip on the changed strings</span></td>
+  <td>callActivity in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-refresh-bpmn-Translate-new-and-fuzzy-only">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn#Translate new and fuzzy only"><code>Translate new and fuzzy only</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn#Translate new and fuzzy only</span></td>
+  <td>serviceTask in translation-refresh</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-round-trip-bpmn-Back-translate-the-target-text">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn#Back-translate the target text"><code>Back-translate the target text</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn#Back-translate the target text</span></td>
+  <td>task in translation-round-trip</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-round-trip-bpmn-Draw-the-sample">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn#Draw the sample"><code>Draw the sample</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn#Draw the sample</span></td>
+  <td>serviceTask in translation-round-trip</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-round-trip-bpmn-Pre-screen-every-pair">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn#Pre-screen every pair"><code>Pre-screen every pair</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn#Pre-screen every pair</span></td>
+  <td>serviceTask in translation-round-trip</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-round-trip-bpmn-Read-and-rule-each-flagged-pair">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn#Read and rule each flagged pair"><code>Read and rule each flagged pair</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn#Read and rule each flagged pair</span></td>
+  <td>task in translation-round-trip</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-round-trip-bpmn-Record-both-witnesses">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn#Record both witnesses"><code>Record both witnesses</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn#Record both witnesses</span></td>
+  <td>serviceTask in translation-round-trip</td>
+</tr>
+<tr id="a-cat-harness-processes-library-translation-round-trip-bpmn-Record-could-not-dispatch">
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn#Record could not dispatch"><code>Record could not dispatch</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn#Record could not dispatch</span></td>
+  <td>serviceTask in translation-round-trip</td>
 </tr>
 <tr id="a-cat-harness-processes-library-translation-workflow-bpmn-Adjudicate-the-10-flagged-passage-10-human-">
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-workflow.bpmn#Adjudicate the&amp;#10;flagged passage&amp;#10;(human)"><code>Adjudicate the&amp;#10;flagged passage&amp;#10;(human)</code></a><br><span class="p">cat-harness/processes/library/translation-workflow.bpmn#Adjudicate the&amp;#10;flagged passage&amp;#10;(human)</span></td>

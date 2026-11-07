@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -978,8 +978,10 @@
 <li><a href="../fhir-harness-scenarios/">fhir-harness-scenarios</a> <span class="p">fhir-harness/scenarios</span> <span class="n" data-da-count="index/roles/fhir-harness-scenarios" data-da-count-state="pending">…</span></li>
 <li><a href="../folio-assistant-core-scenarios/">folio-assistant-core-scenarios</a> <span class="p">folio-assistant-core/scenarios</span> <span class="n" data-da-count="index/roles/folio-assistant-core-scenarios" data-da-count-state="pending">…</span></li>
 <li><a href="../scenarios/">scenarios</a> <span class="p">cat-harness/scenarios</span> <span class="n" data-da-count="index/roles/scenarios" data-da-count-state="pending">…</span></li>
+<li><a href="../smart-base-scenarios/">smart-base-scenarios</a> <span class="p">smart-base/scenarios</span> <span class="n" data-da-count="index/roles/smart-base-scenarios" data-da-count-state="pending">…</span></li>
 <li><a href="../smart-trust-demo-scenarios/">smart-trust-demo-scenarios</a> <span class="p">scenarios</span> <span class="n" data-da-count="index/roles/smart-trust-demo-scenarios" data-da-count-state="pending">…</span></li>
 <li><strong>smart-trust-tools-scenarios</strong> <span class="p">smart-trust-tools/scenarios</span> <span class="n" data-da-count="index/roles/smart-trust-tools-scenarios" data-da-count-state="pending">…</span></li>
+<li><a href="../who-iris-scenarios/">who-iris-scenarios</a> <span class="p">who-iris/scenarios</span> <span class="n" data-da-count="index/roles/who-iris-scenarios" data-da-count-state="pending">…</span></li>
 </ul>
 
 
@@ -998,9 +1000,21 @@
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#hcert-verifying-system"><code>HCERT verifying system</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#hcert-verifying-system</span></td>
   <td>The HCERT side of the VHL Receiver (smart-trust: Receiver): a clinic EMR, border system or CHW app that verifies, or triage-reads, an HCERT.</td>
 </tr>
+<tr id="a-smart-trust-tools-scenarios-roles-json-issuing-health-worker">
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#issuing-health-worker"><code>Issuing health worker</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#issuing-health-worker</span></td>
+  <td>The health worker of an issuing participant who hands the holder the credentials the issuing system made: prints them, one QR per certificate, or sends them to the holder's wallet.</td>
+</tr>
 <tr id="a-smart-trust-tools-scenarios-roles-json-library-maintainer">
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#library-maintainer"><code>Library maintainer</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#library-maintainer</span></td>
   <td>The person or agent who keeps the contract, its generated artefacts, the conformance tests and the published graph current.</td>
+</tr>
+<tr id="a-smart-trust-tools-scenarios-roles-json-receiving-health-worker">
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#receiving-health-worker"><code>Receiving health worker</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#receiving-health-worker</span></td>
+  <td>The health worker who operates a receiving system (CHW app, clinic EHR, point-of-care viewer): scans the QR the holder shows and enters the passcode the holder says.</td>
+</tr>
+<tr id="a-smart-trust-tools-scenarios-roles-json-vhl-holder">
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#vhl-holder"><code>VHL Holder</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#vhl-holder</span></td>
+  <td>IHE ITI VHL VHL Holder (smart-trust Holder): the person who holds certificates or a health link (a Verifiable Health Link, or a SMART Health Link: the same holder's work over the HL7 specification VHL profiles), present…</td>
 </tr>
 <tr id="a-smart-trust-tools-scenarios-roles-json-vhl-receiver">
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/scenarios/roles.json#vhl-receiver"><code>VHL receiver</code></a><br><span class="p">smart-trust-tools/scenarios/roles.json#vhl-receiver</span></td>

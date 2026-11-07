@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -916,6 +916,7 @@
 <button type="button" class="pt-mark" data-task="Task_Show" style="left:27.53%;top:5.77%" aria-expanded="false" aria-label="About step: Show the paper DVCs from Country A" title="About: Show the paper DVCs from Country A">i</button>
 <button type="button" class="pt-mark" data-task="Task_Scan" style="left:38.61%;top:38.46%" aria-expanded="false" aria-label="About step: Scan each QR with the CHW app" title="About: Scan each QR with the CHW app">i</button>
 <button type="button" class="pt-mark" data-task="Task_Read" style="left:49.68%;top:71.15%" aria-expanded="false" aria-label="About step: Read each DVC unverified (triage)" title="About: Read each DVC unverified (triage)">i</button>
+<a class="pt-go" href="questionnaire-data-capture.html" style="left:56.17%;top:89.42%;width:1.52%;height:4.62%" aria-label="Open subprocess: Add the infant; save doses as reported" title="Open subprocess: Add the infant; save doses as reported"></a>
 <button type="button" class="pt-mark" data-task="Task_Register" style="left:60.76%;top:71.15%" aria-expanded="false" aria-label="About step: Add the infant; save doses as reported" title="About: Add the infant; save doses as reported">i</button>
 <button type="button" class="pt-mark" data-task="Task_Refer" style="left:71.84%;top:71.15%" aria-expanded="false" aria-label="About step: Create a referral to the home clinic for verification" title="About: Create a referral to the home clinic for verification">i</button>
 <button type="button" class="pt-mark" data-task="Task_Slip" style="left:82.91%;top:38.46%" aria-expanded="false" aria-label="About step: Explain the referral to the family" title="About: Explain the referral to the family">i</button>
@@ -929,7 +930,10 @@
   // Every href in the sidecar is relative to the sidecar (it sits beside the
   // process page), so a page elsewhere on the site that shows the same
   // drawing resolves them to the same targets.
-  var base = new URL(root.getAttribute("data-panel"), location.href);
+  // A drawing with no sidecar (a page that only highlights steps, where no
+  // processes viewer is published) gets the highlight and nothing else.
+  var sidecar = root.getAttribute("data-panel");
+  var base = new URL(sidecar || "", location.href);
   function abs(h) { try { return new URL(h, base).href; } catch (e) { return h; } }
   // A page with no server-drawn markers gets them from the sidecar.
   var drawn = !!root.querySelector(".pt-layer");
@@ -1056,7 +1060,7 @@
     var r = root.getBoundingClientRect(), b = a.getBoundingClientRect();
     var x = b.left - r.left, y = b.top - r.top, w = b.width, h = b.height, vw = 0, vh = 0;
     if (a.tagName.toLowerCase() === "img") { vw = a.naturalWidth; vh = a.naturalHeight; }
-    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
+    else { var vb = (a.getAttribute("viewBox") || "").trim().split(/[\s,]+/).map(Number); vw = vb[2]; vh = vb[3]; }
     // An SVG keeps its aspect inside a box of another shape (xMidYMid meet).
     if (vw > 0 && vh > 0 && w > 0 && h > 0) {
       var k = vw / vh;
@@ -1082,7 +1086,7 @@
   root.addEventListener("load", schedule, true);
   window.addEventListener("resize", schedule);
   schedule();
-  if (!drawn) load().then(function (j) {
+  if (!drawn && sidecar) load().then(function (j) {
     (j.markers || []).forEach(function (m) {
       var t = j.tasks[m.id], to = t && t.calls ? (t.calls.diagram || t.calls.href) : null;
       if (to && m.box) {
@@ -1129,7 +1133,7 @@
 
 <ul>
   <li><strong>Called by:</strong> no call activity names this process</li>
-  <li><strong>Calls:</strong> none</li>
+  <li><strong>Calls:</strong> <a href="questionnaire-data-capture.html">Capture data with an SDC questionnaire</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1192,13 +1196,13 @@
     <tr>
       <td><strong>Show the paper DVCs from Country A</strong><br /><code class="language-plaintext highlighter-rouge">Task_Show</code></td>
       <td>Caregiver</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">holder-present-credential</code></td>
       <td>—</td>
     </tr>
     <tr>
       <td><strong>Scan each QR with the CHW app</strong><br /><code class="language-plaintext highlighter-rouge">Task_Scan</code></td>
       <td>Community health worker</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">receiver-scan-credential</code></td>
       <td>—</td>
     </tr>
     <tr>
@@ -1210,8 +1214,8 @@
     <tr>
       <td><strong>Add the infant; save doses as reported</strong><br /><code class="language-plaintext highlighter-rouge">Task_Register</code></td>
       <td>CHW app</td>
-      <td><code class="language-plaintext highlighter-rouge">chw-register-infant</code></td>
-      <td>Add the infant to the household; save the doses as reported, not verified.</td>
+      <td>calls <a href="questionnaire-data-capture.html">Capture data with an SDC questionnaire</a><br /><code class="language-plaintext highlighter-rouge">chw-register-infant</code></td>
+      <td>Add the infant to the household; save the doses as reported, not verified. The CHW completes the newborn registration form (data dictionary TD.J2A) in the CHW app through smart-base’s reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response. chw-register-infant is what this journey’s extraction writes: the Patient and the caregiver’s RelatedPerson, and each dose read by the triage read as an Immunization tagged unverified.</td>
     </tr>
     <tr>
       <td><strong>Create a referral to the home clinic for verification</strong><br /><code class="language-plaintext highlighter-rouge">Task_Refer</code></td>
@@ -1222,7 +1226,7 @@
     <tr>
       <td><strong>Explain the referral to the family</strong><br /><code class="language-plaintext highlighter-rouge">Task_Slip</code></td>
       <td>Community health worker</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">inform-client</code></td>
       <td>—</td>
     </tr>
   </tbody>

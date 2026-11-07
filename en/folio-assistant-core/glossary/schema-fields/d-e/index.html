@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -913,16 +913,16 @@
 
 <p>Candidate terms extracted from every schema field with a doc comment: <code class="language-plaintext highlighter-rouge">&lt;Declaration&gt;.&lt;field&gt;</code> as the label, the comment’s first paragraph as the definition. Each is the asset’s own text, verbatim and not curated, and carries the badge “candidate, extracted”. A person promotes one by authoring it. Authored terms are on their owning instance’s page, and those pages, the counts and the sources are linked from the <a href="../../../../../en/folio-assistant-core/glossary/">glossary index</a>.</p>
 
-<p>From: bootstrap-tools 45 (<a href="../../../../../assets/glossary/bootstrap-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · cat-harness-tools 2464 (<a href="../../../../../assets/glossary/cat-harness-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · fhir-harness 146 (<a href="../../../../../assets/glossary/fhir-harness--kg-schema-fields.skos.jsonld">SKOS</a>) · folio-assistant-core 184 (<a href="../../../../../assets/glossary/folio-assistant-core--kg-schema-fields.skos.jsonld">SKOS</a>).</p>
+<p>From: bootstrap-tools 45 (<a href="../../../../../assets/glossary/bootstrap-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · cat-harness-tools 2471 (<a href="../../../../../assets/glossary/cat-harness-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · fhir-harness 146 (<a href="../../../../../assets/glossary/fhir-harness--kg-schema-fields.skos.jsonld">SKOS</a>) · folio-assistant-core 184 (<a href="../../../../../assets/glossary/folio-assistant-core--kg-schema-fields.skos.jsonld">SKOS</a>) · smart-base 13 (<a href="../../../../../assets/glossary/smart-base--kg-schema-fields.skos.jsonld">SKOS</a>).</p>
 
 <p>One of 7 pages of this type, split by the first letter of the label: <a href="../../../../../en/folio-assistant-core/glossary/schema-fields/">all parts</a>.</p>
 
-<p><strong>Size:</strong> this page holds 196 terms and is 117 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
+<p><strong>Size:</strong> this page holds 207 terms and is 123 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
 
 <div class="table-wrapper"><table class="fa-gloss-mapping">
 <caption>Already somebody else's concept? — <code>check:term-mapping</code>, bean <code>7wou</code></caption>
 <thead><tr><th>target</th><th>mapped</th><th>unmapped</th><th>undetermined</th><th>why undetermined</th></tr></thead>
-<tbody><tr><td><code>fhir</code></td><td>0</td><td>2672</td><td>0</td><td>—</td></tr><tr><td><code>skos</code></td><td>0</td><td>2672</td><td>0</td><td>—</td></tr></tbody>
+<tbody><tr><td><code>fhir</code></td><td>0</td><td>2685</td><td>0</td><td>—</td></tr><tr><td><code>skos</code></td><td>0</td><td>2685</td><td>0</td><td>—</td></tr></tbody>
 </table></div>
 <p class="fa-gloss-mapping-note"><strong>Undetermined is never “no match”.</strong> 
 A vocabulary that could not be reached has said nothing, and the column above keeps that 
@@ -932,7 +932,7 @@ be a term this corpus is right to coin.</p>
 
 <p><label for="fa-gloss-q">Filter terms</label>
 <input id="fa-gloss-q" type="search" autocomplete="off" style="min-height:44px;width:100%;max-width:32rem" /></p>
-<p aria-live="polite"><span id="fa-gloss-n">196</span> shown</p>
+<p aria-live="polite"><span id="fa-gloss-n">207</span> shown</p>
 
 <nav aria-label="Letters"><a href="#letter-D">D</a> <a href="#letter-E">E</a></nav>
 <h2 id="letter-D">
@@ -944,6 +944,76 @@ be a term this corpus is right to coin.</p>
 </h2>
     
 <dl class="fa-gloss">
+<dt id="smart-base--kg-schema-fields--dak-blocks.dakblockbase.layer" data-fa-state="extracted" data-fa-gloss="">
+DakBlockBase.layer <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The WHO knowledge layer this block belongs to.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-blocks.ts"><code>smart-base/schemas/dak-blocks.ts#DakBlockBase.layer</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak-blocks.dakblockbase.realises" data-fa-state="extracted" data-fa-gloss="">
+DakBlockBase.realises <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Label of the L1 recommendation or L2 component this block realises.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-blocks.ts"><code>smart-base/schemas/dak-blocks.ts#DakBlockBase.realises</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak-annexes.dakdatadictionaryannexschema.idcolumn" data-fa-state="extracted" data-fa-gloss="">
+DakDataDictionaryAnnexSchema.idColumn <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The column key that identifies a data element.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-annexes.ts"><code>smart-base/schemas/dak-annexes.ts#DakDataDictionaryAnnexSchema.idColumn</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak-annexes.dakdatadictionaryannexschema.source" data-fa-state="extracted" data-fa-gloss="">
+DakDataDictionaryAnnexSchema.source <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The workbook it was read from, and the sha256 of its bytes.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-annexes.ts"><code>smart-base/schemas/dak-annexes.ts#DakDataDictionaryAnnexSchema.source</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak.dakdeclaration.canonicalurl" data-fa-state="extracted" data-fa-gloss="">
+DakDeclaration.canonicalUrl <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Where the published DAK lives — the base its <code>@id</code>s are minted against.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak.ts"><code>smart-base/schemas/dak.ts#DakDeclaration.canonicalUrl</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak.dakdeclaration.name" data-fa-state="extracted" data-fa-gloss="">
+DakDeclaration.name <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The instance's name, e.g. the immunizations DAK's own instance name.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak.ts"><code>smart-base/schemas/dak.ts#DakDeclaration.name</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak.dakdeclaration.previewurl" data-fa-state="extracted" data-fa-gloss="">
+DakDeclaration.previewUrl <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Where CI previews are served.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak.ts"><code>smart-base/schemas/dak.ts#DakDeclaration.previewUrl</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak.dakdeclaration.publicationurl" data-fa-state="extracted" data-fa-gloss="">
+DakDeclaration.publicationUrl <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Where the built IG is published, when that differs from <code>canonicalUrl</code>.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak.ts"><code>smart-base/schemas/dak.ts#DakDeclaration.publicationUrl</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak-annexes.dakswimlanemapschema.notpersonas" data-fa-state="extracted" data-fa-gloss="">
+DakSwimlaneMapSchema.notPersonas <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Lane words that are deliberately not personas -&gt; why.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-annexes.ts"><code>smart-base/schemas/dak-annexes.ts#DakSwimlaneMapSchema.notPersonas</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak-annexes.dakswimlanemapschema.personas" data-fa-state="extracted" data-fa-gloss="">
+DakSwimlaneMapSchema.personas <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Persona as named on the personas page -&gt; the words a lane uses for it.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-annexes.ts"><code>smart-base/schemas/dak-annexes.ts#DakSwimlaneMapSchema.personas</code></a></p>
+</dd>
 <dt id="cat-harness-tools--kg-schema-fields--user-scenario.dakuserscenario.personas" data-fa-state="extracted" data-fa-gloss="">
 DakUserScenario.personas <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -2007,6 +2077,13 @@ DublinCoreRecordSchema.provenance <span class="fa-gloss-status">candidate, extra
 <dd>
 <p>Where this record was read from, and when. A metadata record with no provenance is the <code>source: null</code> defect bean <code>r1lz</code> was opened over, wearing a different hat.</p>
 <p class="fa-gloss-meta">Schema fields of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/schemas/dublin-core.ts"><code>folio-assistant-core/schemas/dublin-core.ts#DublinCoreRecordSchema.provenance</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak-blocks.dublincoreref.source" data-fa-state="extracted" data-fa-gloss="">
+DublinCoreRef.source <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Canonical URI — an IRIS handle, for WHO publications.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-blocks.ts"><code>smart-base/schemas/dak-blocks.ts#DublinCoreRef.source</code></a></p>
 </dd>
 </dl>
 <h2 id="letter-E">

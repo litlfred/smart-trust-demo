@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -981,7 +981,9 @@
 <li><a href="../fhir-ig-skills/">fhir-ig-skills</a> <span class="p">fhir-harness/skills</span> <span class="n" data-da-count="index/skills/fhir-ig-skills" data-da-count-state="pending">…</span></li>
 <li><a href="../sdlc-skills/">sdlc-skills</a> <span class="p">cat-harness/sdlc/skills</span> <span class="n" data-da-count="index/skills/sdlc-skills" data-da-count-state="pending">…</span></li>
 <li><a href="../skills/">skills</a> <span class="p">cat-harness/skills</span> <span class="n" data-da-count="index/skills/skills" data-da-count-state="pending">…</span></li>
+<li><a href="../smart-base-skills/">smart-base-skills</a> <span class="p">smart-base/skills</span> <span class="n" data-da-count="index/skills/smart-base-skills" data-da-count-state="pending">…</span></li>
 <li><strong>stt-skills</strong> <span class="p">smart-trust-tools/skills</span> <span class="n" data-da-count="index/skills/stt-skills" data-da-count-state="pending">…</span></li>
+<li><a href="../who-iris-skills/">who-iris-skills</a> <span class="p">who-iris/skills</span> <span class="n" data-da-count="index/skills/who-iris-skills" data-da-count-state="pending">…</span></li>
 <li><a href="../work-plan-skills/">work-plan-skills</a> <span class="p">cat-harness/work-plan/skills</span> <span class="n" data-da-count="index/skills/work-plan-skills" data-da-count-state="pending">…</span></li>
 </ul>
 
@@ -1052,6 +1054,22 @@
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/vhl/vhl-share.md"><code>vhl-share</code></a><br><span class="p">smart-trust-tools/skills/vhl/vhl-share.md</span></td>
   <td>Issue a VHL: a key, documents encrypted as JWE dir / A256GCM, and the payload as a CBOR map at HCERT key 5 (journey J4.0).</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/hand-over-credential.md"><code>hand-over-credential</code></a><br><span class="p">smart-trust-tools/skills/wallet/hand-over-credential.md</span></td>
+  <td>The health worker at the issuing side hands the holder the credentials the issuing system made: printed (one QR per certificate) or into the holder's wallet, and says what each is.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/holder-consent-to-share.md"><code>holder-consent-to-share</code></a><br><span class="p">smart-trust-tools/skills/wallet/holder-consent-to-share.md</span></td>
+  <td>The holder decides what a health link (a Verifiable Health Link or a SMART Health Link) shares: which members' records, protected by which passcode, until when.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/holder-present-credential.md"><code>holder-present-credential</code></a><br><span class="p">smart-trust-tools/skills/wallet/holder-present-credential.md</span></td>
+  <td>The holder shows the one health credential a receiver asks for, as a QR: an HCERT (HC1:) on paper or in a wallet app, or a health link: the HCERT carrying a Verifiable Health Link, or a SMART Health Link (shlink:/).</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/receiver-scan-credential.md"><code>receiver-scan-credential</code></a><br><span class="p">smart-trust-tools/skills/wallet/receiver-scan-credential.md</span></td>
+  <td>The health worker at a receiving system scans the QR a holder shows (an HCERT, a VHL carried in an HCERT, or a SMART Health Link) and, for a passcode-protected health link, enters the passcode the holder says.</td>
 </tr>
 </tbody>
 </table></div>

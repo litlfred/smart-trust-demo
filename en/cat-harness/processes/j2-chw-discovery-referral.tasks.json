@@ -119,9 +119,14 @@
   "Task_Register": {
    "id": "Task_Register",
    "name": "Add the infant; save doses as reported",
-   "type": "bpmn:ServiceTask",
+   "type": "bpmn:CallActivity",
    "lane": "CHW app",
    "skills": [],
+   "calls": {
+    "name": "Capture data with an SDC questionnaire",
+    "href": "questionnaire-data-capture.html",
+    "diagram": "questionnaire-data-capture.html"
+   },
    "role": {
     "name": "chw-app",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-chw-app",

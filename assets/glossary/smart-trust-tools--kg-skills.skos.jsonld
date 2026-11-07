@@ -14,6 +14,26 @@
       "dcterms:source": "Skills of smart-trust-tools"
     },
     {
+      "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills/hand-over-credential",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "hand-over-credential"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The health worker at the issuing side hands the holder the credentials the issuing system made: printed (one QR per certificate) or into the holder's wallet, and says what each is. Input is what was issued and the medium; output is what the holder now holds. Performed by a person; the issuing system's own steps are the hcert package's."
+        }
+      ],
+      "skos:notation": "hand-over-credential",
+      "dcterms:source": "smart-trust-tools/skills/wallet/hand-over-credential.md",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills/hcert-assemble-payload",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -294,6 +314,66 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills/holder-consent-to-share",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "holder-consent-to-share"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The holder decides what a health link (a Verifiable Health Link or a SMART Health Link) shares: which members' records, protected by which passcode, until when. That choice is the holder's consent, and the sharer issues nothing beyond it. Input is the records the sharer offers; output is the share request. Performed by a person."
+        }
+      ],
+      "skos:notation": "holder-consent-to-share",
+      "dcterms:source": "smart-trust-tools/skills/wallet/holder-consent-to-share.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills/holder-present-credential",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "holder-present-credential"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The holder shows the one health credential a receiver asks for, as a QR: an HCERT (HC1:) on paper or in a wallet app, or a health link: the HCERT carrying a Verifiable Health Link, or a SMART Health Link (shlink:/). Input is what the holder holds and what is asked for; output is the QR shown. Performed by a person; the library has no holder-side operation."
+        }
+      ],
+      "skos:notation": "holder-present-credential",
+      "dcterms:source": "smart-trust-tools/skills/wallet/holder-present-credential.md",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills/receiver-scan-credential",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "receiver-scan-credential"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The health worker at a receiving system scans the QR a holder shows (an HCERT, a VHL carried in an HCERT, or a SMART Health Link) and, for a passcode-protected health link, enters the passcode the holder says. Input is the QR as shown; output is its text (and passcode) handed to the receiving system, which verifies it or follows the link. Performed by a person; never judges authenticity."
+        }
+      ],
+      "skos:notation": "receiver-scan-credential",
+      "dcterms:source": "smart-trust-tools/skills/wallet/receiver-scan-credential.md",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/smart-trust-tools/v0/ns/glossary/kg-skills/vhl-receive",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -306,7 +386,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Use a VHL: verify it, build the ITI-YY5 manifest request with its HTTP Message Signature, read the manifest Bundle and decrypt each document (journey J4.1)."
+          "@value": "Use a VHL: verify it, build the ITI-YY5 manifest request with its HTTP Message Signature, read the manifest Bundle and decrypt each document (journey J4.1). A plain SMART Health Link is received by the same steps, without the HCERT verification."
         }
       ],
       "skos:notation": "vhl-receive",
@@ -326,7 +406,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "Issue a VHL: a key, documents encrypted as JWE dir / A256GCM, and the payload as a CBOR map at HCERT key 5 (journey J4.0)."
+          "@value": "Issue a VHL: a key, documents encrypted as JWE dir / A256GCM, and the payload as a CBOR map at HCERT key 5 (journey J4.0). A plain SMART Health Link is issued by the same steps with its own carrier."
         }
       ],
       "skos:notation": "vhl-share",

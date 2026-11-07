@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -913,16 +913,16 @@
 
 <p>Candidate terms extracted from every schema field with a doc comment: <code class="language-plaintext highlighter-rouge">&lt;Declaration&gt;.&lt;field&gt;</code> as the label, the comment’s first paragraph as the definition. Each is the asset’s own text, verbatim and not curated, and carries the badge “candidate, extracted”. A person promotes one by authoring it. Authored terms are on their owning instance’s page, and those pages, the counts and the sources are linked from the <a href="../../../../../en/folio-assistant-core/glossary/">glossary index</a>.</p>
 
-<p>From: bootstrap-tools 45 (<a href="../../../../../assets/glossary/bootstrap-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · cat-harness-tools 2464 (<a href="../../../../../assets/glossary/cat-harness-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · fhir-harness 146 (<a href="../../../../../assets/glossary/fhir-harness--kg-schema-fields.skos.jsonld">SKOS</a>) · folio-assistant-core 184 (<a href="../../../../../assets/glossary/folio-assistant-core--kg-schema-fields.skos.jsonld">SKOS</a>).</p>
+<p>From: bootstrap-tools 45 (<a href="../../../../../assets/glossary/bootstrap-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · cat-harness-tools 2471 (<a href="../../../../../assets/glossary/cat-harness-tools--kg-schema-fields.skos.jsonld">SKOS</a>) · fhir-harness 146 (<a href="../../../../../assets/glossary/fhir-harness--kg-schema-fields.skos.jsonld">SKOS</a>) · folio-assistant-core 184 (<a href="../../../../../assets/glossary/folio-assistant-core--kg-schema-fields.skos.jsonld">SKOS</a>) · smart-base 13 (<a href="../../../../../assets/glossary/smart-base--kg-schema-fields.skos.jsonld">SKOS</a>).</p>
 
 <p>One of 7 pages of this type, split by the first letter of the label: <a href="../../../../../en/folio-assistant-core/glossary/schema-fields/">all parts</a>.</p>
 
-<p><strong>Size:</strong> this page holds 582 terms and is 340 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
+<p><strong>Size:</strong> this page holds 590 terms and is 345 KB before compression, fetched in one request, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
 
 <div class="table-wrapper"><table class="fa-gloss-mapping">
 <caption>Already somebody else's concept? — <code>check:term-mapping</code>, bean <code>7wou</code></caption>
 <thead><tr><th>target</th><th>mapped</th><th>unmapped</th><th>undetermined</th><th>why undetermined</th></tr></thead>
-<tbody><tr><td><code>fhir</code></td><td>0</td><td>2672</td><td>0</td><td>—</td></tr><tr><td><code>skos</code></td><td>0</td><td>2672</td><td>0</td><td>—</td></tr></tbody>
+<tbody><tr><td><code>fhir</code></td><td>0</td><td>2685</td><td>0</td><td>—</td></tr><tr><td><code>skos</code></td><td>0</td><td>2685</td><td>0</td><td>—</td></tr></tbody>
 </table></div>
 <p class="fa-gloss-mapping-note"><strong>Undetermined is never “no match”.</strong> 
 A vocabulary that could not be reached has said nothing, and the column above keeps that 
@@ -932,7 +932,7 @@ be a term this corpus is right to coin.</p>
 
 <p><label for="fa-gloss-q">Filter terms</label>
 <input id="fa-gloss-q" type="search" autocomplete="off" style="min-height:44px;width:100%;max-width:32rem" /></p>
-<p aria-live="polite"><span id="fa-gloss-n">582</span> shown</p>
+<p aria-live="polite"><span id="fa-gloss-n">590</span> shown</p>
 
 <nav aria-label="Letters"><a href="#letter-F">F</a> <a href="#letter-G">G</a> <a href="#letter-H">H</a> <a href="#letter-I">I</a> <a href="#letter-J">J</a> <a href="#letter-K">K</a> <a href="#letter-L">L</a></nav>
 <h2 id="letter-F">
@@ -1759,6 +1759,55 @@ GlossarySchema.source <span class="fa-gloss-status">candidate, extracted</span>
 <p>dcterms:source: what the terms were drawn from.</p>
 <p class="fa-gloss-meta">Schema fields of folio-assistant-core · source <a href="https://github.com/litlfred/folio-assistant-core/blob/main/schemas/glossary.ts"><code>folio-assistant-core/schemas/glossary.ts#GlossarySchema.source</code></a></p>
 </dd>
+<dt id="cat-harness-tools--kg-schema-fields--glossary-sense.glossarysenseverdictschema.decidedat" data-fa-state="extracted" data-fa-gloss="">
+GlossarySenseVerdictSchema.decidedAt <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>When, as an ISO date.</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/glossary-sense.ts"><code>cat-harness-tools/schemas/kg/glossary-sense.ts#GlossarySenseVerdictSchema.decidedAt</code></a></p>
+</dd>
+<dt id="cat-harness-tools--kg-schema-fields--glossary-sense.glossarysenseverdictschema.decidedby" data-fa-state="extracted" data-fa-gloss="">
+GlossarySenseVerdictSchema.decidedBy <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The agent or person that ruled: an id, never a model name.</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/glossary-sense.ts"><code>cat-harness-tools/schemas/kg/glossary-sense.ts#GlossarySenseVerdictSchema.decidedBy</code></a></p>
+</dd>
+<dt id="cat-harness-tools--kg-schema-fields--glossary-sense.glossarysenseverdictschema.label" data-fa-state="extracted" data-fa-gloss="">
+GlossarySenseVerdictSchema.label <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The label that matched, for a reader.</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/glossary-sense.ts"><code>cat-harness-tools/schemas/kg/glossary-sense.ts#GlossarySenseVerdictSchema.label</code></a></p>
+</dd>
+<dt id="cat-harness-tools--kg-schema-fields--glossary-sense.glossarysenseverdictschema.msgid" data-fa-state="extracted" data-fa-gloss="">
+GlossarySenseVerdictSchema.msgid <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The source sentence, for a reader; the hash is what is compared.</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/glossary-sense.ts"><code>cat-harness-tools/schemas/kg/glossary-sense.ts#GlossarySenseVerdictSchema.msgid</code></a></p>
+</dd>
+<dt id="cat-harness-tools--kg-schema-fields--glossary-sense.glossarysenseverdictschema.msgidsha256" data-fa-state="extracted" data-fa-gloss="">
+GlossarySenseVerdictSchema.msgidSha256 <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>SHA-256 (hex) of the msgid, exactly as the catalogue holds it.</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/glossary-sense.ts"><code>cat-harness-tools/schemas/kg/glossary-sense.ts#GlossarySenseVerdictSchema.msgidSha256</code></a></p>
+</dd>
+<dt id="cat-harness-tools--kg-schema-fields--glossary-sense.glossarysenseverdictschema.reason" data-fa-state="extracted" data-fa-gloss="">
+GlossarySenseVerdictSchema.reason <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>One line: why. For an <code>exception</code>, why the fixed translation is wrong here.</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/glossary-sense.ts"><code>cat-harness-tools/schemas/kg/glossary-sense.ts#GlossarySenseVerdictSchema.reason</code></a></p>
+</dd>
+<dt id="cat-harness-tools--kg-schema-fields--glossary-sense.glossarysenseverdictschema.term" data-fa-state="extracted" data-fa-gloss="">
+GlossarySenseVerdictSchema.term <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>The term's id: its IRI, or <code>&lt;subject area&gt;#&lt;label&gt;</code> for a terminology pin.</p>
+<p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/kg/glossary-sense.ts"><code>cat-harness-tools/schemas/kg/glossary-sense.ts#GlossarySenseVerdictSchema.term</code></a></p>
+</dd>
 <dt id="bootstrap-tools--kg-schema-fields--graph-export.graphexportschema.at-graph" data-fa-state="extracted" data-fa-gloss="">
 GraphExportSchema.@graph <span class="fa-gloss-status">candidate, extracted</span>
 </dt>
@@ -2314,6 +2363,13 @@ HealthFindingSchema.summary <span class="fa-gloss-status">candidate, extracted</
 <dd>
 <p>One line, naming the subject. Assert by naming, not by counting.</p>
 <p class="fa-gloss-meta">Schema fields of cat-harness-tools · source <a href="https://github.com/litlfred/cat-harness-tools/blob/main/schemas/sdlc/health-report.ts"><code>cat-harness-tools/schemas/sdlc/health-report.ts#HealthFindingSchema.summary</code></a></p>
+</dd>
+<dt id="smart-base--kg-schema-fields--dak-blocks.healthinterventionblock.references" data-fa-state="extracted" data-fa-gloss="">
+HealthInterventionBlock.references <span class="fa-gloss-status">candidate, extracted</span>
+</dt>
+<dd>
+<p>Dublin Core references to the guideline this intervention comes from.</p>
+<p class="fa-gloss-meta">Schema fields of smart-base · source <a href="https://github.com/litlfred/smart-base/blob/main/smart-base/schemas/dak-blocks.ts"><code>smart-base/schemas/dak-blocks.ts#HealthInterventionBlock.references</code></a></p>
 </dd>
 <dt id="cat-harness-tools--kg-schema-fields--health-report.healthmeasurementschema.command" data-fa-state="extracted" data-fa-gloss="">
 HealthMeasurementSchema.command <span class="fa-gloss-status">candidate, extracted</span>

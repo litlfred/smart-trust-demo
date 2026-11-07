@@ -80,9 +80,14 @@
   "Task_Vaccinate": {
    "id": "Task_Vaccinate",
    "name": "Give Hep B and BCG birth doses and record them",
-   "type": "bpmn:UserTask",
+   "type": "bpmn:CallActivity",
    "lane": "Birth clinic vaccinator",
    "skills": [],
+   "calls": {
+    "name": "Capture data with an SDC questionnaire",
+    "href": "questionnaire-data-capture.html",
+    "diagram": "questionnaire-data-capture.html"
+   },
    "role": {
     "name": "birth-clinic-vaccinator",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-vaccinator",

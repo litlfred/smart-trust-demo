@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -917,9 +917,9 @@ is <code class="language-plaintext highlighter-rouge">satisfies</code>, and it r
 to do that</em>, never <em>this skill is a tool</em>.</p>
 
 <div class="tg-grid">
-<a class="tg-stat" href="#every-tool"><b>16</b><span>Tool nodes</span></a>
+<a class="tg-stat" href="#every-tool"><b>18</b><span>Tool nodes</span></a>
 <a class="tg-stat" href="#does-every-satisfies-name-a-skill-that-exists"><b>16</b><span>skills satisfied</span></a>
-<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>16</b><span>invoked as a shell command</span></a>
+<a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>18</b><span>invoked as a shell command</span></a>
 <a class="tg-stat" href="#how-they-are-invoked-and-installed"><b>0</b><span>reachable over MCP</span></a>
 </div>
 
@@ -944,7 +944,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><span class="tg-tag tg-shell">shell</span></td>
-      <td>16</td>
+      <td>18</td>
     </tr>
   </tbody>
 </table></div>
@@ -959,7 +959,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">none</code></td>
-      <td>16</td>
+      <td>18</td>
     </tr>
   </tbody>
 </table></div>
@@ -972,7 +972,7 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
 </h2>
     
 
-<p>Yes — all <strong>16</strong> skills named across <strong>16</strong> tools resolve to a
+<p>Yes — all <strong>16</strong> skills named across <strong>18</strong> tools resolve to a
 skill document in this checkout. A <code class="language-plaintext highlighter-rouge">satisfies</code> pointing at nothing would be a
 tool advertising a capability the graph cannot locate.</p>
 <h2 id="every-tool">
@@ -1017,6 +1017,14 @@ tool advertising a capability the graph cannot locate.</p>
       <td>Check every node of this instance’s requirement graph: each skills/requirements/*.json parses as a bootstrap requirement with id req:<file>; every derivedFrom names a requirement and every reference a node that exists (a library section or entry, an external schema, a reference, a directive, a test vector, or a smart-trust FHIR Requirements canonical); every statement has a success criterion; every skill's satisfies and tested-by, every bean's requirements and sources, and every test plan resolve; every external schema and reference parses against its typology's schema; every code list parses as folio-code-list/v1, with every requirement's area a code of requirement-area; and the shared negative vectors parse against their schema, each expected step and reason a case of the WIT failure taxonomy.</file></td>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">hcert-kg-publication</code></td>
+      <td>0 in / 1 out</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
+    </tr>
+    <tr>
+      <td><a id="check-upstream-patches"></a><a href="#check-upstream-patches"><code class="language-plaintext highlighter-rouge">check-upstream-patches</code></a><br />Check the upstream patches are well-formed</td>
+      <td>Check every file under upstream/ (the upstream-patches graph, kept on the state branch cat/smart-trust-tools/upstream-patches and mounted by state:mount): each is a numbered git format-patch file, upstream/<target>/NNNN-<subject>.patch, with the mbox From line, an author, a date, a [PATCH] subject, a --- separator and at least one diff --git hunk.</subject></target></td>
+      <td><span class="tg-tag tg-shell">shell</span></td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-contract-maintenance</code></td>
       <td>0 in / 1 out</td>
       <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
@@ -1090,6 +1098,14 @@ tool advertising a capability the graph cannot locate.</p>
       <td><span class="tg-tag tg-shell">shell</span></td>
       <td><code class="language-plaintext highlighter-rouge">hcert-library-architecture</code></td>
       <td>1 in / 1 out</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
+    </tr>
+    <tr>
+      <td><a id="test-gherkin"></a><a href="#test-gherkin"><code class="language-plaintext highlighter-rouge">test-gherkin</code></a><br />Every test has a Gherkin Scenario</td>
+      <td>Check test/features/*.feature against the suites: every Rust #[test], Kotlin @Test and TypeScript conformance run(…) has a Scenario tagged @test:<path>::<test>, every such tag names a test, WHO-ITB Scenarios carry @itb:<suite>/<testcase>, and every test-plan case names its feature file. Temporary, until cat-harness check:test-gherkin is pinned.</testcase></suite></test></path></td>
+      <td><span class="tg-tag tg-shell">shell</span></td>
+      <td><code class="language-plaintext highlighter-rouge">hcert-conformance-testing</code></td>
+      <td>1 in / 0 out</td>
       <td><a href="https://github.com/litlfred/smart-trust-demo/blob/cat/cat-harness/qa-reports/index.json"><code class="language-plaintext highlighter-rouge">qa-reports</code></a></td>
     </tr>
     <tr>

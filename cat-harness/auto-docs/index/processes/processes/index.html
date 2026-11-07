@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -979,8 +979,11 @@
 <li><a href="../fhir-harness-processes/">fhir-harness-processes</a> <span class="p">fhir-harness/processes</span> <span class="n" data-da-count="index/processes/fhir-harness-processes" data-da-count-state="pending">…</span></li>
 <li><strong>processes</strong> <span class="p">cat-harness/processes</span> <span class="n" data-da-count="index/processes/processes" data-da-count-state="pending">…</span></li>
 <li><a href="../sdlc-processes/">sdlc-processes</a> <span class="p">cat-harness/sdlc/processes</span> <span class="n" data-da-count="index/processes/sdlc-processes" data-da-count-state="pending">…</span></li>
+<li><a href="../smart-base-house-processes/">smart-base-house-processes</a> <span class="p">smart-base/processes</span> <span class="n" data-da-count="index/processes/smart-base-house-processes" data-da-count-state="pending">…</span></li>
+<li><a href="../smart-base-processes/">smart-base-processes</a> <span class="p">smart-base/methodologies/processes</span> <span class="n" data-da-count="index/processes/smart-base-processes" data-da-count-state="pending">…</span></li>
 <li><a href="../smart-trust-demo-processes/">smart-trust-demo-processes</a> <span class="p">processes</span> <span class="n" data-da-count="index/processes/smart-trust-demo-processes" data-da-count-state="pending">…</span></li>
 <li><a href="../smart-trust-tools-processes/">smart-trust-tools-processes</a> <span class="p">smart-trust-tools/processes</span> <span class="n" data-da-count="index/processes/smart-trust-tools-processes" data-da-count-state="pending">…</span></li>
+<li><a href="../who-iris-processes/">who-iris-processes</a> <span class="p">who-iris/processes</span> <span class="n" data-da-count="index/processes/who-iris-processes" data-da-count-state="pending">…</span></li>
 </ul>
 
 <div class="fa-table-filter">
@@ -1076,6 +1079,10 @@
   <td>The general process an agent follows when someone shares a paper, book or standard and asks for its method to be used: establish origin and licence, ingest it, render what the method says with what is adopted and refuse…<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Owner · Agent</div><div class="f"><span class="k">skills</span> adopt-methodology-from-source, methodology-adoption</div></td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn"><code>Multi-locale translation</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn</span></td>
+  <td>Translate one or more instances into several locales at once, as a team: one source-language lead, one translator per locale, an untainted round trip, and the owner's merge window.<div class="f"><span class="k">activities</span> 13</div><div class="f"><span class="k">lanes</span> Owner · Source-language lead · Locale translator (one per locale)</div><div class="f"><span class="k">skills</span> translation-manager, translation-refresh</div></td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/refresh-materialized.bpmn"><code>Refresh materialized remote content</code></a><br><span class="p">cat-harness/processes/library/refresh-materialized.bpmn</span></td>
   <td>Keep a materialized copy of remote content current: what changed upstream, what changed locally, and what to do when both did — an archival copy is never re-fetched and gets a fixity check instead.<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Contributor (human or agent) · Ingestion Engine (agent, runs unattended)</div><div class="f"><span class="k">skills</span> adjudication, materialize-remote</div></td>
 </tr>
@@ -1086,6 +1093,14 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/subscribe-kg.bpmn"><code>Subscribe to an external knowledge graph</code></a><br><span class="p">cat-harness/processes/library/subscribe-kg.bpmn</span></td>
   <td>Subscribe a folio or harness to an external knowledge graph pinned to a full commit SHA, then take each chosen part from referenced to materialized through <code>materialize-remote</code> and instantiate each chosen harness once i…<div class="f"><span class="k">activities</span> 11</div><div class="f"><span class="k">lanes</span> Subscriber (the folio's owner) · Ingestion Engine (agent, runs unattended)</div><div class="f"><span class="k">skills</span> index-config, kg-subscription, materialize-remote</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn"><code>Translation refresh (watcher)</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn</span></td>
+  <td>Keep every locale current after the source moves: detect, refresh the templates, merge them into each locale, translate only what is new or fuzzy, check it, and land one PR per instance on main.<div class="f"><span class="k">activities</span> 10</div><div class="f"><span class="k">lanes</span> Locale translator · Source-language lead (watcher)</div><div class="f"><span class="k">skills</span> translation-manager, translation-refresh</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn"><code>Translation round trip (untainted)</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn</span></td>
+  <td>Did the meaning survive the translation? The untainted round trip on a sample of one locale's strings, with the two parties kept apart: a back-translator who sees only the target text, and an adjudicator who sees only t…<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Locale translator · Back-translator · Round-trip adjudicator</div><div class="f"><span class="k">skills</span> translation-manager, untainted-verification</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-workflow.bpmn"><code>Translation Workflow</code></a><br><span class="p">cat-harness/processes/library/translation-workflow.bpmn</span></td>

@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -979,8 +979,11 @@
 <li><a href="fhir-harness-processes/">fhir-harness-processes</a> <span class="p">fhir-harness/processes</span> <span class="n" data-da-count="index/processes/fhir-harness-processes" data-da-count-state="pending">…</span></li>
 <li><a href="processes/">processes</a> <span class="p">cat-harness/processes</span> <span class="n" data-da-count="index/processes/processes" data-da-count-state="pending">…</span></li>
 <li><a href="sdlc-processes/">sdlc-processes</a> <span class="p">cat-harness/sdlc/processes</span> <span class="n" data-da-count="index/processes/sdlc-processes" data-da-count-state="pending">…</span></li>
+<li><a href="smart-base-house-processes/">smart-base-house-processes</a> <span class="p">smart-base/processes</span> <span class="n" data-da-count="index/processes/smart-base-house-processes" data-da-count-state="pending">…</span></li>
+<li><a href="smart-base-processes/">smart-base-processes</a> <span class="p">smart-base/methodologies/processes</span> <span class="n" data-da-count="index/processes/smart-base-processes" data-da-count-state="pending">…</span></li>
 <li><a href="smart-trust-demo-processes/">smart-trust-demo-processes</a> <span class="p">processes</span> <span class="n" data-da-count="index/processes/smart-trust-demo-processes" data-da-count-state="pending">…</span></li>
 <li><a href="smart-trust-tools-processes/">smart-trust-tools-processes</a> <span class="p">smart-trust-tools/processes</span> <span class="n" data-da-count="index/processes/smart-trust-tools-processes" data-da-count-state="pending">…</span></li>
+<li><a href="who-iris-processes/">who-iris-processes</a> <span class="p">who-iris/processes</span> <span class="n" data-da-count="index/processes/who-iris-processes" data-da-count-state="pending">…</span></li>
 </ul>
 
 <div class="fa-table-filter">
@@ -1076,6 +1079,10 @@
   <td>The general process an agent follows when someone shares a paper, book or standard and asks for its method to be used: establish origin and licence, ingest it, render what the method says with what is adopted and refuse…<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Owner · Agent</div><div class="f"><span class="k">skills</span> adopt-methodology-from-source, methodology-adoption</div></td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/multi-locale-translation.bpmn"><code>Multi-locale translation</code></a><br><span class="p">cat-harness/processes/library/multi-locale-translation.bpmn</span></td>
+  <td>Translate one or more instances into several locales at once, as a team: one source-language lead, one translator per locale, an untainted round trip, and the owner's merge window.<div class="f"><span class="k">activities</span> 13</div><div class="f"><span class="k">lanes</span> Owner · Source-language lead · Locale translator (one per locale)</div><div class="f"><span class="k">skills</span> translation-manager, translation-refresh</div></td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/refresh-materialized.bpmn"><code>Refresh materialized remote content</code></a><br><span class="p">cat-harness/processes/library/refresh-materialized.bpmn</span></td>
   <td>Keep a materialized copy of remote content current: what changed upstream, what changed locally, and what to do when both did — an archival copy is never re-fetched and gets a fixity check instead.<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Contributor (human or agent) · Ingestion Engine (agent, runs unattended)</div><div class="f"><span class="k">skills</span> adjudication, materialize-remote</div></td>
 </tr>
@@ -1086,6 +1093,14 @@
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/subscribe-kg.bpmn"><code>Subscribe to an external knowledge graph</code></a><br><span class="p">cat-harness/processes/library/subscribe-kg.bpmn</span></td>
   <td>Subscribe a folio or harness to an external knowledge graph pinned to a full commit SHA, then take each chosen part from referenced to materialized through <code>materialize-remote</code> and instantiate each chosen harness once i…<div class="f"><span class="k">activities</span> 11</div><div class="f"><span class="k">lanes</span> Subscriber (the folio's owner) · Ingestion Engine (agent, runs unattended)</div><div class="f"><span class="k">skills</span> index-config, kg-subscription, materialize-remote</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-refresh.bpmn"><code>Translation refresh (watcher)</code></a><br><span class="p">cat-harness/processes/library/translation-refresh.bpmn</span></td>
+  <td>Keep every locale current after the source moves: detect, refresh the templates, merge them into each locale, translate only what is new or fuzzy, check it, and land one PR per instance on main.<div class="f"><span class="k">activities</span> 10</div><div class="f"><span class="k">lanes</span> Locale translator · Source-language lead (watcher)</div><div class="f"><span class="k">skills</span> translation-manager, translation-refresh</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-round-trip.bpmn"><code>Translation round trip (untainted)</code></a><br><span class="p">cat-harness/processes/library/translation-round-trip.bpmn</span></td>
+  <td>Did the meaning survive the translation? The untainted round trip on a sample of one locale's strings, with the two parties kept apart: a back-translator who sees only the target text, and an adjudicator who sees only t…<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Locale translator · Back-translator · Round-trip adjudicator</div><div class="f"><span class="k">skills</span> translation-manager, untainted-verification</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/processes/library/translation-workflow.bpmn"><code>Translation Workflow</code></a><br><span class="p">cat-harness/processes/library/translation-workflow.bpmn</span></td>
@@ -1241,11 +1256,15 @@
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/processes/merge-manager-watch.bpmn"><code>Merge manager watch: wake, read the queue live, route</code></a><br><span class="p">cat-harness/sdlc/processes/merge-manager-watch.bpmn</span></td>
-  <td>The loop run by the agent that holds the merge-steward lane (actor merge-manager, skill merge-manager-watcher), which coordinates with the swarm siblings whenever a batch lands.<div class="f"><span class="k">activities</span> 4</div><div class="f"><span class="k">lanes</span> Merge steward</div><div class="f"><span class="k">skills</span> merge-manager-watcher</div></td>
+  <td>The loop run by the session that holds the merge-steward lane (actor merge-manager, skill merge-manager-watcher): elected, appointed, or holding it for its own PRs only.<div class="f"><span class="k">activities</span> 9</div><div class="f"><span class="k">lanes</span> Merge steward · Owner</div><div class="f"><span class="k">skills</span> interaction-modality, merge-manager-watcher</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/processes/merge-refusal.bpmn"><code>A refused merge-train member</code></a><br><span class="p">cat-harness/sdlc/processes/merge-refusal.bpmn</span></td>
   <td>What a merge steward does with a PR it dropped from a merge train: its merge (<code>merge-base.bpmn</code>, run with <code>--no-regen</code>) refused an authored or undeclared conflict, or the train's combined result failed a gate.<div class="f"><span class="k">activities</span> 12</div><div class="f"><span class="k">lanes</span> Merge steward · Owning session · Dispatched agent</div><div class="f"><span class="k">skills</span> bean-coordination, dispatch-agent, interaction-modality, merge-conflict-patterns, prepare-merge, todo-manager</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/processes/merge-request.bpmn"><code>Merge request: find or elect the merge manager</code></a><br><span class="p">cat-harness/sdlc/processes/merge-request.bpmn</span></td>
+  <td>The sibling's side of merging (owner rulings, 2026-11-07).<div class="f"><span class="k">activities</span> 9</div><div class="f"><span class="k">lanes</span> Sibling session</div><div class="f"><span class="k">skills</span> continual-progress, merge-manager-watcher</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/sdlc/processes/merge-to-main.bpmn"><code>Merge to main</code></a><br><span class="p">cat-harness/sdlc/processes/merge-to-main.bpmn</span></td>
@@ -1469,23 +1488,63 @@
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j1-birth-dose-dvc.bpmn"><code>J1 Issue the newborn&amp;#x27;s birth-dose DVCs in Country A</code></a><br><span class="p">processes/content/j1-birth-dose-dvc.bpmn</span></td>
-  <td>J1, Cross-border birth and initial vaccination.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Birth clinic vaccinator · Birth clinic issuing system · Issuer signing key</div><div class="f"><span class="k">skills</span> hcert-build-cwt, hcert-prefix-context, hcert-select-payload, hcert-sign-cose</div></td>
+  <td>J1, Cross-border birth and initial vaccination.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Birth clinic vaccinator · Birth clinic issuing system · Issuer signing key</div><div class="f"><span class="k">skills</span> hand-over-credential, hcert-build-cwt, hcert-prefix-context, hcert-select-payload, hcert-sign-cose</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j2-chw-discovery-referral.bpmn"><code>J2 Discover and refer an unregistered infant in Country B</code></a><br><span class="p">processes/content/j2-chw-discovery-referral.bpmn</span></td>
-  <td>J2, Return home, CHW discovery and referral.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Community health worker · CHW app</div><div class="f"><span class="k">skills</span> chw-refer, chw-register-infant, hcert-verify</div></td>
+  <td>J2, Return home, CHW discovery and referral.<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Caregiver · Community health worker · CHW app</div><div class="f"><span class="k">skills</span> chw-refer, chw-register-infant, hcert-verify, holder-present-credential, inform-client, receiver-scan-credential</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j3-clinic-verification-schedule.bpmn"><code>J3 Verify, import and schedule at the home clinic</code></a><br><span class="p">processes/content/j3-clinic-verification-schedule.bpmn</span></td>
-  <td>J3, Clinic verification and schedule generation, in Country B.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · Home clinic provider · Home clinic EHR</div><div class="f"><span class="k">skills</span> ehr-import-immunization, hcert-verify, map-vaccine-codes, schedule-evaluate</div></td>
+  <td>J3, Clinic verification and schedule generation, in Country B.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · Home clinic provider · Home clinic EHR</div><div class="f"><span class="k">skills</span> ehr-import-immunization, hcert-verify, map-vaccine-codes, receiver-scan-credential, review-decision-support-guidance, schedule-evaluate</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j4-0-family-vhl-issuance.bpmn"><code>J4.0 Issue the family&amp;#x27;s records to one phone as VHLs</code></a><br><span class="p">processes/content/j4-0-family-vhl-issuance.bpmn</span></td>
-  <td>J4.0, Outbound family travel, &quot;One Family, One Phone&quot;.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · National health portal · Issuer signing key · Family phone</div><div class="f"><span class="k">skills</span> hcert-build-cwt, hcert-prefix-context, hcert-sign-cose, portal-assemble-records, vhl-share, wallet-hold-vhl</div></td>
+  <td>J4.0, Outbound family travel, &quot;One Family, One Phone&quot;.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Caregiver · National health portal · Issuer signing key · Family phone</div><div class="f"><span class="k">skills</span> hcert-build-cwt, hcert-prefix-context, hcert-sign-cose, holder-consent-to-share, portal-assemble-records, vhl-share, wallet-hold-vhl</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/folio-assistant/blob/main/processes/content/j4-1-vhl-point-of-care.bpmn"><code>J4.1 Read a family member&amp;#x27;s records at the point of care abroad</code></a><br><span class="p">processes/content/j4-1-vhl-point-of-care.bpmn</span></td>
-  <td>J4.1.<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Caregiver · Family phone · Point-of-care provider · Point-of-care receiver · National health portal</div><div class="f"><span class="k">skills</span> hcert-verify, portal-serve-manifest, vhl-receive, wallet-hold-vhl</div></td>
+  <td>J4.1.<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Caregiver · Family phone · Point-of-care provider · Point-of-care receiver · National health portal</div><div class="f"><span class="k">skills</span> hcert-verify, portal-serve-manifest, receiver-scan-credential, review-client-history, vhl-receive, wallet-hold-vhl</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/methodologies/processes/diig-investment-path.bpmn"><code>DIIG — from a health system bottleneck to a costed implementation plan</code></a><br><span class="p">smart-base/methodologies/processes/diig-investment-path.bpmn</span></td>
+  <td>The nine-chapter sequence of the WHO/ITU Digital Implementation Investment Guide, as the Guide numbers it.<div class="f"><span class="k">activities</span> 11</div><div class="f"><span class="k">lanes</span> Programme manager · Business analyst</div><div class="f"><span class="k">skills</span> bean-coordination, methodology-adoption, todo-manager</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/act-on-decision-support.bpmn"><code>Act on decision-support guidance</code></a><br><span class="p">smart-base/processes/content/act-on-decision-support.bpmn</span></td>
+  <td>The point-of-care system applies one of the DAK's decision tables, published as a CPG-on-FHIR PlanDefinition, to one client ($apply) and shows the health worker what it proposes (a RequestGroup, or CDS Hooks cards).<div class="f"><span class="k">activities</span> 4</div><div class="f"><span class="k">lanes</span> Point-of-care system · Health worker</div><div class="f"><span class="k">skills</span> activate-accepted-guidance, apply-decision-support, record-decision-rationale, review-decision-support-guidance</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/classify-and-code-content.bpmn"><code>Classify and code content</code></a><br><span class="p">smart-base/processes/content/classify-and-code-content.bpmn</span></td>
+  <td>Classifies and codes L1 extracted statements (recommendations, implementation practices, remarks, proposed coverage exclusions) and L2 DAK slots (personas, business processes, guideline domains, conditions, intervention…<div class="f"><span class="k">activities</span> 5</div><div class="f"><span class="k">lanes</span> Authoring agent · L1 extraction reviewer (person) · Terminologist / ontologist reviewer (person)</div><div class="f"><span class="k">skills</span> classify-and-code-content, content-review, glossary-terms, interaction-modality, ontologist, recommendation-extraction, recommendation-scenarios, staging-review, terminology-management</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/dak-l3-ig.bpmn"><code>L2 DAK to L3 FHIR IG</code></a><br><span class="p">smart-base/processes/content/dak-l3-ig.bpmn</span></td>
+  <td>How a WHO SMART Guidelines L2 Digital Adaptation Kit becomes a published L3 FHIR Implementation Guide: map the DAK's L2 content to the FHIR artefacts it calls for, then run fhir-harness's generic L3 pipeline (Process_L3…<div class="f"><span class="k">activities</span> 2</div><div class="f"><span class="k">lanes</span> FHIR modeller</div><div class="f"><span class="k">skills</span> l2-dak-authoring, l3-fhir-authoring</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/dth-authoring.bpmn"><code>DTH authoring</code></a><br><span class="p">smart-base/processes/content/dth-authoring.bpmn</span></td>
+  <td>Produces a WHO Digital Transformation Handbook (DTH) from its sources to publication, in seven stages that each end in a recorded milestone: initiate (M0 charter), ingest sources into the library (M1 library frozen), ou…<div class="f"><span class="k">activities</span> 36</div><div class="f"><span class="k">lanes</span> DTH lead (programme manager) · Work plan (beans) · Librarian · Business analyst · Terminologist · Architect group and handbook owners · TWG and contributors · Editor · Publication manager</div><div class="f"><span class="k">skills</span> archimate-models, bpmn-authoring, content-feedback, content-plan, content-review, content-validate, dmn-authoring, document-authoring, document-publishing, document-structure, indicator-extraction, l1-coverage, l1-document-ingestion, l2-component-edit-review, l2-dak-authoring, library-ingestion, public-comment, quality-control, terminology-management, todo-manager</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/l2-component-edit-review.bpmn"><code>L2 component edit and review</code></a><br><span class="p">smart-base/processes/content/l2-component-edit-review.bpmn</span></td>
+  <td>One pass over one L2 DAK component: the agent edits it, runs its checker, renders and stages it with a before/after, and hands it on; review forks off beside the hand-on and never holds it up (adjudication is QA, not a…<div class="f"><span class="k">activities</span> 6</div><div class="f"><span class="k">lanes</span> Authoring agent · Component reviewer (person)</div><div class="f"><span class="k">skills</span> artefact-reachability, before-after-preview, content-review, content-test, content-validate, feature-staging, interaction-modality, l2-component-edit-review, staging-review, todo-manager, visual-diff</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/l2-dak-authoring.bpmn"><code>L2 DAK authoring</code></a><br><span class="p">smart-base/processes/content/l2-dak-authoring.bpmn</span></td>
+  <td>How a WHO SMART Guidelines L2 Digital Adaptation Kit is authored by a business analyst, a terminologist and a clinical SME under a programme manager.<div class="f"><span class="k">activities</span> 14</div><div class="f"><span class="k">lanes</span> Programme manager / technical officer · Work plan — beans (shared by humans and agents) · Business analyst · Terminologist · Clinical SME</div><div class="f"><span class="k">skills</span> bean-coordination, bpmn-authoring, content-plan, content-review, content-validate, dak-l1-library, dmn-authoring, indicator-extraction, l2-component-edit-review, l2-dak-authoring, terminology-management, todo-manager</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/questionnaire-data-capture.bpmn"><code>Capture data with an SDC questionnaire</code></a><br><span class="p">smart-base/processes/content/questionnaire-data-capture.bpmn</span></td>
+  <td>A health worker completes one of the DAK's forms, a FHIR R4 Questionnaire conforming to Structured Data Capture, as their device renders it, and the point-of-care system turns the completed QuestionnaireResponse into th…<div class="f"><span class="k">activities</span> 2</div><div class="f"><span class="k">lanes</span> Health worker · Point-of-care system</div><div class="f"><span class="k">skills</span> complete-sdc-questionnaire, extract-questionnaire-response</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/SGAuthoring.DAKLifecycle.bpmn"><code>Phase 1: Planning</code></a><br><span class="p">smart-base/processes/content/SGAuthoring.DAKLifecycle.bpmn</span></td>
+  <td>Plans a DAK: scope, team, method, sources, roadmap and consultations, then starts the sprint cycle.<div class="f"><span class="k">activities</span> 61</div><div class="f"><span class="k">lanes</span> Programme Manager · Business Analyst · Clinical SME · FHIR Modeller · Terminologist · QC Reviewer · Publication Manager · Translator</div><div class="f"><span class="k">skills</span> bpmn-authoring, content-feedback, content-plan, content-publish, content-review, content-test, content-validate, dak-l1-library, dmn-authoring, fhir-validation, ig-build-pipeline, ig-publication, instance-publication, l2-dak-authoring, l3-fhir-authoring, methodology-adoption, package-release, publish-verification, qa-reports, raci, recommendation-extraction, release-epic-planning, smart-guideline-create, terminology-management, todo-manager, translation-manager, vocabulary-authority, wireframe-design-review</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/processes/content/smart-guideline-end-to-end.bpmn"><code>SMART Guideline end to end</code></a><br><span class="p">smart-base/processes/content/smart-guideline-end-to-end.bpmn</span></td>
+  <td>From a use case to a consuming application: identify the L1 guidelines, ingest them into an L1 knowledge graph, choose the L2 DAKs to build on, create or adapt the L2 assets, choose the L3 IGs to build on, produce the L…<div class="f"><span class="k">activities</span> 18</div><div class="f"><span class="k">lanes</span> Requester (country team / implementer) · Authoring agent · Human adjudicators</div><div class="f"><span class="k">skills</span> content-review, dak-l1-library, dak-postprocessing, dak-preprocessing, decision-audit, decision-comparison, feature-staging, fhir-questionnaire-wireframe, guideline-use-case, ig-artifact-ingestion, ig-ast-delta, l2-dak-authoring, l2-dependency-choice, l3-dependency-choice, l3-fhir-authoring, l3-readiness, l4-application-brief, l4-application-build, recommendation-extraction, smart-base-tools, staging-review, visual-diff, wireframe-design-review</div></td>
 </tr>
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/processes/content/hcert-contract-change.bpmn"><code>Change the library contract</code></a><br><span class="p">smart-trust-tools/processes/content/hcert-contract-change.bpmn</span></td>
@@ -1502,6 +1561,22 @@
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/processes/content/vhl-sharing.bpmn"><code>Share records by Verifiable Health Link</code></a><br><span class="p">smart-trust-tools/processes/content/vhl-sharing.bpmn</span></td>
   <td>Journeys J4.0 and J4.1: the sharer issues one passcode-protected VHL per family member; a clinic abroad verifies it, retrieves the manifest over mutual TLS (the host's HTTP) and decrypts the documents (IHE ITI-YY3 to IT…<div class="f"><span class="k">activities</span> 5</div><div class="f"><span class="k">lanes</span> VHL sharer · VHL receiver</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/processes/iris-cdn-initial-load.bpmn"><code>IRIS CDN initial load</code></a><br><span class="p">who-iris/processes/iris-cdn-initial-load.bpmn</span></td>
+  <td>The first full export of WHO IRIS onto Cloudflare (git on Artifacts, bytes in R2): every item record and every bitstream: metadata plus PDFs.<div class="f"><span class="k">activities</span> 10</div><div class="f"><span class="k">lanes</span> Owner · IRIS CDN Exporter (agent) · Build pipeline</div><div class="f"><span class="k">skills</span> iris-cdn-exporter, iris-cdn-signing, iris-dspace, iris-oxigraph, iris-rest-feed, nquads-distribution</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/processes/iris-cdn-nightly.bpmn"><code>IRIS CDN nightly change ingest</code></a><br><span class="p">who-iris/processes/iris-cdn-nightly.bpmn</span></td>
+  <td>Every night: ask the IRIS DSpace REST API which items changed since the last published run, ingest only those, rebuild the whole graph (sorted output keeps unchanged partitions byte-identical), and publish a signed rele…<div class="f"><span class="k">activities</span> 9</div><div class="f"><span class="k">lanes</span> Build pipeline · IRIS CDN Exporter (agent)</div><div class="f"><span class="k">skills</span> iris-cdn-exporter, iris-cdn-signing, iris-dspace, iris-oxigraph, iris-rest-feed, nquads-distribution</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/processes/iris-cdn-reconcile.bpmn"><code>IRIS CDN weekly reconciliation</code></a><br><span class="p">who-iris/processes/iris-cdn-reconcile.bpmn</span></td>
+  <td>The DSpace REST API reports no deletions, so once a week every item id IRIS lists is compared with what the library holds.<div class="f"><span class="k">activities</span> 7</div><div class="f"><span class="k">lanes</span> Build pipeline · IRIS CDN Exporter (agent)</div><div class="f"><span class="k">skills</span> iris-cdn-exporter, iris-cdn-signing, iris-oxigraph, iris-rest-feed, nquads-distribution</div></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/processes/iris-cdn-sign-publish.bpmn"><code>Sign and publish an IRIS CDN release</code></a><br><span class="p">who-iris/processes/iris-cdn-sign-publish.bpmn</span></td>
+  <td>Turn a candidate payload into a signed release on Cloudflare: each changed library item gets a detached JWS over its own manifest, and the BagIt bag (RFC 8493) whose tagmanifest pins every item manifest and signature is…<div class="f"><span class="k">activities</span> 8</div><div class="f"><span class="k">lanes</span> Build pipeline · Release signer · Verifier</div><div class="f"><span class="k">skills</span> iris-cdn-exporter, iris-cdn-signing</div></td>
 </tr>
 </tbody>
 </table></div>

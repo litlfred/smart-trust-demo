@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -981,7 +981,9 @@
 <li><a href="fhir-ig-skills/">fhir-ig-skills</a> <span class="p">fhir-harness/skills</span> <span class="n" data-da-count="index/skills/fhir-ig-skills" data-da-count-state="pending">…</span></li>
 <li><a href="sdlc-skills/">sdlc-skills</a> <span class="p">cat-harness/sdlc/skills</span> <span class="n" data-da-count="index/skills/sdlc-skills" data-da-count-state="pending">…</span></li>
 <li><a href="skills/">skills</a> <span class="p">cat-harness/skills</span> <span class="n" data-da-count="index/skills/skills" data-da-count-state="pending">…</span></li>
+<li><a href="smart-base-skills/">smart-base-skills</a> <span class="p">smart-base/skills</span> <span class="n" data-da-count="index/skills/smart-base-skills" data-da-count-state="pending">…</span></li>
 <li><a href="stt-skills/">stt-skills</a> <span class="p">smart-trust-tools/skills</span> <span class="n" data-da-count="index/skills/stt-skills" data-da-count-state="pending">…</span></li>
+<li><a href="who-iris-skills/">who-iris-skills</a> <span class="p">who-iris/skills</span> <span class="n" data-da-count="index/skills/who-iris-skills" data-da-count-state="pending">…</span></li>
 <li><a href="work-plan-skills/">work-plan-skills</a> <span class="p">cat-harness/work-plan/skills</span> <span class="n" data-da-count="index/skills/work-plan-skills" data-da-count-state="pending">…</span></li>
 </ul>
 
@@ -1770,6 +1772,10 @@
   <td>Translation lifecycle management for folio content.</td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/library-core/translation-refresh.md"><code>translation-refresh</code></a><br><span class="p">cat-harness/skills/library/library-core/translation-refresh.md</span></td>
+  <td>The translation watcher: a scheduled fresh session that keeps every locale of every instance current after the source moves.</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/cat-harness/blob/main/skills/library/library-core/upload-naming.md"><code>upload-naming</code></a><br><span class="p">cat-harness/skills/library/library-core/upload-naming.md</span></td>
   <td>What an ingested file may be CALLED.</td>
 </tr>
@@ -2334,6 +2340,146 @@
   <td>Hold one VHL QR per family member on a shared phone and show the one asked for (journeys J4.0, J4.1).</td>
 </tr>
 <tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/activate-accepted-guidance.md"><code>activate-accepted-guidance</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/activate-accepted-guidance.md</span></td>
+  <td>The point-of-care system carries out the health worker's decisions on decision-support guidance: each accepted action's request becomes active (intent plan or order) and joins the client's CarePlan; a declined action is…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/apply-decision-support.md"><code>apply-decision-support</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/apply-decision-support.md</span></td>
+  <td>The point-of-care system applies a DAK decision table's PlanDefinition to one client ($apply) and gets the proposed actions back as a RequestGroup (R4; RequestOrchestration in R5), or as CDS Hooks cards when the guidanc…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/classify-and-code-content.md"><code>classify-and-code-content</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/classify-and-code-content.md</span></td>
+  <td>Classify and code L1 narrative content (recommendations, implementation practices, remarks, and proposed coverage exclusions) and L2 DAK slots (personas, business processes, guideline domains, conditions, interventions,…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/complete-sdc-questionnaire.md"><code>complete-sdc-questionnaire</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/complete-sdc-questionnaire.md</span></td>
+  <td>A health worker (or a client, on their own device) completes a FHIR R4 Questionnaire conforming to Structured Data Capture as their device renders it, and the result is a QuestionnaireResponse.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/dak-l1-library.md"><code>dak-l1-library</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/dak-l1-library.md</span></td>
+  <td>Build a DAK's library from the L1 sources its Component 1 cites, and the L1 knowledge graph that records them.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/dak-postprocessing.md"><code>dak-postprocessing</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/dak-postprocessing.md</span></td>
+  <td>What the DAK post-processing phase produces after the IG Publisher runs — the JSON/JSON-LD surface, the DAK API hub, and the metadata-to-Liquid bridge — and how an IG repository's own site gets the same sidecars from th…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/dak-preprocessing.md"><code>dak-preprocessing</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/dak-preprocessing.md</span></td>
+  <td>What each DAK pre-processing step does before the IG Publisher runs, which steps exist only to feed the Publisher's page index, and how the phase runs as the overlay on fhir-harness's AST cache refresh (`dak-pre-export.…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/dth-authoring.md"><code>dth-authoring</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/dth-authoring.md</span></td>
+  <td>How a WHO Digital Transformation Handbook (DTH) is produced, from sources to publication, in the seven stages and milestones of dth-authoring.bpmn — and the rules the diagram cannot carry: which review sheet each stage…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/dth-l1-to-l2-ingest.md"><code>dth-l1-to-l2-ingest</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/dth-l1-to-l2-ingest.md</span></td>
+  <td>Turn a WHO Digital Transformation Handbook that exists only as an L1 publication (ingested in who-iris) into an L2 DTH in its own repository that depends on smart-ra: write the handbook's workplan first (what goes in it…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/extract-questionnaire-response.md"><code>extract-questionnaire-response</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/extract-questionnaire-response.md</span></td>
+  <td>The point-of-care system turns a completed QuestionnaireResponse into the FHIR resources it stands for, by the extraction its SDC Questionnaire declares (StructureMap-based, definition-based or observation-based $extrac…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/grade.md"><code>grade</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/grade.md</span></td>
+  <td>GRADE — the grading system a WHO guideline folio declares for certainty of evidence, and the Evidence-to-Decision judgement a recommendation rests on.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/guideline-use-case.md"><code>guideline-use-case</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/guideline-use-case.md</span></td>
+  <td>Stage 0 of smart-guideline-end-to-end: turn a request for a SMART Guideline into a use case — population, setting, jurisdiction and interventions in scope, new or an adaptation — in the requester's own words.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/ig-artifact-ingestion.md"><code>ig-artifact-ingestion</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/ig-artifact-ingestion.md</span></td>
+  <td><span class="none">no description in the artefact</span></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/indicator-extraction.md"><code>indicator-extraction</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/indicator-extraction.md</span></td>
+  <td>Extract the indicators an L1 source prints (indicator reference or metadata sheets: name, numerator, denominator, disaggregation, definition, data sources) as L1 <code>indicator</code> nodes with every printed field, then draft on…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/inform-client.md"><code>inform-client</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/inform-client.md</span></td>
+  <td>A health worker tells the client (or caregiver) what was decided and what happens next, in words and, where the DAK gives one, on a slip or card: a referral, a return date, a result.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l2-component-edit-review.md"><code>l2-component-edit-review</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l2-component-edit-review.md</span></td>
+  <td>How one L2 DAK component is edited by the agent and reviewed by a person: personas and user scenarios, BPMN business processes, DMN decision and scheduling logic, core data elements and glossary with their terminology b…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l2-dak-authoring.md"><code>l2-dak-authoring</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l2-dak-authoring.md</span></td>
+  <td>Author the L2 layer of a WHO SMART Guideline — the Digital Adaptation Kit between the narrative L1 guideline and the L3 FHIR artefacts — one DAK component per pass (personas, user scenarios, business processes, data dic…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l2-dependency-choice.md"><code>l2-dependency-choice</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l2-dependency-choice.md</span></td>
+  <td>Stage 3 of smart-guideline-end-to-end: choose which existing DAKs (WHO's, or a jurisdiction's adaptation) the guideline builds on.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l3-dependency-choice.md"><code>l3-dependency-choice</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l3-dependency-choice.md</span></td>
+  <td>Stage 5 of smart-guideline-end-to-end: choose which existing FHIR IGs (WHO's, or a jurisdiction's) the guideline's L3 builds on.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l3-readiness.md"><code>l3-readiness</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l3-readiness.md</span></td>
+  <td>The check between stages 5 and 6 of smart-guideline-end-to-end (Gateway_L3Ready): may the agent write L3 assets yet? Yes only when every source of the use case has its L1 extraction, every L2 asset names the L1 node it…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l4-application-brief.md"><code>l4-application-brief</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l4-application-brief.md</span></td>
+  <td>Stage 7 of smart-guideline-end-to-end: get from the requester a description of the consuming application — who uses it, on what device, which L2 processes and L3 resources it covers, connectivity, the systems it talks t…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l4-application-build.md"><code>l4-application-build</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l4-application-build.md</span></td>
+  <td>Stage 8b of smart-guideline-end-to-end: build the consuming application against the stage-6 IG build (a clean build, not a publication), from the brief and the chosen stage-8a wireframes, with conformance tests from the…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/l4-application-run-local.md"><code>l4-application-run-local</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/l4-application-run-local.md</span></td>
+  <td>Run an L4 application that is already built, on the agent's own machine, against a clean IG build, so a person can try or demonstrate it before anything is hosted.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/recommendation-candidates.md"><code>recommendation-candidates</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/recommendation-candidates.md</span></td>
+  <td>Turn one ingested L1 source into L1 3.0 recommendation nodes: list every normative sentence as a candidate, let the agent decide each in a curation file, then refuse a non-verbatim statement or unknown location and writ…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/recommendation-extraction.md"><code>recommendation-extraction</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/recommendation-extraction.md</span></td>
+  <td>Extract the recommendations of an L1 source as L1 3.0 recommendation and remark nodes, then describe each one's scenario: the persona (role) who acts on it, the business process they act in, and the user story, as smart…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/recommendation-scenarios.md"><code>recommendation-scenarios</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/recommendation-scenarios.md</span></td>
+  <td>Join each L1 recommendation to who acts on it and during which business process: one smart-kg L2 user-scenario candidate per recommendation, from the agent's mapping, reusing the target guide's personas and processes fi…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/record-decision-rationale.md"><code>record-decision-rationale</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/record-decision-rationale.md</span></td>
+  <td>OPTIONAL and never blocking: a health worker who chooses to may note why they accepted or declined decision-support guidance, in one tap plus an optional coded or free-text reason.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/review-client-history.md"><code>review-client-history</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/review-client-history.md</span></td>
+  <td>A health worker reads the client's history as their device shows it (an International Patient Summary, imported records, or a paper card and what the client reports) and takes into account what bears on today's care, we…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/review-decision-support-guidance.md"><code>review-decision-support-guidance</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/review-decision-support-guidance.md</span></td>
+  <td>A health worker sees the decision-support guidance for one client on their device (the proposed actions of a RequestGroup or CDS Hooks cards) and accepts or declines each action; modifies one only where the device offer…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/smart-base-tools.md"><code>smart-base-tools</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/smart-base-tools.md</span></td>
+  <td><span class="none">no description in the artefact</span></td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/smart-guideline-create.md"><code>smart-guideline-create</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/smart-guideline-create.md</span></td>
+  <td>Somebody asked for a new WHO SMART Guideline (an IG built on smart-base, or a DAK that will feed one).</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/smart-guideline-end-to-end.md"><code>smart-guideline-end-to-end</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/smart-guideline-end-to-end.md</span></td>
+  <td>The whole road from a use case to a running application on WHO SMART Guidelines, for a new guideline or a jurisdiction's adaptation, as an orchestrator of ten named stage skills, each with its own input and output contr…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/smart-stack-layering.md"><code>smart-stack-layering</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/smart-stack-layering.md</span></td>
+  <td>Which layer a WHO SMART asset, rule, script or page belongs to — fhir-harness, smart-base (with its L1 and DAK document kinds) or smart-ig — and the one question that settles it.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/toolchain-ownership.md"><code>toolchain-ownership</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/toolchain-ownership.md</span></td>
+  <td>Taking ownership of the WHO smart-base scripts in litlfred, rewriting them to the Skill I/O contract, and the one gate that governs when a script may actually move.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-base/blob/main/smart-base/skills/content/authoring-who-smart-guidelines/transcription-verbatim.md"><code>transcription-verbatim</code></a><br><span class="p">smart-base/skills/content/authoring-who-smart-guidelines/transcription-verbatim.md</span></td>
+  <td>Check L1 authored from pictures (a schedule poster, a slide deck: a source with no usable text layer) against the image narratives and transcriptions it names: every statement verbatim in one of them, every transcriptio…</td>
+</tr>
+<tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/hcert-library/hcert-conformance-testing.md"><code>hcert-conformance-testing</code></a><br><span class="p">smart-trust-tools/skills/hcert-library/hcert-conformance-testing.md</span></td>
   <td>Test an implementation against the shared vectors: the PR 129 DVC example, negative vectors, cross-implementation checks and schema checks.</td>
 </tr>
@@ -2396,6 +2542,42 @@
 <tr>
   <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/vhl/vhl-share.md"><code>vhl-share</code></a><br><span class="p">smart-trust-tools/skills/vhl/vhl-share.md</span></td>
   <td>Issue a VHL: a key, documents encrypted as JWE dir / A256GCM, and the payload as a CBOR map at HCERT key 5 (journey J4.0).</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/hand-over-credential.md"><code>hand-over-credential</code></a><br><span class="p">smart-trust-tools/skills/wallet/hand-over-credential.md</span></td>
+  <td>The health worker at the issuing side hands the holder the credentials the issuing system made: printed (one QR per certificate) or into the holder's wallet, and says what each is.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/holder-consent-to-share.md"><code>holder-consent-to-share</code></a><br><span class="p">smart-trust-tools/skills/wallet/holder-consent-to-share.md</span></td>
+  <td>The holder decides what a health link (a Verifiable Health Link or a SMART Health Link) shares: which members' records, protected by which passcode, until when.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/holder-present-credential.md"><code>holder-present-credential</code></a><br><span class="p">smart-trust-tools/skills/wallet/holder-present-credential.md</span></td>
+  <td>The holder shows the one health credential a receiver asks for, as a QR: an HCERT (HC1:) on paper or in a wallet app, or a health link: the HCERT carrying a Verifiable Health Link, or a SMART Health Link (shlink:/).</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/smart-trust-tools/blob/main/skills/wallet/receiver-scan-credential.md"><code>receiver-scan-credential</code></a><br><span class="p">smart-trust-tools/skills/wallet/receiver-scan-credential.md</span></td>
+  <td>The health worker at a receiving system scans the QR a holder shows (an HCERT, a VHL carried in an HCERT, or a SMART Health Link) and, for a passcode-protected health link, enters the passcode the holder says.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/skills/iris-cdn-exporter.md"><code>iris-cdn-exporter</code></a><br><span class="p">who-iris/skills/iris-cdn-exporter.md</span></td>
+  <td>The IRIS CDN Exporter agent — how WHO IRIS is exported onto Cloudflare — a git repository on Cloudflare Artifacts and R2 behind the CDN — with an initial load (metadata and PDFs), a nightly change ingest over the DSpace…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/skills/iris-cdn-signing.md"><code>iris-cdn-signing</code></a><br><span class="p">who-iris/skills/iris-cdn-signing.md</span></td>
+  <td>How an IRIS CDN release is packaged, signed and verified using published standards only: a BagIt bag (RFC 8493), a detached JWS (RFC 7515 App.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/skills/iris-dspace.md"><code>iris-dspace</code></a><br><span class="p">who-iris/skills/iris-dspace.md</span></td>
+  <td>How WHO IRIS uses DSpace and qualified Dublin Core — the three identifier systems, MeSH as a controlled vocabulary, bundles, and the containment path — and the requirements a tool reading a record must meet.</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/skills/iris-oxigraph.md"><code>iris-oxigraph</code></a><br><span class="p">who-iris/skills/iris-oxigraph.md</span></td>
+  <td>How to build WHO IRIS catalogue and Qualified Dublin Core metadata into partitioned N-Quads, and query it with Oxigraph — in Bun on the build side, in WebAssembly in the browser — including cross-graph joins and facet c…</td>
+</tr>
+<tr>
+  <td><a href="https://github.com/litlfred/who-iris/blob/main/skills/iris-rest-feed.md"><code>iris-rest-feed</code></a><br><span class="p">who-iris/skills/iris-rest-feed.md</span></td>
+  <td>How to read changes from the WHO IRIS DSpace 7 REST API: the nightly &quot;changed since&quot; walk over Discovery, the weekly reconciliation that stands in for the deletions REST does not report, and the guard that stops a short…</td>
 </tr>
 </tbody>
 </table></div>

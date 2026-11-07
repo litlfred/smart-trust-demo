@@ -599,7 +599,7 @@
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
      roles that docs-ui.css consumes, and a custom property has to be set on a
      matching element before the rule reading it takes effect. -->
-<link rel="stylesheet" href="../../../assets/css/themes.css?v=5c199f8420d3">
+<link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f">
 <!-- UML overview colours: one class per graph typology, set on the Mermaid nodes
      that `scripts/gen-uml-overview.ts` writes into docs/uml/overview/. -->
 <link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66">
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=255e957da7ed">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -924,8 +924,8 @@ depends on it</strong>, and <strong>which of its terms this repository branches 
 
 <div class="xs-grid">
 <div class="xs-stat"><b>28</b><span>specifications</span></div>
-<div class="xs-stat"><b>138</b><span>operative terms in graph (65 described, 73 pending)</span></div>
-<div class="xs-stat"><b>377</b><span>declared uses</span></div>
+<div class="xs-stat"><b>153</b><span>operative terms in graph (64 described, 89 pending)</span></div>
+<div class="xs-stat"><b>419</b><span>declared uses</span></div>
 <div class="xs-stat"><b>0</b><span>declarations naming no record</span></div>
 </div>
 
@@ -1137,12 +1137,6 @@ front-matter list, an <code class="language-plaintext highlighter-rouge">xmlns</
 declares the spec (bean <code class="language-plaintext highlighter-rouge">u63y</code>).</p>
 
 <p>Every declaration names a record on this page.</p>
-
-<p><strong>1 record(s) nothing declares.</strong> A version bump would move nothing that says so:</p>
-
-<ul>
-  <li><a href="#w3c-sparql-1.1-query"><code class="language-plaintext highlighter-rouge">w3c-sparql-1.1-query</code></a></li>
-</ul>
 <h2 id="namespaces-the-corpus-uses-against-the-ones-it-declares">
   
   
@@ -1239,10 +1233,14 @@ a registry nobody prunes is one that stops describing the repository.</p>
       <td><code class="language-plaintext highlighter-rouge">folio-dublin-core/v1 nodes</code></td>
       <td>through the module that types it (<code class="language-plaintext highlighter-rouge">folio-assistant-core/schemas/dublin-core.ts</code>)</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">who-iris/skills/iris-dspace.md</code></td>
+      <td><code class="language-plaintext highlighter-rouge">conformsTo:</code> front matter</td>
+    </tr>
   </tbody>
 </table></div>
 
-<p><strong>Operative terms (39).</strong> The terms this repository acts on —
+<p><strong>Operative terms (50).</strong> The terms this repository acts on —
 derived by the tooling from the corpus, never hand-listed, and deliberately
 a subset of the edition rather than a transcription of it.</p>
 
@@ -1257,6 +1255,30 @@ a subset of the edition rather than a transcription of it.</p>
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.citation.epage</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.citation.issue</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.citation.spage</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.citation.status</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.citation.version</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.citation.volume</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">dc.contributor.author</code></td>
       <td>Primary author or creator of the catalogue record or ingested document.</td>
     </tr>
@@ -1267,6 +1289,10 @@ a subset of the edition rather than a transcription of it.</p>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">dc.coverage.spatial</code></td>
       <td>Spatial or geographic coverage of the publication or resource.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.date.accessed</code></td>
+      <td><em>(pending description)</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">dc.date.accessioned</code></td>
@@ -1305,7 +1331,15 @@ a subset of the edition rather than a transcription of it.</p>
       <td>Table of contents or section outline of the document.</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.description.version</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">dc.format.mimetype</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.identifier.doi</code></td>
       <td><em>(pending description)</em></td>
     </tr>
     <tr>
@@ -1333,6 +1367,10 @@ a subset of the edition rather than a transcription of it.</p>
       <td>Organization or publisher responsible for distributing the resource.</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.publisher.place</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">dc.relation</code></td>
       <td><em>(pending description)</em></td>
     </tr>
@@ -1342,6 +1380,10 @@ a subset of the edition rather than a transcription of it.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">dc.relation.hasversion</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dc.relation.ispartof</code></td>
       <td><em>(pending description)</em></td>
     </tr>
     <tr>
@@ -1597,7 +1639,7 @@ graph. That is a determined zero, not an unfilled field.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">cat-harness/processes/library/*.bpmn (10)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cat-harness/processes/library/*.bpmn (13)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
@@ -1609,7 +1651,7 @@ graph. That is a determined zero, not an unfilled field.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/*.bpmn (38)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/*.bpmn (39)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
@@ -1649,13 +1691,25 @@ graph. That is a determined zero, not an unfilled field.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">smart-base/methodologies/processes/*.bpmn (1)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">smart-base/processes/content/*.bpmn (9)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">smart-trust-tools/processes/content/*.bpmn (4)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">who-iris/processes/*.bpmn (4)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
   </tbody>
 </table></div>
 
-<p><strong>Operative terms (35).</strong> The terms this repository acts on —
+<p><strong>Operative terms (38).</strong> The terms this repository acts on —
 derived by the tooling from the corpus, never hand-listed, and deliberately
 a subset of the edition rather than a transcription of it.</p>
 
@@ -1691,6 +1745,18 @@ a subset of the edition rather than a transcription of it.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">bpmn:dataInputRefs</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bpmn:dataOutputAssociation</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bpmn:dataStore</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bpmn:dataStoreReference</code></td>
       <td><em>(pending description)</em></td>
     </tr>
     <tr>
@@ -1754,16 +1820,16 @@ a subset of the edition rather than a transcription of it.</p>
       <td>Container partitioning a process into one or more participant swimlanes.</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">bpmn:multiInstanceLoopCharacteristics</code></td>
+      <td><em>(pending description)</em></td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">bpmn:outgoing</code></td>
       <td>Outgoing sequence flow connection leaving an activity or gateway.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">bpmn:outputSet</code></td>
       <td><em>(pending description)</em></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">bpmn:parallelGateway</code></td>
-      <td>Concurrent AND fork or join synchronization of parallel execution paths.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">bpmn:participant</code></td>
@@ -1862,7 +1928,7 @@ a subset of the edition rather than a transcription of it.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">cat-harness/processes/library/*.bpmn (10)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cat-harness/processes/library/*.bpmn (13)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
@@ -1874,7 +1940,7 @@ a subset of the edition rather than a transcription of it.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/*.bpmn (38)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cat-harness/sdlc/processes/*.bpmn (39)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
@@ -1910,7 +1976,19 @@ a subset of the edition rather than a transcription of it.</p>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">smart-base/methodologies/processes/*.bpmn (1)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">smart-base/processes/content/*.bpmn (9)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">smart-trust-tools/processes/content/*.bpmn (4)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">who-iris/processes/*.bpmn (4)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
   </tbody>
@@ -2453,6 +2531,10 @@ graph. That is a determined zero, not an unfilled field.</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cat-harness/skills/kg/graph-management/nquads-distribution.md</code></td>
+      <td><code class="language-plaintext highlighter-rouge">conformsTo:</code> front matter</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">who-iris/skills/iris-oxigraph.md</code></td>
       <td><code class="language-plaintext highlighter-rouge">conformsTo:</code> front matter</td>
     </tr>
   </tbody>
@@ -3010,7 +3092,7 @@ a subset of the edition rather than a transcription of it.</p>
   </tbody>
 </table></div>
 
-<p><strong>Operative terms (22).</strong> The terms this repository acts on —
+<p><strong>Operative terms (23).</strong> The terms this repository acts on —
 derived by the tooling from the corpus, never hand-listed, and deliberately
 a subset of the edition rather than a transcription of it.</p>
 
@@ -3063,6 +3145,10 @@ a subset of the edition rather than a transcription of it.</p>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">skos:definition</code></td>
       <td>What the term MEANS, taken from the role’s authored <code class="language-plaintext highlighter-rouge">description</code> — one author, one place to fix. Absent by design on a lane whose performer varies, which is honest rather than indistinguishable from a lane nobody bound.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">skos:editorialNote</code></td>
+      <td><em>(pending description)</em></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">skos:exactMatch</code></td>
@@ -3129,7 +3215,22 @@ a subset of the edition rather than a transcription of it.</p>
 
 <p><strong>Note.</strong> The query language the IRIS replica’s Oxigraph pipeline (skill iris-oxigraph) runs over the catalogue’s N-Quads: faceted rollups and combined queries, in the browser (WebAssembly) and on the CLI. A language, not an RDF vocabulary, so it claims no namespace; the IRIs its queries match are the vocabularies’ own (dcterms, skos, …), recorded under those.</p>
 
-<p><strong>What depends on it.</strong> Nothing here declares it.</p>
+<p><strong>What depends on it.</strong></p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>user</th>
+      <th>declared by</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">who-iris/skills/iris-oxigraph.md</code></td>
+      <td><code class="language-plaintext highlighter-rouge">conformsTo:</code> front matter</td>
+    </tr>
+  </tbody>
+</table></div>
 
 <p><strong>No operative terms.</strong> This repository conforms to the specification
 without branching on any of its terms, so none is materialised into the
@@ -3242,7 +3343,7 @@ graph. That is a determined zero, not an unfilled field.</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">cat-harness/processes/library/*.bpmn (3)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cat-harness/processes/library/*.bpmn (6)</code></td>
       <td><code class="language-plaintext highlighter-rouge">xmlns</code> binding</td>
     </tr>
     <tr>
