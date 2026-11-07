@@ -311,7 +311,7 @@ def implicated(role, by_role, ctx):
     items = []
     for f, (p, nodes) in lanes.items():
         kinds = ctx["kinds"][f]
-        tasks = [p["names"].get(n, n) for n in nodes if kinds.get(n, "").endswith("Task") or kinds.get(n) == "task"]
+        tasks = [p["names"].get(n, n) for n in nodes if kinds.get(n, "").endswith("Task") or kinds.get(n) in ("task", "callActivity")]
         items.append(f"- [{p['name']}](business-processes.html#{anchor(p['name'])}): "
                      + ("; ".join(tasks) if tasks else "its lane holds no task"))
     if items:

@@ -22,6 +22,7 @@ J4.1.
 ### 2. Scan the QR and enter the passcode the caregiver says (`Task_Scan`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
+- Skill: `receiver-scan-credential`.
 - Record it: `workflow_complete` with `node: "Task_Scan"`.
 - next: → `Task_Verify` (Verify the HCERT and read the VHL at key 5)
 
@@ -50,6 +51,7 @@ J4.1.
 ### 5. Not verified: treat records as paper (`Task_Unverified`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
+- Skill: `review-client-history`.
 - What: No digital verification: treat the records like paper.
 - Record it: `workflow_complete` with `node: "Task_Unverified"`.
 - next: → `Task_Review` (Review history, allergies and vaccinations)
@@ -65,6 +67,7 @@ J4.1.
 ### 7. Review history, allergies and vaccinations (`Task_Review`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
+- Skill: `review-client-history`.
 - Record it: `workflow_complete` with `node: "Task_Review"`.
 - next: → `End` (The child is treated with the full record)
 

@@ -15,6 +15,7 @@ J4.0, Outbound family travel, "One Family, One Phone".
 ### 1. Choose who to share, with a passcode and an expiry (`Task_Request`)
 
 - Who: the `Caregiver` lane (role `caregiver`).
+- Skill: `holder-consent-to-share`.
 - Record it: `workflow_complete` with `node: "Task_Request"`.
 - next: → `Task_Assemble` (Assemble each member's IPS and DVCs)
 
