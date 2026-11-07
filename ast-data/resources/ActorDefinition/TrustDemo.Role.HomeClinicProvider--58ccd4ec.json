@@ -1,0 +1,71 @@
+{
+  "resourceType" : "Basic",
+  "id" : "TrustDemo.Role.HomeClinicProvider",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.HomeClinicProvider</b></p><a name=\"TrustDemo.Role.HomeClinicProvider\"> </a><a name=\"hcTrustDemo.Role.HomeClinicProvider\"> </a><table class=\"grid\"><tr><td><b>Actor: HomeClinicProvider </b></td><td>Home clinic provider</td><td>Type: person </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.url",
+    "valueUri" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicProvider"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.version",
+    "valueString" : "0.1.0"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.name",
+    "valueString" : "HomeClinicProvider"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.title",
+    "valueString" : "Home clinic provider"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.status",
+    "valueCode" : "draft"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.experimental",
+    "valueBoolean" : true
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.date",
+    "valueDateTime" : "2026-11-07T11:37:07+00:00"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.publisher",
+    "valueString" : "litlfred"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.contact",
+    "valueContactDetail" : {
+      "name" : "litlfred",
+      "telecom" : [{
+        "system" : "url",
+        "value" : "https://github.com/litlfred/smart-trust-demo"
+      }]
+    }
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.description",
+    "valueMarkdown" : "The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3).\n\n**Persona**: Trusts the system's verdict and needs a reason when a certificate fails.\n\n**Played in the journeys by** (fictional):\n\n- ![Chanthasone](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkNoYW50aGFzb25lIj48dGl0bGU+Q2hhbnRoYXNvbmU8L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjMDI4NGM3Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+Q0g8L3RleHQ+PC9zdmc+) [Chanthasone](personas.html#chanthasone-nurse--district-health-center-lao-pdr), Nurse Chanthasone (Vientiane District Health Center, Lao PDR)\n\n**In the user scenarios**:\n\n- [J3 — Made official](scenarios.html#j3--made-official-vientiane-district-health-center-4-weeks-later): J3a The clinic confirms the cards are genuine (told through Chanthasone); J3b Thai vaccines are fitted to the Lao schedule (told through Chanthasone)\n\n**User stories** ([all stories](scenarios.html#user-stories)):\n\n- I want to know whether a foreign certificate is genuine, and why not when it is not\n- I want to see which doses are due once the foreign doses are imported, so that I give only what is missing\n- I want to keep the foreign vaccine code and add our schedule code beside it, deciding myself when there is no match, so that the other country's record is never overwritten and the next nurse need not decide again\n\n**Lanes and tasks in the business processes**:\n\n- [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic): Scan the QRs and open the referral; Note the failure; decide doses by policy; Give due doses and book the next visit\n\n**Decisions it makes**:\n\n- Decision table [TD.DT.01 What does a scanned DVC become in the child's record?](decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record), in: Note the failure; decide doses by policy\n- Decision table [TD.DT.04 Is this dose of the national schedule due?](decision-logic.html#tddt04-is-this-dose-of-the-national-schedule-due), in: Give due doses and book the next visit\n\n**Data sets its tasks record or read**: [TD.J2B Referral for verification](dictionary.html#tdj2b-referral-for-verification); [TD.J3A DVC verification and import](dictionary.html#tdj3a-dvc-verification-and-import); [TD.J3B Imported dose and schedule](dictionary.html#tdj3b-imported-dose-and-schedule)\n\n**Indicators that count its decisions**: [TD.IND.01 Foreign doses imported as verified](indicators.html#tdind01-foreign-doses-imported-as-verified); [TD.IND.03 CHW referrals for verification completed at the clinic](indicators.html#tdind03-chw-referrals-for-verification-completed-at-the-clinic)"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.jurisdiction"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.type",
+    "valueCode" : "person"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.documentation",
+    "valueMarkdown" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/fhir-types",
+      "code" : "ActorDefinition"
+    }]
+  }
+}

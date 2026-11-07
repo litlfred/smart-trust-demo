@@ -8,12 +8,12 @@
   "source": {
     "kind": "output",
     "of": "output-ast",
-    "revision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
+    "revision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
     "readAt": "2026-11-07"
   },
   "provenance": {},
   "sidecarApi": "unknown",
-  "count": 147,
+  "count": 149,
   "artifacts": [
     {
       "key": "ActorDefinition/TrustDemo.Role.BirthClinicSystem",
@@ -25,13 +25,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicSystem",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.BirthClinicSystem.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.BirthClinicSystem--c77ae0bd.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.BirthClinicSystem--ebacf7b0.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -57,10 +65,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -73,13 +81,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicVaccinator",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.BirthClinicVaccinator--f9a86320.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.BirthClinicVaccinator--4791e62b.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -105,10 +121,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -121,13 +137,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.Caregiver",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.Caregiver.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.Caregiver--b8aa428c.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.Caregiver--6fd6be79.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -153,10 +177,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -169,13 +193,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.ChwApp",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.ChwApp.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.ChwApp--0a194430.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.ChwApp--7acbaecb.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -201,10 +233,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -217,13 +249,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.CommunityHealthWorker",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.CommunityHealthWorker.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.CommunityHealthWorker--817bfe9f.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.CommunityHealthWorker--ff9a822d.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -249,10 +289,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -265,13 +305,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.FamilyPhone",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.FamilyPhone.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.FamilyPhone--23f5fd1b.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.FamilyPhone--999cb7c2.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -297,10 +345,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -313,13 +361,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.GdhcnTrustAnchor.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor--cfa78d8b.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor--f2ed480e.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -345,10 +401,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -361,13 +417,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicEhr",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.HomeClinicEhr.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.HomeClinicEhr--2c7ff30b.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.HomeClinicEhr--f7d8b34e.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -393,10 +457,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -409,13 +473,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.HomeClinicProvider",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.HomeClinicProvider.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.HomeClinicProvider--a9a94426.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.HomeClinicProvider--58ccd4ec.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -441,10 +513,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -457,13 +529,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.IssuerKey",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.IssuerKey.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.IssuerKey--fd0b0906.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.IssuerKey--33bb64dd.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -489,10 +569,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -505,13 +585,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.NationalPortal",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.NationalPortal.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.NationalPortal--837570e6.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.NationalPortal--ac26bee9.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -537,10 +625,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -553,13 +641,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.PocProvider",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.PocProvider.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.PocProvider--d17a6692.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.PocProvider--96d3766f.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -585,10 +681,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -601,13 +697,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.PocReceiver",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.PocReceiver.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.PocReceiver--7618a158.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.PocReceiver--466c5e45.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -633,10 +737,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -649,13 +753,21 @@
       "canonical": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.SubjectOfCare",
       "version": "0.1.0",
       "category": "Requirements: Actor Definitions",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "ActorDefinition"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
         "provenance": {
           "local": "fsh-generated/resources/ActorDefinition-TrustDemo.Role.SubjectOfCare.json"
         },
-        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.SubjectOfCare--dbd70302.json",
+        "localPath": "output-ast/resources/ActorDefinition/TrustDemo.Role.SubjectOfCare--5c2486a8.json",
         "gates": {
           "size": {
             "verdict": "unknown",
@@ -681,10 +793,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -696,9 +808,6 @@
       "profiles": [
         "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"
       ],
-      "code": {
-        "text": "IHE ITI VHL manifest retrieval (ITI-YY5)"
-      },
       "published": {},
       "materialization": {
         "state": "materialized",
@@ -731,10 +840,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -746,9 +855,6 @@
       "profiles": [
         "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"
       ],
-      "code": {
-        "text": "IHE ITI VHL manifest retrieval (ITI-YY5)"
-      },
       "published": {},
       "materialization": {
         "state": "materialized",
@@ -781,10 +887,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -825,10 +931,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -873,10 +979,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -921,10 +1027,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -969,10 +1075,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1017,10 +1123,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1065,10 +1171,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1113,10 +1219,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1161,10 +1267,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1209,10 +1315,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1257,10 +1363,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1305,10 +1411,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1353,10 +1459,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1401,10 +1507,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1449,10 +1555,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1497,10 +1603,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1545,10 +1651,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1593,10 +1699,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1641,10 +1747,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1689,10 +1795,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1737,10 +1843,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1785,10 +1891,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1833,10 +1939,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1881,10 +1987,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1929,10 +2035,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -1977,10 +2083,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2025,10 +2131,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2073,10 +2179,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2121,10 +2227,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2169,10 +2275,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2217,10 +2323,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2265,10 +2371,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2313,10 +2419,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2361,10 +2467,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2409,10 +2515,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2457,10 +2563,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2505,10 +2611,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2553,10 +2659,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2601,10 +2707,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2649,10 +2755,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2697,10 +2803,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2745,10 +2851,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2793,10 +2899,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2841,10 +2947,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2889,10 +2995,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2937,10 +3043,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -2985,10 +3091,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3033,10 +3139,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3081,10 +3187,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3129,10 +3235,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3177,10 +3283,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3225,10 +3331,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3273,10 +3379,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3321,10 +3427,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3369,10 +3475,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3417,10 +3523,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3461,10 +3567,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3509,10 +3615,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3553,10 +3659,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3597,10 +3703,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3641,10 +3747,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3685,10 +3791,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3729,10 +3835,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3773,10 +3879,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3831,10 +3937,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3878,10 +3984,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3925,10 +4031,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -3972,10 +4078,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4019,10 +4125,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4066,10 +4172,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4113,10 +4219,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4160,10 +4266,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4207,10 +4313,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4254,10 +4360,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4301,10 +4407,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4345,10 +4451,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4395,10 +4501,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4443,10 +4549,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4491,10 +4597,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4539,10 +4645,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4587,10 +4693,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4632,10 +4738,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4677,10 +4783,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4722,10 +4828,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4767,10 +4873,98 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
+      }
+    },
+    {
+      "key": "Patient/TrustDemoBounmyPatient",
+      "resourceType": "Patient",
+      "id": "TrustDemoBounmyPatient",
+      "title": "TrustDemoBounmyPatient",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Patient-TrustDemoBounmyPatient.json"
+        },
+        "localPath": "output-ast/resources/Patient/TrustDemoBounmyPatient--52953ae9.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
+        },
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
+      }
+    },
+    {
+      "key": "Patient/TrustDemoKhamlaPatient",
+      "resourceType": "Patient",
+      "id": "TrustDemoKhamlaPatient",
+      "title": "TrustDemoKhamlaPatient",
+      "category": "Other",
+      "published": {},
+      "materialization": {
+        "state": "materialized",
+        "provenance": {
+          "local": "fsh-generated/resources/Patient-TrustDemoKhamlaPatient.json"
+        },
+        "localPath": "output-ast/resources/Patient/TrustDemoKhamlaPatient--adf0fbc6.json",
+        "gates": {
+          "size": {
+            "verdict": "unknown",
+            "basis": "ig-ast validity does not measure the AST's size"
+          },
+          "restrictions": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          },
+          "retention": {
+            "verdict": "permitted",
+            "basis": "a compiled cache, regenerable from its inputs by a full IG Publisher run"
+          },
+          "sourceLoss": {
+            "verdict": "unknown",
+            "basis": "a compiled copy is derived, not the source; it cannot stand in for it"
+          },
+          "copyright": {
+            "verdict": "unknown",
+            "basis": "derived from the IG's own source; inherits its terms, not assessed here"
+          }
+        },
+        "purpose": "compiled",
+        "inputs": {
+          "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
+        },
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4814,10 +5008,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4861,10 +5055,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4909,10 +5103,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -4957,10 +5151,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5005,10 +5199,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5053,10 +5247,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5101,10 +5295,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5149,10 +5343,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5197,10 +5391,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5241,10 +5435,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5285,10 +5479,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5329,10 +5523,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5373,10 +5567,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5420,10 +5614,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5467,10 +5661,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5515,10 +5709,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5562,10 +5756,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5606,10 +5800,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5650,10 +5844,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5665,6 +5859,16 @@
       "profiles": [
         "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReferral"
       ],
+      "code": {
+        "text": "Verify foreign paper DVCs and map the birth doses to the national schedule",
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "3457005",
+            "display": "Patient referral"
+          }
+        ]
+      },
       "published": {},
       "materialization": {
         "state": "materialized",
@@ -5697,10 +5901,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5745,10 +5949,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5793,10 +5997,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5841,10 +6045,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5889,10 +6093,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5937,10 +6141,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -5985,10 +6189,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6033,10 +6237,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6081,10 +6285,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6129,10 +6333,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6177,10 +6381,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6225,10 +6429,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6273,10 +6477,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6321,10 +6525,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6333,7 +6537,7 @@
       "id": "TrustDemoLaoReportedImmunization",
       "name": "TrustDemoLaoReportedImmunization",
       "title": "Lao PDR: foreign dose as reported (not yet verified)",
-      "description": "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false and the family as the information source keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
+      "description": "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false, the paper card as the report origin and the family named in the note keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
       "canonical": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReportedImmunization",
       "version": "0.1.0",
       "category": "Structures: Resource Profiles",
@@ -6369,10 +6573,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6417,10 +6621,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6465,10 +6669,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6513,10 +6717,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6561,10 +6765,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6608,10 +6812,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6656,10 +6860,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6704,10 +6908,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6752,10 +6956,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6800,10 +7004,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6848,10 +7052,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6896,10 +7100,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6944,10 +7148,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     },
     {
@@ -6992,10 +7196,10 @@
         "purpose": "compiled",
         "inputs": {
           "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-          "sourceRevision": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba",
-          "inputDigest": "cde63cba5df05934ac91a8e2b2f521c6582614f20179c3360e1b9ccbeda4a3a7"
+          "sourceRevision": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd",
+          "inputDigest": "fa0301407cf77c6d9768b93e20c3258a41c949a611d5e73547d0ca16acda8445"
         },
-        "materializedAt": "2026-11-07T11:09:10.768219484Z"
+        "materializedAt": "2026-11-07T11:39:24.149443231Z"
       }
     }
   ]

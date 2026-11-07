@@ -11,7 +11,7 @@
   "dcterms:identifier": "StructureDefinition/TrustDemoLaoReportedImmunization",
   "schema:name": "TrustDemoLaoReportedImmunization",
   "dcterms:title": "Lao PDR: foreign dose as reported (not yet verified)",
-  "dcterms:description": "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false and the family as the information source keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
+  "dcterms:description": "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false, the paper card as the report origin and the family named in the note keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
   "schema:version": "0.1.0",
   "dcterms:type": "Structures: Resource Profiles",
   "schema:sameAs": {
@@ -31,7 +31,7 @@
   "prov:wasGeneratedBy": {
     "@type": "prov:Activity",
     "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
-    "prov:used": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba"
+    "prov:used": "a5b579afc8eeb56bd05ce912fd9fff6121066ccd"
   },
   "dcterms:isPartOf": {
     "@type": "fhir:ImplementationGuide",

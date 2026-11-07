@@ -6,7 +6,7 @@
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoMr1</b></p><a name=\"TrustDemoLaoMr1\"> </a><a name=\"hcTrustDemoLaoMr1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-MR-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-mr-freeze-dried}\">Measles-rubella, dose 1</span></p><p><b>lotNumber</b>: LA-9923</p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2026-07-28</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoMr1</b></p><a name=\"TrustDemoLaoMr1\"> </a><a name=\"hcTrustDemoLaoMr1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-MR-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-mr-freeze-dried}\">Measles-rubella, dose 1</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2026-07-28</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><p><b>lotNumber</b>: LA-9923</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
   },
   "status" : "completed",
   "vaccineCode" : {
@@ -21,7 +21,6 @@
       "display" : "Measles-rubella vaccine, freeze-dried"
     }]
   },
-  "lotNumber" : "LA-9923",
   "patient" : {
     "reference" : "Patient/TrustDemoSomsack"
   },
@@ -30,12 +29,13 @@
   "location" : {
     "display" : "Vientiane District Health Center, Lao PDR"
   },
+  "lotNumber" : "LA-9923",
   "performer" : [{
     "actor" : {
       "reference" : "Practitioner/TrustDemoChanthasone"
     }
   }],
   "protocolApplied" : [{
-    "doseNumber" : "1"
+    "doseNumberPositiveInt" : 1
   }]
 }

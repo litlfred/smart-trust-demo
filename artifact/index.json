@@ -14,7 +14,7 @@
     "@id": "http://smart.who.int/trust-demo"
   },
   "dcterms:title": "SMART Trust demonstrator: journeys J1 to J4",
-  "schema:numberOfItems": 147,
+  "schema:numberOfItems": 149,
   "schema:hasPart": [
     {
       "@id": "ActorDefinition-TrustDemo.Role.BirthClinicSystem.jsonld",
@@ -180,12 +180,6 @@
         {
           "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"
         }
-      ],
-      "dcterms:subject": [
-        {
-          "@type": "schema:DefinedTerm",
-          "schema:name": "IHE ITI VHL manifest retrieval (ITI-YY5)"
-        }
       ]
     },
     {
@@ -197,12 +191,6 @@
       "dcterms:conformsTo": [
         {
           "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoVhlAccess"
-        }
-      ],
-      "dcterms:subject": [
-        {
-          "@type": "schema:DefinedTerm",
-          "schema:name": "IHE ITI VHL manifest retrieval (ITI-YY5)"
         }
       ]
     },
@@ -493,6 +481,20 @@
       "dcterms:type": "Other"
     },
     {
+      "@id": "Patient-TrustDemoBounmyPatient.jsonld",
+      "@type": "fhir:Patient",
+      "dcterms:identifier": "Patient/TrustDemoBounmyPatient",
+      "dcterms:title": "TrustDemoBounmyPatient",
+      "dcterms:type": "Other"
+    },
+    {
+      "@id": "Patient-TrustDemoKhamlaPatient.jsonld",
+      "@type": "fhir:Patient",
+      "dcterms:identifier": "Patient/TrustDemoKhamlaPatient",
+      "dcterms:title": "TrustDemoKhamlaPatient",
+      "dcterms:type": "Other"
+    },
+    {
       "@id": "Patient-TrustDemoSomsack.jsonld",
       "@type": "fhir:Patient",
       "dcterms:identifier": "Patient/TrustDemoSomsack",
@@ -691,6 +693,20 @@
       "dcterms:conformsTo": [
         {
           "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReferral"
+        }
+      ],
+      "dcterms:subject": [
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:termCode": "3457005",
+          "schema:name": "Patient referral",
+          "schema:inDefinedTermSet": {
+            "@id": "http://snomed.info/sct"
+          }
+        },
+        {
+          "@type": "schema:DefinedTerm",
+          "schema:name": "Verify foreign paper DVCs and map the birth doses to the national schedule"
         }
       ]
     },
@@ -1460,7 +1476,7 @@
       "@type": "fhir:StructureDefinition",
       "dcterms:identifier": "StructureDefinition/TrustDemoLaoReportedImmunization",
       "dcterms:title": "Lao PDR: foreign dose as reported (not yet verified)",
-      "dcterms:description": "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false and the family as the information source keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
+      "dcterms:description": "How it is used: J2b. The CHW app reads each Thai paper DVC offline without checking its signature, and saves the dose like this.\n\nWhy: a CHW phone may have no trust list and no signal, but the doses should not be lost. Recording them with primarySource false, the paper card as the report origin and the family named in the note keeps them visibly \"reported, not verified\". The schedule will not count them until a clinic verifies them (J3). Only the issuer's product code is present, because mapping to the Lao schedule is a clinical step for later.",
       "dcterms:type": "Structures: Resource Profiles",
       "schema:sameAs": {
         "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReportedImmunization"

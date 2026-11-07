@@ -3,9 +3,12 @@
   "id" : "TrustDemoClinicViewer",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Device TrustDemoClinicViewer</b></p><a name=\"TrustDemoClinicViewer\"> </a><a name=\"hcTrustDemoClinicViewer\"> </a><p><b>displayName</b>: Chiang Rai clinic VHL viewer</p><p><b>owner</b>: <a href=\"Organization-TrustDemoChiangRaiClinic.html\">Chiang Rai primary care clinic (demonstrator)</a></p></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Device TrustDemoClinicViewer</b></p><a name=\"TrustDemoClinicViewer\"> </a><a name=\"hcTrustDemoClinicViewer\"> </a><h3>DeviceNames</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Type</b></td></tr><tr><td style=\"display: none\">*</td><td>Chiang Rai clinic VHL viewer</td><td>User Friendly name</td></tr></table><p><b>owner</b>: <a href=\"Organization-TrustDemoChiangRaiClinic.html\">Chiang Rai primary care clinic (demonstrator)</a></p></div>"
   },
-  "displayName" : "Chiang Rai clinic VHL viewer",
+  "deviceName" : [{
+    "name" : "Chiang Rai clinic VHL viewer",
+    "type" : "user-friendly-name"
+  }],
   "owner" : {
     "reference" : "Organization/TrustDemoChiangRaiClinic"
   }

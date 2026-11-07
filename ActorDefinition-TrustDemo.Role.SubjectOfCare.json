@@ -1,26 +1,71 @@
 {
-  "resourceType" : "ActorDefinition",
+  "resourceType" : "Basic",
   "id" : "TrustDemo.Role.SubjectOfCare",
   "text" : {
     "status" : "generated",
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.SubjectOfCare</b></p><a name=\"TrustDemo.Role.SubjectOfCare\"> </a><a name=\"hcTrustDemo.Role.SubjectOfCare\"> </a><table class=\"grid\"><tr><td><b>Actor: SubjectOfCare </b></td><td>Subject of care</td><td>Type: person </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td></tr></table></div>"
   },
-  "url" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.SubjectOfCare",
-  "version" : "0.1.0",
-  "name" : "SubjectOfCare",
-  "title" : "Subject of care",
-  "status" : "draft",
-  "experimental" : true,
-  "date" : "2026-11-07T11:05:24+00:00",
-  "publisher" : "litlfred",
-  "contact" : [{
-    "name" : "litlfred",
-    "telecom" : [{
-      "system" : "url",
-      "value" : "https://github.com/litlfred/smart-trust-demo"
-    }]
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.url",
+    "valueUri" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.SubjectOfCare"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.version",
+    "valueString" : "0.1.0"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.name",
+    "valueString" : "SubjectOfCare"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.title",
+    "valueString" : "Subject of care"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.status",
+    "valueCode" : "draft"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.experimental",
+    "valueBoolean" : true
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.date",
+    "valueDateTime" : "2026-11-07T11:37:07+00:00"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.publisher",
+    "valueString" : "litlfred"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.contact",
+    "valueContactDetail" : {
+      "name" : "litlfred",
+      "telecom" : [{
+        "system" : "url",
+        "value" : "https://github.com/litlfred/smart-trust-demo"
+      }]
+    }
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.description",
+    "valueMarkdown" : "The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes.\n\n**Persona**: A newborn whose vaccination history must follow him across a border he cannot speak for.\n\n**Also known as**: Patient; Care recipient\n\n**Played in the journeys by** (fictional):\n\n- ![Somsack](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvbXNhY2siPjx0aXRsZT5Tb21zYWNrPC90aXRsZT48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzY1YTMwZCIvPjx0ZXh0IHg9IjIwIiB5PSIyMCIgZHk9IjAuMzVlbSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmZmZmYiPmJhYnk8L3RleHQ+PC9zdmc+) [Somsack](personas.html#somsack-baby--the-record-follows-him-lao-pdr), Somsack SENGMANY (newborn)\n\n**In the user scenarios**:\n\n- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand\n- [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2b Registered at home, and referred\n- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.jurisdiction"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.type",
+    "valueCode" : "person"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.documentation",
+    "valueMarkdown" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
   }],
-  "description" : "The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes.\n\n**Persona**: A newborn whose vaccination history must follow him across a border he cannot speak for.\n\n**Also known as**: Patient; Care recipient\n\n**Played in the journeys by** (fictional):\n\n- ![Somsack](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvbXNhY2siPjx0aXRsZT5Tb21zYWNrPC90aXRsZT48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzY1YTMwZCIvPjx0ZXh0IHg9IjIwIiB5PSIyMCIgZHk9IjAuMzVlbSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmZmZmYiPmJhYnk8L3RleHQ+PC9zdmc+) [Somsack](personas.html#somsack-baby--the-record-follows-him-lao-pdr), Somsack SENGMANY (newborn)\n\n**In the user scenarios**:\n\n- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand\n- [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2b Registered at home, and referred\n- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history",
-  "type" : "person",
-  "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
+  "code" : {
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/fhir-types",
+      "code" : "ActorDefinition"
+    }]
+  }
 }

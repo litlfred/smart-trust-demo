@@ -32,7 +32,7 @@ load the published examples instead of its own copies.</p>
 
 <p>Every example is published twice: as a page, and as raw JSON at a stable URL
 the walkthrough can fetch (<code class="language-plaintext highlighter-rouge">https://litlfred.github.io/smart-trust-demo/&lt;Type&gt;-&lt;id&gt;.json</code>).
-They are FHIR R5, as this guide is.</p>
+They are FHIR R4 (4.0.1), as this guide is, like smart-base and the Personal Health Wallet guide.</p>
 
 <h3 id="by-device-screen">By device screen</h3>
 
@@ -226,7 +226,7 @@ They are FHIR R5, as this guide is.</p>
       <td><code class="language-plaintext highlighter-rouge">group</code></td>
       <td>Group</td>
       <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/Group-TrustDemoHousehold.html">TrustDemoHousehold</a> (<a href="https://litlfred.github.io/smart-trust-demo/Group-TrustDemoHousehold.json">json</a>)</td>
-      <td>R5: <code class="language-plaintext highlighter-rouge">membership = enumerated</code> replaces <code class="language-plaintext highlighter-rouge">actual</code>; the household code is <code class="language-plaintext highlighter-rouge">FAMMEMB</code> with the text “Household”.</td>
+      <td><code class="language-plaintext highlighter-rouge">actual = true</code>; the members are Patients (FHIR R4 Group lists Patients, so each parent is a Patient beside their RelatedPerson role); the household code is <code class="language-plaintext highlighter-rouge">FAMMEMB</code> with the text “Household”.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">immunizationHepB</code></td>
@@ -238,7 +238,7 @@ They are FHIR R5, as this guide is.</p>
       <td><code class="language-plaintext highlighter-rouge">serviceRequest</code></td>
       <td>ServiceRequest</td>
       <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/ServiceRequest-TrustDemoJ2Referral.html">TrustDemoJ2Referral</a> (<a href="https://litlfred.github.io/smart-trust-demo/ServiceRequest-TrustDemoJ2Referral.json">json</a>)</td>
-      <td>Code is SNOMED CT <code class="language-plaintext highlighter-rouge">3457005</code> (patient referral) with the walkthrough’s text; the verification reason stays in <code class="language-plaintext highlighter-rouge">reason</code>.</td>
+      <td>Code is SNOMED CT <code class="language-plaintext highlighter-rouge">3457005</code> (patient referral) with the walkthrough’s text; the verification reason stays in <code class="language-plaintext highlighter-rouge">reasonCode</code>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">provenance</code></td>
@@ -250,7 +250,7 @@ They are FHIR R5, as this guide is.</p>
       <td><code class="language-plaintext highlighter-rouge">auditEvent</code></td>
       <td>AuditEvent</td>
       <td><a href="https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html">TrustDemoJ41Access</a> (<a href="https://litlfred.github.io/smart-trust-demo/AuditEvent-TrustDemoJ41Access.json">json</a>)</td>
-      <td>R5 shape: <code class="language-plaintext highlighter-rouge">category</code>, <code class="language-plaintext highlighter-rouge">code</code>, <code class="language-plaintext highlighter-rouge">outcome.code</code>; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged.</td>
+      <td>R4 shape: <code class="language-plaintext highlighter-rouge">type</code>, <code class="language-plaintext highlighter-rouge">subtype</code>, <code class="language-plaintext highlighter-rouge">outcome</code>, <code class="language-plaintext highlighter-rouge">outcomeDesc</code>; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cborPayload</code></td>
@@ -280,7 +280,7 @@ They are FHIR R5, as this guide is.</p>
 <link rel="stylesheet" href="assets/ig-pages.css">
 <footer id="ig-footer">
 <p class="ig-footer-nav"><a href="journeys.html">&lt;prev</a> | <a href="#">top</a> | <a href="architecture.html">next&gt;</a></p>
-<p class="ig-footer-band">IG © 2026+ <a href="https://github.com/litlfred/smart-trust-demo" rel="external">litlfred</a>. Package <code>smart.who.int.trust-demo#0.1.0</code> based on <a href="http://hl7.org/fhir/R5/" rel="external">FHIR 5.0.0</a>. Generated 2026-11-07</p>
+<p class="ig-footer-band">IG © 2026+ <a href="https://github.com/litlfred/smart-trust-demo" rel="external">litlfred</a>. Package <code>smart.who.int.trust-demo#0.1.0</code> based on <a href="http://hl7.org/fhir/R4/" rel="external">FHIR 4.0.1</a>. Generated 2026-11-07</p>
 <p class="ig-footer-links">Links: <a href="toc.html">Table of Contents</a> | <a href="qa.html">QA Report</a> | <a href="https://spdx.org/licenses/CC0-1.0.html" rel="external">License</a></p>
 </footer>
 

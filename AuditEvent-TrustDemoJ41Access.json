@@ -6,30 +6,20 @@
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: AuditEvent TrustDemoJ41Access</b></p><a name=\"TrustDemoJ41Access\"> </a><a name=\"hcTrustDemoJ41Access\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoVhlAccess.html\">Lao PDR: every VHL access logged at home</a></p></div><p><b>category</b>: <span title=\"Codes:{http://dicom.nema.org/resources/ontology/DCM 110112}\">Query</span></p><p><b>code</b>: <span title=\"Codes:\">IHE ITI VHL manifest retrieval (ITI-YY5)</span></p><p><b>action</b>: Execute</p><p><b>recorded</b>: 2026-10-28 14:30:15+0700</p><h3>Outcomes</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Code</b></td><td><b>Detail</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"http://terminology.hl7.org/7.0.1/CodeSystem-audit-event-outcome.html#audit-event-outcome-0\">AuditEventOutcome: 0</a> (Success)</td><td><span title=\"Codes:\">Passcode verified; manifest released to the receiver</span></td></tr></table><blockquote><p><b>agent</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType IRCP}\">information recipient</span></p><p><b>who</b>: <a href=\"Device-TrustDemoClinicViewer.html\">Device: displayName = Chiang Rai clinic VHL viewer</a></p><p><b>requestor</b>: true</p><p><b>network</b>: clinic-viewer.chiang-rai.example</p></blockquote><blockquote><p><b>agent</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType CST}\">custodian</span></p><p><b>who</b>: <a href=\"Device-TrustDemoLaoGateway.html\">Device: displayName = Lao PDR national FHIR server and OHS FHIR Info Gateway</a></p><p><b>requestor</b>: false</p></blockquote><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Observer</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Device-TrustDemoLaoGateway.html\">Device: displayName = Lao PDR national FHIR server and OHS FHIR Info Gateway</a></td></tr></table><blockquote><p><b>entity</b></p><p><b>what</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>role</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/object-role 1}\">Patient</span></p></blockquote><blockquote><p><b>entity</b></p><p><b>what</b>: <a href=\"Consent-TrustDemoJ4Consent.html\">TrustDemoJ4Consent</a></p></blockquote><blockquote><p><b>entity</b></p><p><b>what</b>: <a href=\"Bundle-TrustDemoJ4Ips.html\">Bundle: identifier = UUID:8d3f1c52-6a4e-4b0f-9c1d-2e7a5b9f0c31; type = document; timestamp = 2026-10-26 09:00:00+0700</a></p></blockquote></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: AuditEvent TrustDemoJ41Access</b></p><a name=\"TrustDemoJ41Access\"> </a><a name=\"hcTrustDemoJ41Access\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoVhlAccess.html\">Lao PDR: every VHL access logged at home</a></p></div><p><b>type</b>: <a href=\"http://hl7.org/fhir/R4/codesystem-dicom-dcim.html#dicom-dcim-110112\">DICOM: 110112</a> (Query)</p><p><b>subtype</b>: [not stated]:  (IHE ITI VHL manifest retrieval (ITI-YY5))</p><p><b>action</b>: Execute</p><p><b>recorded</b>: 2026-10-28 14:30:15+0700</p><p><b>outcome</b>: Success</p><p><b>outcomeDesc</b>: Passcode verified; manifest released to the receiver</p><blockquote><p><b>agent</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType IRCP}\">information recipient</span></p><p><b>who</b>: <a href=\"Device-TrustDemoClinicViewer.html\">Device</a></p><p><b>requestor</b>: true</p><h3>Networks</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Address</b></td><td><b>Type</b></td></tr><tr><td style=\"display: none\">*</td><td>clinic-viewer.chiang-rai.example</td><td>Machine Name</td></tr></table></blockquote><blockquote><p><b>agent</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType CST}\">custodian</span></p><p><b>who</b>: <a href=\"Device-TrustDemoLaoGateway.html\">Device</a></p><p><b>requestor</b>: false</p></blockquote><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Observer</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Device-TrustDemoLaoGateway.html\">Device</a></td></tr></table><blockquote><p><b>entity</b></p><p><b>what</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>role</b>: <a href=\"http://terminology.hl7.org/7.1.0/CodeSystem-object-role.html#object-role-1\">AuditEventEntityRole: 1</a> (Patient)</p></blockquote><blockquote><p><b>entity</b></p><p><b>what</b>: <a href=\"Consent-TrustDemoJ4Consent.html\">TrustDemoJ4Consent</a></p></blockquote><blockquote><p><b>entity</b></p><p><b>what</b>: <a href=\"Bundle-TrustDemoJ4Ips.html\">Bundle: identifier = UUID:8d3f1c52-6a4e-4b0f-9c1d-2e7a5b9f0c31; type = document; timestamp = 2026-10-26 09:00:00+0700</a></p></blockquote></div>"
   },
-  "category" : [{
-    "coding" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "code" : "110112",
-      "display" : "Query"
-    }]
+  "type" : {
+    "system" : "http://dicom.nema.org/resources/ontology/DCM",
+    "code" : "110112",
+    "display" : "Query"
+  },
+  "subtype" : [{
+    "display" : "IHE ITI VHL manifest retrieval (ITI-YY5)"
   }],
-  "code" : {
-    "text" : "IHE ITI VHL manifest retrieval (ITI-YY5)"
-  },
   "action" : "E",
   "recorded" : "2026-10-28T14:30:15+07:00",
-  "outcome" : {
-    "code" : {
-      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-outcome",
-      "code" : "0",
-      "display" : "Success"
-    },
-    "detail" : [{
-      "text" : "Passcode verified; manifest released to the receiver"
-    }]
-  },
+  "outcome" : "0",
+  "outcomeDesc" : "Passcode verified; manifest released to the receiver",
   "agent" : [{
     "type" : {
       "coding" : [{
@@ -42,7 +32,10 @@
       "reference" : "Device/TrustDemoClinicViewer"
     },
     "requestor" : true,
-    "networkString" : "clinic-viewer.chiang-rai.example"
+    "network" : {
+      "address" : "clinic-viewer.chiang-rai.example",
+      "type" : "1"
+    }
   },
   {
     "type" : {
@@ -67,11 +60,9 @@
       "reference" : "Patient/TrustDemoSomsack"
     },
     "role" : {
-      "coding" : [{
-        "system" : "http://terminology.hl7.org/CodeSystem/object-role",
-        "code" : "1",
-        "display" : "Patient"
-      }]
+      "system" : "http://terminology.hl7.org/CodeSystem/object-role",
+      "code" : "1",
+      "display" : "Patient"
     }
   },
   {

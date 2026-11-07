@@ -24,9 +24,9 @@
           "display" : "Patient summary Document"
         }]
       },
-      "subject" : [{
+      "subject" : {
         "reference" : "Patient/TrustDemoSomsack"
-      }],
+      },
       "date" : "2026-10-26T09:00:00+07:00",
       "author" : [{
         "display" : "Lao PDR national health portal (Country B, XXH)"
@@ -192,7 +192,7 @@
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoJ3HepB\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ3HepB</b></p><a name=\"TrustDemoJ3HepB\"> </a><a name=\"hcTrustDemoJ3HepB\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-HEPB-BD}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-hepb-peds-monovalent}, {http://hl7.org/fhir/sid/cvx 08}\">Hepatitis B paediatric birth dose</span></p><p><b>lotNumber</b>: TH-4821</p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-10-28 09:15:00+0700</p><p><b>primarySource</b>: true</p><h3>InformationSources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Organization-TrustDemoChiangRaiHospital.html\">Chiang Rai Provincial Hospital (demonstrator)</a></td></tr></table><p><b>location</b>: Chiang Rai Provincial Hospital, Thailand</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoJ3HepB\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ3HepB</b></p><a name=\"TrustDemoJ3HepB\"> </a><a name=\"hcTrustDemoJ3HepB\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-HEPB-BD}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-hepb-peds-monovalent}, {http://hl7.org/fhir/sid/cvx 08}\">Hepatitis B paediatric birth dose</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-10-28 09:15:00+0700</p><p><b>primarySource</b>: true</p><p><b>location</b>: Chiang Rai Provincial Hospital, Thailand</p><p><b>lotNumber</b>: TH-4821</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
       },
       "status" : "completed",
       "vaccineCode" : {
@@ -213,27 +213,22 @@
         }],
         "text" : "Hepatitis B paediatric birth dose"
       },
-      "lotNumber" : "TH-4821",
       "patient" : {
         "reference" : "Patient/TrustDemoSomsack"
       },
       "occurrenceDateTime" : "2025-10-28T09:15:00+07:00",
       "primarySource" : true,
-      "informationSource" : {
-        "reference" : {
-          "reference" : "Organization/TrustDemoChiangRaiHospital"
-        }
-      },
       "location" : {
         "display" : "Chiang Rai Provincial Hospital, Thailand"
       },
+      "lotNumber" : "TH-4821",
       "performer" : [{
         "actor" : {
           "reference" : "Practitioner/TrustDemoAnan"
         }
       }],
       "protocolApplied" : [{
-        "doseNumber" : "1"
+        "doseNumberPositiveInt" : 1
       }]
     }
   },
@@ -247,7 +242,7 @@
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoJ3Bcg\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ3Bcg</b></p><a name=\"TrustDemoJ3Bcg\"> </a><a name=\"hcTrustDemoJ3Bcg\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-BCG}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-bcg-freeze-dried}, {http://hl7.org/fhir/sid/cvx 19}\">BCG</span></p><p><b>lotNumber</b>: TH-9012</p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-10-28 09:20:00+0700</p><p><b>primarySource</b>: true</p><h3>InformationSources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Organization-TrustDemoChiangRaiHospital.html\">Chiang Rai Provincial Hospital (demonstrator)</a></td></tr></table><p><b>location</b>: Chiang Rai Provincial Hospital, Thailand</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoJ3Bcg\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ3Bcg</b></p><a name=\"TrustDemoJ3Bcg\"> </a><a name=\"hcTrustDemoJ3Bcg\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-BCG}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-bcg-freeze-dried}, {http://hl7.org/fhir/sid/cvx 19}\">BCG</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-10-28 09:20:00+0700</p><p><b>primarySource</b>: true</p><p><b>location</b>: Chiang Rai Provincial Hospital, Thailand</p><p><b>lotNumber</b>: TH-9012</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
       },
       "status" : "completed",
       "vaccineCode" : {
@@ -268,27 +263,22 @@
         }],
         "text" : "BCG"
       },
-      "lotNumber" : "TH-9012",
       "patient" : {
         "reference" : "Patient/TrustDemoSomsack"
       },
       "occurrenceDateTime" : "2025-10-28T09:20:00+07:00",
       "primarySource" : true,
-      "informationSource" : {
-        "reference" : {
-          "reference" : "Organization/TrustDemoChiangRaiHospital"
-        }
-      },
       "location" : {
         "display" : "Chiang Rai Provincial Hospital, Thailand"
       },
+      "lotNumber" : "TH-9012",
       "performer" : [{
         "actor" : {
           "reference" : "Practitioner/TrustDemoAnan"
         }
       }],
       "protocolApplied" : [{
-        "doseNumber" : "1"
+        "doseNumberPositiveInt" : 1
       }]
     }
   },
@@ -302,11 +292,8 @@
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoPenta1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoPenta1</b></p><a name=\"TrustDemoLaoPenta1\"> </a><a name=\"hcTrustDemoLaoPenta1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>basedOn</b>: <a href=\"ImmunizationRecommendation-TrustDemoJ3Recommendation.html\">ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700</a></p><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-PENTA-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-pentavalent-liquid}\">Pentavalent (DTP-HepB-Hib), dose 1</span></p><p><b>lotNumber</b>: LA-2201</p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-12-10</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoPenta1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoPenta1</b></p><a name=\"TrustDemoLaoPenta1\"> </a><a name=\"hcTrustDemoLaoPenta1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-PENTA-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-pentavalent-liquid}\">Pentavalent (DTP-HepB-Hib), dose 1</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-12-10</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><p><b>lotNumber</b>: LA-2201</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
       },
-      "basedOn" : [{
-        "reference" : "ImmunizationRecommendation/TrustDemoJ3Recommendation"
-      }],
       "status" : "completed",
       "vaccineCode" : {
         "coding" : [{
@@ -320,7 +307,6 @@
           "display" : "DTP-HepB-Hib (pentavalent), liquid"
         }]
       },
-      "lotNumber" : "LA-2201",
       "patient" : {
         "reference" : "Patient/TrustDemoSomsack"
       },
@@ -329,13 +315,14 @@
       "location" : {
         "display" : "Vientiane District Health Center, Lao PDR"
       },
+      "lotNumber" : "LA-2201",
       "performer" : [{
         "actor" : {
           "reference" : "Practitioner/TrustDemoChanthasone"
         }
       }],
       "protocolApplied" : [{
-        "doseNumber" : "1"
+        "doseNumberPositiveInt" : 1
       }]
     }
   },
@@ -349,11 +336,8 @@
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoBopv1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoBopv1</b></p><a name=\"TrustDemoLaoBopv1\"> </a><a name=\"hcTrustDemoLaoBopv1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>basedOn</b>: <a href=\"ImmunizationRecommendation-TrustDemoJ3Recommendation.html\">ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700</a></p><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-OPV-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-bopv-drops}\">bOPV, dose 1</span></p><p><b>lotNumber</b>: LA-5531</p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-12-10</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoBopv1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoBopv1</b></p><a name=\"TrustDemoLaoBopv1\"> </a><a name=\"hcTrustDemoLaoBopv1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-OPV-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-bopv-drops}\">bOPV, dose 1</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-12-10</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><p><b>lotNumber</b>: LA-5531</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
       },
-      "basedOn" : [{
-        "reference" : "ImmunizationRecommendation/TrustDemoJ3Recommendation"
-      }],
       "status" : "completed",
       "vaccineCode" : {
         "coding" : [{
@@ -367,7 +351,6 @@
           "display" : "Bivalent oral polio vaccine (bOPV), drops"
         }]
       },
-      "lotNumber" : "LA-5531",
       "patient" : {
         "reference" : "Patient/TrustDemoSomsack"
       },
@@ -376,13 +359,14 @@
       "location" : {
         "display" : "Vientiane District Health Center, Lao PDR"
       },
+      "lotNumber" : "LA-5531",
       "performer" : [{
         "actor" : {
           "reference" : "Practitioner/TrustDemoChanthasone"
         }
       }],
       "protocolApplied" : [{
-        "doseNumber" : "1"
+        "doseNumberPositiveInt" : 1
       }]
     }
   },
@@ -396,11 +380,8 @@
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoPcv1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoPcv1</b></p><a name=\"TrustDemoLaoPcv1\"> </a><a name=\"hcTrustDemoLaoPcv1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>basedOn</b>: <a href=\"ImmunizationRecommendation-TrustDemoJ3Recommendation.html\">ImmunizationRecommendation: date = 2025-11-25 10:22:00+0700</a></p><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-PCV-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-pcv-13-dose}\">PCV, dose 1</span></p><p><b>lotNumber</b>: LA-8819</p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-12-10</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoPcv1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoPcv1</b></p><a name=\"TrustDemoLaoPcv1\"> </a><a name=\"hcTrustDemoLaoPcv1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-PCV-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-pcv-13-dose}\">PCV, dose 1</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2025-12-10</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><p><b>lotNumber</b>: LA-8819</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
       },
-      "basedOn" : [{
-        "reference" : "ImmunizationRecommendation/TrustDemoJ3Recommendation"
-      }],
       "status" : "completed",
       "vaccineCode" : {
         "coding" : [{
@@ -414,7 +395,6 @@
           "display" : "Pneumococcal conjugate vaccine (PCV)"
         }]
       },
-      "lotNumber" : "LA-8819",
       "patient" : {
         "reference" : "Patient/TrustDemoSomsack"
       },
@@ -423,13 +403,14 @@
       "location" : {
         "display" : "Vientiane District Health Center, Lao PDR"
       },
+      "lotNumber" : "LA-8819",
       "performer" : [{
         "actor" : {
           "reference" : "Practitioner/TrustDemoChanthasone"
         }
       }],
       "protocolApplied" : [{
-        "doseNumber" : "1"
+        "doseNumberPositiveInt" : 1
       }]
     }
   },
@@ -443,7 +424,7 @@
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoMr1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoMr1</b></p><a name=\"TrustDemoLaoMr1\"> </a><a name=\"hcTrustDemoLaoMr1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-MR-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-mr-freeze-dried}\">Measles-rubella, dose 1</span></p><p><b>lotNumber</b>: LA-9923</p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2026-07-28</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Immunization_TrustDemoLaoMr1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoLaoMr1</b></p><a name=\"TrustDemoLaoMr1\"> </a><a name=\"hcTrustDemoLaoMr1\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoImmunization.html\">Lao PDR: dose on the national schedule</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule LAO-EPI-MR-1}, {http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-mr-freeze-dried}\">Measles-rubella, dose 1</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></p><p><b>occurrence</b>: 2026-07-28</p><p><b>primarySource</b>: true</p><p><b>location</b>: Vientiane District Health Center, Lao PDR</p><p><b>lotNumber</b>: LA-9923</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoChanthasone.html\">Nurse Chanthasone</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
       },
       "status" : "completed",
       "vaccineCode" : {
@@ -458,7 +439,6 @@
           "display" : "Measles-rubella vaccine, freeze-dried"
         }]
       },
-      "lotNumber" : "LA-9923",
       "patient" : {
         "reference" : "Patient/TrustDemoSomsack"
       },
@@ -467,13 +447,14 @@
       "location" : {
         "display" : "Vientiane District Health Center, Lao PDR"
       },
+      "lotNumber" : "LA-9923",
       "performer" : [{
         "actor" : {
           "reference" : "Practitioner/TrustDemoChanthasone"
         }
       }],
       "protocolApplied" : [{
-        "doseNumber" : "1"
+        "doseNumberPositiveInt" : 1
       }]
     }
   },
@@ -484,9 +465,16 @@
       "id" : "TrustDemoJ4Consent",
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Consent_TrustDemoJ4Consent\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Consent TrustDemoJ4Consent</b></p><a name=\"TrustDemoJ4Consent\"> </a><a name=\"hcTrustDemoJ4Consent\"> </a><h2>Participants</h2><table class=\"grid\"><tr><td><b>Role</b></td><td><b>Details</b></td></tr><tr><td title=\"Who the consent applies to\">Patient</td><td><a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></td></tr><tr><td title=\"Who is granting rights according to the policy and rules\">Grantor</td><td><a href=\"RelatedPerson-TrustDemoBounmy.html\">Bounmy SENGMANY - father</a></td></tr><tr><td title=\"Who controls/enforces the access according to the consent.\">Controller</td><td><a href=\"Organization-TrustDemoLaoPortalOrg.html\">Lao PDR national health portal (demonstrator, GDHCN DEV participant XXH)</a></td></tr></table><table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;\"><tr style=\"border: 2px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top\"><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R5/formats.html#table\" title=\"Applicable Rule\">Rule</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R5/formats.html#table\" title=\"Applicable Period\">Time Period</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R5/formats.html#table\" title=\"Applicable Data\">What</a><span style=\"float: right\"><a href=\"https://hl7.org/fhir/R5/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/></a></span></th></tr><tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_extension.png\" alt=\"\" style=\"background-color: white; background-color: inherit\" title=\"Consent Provision\" class=\"hierarchy\"/> permit</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td></tr>\r\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-qi-hidden.png\" alt=\"\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Consent Provision\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">permit / </span>deny</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><ul><li>Period: 2026-10-26 --&gt; 2026-11-09</li></ul></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><ul><li>For action: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/consentaction access}\">Access</span></li><li>Purpose: <a href=\"http://terminology.hl7.org/7.0.1/CodeSystem-v3-ActReason.html#v3-ActReason-TREAT\">ActReason: TREAT</a> (treatment)</li></ul></td></tr>\r\n<tr><td colspan=\"3\" class=\"hierarchy\"><br/><a href=\"https://hl7.org/fhir/R5/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/> Documentation for this format</a></td></tr></table></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Consent_TrustDemoJ4Consent\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Consent TrustDemoJ4Consent</b></p><a name=\"TrustDemoJ4Consent\"> </a><a name=\"hcTrustDemoJ4Consent\"> </a><h2>Participants</h2><table class=\"grid\"><tr><td><b>Role</b></td><td><b>Details</b></td></tr><tr><td title=\"Who the consent applies to\">Patient</td><td><a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></td></tr><tr><td title=\"Who is agreeing to the policy and rules\">Party</td><td><a href=\"RelatedPerson-TrustDemoBounmy.html\">Bounmy SENGMANY - father</a></td></tr><tr><td title=\"Who manages the consent through its lifecycle.\">Manager</td><td><a href=\"Organization-TrustDemoLaoPortalOrg.html\">Lao PDR national health portal (demonstrator, GDHCN DEV participant XXH)</a></td></tr></table><p>This consent is made under the policy <a href=\"https://profiles.ihe.net/ITI/PCF/Policy-deny\">https://profiles.ihe.net/ITI/PCF/Policy-deny</a> .</p><table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;\"><tr style=\"border: 2px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top\"><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Applicable Rule\">Rule</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Applicable Period\">Time Period</a></th><th scope=\"col\" style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Applicable Data\">What</a><span style=\"float: right\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/></a></span></th></tr><tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_extension.png\" alt=\"\" style=\"background-color: white; background-color: inherit\" title=\"Consent Provision\" class=\"hierarchy\"/> permit</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td></tr>\r\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\"\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_extension.png\" alt=\"\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Consent Provision\" class=\"hierarchy\"/> <span style=\"position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0\" class=\"sr-only\">permit / </span>permit</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><ul><li>Period: 2026-10-26 --&gt; 2026-11-09</li></ul></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"><ul><li>For action: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/consentaction access}\">Access</span></li><li>Purpose: <a href=\"http://terminology.hl7.org/7.1.0/CodeSystem-v3-ActReason.html#v3-ActReason-TREAT\">ActReason: TREAT</a> (treatment)</li></ul></td></tr>\r\n<tr><td colspan=\"3\" class=\"hierarchy\"><br/><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/> Documentation for this format</a></td></tr></table></div>"
       },
       "status" : "active",
+      "scope" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/consentscope",
+          "code" : "patient-privacy",
+          "display" : "Privacy Consent"
+        }]
+      },
       "category" : [{
         "coding" : [{
           "system" : "http://loinc.org",
@@ -501,26 +489,25 @@
           "display" : "opt-in"
         }]
       }],
-      "subject" : {
+      "patient" : {
         "reference" : "Patient/TrustDemoSomsack"
       },
-      "date" : "2026-10-26",
-      "period" : {
-        "start" : "2026-10-26",
-        "end" : "2026-11-09"
-      },
-      "grantor" : [{
+      "dateTime" : "2026-10-26",
+      "performer" : [{
         "reference" : "RelatedPerson/TrustDemoBounmy"
       }],
-      "controller" : [{
+      "organization" : [{
         "reference" : "Organization/TrustDemoLaoPortalOrg"
       }],
-      "sourceAttachment" : [{
+      "sourceAttachment" : {
         "contentType" : "application/json",
         "title" : "Bounmy's confirmation on the family wallet when he created Somsack's VHL (explicit consent)"
+      },
+      "policy" : [{
+        "uri" : "https://profiles.ihe.net/ITI/PCF/Policy-deny"
       }],
-      "decision" : "permit",
-      "provision" : [{
+      "provision" : {
+        "type" : "permit",
         "period" : {
           "start" : "2026-10-26",
           "end" : "2026-11-09"
@@ -543,7 +530,7 @@
             "reference" : "Bundle/TrustDemoJ4Ips"
           }
         }]
-      }]
+      }
     }
   }]
 }
