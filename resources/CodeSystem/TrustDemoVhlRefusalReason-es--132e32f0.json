@@ -1,0 +1,55 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVhlRefusalReason-es",
+  "language" : "es",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"es\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVhlRefusalReason-es</b></p><a name=\"TrustDemoVhlRefusalReason-es\"> </a><a name=\"hcTrustDemoVhlRefusalReason-es\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-es</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-withdrawn\">withdrawn</a><a name=\"TrustDemoVhlRefusalReason-es-withdrawn\"> </a></td><td>Retirado</td><td>El titular retiró el enlace antes de que caducara.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-expired\">expired</a><a name=\"TrustDemoVhlRefusalReason-es-expired\"> </a></td><td>Caducado</td><td>La solicitud llegó después de la fecha de caducidad que eligió el titular.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-wrong-passcode\">wrong-passcode</a><a name=\"TrustDemoVhlRefusalReason-es-wrong-passcode\"> </a></td><td>Código de acceso incorrecto</td><td>El código de acceso indicado no coincide con el que fijó el titular.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-es",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlRefusalReasonEs",
+  "title" : "Por qué un enlace compartido no entregó nada",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-07T11:05:24+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Suplemento en español (es) de TrustDemoVhlRefusalReason: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason",
+  "concept" : [{
+    "code" : "withdrawn",
+    "display" : "Retirado",
+    "definition" : "El titular retiró el enlace antes de que caducara.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Retirado"
+    }]
+  },
+  {
+    "code" : "expired",
+    "display" : "Caducado",
+    "definition" : "La solicitud llegó después de la fecha de caducidad que eligió el titular.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Caducado"
+    }]
+  },
+  {
+    "code" : "wrong-passcode",
+    "display" : "Código de acceso incorrecto",
+    "definition" : "El código de acceso indicado no coincide con el que fijó el titular.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Código de acceso incorrecto"
+    }]
+  }]
+}

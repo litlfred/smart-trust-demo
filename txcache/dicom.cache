@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110112",
+  "display" : "Query"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Query",
+  "code" : "110112",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "version" : "2025.3.20250714",
+  "server" : "https://tx.fhir.org/r5",
+  "diagnostics" : "0ms tx-op\n1ms http://dicom.nema.org/resources/ValueSet/all|2025.3.20250714: Validate \"[http://dicom.nema.org/resources/ontology/DCM#110112 (\"Query\")]\"\n1ms http://dicom.nema.org/resources/ValueSet/all|2025.3.20250714: Check \"http://dicom.nema.org/resources/ontology/DCM#110112\"\n1ms http://dicom.nema.org/resources/ValueSet/all|2025.3.20250714: CodeSystem found: http://dicom.nema.org/resources/ontology/DCM|2025.3.20250714 for http://dicom.nema.org/resources/ontology/DCM|2025.3.20250714\n1ms http://dicom.nema.org/resources/ValueSet/all|2025.3.20250714: check code in (http://dicom.nema.org/resources/ontology/DCM) at Coding\n1ms http://dicom.nema.org/resources/ValueSet/all|2025.3.20250714: Code \"110112\" found in http://dicom.nema.org/resources/ontology/DCM|2025.3.20250714",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
