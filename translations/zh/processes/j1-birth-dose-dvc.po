@@ -107,5 +107,9 @@ msgstr "照护者持有两份已签名的纸质 DVC"
 
 #: processes/content/j1-birth-dose-dvc.bpmn:37
 #. Diagram element documentation
-msgid "The vaccinator records each dose (vaccine product, date, batch) in the hospital system."
-msgstr "接种员在医院系统中记录每一剂次（疫苗产品、日期、批号）。"
+msgid "The vaccinator records each dose (vaccine product, date, batch) in the hospital system, on its dose form, through smart-base's reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response, which writes the Immunization each DVC is built from."
+msgstr "接种人员通过 smart-base 可复用的 SDC 数据采集流程，在医院系统中以剂次表单记录每一剂次（疫苗产品、日期、批号）：先 complete-sdc-questionnaire，再 extract-questionnaire-response，后者写出用于构建每份 DVC 的 Immunization。"
+
+#. Diagram element documentation
+#~ msgid "The vaccinator records each dose (vaccine product, date, batch) in the hospital system."
+#~ msgstr "接种员在医院系统中记录每一剂次（疫苗产品、日期、批号）。"
