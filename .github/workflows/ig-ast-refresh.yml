@@ -42,3 +42,7 @@ jobs:
     with:
       ref: ${{ inputs.ref || github.sha }}
       force: ${{ inputs.force || false }}
+      # The ig.ini template is a `#current` package that FHIR/ig-registry's
+      # templates.json does not list, so the seeder needs its repository: the CI
+      # build server's copy 404s (2026-10-30, again 2026-11-07).
+      template-repos: who.template.root=WorldHealthOrganization/smart-ig-template
