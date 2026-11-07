@@ -21,6 +21,10 @@ Finds unregistered children on home visits, registers them and refers them to th
 
 - [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2a A health worker finds the baby — and reads his cards (told through Vilay); J2b Registered at home, and referred (told through Vilay)
 
+**On the device screens**: [S2 Offline QR Scan of the Foreign Cards (Vilay's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S2/); [S3 Newborn Registration & Clinic Referral (Vilay's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S3/)
+
+**Discussed in the workshop modules**: [M2 The reference architecture and where you stand](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m2/); [M3 Standards, specifications and the core data set](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m3/); [M4 Trust, credentials and wallets](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m4/); [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/)
+
 **User stories** ([all stories](scenarios.html#user-stories)):
 
 - I want to read a foreign vaccination QR offline and register the child with it, so that the clinic sees what was given before the family arrives
