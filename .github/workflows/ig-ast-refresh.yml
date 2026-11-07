@@ -38,7 +38,7 @@ permissions:
 
 jobs:
   refresh:
-    uses: litlfred/fhir-harness/.github/workflows/ig-ast-refresh.yml@60aa67361364ce7439279372405ba5cbc0b3b00d # index.lock.json
+    uses: litlfred/fhir-harness/.github/workflows/ig-ast-refresh.yml@29c20f1371d2defa00da52cfbad48fea491f9bbc # index.lock.json
     with:
       ref: ${{ inputs.ref || github.sha }}
       force: ${{ inputs.force || false }}
@@ -46,3 +46,7 @@ jobs:
       # templates.json does not list, so the seeder needs its repository: the CI
       # build server's copy 404s (2026-10-30, again 2026-11-07).
       template-repos: who.template.root=WorldHealthOrganization/smart-ig-template
+      # The FHIR packages the Publisher's SUSHI loads, seeded from this lock
+      # (tarball + integrity) before the build, so nothing is fetched at run time:
+      # smart.who.int.trust-phw is the fork build, on no package registry.
+      package-lock: tools/ig-gen/fhir-packages.lock.json
