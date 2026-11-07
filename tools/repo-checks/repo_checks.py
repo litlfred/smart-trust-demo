@@ -22,7 +22,9 @@
   resolve: every requirement id they cite exists, every BPMN task they serve,
   every FSH artifact and data element they name, every decision table an
   indicator names; and each table's entries stay in the FEEL subset the
-  harness interprets (tools/dak/dak.py).
+  harness interprets (tools/dak/dak.py). Each journey step's `dak` edges
+  are what tools/dak/journey_dak.py derives from them and the step's BPMN
+  tasks.
 
 - Every skill a BPMN task names exists (this instance's, or a smart-trust-tools
   package's at the pinned commit); a task's skill is one its lane's role
@@ -279,7 +281,16 @@ def dak_errors(req_dir):
             rid = json.loads(f.read_text()).get("id", "")
             if rid.startswith("req:"):
                 known.add(rid[4:].upper())
-    return _load_dak().errors(known, ROOT)
+    return _load_dak().errors(known, ROOT) + _load_journey_dak().errors(ROOT)
+
+
+def _load_journey_dak():
+    """tools/dak/journey_dak.py, which derives each journey step's `dak` edges."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("journey_dak", ROOT / "tools" / "dak" / "journey_dak.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 if __name__ == "__main__":

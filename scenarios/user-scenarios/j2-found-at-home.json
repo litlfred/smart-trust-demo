@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.2.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j2-found-at-home",
   "title": "J2 — Found at home",
   "description": "A health worker registers him offline and records the cards as \"reported, not yet verified\".",
@@ -97,7 +97,21 @@
       "illustration": {
         "src": "docs/images/moment-j2-found-at-home.jpg",
         "alt": "In a Lao village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on"
-      }
+      },
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdChwRegistration",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT01",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND03",
+          "rel": "measures"
+        }
+      ]
     },
     {
       "id": "J2b",
@@ -258,6 +272,24 @@
             "ServiceRequest/TrustDemoJ2Referral"
           ],
           "spec": "https://hl7.org/fhir/servicerequest.html"
+        }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdChwReferral",
+          "rel": "data"
+        },
+        {
+          "key": "StructureDefinition/TrustDemoDdChwRegistration",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT01",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND03",
+          "rel": "measures"
         }
       ]
     }
