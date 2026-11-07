@@ -81,3 +81,29 @@ then `sh web/scripts/publish.sh`, which builds `web/` and places it at
 commit. The site's publish keeps `vaxlink/` at the root because
 `index.config.json` lists it in `site.build.keep`; a branch's site publish
 replaces `branches/<branch>/` whole, so the walkthrough always goes second.
+
+## Translations
+
+The harness's generic process is
+[`translation-refresh`](https://github.com/litlfred/cat-harness/blob/HEAD/skills/library/library-core/translation-refresh.md)
+and `translation-manager` §"Translating into several locales as a team"; this
+section names what that skill leaves to the instance. Locales: ar, es, fr, ru,
+zh, all unofficial (agent, no human sign-off). Each locale is its own PR to
+main.
+
+| step | here |
+|---|---|
+| diagram templates | `bun run cat translate-bpmn --instance . --extract` (`:check` in CI) |
+| page templates | `bun tools/translation/pages-pot.ts` (`--check` in CI): `docs/**` and the non-copy pages of `input/pagecontent/` into `translations/<locale>/…` |
+| new and obsolete strings | `bun tools/translation/po-status.ts --merge` appends new msgids empty and keeps obsolete ones as `#~`; without `--merge` it reports |
+| FHIR terms | one CodeSystem supplement per locale, `input/fsh/translations/<locale>.fsh`; never edit a resource's own text |
+| QA report | `python3 -I tools/translation/glossary_qa.py --layer "smart-trust (GDHCN glossary)=<smart-trust>/…/{locale}/*.po"` writes `test/results/translation-qa/`; `--check` fails only on a lost token or an official claim |
+| round-trip verdicts | `test/results/translation-qa/roundtrip.json`, the adjudicator's, by hand |
+
+The CI job `bpmn-generated` in `.github/workflows/checks.yml` runs the template
+checks, `kg:locale:check`, the officiality check, `po-status --github` and the
+QA `--check`. Merge policy: **merge-when-green** (owner, 2026-11-07). A
+refresh run merges its own refresh PR only when every check is green and the
+untainted round trip on the changed strings records no fail; anything red,
+uncertain or failing is left open and reported to the owner. Merging is not
+sign-off: the translations stay unofficial.

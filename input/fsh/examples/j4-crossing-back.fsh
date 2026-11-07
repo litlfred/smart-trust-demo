@@ -4,7 +4,8 @@
 // primary care clinic in Chiang Rai, Dr Anan scans it, Bounmy says the
 // passcode, and the viewer fetches Somsack's IPS from Lao PDR; the Lao gateway
 // logs the access at home (J4.1). The Bundle follows the IPS document shape
-// (Composition, LOINC 60591-5) without claiming the IPS profiles, which this
+// (Composition, LOINC 60591-5) and carries the consent it is shared under
+// (an Advance Directives section and a Consent entry), without claiming the IPS profiles, which this
 // guide does not depend on.
 
 Instance: TrustDemoJ4Composition
@@ -35,6 +36,11 @@ Usage: #example
 * section[=].entry[+] = Reference(Immunization/TrustDemoLaoBopv1)
 * section[=].entry[+] = Reference(Immunization/TrustDemoLaoPcv1)
 * section[=].entry[+] = Reference(Immunization/TrustDemoLaoMr1)
+* section[+].title = "Advance directives: consent"
+* section[=].code = $loinc#42348-3 "Advance directives"
+* section[=].text.status = #generated
+* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Shared with Bounmy's consent: anyone he gives the QR code and the spoken passcode to may read this summary for treatment, from 26 October to 9 November 2026.</div>"
+* section[=].entry[+] = Reference(Consent/TrustDemoJ4Consent)
 
 Instance: TrustDemoJ4Ips
 InstanceOf: Bundle
@@ -61,20 +67,25 @@ Usage: #example
 * entry[=].resource = TrustDemoLaoPcv1
 * entry[+].fullUrl = "http://smart.who.int/trust-demo/Immunization/TrustDemoLaoMr1"
 * entry[=].resource = TrustDemoLaoMr1
+* entry[+].fullUrl = "http://smart.who.int/trust-demo/Consent/TrustDemoJ4Consent"
+* entry[=].resource = TrustDemoJ4Consent
 
 Instance: TrustDemoJ4Consent
 InstanceOf: Consent
 Title: "J4.0b Bounmy's consent to share Somsack's summary for 14 days"
-Description: "Recorded when Bounmy creates Somsack's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record."
+Description: "Recorded when Bounmy creates Somsack's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN), with Bounmy's own act on the family wallet as the evidence. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Lao portal enforces the copy in its own record."
 Usage: #example
 * status = #active
-* category = $loinc#59284-0 "Consent Document"
+* category[+] = $loinc#59284-0 "Consent Document"
+* category[+] = http://terminology.hl7.org/CodeSystem/v3-ActCode#OPTIN "opt-in"
 * subject = Reference(TrustDemoSomsack)
 * date = "2026-10-26"
 * period.start = "2026-10-26"
 * period.end = "2026-11-09"
 * grantor = Reference(TrustDemoBounmy)
 * controller = Reference(TrustDemoLaoPortalOrg)
+* sourceAttachment.contentType = #application/json
+* sourceAttachment.title = "Bounmy's confirmation on the family wallet when he created Somsack's VHL (explicit consent)"
 * decision = #permit
 * provision.period.start = "2026-10-26"
 * provision.period.end = "2026-11-09"

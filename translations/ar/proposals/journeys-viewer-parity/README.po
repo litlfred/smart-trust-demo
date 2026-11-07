@@ -1,0 +1,634 @@
+# Arabic translation of proposals/journeys-viewer-parity/README
+#
+# UNOFFICIAL — drafted by an agent from the template beside it (owner
+# 2026-11-06: "launch 6 UN translators (w/ validations)"). No human has
+# adjudicated it; official means human sign-off (#206). Acronyms, codes,
+# placeholders, numbers and URLs are kept as written; persona names are
+# fictional and kept as written. Modern Standard Arabic, right-to-left.
+#
+# Untainted round trip, 2026-11-06: back-translators that saw only the
+# Arabic (no English, no repository) rendered every Arabic msgstr into
+# English; the translator adjudicated against the msgids. Synonyms and
+# re-ordering were not counted as drift. Term-of-art drifts found and fixed
+# across the locale: home clinic (was "local clinic"), clinician (was
+# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# conditional, "the harness's interpreter". No other claim, quantifier,
+# negation or named entity was found moved.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: smart-trust-demo\n"
+"POT-Creation-Date: 2026-11-06T09:26:50.956Z\n"
+"PO-Revision-Date: 2026-11-06\n"
+"Last-Translator: smart-trust-demo agent (drafted, unofficial)\n"
+"Language: ar\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: docs/proposals/journeys-viewer-parity/README.md:80
+msgid "\"See what … sees\" opens the matching screen; \"Back to the user journey\" returns to the moment."
+msgstr "يفتح زر «انظر ما يراه …» الشاشة المطابقة؛ ويعيد زر «العودة إلى رحلة المستخدم» إلى اللحظة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:75
+#, python-brace-format
+msgid "{code0}/{code1}, {code2}/{code3}. Moving on from the last moment opens Discussion."
+msgstr "{code0}/{code1}، {code2}/{code3}. يؤدي الانتقال من اللحظة الأخيرة إلى فتح «النقاش»."
+
+#: docs/proposals/journeys-viewer-parity/README.md:19
+msgid "1. Styling"
+msgstr "1. التنسيق"
+
+#: docs/proposals/journeys-viewer-parity/README.md:31
+msgid "2. Wireframes: the views"
+msgstr "2. المخططات الهيكلية: طرق العرض"
+
+#: docs/proposals/journeys-viewer-parity/README.md:65
+msgid "3. Workflow"
+msgstr "3. سير العمل"
+
+#: docs/proposals/journeys-viewer-parity/README.md:83
+msgid "4. Links"
+msgstr "4. الروابط"
+
+#: docs/proposals/journeys-viewer-parity/README.md:99
+msgid "5. Data the viewer already has, and what it lacks"
+msgstr "5. البيانات المتوفرة لدى العارض، وما ينقصه"
+
+#: docs/proposals/journeys-viewer-parity/README.md:78
+msgid "A banner with the facilitator cue for the current view, which the presenter can hide before sharing the screen."
+msgstr "شريط يحمل تلميح الميسِّر لطريقة العرض الحالية، ويمكن لمقدِّم العرض إخفاؤه قبل مشاركة الشاشة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:53
+msgid "A chapter progress bar across all steps of the journey set (J1 → J4.1). The current step is highlighted. Its controls are ← and →, a dot per step, and Discuss → at the end."
+msgstr "شريط تقدُّم للفصول يمتد عبر جميع خطوات مجموعة الرحلات (J1 → J4.1)، مع إبراز الخطوة الحالية. عناصر التحكم فيه هي ← و→، ونقطة لكل خطوة، وزر «ناقِش →» في النهاية."
+
+#: docs/proposals/journeys-viewer-parity/README.md:28
+#, python-brace-format
+msgid "A coloured avatar with initials, an emotion badge (Distressed…Delighted) with a face, and a quote in italics ({code0})."
+msgstr "صورة رمزية ملوّنة بالأحرف الأولى، وشارة انفعال (من «متضايق» إلى «مسرور») مع وجه تعبيري، واقتباس بخط مائل ({code0})."
+
+#: docs/proposals/journeys-viewer-parity/README.md:26
+#, python-brace-format
+msgid "A dark navy panel with the story in one sentence, a cast line, and two CTAs: Start the walkthrough and See the whole journey map ({code0})."
+msgstr "لوحة بلون كحلي داكن تتضمن القصة في جملة واحدة، وسطرًا بالشخصيات، وزرَّي دعوة إلى الإجراء: «ابدأ الجولة الإرشادية» و«اعرض خريطة الرحلة كاملة» ({code0})."
+
+#: docs/proposals/journeys-viewer-parity/README.md:45
+msgid "A drawer at the bottom of every page with syntax-highlighted Patient, Group, Immunization, ServiceRequest, Provenance, ConceptMap, AuditEvent and CBOR, and a copy button. \"Inspect JSON\" opens it on the right tab."
+msgstr "درج في أسفل كل صفحة يعرض Patient وGroup وImmunization وServiceRequest وProvenance وConceptMap وAuditEvent وCBOR مع تلوين الصياغة، وزرًّا للنسخ. ويفتحه رابط «فحص JSON» على علامة التبويب المناسبة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:27
+#, python-brace-format
+msgid "A numbered card per chapter, with a country chip and the illustration ({code0})."
+msgstr "بطاقة مرقَّمة لكل فصل، مع شارة البلد والرسم التوضيحي ({code0})."
+
+#: docs/proposals/journeys-viewer-parity/README.md:26
+msgid "A plain heading and a list."
+msgstr "عنوان بسيط وقائمة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:29
+msgid "A segmented bar with the stage names, as in VaxLink."
+msgstr "شريط مقسَّم يحمل أسماء المراحل، كما في VaxLink."
+
+#: docs/proposals/journeys-viewer-parity/README.md:79
+msgid "a stable URL for every view, step, persona and block"
+msgstr "عنوان URL ثابت لكل طريقة عرض وخطوة وشخصية افتراضية ولبنة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:39
+msgid "A swimlane: a column per moment and a lane per person, a \"Focus on\" persona filter that dims the rest, and toggles for pain points & enablers and for the technical layer."
+msgstr "مخطط بمسارات: عمود لكل لحظة ومسار لكل شخص، ومرشِّح «التركيز على» للشخصيات الافتراضية يُعتِّم الباقي، ومفاتيح تبديل لنقاط الألم والعوامل المُمكِّنة وللطبقة التقنية."
+
+#: docs/proposals/journeys-viewer-parity/README.md:29
+msgid "A thin bar."
+msgstr "شريط رفيع."
+
+#: docs/proposals/journeys-viewer-parity/README.md:81
+msgid "A Vite build, static on GitHub Pages"
+msgstr "بناء Vite، ثابت على GitHub Pages"
+
+#: docs/proposals/journeys-viewer-parity/README.md:104
+msgid "Ask the room, facilitator cue, questions by module, sheets"
+msgstr "اسأل الحاضرين، تلميح الميسِّر، أسئلة حسب الوحدة، الأوراق"
+
+#: docs/proposals/journeys-viewer-parity/README.md:91
+msgid "Building block"
+msgstr "لبنة بنائية"
+
+#: docs/proposals/journeys-viewer-parity/README.md:59
+msgid "building blocks by layer, each with its role in this step;"
+msgstr "اللبنات البنائية حسب الطبقة، ولكلٍّ منها دورها في هذه الخطوة؛"
+
+#: docs/proposals/journeys-viewer-parity/README.md:27
+#, python-brace-format
+msgid "Cards with the step illustration, {code0}."
+msgstr "بطاقات تحمل الرسم التوضيحي للخطوة، {code0}."
+
+#: docs/proposals/journeys-viewer-parity/README.md:109
+msgid "Chapter grouping (VaxLink's four chapters over five BPMN journeys)"
+msgstr "تجميع الفصول (فصول VaxLink الأربعة على خمس رحلات BPMN)"
+
+#: docs/proposals/journeys-viewer-parity/README.md:79
+msgid "Deep links"
+msgstr "الروابط العميقة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:44
+msgid "Device Demo"
+msgstr "عرض الجهاز"
+
+#: docs/proposals/journeys-viewer-parity/README.md:108
+msgid "Device screens S1–S8"
+msgstr "شاشات الجهاز S1–S8"
+
+#: docs/proposals/journeys-viewer-parity/README.md:42
+msgid "Discussion"
+msgstr "النقاش"
+
+#: docs/proposals/journeys-viewer-parity/README.md:94
+msgid "Discussion question"
+msgstr "سؤال للنقاش"
+
+#: docs/proposals/journeys-viewer-parity/README.md:111
+msgid "Done when"
+msgstr "يُعدّ منجزًا عندما"
+
+#: docs/proposals/journeys-viewer-parity/README.md:113
+#, python-brace-format
+msgid "Each view in section 2 exists in the viewer and matches its {code0} screenshot element for element, in the section 1 style."
+msgstr "توجد كل طريقة عرض من القسم 2 في العارض وتطابق لقطة الشاشة {code0} الخاصة بها عنصرًا بعنصر، وفق أسلوب القسم 1."
+
+#: docs/proposals/journeys-viewer-parity/README.md:85
+msgid "Every moment in VaxLink links outward. A rebuilt page must keep each of these links, resolved from the graph rather than hard-coded:"
+msgstr "كل لحظة في VaxLink ترتبط بما هو خارجها. ويجب أن تحتفظ أي صفحة يُعاد بناؤها بكل هذه الروابط، مستخرجةً من الرسم البياني لا مكتوبةً يدويًا:"
+
+#: docs/proposals/journeys-viewer-parity/README.md:107
+msgid "FHIR change per step: profile, why, example"
+msgstr "تغيير FHIR لكل خطوة: الملف التعريفي، والسبب، والمثال"
+
+#: docs/proposals/journeys-viewer-parity/README.md:45
+msgid "FHIR payload drawer"
+msgstr "درج حمولة FHIR"
+
+#: docs/proposals/journeys-viewer-parity/README.md:41
+msgid "Four big ideas. A grid of building blocks × moments, by layer. A detail panel for each block, listing the moments that use it. The ArchiMate views."
+msgstr "أربع أفكار كبرى. شبكة من اللبنات البنائية × اللحظات، حسب الطبقة. لوحة تفاصيل لكل لبنة تسرد اللحظات التي تستخدمها. طرق عرض ArchiMate."
+
+#: docs/proposals/journeys-viewer-parity/README.md:23
+msgid "Frame"
+msgstr "الإطار"
+
+#: docs/proposals/journeys-viewer-parity/README.md:87
+msgid "From"
+msgstr "من"
+
+#: docs/proposals/journeys-viewer-parity/README.md:51
+msgid "From top to bottom:"
+msgstr "من الأعلى إلى الأسفل:"
+
+#: docs/proposals/journeys-viewer-parity/README.md:26
+msgid "Hero"
+msgstr "الواجهة الرئيسية"
+
+#: docs/proposals/journeys-viewer-parity/README.md:41
+#: docs/proposals/journeys-viewer-parity/README.md:92
+msgid "How it works"
+msgstr "كيف يعمل"
+
+#: docs/proposals/journeys-viewer-parity/README.md:105
+msgid "Illustrations"
+msgstr "الرسوم التوضيحية"
+
+#: docs/proposals/journeys-viewer-parity/README.md:101
+msgid "In the graph?"
+msgstr "في الرسم البياني؟"
+
+#: docs/proposals/journeys-viewer-parity/README.md:73
+msgid "Interaction"
+msgstr "التفاعل"
+
+#: docs/proposals/journeys-viewer-parity/README.md:89
+msgid "Its BPMN process: an inline drawing with the step's tasks highlighted, plus \"Open in the IG\" (the process anchor) and \"Read the scenario\" (the scenario anchor)."
+msgstr "عملية BPMN الخاصة بها: رسم مضمَّن مع إبراز مهام الخطوة، إضافةً إلى «فتح في دليل التنفيذ (IG)» (مرساة العملية) و«قراءة السيناريو» (مرساة السيناريو)."
+
+#: docs/proposals/journeys-viewer-parity/README.md:95
+msgid "Its device screen, and back again."
+msgstr "شاشة الجهاز الخاصة بها، والعودة منها."
+
+#: docs/proposals/journeys-viewer-parity/README.md:90
+msgid "Its FHIR examples and profiles in the IG: an artifact page for each."
+msgstr "أمثلة FHIR والملفات التعريفية الخاصة بها في دليل التنفيذ (IG): صفحة أداة لكل منها."
+
+#: docs/proposals/journeys-viewer-parity/README.md:23
+msgid "Its own app frame. The top bar holds the workshop name, the journey code range, the trust-list status and the presenter toggle. A second bar holds the app title, the Journeys / Device Demo switch, and FHIR IG / IG source / Reset."
+msgstr "إطار التطبيق الخاص به. يحمل الشريط العلوي اسم ورشة العمل، ونطاق رموز الرحلات، وحالة قائمة الثقة، ومفتاح وضع مقدِّم العرض. ويحمل شريط ثانٍ عنوان التطبيق، ومبدِّل «الرحلات / عرض الجهاز»، و«FHIR IG / مصدر IG / إعادة الضبط»."
+
+#: docs/proposals/journeys-viewer-parity/README.md:12
+msgid "Its pages are long documentation pages inside the harness's site frame."
+msgstr "صفحاته صفحات توثيق طويلة داخل إطار موقع الإطار التشغيلي."
+
+#: docs/proposals/journeys-viewer-parity/README.md:91
+msgid "Its specification (HL7, IHE, WHO), and in How it works every moment that uses it."
+msgstr "مواصفتها (HL7، IHE، WHO)، وفي «كيف يعمل» كل لحظة تستخدمها."
+
+#: docs/proposals/journeys-viewer-parity/README.md:93
+msgid "Journey"
+msgstr "الرحلة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:39
+msgid "Journey map"
+msgstr "خريطة الرحلة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:1
+msgid "Journeys viewer: parity with VaxLink"
+msgstr "عارض الرحلات: التكافؤ مع VaxLink"
+
+#: docs/proposals/journeys-viewer-parity/README.md:40
+#: docs/proposals/journeys-viewer-parity/README.md:44
+#: docs/proposals/journeys-viewer-parity/README.md:45
+msgid "missing"
+msgstr "غير موجود"
+
+#: docs/proposals/journeys-viewer-parity/README.md:41
+msgid "missing (per-step \"Under the hood\" only)"
+msgstr "غير موجود (قسم «تحت الغطاء» لكل خطوة فقط)"
+
+#: docs/proposals/journeys-viewer-parity/README.md:38
+msgid "missing: all steps on one long page"
+msgstr "غير موجود: جميع الخطوات في صفحة واحدة طويلة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:95
+msgid "Moment"
+msgstr "اللحظة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:80
+msgid "Moment ↔ screen"
+msgstr "اللحظة ↔ الشاشة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:27
+msgid "Moment cards"
+msgstr "بطاقات اللحظات"
+
+#: docs/proposals/journeys-viewer-parity/README.md:75
+msgid "Next and previous moment"
+msgstr "اللحظة التالية والسابقة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:107
+#, python-brace-format
+msgid "no. {code0} in VaxLink. These are a step → {code1} edge with a reason"
+msgstr "لا. {code0} في VaxLink. وهي حافة خطوة → {code1} مع سبب"
+
+#: docs/proposals/journeys-viewer-parity/README.md:108
+msgid "no. They are React components. Open question: static mock screens per step, or a link out to the instance's own app?"
+msgstr "لا. إنها مكوّنات React. سؤال مفتوح: شاشات تجريبية ثابتة لكل خطوة، أم رابط إلى تطبيق النسخة نفسها؟"
+
+#: docs/proposals/journeys-viewer-parity/README.md:106
+#, python-brace-format
+msgid "no. Today they are in VaxLink {code0} ({code1}). They need a home ({code2} groups?)"
+msgstr "لا. هي اليوم في VaxLink {code0} ({code1}). وتحتاج إلى موضع ({code2} مجموعات؟)"
+
+#: docs/proposals/journeys-viewer-parity/README.md:38
+msgid "One moment at a time (see below)."
+msgstr "لحظة واحدة في كل مرة (انظر أدناه)."
+
+#: docs/proposals/journeys-viewer-parity/README.md:40
+msgid "One person end to end: goal, needs, frustrations, an emotion curve and touchpoints."
+msgstr "شخص واحد من البداية إلى النهاية: الهدف، والاحتياجات، ومواطن الإحباط، ومنحنى الانفعالات، ونقاط التماس."
+
+#: docs/proposals/journeys-viewer-parity/README.md:37
+msgid "Overview"
+msgstr "نظرة عامة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:69
+msgid "Overview → Walkthrough (for each moment: ask the room, then reveal the \"What if…\") → Under the hood when asked → Persona lens → How it works → Device demo when asked → Discussion."
+msgstr "نظرة عامة → الجولة الإرشادية (لكل لحظة: اسأل الحاضرين، ثم اكشف «ماذا لو…») → «تحت الغطاء» عند الطلب → عدسة الشخصية الافتراضية → كيف يعمل → عرض الجهاز عند الطلب → النقاش."
+
+#: docs/proposals/journeys-viewer-parity/README.md:5
+msgid "Owner's decisions (2026-11-05):"
+msgstr "قرارات المالك (2026-11-05):"
+
+#: docs/proposals/journeys-viewer-parity/README.md:24
+msgid "Palette"
+msgstr "لوحة الألوان"
+
+#: docs/proposals/journeys-viewer-parity/README.md:37
+msgid "partly (index list)"
+msgstr "جزئيًا (قائمة فهرسية)"
+
+#: docs/proposals/journeys-viewer-parity/README.md:39
+msgid "partly: the grid is there; there is no focus filter and no toggles"
+msgstr "جزئيًا: الشبكة موجودة؛ ولا يوجد مرشِّح تركيز ولا مفاتيح تبديل"
+
+#: docs/proposals/journeys-viewer-parity/README.md:42
+msgid "partly: workshop module pages"
+msgstr "جزئيًا: صفحات وحدات ورشة العمل"
+
+#: docs/proposals/journeys-viewer-parity/README.md:28
+msgid "People"
+msgstr "الأشخاص"
+
+#: docs/proposals/journeys-viewer-parity/README.md:40
+msgid "Persona lens"
+msgstr "عدسة الشخصية الافتراضية"
+
+#: docs/proposals/journeys-viewer-parity/README.md:25
+msgid "Plus Jakarta Sans, falling back to Inter; large bold headlines; small-caps labels."
+msgstr "خط Plus Jakarta Sans، مع الرجوع إلى Inter؛ عناوين رئيسية كبيرة وعريضة؛ تسميات بأحرف استهلالية صغيرة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:28
+msgid "Present (avatars, faces, quotes), but plain."
+msgstr "موجود (صور رمزية، وجوه، اقتباسات)، لكنه بسيط."
+
+#: docs/proposals/journeys-viewer-parity/README.md:43
+#, python-brace-format
+msgid "present (workshop sheets); check the layout against {code0}"
+msgstr "موجود (أوراق ورشة العمل)؛ تحقَّق من التخطيط مقارنةً بـ {code0}"
+
+#: docs/proposals/journeys-viewer-parity/README.md:78
+msgid "Presenter mode"
+msgstr "وضع مقدِّم العرض"
+
+#: docs/proposals/journeys-viewer-parity/README.md:29
+msgid "Record trust"
+msgstr "تسجيل الثقة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:35
+msgid "Reference"
+msgstr "المرجع"
+
+#: docs/proposals/journeys-viewer-parity/README.md:21
+#: docs/proposals/journeys-viewer-parity/README.md:73
+msgid "Required"
+msgstr "مطلوب"
+
+#: docs/proposals/journeys-viewer-parity/README.md:26
+msgid "Required on a journey set's landing page."
+msgstr "مطلوب في الصفحة الرئيسية لمجموعة الرحلات."
+
+#: docs/proposals/journeys-viewer-parity/README.md:76
+msgid "Reveal \"What if…\""
+msgstr "اكشف «ماذا لو…»"
+
+#: docs/proposals/journeys-viewer-parity/README.md:44
+msgid "Screens S1–S8, one per moment, in a phone or tablet frame, with a stage bar and \"Back to the user journey\". Includes the tamper test (S4) and the wrong-passcode test (S8)."
+msgstr "الشاشات S1–S8، شاشة لكل لحظة، داخل إطار هاتف أو جهاز لوحي، مع شريط المراحل وزر «العودة إلى رحلة المستخدم». وتشمل اختبار العبث (S4) واختبار رمز المرور الخاطئ (S8)."
+
+#: docs/proposals/journeys-viewer-parity/README.md:87
+msgid "Source in VaxLink"
+msgstr "المصدر في VaxLink"
+
+#: docs/proposals/journeys-viewer-parity/README.md:81
+msgid "static pages and a little vanilla JS, as now"
+msgstr "صفحات ثابتة وقليل من JavaScript الخالص (JS)، كما هو الحال الآن"
+
+#: docs/proposals/journeys-viewer-parity/README.md:3
+msgid "Status: spec, 2026-11-05."
+msgstr "الحالة: مواصفة، 2026-11-05."
+
+#: docs/proposals/journeys-viewer-parity/README.md:89
+#: docs/proposals/journeys-viewer-parity/README.md:90
+msgid "Step"
+msgstr "الخطوة"
+
+#: docs/proposals/journeys-viewer-parity/README.md:103
+msgid "Steps, people, feelings, pain points, enablers, policy, record, hand-off, what-ifs, stories, BPMN tasks, requirements, examples, blocks with roles"
+msgstr "الخطوات، والأشخاص، والمشاعر، ونقاط الألم، والعوامل المُمكِّنة، والسياسات، والسجل، والتسليم، وسيناريوهات «ماذا لو»، والقصص، ومهام BPMN، والمتطلبات، والأمثلة، واللبنات مع أدوارها"
+
+#: docs/proposals/journeys-viewer-parity/README.md:43
+msgid "Table sheets"
+msgstr "أوراق الجداول"
+
+#: docs/proposals/journeys-viewer-parity/README.md:24
+#, python-brace-format
+msgid "Tailwind tokens ({code0}): {code1} alabaster {code2}, surface, ink {code3}, steel {code4}, divider {code5}; {code6} cobalt {code7}; {code8} emerald {code9}; {code10} amber {code11}; {code12} crimson {code13}. Each has light and dark tints."
+msgstr "رموز Tailwind ({code0}): {code1} alabaster {code2}، وsurface، وink {code3}، وsteel {code4}، وdivider {code5}؛ {code6} cobalt {code7}؛ {code8} emerald {code9}؛ {code10} amber {code11}؛ {code12} crimson {code13}. لكلٍّ منها درجات فاتحة وداكنة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:24
+msgid "Take these tokens as the journey theme. The trust states use them: verified is emerald, reported is amber, tampered is crimson."
+msgstr "اعتمِد هذه الرموز سمةً للرحلات. وتستخدمها حالات الثقة: «تم التحقق» بالزمردي (emerald)، و«مُبلَّغ عنه» بالكهرماني (amber)، و«تم العبث به» بالقرمزي (crimson)."
+
+#: docs/proposals/journeys-viewer-parity/README.md:27
+msgid "Text list rows."
+msgstr "صفوف قائمة نصية."
+
+#: docs/proposals/journeys-viewer-parity/README.md:29
+#, python-brace-format
+msgid "The \"Follow the record\" ladder, a six-stage segmented bar with the current stage filled, in a card headed \"SOMSACK'S RECORD\" ({code0})."
+msgstr "سلّم «تتبَّع السجل»، وهو شريط مقسَّم من ست مراحل تُملأ فيه المرحلة الحالية، داخل بطاقة عنوانها «SOMSACK'S RECORD» (سجل Somsack) ({code0})."
+
+#: docs/proposals/journeys-viewer-parity/README.md:43
+msgid "The A3 canvas: a cover and Sheets 1–6, ready to print."
+msgstr "لوحة A3: غلاف والأوراق 1–6، جاهزة للطباعة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:92
+msgid "The ArchiMate views on the DPI-H RA, each box linking to its element page."
+msgstr "طرق عرض ArchiMate على البنية المرجعية DPI-H RA، وكل مربع فيها يرتبط بصفحة عنصره."
+
+#: docs/proposals/journeys-viewer-parity/README.md:28
+#, python-brace-format
+msgid "The avatar colours from {code0} and the badge style from VaxLink {code1}."
+msgstr "ألوان الصور الرمزية من {code0} ونمط الشارات من VaxLink {code1}."
+
+#: docs/proposals/journeys-viewer-parity/README.md:62
+msgid "the BPMN card for the step's process."
+msgstr "بطاقة BPMN لعملية الخطوة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:42
+msgid "The closing questions, each tagged by module and linked to its moments, plus every moment's policy takeaway."
+msgstr "أسئلة الختام، وكلٌّ منها موسوم بوحدته ومرتبط بلحظاته، إضافةً إلى الدرس المستفاد في السياسات من كل لحظة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:60
+msgid "the data hand-off: from, to, carrier, payload, offline or online;"
+msgstr "تسليم البيانات: من، وإلى، والناقل، والحمولة، ودون اتصال أو عبر الاتصال؛"
+
+#: docs/proposals/journeys-viewer-parity/README.md:63
+msgid "The facilitator cue, shown only in presenter mode."
+msgstr "تلميح الميسِّر، ولا يظهر إلا في وضع مقدِّم العرض."
+
+#: docs/proposals/journeys-viewer-parity/README.md:61
+msgid "the FHIR resources it changes, with profile, why, examples, and an \"Inspect JSON\" link into the drawer;"
+msgstr "موارد FHIR التي تغيّرها، مع الملف التعريفي والسبب والأمثلة، ورابط «فحص JSON» إلى الدرج؛"
+
+#: docs/proposals/journeys-viewer-parity/README.md:71
+msgid "The flow needs these interactions:"
+msgstr "يحتاج التدفق إلى هذه التفاعلات:"
+
+#: docs/proposals/journeys-viewer-parity/README.md:106
+msgid "The four \"big ideas\" of How it works"
+msgstr "«الأفكار الكبرى» الأربع في «كيف يعمل»"
+
+#: docs/proposals/journeys-viewer-parity/README.md:25
+msgid "The harness body type."
+msgstr "خط النص الأساسي في الإطار التشغيلي."
+
+#: docs/proposals/journeys-viewer-parity/README.md:23
+msgid "The harness frame and navbar stay (owner, 2026-11-06: \"harness frame and navbar is ok\"; this supersedes the 2026-11-05 rule to drop the site chrome). Inside that frame, the journey page carries VaxLink's own two bars and tabs, and must match VaxLink in its colours, spacing and layout."
+msgstr "يبقى إطار الإطار التشغيلي وشريط التنقل (المالك، 2026-11-06: «إطار الإطار التشغيلي وشريط التنقل مقبولان»؛ ويحل هذا محل قاعدة 2026-11-05 بإسقاط عناصر واجهة الموقع). وداخل هذا الإطار، تحمل صفحة الرحلة شريطَي VaxLink وعلامات تبويبه، ويجب أن تطابق VaxLink في ألوانها وتباعدها وتخطيطها."
+
+#: docs/proposals/journeys-viewer-parity/README.md:23
+msgid "The harness site frame: branch banner, site bar with search, side rail."
+msgstr "إطار موقع الإطار التشغيلي: شريط الفرع، وشريط الموقع مع البحث، والشريط الجانبي."
+
+#: docs/proposals/journeys-viewer-parity/README.md:24
+msgid "The harness theme's greens and greys."
+msgstr "درجات الأخضر والرمادي في سمة الإطار التشغيلي."
+
+#: docs/proposals/journeys-viewer-parity/README.md:7
+msgid "The harness's static journeys viewer is rebuilt to look and work like VaxLink. It is not replaced by VaxLink's React app."
+msgstr "يُعاد بناء عارض الرحلات الثابت في الإطار التشغيلي ليبدو ويعمل مثل VaxLink. ولا يُستبدل بتطبيق React الخاص بـ VaxLink."
+
+#: docs/proposals/journeys-viewer-parity/README.md:37
+msgid "The hero, the four moments as cards, the cast, and the \"Follow the record\" ladder."
+msgstr "الواجهة الرئيسية، واللحظات الأربع على هيئة بطاقات، والشخصيات، وسلّم «تتبَّع السجل»."
+
+#: docs/proposals/journeys-viewer-parity/README.md:93
+msgid "The IG pages for journeys, personas, business processes and examples, and the repository."
+msgstr "صفحات دليل التنفيذ (IG) الخاصة بالرحلات والشخصيات الافتراضية وعمليات العمل والأمثلة، والمستودع."
+
+#: docs/proposals/journeys-viewer-parity/README.md:54
+msgid "The left card: chapter label and country chip; the step code and position (\"J4.1 · 8/8\"); the title; the illustration; the headline, with persona names as inline avatar chips; when, where and touchpoint."
+msgstr "البطاقة اليسرى: تسمية الفصل وشارة البلد؛ ورمز الخطوة وموضعها («J4.1 · 8/8»)؛ والعنوان؛ والرسم التوضيحي؛ والعنوان الرئيسي مع أسماء الشخصيات الافتراضية على هيئة شارات صور رمزية مضمَّنة؛ ومتى، وأين، ونقطة التماس."
+
+#: docs/proposals/journeys-viewer-parity/README.md:94
+msgid "The moments it relates to."
+msgstr "اللحظات التي ترتبط بها."
+
+#: docs/proposals/journeys-viewer-parity/README.md:115
+msgid "The owner has compared the viewer and VaxLink side by side and agreed to retire VaxLink."
+msgstr "قارن المالك بين العارض وVaxLink جنبًا إلى جنب ووافق على إيقاف VaxLink."
+
+#: docs/proposals/journeys-viewer-parity/README.md:17
+#, python-brace-format
+msgid "The parity check is to put each {code0} beside the viewer's matching page and confirm that every element listed below is there."
+msgstr "يتمثل فحص التكافؤ في وضع كل {code0} بجانب الصفحة المطابقة في العارض والتأكد من وجود كل عنصر مُدرج أدناه."
+
+#: docs/proposals/journeys-viewer-parity/README.md:55
+msgid "The right column: the record card (trust ladder, the state, where it is held, the hand-off), then Ask the room (a dark card), then What if… (hidden until revealed, with \"Let the room guess, then reveal\"), then the Policy takeaway."
+msgstr "العمود الأيمن: بطاقة السجل (سلّم الثقة، والحالة، ومكان حفظه، والتسليم)، ثم «اسأل الحاضرين» (بطاقة داكنة)، ثم «ماذا لو…» (مخفية حتى تُكشف، مع «دع الحاضرين يخمّنون، ثم اكشف»)، ثم الدرس المستفاد في السياسات."
+
+#: docs/proposals/journeys-viewer-parity/README.md:25
+msgid "The same family and scale."
+msgstr "العائلة والمقياس نفسهما."
+
+#: docs/proposals/journeys-viewer-parity/README.md:114
+msgid "The section 3 interactions work, and the section 4 links resolve from the graph."
+msgstr "تعمل تفاعلات القسم 3، وتُستخرج روابط القسم 4 من الرسم البياني."
+
+#: docs/proposals/journeys-viewer-parity/README.md:58
+msgid "the technical so-what;"
+msgstr "الأثر التقني؛"
+
+#: docs/proposals/journeys-viewer-parity/README.md:47
+msgid "The walkthrough page"
+msgstr "صفحة الجولة الإرشادية"
+
+#: docs/proposals/journeys-viewer-parity/README.md:15
+#, python-brace-format
+msgid "This file is the target. The reference screenshots in <a0>{code0}</a0> are VaxLink at litlfred/vaxlink {code1} {code2} (the same app now lives in this repository's {code3}, published at {code4}), and they are the wireframes. {code5} are the current preview, for comparison."
+msgstr "هذا الملف هو الهدف. لقطات الشاشة المرجعية في <a0>{code0}</a0> هي VaxLink في litlfred/vaxlink {code1} {code2} (يوجد التطبيق نفسه الآن في {code3} من هذا المستودع، ومنشور في {code4})، وهي المخططات الهيكلية. أما {code5} فهي المعاينة الحالية، للمقارنة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:49
+msgid "This is the core of VaxLink. It has to be one page per step, not per journey."
+msgstr "هذا هو جوهر VaxLink. ويجب أن تكون صفحة واحدة لكل خطوة، لا لكل رحلة."
+
+#: docs/proposals/journeys-viewer-parity/README.md:87
+msgid "To"
+msgstr "إلى"
+
+#: docs/proposals/journeys-viewer-parity/README.md:97
+msgid "Today the viewer has breadcrumbs, follows / part-of links, and requirement and example links in Under the hood. It lacks the step-to-screen links, the block-to-moments index, the IG process and scenario anchors, and links to the ArchiMate element pages."
+msgstr "يحتوي العارض اليوم على مسارات التنقل، وروابط «يلي» / «جزء من»، وروابط المتطلبات والأمثلة في «تحت الغطاء». وينقصه روابط الخطوة إلى الشاشة، وفهرس اللبنة إلى اللحظات، ومراسي العملية والسيناريو في دليل التنفيذ (IG)، وروابط صفحات عناصر ArchiMate."
+
+#: docs/proposals/journeys-viewer-parity/README.md:77
+msgid "Toggle Under the hood"
+msgstr "إظهار/إخفاء «تحت الغطاء»"
+
+#: docs/proposals/journeys-viewer-parity/README.md:25
+msgid "Type"
+msgstr "النوع"
+
+#: docs/proposals/journeys-viewer-parity/README.md:57
+msgid "Under the hood (toggled):"
+msgstr "تحت الغطاء (قابل للإظهار والإخفاء):"
+
+#: docs/proposals/journeys-viewer-parity/README.md:21
+#: docs/proposals/journeys-viewer-parity/README.md:73
+msgid "VaxLink"
+msgstr "VaxLink"
+
+#: docs/proposals/journeys-viewer-parity/README.md:33
+msgid "VaxLink has seven journey views as tabs, plus the device demo. Every view has its own URL."
+msgstr "يتضمن VaxLink سبع طرق عرض للرحلات على هيئة علامات تبويب، إضافةً إلى عرض الجهاز. ولكل طريقة عرض عنوان URL خاص بها."
+
+#: docs/proposals/journeys-viewer-parity/README.md:13
+msgid "VaxLink is a facilitator's presentation tool."
+msgstr "VaxLink أداة عرض تقديمي للميسِّر."
+
+#: docs/proposals/journeys-viewer-parity/README.md:8
+msgid "VaxLink is not retired, and its URL does not redirect (litlfred/vaxlink#14 stays unmerged), until the viewer reaches parity."
+msgstr "لا يُوقَف VaxLink، ولا يُعاد توجيه عنوان URL الخاص به (يبقى litlfred/vaxlink#14 غير مدمج)، حتى يبلغ العارض التكافؤ."
+
+#: docs/proposals/journeys-viewer-parity/README.md:67
+msgid "VaxLink is used live in a room. The viewer must support the same flow (README \"Running a workshop session\"):"
+msgstr "يُستخدم VaxLink مباشرةً في قاعة. ويجب أن يدعم العارض التدفق نفسه (README «تشغيل جلسة ورشة عمل»):"
+
+#: docs/proposals/journeys-viewer-parity/README.md:35
+msgid "View"
+msgstr "طريقة العرض"
+
+#: docs/proposals/journeys-viewer-parity/README.md:21
+#: docs/proposals/journeys-viewer-parity/README.md:35
+msgid "Viewer today"
+msgstr "العارض اليوم"
+
+#: docs/proposals/journeys-viewer-parity/README.md:38
+msgid "Walkthrough"
+msgstr "الجولة الإرشادية"
+
+#: docs/proposals/journeys-viewer-parity/README.md:35
+msgid "What it shows"
+msgstr "ما الذي تعرضه"
+
+#: docs/proposals/journeys-viewer-parity/README.md:56
+msgid "Who's in this moment: one card per person, with their emotion badge, what they do, and their quote."
+msgstr "مَن في هذه اللحظة: بطاقة لكل شخص، مع شارة انفعاله، وما يفعله، واقتباسه."
+
+#: docs/proposals/journeys-viewer-parity/README.md:10
+#, python-brace-format
+msgid "Why this file exists: the first viewer preview, at {code0}, has the content but looks and works nothing like VaxLink."
+msgstr "سبب وجود هذا الملف: معاينة العارض الأولى، في {code0}، تحتوي على المحتوى لكنها لا تشبه VaxLink في مظهرها ولا في عملها."
+
+#: docs/proposals/journeys-viewer-parity/README.md:81
+msgid "Works offline / static"
+msgstr "يعمل دون اتصال / ثابت"
+
+#: docs/proposals/journeys-viewer-parity/README.md:75
+#: docs/proposals/journeys-viewer-parity/README.md:76
+#: docs/proposals/journeys-viewer-parity/README.md:77
+#: docs/proposals/journeys-viewer-parity/README.md:78
+msgid "yes"
+msgstr "نعم"
+
+#: docs/proposals/journeys-viewer-parity/README.md:103
+#, python-brace-format
+msgid "yes ({code0}, {code1})"
+msgstr "نعم ({code0}، {code1})"
+
+#: docs/proposals/journeys-viewer-parity/README.md:104
+#, python-brace-format
+msgid "yes ({code0})"
+msgstr "نعم ({code0})"
+
+#: docs/proposals/journeys-viewer-parity/README.md:105
+#, python-brace-format
+msgid "yes ({code0}). Thai–Lao chapters: {code1} in VaxLink. Pilgrimage: {code2}"
+msgstr "نعم ({code0}). الفصول التايلاندية–اللاوية: {code1} في VaxLink. الحج: {code2}"
+
+#: docs/proposals/journeys-viewer-parity/README.md:109
+#, python-brace-format
+msgid "yes, via {code0} (J4 holds J4.0 and J4.1)"
+msgstr "نعم، عبر {code0} (تضم J4 كلًّا من J4.0 وJ4.1)"
+
+#: docs/proposals/journeys-viewer-parity/README.md:80
+msgid "yes, wherever an instance has screens"
+msgstr "نعم، حيثما توجد شاشات لدى النسخة"
