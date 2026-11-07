@@ -12,14 +12,14 @@ Usage: #example
 * identifier[household].system = $HouseholdId
 * identifier[household].value = "HH-LAO-204"
 * type = #person
-* membership = #enumerated
+* actual = true
 * code = $v3-RoleCode#FAMMEMB "family member"
 * code.text = "Household"
 * name = "Sengmany household"
 * quantity = 3
 * managingEntity = Reference(TrustDemoBounmy)
-* member[+].entity = Reference(TrustDemoBounmy)
-* member[+].entity = Reference(TrustDemoKhamla)
+* member[+].entity = Reference(TrustDemoBounmyPatient)
+* member[+].entity = Reference(TrustDemoKhamlaPatient)
 * member[+].entity = Reference(TrustDemoSomsack)
 * member[=].period.start = "2025-11-18"
 
@@ -91,10 +91,10 @@ Usage: #example
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-10-28"
 * primarySource = false
-* informationSource.reference = Reference(TrustDemoKhamla)
+* reportOrigin = http://terminology.hl7.org/CodeSystem/immunization-origin#record "Written Record"
 * lotNumber = "TH-4821"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
-* note.text = "Read from a paper DVC without verifying its signature (triage read): reported, not verified."
+* note.text = "Read from a paper DVC that Khamla, Somsack's mother, showed, without verifying its signature (triage read): reported, not verified."
 
 Instance: TrustDemoJ2BcgReported
 InstanceOf: TrustDemoLaoReportedImmunization
@@ -106,10 +106,10 @@ Usage: #example
 * patient = Reference(TrustDemoSomsack)
 * occurrenceDateTime = "2025-10-28"
 * primarySource = false
-* informationSource.reference = Reference(TrustDemoKhamla)
+* reportOrigin = http://terminology.hl7.org/CodeSystem/immunization-origin#record "Written Record"
 * lotNumber = "TH-9012"
 * location.display = "Chiang Rai Provincial Hospital, Thailand"
-* note.text = "Read from a paper DVC without verifying its signature (triage read): reported, not verified."
+* note.text = "Read from a paper DVC that Khamla, Somsack's mother, showed, without verifying its signature (triage read): reported, not verified."
 
 Instance: TrustDemoJ2Referral
 InstanceOf: TrustDemoLaoReferral
@@ -119,12 +119,12 @@ Usage: #example
 * status = #active
 * intent = #order
 * priority = #routine
-* code.concept = $sct#3457005 "Patient referral"
-* code.concept.text = "Verify foreign paper DVCs and map the birth doses to the national schedule"
+* code = $sct#3457005 "Patient referral"
+* code.text = "Verify foreign paper DVCs and map the birth doses to the national schedule"
 * subject = Reference(TrustDemoSomsack)
 * authoredOn = "2025-11-18T10:20:00+07:00"
 * requester = Reference(TrustDemoVilay)
 * performer = Reference(TrustDemoVientianeDhc)
-* reason[+].concept.text = "Unverified foreign vaccination cards presented on a home visit (primarySource false)"
-* supportingInfo[+].reference = Reference(TrustDemoJ2HepBReported)
-* supportingInfo[+].reference = Reference(TrustDemoJ2BcgReported)
+* reasonCode[+].text = "Unverified foreign vaccination cards presented on a home visit (primarySource false)"
+* supportingInfo[+] = Reference(TrustDemoJ2HepBReported)
+* supportingInfo[+] = Reference(TrustDemoJ2BcgReported)

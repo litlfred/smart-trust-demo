@@ -7,7 +7,7 @@
     ]
   },
   "type": "person",
-  "membership": "enumerated",
+  "actual": true,
   "identifier": [
     {
       "system": "http://smart.who.int/trust-demo/sid/lao-household-id",
@@ -32,12 +32,12 @@
   "member": [
     {
       "entity": {
-        "reference": "RelatedPerson/TrustDemoBounmy"
+        "reference": "Patient/TrustDemoBounmyPatient"
       }
     },
     {
       "entity": {
-        "reference": "RelatedPerson/TrustDemoKhamla"
+        "reference": "Patient/TrustDemoKhamlaPatient"
       }
     },
     {

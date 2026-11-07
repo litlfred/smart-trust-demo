@@ -1,29 +1,29 @@
 {
-  "_comment": "FHIR packages SUSHI loads, from the registry.npmjs.org mirrors of the FHIR package registry, each checked against its npm dist integrity (sha512) before it is unpacked into ~/.fhir/packages. hl7.terminology.r5, hl7.fhir.uv.extensions.r5 and hl7.fhir.uv.tools.r5 are the packages SUSHI provides automatically for an R5 guide.",
+  "_comment": "FHIR packages SUSHI loads, each checked against its pinned integrity (sha512) before it is unpacked into ~/.fhir/packages. From the registry.npmjs.org mirrors of the FHIR package registry where the exact version is there; hl7.fhir.r4.core (npm holds only a placeholder) and hl7.fhir.uv.extensions.r4 5.3.0 (npm holds only the ballot) from litlfred/fhir-package-mirror at a pinned commit. hl7.terminology.r4, hl7.fhir.uv.extensions.r4 and hl7.fhir.uv.tools.r4 are the packages SUSHI provides automatically for an R4 guide.",
   "packages": [
     {
-      "name": "hl7.fhir.r5.core",
-      "version": "5.0.0",
-      "tarball": "https://registry.npmjs.org/hl7.fhir.r5.core/-/hl7.fhir.r5.core-5.0.0.tgz",
-      "integrity": "sha512-0TvJB1KKtokn/P2mRwcqEY8v8RN8IE/pQjvtlsPaJdYaDfYx4UBhuY4afAGeQjW01p9SNYPphxAFFkEsS6P05A=="
+      "name": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "tarball": "https://raw.githubusercontent.com/litlfred/fhir-package-mirror/87e59e41d49b656e9f8faa5801a6e6c29cb5ec53/hl7.fhir.r4.core%234.0.1.tgz",
+      "integrity": "sha512-mbj/pjYrpclK5G+EbRV9BUzk05iIOpnIYyRfGW7N7dHQkj2gD9lF6713W+RoMtpjkdZewjiD893ZMqMbyHniEA=="
     },
     {
-      "name": "hl7.terminology.r5",
+      "name": "hl7.terminology.r4",
       "version": "7.0.1",
-      "tarball": "https://registry.npmjs.org/hl7.terminology.r5/-/hl7.terminology.r5-7.0.1.tgz",
-      "integrity": "sha512-fFzOHMFKtMBX1T9O1ap/f4n506Dm6Ze7FWh9n7g6B9zEXzNyaF4HURMT2UzpNHYh3cIJuvIZZdpwizPMg5ryHA=="
+      "tarball": "https://registry.npmjs.org/hl7.terminology.r4/-/hl7.terminology.r4-7.0.1.tgz",
+      "integrity": "sha512-UamZUcARk/TEaJb7X0hDyANmC7bCv0Jof0u0uGIOB2O9VQX0uV45Vf4EyONHM6Sejv6q7sXEAzKAQsgw1Cld3A=="
     },
     {
-      "name": "hl7.fhir.uv.extensions.r5",
-      "version": "5.3.0-ballot-tc1",
-      "tarball": "https://registry.npmjs.org/hl7.fhir.uv.extensions.r5/-/hl7.fhir.uv.extensions.r5-5.3.0-ballot-tc1.tgz",
-      "integrity": "sha512-LjFkDQ542nlYNKV5dWz06XAhsZPapfJ5/XqqOPsGgLEGP4xBznATtFLdApL0O0dlNlvD5diiX7s2o50xKXvPfg=="
+      "name": "hl7.fhir.uv.extensions.r4",
+      "version": "5.3.0",
+      "tarball": "https://raw.githubusercontent.com/litlfred/fhir-package-mirror/87e59e41d49b656e9f8faa5801a6e6c29cb5ec53/hl7.fhir.uv.extensions.r4%235.3.0.tgz",
+      "integrity": "sha512-SdYq6RdcgsbWy8rTUyDxhL/70jVcWx4/AeZ5+D8fzfSHXXHE2NuhXXBf+BGQi3iLtVVil7eEUVc3nAupJgZXsw=="
     },
     {
-      "name": "hl7.fhir.uv.tools.r5",
+      "name": "hl7.fhir.uv.tools.r4",
       "version": "1.1.0",
-      "tarball": "https://registry.npmjs.org/hl7.fhir.uv.tools.r5/-/hl7.fhir.uv.tools.r5-1.1.0.tgz",
-      "integrity": "sha512-sX6GXo84dRYf7YuLPkhREhhrvwFd1C4SwqFbZI7w1LEO3ovmirz6p4SMspcjy6r2fsJ2PYXR0428JImiweug5w=="
+      "tarball": "https://registry.npmjs.org/hl7.fhir.uv.tools.r4/-/hl7.fhir.uv.tools.r4-1.1.0.tgz",
+      "integrity": "sha512-R2L3TF5AAy/J2Gn7XhWl4Iki99TkVGfU5jIYWJfcRi/DcsLy9WK3oKJUuYmukppZvVUaMWap3m1FGVCPopHYCQ=="
     },
     {
       "name": "smart.who.int.base",
