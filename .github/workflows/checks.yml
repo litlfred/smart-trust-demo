@@ -53,6 +53,20 @@ jobs:
         run: |
           bun run cat-harness-tools/scripts/check-journey-refs.ts --json > "$RUNNER_TEMP/journey-refs.json" || true
           python3 -c "import json,sys;r=json.load(open(sys.argv[1]));bad=r['findings']+[f for f in r['couldNotDetermine'] if 'built at publish' not in f['message']];[print('✗',f['file'],f['at'],f['message']) for f in bad];sys.exit(1 if bad or r.get('undetermined') else 0)" "$RUNNER_TEMP/journey-refs.json"
+      - name: The translation templates are current (translations/)
+        # One extraction for every translator: BPMN by the harness's
+        # translate-bpmn, the pages by tools/translation/pages-pot.ts (the
+        # harness's pot-extract over docs/ and input/pagecontent/).
+        run: |
+          bun run cat translate-bpmn:check -- --instance .
+          bun tools/translation/pages-pot.ts --check
+          bun run cat kg:locale:check -- --instance .
+          bun run cat check:translation-officiality
+      - name: How far each translation is behind its template (warns, never fails)
+        # An English change leaves translations behind; that is reported here
+        # as a warning per catalogue, not a failure. A stale template fails
+        # above. Refresh: bun tools/translation/po-status.ts --merge.
+        run: bun tools/translation/po-status.ts --github
       - name: Chromium, for the BPMN renderer
         # The renderer draws through bpmn-js in Chromium. The lockfile's own
         # Playwright installs the browser build it expects, as the harness

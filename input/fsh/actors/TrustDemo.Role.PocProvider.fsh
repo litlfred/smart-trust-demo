@@ -13,6 +13,25 @@ The clinician abroad who scans the family's QR and reads the child's records (J4
 
 **Persona**: Has minutes, no prior relationship with the family, and her own hospital's system.
 
-**Played in the journeys by**: Dr Anan (clinician, Chiang Rai, Thailand) (fictional).
+**Played in the journeys by** (fictional):
+
+- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjZDk3NzA2Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-thai-clinician--birth--follow-up-thailand), Dr Anan (clinician, Chiang Rai, Thailand)
+
+**In the user scenarios**:
+
+- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history (told through Dr. Anan)
+
+**User stories** ([all stories](scenarios.html#user-stories)):
+
+- I want to read a visiting child's summary and vaccinations from a QR the parent shows, so that without installing anything or calling another country
+- I want to know the record I read abroad came from the child's home country and was not altered, so that I can rely on it as I would on my own clinic's record
+
+**Lanes and tasks in the business processes**:
+
+- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Scan the QR and enter the passcode the caregiver says; Not verified: treat records as paper; Review history, allergies and vaccinations
+
+**Decisions it makes**:
+
+- Decision table [TD.DT.06 Does the receiver follow the VHL?](decision-logic.html#tddt06-does-the-receiver-follow-the-vhl), in: Not verified: treat records as paper
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

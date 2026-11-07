@@ -15,6 +15,14 @@ The person the records are about: the child whose doses are given, signed, regis
 
 **Also known as**: Patient; Care recipient
 
-**Played in the journeys by**: Somsack SENGMANY (newborn) (fictional).
+**Played in the journeys by** (fictional):
+
+- ![Somsack](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvbXNhY2siPjx0aXRsZT5Tb21zYWNrPC90aXRsZT48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzY1YTMwZCIvPjx0ZXh0IHg9IjIwIiB5PSIyMCIgZHk9IjAuMzVlbSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmZmZmYiPmJhYnk8L3RleHQ+PC9zdmc+) [Somsack](personas.html#somsack-baby--the-record-follows-him-lao-pdr), Somsack SENGMANY (newborn)
+
+**In the user scenarios**:
+
+- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand
+- [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2b Registered at home, and referred
+- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
