@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-06T09:26:50.963Z\n"
+"POT-Creation-Date: 2026-11-07T10:48:53.731Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: ar\n"
@@ -16,6 +16,11 @@ msgstr ""
 
 #: docs/vaxlink-examples.md:63
 msgid "(not FHIR)"
+msgstr ""
+
+#: docs/vaxlink-examples.md:58
+#, python-brace-format
+msgid "{code0}; the members are Patients (FHIR R4 Group lists Patients, so each parent is a Patient beside their RelatedPerson role); the household code is {code1} with the text \"Household\"."
 msgstr ""
 
 #: docs/vaxlink-examples.md:41
@@ -220,7 +225,7 @@ msgstr ""
 
 #: docs/vaxlink-examples.md:14
 #, python-brace-format
-msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R5, as this guide is."
+msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R4 (4.0.1), as this guide is, like smart-base and the Personal Health Wallet guide."
 msgstr ""
 
 #: docs/vaxlink-examples.md:47
@@ -336,12 +341,7 @@ msgstr ""
 
 #: docs/vaxlink-examples.md:62
 #, python-brace-format
-msgid "R5 shape: {code0}, {code1}, {code2}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
-msgstr ""
-
-#: docs/vaxlink-examples.md:58
-#, python-brace-format
-msgid "R5: {code0} replaces {code1}; the household code is {code2} with the text \"Household\"."
+msgid "R4 shape: {code0}, {code1}, {code2}, {code3}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
 msgstr ""
 
 #: docs/vaxlink-examples.md:20

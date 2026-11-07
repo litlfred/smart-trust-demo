@@ -54,6 +54,28 @@ Usage: #example
 * name.given = "Bounmy"
 * gender = #male
 
+Instance: TrustDemoKhamlaPatient
+InstanceOf: Patient
+Title: "Khamla SENGMANY (household member)"
+Description: "Khamla as a member of the Sengmany household and a profile of her own on the family phone. In FHIR R4 a Group's members are Patients, so the household lists her as one; the RelatedPerson TrustDemoKhamla is her role as Somsack's mother. Fictional."
+Usage: #example
+* name.family = "SENGMANY"
+* name.given = "Khamla"
+* gender = #female
+* link.other = Reference(TrustDemoKhamla)
+* link.type = #seealso
+
+Instance: TrustDemoBounmyPatient
+InstanceOf: Patient
+Title: "Bounmy SENGMANY (household member)"
+Description: "Bounmy as a member of the Sengmany household and a profile of his own on the family phone. In FHIR R4 a Group's members are Patients, so the household lists him as one; the RelatedPerson TrustDemoBounmy is his role as Somsack's father. Fictional."
+Usage: #example
+* name.family = "SENGMANY"
+* name.given = "Bounmy"
+* gender = #male
+* link.other = Reference(TrustDemoBounmy)
+* link.type = #seealso
+
 Instance: TrustDemoAnan
 InstanceOf: Practitioner
 Title: "Dr Anan (clinician, Chiang Rai, Thailand)"
@@ -116,14 +138,16 @@ InstanceOf: Device
 Title: "CHW app (OHS, community configuration), Lao PDR"
 Description: "The offline app on Vilay's phone (J2): household registration, triage read of foreign DVCs (STT-VER-011), referral."
 Usage: #example
-* displayName = "CHW app, Village 04 (offline)"
+* deviceName[+].name = "CHW app, Village 04 (offline)"
+* deviceName[=].type = #user-friendly-name
 
 Instance: TrustDemoDhcEhr
 InstanceOf: Device
 Title: "District health center EHR (OHS, facility configuration), Lao PDR"
 Description: "The clinic tablet's record system that verifies the DVCs offline against its cached GDHCN trust list, imports them and evaluates the schedule (J3)."
 Usage: #example
-* displayName = "Vientiane District Health Center EHR"
+* deviceName[+].name = "Vientiane District Health Center EHR"
+* deviceName[=].type = #user-friendly-name
 * owner = Reference(TrustDemoVientianeDhc)
 
 Instance: TrustDemoLaoGateway
@@ -131,7 +155,8 @@ InstanceOf: Device
 Title: "Lao PDR national FHIR server and info gateway"
 Description: "Hosts the VHL manifests, checks passcode, expiry and consent, and records every access as an AuditEvent (J4.1)."
 Usage: #example
-* displayName = "Lao PDR national FHIR server and OHS FHIR Info Gateway"
+* deviceName[+].name = "Lao PDR national FHIR server and OHS FHIR Info Gateway"
+* deviceName[=].type = #user-friendly-name
 * owner = Reference(TrustDemoLaoPortalOrg)
 
 Instance: TrustDemoFamilyPhone
@@ -139,12 +164,14 @@ InstanceOf: Device
 Title: "The Sengmany family's shared phone"
 Description: "One phone, three profiles (Bounmy, Khamla, Somsack): the family wallet holding one VHL QR per member (J4)."
 Usage: #example
-* displayName = "Sengmany family phone (family wallet)"
+* deviceName[+].name = "Sengmany family phone (family wallet)"
+* deviceName[=].type = #user-friendly-name
 
 Instance: TrustDemoClinicViewer
 InstanceOf: Device
 Title: "VHL viewer, Chiang Rai primary care clinic"
 Description: "The point-of-care system that verifies the VHL, fetches the manifest by ITI-YY5 after the passcode is entered, and decrypts the records for viewing (J4.1): a VHL Receiver."
 Usage: #example
-* displayName = "Chiang Rai clinic VHL viewer"
+* deviceName[+].name = "Chiang Rai clinic VHL viewer"
+* deviceName[=].type = #user-friendly-name
 * owner = Reference(TrustDemoChiangRaiClinic)

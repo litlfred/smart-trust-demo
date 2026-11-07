@@ -14,9 +14,13 @@ Usage: #definition
 * scoring = http://terminology.hl7.org/CodeSystem/measure-scoring#proportion "Proportion"
 * guidance = "A definition only: it states no target and no value. Data elements: TD.J3A.DE02 Issuing country; TD.J3A.DE03 Verified at; TD.J3A.DE05 Verification result; TD.J3A.DE07 Failure reason; TD.J3A.DE09 Record outcome. Decision tables: TD.DT.01. Requirements: STT-VER-001, STT-VER-006, STT-VER-008. The populations are described, not computable: this guide carries no CQL."
 * group[+].population[+].code = http://terminology.hl7.org/CodeSystem/measure-population#denominator "Denominator"
-* group[=].population[=].description = "Foreign DVCs scanned for verification in the reporting period. Computation: COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period"
+* group[=].population[=].description = "Foreign DVCs scanned for verification in the reporting period."
+* group[=].population[=].criteria.language = #text/plain
+* group[=].population[=].criteria.expression = "COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period"
 * group[=].population[+].code = http://terminology.hl7.org/CodeSystem/measure-population#numerator "Numerator"
-* group[=].population[=].description = "Foreign DVCs scanned for verification in the reporting period whose dose was recorded as verified. Computation: COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period AND \"Record outcome\" = verified"
+* group[=].population[=].description = "Foreign DVCs scanned for verification in the reporting period whose dose was recorded as verified."
+* group[=].population[=].criteria.language = #text/plain
+* group[=].population[=].criteria.expression = "COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period AND \"Record outcome\" = verified"
 * group[=].stratifier[+].code.text = "Record outcome"
 * group[=].stratifier[=].description = "verified, reported-unverified, rejected, not-read (TD.DT.01)"
 * group[=].stratifier[+].code.text = "Failure reason"
