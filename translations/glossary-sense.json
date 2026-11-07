@@ -554,6 +554,16 @@
     {
       "term": "https://litlfred.github.io/bootstrap/v0/ns/Task",
       "label": "Task",
+      "msgidSha256": "8bebf3944599cb0e6b3911ea1d8f29a00326a0e30e02db2d667ec8baecfc7099",
+      "msgid": "Dual-coded Immunization + next-dose Task",
+      "verdict": "other-sense",
+      "reason": "'next-dose Task' names the FHIR Task resource (a code kept verbatim), not the harness's unit of work.",
+      "decidedBy": "en-lead-adjudicator",
+      "decidedAt": "2026-11-07"
+    },
+    {
+      "term": "https://litlfred.github.io/bootstrap/v0/ns/Task",
+      "label": "Task",
       "msgidSha256": "9202bf008308462442d2b1e76247d37db04cae2a1c40a0a70357e3f1cb3bc9fe",
       "msgid": "J3: pentavalent 1, bOPV 1 and PCV 1 at 6 weeks, due 2025-12-09 (ImmunizationRecommendation TrustDemoJ3Recommendation), with a reminder Task for that date.",
       "verdict": "other-sense",
@@ -854,6 +864,16 @@
     {
       "term": "https://litlfred.github.io/cat-harness/v0/ns/glossary/platform/policy",
       "label": "policy",
+      "msgidSha256": "5315992c80fd55fb74f51609bf20cb6621454e25ef54efbc04a70a71db84e33f",
+      "msgid": "The signature check fails, the doses stay unverified and the nurse follows the local catch-up policy.",
+      "verdict": "other-sense",
+      "reason": "'national/local catch-up policy' is a country's immunisation schedule rule, not the harness's ODRL access policy.",
+      "decidedBy": "en-lead-adjudicator",
+      "decidedAt": "2026-11-07"
+    },
+    {
+      "term": "https://litlfred.github.io/cat-harness/v0/ns/glossary/platform/policy",
+      "label": "policy",
       "msgidSha256": "661654d9c8ff1d1a9a1e81efd81cf213b34e77474729d36bd2f5d5d16516b446",
       "msgid": "Policy (J2a): Keep a clear line between what families report and what has been verified, and don’t grant trust too early.",
       "verdict": "other-sense",
@@ -928,6 +948,16 @@
       "msgid": "Policy: Continuity of care across borders: each country keeps its own records, with no international patient registry and no vendor lock-in. What is agreed regionally is the data model and the trust list, not a shared copy of the data.",
       "verdict": "other-sense",
       "reason": "'policy' here is a public-health, national or trust policy (or the walkthrough's policy point), not a harness ODRL permission/prohibition rule.",
+      "decidedBy": "en-lead-adjudicator",
+      "decidedAt": "2026-11-07"
+    },
+    {
+      "term": "https://litlfred.github.io/cat-harness/v0/ns/glossary/platform/policy",
+      "label": "policy",
+      "msgidSha256": "c55a0361aaaeff7b6ff8e1cef917f2b2e3687b108a48365f7e0d8b120ebeb5fc",
+      "msgid": "Nurse Chanthasone opens the referral and scans the QRs. The EHR\n**verifies** each DVC offline against that copy (STT-VER-001…009,\nSTT-KID-002), without contacting Thailand. Both verify, so it imports them as\nFHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\ndoses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\nthe reason, the doses stay unverified, and the nurse decides by national\ncatch-up policy.\n",
+      "verdict": "other-sense",
+      "reason": "'national/local catch-up policy' is a country's immunisation schedule rule, not the harness's ODRL access policy.",
       "decidedBy": "en-lead-adjudicator",
       "decidedAt": "2026-11-07"
     },
