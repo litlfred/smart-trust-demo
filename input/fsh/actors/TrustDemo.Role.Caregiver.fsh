@@ -15,7 +15,32 @@ The parent who holds the child's paper DVCs and the family phone, and presents t
 
 **Also known as**: VHL Holder (IHE ITI VHL); Holder (SMART Trust)
 
-**Played in the journeys by**: Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) (fictional).
+**Played in the journeys by** (fictional):
+
+- ![Bounmy](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkJvdW5teSI+PHRpdGxlPkJvdW5teTwvdGl0bGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2NDc0OGIiLz48dGV4dCB4PSIyMCIgeT0iMjAiIGR5PSIwLjM1ZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZmZmZmIj5CPC90ZXh0Pjwvc3ZnPg==) [Bounmy](personas.html#bounmy-father--holds-the-family-phone-lao-pdr), Bounmy SENGMANY (father, holds the family phone)
+- ![Khamla](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IktoYW1sYSI+PHRpdGxlPktoYW1sYTwvdGl0bGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2NDc0OGIiLz48dGV4dCB4PSIyMCIgeT0iMjAiIGR5PSIwLjM1ZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjZmZmZmZmIj5LPC90ZXh0Pjwvc3ZnPg==) [Khamla](personas.html#khamla-mother-lao-pdr), Khamla SENGMANY (mother)
+
+**In the user scenarios**:
+
+- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand
+- [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2a A health worker finds the baby — and reads his cards; J2b Registered at home, and referred
+- [J3 — Made official](scenarios.html#j3--made-official-vientiane-district-health-center-4-weeks-later): J3a The clinic confirms the cards are genuine; J3b Thai vaccines are fitted to the Lao schedule
+- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later): J4.0a One phone holds the whole family’s records (told through Bounmy); J4.0b Dad creates a link to share at the clinic (told through Bounmy)
+- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history
+
+**User stories** ([all stories](scenarios.html#user-stories)):
+
+- I want to have my son's birth doses from abroad recognised at home, so that his care does not start over and nothing is repeated
+- I want to show each family member's records abroad from our one shared phone, with a passcode I can say aloud, so that a doctor abroad can treat us without paper or an app
+- I want to decide who sees my child's record, and for how long, so that the record stays at home and I know who has looked
+
+**Lanes and tasks in the business processes**:
+
+- [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): its lane holds no task
+- [J2 Discover and refer an unregistered infant in Country B](business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b): Show the paper DVCs from Country A
+- [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic): its lane holds no task
+- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Choose who to share, with a passcode and an expiry
+- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): its lane holds no task
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLHolder"

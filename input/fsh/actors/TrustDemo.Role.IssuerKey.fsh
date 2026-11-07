@@ -15,7 +15,21 @@ The DSC private key of the issuing participant, in an HSM, cloud KMS or Android 
 
 **Also known as**: Document signer (DSC) key
 
-**Played in the journeys by**: XXR document signer key (Country A, Thailand) (fictional).
+**Played in the journeys by** (fictional):
+
+- XXR document signer key (Country A, Thailand)
+
+**In the user scenarios**:
+
+- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand
+- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later): J4.0b Dad creates a link to share at the clinic
+
+**Lanes and tasks in the business processes**:
+
+- [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): Sign the bytes with XXR's DSC key
+- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Sign with Country B's DSC key
+
+**Data sets its tasks record or read**: [TD.J1 Birth-dose DVC](dictionary.html#tdj1-birth-dose-dvc)
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/TrustNetworkParticipant"
