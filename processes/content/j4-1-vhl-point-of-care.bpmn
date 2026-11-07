@@ -46,9 +46,9 @@
     <bpmn:userTask id="Task_Scan" name="Scan the QR and enter the passcode the caregiver says"><bpmn:extensionElements><bootstrap.processes:skill ref="receiver-scan-credential"/></bpmn:extensionElements><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:userTask>
     <bpmn:serviceTask id="Task_Verify" name="Verify the HCERT and read the VHL at key 5"><bpmn:documentation>STT-VER-001 against Country B's DSC on the trust list the preconditions establish; VHL expiry (STT-VHL-009). A DSC Country B published after the hospital's last refresh is not in its copy, so the HCERT fails at the trust-list step (STT-VER-006), naming that reason.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-verify"/></bpmn:extensionElements><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:serviceTask>
     <bpmn:exclusiveGateway id="Gateway_Verified" name="HCERT verified?"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:exclusiveGateway>
-    <bpmn:userTask id="Task_Unverified" name="No digital verification: treat the records like paper"><bpmn:documentation>The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified.</bpmn:documentation><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:userTask>
+    <bpmn:userTask id="Task_Unverified" name="Not verified: treat records as paper"><bpmn:documentation>No digital verification: treat the records like paper. The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified.</bpmn:documentation><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:userTask>
     <bpmn:serviceTask id="Task_Fetch" name="Request the manifest (ITI-YY5), signed"><bpmn:documentation>STT-VHL-005, STT-VHL-006, STT-VHL-008; the host does the HTTP, the library builds and reads (STT-VHL-010).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="vhl-receive"/></bpmn:extensionElements><bpmn:incoming>Flow_8</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_Release" name="Check the passcode, return the manifest and log the access"><bpmn:documentation>The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="portal-serve-manifest"/></bpmn:extensionElements><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_13</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_Release" name="Check passcode, log access, return manifest"><bpmn:documentation>Check the passcode, return the manifest and log the access. The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="portal-serve-manifest"/></bpmn:extensionElements><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_13</bpmn:outgoing></bpmn:serviceTask>
     <bpmn:serviceTask id="Task_Decrypt" name="Decrypt the IPS and DVCs"><bpmn:documentation>JWE dir/A256GCM (STT-VHL-007).</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="vhl-receive"/></bpmn:extensionElements><bpmn:incoming>Flow_13</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:serviceTask>
     <bpmn:userTask id="Task_Review" name="Review history, allergies and vaccinations"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:incoming>Flow_10</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:userTask>
     <bpmn:endEvent id="End" name="The child is treated with the full record"><bpmn:incoming>Flow_7</bpmn:incoming></bpmn:endEvent>
@@ -66,34 +66,85 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Process_J41VhlFetch">
-      <bpmndi:BPMNShape id="Participant_Process_J41VhlFetch_di" bpmnElement="Participant_Process_J41VhlFetch" isHorizontal="true"><dc:Bounds x="100" y="60" width="1920" height="850"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_family-phone_di" bpmnElement="Lane_family-phone" isHorizontal="true"><dc:Bounds x="130" y="230" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_poc-provider_di" bpmnElement="Lane_poc-provider" isHorizontal="true"><dc:Bounds x="130" y="400" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_poc-receiver_di" bpmnElement="Lane_poc-receiver" isHorizontal="true"><dc:Bounds x="130" y="570" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_national-portal_di" bpmnElement="Lane_national-portal" isHorizontal="true"><dc:Bounds x="130" y="740" width="1890" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="277" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="235" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Open_di" bpmnElement="Task_Open"><dc:Bounds x="405" y="275" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Scan_di" bpmnElement="Task_Scan"><dc:Bounds x="580" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Verify_di" bpmnElement="Task_Verify"><dc:Bounds x="755" y="615" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Fetch_di" bpmnElement="Task_Fetch"><dc:Bounds x="1105" y="615" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Decrypt_di" bpmnElement="Task_Decrypt"><dc:Bounds x="1455" y="615" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Release_di" bpmnElement="Task_Release"><dc:Bounds x="1280" y="785" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Review_di" bpmnElement="Task_Review"><dc:Bounds x="1630" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1852" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1810" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="313" y="145"/><di:waypoint x="359" y="145"/><di:waypoint x="359" y="315"/><di:waypoint x="405" y="315"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"><di:waypoint x="535" y="315"/><di:waypoint x="557" y="315"/><di:waypoint x="557" y="485"/><di:waypoint x="580" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"><di:waypoint x="710" y="485"/><di:waypoint x="732" y="485"/><di:waypoint x="732" y="655"/><di:waypoint x="755" y="655"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Gateway_Verified_di" bpmnElement="Gateway_Verified" isMarkerVisible="true"><dc:Bounds x="955" y="630" width="50" height="50"/><bpmndi:BPMNLabel><dc:Bounds x="920" y="686" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Unverified_di" bpmnElement="Task_Unverified"><dc:Bounds x="1105" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"><di:waypoint x="885" y="655"/><di:waypoint x="955" y="655"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8"><di:waypoint x="1005" y="655"/><di:waypoint x="1105" y="655"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9"><di:waypoint x="980" y="630"/><di:waypoint x="980" y="485"/><di:waypoint x="1105" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10"><di:waypoint x="1235" y="485"/><di:waypoint x="1630" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"><di:waypoint x="1235" y="655"/><di:waypoint x="1257" y="655"/><di:waypoint x="1257" y="825"/><di:waypoint x="1280" y="825"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"><di:waypoint x="1585" y="655"/><di:waypoint x="1607" y="655"/><di:waypoint x="1607" y="485"/><di:waypoint x="1630" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"><di:waypoint x="1760" y="485"/><di:waypoint x="1806" y="485"/><di:waypoint x="1806" y="145"/><di:waypoint x="1852" y="145"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13"><di:waypoint x="1410" y="825"/><di:waypoint x="1432" y="825"/><di:waypoint x="1432" y="655"/><di:waypoint x="1455" y="655"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_Process_J41VhlFetch_di" bpmnElement="Participant_Process_J41VhlFetch" isHorizontal="true"><dc:Bounds x="100" y="60" width="1920" height="850" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1890" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_family-phone_di" bpmnElement="Lane_family-phone" isHorizontal="true"><dc:Bounds x="130" y="230" width="1890" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_poc-provider_di" bpmnElement="Lane_poc-provider" isHorizontal="true"><dc:Bounds x="130" y="400" width="1890" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_poc-receiver_di" bpmnElement="Lane_poc-receiver" isHorizontal="true"><dc:Bounds x="130" y="570" width="1890" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_national-portal_di" bpmnElement="Lane_national-portal" isHorizontal="true"><dc:Bounds x="130" y="740" width="1890" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="277" y="127" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="235" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Open_di" bpmnElement="Task_Open"><dc:Bounds x="410" y="255" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Scan_di" bpmnElement="Task_Scan"><dc:Bounds x="585" y="425" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Verify_di" bpmnElement="Task_Verify"><dc:Bounds x="760" y="595" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Fetch_di" bpmnElement="Task_Fetch"><dc:Bounds x="1110" y="595" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Decrypt_di" bpmnElement="Task_Decrypt"><dc:Bounds x="1460" y="595" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Release_di" bpmnElement="Task_Release"><dc:Bounds x="1285" y="765" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Review_di" bpmnElement="Task_Review"><dc:Bounds x="1635" y="425" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1852" y="127" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1810" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="313" y="145" />
+        <di:waypoint x="361.5" y="145" />
+        <di:waypoint x="361.5" y="315" />
+        <di:waypoint x="410" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="530" y="315" />
+        <di:waypoint x="557.5" y="315" />
+        <di:waypoint x="557.5" y="485" />
+        <di:waypoint x="585" y="485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="705" y="485" />
+        <di:waypoint x="732.5" y="485" />
+        <di:waypoint x="732.5" y="655" />
+        <di:waypoint x="760" y="655" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_Verified_di" bpmnElement="Gateway_Verified" isMarkerVisible="true"><dc:Bounds x="955" y="630" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="920" y="686" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Unverified_di" bpmnElement="Task_Unverified"><dc:Bounds x="1110" y="425" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="880" y="655" />
+        <di:waypoint x="955" y="655" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="1005" y="655" />
+        <di:waypoint x="1110" y="655" />
+        <bpmndi:BPMNLabel><dc:Bounds x="1012.5" y="658" width="90" height="18" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="1005" y="655" />
+        <di:waypoint x="1057.5" y="655" />
+        <di:waypoint x="1057.5" y="485" />
+        <di:waypoint x="1110" y="485" />
+        <bpmndi:BPMNLabel><dc:Bounds x="963.5" y="604" width="90" height="17" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1230" y="485" />
+        <di:waypoint x="1635" y="485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="1230" y="655" />
+        <di:waypoint x="1257.5" y="655" />
+        <di:waypoint x="1257.5" y="825" />
+        <di:waypoint x="1285" y="825" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="1580" y="655" />
+        <di:waypoint x="1607.5" y="655" />
+        <di:waypoint x="1607.5" y="485" />
+        <di:waypoint x="1635" y="485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="1755" y="485" />
+        <di:waypoint x="1803.5" y="485" />
+        <di:waypoint x="1803.5" y="145" />
+        <di:waypoint x="1852" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <di:waypoint x="1405" y="825" />
+        <di:waypoint x="1432.5" y="825" />
+        <di:waypoint x="1432.5" y="655" />
+        <di:waypoint x="1460" y="655" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

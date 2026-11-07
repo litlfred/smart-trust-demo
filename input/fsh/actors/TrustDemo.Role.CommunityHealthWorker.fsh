@@ -13,6 +13,22 @@ Finds unregistered children on home visits, registers them and refers them to th
 
 **Persona**: Works on foot and offline, on a cheap Android phone; registers and refers, never judges authenticity.
 
-**Played in the journeys by**: Vilay (community health worker, Village 04, Lao PDR) (fictional).
+**Played in the journeys by** (fictional):
+
+- ![Vilay](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlZpbGF5Ij48dGl0bGU+VmlsYXk8L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjMGQ5NDg4Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+Vkk8L3RleHQ+PC9zdmc+) [Vilay](personas.html#vilay-community-health-worker--village-04-lao-pdr), Vilay (community health worker, Village 04, Lao PDR)
+
+**In the user scenarios**:
+
+- [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2a A health worker finds the baby — and reads his cards (told through Vilay); J2b Registered at home, and referred (told through Vilay)
+
+**User stories** ([all stories](scenarios.html#user-stories)):
+
+- I want to read a foreign vaccination QR offline and register the child with it, so that the clinic sees what was given before the family arrives
+- I want to refer a child whose foreign record needs checking, so that verification is done by someone who can
+- I want to register a newborn into the household offline, before civil registration, so that no newborn in my village is missed, even with no signal
+
+**Lanes and tasks in the business processes**:
+
+- [J2 Discover and refer an unregistered infant in Country B](business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b): Scan each QR with the CHW app; Explain the referral to the family
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

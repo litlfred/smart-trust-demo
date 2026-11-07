@@ -32,13 +32,13 @@ J2, Return home, CHW discovery and referral.
 - Skill: `hcert-verify`.
 - What: read-unverified (STT-VER-011): strip HC1:, Base45, inflate within limits (STT-B45-002, STT-ZIP-002), bounded CBOR (STT-CBR-003), payloads read but flagged unverified; no trust list needed, fully offline.
 - Record it: `workflow_complete` with `node: "Task_Read"`.
-- next: → `Task_Register` (Add the infant to the household; save the doses as reported, not verified)
+- next: → `Task_Register` (Add the infant; save doses as reported)
 
-### 4. Add the infant to the household; save the doses as reported, not verified (`Task_Register`)
+### 4. Add the infant; save doses as reported (`Task_Register`)
 
 - Who: the `CHW app` lane (role `chw-app`).
 - Skill: `chw-register-infant`.
-- What: The CHW completes the newborn registration form (data dictionary TD.J2A) in the CHW app through smart-base's reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response.
+- What: Add the infant to the household; save the doses as reported, not verified.
 - A subprocess (`Process_QuestionnaireDataCapture`): `workflow_next` reports its own steps; complete those — this call activity itself is not completable.
 - next: → `Task_Refer` (Create a referral to the home clinic for verification)
 

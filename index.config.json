@@ -7,7 +7,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/fhir-harness",
-          "ref": "961679a369975afb6320647dde23d8e335bd84b5",
+          "ref": "5e6f2972eefc01de60d0a455bb676ebeb7aeaf7a",
           "overrides": {
             "fhir-harness": {
               "whole": true
@@ -16,9 +16,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-11-06",
-              "ref": "961679a369975afb6320647dde23d8e335bd84b5",
-              "evidence": "Owner (litlfred), 2026-11-06 ~08:40Z, this session (https://claude.ai/code/session_01VQDpPd2LVFXt1ZV3eAxyvE): \"repin as needed. merge when green and ready + 6hr.\" Re-pinned to fhir-harness main after #298 (ig-index:build finds a checkout by the name it gives itself, so journey-refs can determine FHIR examples)."
+              "on": "2026-11-07",
+              "ref": "5e6f2972eefc01de60d0a455bb676ebeb7aeaf7a",
+              "evidence": "Owner (litlfred), 2026-11-06: \"repin as needed. merge when green and ready\"; 2026-11-07 ~05:25Z: \"repin + merge open 12 hrs\". This session (https://claude.ai/code/session_01VQDpPddqAquBX5nGLsQq3H): re-pinned to fhir-harness main after #297."
             }
           }
         }
@@ -57,7 +57,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness",
-          "ref": "2d248b5a496d4770bd55f4cc192120588e817e1e",
+          "ref": "8578ac3625fce4a785b4cdd3d6ada0def914ffae",
           "overrides": {
             "cat-harness": {
               "whole": true
@@ -72,9 +72,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-11-06",
-              "ref": "2d248b5a496d4770bd55f4cc192120588e817e1e",
-              "evidence": "Owner (litlfred), 2026-11-06 ~08:40Z, this session (https://claude.ai/code/session_01VQDpPd2LVFXt1ZV3eAxyvE): \"repin as needed. merge when green and ready + 6hr.\" Re-pinned to cat-harness main, which includes #1058 (journeys-viewer Tool definitions)."
+              "on": "2026-11-07",
+              "ref": "8578ac3625fce4a785b4cdd3d6ada0def914ffae",
+              "evidence": "Owner (litlfred), 2026-11-06: \"repin as needed. merge when green and ready\"; 2026-11-07 ~05:25Z: \"repin + merge open 12 hrs\". This session (https://claude.ai/code/session_01VQDpPddqAquBX5nGLsQq3H): re-pinned to cat-harness main tip."
             }
           }
         }
@@ -85,7 +85,7 @@
       "source": {
         "remote": {
           "repository": "litlfred/cat-harness-tools",
-          "ref": "9c3d32bd7cd2e2e4fa3dc0ebdffcaf7c47503826",
+          "ref": "c43d1df6f44705dfb80d8e1fc73e3a632c6b0da1",
           "overrides": {
             "cat-harness-tools": {
               "whole": true
@@ -97,9 +97,9 @@
           "trust": {
             "consent": {
               "by": "litlfred",
-              "on": "2026-11-06",
-              "ref": "9c3d32bd7cd2e2e4fa3dc0ebdffcaf7c47503826",
-              "evidence": "Owner (litlfred), 2026-11-06 ~08:40Z, this session (https://claude.ai/code/session_01VQDpPd2LVFXt1ZV3eAxyvE): \"repin as needed. merge when green and ready + 6hr.\" Re-pinned to cat-harness-tools main, which includes #1576 (device-screen) and #1581 (subject links only where the host site is published)."
+              "on": "2026-11-07",
+              "ref": "c43d1df6f44705dfb80d8e1fc73e3a632c6b0da1",
+              "evidence": "Owner (litlfred), 2026-11-06: \"repin as needed. merge when green and ready\"; 2026-11-07 ~05:25Z: \"repin + merge open 12 hrs\". This session (https://claude.ai/code/session_01VQDpPddqAquBX5nGLsQq3H): re-pinned to cat-harness-tools main, which includes #1590 (KG BPMN drawings, squared tasks)."
             }
           }
         }
@@ -263,7 +263,8 @@
   ],
   "site": {
     "landing": "smart-trust-demo",
-    "agentRun": true
+    "agentRun": true,
+    "taskSkills": false
   },
   "contentTypes": {
     "dak": {
