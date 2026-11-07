@@ -85,6 +85,8 @@ Usage: #example
 * controller = Reference(TrustDemoLaoPortalOrg)
 * sourceAttachment.contentType = #application/json
 * sourceAttachment.title = "Bounmy's confirmation on the family wallet when he created Somsack's VHL (explicit consent)"
+* regulatoryBasis = TrustDemoConsent#SHARE-SUMMARY-FOR-CARE "Share my child's summary for care across the border"
+* regulatoryBasis.coding.version = "0.1.0"
 * decision = #permit
 * provision.period.start = "2026-10-26"
 * provision.period.end = "2026-11-09"
