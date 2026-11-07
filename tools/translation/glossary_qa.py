@@ -131,7 +131,9 @@ def term_base(locale, extra):
                     if name == "(this instance)" and norm(base[k][1], locale) != norm(msgstr, locale):
                         overrides.append((msgid, msgstr, base[k]))
                     continue
-                base[k] = (msgid, msgstr, name, os.path.relpath(f, ROOT))
+                rel = os.path.relpath(f, ROOT)
+                # a --layer glob outside the checkout: name the file, not a local path
+                base[k] = (msgid, msgstr, name, os.path.basename(f) if rel.startswith("..") else rel)
     return base, overrides
 
 
