@@ -51,7 +51,7 @@
       "graphTypologies": [
         "translation-sources"
       ],
-      "description": "The gettext side of this instance's text, one directory per target locale (ar, es, fr, ru, zh; the source is en): .pot templates extracted by the harness's own commands from the journey BPMN in processes/, the docs pages in docs/, the IG narrative pages in input/pagecontent/ and the glossary, and the .po catalogues translated from them. Agent translations are unofficial (official: false, generatedBy agent) until a person signs them off. FHIR resources are not here: they use FHIR's own designation/translation mechanism."
+      "description": "The gettext side of this instance's text, one directory per target locale (ar, es, fr, ru, zh; the source is en): .pot templates extracted by the harness's own commands from the journey BPMN in processes/, the docs pages in docs/, the IG narrative pages in input/pagecontent/ and the .po catalogues translated from them. Agent translations are unofficial (official: false, generatedBy agent) until a person signs them off. FHIR resources are not here: they use FHIR's own designation/translation mechanism."
     },
     {
       "id": "scenarios",
@@ -83,7 +83,7 @@
       "graphTypologies": [
         "code"
       ],
-      "description": "repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency); archimate: the DPI-H RA overlay spec and its build; translation: pages-pot.ts, the .pot templates of the docs and IG pages in translations/."
+      "description": "repo-checks: the standard-library checks CI runs (actions pinned, JSON, memory front matter, journey consistency); archimate: the DPI-H RA overlay spec and its build; translation: pages-pot.ts, the .pot templates of the docs and IG pages in translations/, and po-status.ts, how far each .po is behind its .pot (warn) and the merge that brings it level."
     },
     {
       "id": "hcert-library-pin",

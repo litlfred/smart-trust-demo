@@ -53,6 +53,11 @@ jobs:
           bun tools/translation/pages-pot.ts --check
           bun run cat kg:locale:check -- --instance .
           bun run cat check:translation-officiality
+      - name: How far each translation is behind its template (warns, never fails)
+        # An English change leaves translations behind; that is reported here
+        # as a warning per catalogue, not a failure. A stale template fails
+        # above. Refresh: bun tools/translation/po-status.ts --merge.
+        run: bun tools/translation/po-status.ts --github
       - name: Chromium, for the BPMN renderer
         # The renderer draws through bpmn-js in Chromium. The lockfile's own
         # Playwright installs the browser build it expects, as the harness
