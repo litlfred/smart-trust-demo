@@ -876,14 +876,17 @@ def gen_indicator_fsh(inds, elements):
                  "* experimental = true",
                  f'* description = "{fsh_str(ind["definition"])}"',
                  "* scoring = http://terminology.hl7.org/CodeSystem/measure-scoring#proportion \"Proportion\"",
-                 *([f"* basis = #{ind['basis']}"] if ind.get("basis") else []),
                  f'* guidance = "A definition only: it states no target and no value. Data elements: {fsh_str(des)}. '
                  f'Decision tables: {", ".join(ind["decisionTables"])}. Requirements: {", ".join(ind["requirements"])}. '
                  f'The populations are described, not computable: this guide carries no CQL."',
                  "* group[+].population[+].code = http://terminology.hl7.org/CodeSystem/measure-population#denominator \"Denominator\"",
-                 f'* group[=].population[=].description = "{fsh_str(ind["denominator"]["description"])} Computation: {fsh_str(ind["denominator"]["computation"])}"',
+                 f'* group[=].population[=].description = "{fsh_str(ind["denominator"]["description"])}"',
+                 "* group[=].population[=].criteria.language = #text/plain",
+                 f'* group[=].population[=].criteria.expression = "{fsh_str(ind["denominator"]["computation"])}"',
                  "* group[=].population[+].code = http://terminology.hl7.org/CodeSystem/measure-population#numerator \"Numerator\"",
-                 f'* group[=].population[=].description = "{fsh_str(ind["numerator"]["description"])} Computation: {fsh_str(ind["numerator"]["computation"])}"']
+                 f'* group[=].population[=].description = "{fsh_str(ind["numerator"]["description"])}"',
+                 "* group[=].population[=].criteria.language = #text/plain",
+                 f'* group[=].population[=].criteria.expression = "{fsh_str(ind["numerator"]["computation"])}"']
         for s in ind["disaggregations"]:
             lines.append(f'* group[=].stratifier[+].code.text = "{fsh_str(s["label"])}"')
             lines.append(f'* group[=].stratifier[=].description = "{fsh_str(s["description"])}"')

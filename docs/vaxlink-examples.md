@@ -13,7 +13,7 @@ load the published examples instead of its own copies.
 
 Every example is published twice: as a page, and as raw JSON at a stable URL
 the walkthrough can fetch (`https://litlfred.github.io/smart-trust-demo/<Type>-<id>.json`).
-They are FHIR R5, as this guide is.
+They are FHIR R4 (4.0.1), as this guide is, like smart-base and the Personal Health Wallet guide.
 
 ## By device screen
 
@@ -55,11 +55,11 @@ The keys of the walkthrough's `MOCK_FHIR_RESOURCES`
 | Key | Type | Example | What changed |
 |---|---|---|---|
 | `patient` | Patient | [TrustDemoSomsack](https://litlfred.github.io/smart-trust-demo/artifact/Patient-TrustDemoSomsack.html) ([json](https://litlfred.github.io/smart-trust-demo/Patient-TrustDemoSomsack.json)) | Temporary-id system is this guide's (`http://smart.who.int/trust-demo/sid/lao-temporary-id`), not a ministry URL. |
-| `group` | Group | [TrustDemoHousehold](https://litlfred.github.io/smart-trust-demo/artifact/Group-TrustDemoHousehold.html) ([json](https://litlfred.github.io/smart-trust-demo/Group-TrustDemoHousehold.json)) | R5: `membership = enumerated` replaces `actual`; the household code is `FAMMEMB` with the text "Household". |
+| `group` | Group | [TrustDemoHousehold](https://litlfred.github.io/smart-trust-demo/artifact/Group-TrustDemoHousehold.html) ([json](https://litlfred.github.io/smart-trust-demo/Group-TrustDemoHousehold.json)) | `actual = true`; the members are Patients (FHIR R4 Group lists Patients, so each parent is a Patient beside their RelatedPerson role); the household code is `FAMMEMB` with the text "Household". |
 | `immunizationHepB` | Immunization | [TrustDemoJ3HepB](https://litlfred.github.io/smart-trust-demo/artifact/Immunization-TrustDemoJ3HepB.html) ([json](https://litlfred.github.io/smart-trust-demo/Immunization-TrustDemoJ3HepB.json)) | Both codings, as on the walkthrough's payload; plus CVX `08`. The product and schedule code systems are this guide's illustrative stand-ins. |
-| `serviceRequest` | ServiceRequest | [TrustDemoJ2Referral](https://litlfred.github.io/smart-trust-demo/artifact/ServiceRequest-TrustDemoJ2Referral.html) ([json](https://litlfred.github.io/smart-trust-demo/ServiceRequest-TrustDemoJ2Referral.json)) | Code is SNOMED CT `3457005` (patient referral) with the walkthrough's text; the verification reason stays in `reason`. |
+| `serviceRequest` | ServiceRequest | [TrustDemoJ2Referral](https://litlfred.github.io/smart-trust-demo/artifact/ServiceRequest-TrustDemoJ2Referral.html) ([json](https://litlfred.github.io/smart-trust-demo/ServiceRequest-TrustDemoJ2Referral.json)) | Code is SNOMED CT `3457005` (patient referral) with the walkthrough's text; the verification reason stays in `reasonCode`. |
 | `provenance` | Provenance | [TrustDemoJ3Verification](https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ3Verification.html) ([json](https://litlfred.github.io/smart-trust-demo/Provenance-TrustDemoJ3Verification.json)) | Verifier, enterer and author agents; the DVCs as source entities and the reported doses as removed. The COSE signature stays in the DVC rather than in `Provenance.signature`. |
-| `auditEvent` | AuditEvent | [TrustDemoJ41Access](https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html) ([json](https://litlfred.github.io/smart-trust-demo/AuditEvent-TrustDemoJ41Access.json)) | R5 shape: `category`, `code`, `outcome.code`; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged. |
+| `auditEvent` | AuditEvent | [TrustDemoJ41Access](https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html) ([json](https://litlfred.github.io/smart-trust-demo/AuditEvent-TrustDemoJ41Access.json)) | R4 shape: `type`, `subtype`, `outcome`, `outcomeDesc`; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged. |
 | `cborPayload` | (not FHIR) | — | The DVC payload is an HCERT (CBOR/COSE), not a FHIR resource; its logical model is smart-trust-phw's DVCMinPreQual. It waits for bean ig01 before it is an example here. |
 
 ## What the examples change from the walkthrough's copies

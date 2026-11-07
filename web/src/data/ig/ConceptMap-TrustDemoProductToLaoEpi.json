@@ -7,8 +7,8 @@
   "name": "TrustDemoProductToLaoEpi",
   "status": "draft",
   "experimental": true,
-  "sourceScopeCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
-  "targetScopeCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoLaoEpiScheduleCodes",
+  "sourceCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
+  "targetCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoLaoEpiScheduleCodes",
   "group": [
     {
       "source": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
@@ -19,7 +19,7 @@
           "target": [
             {
               "code": "LAO-EPI-HEPB-BD",
-              "relationship": "equivalent",
+              "equivalence": "equivalent",
               "comment": "Added from the nurse's adjudication at Vientiane District Health Center, 2025-11-25: a monovalent paediatric Hep B dose given within 24 hours of birth counts as the schedule's birth dose."
             }
           ]
@@ -29,7 +29,7 @@
           "target": [
             {
               "code": "LAO-EPI-BCG",
-              "relationship": "equivalent"
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -38,7 +38,7 @@
           "target": [
             {
               "code": "LAO-EPI-PENTA-1",
-              "relationship": "equivalent"
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -47,7 +47,7 @@
           "target": [
             {
               "code": "LAO-EPI-OPV-1",
-              "relationship": "equivalent"
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -56,7 +56,7 @@
           "target": [
             {
               "code": "LAO-EPI-PCV-1",
-              "relationship": "equivalent"
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -65,7 +65,7 @@
           "target": [
             {
               "code": "LAO-EPI-MR-1",
-              "relationship": "equivalent"
+              "equivalence": "equivalent"
             }
           ]
         }
