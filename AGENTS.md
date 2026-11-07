@@ -100,5 +100,8 @@ main.
 
 The CI job `bpmn-generated` in `.github/workflows/checks.yml` runs the template
 checks, `kg:locale:check`, the officiality check, `po-status --github` and the
-QA `--check`. Merge window: none on record, so a refresh run opens PRs and
-merges nothing unless the owner sets one.
+QA `--check`. Merge policy: **merge-when-green** (owner, 2026-11-07). A
+refresh run merges its own refresh PR only when every check is green and the
+untainted round trip on the changed strings records no fail; anything red,
+uncertain or failing is left open and reported to the owner. Merging is not
+sign-off: the translations stay unofficial.
