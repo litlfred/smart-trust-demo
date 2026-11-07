@@ -1,0 +1,136 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationStep-fr",
+  "language" : "fr",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationStep-fr</b></p><a name=\"TrustDemoVerificationStep-fr\"> </a><a name=\"hcTrustDemoVerificationStep-fr\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: fr</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-fr</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-prefix\">prefix</a><a name=\"TrustDemoVerificationStep-fr-prefix\"> </a></td><td>Préfixe</td><td>Le préfixe de contexte HC1: et sa version.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-base45\">base45</a><a name=\"TrustDemoVerificationStep-fr-base45\"> </a></td><td>Base45</td><td>Décodage Base45 du texte du code QR.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-inflate\">inflate</a><a name=\"TrustDemoVerificationStep-fr-inflate\"> </a></td><td>Décompression</td><td>Décompression ZLIB, dans les limites fixées.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-cose\">cose</a><a name=\"TrustDemoVerificationStep-fr-cose\"> </a></td><td>COSE</td><td>Analyse de la structure COSE_Sign1.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-header\">header</a><a name=\"TrustDemoVerificationStep-fr-header\"> </a></td><td>En-tête</td><td>Les en-têtes protégés et non protégés.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-trust-lookup\">trust-lookup</a><a name=\"TrustDemoVerificationStep-fr-trust-lookup\"> </a></td><td>Consultation de la liste de confiance</td><td>Recherche du certificat du signataire par son kid dans la liste de confiance.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-signature\">signature</a><a name=\"TrustDemoVerificationStep-fr-signature\"> </a></td><td>Signature</td><td>Contrôle de la signature avec la clé du signataire.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-key-usage\">key-usage</a><a name=\"TrustDemoVerificationStep-fr-key-usage\"> </a></td><td>Usage de la clé</td><td>Contrôle que le certificat du signataire peut signer ce type de certificat.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-cwt\">cwt</a><a name=\"TrustDemoVerificationStep-fr-cwt\"> </a></td><td>CWT</td><td>Lecture de l'ensemble de revendications CWT.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-time\">time</a><a name=\"TrustDemoVerificationStep-fr-time\"> </a></td><td>Date et heure</td><td>Contrôle de la date d'émission et de l'expiration au regard de l'horloge du vérificateur.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-hcert\">hcert</a><a name=\"TrustDemoVerificationStep-fr-hcert\"> </a></td><td>HCERT</td><td>Recherche de la revendication hcert et de sa sous-revendication.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-payload\">payload</a><a name=\"TrustDemoVerificationStep-fr-payload\"> </a></td><td>Charge utile</td><td>Lecture de la charge utile au regard de son modèle logique.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-fr",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationStepFr",
+  "title" : "Étapes de la vérification",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-07T11:05:24+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "French (fr) supplement to TrustDemoVerificationStep: displays and definitions in French. Unofficial agent translation.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+  "count" : 12,
+  "concept" : [{
+    "code" : "prefix",
+    "display" : "Préfixe",
+    "definition" : "Le préfixe de contexte HC1: et sa version.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Préfixe"
+    }]
+  },
+  {
+    "code" : "base45",
+    "display" : "Base45",
+    "definition" : "Décodage Base45 du texte du code QR.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Base45"
+    }]
+  },
+  {
+    "code" : "inflate",
+    "display" : "Décompression",
+    "definition" : "Décompression ZLIB, dans les limites fixées.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Décompression"
+    }]
+  },
+  {
+    "code" : "cose",
+    "display" : "COSE",
+    "definition" : "Analyse de la structure COSE_Sign1.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "COSE"
+    }]
+  },
+  {
+    "code" : "header",
+    "display" : "En-tête",
+    "definition" : "Les en-têtes protégés et non protégés.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "En-tête"
+    }]
+  },
+  {
+    "code" : "trust-lookup",
+    "display" : "Consultation de la liste de confiance",
+    "definition" : "Recherche du certificat du signataire par son kid dans la liste de confiance.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Consultation de la liste de confiance"
+    }]
+  },
+  {
+    "code" : "signature",
+    "display" : "Signature",
+    "definition" : "Contrôle de la signature avec la clé du signataire.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Signature"
+    }]
+  },
+  {
+    "code" : "key-usage",
+    "display" : "Usage de la clé",
+    "definition" : "Contrôle que le certificat du signataire peut signer ce type de certificat.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Usage de la clé"
+    }]
+  },
+  {
+    "code" : "cwt",
+    "display" : "CWT",
+    "definition" : "Lecture de l'ensemble de revendications CWT.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "CWT"
+    }]
+  },
+  {
+    "code" : "time",
+    "display" : "Date et heure",
+    "definition" : "Contrôle de la date d'émission et de l'expiration au regard de l'horloge du vérificateur.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Date et heure"
+    }]
+  },
+  {
+    "code" : "hcert",
+    "display" : "HCERT",
+    "definition" : "Recherche de la revendication hcert et de sa sous-revendication.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "HCERT"
+    }]
+  },
+  {
+    "code" : "payload",
+    "display" : "Charge utile",
+    "definition" : "Lecture de la charge utile au regard de son modèle logique.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Charge utile"
+    }]
+  }]
+}

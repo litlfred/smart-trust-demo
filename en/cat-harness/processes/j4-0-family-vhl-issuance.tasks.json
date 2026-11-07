@@ -1,0 +1,184 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J40FamilyVhl",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Request",
+   "name": "Choose who to share, with a passcode and an expiry",
+   "left": 24.79,
+   "top": 4.35,
+   "box": {
+    "left": 20.66,
+    "top": 18.12,
+    "width": 1.37,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Assemble",
+   "name": "Assemble each member's IPS and DVCs",
+   "left": 34.76,
+   "top": 53.62,
+   "box": {
+    "left": 30.63,
+    "top": 67.39,
+    "width": 1.37,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Share",
+   "name": "Encrypt, publish a passcode manifest",
+   "left": 44.73,
+   "top": 53.62,
+   "box": {
+    "left": 40.6,
+    "top": 67.39,
+    "width": 1.37,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Prepare",
+   "name": "Prepare the HCERT carrying the VHL at key 5",
+   "left": 54.7,
+   "top": 53.62,
+   "box": {
+    "left": 50.57,
+    "top": 67.39,
+    "width": 1.37,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Sign",
+   "name": "Sign with Country B's DSC key",
+   "left": 64.67,
+   "top": 78.26,
+   "box": {
+    "left": 60.54,
+    "top": 92.03,
+    "width": 1.37,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Finish",
+   "name": "Finish the HC1 QR text",
+   "left": 74.64,
+   "top": 53.62,
+   "box": {
+    "left": 70.51,
+    "top": 67.39,
+    "width": 1.37,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Store",
+   "name": "Store each member's VHL QR on the phone",
+   "left": 84.62,
+   "top": 28.99,
+   "box": {
+    "left": 80.48,
+    "top": 42.75,
+    "width": 1.37,
+    "height": 3.48
+   }
+  }
+ ],
+ "tasks": {
+  "Task_Request": {
+   "id": "Task_Request",
+   "name": "Choose who to share, with a passcode and an expiry",
+   "type": "bpmn:UserTask",
+   "lane": "Caregiver",
+   "skills": [],
+   "role": {
+    "name": "caregiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-caregiver",
+    "title": "Caregiver",
+    "skills": []
+   }
+  },
+  "Task_Assemble": {
+   "id": "Task_Assemble",
+   "name": "Assemble each member's IPS and DVCs",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": []
+   }
+  },
+  "Task_Share": {
+   "id": "Task_Share",
+   "name": "Encrypt, publish a passcode manifest",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": []
+   }
+  },
+  "Task_Prepare": {
+   "id": "Task_Prepare",
+   "name": "Prepare the HCERT carrying the VHL at key 5",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": []
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "Sign with Country B's DSC key",
+   "type": "bpmn:ServiceTask",
+   "lane": "Issuer signing key",
+   "skills": [],
+   "role": {
+    "name": "issuer-key",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-issuer-key",
+    "title": "Issuer signing key",
+    "skills": []
+   }
+  },
+  "Task_Finish": {
+   "id": "Task_Finish",
+   "name": "Finish the HC1 QR text",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": []
+   }
+  },
+  "Task_Store": {
+   "id": "Task_Store",
+   "name": "Store each member's VHL QR on the phone",
+   "type": "bpmn:ServiceTask",
+   "lane": "Family phone",
+   "skills": [],
+   "role": {
+    "name": "family-phone",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-family-phone",
+    "title": "Family phone",
+    "skills": []
+   }
+  }
+ }
+}

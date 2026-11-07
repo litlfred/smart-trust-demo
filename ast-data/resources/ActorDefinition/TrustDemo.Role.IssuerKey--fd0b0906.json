@@ -11,7 +11,7 @@
   "title" : "Issuer signing key",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-06T08:51:07+00:00",
+  "date" : "2026-11-07T11:05:24+00:00",
   "publisher" : "litlfred",
   "contact" : [{
     "name" : "litlfred",
@@ -20,7 +20,7 @@
       "value" : "https://github.com/litlfred/smart-trust-demo"
     }]
   }],
-  "description" : "The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, STT-ISS-004).\n\n**Persona**: A key that signs what it is given and reveals nothing else.\n\n**Also known as**: Document signer (DSC) key\n\n**Played in the journeys by**: XXR document signer key (Country A, Thailand) (fictional).",
+  "description" : "The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, STT-ISS-004).\n\n**Persona**: A key that signs what it is given and reveals nothing else.\n\n**Also known as**: Document signer (DSC) key\n\n**Played in the journeys by** (fictional):\n\n- XXR document signer key (Country A, Thailand)\n\n**In the user scenarios**:\n\n- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand\n- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later): J4.0b Dad creates a link to share at the clinic\n\n**Lanes and tasks in the business processes**:\n\n- [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): Sign the bytes with XXR's DSC key\n- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Sign with Country B's DSC key\n\n**Data sets its tasks record or read**: [TD.J1 Birth-dose DVC](dictionary.html#tdj1-birth-dose-dvc)",
   "type" : "system",
   "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
   "derivedFrom" : ["http://smart.who.int/trust/ActorDefinition/TrustNetworkParticipant",

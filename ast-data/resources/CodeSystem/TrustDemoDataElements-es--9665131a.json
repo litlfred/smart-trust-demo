@@ -1,0 +1,721 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoDataElements-es",
+  "language" : "es",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"es\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoDataElements-es</b></p><a name=\"TrustDemoDataElements-es\"> </a><a name=\"hcTrustDemoDataElements-es\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements-es</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE01\">TD.J1.DE01</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE01\"> </a></td><td>Nombre</td><td>El nombre del niño/a tal como lo registra el hospital de nacimiento.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE02\">TD.J1.DE02</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE02\"> </a></td><td>Fecha de nacimiento</td><td>La fecha de nacimiento del niño/a.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE03\">TD.J1.DE03</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE03\"> </a></td><td>Nombre del progenitor o tutor</td><td>El progenitor o tutor, para un sujeto sin documento de identidad, como un recién nacido (STT-PAY-005).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE04\">TD.J1.DE04</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE04\"> </a></td><td>Número de historia hospitalaria</td><td>El identificador propio que el hospital de nacimiento asigna al niño/a. No se incluye en el DVC.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE05\">TD.J1.DE05</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE05\"> </a></td><td>Producto vacunal</td><td>El producto administrado, en la codificación de productos del emisor (códigos ilustrativos al estilo PreQual).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE06\">TD.J1.DE06</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE06\"> </a></td><td>Fecha de vacunación</td><td>La fecha en que se administró la dosis. El registro hospitalario guarda también la hora; el DVC lleva la fecha.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE07\">TD.J1.DE07</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE07\"> </a></td><td>Número de lote</td><td>El lote de la vacuna administrada.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE08\">TD.J1.DE08</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE08\"> </a></td><td>Número de dosis</td><td>El número de la dosis en su serie. Lo registra el hospital; la carga útil mínima del DVC no lo incluye.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE09\">TD.J1.DE09</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE09\"> </a></td><td>Clínico supervisor</td><td>El clínico que administró o supervisó la dosis.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE10\">TD.J1.DE10</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE10\"> </a></td><td>País emisor</td><td>El participante de la red de confianza cuya clave firma el DVC (J1: XXR).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE11\">TD.J1.DE11</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE11\"> </a></td><td>Emitido el</td><td>Cuándo se firmó el DVC.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE12\">TD.J1.DE12</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE12\"> </a></td><td>Caduca el</td><td>Cuándo deja de verificarse el DVC, si el emisor fija una caducidad.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J1.46DE13\">TD.J1.DE13</a><a name=\"TrustDemoDataElements-es-TD.46J1.46DE13\"> </a></td><td>Identificador de clave (kid)</td><td>Identifica el certificado del firmante de documentos de la lista de confianza que verifica el DVC (J1: 916ffa567c0f44a2).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE01\">TD.J2A.DE01</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE01\"> </a></td><td>Identificador del hogar</td><td>El hogar del padrón del CHW al que se incorpora el niño/a.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE02\">TD.J2A.DE02</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE02\"> </a></td><td>Nombre del niño/a</td><td>El nombre del niño/a.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE03\">TD.J2A.DE03</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE03\"> </a></td><td>Apellido del niño/a</td><td>El apellido del niño/a.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE04\">TD.J2A.DE04</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE04\"> </a></td><td>Fecha de nacimiento</td><td>La fecha de nacimiento del niño/a.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE05\">TD.J2A.DE05</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE05\"> </a></td><td>País de nacimiento</td><td>El país en que nació el niño/a, cuando nació en el extranjero.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE06\">TD.J2A.DE06</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE06\"> </a></td><td>Tarjetas de vacunación extranjeras en posesión</td><td>Si la familia tiene tarjetas de vacunación del extranjero.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE07\">TD.J2A.DE07</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE07\"> </a></td><td>Identificador temporal</td><td>El identificador que lleva el niño/a hasta que el registro civil se pone al día.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE08\">TD.J2A.DE08</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE08\"> </a></td><td>Registrado por</td><td>El agente comunitario de salud que registró al niño/a.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE09\">TD.J2A.DE09</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE09\"> </a></td><td>Registrado el</td><td>Cuándo se capturó el registro, en el teléfono, posiblemente sin conexión.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE10\">TD.J2A.DE10</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE10\"> </a></td><td>Informante</td><td>El miembro de la familia que dio las respuestas.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE11\">TD.J2A.DE11</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE11\"> </a></td><td>Dosis leída de una tarjeta extranjera</td><td>Una dosis leída de un DVC extranjero con la lectura de triaje no verificada (STT-VER-011), guardada tal como la notificó la familia.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE12\">TD.J2A.DE12</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE12\"> </a></td><td>Producto vacunal (según la lectura)</td><td>El código de producto del emisor tal como se leyó de la tarjeta; todavía no se añade ningún código nacional.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE13\">TD.J2A.DE13</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE13\"> </a></td><td>Fecha de vacunación (según la lectura)</td><td>La fecha de vacunación tal como se leyó de la tarjeta.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE14\">TD.J2A.DE14</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE14\"> </a></td><td>Número de lote (según la lectura)</td><td>El número de lote tal como se leyó de la tarjeta.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE15\">TD.J2A.DE15</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE15\"> </a></td><td>Notificado por</td><td>El miembro de la familia que mostró la tarjeta: la fuente de información de la dosis.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2A.46DE16\">TD.J2A.DE16</a><a name=\"TrustDemoDataElements-es-TD.46J2A.46DE16\"> </a></td><td>Resultado en el registro</td><td>Siempre notificada sin verificar en una lectura de triaje (tabla de decisión TD.DT.01); se registra como primarySource false con una nota.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2B.46DE01\">TD.J2B.DE01</a><a name=\"TrustDemoDataElements-es-TD.46J2B.46DE01\"> </a></td><td>Niño/a</td><td>El niño/a derivado.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2B.46DE02\">TD.J2B.DE02</a><a name=\"TrustDemoDataElements-es-TD.46J2B.46DE02\"> </a></td><td>Derivado por</td><td>El agente comunitario de salud que hizo la derivación.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2B.46DE03\">TD.J2B.DE03</a><a name=\"TrustDemoDataElements-es-TD.46J2B.46DE03\"> </a></td><td>Derivado a</td><td>La clínica que verificará las tarjetas.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2B.46DE04\">TD.J2B.DE04</a><a name=\"TrustDemoDataElements-es-TD.46J2B.46DE04\"> </a></td><td>Derivado el</td><td>Cuándo se hizo la derivación.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2B.46DE05\">TD.J2B.DE05</a><a name=\"TrustDemoDataElements-es-TD.46J2B.46DE05\"> </a></td><td>Motivo</td><td>Por qué se deriva al niño/a: tarjetas de vacunación extranjeras sin verificar.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2B.46DE06\">TD.J2B.DE06</a><a name=\"TrustDemoDataElements-es-TD.46J2B.46DE06\"> </a></td><td>Dosis por verificar</td><td>Las dosis notificadas que se pide a la clínica verificar.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J2B.46DE07\">TD.J2B.DE07</a><a name=\"TrustDemoDataElements-es-TD.46J2B.46DE07\"> </a></td><td>Estado de la derivación</td><td>Activa hasta que la clínica registra un resultado para cada dosis que enumera; después, completada (indicador TD.IND.03).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE01\">TD.J3A.DE01</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE01\"> </a></td><td>Identificador de clave (kid)</td><td>El kid del DVC verificado, que identifica el certificado del firmante.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE02\">TD.J3A.DE02</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE02\"> </a></td><td>País emisor</td><td>El participante que firmó el DVC (CWT iss).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE03\">TD.J3A.DE03</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE03\"> </a></td><td>Verificado el</td><td>Cuándo se realizó la verificación.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE04\">TD.J3A.DE04</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE04\"> </a></td><td>Verificador</td><td>El sistema que verificó el DVC.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE05\">TD.J3A.DE05</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE05\"> </a></td><td>Resultado de la verificación</td><td>El resultado tipado de la biblioteca (STT-VER-008).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE06\">TD.J3A.DE06</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE06\"> </a></td><td>Paso fallido</td><td>El paso en el que se detuvo la verificación, cuando falló.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE07\">TD.J3A.DE07</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE07\"> </a></td><td>Motivo del fallo</td><td>Por qué se detuvo la verificación, cuando falló: la entrada de la tabla de decisión TD.DT.01.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE08\">TD.J3A.DE08</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE08\"> </a></td><td>Lista de confianza actualizada el</td><td>Cuándo actualizó el verificador por última vez su copia en caché de la lista de confianza; un firmante añadido después falla con KidNotFound (STT-VER-006).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE09\">TD.J3A.DE09</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE09\"> </a></td><td>Resultado en el registro</td><td>En qué se convierte el DVC en el registro (tabla de decisión TD.DT.01).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE10\">TD.J3A.DE10</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE10\"> </a></td><td>Dosis importada</td><td>La dosis registrada a partir del DVC verificado.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE11\">TD.J3A.DE11</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE11\"> </a></td><td>Dosis notificada sustituida</td><td>La dosis notificada que sustituye la verificada.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3A.46DE12\">TD.J3A.DE12</a><a name=\"TrustDemoDataElements-es-TD.46J3A.46DE12\"> </a></td><td>Política de confianza</td><td>El marco de confianza conforme al cual se verificó el DVC.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE01\">TD.J3B.DE01</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE01\"> </a></td><td>Código de producto del emisor</td><td>El código de la vacuna tal como lo firmó el emisor; se conserva y nunca se sustituye (STD-SEM-001).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE02\">TD.J3B.DE02</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE02\"> </a></td><td>Código del calendario nacional</td><td>El código de antígeno y dosis del calendario nacional, añadido junto al código de producto. Ausente en una dosis sin correspondencia, que el perfil TrustDemoLaoImmunization (laoEpi 1..1) todavía no representa.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE03\">TD.J3B.DE03</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE03\"> </a></td><td>Base de la correspondencia</td><td>Cómo se encontró el código del calendario (tabla de decisión TD.DT.02).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE04\">TD.J3B.DE04</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE04\"> </a></td><td>Confirmado por</td><td>El clínico que confirmó un equivalente que la correspondencia no cubría.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE05\">TD.J3B.DE05</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE05\"> </a></td><td>Cuenta para el calendario</td><td>Si el calendario cuenta la dosis (tabla de decisión TD.DT.03): solo las dosis de una fuente primaria con un código del calendario nacional.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE06\">TD.J3B.DE06</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE06\"> </a></td><td>Dosis pendiente</td><td>Una dosis del calendario nacional que la evaluación determina como pendiente (tabla de decisión TD.DT.04).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE07\">TD.J3B.DE07</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE07\"> </a></td><td>Dosis del calendario</td><td>El código de antígeno y dosis del calendario para la dosis pendiente.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE08\">TD.J3B.DE08</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE08\"> </a></td><td>Estado de la previsión</td><td>La previsión para la dosis.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE09\">TD.J3B.DE09</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE09\"> </a></td><td>Fecha prevista</td><td>La fecha de nacimiento del niño/a más la edad de aplicación de la acción del calendario.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J3B.46DE10\">TD.J3B.DE10</a><a name=\"TrustDemoDataElements-es-TD.46J3B.46DE10\"> </a></td><td>Recordatorio</td><td>El recordatorio creado para la próxima visita.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE01\">TD.J40.DE01</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE01\"> </a></td><td>Sujeto</td><td>El miembro de la familia cuyo resumen se comparte.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE02\">TD.J40.DE02</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE02\"> </a></td><td>Titular</td><td>La persona que comparte el enlace y decide quién puede abrirlo.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE03\">TD.J40.DE03</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE03\"> </a></td><td>Custodio</td><td>El servicio del país de origen que aloja el registro y comprueba cada solicitud.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE04\">TD.J40.DE04</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE04\"> </a></td><td>Documento compartido</td><td>El resumen del paciente que entrega el enlace.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE05\">TD.J40.DE05</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE05\"> </a></td><td>Válido desde</td><td>El primer día en que se puede abrir el enlace.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE06\">TD.J40.DE06</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE06\"> </a></td><td>Válido hasta</td><td>La fecha de caducidad que eligió el titular; después de ella, el enlace no entrega nada (STD-ACC-001).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE07\">TD.J40.DE07</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE07\"> </a></td><td>Finalidad</td><td>La finalidad de uso que permite el titular (J4: tratamiento).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE08\">TD.J40.DE08</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE08\"> </a></td><td>Código de acceso establecido</td><td>Si el titular protegió el enlace con un código de acceso. El código de acceso en sí nunca se almacena en el registro.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J40.46DE09\">TD.J40.DE09</a><a name=\"TrustDemoDataElements-es-TD.46J40.46DE09\"> </a></td><td>Retirado el</td><td>Cuándo retiró el enlace el titular, si lo hizo.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE01\">TD.J41.DE01</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE01\"> </a></td><td>Solicitado el</td><td>Cuándo llegó la solicitud.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE02\">TD.J41.DE02</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE02\"> </a></td><td>Solicitante</td><td>El sistema receptor en el extranjero que solicitó el manifiesto.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE03\">TD.J41.DE03</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE03\"> </a></td><td>Dirección de red del solicitante</td><td>De dónde procedía la solicitud.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE04\">TD.J41.DE04</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE04\"> </a></td><td>Custodio</td><td>La pasarela del país de origen que respondió a la solicitud y la registró.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE05\">TD.J41.DE05</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE05\"> </a></td><td>Patient</td><td>De quién es el registro solicitado.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE06\">TD.J41.DE06</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE06\"> </a></td><td>Entregado</td><td>Si se entregó el manifiesto (tabla de decisión TD.DT.05).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE07\">TD.J41.DE07</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE07\"> </a></td><td>Resultado de auditoría</td><td>0 cuando se entrega; 4 (fallo menor) cuando se rechaza.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE08\">TD.J41.DE08</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE08\"> </a></td><td>Motivo del rechazo</td><td>Por qué no se entregó nada, cuando se rechazó.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE09\">TD.J41.DE09</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE09\"> </a></td><td>Consentimiento</td><td>El consentimiento del titular con el que se contrastó la solicitud.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDataElements.html#TrustDemoDataElements-TD.46J41.46DE10\">TD.J41.DE10</a><a name=\"TrustDemoDataElements-es-TD.46J41.46DE10\"> </a></td><td>Documento entregado</td><td>El resumen entregado, cuando se entrega.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements-es",
+  "version" : "0.1.0",
+  "name" : "TrustDemoDataElementsEs",
+  "title" : "Elementos de datos de los recorridos",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-07T11:05:24+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Suplemento en español (es) de TrustDemoDataElements: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDataElements",
+  "concept" : [{
+    "code" : "TD.J1.DE01",
+    "display" : "Nombre",
+    "definition" : "El nombre del niño/a tal como lo registra el hospital de nacimiento.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Nombre"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE02",
+    "display" : "Fecha de nacimiento",
+    "definition" : "La fecha de nacimiento del niño/a.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Fecha de nacimiento"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE03",
+    "display" : "Nombre del progenitor o tutor",
+    "definition" : "El progenitor o tutor, para un sujeto sin documento de identidad, como un recién nacido (STT-PAY-005).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Nombre del progenitor o tutor"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE04",
+    "display" : "Número de historia hospitalaria",
+    "definition" : "El identificador propio que el hospital de nacimiento asigna al niño/a. No se incluye en el DVC.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Número de historia hospitalaria"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE05",
+    "display" : "Producto vacunal",
+    "definition" : "El producto administrado, en la codificación de productos del emisor (códigos ilustrativos al estilo PreQual).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Producto vacunal"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE06",
+    "display" : "Fecha de vacunación",
+    "definition" : "La fecha en que se administró la dosis. El registro hospitalario guarda también la hora; el DVC lleva la fecha.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Fecha de vacunación"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE07",
+    "display" : "Número de lote",
+    "definition" : "El lote de la vacuna administrada.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Número de lote"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE08",
+    "display" : "Número de dosis",
+    "definition" : "El número de la dosis en su serie. Lo registra el hospital; la carga útil mínima del DVC no lo incluye.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Número de dosis"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE09",
+    "display" : "Clínico supervisor",
+    "definition" : "El clínico que administró o supervisó la dosis.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Clínico supervisor"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE10",
+    "display" : "País emisor",
+    "definition" : "El participante de la red de confianza cuya clave firma el DVC (J1: XXR).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "País emisor"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE11",
+    "display" : "Emitido el",
+    "definition" : "Cuándo se firmó el DVC.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Emitido el"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE12",
+    "display" : "Caduca el",
+    "definition" : "Cuándo deja de verificarse el DVC, si el emisor fija una caducidad.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Caduca el"
+    }]
+  },
+  {
+    "code" : "TD.J1.DE13",
+    "display" : "Identificador de clave (kid)",
+    "definition" : "Identifica el certificado del firmante de documentos de la lista de confianza que verifica el DVC (J1: 916ffa567c0f44a2).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Identificador de clave (kid)"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE01",
+    "display" : "Identificador del hogar",
+    "definition" : "El hogar del padrón del CHW al que se incorpora el niño/a.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Identificador del hogar"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE02",
+    "display" : "Nombre del niño/a",
+    "definition" : "El nombre del niño/a.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Nombre del niño/a"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE03",
+    "display" : "Apellido del niño/a",
+    "definition" : "El apellido del niño/a.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Apellido del niño/a"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE04",
+    "display" : "Fecha de nacimiento",
+    "definition" : "La fecha de nacimiento del niño/a.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Fecha de nacimiento"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE05",
+    "display" : "País de nacimiento",
+    "definition" : "El país en que nació el niño/a, cuando nació en el extranjero.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "País de nacimiento"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE06",
+    "display" : "Tarjetas de vacunación extranjeras en posesión",
+    "definition" : "Si la familia tiene tarjetas de vacunación del extranjero.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Tarjetas de vacunación extranjeras en posesión"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE07",
+    "display" : "Identificador temporal",
+    "definition" : "El identificador que lleva el niño/a hasta que el registro civil se pone al día.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Identificador temporal"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE08",
+    "display" : "Registrado por",
+    "definition" : "El agente comunitario de salud que registró al niño/a.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Registrado por"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE09",
+    "display" : "Registrado el",
+    "definition" : "Cuándo se capturó el registro, en el teléfono, posiblemente sin conexión.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Registrado el"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE10",
+    "display" : "Informante",
+    "definition" : "El miembro de la familia que dio las respuestas.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Informante"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE11",
+    "display" : "Dosis leída de una tarjeta extranjera",
+    "definition" : "Una dosis leída de un DVC extranjero con la lectura de triaje no verificada (STT-VER-011), guardada tal como la notificó la familia.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Dosis leída de una tarjeta extranjera"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE12",
+    "display" : "Producto vacunal (según la lectura)",
+    "definition" : "El código de producto del emisor tal como se leyó de la tarjeta; todavía no se añade ningún código nacional.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Producto vacunal (según la lectura)"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE13",
+    "display" : "Fecha de vacunación (según la lectura)",
+    "definition" : "La fecha de vacunación tal como se leyó de la tarjeta.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Fecha de vacunación (según la lectura)"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE14",
+    "display" : "Número de lote (según la lectura)",
+    "definition" : "El número de lote tal como se leyó de la tarjeta.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Número de lote (según la lectura)"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE15",
+    "display" : "Notificado por",
+    "definition" : "El miembro de la familia que mostró la tarjeta: la fuente de información de la dosis.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Notificado por"
+    }]
+  },
+  {
+    "code" : "TD.J2A.DE16",
+    "display" : "Resultado en el registro",
+    "definition" : "Siempre notificada sin verificar en una lectura de triaje (tabla de decisión TD.DT.01); se registra como primarySource false con una nota.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Resultado en el registro"
+    }]
+  },
+  {
+    "code" : "TD.J2B.DE01",
+    "display" : "Niño/a",
+    "definition" : "El niño/a derivado.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Niño/a"
+    }]
+  },
+  {
+    "code" : "TD.J2B.DE02",
+    "display" : "Derivado por",
+    "definition" : "El agente comunitario de salud que hizo la derivación.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Derivado por"
+    }]
+  },
+  {
+    "code" : "TD.J2B.DE03",
+    "display" : "Derivado a",
+    "definition" : "La clínica que verificará las tarjetas.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Derivado a"
+    }]
+  },
+  {
+    "code" : "TD.J2B.DE04",
+    "display" : "Derivado el",
+    "definition" : "Cuándo se hizo la derivación.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Derivado el"
+    }]
+  },
+  {
+    "code" : "TD.J2B.DE05",
+    "display" : "Motivo",
+    "definition" : "Por qué se deriva al niño/a: tarjetas de vacunación extranjeras sin verificar.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Motivo"
+    }]
+  },
+  {
+    "code" : "TD.J2B.DE06",
+    "display" : "Dosis por verificar",
+    "definition" : "Las dosis notificadas que se pide a la clínica verificar.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Dosis por verificar"
+    }]
+  },
+  {
+    "code" : "TD.J2B.DE07",
+    "display" : "Estado de la derivación",
+    "definition" : "Activa hasta que la clínica registra un resultado para cada dosis que enumera; después, completada (indicador TD.IND.03).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Estado de la derivación"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE01",
+    "display" : "Identificador de clave (kid)",
+    "definition" : "El kid del DVC verificado, que identifica el certificado del firmante.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Identificador de clave (kid)"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE02",
+    "display" : "País emisor",
+    "definition" : "El participante que firmó el DVC (CWT iss).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "País emisor"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE03",
+    "display" : "Verificado el",
+    "definition" : "Cuándo se realizó la verificación.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Verificado el"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE04",
+    "display" : "Verificador",
+    "definition" : "El sistema que verificó el DVC.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Verificador"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE05",
+    "display" : "Resultado de la verificación",
+    "definition" : "El resultado tipado de la biblioteca (STT-VER-008).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Resultado de la verificación"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE06",
+    "display" : "Paso fallido",
+    "definition" : "El paso en el que se detuvo la verificación, cuando falló.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Paso fallido"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE07",
+    "display" : "Motivo del fallo",
+    "definition" : "Por qué se detuvo la verificación, cuando falló: la entrada de la tabla de decisión TD.DT.01.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Motivo del fallo"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE08",
+    "display" : "Lista de confianza actualizada el",
+    "definition" : "Cuándo actualizó el verificador por última vez su copia en caché de la lista de confianza; un firmante añadido después falla con KidNotFound (STT-VER-006).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Lista de confianza actualizada el"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE09",
+    "display" : "Resultado en el registro",
+    "definition" : "En qué se convierte el DVC en el registro (tabla de decisión TD.DT.01).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Resultado en el registro"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE10",
+    "display" : "Dosis importada",
+    "definition" : "La dosis registrada a partir del DVC verificado.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Dosis importada"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE11",
+    "display" : "Dosis notificada sustituida",
+    "definition" : "La dosis notificada que sustituye la verificada.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Dosis notificada sustituida"
+    }]
+  },
+  {
+    "code" : "TD.J3A.DE12",
+    "display" : "Política de confianza",
+    "definition" : "El marco de confianza conforme al cual se verificó el DVC.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Política de confianza"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE01",
+    "display" : "Código de producto del emisor",
+    "definition" : "El código de la vacuna tal como lo firmó el emisor; se conserva y nunca se sustituye (STD-SEM-001).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Código de producto del emisor"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE02",
+    "display" : "Código del calendario nacional",
+    "definition" : "El código de antígeno y dosis del calendario nacional, añadido junto al código de producto. Ausente en una dosis sin correspondencia, que el perfil TrustDemoLaoImmunization (laoEpi 1..1) todavía no representa.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Código del calendario nacional"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE03",
+    "display" : "Base de la correspondencia",
+    "definition" : "Cómo se encontró el código del calendario (tabla de decisión TD.DT.02).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Base de la correspondencia"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE04",
+    "display" : "Confirmado por",
+    "definition" : "El clínico que confirmó un equivalente que la correspondencia no cubría.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Confirmado por"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE05",
+    "display" : "Cuenta para el calendario",
+    "definition" : "Si el calendario cuenta la dosis (tabla de decisión TD.DT.03): solo las dosis de una fuente primaria con un código del calendario nacional.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Cuenta para el calendario"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE06",
+    "display" : "Dosis pendiente",
+    "definition" : "Una dosis del calendario nacional que la evaluación determina como pendiente (tabla de decisión TD.DT.04).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Dosis pendiente"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE07",
+    "display" : "Dosis del calendario",
+    "definition" : "El código de antígeno y dosis del calendario para la dosis pendiente.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Dosis del calendario"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE08",
+    "display" : "Estado de la previsión",
+    "definition" : "La previsión para la dosis.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Estado de la previsión"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE09",
+    "display" : "Fecha prevista",
+    "definition" : "La fecha de nacimiento del niño/a más la edad de aplicación de la acción del calendario.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Fecha prevista"
+    }]
+  },
+  {
+    "code" : "TD.J3B.DE10",
+    "display" : "Recordatorio",
+    "definition" : "El recordatorio creado para la próxima visita.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Recordatorio"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE01",
+    "display" : "Sujeto",
+    "definition" : "El miembro de la familia cuyo resumen se comparte.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Sujeto"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE02",
+    "display" : "Titular",
+    "definition" : "La persona que comparte el enlace y decide quién puede abrirlo.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Titular"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE03",
+    "display" : "Custodio",
+    "definition" : "El servicio del país de origen que aloja el registro y comprueba cada solicitud.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Custodio"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE04",
+    "display" : "Documento compartido",
+    "definition" : "El resumen del paciente que entrega el enlace.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Documento compartido"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE05",
+    "display" : "Válido desde",
+    "definition" : "El primer día en que se puede abrir el enlace.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Válido desde"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE06",
+    "display" : "Válido hasta",
+    "definition" : "La fecha de caducidad que eligió el titular; después de ella, el enlace no entrega nada (STD-ACC-001).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Válido hasta"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE07",
+    "display" : "Finalidad",
+    "definition" : "La finalidad de uso que permite el titular (J4: tratamiento).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Finalidad"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE08",
+    "display" : "Código de acceso establecido",
+    "definition" : "Si el titular protegió el enlace con un código de acceso. El código de acceso en sí nunca se almacena en el registro.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Código de acceso establecido"
+    }]
+  },
+  {
+    "code" : "TD.J40.DE09",
+    "display" : "Retirado el",
+    "definition" : "Cuándo retiró el enlace el titular, si lo hizo.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Retirado el"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE01",
+    "display" : "Solicitado el",
+    "definition" : "Cuándo llegó la solicitud.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Solicitado el"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE02",
+    "display" : "Solicitante",
+    "definition" : "El sistema receptor en el extranjero que solicitó el manifiesto.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Solicitante"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE03",
+    "display" : "Dirección de red del solicitante",
+    "definition" : "De dónde procedía la solicitud.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Dirección de red del solicitante"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE04",
+    "display" : "Custodio",
+    "definition" : "La pasarela del país de origen que respondió a la solicitud y la registró.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Custodio"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE05",
+    "display" : "Patient",
+    "definition" : "De quién es el registro solicitado.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Patient"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE06",
+    "display" : "Entregado",
+    "definition" : "Si se entregó el manifiesto (tabla de decisión TD.DT.05).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Entregado"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE07",
+    "display" : "Resultado de auditoría",
+    "definition" : "0 cuando se entrega; 4 (fallo menor) cuando se rechaza.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Resultado de auditoría"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE08",
+    "display" : "Motivo del rechazo",
+    "definition" : "Por qué no se entregó nada, cuando se rechazó.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Motivo del rechazo"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE09",
+    "display" : "Consentimiento",
+    "definition" : "El consentimiento del titular con el que se contrastó la solicitud.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Consentimiento"
+    }]
+  },
+  {
+    "code" : "TD.J41.DE10",
+    "display" : "Documento entregado",
+    "definition" : "El resumen entregado, cuando se entrega.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Documento entregado"
+    }]
+  }]
+}

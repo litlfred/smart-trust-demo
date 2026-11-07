@@ -1,0 +1,209 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_ContributorFeedback",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_StartRow",
+   "name": "Start a change-set row",
+   "left": 15.56,
+   "top": 6.72,
+   "box": {
+    "left": 11.88,
+    "top": 20.9,
+    "width": 1.22,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_Propose",
+   "name": "Propose a direction",
+   "left": 25.74,
+   "top": 30.6,
+   "box": {
+    "left": 22.05,
+    "top": 44.78,
+    "width": 1.22,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_ReadyForAgent",
+   "name": "Set Ready for agent to Yes",
+   "left": 34.89,
+   "top": 54.48,
+   "box": {
+    "left": 31.21,
+    "top": 68.66,
+    "width": 1.22,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_EditInPullRequest",
+   "name": "Edit the document in the row's pull request",
+   "left": 45.07,
+   "top": 30.6,
+   "box": {
+    "left": 41.38,
+    "top": 44.78,
+    "width": 1.22,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_AnswerPreview",
+   "name": "Review the preview and answer",
+   "left": 55.75,
+   "top": 6.72,
+   "box": {
+    "left": 52.06,
+    "top": 20.9,
+    "width": 1.22,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_QaGate",
+   "name": "QA-review the dispositions",
+   "left": 71.26,
+   "top": 78.36,
+   "box": {
+    "left": 67.57,
+    "top": 92.54,
+    "width": 1.22,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_ReadyForMerge",
+   "name": "Set Ready for merge to Yes",
+   "left": 85.76,
+   "top": 54.48,
+   "box": {
+    "left": 82.07,
+    "top": 68.66,
+    "width": 1.22,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_Merge",
+   "name": "Merge the pull request",
+   "left": 92.88,
+   "top": 30.6,
+   "box": {
+    "left": 89.19,
+    "top": 44.78,
+    "width": 1.22,
+    "height": 3.58
+   }
+  }
+ ],
+ "tasks": {
+  "Task_StartRow": {
+   "id": "Task_StartRow",
+   "name": "Start a change-set row",
+   "type": "bpmn:UserTask",
+   "lane": "Authoring Committee",
+   "skills": [],
+   "role": {
+    "name": "authoring-committee",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-folio-assistant-core-scenarios-roles-json-authoring-committee",
+    "title": "Authoring Committee",
+    "skills": []
+   }
+  },
+  "Task_Propose": {
+   "id": "Task_Propose",
+   "name": "Propose a direction",
+   "type": "bpmn:ServiceTask",
+   "lane": "Authoring agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_ReadyForAgent": {
+   "id": "Task_ReadyForAgent",
+   "name": "Set Ready for agent to Yes",
+   "type": "bpmn:UserTask",
+   "lane": "Editor",
+   "skills": [],
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_EditInPullRequest": {
+   "id": "Task_EditInPullRequest",
+   "name": "Edit the document in the row's pull request",
+   "type": "bpmn:ServiceTask",
+   "lane": "Authoring agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_AnswerPreview": {
+   "id": "Task_AnswerPreview",
+   "name": "Review the preview and answer",
+   "type": "bpmn:UserTask",
+   "lane": "Authoring Committee",
+   "skills": [],
+   "role": {
+    "name": "authoring-committee",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-folio-assistant-core-scenarios-roles-json-authoring-committee",
+    "title": "Authoring Committee",
+    "skills": []
+   }
+  },
+  "Task_QaGate": {
+   "id": "Task_QaGate",
+   "name": "QA-review the dispositions",
+   "type": "bpmn:ServiceTask",
+   "lane": "QA reviewer (independent)",
+   "skills": [],
+   "role": {
+    "name": "qc-reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-qc-reviewer",
+    "title": "QC reviewer",
+    "skills": []
+   }
+  },
+  "Task_ReadyForMerge": {
+   "id": "Task_ReadyForMerge",
+   "name": "Set Ready for merge to Yes",
+   "type": "bpmn:UserTask",
+   "lane": "Editor",
+   "skills": [],
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_Merge": {
+   "id": "Task_Merge",
+   "name": "Merge the pull request",
+   "type": "bpmn:ServiceTask",
+   "lane": "Authoring agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

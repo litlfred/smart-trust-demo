@@ -12,6 +12,13 @@
       "code" : "59284-0",
       "display" : "Consent Document"
     }]
+  },
+  {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "code" : "OPTIN",
+      "display" : "opt-in"
+    }]
   }],
   "subject" : {
     "reference" : "Patient/TrustDemoSomsack"
@@ -26,6 +33,10 @@
   }],
   "controller" : [{
     "reference" : "Organization/TrustDemoLaoPortalOrg"
+  }],
+  "sourceAttachment" : [{
+    "contentType" : "application/json",
+    "title" : "Bounmy's confirmation on the family wallet when he created Somsack's VHL (explicit consent)"
   }],
   "decision" : "permit",
   "provision" : [{

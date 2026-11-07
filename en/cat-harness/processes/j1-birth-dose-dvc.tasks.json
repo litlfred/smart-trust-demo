@@ -1,0 +1,159 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J1BirthDoseDvc",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Vaccinate",
+   "name": "Give Hep B and BCG birth doses and record them",
+   "left": 27.53,
+   "top": 28.99,
+   "box": {
+    "left": 22.94,
+    "top": 42.75,
+    "width": 1.52,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Payload",
+   "name": "Build one DVCMinPreQual payload per dose",
+   "left": 38.61,
+   "top": 53.62,
+   "box": {
+    "left": 34.02,
+    "top": 67.39,
+    "width": 1.52,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Prepare",
+   "name": "Prepare: CWT claims and the COSE Sig_structure",
+   "left": 49.68,
+   "top": 53.62,
+   "box": {
+    "left": 45.09,
+    "top": 67.39,
+    "width": 1.52,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Sign",
+   "name": "Sign the bytes with XXR's DSC key",
+   "left": 60.76,
+   "top": 78.26,
+   "box": {
+    "left": 56.17,
+    "top": 92.03,
+    "width": 1.52,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Finish",
+   "name": "Finish: COSE_Sign1, deflate, Base45, HC1:",
+   "left": 71.84,
+   "top": 53.62,
+   "box": {
+    "left": 67.25,
+    "top": 67.39,
+    "width": 1.52,
+    "height": 3.48
+   }
+  },
+  {
+   "id": "Task_Print",
+   "name": "Print the paper DVC, one QR per dose",
+   "left": 82.91,
+   "top": 28.99,
+   "box": {
+    "left": 78.32,
+    "top": 42.75,
+    "width": 1.52,
+    "height": 3.48
+   }
+  }
+ ],
+ "tasks": {
+  "Task_Vaccinate": {
+   "id": "Task_Vaccinate",
+   "name": "Give Hep B and BCG birth doses and record them",
+   "type": "bpmn:UserTask",
+   "lane": "Birth clinic vaccinator",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-vaccinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-vaccinator",
+    "title": "Birth clinic vaccinator",
+    "skills": []
+   }
+  },
+  "Task_Payload": {
+   "id": "Task_Payload",
+   "name": "Build one DVCMinPreQual payload per dose",
+   "type": "bpmn:ServiceTask",
+   "lane": "Birth clinic issuing system",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": []
+   }
+  },
+  "Task_Prepare": {
+   "id": "Task_Prepare",
+   "name": "Prepare: CWT claims and the COSE Sig_structure",
+   "type": "bpmn:ServiceTask",
+   "lane": "Birth clinic issuing system",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": []
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "Sign the bytes with XXR's DSC key",
+   "type": "bpmn:ServiceTask",
+   "lane": "Issuer signing key",
+   "skills": [],
+   "role": {
+    "name": "issuer-key",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-issuer-key",
+    "title": "Issuer signing key",
+    "skills": []
+   }
+  },
+  "Task_Finish": {
+   "id": "Task_Finish",
+   "name": "Finish: COSE_Sign1, deflate, Base45, HC1:",
+   "type": "bpmn:ServiceTask",
+   "lane": "Birth clinic issuing system",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-system",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-system",
+    "title": "Birth clinic issuing system",
+    "skills": []
+   }
+  },
+  "Task_Print": {
+   "id": "Task_Print",
+   "name": "Print the paper DVC, one QR per dose",
+   "type": "bpmn:UserTask",
+   "lane": "Birth clinic vaccinator",
+   "skills": [],
+   "role": {
+    "name": "birth-clinic-vaccinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-birth-clinic-vaccinator",
+    "title": "Birth clinic vaccinator",
+    "skills": []
+   }
+  }
+ }
+}

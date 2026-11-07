@@ -1,0 +1,354 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_Publication",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_OpenReleaseBean",
+   "name": "Open the bean",
+   "left": 11.86,
+   "top": 13.65,
+   "box": {
+    "left": 9.36,
+    "top": 21.29,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_BuildDraft",
+   "name": "Build the draft publication",
+   "left": 26.63,
+   "top": 13.65,
+   "box": {
+    "left": 24.14,
+    "top": 21.29,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_PublicationQa",
+   "name": "Run publication QA gates",
+   "left": 33.51,
+   "top": 13.65,
+   "box": {
+    "left": 31.01,
+    "top": 21.29,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "CallActivity_Editing",
+   "name": "Editing and HCI validation",
+   "left": 33.51,
+   "top": 1.61,
+   "box": {
+    "left": 31.01,
+    "top": 9.24,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_CirculateDraft",
+   "name": "Circulate the draft",
+   "left": 44.5,
+   "top": 43.37,
+   "box": {
+    "left": 42.01,
+    "top": 51,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "CallActivity_PublicComment",
+   "name": "Release for public comment",
+   "left": 55.5,
+   "top": 72.09,
+   "box": {
+    "left": 53.01,
+    "top": 79.72,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_ReviewDraft",
+   "name": "Review the draft publication",
+   "left": 55.5,
+   "top": 31.33,
+   "box": {
+    "left": 53.01,
+    "top": 38.96,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_SmeSignoff",
+   "name": "Clinical or scientific sign-off",
+   "left": 55.5,
+   "top": 55.42,
+   "box": {
+    "left": 53.01,
+    "top": 63.05,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_OpenChangeBeans",
+   "name": "Open beans for the change requests",
+   "left": 71.99,
+   "top": 43.37,
+   "box": {
+    "left": 69.5,
+    "top": 51,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_AuthorizeRelease",
+   "name": "Authorise the release",
+   "left": 71.99,
+   "top": 88.76,
+   "box": {
+    "left": 69.5,
+    "top": 96.39,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_PublishRelease",
+   "name": "Version, tag and publish",
+   "left": 78.87,
+   "top": 43.37,
+   "box": {
+    "left": 76.37,
+    "top": 51,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_CloseReleaseBeans",
+   "name": "Close the release beans",
+   "left": 85.05,
+   "top": 43.37,
+   "box": {
+    "left": 82.56,
+    "top": 51,
+    "width": 0.82,
+    "height": 1.93
+   }
+  },
+  {
+   "id": "Task_ArchiveReleaseBean",
+   "name": "Close the bean",
+   "left": 92.27,
+   "top": 43.37,
+   "box": {
+    "left": 89.78,
+    "top": 51,
+    "width": 0.82,
+    "height": 1.93
+   }
+  }
+ ],
+ "tasks": {
+  "Task_OpenReleaseBean": {
+   "id": "Task_OpenReleaseBean",
+   "name": "Open the bean",
+   "type": "bpmn:CallActivity",
+   "lane": "Build pipeline (system)",
+   "skills": [],
+   "calls": {
+    "name": "Open the bean",
+    "href": "bean-open.html",
+    "diagram": "bean-open.html"
+   },
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_BuildDraft": {
+   "id": "Task_BuildDraft",
+   "name": "Build the draft publication",
+   "type": "bpmn:ServiceTask",
+   "lane": "Build pipeline (system)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_PublicationQa": {
+   "id": "Task_PublicationQa",
+   "name": "Run publication QA gates",
+   "type": "bpmn:ServiceTask",
+   "lane": "Build pipeline (system)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "CallActivity_Editing": {
+   "id": "CallActivity_Editing",
+   "name": "Editing and HCI validation",
+   "type": "bpmn:CallActivity",
+   "lane": "Editors + authoring agents",
+   "skills": [],
+   "calls": {
+    "name": "Editing and HCI validation",
+    "href": "editing-hci-validation.html",
+    "diagram": "editing-hci-validation.html"
+   },
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_CirculateDraft": {
+   "id": "Task_CirculateDraft",
+   "name": "Circulate the draft",
+   "type": "bpmn:UserTask",
+   "lane": "Publication manager",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "CallActivity_PublicComment": {
+   "id": "CallActivity_PublicComment",
+   "name": "Release for public comment",
+   "type": "bpmn:CallActivity",
+   "lane": "Public review (commenters, review committee, editor)",
+   "skills": [],
+   "calls": {
+    "name": "Release a draft for public comment",
+    "href": "public-comment-release.html",
+    "diagram": "public-comment-release.html"
+   },
+   "role": {
+    "name": "review-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-review-coordinator",
+    "title": "Review coordinator",
+    "skills": []
+   }
+  },
+  "Task_ReviewDraft": {
+   "id": "Task_ReviewDraft",
+   "name": "Review the draft publication",
+   "type": "bpmn:UserTask",
+   "lane": "Review team (content · QC · technical officer)",
+   "skills": [],
+   "role": {
+    "name": "reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-reviewer",
+    "title": "Reviewer / SME",
+    "skills": []
+   }
+  },
+  "Task_SmeSignoff": {
+   "id": "Task_SmeSignoff",
+   "name": "Clinical or scientific sign-off",
+   "type": "bpmn:UserTask",
+   "lane": "Clinical / scientific SMEs",
+   "skills": [],
+   "role": {
+    "name": "clinical-sme",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-clinical-sme",
+    "title": "Clinical / scientific SME",
+    "skills": []
+   }
+  },
+  "Task_OpenChangeBeans": {
+   "id": "Task_OpenChangeBeans",
+   "name": "Open beans for the change requests",
+   "type": "bpmn:Task",
+   "lane": "Publication manager",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_AuthorizeRelease": {
+   "id": "Task_AuthorizeRelease",
+   "name": "Authorise the release",
+   "type": "bpmn:UserTask",
+   "lane": "Programme manager (release authority)",
+   "skills": [],
+   "role": {
+    "name": "programme-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-programme-manager",
+    "title": "Programme manager",
+    "skills": []
+   }
+  },
+  "Task_PublishRelease": {
+   "id": "Task_PublishRelease",
+   "name": "Version, tag and publish",
+   "type": "bpmn:ServiceTask",
+   "lane": "Publication manager",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_CloseReleaseBeans": {
+   "id": "Task_CloseReleaseBeans",
+   "name": "Close the release beans",
+   "type": "bpmn:Task",
+   "lane": "Publication manager",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_ArchiveReleaseBean": {
+   "id": "Task_ArchiveReleaseBean",
+   "name": "Close the bean",
+   "type": "bpmn:CallActivity",
+   "lane": "Publication manager",
+   "skills": [],
+   "calls": {
+    "name": "Close the bean",
+    "href": "bean-close.html",
+    "diagram": "bean-close.html"
+   },
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  }
+ }
+}

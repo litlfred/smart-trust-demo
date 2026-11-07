@@ -11,7 +11,7 @@
   "dcterms:identifier": "ActorDefinition/TrustDemo.Role.PocReceiver",
   "schema:name": "PocReceiver",
   "dcterms:title": "Point-of-care receiver",
-  "dcterms:description": "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by**: Chiang Rai primary care clinic viewer, Thailand (J4.1) (fictional).",
+  "dcterms:description": "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by** (fictional):\n\n- Chiang Rai primary care clinic viewer, Thailand (J4.1)\n\n**In the user scenarios**:\n\n- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history\n\n**Lanes and tasks in the business processes**:\n\n- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Verify the HCERT and read the VHL at key 5; Request the manifest (ITI-YY5), signed; Decrypt the IPS and DVCs\n\n**Decisions it makes**:\n\n- Decision table [TD.DT.06 Does the receiver follow the VHL?](decision-logic.html#tddt06-does-the-receiver-follow-the-vhl), in: Verify the HCERT and read the VHL at key 5; HCERT verified?; Request the manifest (ITI-YY5), signed\n- Gateway \"HCERT verified?\" in [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad)\n\n**Data sets its tasks record or read**: [TD.J41 Access to a shared link](dictionary.html#tdj41-access-to-a-shared-link)",
   "schema:version": "0.1.0",
   "dcterms:type": "Requirements: Actor Definitions",
   "schema:sameAs": {
@@ -31,7 +31,7 @@
   "prov:wasGeneratedBy": {
     "@type": "prov:Activity",
     "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
-    "prov:used": "1f534f64c18aac4ce284f9f2821c251b7ed92532"
+    "prov:used": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba"
   },
   "dcterms:isPartOf": {
     "@type": "fhir:ImplementationGuide",

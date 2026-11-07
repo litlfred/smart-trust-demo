@@ -1,0 +1,189 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_PublicCommentRelease",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_AgreeReleaseDate",
+   "name": "Agree the release date and comment period",
+   "left": 17.08,
+   "top": 6.04,
+   "box": {
+    "left": 12.58,
+    "top": 21.74,
+    "width": 1.49,
+    "height": 5.8
+   }
+  },
+  {
+   "id": "Task_BuildPcRelease",
+   "name": "Build the public comment release",
+   "left": 27.64,
+   "top": 66.91,
+   "box": {
+    "left": 23.14,
+    "top": 89.86,
+    "width": 1.49,
+    "height": 5.8
+   }
+  },
+  {
+   "id": "Task_SetUpChannels",
+   "name": "Set up the comment channels, with instructions and links",
+   "left": 40.06,
+   "top": 37.44,
+   "box": {
+    "left": 34.32,
+    "top": 53.14,
+    "width": 1.49,
+    "height": 5.8
+   }
+  },
+  {
+   "id": "Task_WriteAnnouncement",
+   "name": "Write the announcement, with links",
+   "left": 50,
+   "top": 37.44,
+   "box": {
+    "left": 45.5,
+    "top": 53.14,
+    "width": 1.49,
+    "height": 5.8
+   }
+  },
+  {
+   "id": "Task_Distribute",
+   "name": "Distribute to the public",
+   "left": 60.56,
+   "top": 6.04,
+   "box": {
+    "left": 56.06,
+    "top": 21.74,
+    "width": 1.49,
+    "height": 5.8
+   }
+  },
+  {
+   "id": "CallActivity_PublicComment",
+   "name": "Public comment on the release",
+   "left": 72.98,
+   "top": 37.44,
+   "box": {
+    "left": 67.24,
+    "top": 53.14,
+    "width": 1.49,
+    "height": 5.8
+   }
+  },
+  {
+   "id": "Task_ArchiveRelease",
+   "name": "Archive the release with the review",
+   "left": 82.92,
+   "top": 66.91,
+   "box": {
+    "left": 78.42,
+    "top": 89.86,
+    "width": 1.49,
+    "height": 5.8
+   }
+  }
+ ],
+ "tasks": {
+  "Task_AgreeReleaseDate": {
+   "id": "Task_AgreeReleaseDate",
+   "name": "Agree the release date and comment period",
+   "type": "bpmn:Task",
+   "lane": "Review committee and editor",
+   "skills": [],
+   "role": {
+    "name": "review-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-review-coordinator",
+    "title": "Review coordinator",
+    "skills": []
+   }
+  },
+  "Task_BuildPcRelease": {
+   "id": "Task_BuildPcRelease",
+   "name": "Build the public comment release",
+   "type": "bpmn:Task",
+   "lane": "Release build and archive (pipeline)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_SetUpChannels": {
+   "id": "Task_SetUpChannels",
+   "name": "Set up the comment channels, with instructions and links",
+   "type": "bpmn:Task",
+   "lane": "Editor",
+   "skills": [],
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_WriteAnnouncement": {
+   "id": "Task_WriteAnnouncement",
+   "name": "Write the announcement, with links",
+   "type": "bpmn:Task",
+   "lane": "Editor",
+   "skills": [],
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_Distribute": {
+   "id": "Task_Distribute",
+   "name": "Distribute to the public",
+   "type": "bpmn:Task",
+   "lane": "Review committee and editor",
+   "skills": [],
+   "role": {
+    "name": "review-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-review-coordinator",
+    "title": "Review coordinator",
+    "skills": []
+   }
+  },
+  "CallActivity_PublicComment": {
+   "id": "CallActivity_PublicComment",
+   "name": "Public comment on the release",
+   "type": "bpmn:CallActivity",
+   "lane": "Editor",
+   "skills": [],
+   "calls": {
+    "name": "Public comment on a review draft",
+    "href": "public-comment.html",
+    "diagram": "public-comment.html"
+   },
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_ArchiveRelease": {
+   "id": "Task_ArchiveRelease",
+   "name": "Archive the release with the review",
+   "type": "bpmn:Task",
+   "lane": "Release build and archive (pipeline)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  }
+ }
+}

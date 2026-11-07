@@ -1,0 +1,184 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J3ClinicVerification",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Scan",
+   "name": "Scan the QRs and open the referral",
+   "left": 24.79,
+   "top": 38.46,
+   "box": {
+    "left": 20.66,
+    "top": 56.73,
+    "width": 1.37,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Verify",
+   "name": "Verify each HCERT against the trust list",
+   "left": 34.76,
+   "top": 71.15,
+   "box": {
+    "left": 30.63,
+    "top": 89.42,
+    "width": 1.37,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Unverified",
+   "name": "Note the failure; decide doses by policy",
+   "left": 54.7,
+   "top": 38.46,
+   "box": {
+    "left": 50.57,
+    "top": 56.73,
+    "width": 1.37,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Import",
+   "name": "Import the doses as FHIR Immunization resources",
+   "left": 54.7,
+   "top": 71.15,
+   "box": {
+    "left": 50.57,
+    "top": 89.42,
+    "width": 1.37,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Map",
+   "name": "Add national codes beside foreign ones",
+   "left": 64.67,
+   "top": 71.15,
+   "box": {
+    "left": 60.54,
+    "top": 89.42,
+    "width": 1.37,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Schedule",
+   "name": "Evaluate the national schedule",
+   "left": 74.64,
+   "top": 71.15,
+   "box": {
+    "left": 70.51,
+    "top": 89.42,
+    "width": 1.37,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Plan",
+   "name": "Give due doses and book the next visit",
+   "left": 84.62,
+   "top": 38.46,
+   "box": {
+    "left": 80.48,
+    "top": 56.73,
+    "width": 1.37,
+    "height": 4.62
+   }
+  }
+ ],
+ "tasks": {
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan the QRs and open the referral",
+   "type": "bpmn:UserTask",
+   "lane": "Home clinic provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  },
+  "Task_Verify": {
+   "id": "Task_Verify",
+   "name": "Verify each HCERT against the trust list",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": []
+   }
+  },
+  "Task_Unverified": {
+   "id": "Task_Unverified",
+   "name": "Note the failure; decide doses by policy",
+   "type": "bpmn:UserTask",
+   "lane": "Home clinic provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  },
+  "Task_Import": {
+   "id": "Task_Import",
+   "name": "Import the doses as FHIR Immunization resources",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": []
+   }
+  },
+  "Task_Map": {
+   "id": "Task_Map",
+   "name": "Add national codes beside foreign ones",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": []
+   }
+  },
+  "Task_Schedule": {
+   "id": "Task_Schedule",
+   "name": "Evaluate the national schedule",
+   "type": "bpmn:ServiceTask",
+   "lane": "Home clinic EHR",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-ehr",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-ehr",
+    "title": "Home clinic EHR",
+    "skills": []
+   }
+  },
+  "Task_Plan": {
+   "id": "Task_Plan",
+   "name": "Give due doses and book the next visit",
+   "type": "bpmn:UserTask",
+   "lane": "Home clinic provider",
+   "skills": [],
+   "role": {
+    "name": "home-clinic-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-home-clinic-provider",
+    "title": "Home clinic provider",
+    "skills": []
+   }
+  }
+ }
+}

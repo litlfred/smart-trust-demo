@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "CodeSystem-TrustDemoVaccineProduct-ru.jsonld",
+  "@type": "fhir:CodeSystem",
+  "dcterms:identifier": "CodeSystem/TrustDemoVaccineProduct-ru",
+  "schema:name": "TrustDemoVaccineProductRu",
+  "dcterms:title": "TrustDemoVaccineProduct (ru designations, unofficial)",
+  "dcterms:description": "Unofficial Russian designations for TrustDemoVaccineProduct: an agent translation that no person has signed off.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Code Systems",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-ru"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/CodeSystem/TrustDemoVaccineProduct-ru--f46df4c9.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "3bfa04b9825fc1870bf4a58c2eb6250904a831ba"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

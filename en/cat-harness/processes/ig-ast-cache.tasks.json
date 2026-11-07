@@ -1,0 +1,134 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_IgAstCache",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Restore",
+   "name": "Restore and judge the cached AST",
+   "left": 25.65,
+   "top": 34.24,
+   "box": {
+    "left": 19.35,
+    "top": 49.36,
+    "width": 2.09,
+    "height": 3.82
+   }
+  },
+  {
+   "id": "Task_BuildSite",
+   "name": "Build and publish the site from the AST",
+   "left": 56.09,
+   "top": 34.24,
+   "box": {
+    "left": 49.78,
+    "top": 49.36,
+    "width": 2.09,
+    "height": 3.82
+   }
+  },
+  {
+   "id": "Task_Dispatch",
+   "name": "Dispatch AST refresh",
+   "left": 41.74,
+   "top": 8.76,
+   "box": {
+    "left": 33.7,
+    "top": 17.52,
+    "width": 2.09,
+    "height": 3.82
+   }
+  },
+  {
+   "id": "Task_Export",
+   "name": "Build the IG with the AST exporter",
+   "left": 25.65,
+   "top": 62.9,
+   "box": {
+    "left": 19.35,
+    "top": 78.03,
+    "width": 2.09,
+    "height": 3.82
+   }
+  },
+  {
+   "id": "Task_Seed",
+   "name": "Seed the cache branch",
+   "left": 57.83,
+   "top": 66.08,
+   "box": {
+    "left": 49.78,
+    "top": 74.84,
+    "width": 2.09,
+    "height": 3.82
+   }
+  }
+ ],
+ "tasks": {
+  "Task_Restore": {
+   "id": "Task_Restore",
+   "name": "Restore and judge the cached AST",
+   "type": "bpmn:ServiceTask",
+   "lane": "Site build (agent, stage-local)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_BuildSite": {
+   "id": "Task_BuildSite",
+   "name": "Build and publish the site from the AST",
+   "type": "bpmn:ServiceTask",
+   "lane": "Site build (agent, stage-local)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Dispatch": {
+   "id": "Task_Dispatch",
+   "name": "Dispatch AST refresh",
+   "type": "bpmn:UserTask",
+   "lane": "Publication manager (owner, or the agent the owner delegates to)",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_Export": {
+   "id": "Task_Export",
+   "name": "Build the IG with the AST exporter",
+   "type": "bpmn:ServiceTask",
+   "lane": "AST refresh (GitHub runner: IG Publisher with the AST exporter)",
+   "skills": [],
+   "role": {
+    "name": "ig-publisher-service",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-ig-publisher-service",
+    "title": "IG publisher + validator",
+    "skills": []
+   }
+  },
+  "Task_Seed": {
+   "id": "Task_Seed",
+   "name": "Seed the cache branch",
+   "type": "bpmn:ServiceTask",
+   "lane": "AST refresh (GitHub runner: IG Publisher with the AST exporter)",
+   "skills": [],
+   "role": {
+    "name": "ig-publisher-service",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-ig-publisher-service",
+    "title": "IG publisher + validator",
+    "skills": []
+   }
+  }
+ }
+}

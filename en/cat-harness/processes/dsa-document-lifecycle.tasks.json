@@ -1,0 +1,679 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_DsaDocumentLifecycle",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Call_BeanOpen",
+   "name": "Open the bean",
+   "left": 4.28,
+   "top": 15.6,
+   "box": {
+    "left": 3.24,
+    "top": 24.31,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_AgreeTerms",
+   "name": "P1.1 · Agree the terms",
+   "left": 8.27,
+   "top": 1.83,
+   "box": {
+    "left": 7.23,
+    "top": 10.55,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_WriteText",
+   "name": "P1.2 · Write the legal text",
+   "left": 12.26,
+   "top": 32.11,
+   "box": {
+    "left": 11.22,
+    "top": 40.83,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_RecordLegalBasis",
+   "name": "P1.2a · Record the legal basis",
+   "left": 14.82,
+   "top": 32.11,
+   "box": {
+    "left": 13.79,
+    "top": 40.83,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_PlainSummary",
+   "name": "P1.2b · Draft the plain summary",
+   "left": 18.81,
+   "top": 32.11,
+   "box": {
+    "left": 17.78,
+    "top": 40.83,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_DeriveOdrl",
+   "name": "P1.3 · Derive the ODRL 2.2 Agreement",
+   "left": 24.23,
+   "top": 32.11,
+   "box": {
+    "left": 23.2,
+    "top": 40.83,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_CheckOdrl",
+   "name": "P1.4 · Check the ODRL against the text",
+   "left": 26.8,
+   "top": 45.87,
+   "box": {
+    "left": 25.76,
+    "top": 54.59,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_SplitAnnexes",
+   "name": "P1.5 · Split public terms from private annexes",
+   "left": 30.79,
+   "top": 32.11,
+   "box": {
+    "left": 29.75,
+    "top": 40.83,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_Review",
+   "name": "Review the draft agreement",
+   "left": 33.35,
+   "top": 45.87,
+   "box": {
+    "left": 32.32,
+    "top": 54.59,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Call_PublicComment",
+   "name": "Public comment on the template",
+   "left": 37.34,
+   "top": 59.63,
+   "box": {
+    "left": 36.31,
+    "top": 68.35,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_Render",
+   "name": "Render the text to HTML and PDF",
+   "left": 42.76,
+   "top": 87.16,
+   "box": {
+    "left": 41.73,
+    "top": 95.87,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_Sign",
+   "name": "P1.6 · Sign",
+   "left": 45.32,
+   "top": 1.83,
+   "box": {
+    "left": 44.29,
+    "top": 10.55,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_AssignVersion",
+   "name": "P2.1 · Assign version and fixed URL",
+   "left": 47.89,
+   "top": 73.39,
+   "box": {
+    "left": 46.86,
+    "top": 82.11,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_Hash",
+   "name": "P2.2 · Record each file's SHA-256",
+   "left": 50.46,
+   "top": 73.39,
+   "box": {
+    "left": 49.42,
+    "top": 82.11,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_HashSummary",
+   "name": "P2.2a · Hash the plain summary",
+   "left": 54.45,
+   "top": 73.39,
+   "box": {
+    "left": 53.41,
+    "top": 82.11,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_ConsentCitation",
+   "name": "P2.2b · State the URL and hash to cite",
+   "left": 57.01,
+   "top": 73.39,
+   "box": {
+    "left": 55.98,
+    "top": 82.11,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_OdrlCitesText",
+   "name": "P2.3 · Make the ODRL cite the text",
+   "left": 62.43,
+   "top": 32.11,
+   "box": {
+    "left": 61.4,
+    "top": 40.83,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_Publish",
+   "name": "Publish the version at its URL",
+   "left": 66.42,
+   "top": 87.16,
+   "box": {
+    "left": 65.39,
+    "top": 95.87,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_Catalogue",
+   "name": "P2.4–5 · Write the DCAT 3 record",
+   "left": 68.99,
+   "top": 73.39,
+   "box": {
+    "left": 67.95,
+    "top": 82.11,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Call_BeanOpenChange",
+   "name": "Open the bean",
+   "left": 77.25,
+   "top": 15.6,
+   "box": {
+    "left": 76.22,
+    "top": 24.31,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_DecideChange",
+   "name": "Decide: amend, renew or end",
+   "left": 81.24,
+   "top": 1.83,
+   "box": {
+    "left": 80.21,
+    "top": 10.55,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_DecideGrants",
+   "name": "P14.2 · Decide what happens to existing grants",
+   "left": 85.23,
+   "top": 1.83,
+   "box": {
+    "left": 84.2,
+    "top": 10.55,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_NewConsentNeeded",
+   "name": "P14.3 · New consent needed",
+   "left": 89.3,
+   "top": 3.21,
+   "box": {
+    "left": 88.19,
+    "top": 9.17,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_SetStatus",
+   "name": "P14.5 · Set the status to ended",
+   "left": 85.23,
+   "top": 73.39,
+   "box": {
+    "left": 84.2,
+    "top": 82.11,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Task_EndDuties",
+   "name": "Revoke grants and start end-of-agreement duties",
+   "left": 94.21,
+   "top": 1.83,
+   "box": {
+    "left": 93.18,
+    "top": 10.55,
+    "width": 0.34,
+    "height": 2.2
+   }
+  },
+  {
+   "id": "Call_BeanCloseEnded",
+   "name": "Close the bean",
+   "left": 96.78,
+   "top": 15.6,
+   "box": {
+    "left": 95.75,
+    "top": 24.31,
+    "width": 0.34,
+    "height": 2.2
+   }
+  }
+ ],
+ "tasks": {
+  "Call_BeanOpen": {
+   "id": "Call_BeanOpen",
+   "name": "Open the bean",
+   "type": "bpmn:CallActivity",
+   "lane": "Author and policy author",
+   "skills": [],
+   "calls": {
+    "name": "Open the bean",
+    "href": "bean-open.html",
+    "diagram": "bean-open.html"
+   },
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_AgreeTerms": {
+   "id": "Task_AgreeTerms",
+   "name": "P1.1 · Agree the terms",
+   "type": "bpmn:UserTask",
+   "lane": "Parties and signatories (provider, recipient)",
+   "skills": [],
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "Task_WriteText": {
+   "id": "Task_WriteText",
+   "name": "P1.2 · Write the legal text",
+   "type": "bpmn:UserTask",
+   "lane": "Author and policy author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_RecordLegalBasis": {
+   "id": "Task_RecordLegalBasis",
+   "name": "P1.2a · Record the legal basis",
+   "type": "bpmn:UserTask",
+   "lane": "Author and policy author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_PlainSummary": {
+   "id": "Task_PlainSummary",
+   "name": "P1.2b · Draft the plain summary",
+   "type": "bpmn:UserTask",
+   "lane": "Author and policy author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_DeriveOdrl": {
+   "id": "Task_DeriveOdrl",
+   "name": "P1.3 · Derive the ODRL 2.2 Agreement",
+   "type": "bpmn:UserTask",
+   "lane": "Author and policy author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_CheckOdrl": {
+   "id": "Task_CheckOdrl",
+   "name": "P1.4 · Check the ODRL against the text",
+   "type": "bpmn:UserTask",
+   "lane": "Reviewer (legal, policy)",
+   "skills": [],
+   "role": {
+    "name": "reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-reviewer",
+    "title": "Reviewer / SME",
+    "skills": []
+   }
+  },
+  "Task_SplitAnnexes": {
+   "id": "Task_SplitAnnexes",
+   "name": "P1.5 · Split public terms from private annexes",
+   "type": "bpmn:UserTask",
+   "lane": "Author and policy author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_Review": {
+   "id": "Task_Review",
+   "name": "Review the draft agreement",
+   "type": "bpmn:UserTask",
+   "lane": "Reviewer (legal, policy)",
+   "skills": [],
+   "role": {
+    "name": "reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-reviewer",
+    "title": "Reviewer / SME",
+    "skills": []
+   }
+  },
+  "Call_PublicComment": {
+   "id": "Call_PublicComment",
+   "name": "Public comment on the template",
+   "type": "bpmn:CallActivity",
+   "lane": "Public review (commenters, review committee, editor)",
+   "skills": [],
+   "calls": {
+    "name": "Public comment on a review draft",
+    "href": "public-comment.html",
+    "diagram": "public-comment.html"
+   },
+   "role": {
+    "name": "review-coordinator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-review-coordinator",
+    "title": "Review coordinator",
+    "skills": []
+   }
+  },
+  "Task_Render": {
+   "id": "Task_Render",
+   "name": "Render the text to HTML and PDF",
+   "type": "bpmn:ServiceTask",
+   "lane": "Build pipeline (system)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Sign": {
+   "id": "Task_Sign",
+   "name": "P1.6 · Sign",
+   "type": "bpmn:UserTask",
+   "lane": "Parties and signatories (provider, recipient)",
+   "skills": [],
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "Task_AssignVersion": {
+   "id": "Task_AssignVersion",
+   "name": "P2.1 · Assign version and fixed URL",
+   "type": "bpmn:UserTask",
+   "lane": "Publisher (data provider's publication manager)",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_Hash": {
+   "id": "Task_Hash",
+   "name": "P2.2 · Record each file's SHA-256",
+   "type": "bpmn:UserTask",
+   "lane": "Publisher (data provider's publication manager)",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_HashSummary": {
+   "id": "Task_HashSummary",
+   "name": "P2.2a · Hash the plain summary",
+   "type": "bpmn:UserTask",
+   "lane": "Publisher (data provider's publication manager)",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_ConsentCitation": {
+   "id": "Task_ConsentCitation",
+   "name": "P2.2b · State the URL and hash to cite",
+   "type": "bpmn:UserTask",
+   "lane": "Publisher (data provider's publication manager)",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_OdrlCitesText": {
+   "id": "Task_OdrlCitesText",
+   "name": "P2.3 · Make the ODRL cite the text",
+   "type": "bpmn:UserTask",
+   "lane": "Author and policy author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_Publish": {
+   "id": "Task_Publish",
+   "name": "Publish the version at its URL",
+   "type": "bpmn:ServiceTask",
+   "lane": "Build pipeline (system)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Catalogue": {
+   "id": "Task_Catalogue",
+   "name": "P2.4–5 · Write the DCAT 3 record",
+   "type": "bpmn:UserTask",
+   "lane": "Publisher (data provider's publication manager)",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Call_BeanOpenChange": {
+   "id": "Call_BeanOpenChange",
+   "name": "Open the bean",
+   "type": "bpmn:CallActivity",
+   "lane": "Author and policy author",
+   "skills": [],
+   "calls": {
+    "name": "Open the bean",
+    "href": "bean-open.html",
+    "diagram": "bean-open.html"
+   },
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_DecideChange": {
+   "id": "Task_DecideChange",
+   "name": "Decide: amend, renew or end",
+   "type": "bpmn:UserTask",
+   "lane": "Parties and signatories (provider, recipient)",
+   "skills": [],
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "Task_DecideGrants": {
+   "id": "Task_DecideGrants",
+   "name": "P14.2 · Decide what happens to existing grants",
+   "type": "bpmn:UserTask",
+   "lane": "Parties and signatories (provider, recipient)",
+   "skills": [],
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "Task_NewConsentNeeded": {
+   "id": "Task_NewConsentNeeded",
+   "name": "P14.3 · New consent needed",
+   "type": "bpmn:UserTask",
+   "lane": "Parties and signatories (provider, recipient)",
+   "skills": [],
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "Task_SetStatus": {
+   "id": "Task_SetStatus",
+   "name": "P14.5 · Set the status to ended",
+   "type": "bpmn:UserTask",
+   "lane": "Publisher (data provider's publication manager)",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_EndDuties": {
+   "id": "Task_EndDuties",
+   "name": "Revoke grants and start end-of-agreement duties",
+   "type": "bpmn:UserTask",
+   "lane": "Parties and signatories (provider, recipient)",
+   "skills": [],
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "Call_BeanCloseEnded": {
+   "id": "Call_BeanCloseEnded",
+   "name": "Close the bean",
+   "type": "bpmn:CallActivity",
+   "lane": "Author and policy author",
+   "skills": [],
+   "calls": {
+    "name": "Close the bean",
+    "href": "bean-close.html",
+    "diagram": "bean-close.html"
+   },
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  }
+ }
+}

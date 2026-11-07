@@ -335,7 +335,7 @@
 
   `relative_url` for the same reason every other path here uses it: the site is
   served from `/folio-assistant` on the canonical deploy and from
-  `/folio-assistant/STAGING/<branch>` on a preview, and an absolute literal
+  `/folio-assistant/branches/<branch>` on a preview, and an absolute literal
   404s on every deploy but one.
 
   A URL rather than inline JSON, unlike `fa-site-links` above, because the
@@ -416,7 +416,7 @@
 
   Every other site-root path on this page is composed by Liquid: `relative_url`
   prepends `site.baseurl`, which is `/folio-assistant` on the canonical deploy
-  and `/folio-assistant/STAGING/<branch>` on a preview. The tiles cannot use
+  and `/folio-assistant/branches/<branch>` on a preview. The tiles cannot use
   it, because they reach the client as JSON and are composed in `docs-ui.js`
   after Liquid has finished — so the base has to travel with them.
 
@@ -447,7 +447,7 @@
 
   `feature-staging.yml` writes `staging_slug` into `_data/build.yml`;
   `docs-site.yml` writes the same file WITHOUT it. So a non-empty value here
-  means "a STAGING/<slug>/ preview", an empty one means the canonical deploy
+  means "a branches/<slug>/ preview", an empty one means the canonical deploy
   or a local build.
 
   It exists so a tile can vanish with its page. `compose-docs.ts` withholds a
@@ -563,7 +563,7 @@
 
   These five are served from stable paths with no hash in the name, so a
   browser that has the page cached keeps the old CSS and JS until its
-  `max-age` runs out. On the live site that is invisible. On a STAGING
+  `max-age` runs out. On the live site that is invisible. On a branches/
   preview it is the whole point of the deployment: the reviewer opens the URL
   they opened an hour ago, gets yesterday's stylesheet, and reports "i dont
   see changes" — which is indistinguishable from a deploy that never
@@ -582,7 +582,7 @@
 -->
 <!-- The harness icon row's own style, which railed pages load without docs-ui.css (beans `lhvt`, `9rq1`). -->
 <link rel="stylesheet" href="../../../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=b4497e8e1c4a">
+<link rel="stylesheet" href="../../../../../assets/css/docs-ui.css?v=34ea92e5aa62">
 <!-- Narrow viewports: wide content scrolls in its own box, never the page
      (bean `2r2n`). The standalone viewers inline the same file through
      `withViewerNav`, so both kinds of page read one set of rules. -->
@@ -593,7 +593,7 @@
   `state-visualizer.ts` can inline exactly these bytes into the generated
   `<base>/<stub>/state-visualizer/` pages. One rule, two surfaces.
 -->
-<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=ed3e33f033fe">
+<link rel="stylesheet" href="../../../../../assets/css/work-plan.css?v=bd8c73337b01">
 <!-- Sticky themes. GENERATED from the theme nodes in `schemas/ui/themes.ts` by
      `bun run cat themes:css`; `themes:css:check` fails the build when it is stale.
      Loaded AFTER docs-ui.css deliberately: it supplies the `--fa-sticky-*`
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=21300380f63e">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=255e957da7ed">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","code","glossary","memory","processes","scenarios","skills"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -641,11 +641,11 @@
 <script src="../../../../../assets/js/kg-render.js" defer></script>
 <!-- BEFORE docs-ui.js, which calls it: the one drawing of the harness icon row (beans `lhvt`, `9rq1`). -->
 <script src="../../../../../assets/js/navbar-row.js?v=6bb19e1d17a5" defer></script>
-<script src="../../../../../assets/js/docs-ui.js?v=69d9894b0281" defer></script>
+<script src="../../../../../assets/js/docs-ui.js?v=cb9e7e1bb264" defer></script>
 <!-- The edit, source and feedback links of every page, from the platform's one
   recipe (cat-harness-tools/src/core/edit-links.ts, bean v433): links carry their
   facts and this builds the hrefs. -->
-<script src="../../../../../assets/js/edit-links.js?v=23ca1803a02a" defer></script>
+<script src="../../../../../assets/js/edit-links.js?v=04eadbe3cd70" defer></script>
 
 <!--
   The work-plan dashboard. SELF-MOUNTING on any page carrying
@@ -875,13 +875,13 @@
 </h1>
     
 
-<p>The glossaries <strong>smart-trust-demo</strong> owns: SMART Trust demonstrator architecture (52 terms, <a href="../../../../../assets/glossary/smart-trust-demo--architecture.skos.jsonld">SKOS</a>). Every other instance’s terms, the counts and the sources are on the <a href="../../../../../en/folio-assistant-core/glossary/">glossary index</a>.</p>
+<p>The glossaries <strong>smart-trust-demo</strong> owns: SMART Trust demonstrator architecture (53 terms, <a href="../../../../../assets/glossary/smart-trust-demo--architecture.skos.jsonld">SKOS</a>). Every other instance’s terms, the counts and the sources are on the <a href="../../../../../en/folio-assistant-core/glossary/">glossary index</a>.</p>
 
-<p><strong>Size:</strong> this page holds 52 terms and is 95 KB before compression, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
+<p><strong>Size:</strong> this page holds 53 terms and is 98 KB before compression, within its budget of 1.0 MB. There is no search index: the filter below runs over this page, and the A–Z bar jumps within it.</p>
 
 <p><label for="fa-gloss-q">Filter terms</label>
 <input id="fa-gloss-q" type="search" autocomplete="off" style="min-height:44px;width:100%;max-width:32rem" /></p>
-<p aria-live="polite"><span id="fa-gloss-n">52</span> shown</p>
+<p aria-live="polite"><span id="fa-gloss-n">53</span> shown</p>
 
 <nav aria-label="Letters"><a href="#letter-A">A</a> <a href="#letter-B">B</a> <a href="#letter-C">C</a> <a href="#letter-D">D</a> <a href="#letter-F">F</a> <a href="#letter-G">G</a> <a href="#letter-H">H</a> <a href="#letter-I">I</a> <a href="#letter-J">J</a> <a href="#letter-L">L</a> <a href="#letter-N">N</a> <a href="#letter-P">P</a> <a href="#letter-S">S</a> <a href="#letter-T">T</a> <a href="#letter-V">V</a> <a href="#letter-X">X</a></nav>
 <h2 id="letter-A">
@@ -938,21 +938,21 @@ Caregiver <span class="fa-gloss-status">candidate</span>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/role-caregiver/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/role-caregiver</code> · defined by <a href="http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.Caregiver">smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.Caregiver</a> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"><code>scenarios/roles.json#caregiver</code></a></p>
 <p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/caregiver/">Caregiver</a> <span class="fa-gloss-meta">(BusinessRole)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--actor-chiang-rai-clinic-viewer" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--actor-chiang-rai-clinic-viewer" data-fa-state="candidate" data-fa-gloss="chiang rai primary care clinic system">
 Chiang Rai primary care clinic viewer, Thailand (J4.1) <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>The VHL viewer of a primary care clinic in Chiang Rai, Thailand, back in Country A a year after the birth (J4.1): verifies the VHL, fetches the manifest with an HTTP Message Signature after the passcode is entered, and decrypts the documents for viewing. Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-chiang-rai-clinic-viewer/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-clinic-viewer</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/chiang-rai-clinic-viewer.json"><code>scenarios/actors/chiang-rai-clinic-viewer.json</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/chiang-rai-primary-care-clinic-system/">Chiang Rai primary care clinic system</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/chiang-rai-primary-care-clinic-viewer-thailand-j4-1/">Chiang Rai primary care clinic viewer, Thailand (J4.1)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--actor-chiang-rai-provincial-hospital" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--actor-chiang-rai-provincial-hospital" data-fa-state="candidate" data-fa-gloss="chiang rai provincial hospital system">
 Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>The hospital record system and DVC issuing service of Chiang Rai Provincial Hospital in Thailand (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Thailand in the demonstrator. XXR is a DEV test participant, not Thailand's production key.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-chiang-rai-provincial-hospital/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-provincial-hospital</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/chiang-rai-provincial-hospital.json"><code>scenarios/actors/chiang-rai-provincial-hospital.json</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/chiang-rai-provincial-hospital-system/">Chiang Rai Provincial Hospital system</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/chiang-rai-provincial-hospital-system-thailand-country-a-xxr/">Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a></p>
 </dd>
 <dt id="smart-trust-demo--architecture--instance-lao-pdr-chw-community" data-fa-state="candidate" data-fa-gloss="">
 CHW &amp; Community (Lao PDR) <span class="fa-gloss-status">candidate</span>
@@ -962,13 +962,13 @@ CHW &amp; Community (Lao PDR) <span class="fa-gloss-status">candidate</span>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/instance-lao-pdr-chw-community/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-chw-community</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/ (meta.country and meta.parts[].raBlock)"><code>scenarios/actors/ (meta.country and meta.parts[].raBlock)</code></a></p>
 <p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/chw-community-lao-pdr/">CHW &amp; Community (Lao PDR)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--actor-chw-app" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--actor-chw-app" data-fa-state="candidate" data-fa-gloss="chw app (ohs)">
 CHW app, Lao PDR (Country B) <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>The OHS app on the community health worker's phone in Lao PDR (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-chw-app/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chw-app</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/chw-app.json"><code>scenarios/actors/chw-app.json</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/chw-app-ohs/">CHW app (OHS)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/chw-app-lao-pdr-country-b/">CHW app, Lao PDR (Country B)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a></p>
 </dd>
 <dt id="smart-trust-demo--architecture--instance-lao-pdr-citizen-patient-apps" data-fa-state="candidate" data-fa-gloss="">
 Citizen / Patient Apps (Lao PDR) <span class="fa-gloss-status">candidate</span>
@@ -1103,13 +1103,13 @@ FHIR record server <span class="fa-gloss-status">candidate</span>
 </h2>
     
 <dl class="fa-gloss">
-<dt id="smart-trust-demo--architecture--actor-gdhcn-dev-trust-anchor" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--actor-gdhcn-dev-trust-anchor" data-fa-state="candidate" data-fa-gloss="who gdhcn trust network (dev)">
 GDHCN DEV trust network (WHO) <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>WHO's Global Digital Health Certification Network, DEV environment: receives participants' PKI material and distributes it as DID trust lists (DEV: tng-cdn-dev.who.int). Country A (Thailand, played by XXR) and Country B (Lao PDR, played by the fictional XXH) are its participants.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-gdhcn-dev-trust-anchor/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-gdhcn-dev-trust-anchor</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/gdhcn-dev-trust-anchor.json"><code>scenarios/actors/gdhcn-dev-trust-anchor.json</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/who-gdhcn-trust-network-dev/">WHO GDHCN trust network (DEV)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/gdhcn-dev-trust-network-who/">GDHCN DEV trust network (WHO)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
 </dd>
 </dl>
 <h2 id="letter-H">
@@ -1200,45 +1200,45 @@ Information gateway and access log (OHS) <span class="fa-gloss-status">candidate
 </h2>
     
 <dl class="fa-gloss">
-<dt id="smart-trust-demo--architecture--journey-j1" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--journey-j1" data-fa-state="candidate" data-fa-gloss="j1 issue the birth-dose dvcs">
 J1 Issue the newborn's birth-dose DVCs in Country A <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>J1, Cross-border birth and initial vaccination. In Country A (XXR, the birth country) the provincial hospital gives a newborn who is not its own country's national the Hep B and BCG birth doses and issues one signed DVC per dose (DVCMinPreQual at subclaim -6) as a paper QR, with no national identity number needed (the WHO guide's QR Code Generation section 12 example is such a pair). The hospital system is the Issuer (SMART Trust) and the HCERT side of the VHL Sharer; the private key stays with the key holder (two-phase signing, STT-ISS-004, STT-COS-006). XXR's DSC, under its CSCA, being on the GDHCN trust list is a PRECONDITION of issuing, declared below, not a step. The caregiver is the Holder (SMART Trust, smart-trust-phw) and VHL Holder (IHE ITI VHL).</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j1/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/journey-j1</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j1-birth-dose-dvc.bpmn"><code>processes/content/j1-birth-dose-dvc.bpmn#Process_J1BirthDoseDvc</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j1-issue-the-birth-dose-dvcs/">J1 Issue the birth-dose DVCs</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j1-issue-the-newborn-s-birth-dose-dvcs-in-country-a/">J1 Issue the newborn's birth-dose DVCs in Country A</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--journey-j2" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--journey-j2" data-fa-state="candidate" data-fa-gloss="j2 discover and refer the infant">
 J2 Discover and refer an unregistered infant in Country B <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>J2, Return home, CHW discovery and referral. Back in Country B (home, XXH), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j2/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/journey-j2</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j2-chw-discovery-referral.bpmn"><code>processes/content/j2-chw-discovery-referral.bpmn#Process_J2ChwDiscovery</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j2-discover-and-refer-the-infant/">J2 Discover and refer the infant</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j2-discover-and-refer-an-unregistered-infant-in-country-b/">J2 Discover and refer an unregistered infant in Country B</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--journey-j3" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--journey-j3" data-fa-state="candidate" data-fa-gloss="j3 verify, import and schedule">
 J3 Verify, import and schedule at the home clinic <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j3/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/journey-j3</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j3-clinic-verification-schedule.bpmn"><code>processes/content/j3-clinic-verification-schedule.bpmn#Process_J3ClinicVerification</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j3-verify-import-and-schedule/">J3 Verify, import and schedule</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j3-verify-import-and-schedule-at-the-home-clinic/">J3 Verify, import and schedule at the home clinic</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--journey-j4-0" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--journey-j4-0" data-fa-state="candidate" data-fa-gloss="j4.0 issue the family’s vhls">
 J4.0 Issue the family's records to one phone as VHLs <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>J4.0, Outbound family travel, &quot;One Family, One Phone&quot;. Before travelling, the caregiver who holds the family's one shared phone asks Country B's national portal for each family member's records, choosing for each a passcode the family can say aloud and an expiry (for example 14 days); the portal records that choice as the holder's consent to share (FHIR Consent, IHE Privacy Consent on FHIR). The portal, a VHL Sharer (IHE ITI VHL) and Issuer (SMART Trust, smart-trust-phw), issues one passcode-protected Verifiable Health Link per member: the documents (IPS, DVCs) encrypted as JWE (STT-VHL-007) behind an ITI-YY5 manifest, the link in the SMART Health Links payload format at HCERT key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC. The shared phone holds the QRs for the caregiver, the VHL Holder. The records themselves stay hosted in Country B: the QR carries only a pointer and a key.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j4-0/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/journey-j4-0</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j4-0-family-vhl-issuance.bpmn"><code>processes/content/j4-0-family-vhl-issuance.bpmn#Process_J40FamilyVhl</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j4-0-issue-the-family-s-vhls/">J4.0 Issue the family’s VHLs</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j4-0-issue-the-family-s-records-to-one-phone-as-vhls/">J4.0 Issue the family's records to one phone as VHLs</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--journey-j4-1" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--journey-j4-1" data-fa-state="candidate" data-fa-gloss="j4.1 read records at the point of care">
 J4.1 Read a family member's records at the point of care abroad <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>J4.1. Abroad, a child of the family needs care. The caregiver, the VHL Holder (IHE ITI VHL; Holder in SMART Trust and smart-trust-phw, requirement provide-a-vhl-to-a-receiver), opens her QR on the family phone and tells the passcode. The hospital system, a VHL Receiver (Receiver in SMART Trust and smart-trust-phw), verifies the HCERT against the GDHCN trust list, requests the manifest by ITI-YY5 with an HTTP Message Signature (STT-VHL-005, STT-VHL-006, STT-VHL-008) and decrypts the documents (STT-VHL-007). Country B's portal checks the passcode, returns the manifest and logs every request, granted or refused, as an AuditEvent at home (IHE BALP). If the HCERT does not verify, there is no digital verification: the VHL is not followed and the records are treated like paper. As in J3, loading the DID documents is a PRECONDITION of this visit, not a step in it: the hospital verifies against its cached copy of the trust list and needs no connection to do so. It refreshes that cache nightly or hourly, where an offline site such as the J3 clinic refreshes about weekly.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j4-1/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/journey-j4-1</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j4-1-vhl-point-of-care.bpmn"><code>processes/content/j4-1-vhl-point-of-care.bpmn#Process_J41VhlFetch</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j4-1-read-records-at-the-point-of-care/">J4.1 Read records at the point of care</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/j4-1-read-a-family-member-s-records-at-the-point-of-care/">J4.1 Read a family member's records at the point of care abroad</a> <span class="fa-gloss-meta">(BusinessProcess)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
 </dd>
 </dl>
 <h2 id="letter-L">
@@ -1250,13 +1250,13 @@ J4.1 Read a family member's records at the point of care abroad <span class="fa-
 </h2>
     
 <dl class="fa-gloss">
-<dt id="smart-trust-demo--architecture--actor-lao-national-portal" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--actor-lao-national-portal" data-fa-state="candidate" data-fa-gloss="lao national health portal">
 Lao PDR national health portal and gateway (Country B, XXH) <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>Lao PDR's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the fictional participant XXH, so no real ministry's key is implied.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-lao-national-portal/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/lao-national-portal.json"><code>scenarios/actors/lao-national-portal.json</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/lao-national-health-portal/">Lao national health portal</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/lao-pdr-national-health-portal-and-gateway-country-b-xxh/">Lao PDR national health portal and gateway (Country B, XXH)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
 </dd>
 <dt id="smart-trust-demo--architecture--instance-lao-pdr-lifelong-health-record" data-fa-state="candidate" data-fa-gloss="">
 Lifelong Health Record (Lao PDR) <span class="fa-gloss-status">candidate</span>
@@ -1388,6 +1388,14 @@ Smart forms (SDC) <span class="fa-gloss-status">candidate</span>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/part-la-chw-app/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-chw-app</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/chw-app.json"><code>scenarios/actors/chw-app.json#la-chw-app</code></a></p>
 <p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/smart-forms-sdc/">Smart forms (SDC)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/">J2 on the DPI-H RA</a></p>
 </dd>
+<dt id="smart-trust-demo--architecture--role-subject-of-care" data-fa-state="candidate" data-fa-gloss="patient care recipient">
+Subject of care <span class="fa-gloss-status">candidate</span>
+</dt>
+<dd>
+<p>The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes.</p>
+<p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/role-subject-of-care/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/role-subject-of-care</code> · defined by <a href="http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.SubjectOfCare">smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.SubjectOfCare</a> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"><code>scenarios/roles.json#subject-of-care</code></a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/subject-of-care/">Subject of care</a> <span class="fa-gloss-meta">(BusinessRole)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/">SMART Trust demo journeys (use cases)</a></p>
+</dd>
 </dl>
 <h2 id="letter-T">
   
@@ -1406,13 +1414,13 @@ Terminology Service (Lao PDR) <span class="fa-gloss-status">candidate</span>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/instance-lao-pdr-terminology-service/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-terminology-service</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/ (meta.country and meta.parts[].raBlock)"><code>scenarios/actors/ (meta.country and meta.parts[].raBlock)</code></a></p>
 <p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/terminology-service-lao-pdr/">Terminology Service (Lao PDR)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--actor-family-phone" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--actor-family-phone" data-fa-state="candidate" data-fa-gloss="the family’s shared phone">
 The family's shared phone <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>The one Android phone the Sengmany family shares, held by Bounmy (J4): a family wallet with a profile per member (Bounmy, Khamla, Somsack) and one VHL QR per member, presented by the VHL Holder. It is the Holder's device, not an actor of its own in either guide.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-family-phone/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-family-phone</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/family-phone.json"><code>scenarios/actors/family-phone.json</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/the-family-s-shared-phone/">The family’s shared phone</a> <span class="fa-gloss-meta">(Device)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/the-family-s-shared-phone/">The family's shared phone</a> <span class="fa-gloss-meta">(Device)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/">J4.0 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
 </dd>
 </dl>
 <h2 id="letter-V">
@@ -1451,13 +1459,13 @@ VHL viewer <span class="fa-gloss-status">candidate</span>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/part-th-vhl-viewer/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-th-vhl-viewer</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/chiang-rai-clinic-viewer.json"><code>scenarios/actors/chiang-rai-clinic-viewer.json#th-vhl-viewer</code></a></p>
 <p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/vhl-viewer/">VHL viewer</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/">J4.1 on the DPI-H RA</a></p>
 </dd>
-<dt id="smart-trust-demo--architecture--actor-district-health-center-ehr" data-fa-state="candidate" data-fa-gloss="">
+<dt id="smart-trust-demo--architecture--actor-district-health-center-ehr" data-fa-state="candidate" data-fa-gloss="vientiane district health center ehr">
 Vientiane District Health Center EHR (Country B) <span class="fa-gloss-status">candidate</span>
 </dt>
 <dd>
 <p>The district health center's OHS-based record system in Lao PDR (Country B), on a tablet (J3): verifies DVCs against its cached GDHCN trust list, imports them with provenance, adds the Lao schedule code beside each foreign vaccine code and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly); it fetches nothing during J3.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-district-health-center-ehr/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-district-health-center-ehr</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/district-health-center-ehr.json"><code>scenarios/actors/district-health-center-ehr.json</code></a></p>
-<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/vientiane-district-health-center-ehr/">Vientiane District Health Center EHR</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/vientiane-district-health-center-ehr-country-b/">Vientiane District Health Center EHR (Country B)</a> <span class="fa-gloss-meta">(ApplicationComponent)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/">J3 on the DPI-H RA</a></p>
 </dd>
 </dl>
 <h2 id="letter-X">
@@ -1475,6 +1483,7 @@ XXR document signer key (Country A, Thailand) <span class="fa-gloss-status">cand
 <dd>
 <p>The private key of XXR's document signer certificate (DSC), kid kW/6VnwPRKI= (hex 916ffa567c0f44a2), whose public DID document is on the GDHCN DEV trust list (did:web:tng-cdn-dev.who.int:v2:trustlist:-:XXR:DSC, as the DEV host serves it; the guide prints the production host, smart-trust-tools OI-34). XXR is a Trust Network Participant.</p>
 <p class="fa-gloss-meta"><a href="../../../../../en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/actor-xxr-dsc-key/">Term page</a> · SMART Trust demonstrator architecture · <code>https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-xxr-dsc-key</code> · source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/actors/xxr-dsc-key.json"><code>scenarios/actors/xxr-dsc-key.json</code></a></p>
+<p class="fa-gloss-archimate">Depicted in ArchiMate smart-trust-demo 0.1.0: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/elements/xxr-document-signer-key-country-a-thailand/">XXR document signer key (Country A, Thailand)</a> <span class="fa-gloss-meta">(Node)</span>; views: <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/">SMART Trust demo on the DPI-H Integrated View</a>, <a href="../../../../../en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/">J1 on the DPI-H RA</a></p>
 </dd>
 </dl>
 <script type="application/ld+json">

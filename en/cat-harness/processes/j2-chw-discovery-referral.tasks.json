@@ -1,0 +1,159 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J2ChwDiscovery",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Show",
+   "name": "Show the paper DVCs from Country A",
+   "left": 27.53,
+   "top": 5.77,
+   "box": {
+    "left": 22.94,
+    "top": 24.04,
+    "width": 1.52,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Scan",
+   "name": "Scan each QR with the CHW app",
+   "left": 38.61,
+   "top": 38.46,
+   "box": {
+    "left": 34.02,
+    "top": 56.73,
+    "width": 1.52,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Read",
+   "name": "Read each DVC unverified (triage)",
+   "left": 49.68,
+   "top": 71.15,
+   "box": {
+    "left": 45.09,
+    "top": 89.42,
+    "width": 1.52,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Register",
+   "name": "Add the infant; save doses as reported",
+   "left": 60.76,
+   "top": 71.15,
+   "box": {
+    "left": 56.17,
+    "top": 89.42,
+    "width": 1.52,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Refer",
+   "name": "Create a referral to the home clinic for verification",
+   "left": 71.84,
+   "top": 71.15,
+   "box": {
+    "left": 67.25,
+    "top": 89.42,
+    "width": 1.52,
+    "height": 4.62
+   }
+  },
+  {
+   "id": "Task_Slip",
+   "name": "Explain the referral to the family",
+   "left": 82.91,
+   "top": 38.46,
+   "box": {
+    "left": 78.32,
+    "top": 56.73,
+    "width": 1.52,
+    "height": 4.62
+   }
+  }
+ ],
+ "tasks": {
+  "Task_Show": {
+   "id": "Task_Show",
+   "name": "Show the paper DVCs from Country A",
+   "type": "bpmn:UserTask",
+   "lane": "Caregiver",
+   "skills": [],
+   "role": {
+    "name": "caregiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-caregiver",
+    "title": "Caregiver",
+    "skills": []
+   }
+  },
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan each QR with the CHW app",
+   "type": "bpmn:UserTask",
+   "lane": "Community health worker",
+   "skills": [],
+   "role": {
+    "name": "community-health-worker",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-community-health-worker",
+    "title": "Community health worker",
+    "skills": []
+   }
+  },
+  "Task_Read": {
+   "id": "Task_Read",
+   "name": "Read each DVC unverified (triage)",
+   "type": "bpmn:ServiceTask",
+   "lane": "CHW app",
+   "skills": [],
+   "role": {
+    "name": "chw-app",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-chw-app",
+    "title": "CHW app",
+    "skills": []
+   }
+  },
+  "Task_Register": {
+   "id": "Task_Register",
+   "name": "Add the infant; save doses as reported",
+   "type": "bpmn:ServiceTask",
+   "lane": "CHW app",
+   "skills": [],
+   "role": {
+    "name": "chw-app",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-chw-app",
+    "title": "CHW app",
+    "skills": []
+   }
+  },
+  "Task_Refer": {
+   "id": "Task_Refer",
+   "name": "Create a referral to the home clinic for verification",
+   "type": "bpmn:ServiceTask",
+   "lane": "CHW app",
+   "skills": [],
+   "role": {
+    "name": "chw-app",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-chw-app",
+    "title": "CHW app",
+    "skills": []
+   }
+  },
+  "Task_Slip": {
+   "id": "Task_Slip",
+   "name": "Explain the referral to the family",
+   "type": "bpmn:UserTask",
+   "lane": "Community health worker",
+   "skills": [],
+   "role": {
+    "name": "community-health-worker",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-community-health-worker",
+    "title": "Community health worker",
+    "skills": []
+   }
+  }
+ }
+}

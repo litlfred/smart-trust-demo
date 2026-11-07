@@ -43,7 +43,7 @@ digraph "SMART Trust demonstrator on the WHO DPI-H Reference Architecture — me
     "BusinessProcess" [label="Business Process
 16 element(s)", class="mm-layer-business", fillcolor="#ffffb5", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-BusinessProcess", target="_top", tooltip="Business Process: its elements"];
     "BusinessRole" [label="Business Role
-31 element(s)
+32 element(s)
 (to itself: specialises ×3)", class="mm-layer-business", fillcolor="#ffffb5", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-BusinessRole", target="_top", tooltip="Business Role: its elements"];
     "BusinessService" [label="Business Service
 6 element(s)", class="mm-layer-business", fillcolor="#ffffb5", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-BusinessService", target="_top", tooltip="Business Service: its elements"];
@@ -81,7 +81,7 @@ digraph "SMART Trust demonstrator on the WHO DPI-H Reference Architecture — me
     "Device" [label="Device
 1 element(s)", class="mm-layer-technology", fillcolor="#c9e7b7", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-Device", target="_top", tooltip="Device: its elements"];
     "Node" [label="Node
-5 element(s)", class="mm-layer-technology", fillcolor="#c9e7b7", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-Node", target="_top", tooltip="Node: its elements"];
+6 element(s)", class="mm-layer-technology", fillcolor="#c9e7b7", URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#type-Node", target="_top", tooltip="Node: its elements"];
   }
   "Goal" -> "Capability" [style=invis, constraint=true, weight=10];
   "Capability" -> "BusinessCollaboration" [style=invis, constraint=true, weight=10];
@@ -120,6 +120,8 @@ digraph "SMART Trust demonstrator on the WHO DPI-H Reference Architecture — me
   "BusinessFunction" -> "ApplicationFunction" [label="serves ×1", class="mm-cat-dependency mm-from-business mm-to-application", arrowhead=vee, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-BusinessFunction-ApplicationFunction", target="_top", tooltip="Business Function → Application Function: its relationships"];
   "BusinessProcess" -> "ApplicationInteraction" [label="triggers ×1", class="mm-cat-dynamic mm-from-business mm-to-application", arrowhead=normal, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-BusinessProcess-ApplicationInteraction", target="_top", tooltip="Business Process → Application Interaction: its relationships"];
   "Device" -> "ApplicationComponent" [label="realises ×1", class="mm-cat-structural mm-from-technology mm-to-application", style=dashed, arrowhead=empty, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-Device-ApplicationComponent", target="_top", tooltip="Device → Application Component: its relationships"];
+  "Node" -> "ApplicationComponent" [label="serves ×1", class="mm-cat-dependency mm-from-technology mm-to-application", arrowhead=vee, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-Node-ApplicationComponent", target="_top", tooltip="Node → Application Component: its relationships"];
+  "Node" -> "BusinessProcess" [label="serves ×1", class="mm-cat-dependency mm-from-technology mm-to-business", arrowhead=vee, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-Node-BusinessProcess", target="_top", tooltip="Node → Business Process: its relationships"];
   "Product" -> "Artifact" [label="aggregates ×1", class="mm-cat-structural mm-from-business mm-to-technology", dir=both, arrowtail=odiamond, arrowhead=none, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-Product-Artifact", target="_top", tooltip="Product → Artifact: its relationships"];
   "Product" -> "BusinessObject" [label="aggregates ×1", class="mm-cat-structural mm-from-business mm-to-business", dir=both, arrowtail=odiamond, arrowhead=none, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-Product-BusinessObject", target="_top", tooltip="Product → Business Object: its relationships"];
   "Product" -> "DataObject" [label="aggregates ×1", class="mm-cat-structural mm-from-business mm-to-application", dir=both, arrowtail=odiamond, arrowhead=none, URL="../../en/smart-trust-demo/archimate/0.1.0/metamodel/#pattern-Product-DataObject", target="_top", tooltip="Product → Data Object: its relationships"];

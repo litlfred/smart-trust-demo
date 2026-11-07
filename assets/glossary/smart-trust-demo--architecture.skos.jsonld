@@ -40,6 +40,32 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/role-subject-of-care",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Subject of care"
+        }
+      ],
+      "skos:altLabel": [
+        "Patient",
+        "Care recipient"
+      ],
+      "skos:definition": [
+        {
+          "@value": "The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes."
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.SubjectOfCare"
+      },
+      "dcterms:source": "scenarios/roles.json#subject-of-care",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/role-birth-clinic-vaccinator",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -138,6 +164,9 @@
           "@value": "Chiang Rai primary care clinic viewer, Thailand (J4.1)"
         }
       ],
+      "skos:altLabel": [
+        "Chiang Rai primary care clinic system"
+      ],
       "skos:definition": [
         {
           "@value": "The VHL viewer of a primary care clinic in Chiang Rai, Thailand, back in Country A a year after the birth (J4.1): verifies the VHL, fetches the manifest with an HTTP Message Signature after the passcode is entered, and decrypts the documents for viewing. Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection."
@@ -185,6 +214,9 @@
         {
           "@value": "Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)"
         }
+      ],
+      "skos:altLabel": [
+        "Chiang Rai Provincial Hospital system"
       ],
       "skos:definition": [
         {
@@ -321,6 +353,9 @@
           "@value": "CHW app, Lao PDR (Country B)"
         }
       ],
+      "skos:altLabel": [
+        "CHW app (OHS)"
+      ],
       "skos:definition": [
         {
           "@value": "The OHS app on the community health worker's phone in Lao PDR (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust."
@@ -368,6 +403,9 @@
         {
           "@value": "Vientiane District Health Center EHR (Country B)"
         }
+      ],
+      "skos:altLabel": [
+        "Vientiane District Health Center EHR"
       ],
       "skos:definition": [
         {
@@ -504,6 +542,9 @@
           "@value": "The family's shared phone"
         }
       ],
+      "skos:altLabel": [
+        "The family’s shared phone"
+      ],
       "skos:definition": [
         {
           "@value": "The one Android phone the Sengmany family shares, held by Bounmy (J4): a family wallet with a profile per member (Bounmy, Khamla, Somsack) and one VHL QR per member, presented by the VHL Holder. It is the Holder's device, not an actor of its own in either guide."
@@ -552,6 +593,9 @@
           "@value": "GDHCN DEV trust network (WHO)"
         }
       ],
+      "skos:altLabel": [
+        "WHO GDHCN trust network (DEV)"
+      ],
       "skos:definition": [
         {
           "@value": "WHO's Global Digital Health Certification Network, DEV environment: receives participants' PKI material and distributes it as DID trust lists (DEV: tng-cdn-dev.who.int). Country A (Thailand, played by XXR) and Country B (Lao PDR, played by the fictional XXH) are its participants."
@@ -570,6 +614,9 @@
         {
           "@value": "Lao PDR national health portal and gateway (Country B, XXH)"
         }
+      ],
+      "skos:altLabel": [
+        "Lao national health portal"
       ],
       "skos:definition": [
         {
@@ -812,6 +859,9 @@
           "@value": "J1 Issue the newborn's birth-dose DVCs in Country A"
         }
       ],
+      "skos:altLabel": [
+        "J1 Issue the birth-dose DVCs"
+      ],
       "skos:definition": [
         {
           "@value": "J1, Cross-border birth and initial vaccination. In Country A (XXR, the birth country) the provincial hospital gives a newborn who is not its own country's national the Hep B and BCG birth doses and issues one signed DVC per dose (DVCMinPreQual at subclaim -6) as a paper QR, with no national identity number needed (the WHO guide's QR Code Generation section 12 example is such a pair). The hospital system is the Issuer (SMART Trust) and the HCERT side of the VHL Sharer; the private key stays with the key holder (two-phase signing, STT-ISS-004, STT-COS-006). XXR's DSC, under its CSCA, being on the GDHCN trust list is a PRECONDITION of issuing, declared below, not a step. The caregiver is the Holder (SMART Trust, smart-trust-phw) and VHL Holder (IHE ITI VHL)."
@@ -830,6 +880,9 @@
         {
           "@value": "J2 Discover and refer an unregistered infant in Country B"
         }
+      ],
+      "skos:altLabel": [
+        "J2 Discover and refer the infant"
       ],
       "skos:definition": [
         {
@@ -850,6 +903,9 @@
           "@value": "J3 Verify, import and schedule at the home clinic"
         }
       ],
+      "skos:altLabel": [
+        "J3 Verify, import and schedule"
+      ],
       "skos:definition": [
         {
           "@value": "J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them."
@@ -869,6 +925,9 @@
           "@value": "J4.0 Issue the family's records to one phone as VHLs"
         }
       ],
+      "skos:altLabel": [
+        "J4.0 Issue the family’s VHLs"
+      ],
       "skos:definition": [
         {
           "@value": "J4.0, Outbound family travel, \"One Family, One Phone\". Before travelling, the caregiver who holds the family's one shared phone asks Country B's national portal for each family member's records, choosing for each a passcode the family can say aloud and an expiry (for example 14 days); the portal records that choice as the holder's consent to share (FHIR Consent, IHE Privacy Consent on FHIR). The portal, a VHL Sharer (IHE ITI VHL) and Issuer (SMART Trust, smart-trust-phw), issues one passcode-protected Verifiable Health Link per member: the documents (IPS, DVCs) encrypted as JWE (STT-VHL-007) behind an ITI-YY5 manifest, the link in the SMART Health Links payload format at HCERT key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC. The shared phone holds the QRs for the caregiver, the VHL Holder. The records themselves stay hosted in Country B: the QR carries only a pointer and a key."
@@ -887,6 +946,9 @@
         {
           "@value": "J4.1 Read a family member's records at the point of care abroad"
         }
+      ],
+      "skos:altLabel": [
+        "J4.1 Read records at the point of care"
       ],
       "skos:definition": [
         {

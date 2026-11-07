@@ -1,0 +1,76 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoLaoEpiSchedule-ru",
+  "language" : "ru",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ru\" lang=\"ru\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoLaoEpiSchedule-ru</b></p><a name=\"TrustDemoLaoEpiSchedule-ru\"> </a><a name=\"hcTrustDemoLaoEpiSchedule-ru\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ru</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule-ru</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoLaoEpiSchedule.html#TrustDemoLaoEpiSchedule-LAO-EPI-HEPB-BD\">LAO-EPI-HEPB-BD</a><a name=\"TrustDemoLaoEpiSchedule-ru-LAO-EPI-HEPB-BD\"> </a></td><td>Hepatitis B birth dose</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoLaoEpiSchedule.html#TrustDemoLaoEpiSchedule-LAO-EPI-BCG\">LAO-EPI-BCG</a><a name=\"TrustDemoLaoEpiSchedule-ru-LAO-EPI-BCG\"> </a></td><td>BCG</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoLaoEpiSchedule.html#TrustDemoLaoEpiSchedule-LAO-EPI-PENTA-1\">LAO-EPI-PENTA-1</a><a name=\"TrustDemoLaoEpiSchedule-ru-LAO-EPI-PENTA-1\"> </a></td><td>Pentavalent (DTP-HepB-Hib), dose 1</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoLaoEpiSchedule.html#TrustDemoLaoEpiSchedule-LAO-EPI-OPV-1\">LAO-EPI-OPV-1</a><a name=\"TrustDemoLaoEpiSchedule-ru-LAO-EPI-OPV-1\"> </a></td><td>bOPV, dose 1</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoLaoEpiSchedule.html#TrustDemoLaoEpiSchedule-LAO-EPI-PCV-1\">LAO-EPI-PCV-1</a><a name=\"TrustDemoLaoEpiSchedule-ru-LAO-EPI-PCV-1\"> </a></td><td>PCV, dose 1</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoLaoEpiSchedule.html#TrustDemoLaoEpiSchedule-LAO-EPI-MR-1\">LAO-EPI-MR-1</a><a name=\"TrustDemoLaoEpiSchedule-ru-LAO-EPI-MR-1\"> </a></td><td>Measles-rubella, dose 1</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule-ru",
+  "version" : "0.1.0",
+  "name" : "TrustDemoLaoEpiScheduleRu",
+  "title" : "TrustDemoLaoEpiSchedule (ru designations, unofficial)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-07T11:05:24+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Russian designations for TrustDemoLaoEpiSchedule: an agent translation that no person has signed off.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule",
+  "concept" : [{
+    "code" : "LAO-EPI-HEPB-BD",
+    "display" : "Hepatitis B birth dose",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Доза вакцины против гепатита B при рождении"
+    }]
+  },
+  {
+    "code" : "LAO-EPI-BCG",
+    "display" : "BCG",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "БЦЖ (BCG)"
+    }]
+  },
+  {
+    "code" : "LAO-EPI-PENTA-1",
+    "display" : "Pentavalent (DTP-HepB-Hib), dose 1",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Пентавалентная (АКДС-HepB-Hib), доза 1"
+    }]
+  },
+  {
+    "code" : "LAO-EPI-OPV-1",
+    "display" : "bOPV, dose 1",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "bOPV, доза 1"
+    }]
+  },
+  {
+    "code" : "LAO-EPI-PCV-1",
+    "display" : "PCV, dose 1",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "PCV, доза 1"
+    }]
+  },
+  {
+    "code" : "LAO-EPI-MR-1",
+    "display" : "Measles-rubella, dose 1",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Корь-краснуха, доза 1"
+    }]
+  }]
+}

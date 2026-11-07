@@ -1,0 +1,209 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_J41VhlFetch",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Open",
+   "name": "Show the child's VHL QR",
+   "left": 22.54,
+   "top": 23.26,
+   "box": {
+    "left": 18.78,
+    "top": 34.3,
+    "width": 1.24,
+    "height": 2.79
+   }
+  },
+  {
+   "id": "Task_Scan",
+   "name": "Scan the QR and enter the passcode the caregiver says",
+   "left": 31.61,
+   "top": 43.02,
+   "box": {
+    "left": 27.85,
+    "top": 54.07,
+    "width": 1.24,
+    "height": 2.79
+   }
+  },
+  {
+   "id": "Task_Verify",
+   "name": "Verify the HCERT and read the VHL at key 5",
+   "left": 40.67,
+   "top": 62.79,
+   "box": {
+    "left": 36.92,
+    "top": 73.84,
+    "width": 1.24,
+    "height": 2.79
+   }
+  },
+  {
+   "id": "Task_Unverified",
+   "name": "Not verified: treat records as paper",
+   "left": 58.81,
+   "top": 43.02,
+   "box": {
+    "left": 55.05,
+    "top": 54.07,
+    "width": 1.24,
+    "height": 2.79
+   }
+  },
+  {
+   "id": "Task_Fetch",
+   "name": "Request the manifest (ITI-YY5), signed",
+   "left": 58.81,
+   "top": 62.79,
+   "box": {
+    "left": 55.05,
+    "top": 73.84,
+    "width": 1.24,
+    "height": 2.79
+   }
+  },
+  {
+   "id": "Task_Release",
+   "name": "Check passcode, log access, return manifest",
+   "left": 67.88,
+   "top": 82.56,
+   "box": {
+    "left": 64.12,
+    "top": 93.6,
+    "width": 1.24,
+    "height": 2.79
+   }
+  },
+  {
+   "id": "Task_Decrypt",
+   "name": "Decrypt the IPS and DVCs",
+   "left": 76.94,
+   "top": 62.79,
+   "box": {
+    "left": 73.19,
+    "top": 73.84,
+    "width": 1.24,
+    "height": 2.79
+   }
+  },
+  {
+   "id": "Task_Review",
+   "name": "Review history, allergies and vaccinations",
+   "left": 86.01,
+   "top": 43.02,
+   "box": {
+    "left": 82.25,
+    "top": 54.07,
+    "width": 1.24,
+    "height": 2.79
+   }
+  }
+ ],
+ "tasks": {
+  "Task_Open": {
+   "id": "Task_Open",
+   "name": "Show the child's VHL QR",
+   "type": "bpmn:ServiceTask",
+   "lane": "Family phone",
+   "skills": [],
+   "role": {
+    "name": "family-phone",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-family-phone",
+    "title": "Family phone",
+    "skills": []
+   }
+  },
+  "Task_Scan": {
+   "id": "Task_Scan",
+   "name": "Scan the QR and enter the passcode the caregiver says",
+   "type": "bpmn:UserTask",
+   "lane": "Point-of-care provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  },
+  "Task_Verify": {
+   "id": "Task_Verify",
+   "name": "Verify the HCERT and read the VHL at key 5",
+   "type": "bpmn:ServiceTask",
+   "lane": "Point-of-care receiver",
+   "skills": [],
+   "role": {
+    "name": "poc-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": []
+   }
+  },
+  "Task_Unverified": {
+   "id": "Task_Unverified",
+   "name": "Not verified: treat records as paper",
+   "type": "bpmn:UserTask",
+   "lane": "Point-of-care provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  },
+  "Task_Fetch": {
+   "id": "Task_Fetch",
+   "name": "Request the manifest (ITI-YY5), signed",
+   "type": "bpmn:ServiceTask",
+   "lane": "Point-of-care receiver",
+   "skills": [],
+   "role": {
+    "name": "poc-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": []
+   }
+  },
+  "Task_Release": {
+   "id": "Task_Release",
+   "name": "Check passcode, log access, return manifest",
+   "type": "bpmn:ServiceTask",
+   "lane": "National health portal",
+   "skills": [],
+   "role": {
+    "name": "national-portal",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-national-portal",
+    "title": "National health portal",
+    "skills": []
+   }
+  },
+  "Task_Decrypt": {
+   "id": "Task_Decrypt",
+   "name": "Decrypt the IPS and DVCs",
+   "type": "bpmn:ServiceTask",
+   "lane": "Point-of-care receiver",
+   "skills": [],
+   "role": {
+    "name": "poc-receiver",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-receiver",
+    "title": "Point-of-care receiver",
+    "skills": []
+   }
+  },
+  "Task_Review": {
+   "id": "Task_Review",
+   "name": "Review history, allergies and vaccinations",
+   "type": "bpmn:UserTask",
+   "lane": "Point-of-care provider",
+   "skills": [],
+   "role": {
+    "name": "poc-provider",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-scenarios-roles-json-poc-provider",
+    "title": "Point-of-care provider",
+    "skills": []
+   }
+  }
+ }
+}

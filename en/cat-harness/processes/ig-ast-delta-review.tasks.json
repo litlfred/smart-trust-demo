@@ -1,0 +1,109 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_IgAstDeltaReview",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Validity",
+   "name": "Check the base AST against the inputs",
+   "left": 27.39,
+   "top": 8.59,
+   "box": {
+    "left": 19.35,
+    "top": 17.19,
+    "width": 2.09,
+    "height": 3.75
+   }
+  },
+  {
+   "id": "Task_Diff",
+   "name": "Diff the two ASTs",
+   "left": 54.35,
+   "top": 8.59,
+   "box": {
+    "left": 46.3,
+    "top": 17.19,
+    "width": 2.09,
+    "height": 3.75
+   }
+  },
+  {
+   "id": "Task_Review",
+   "name": "Read the delta",
+   "left": 71.74,
+   "top": 36.72,
+   "box": {
+    "left": 63.7,
+    "top": 45.31,
+    "width": 2.09,
+    "height": 3.75
+   }
+  },
+  {
+   "id": "Task_FileCoupling",
+   "name": "Note the missed coupling on the work plan",
+   "left": 85.22,
+   "top": 64.84,
+   "box": {
+    "left": 77.17,
+    "top": 73.44,
+    "width": 2.09,
+    "height": 3.75
+   }
+  }
+ ],
+ "tasks": {
+  "Task_Validity": {
+   "id": "Task_Validity",
+   "name": "Check the base AST against the inputs",
+   "type": "bpmn:ServiceTask",
+   "lane": "Incremental build (system)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Diff": {
+   "id": "Task_Diff",
+   "name": "Diff the two ASTs",
+   "type": "bpmn:ServiceTask",
+   "lane": "Incremental build (system)",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Review": {
+   "id": "Task_Review",
+   "name": "Read the delta",
+   "type": "bpmn:UserTask",
+   "lane": "QC reviewer",
+   "skills": [],
+   "role": {
+    "name": "qc-reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-qc-reviewer",
+    "title": "QC reviewer",
+    "skills": []
+   }
+  },
+  "Task_FileCoupling": {
+   "id": "Task_FileCoupling",
+   "name": "Note the missed coupling on the work plan",
+   "type": "bpmn:Task",
+   "lane": "QC reviewer",
+   "skills": [],
+   "role": {
+    "name": "qc-reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-qc-reviewer",
+    "title": "QC reviewer",
+    "skills": []
+   }
+  }
+ }
+}

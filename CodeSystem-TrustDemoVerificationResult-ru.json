@@ -1,0 +1,52 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationResult-ru",
+  "language" : "ru",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ru\" lang=\"ru\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationResult-ru</b></p><a name=\"TrustDemoVerificationResult-ru\"> </a><a name=\"hcTrustDemoVerificationResult-ru\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ru</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult-ru</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-verified\">verified</a><a name=\"TrustDemoVerificationResult-ru-verified\"> </a></td><td>Verified</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-failed\">failed</a><a name=\"TrustDemoVerificationResult-ru-failed\"> </a></td><td>Failed</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-unverified\">unverified</a><a name=\"TrustDemoVerificationResult-ru-unverified\"> </a></td><td>Read, not verified</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult-ru",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationResultRu",
+  "title" : "TrustDemoVerificationResult (ru designations, unofficial)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-07T11:05:24+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Russian designations for TrustDemoVerificationResult: an agent translation that no person has signed off.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult",
+  "concept" : [{
+    "code" : "verified",
+    "display" : "Verified",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Проверено"
+    }]
+  },
+  {
+    "code" : "failed",
+    "display" : "Failed",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Проверка не пройдена"
+    }]
+  },
+  {
+    "code" : "unverified",
+    "display" : "Read, not verified",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Прочитано, не проверено"
+    }]
+  }]
+}

@@ -6,10 +6,10 @@ classDiagram
   <<Other>> Grouping
   class Capability["Capability"]
   <<Strategy>> Capability
-  class Goal["Goal"]
-  <<Motivation>> Goal
   class BusinessRole["Business Role"]
   <<Business>> BusinessRole
+  class Goal["Goal"]
+  <<Motivation>> Goal
   class ApplicationService["Application Service"]
   <<Application>> ApplicationService
   class DataObject["Data Object"]
@@ -30,10 +30,10 @@ classDiagram
   <<Technology>> Artifact
   class BusinessService["Business Service"]
   <<Business>> BusinessService
-  class ApplicationProcess["Application Process"]
-  <<Application>> ApplicationProcess
   class Node["Node"]
   <<Technology>> Node
+  class ApplicationProcess["Application Process"]
+  <<Application>> ApplicationProcess
   class Outcome["Outcome"]
   <<Motivation>> Outcome
   class ApplicationInteraction["Application Interaction"]
@@ -54,7 +54,7 @@ classDiagram
   <<Motivation>> Requirement
   Grouping o-- ApplicationComponent : aggregates ×74
   Grouping o-- Capability : aggregates ×30
-  Grouping o-- BusinessRole : aggregates ×26
+  Grouping o-- BusinessRole : aggregates ×27
   ApplicationComponent ..|> ApplicationComponent : realises ×23
   Capability ..> Goal : influences ×21
   ApplicationComponent ..> ApplicationComponent : flows to ×19
@@ -75,13 +75,13 @@ classDiagram
   Grouping o-- Goal : aggregates ×7
   BusinessFunction ..|> Capability : realises ×6
   BusinessFunction --> ApplicationService : serves ×6
+  BusinessRole -- Stakeholder : associated with ×6
   Capability ..|> Outcome : realises ×6
   Grouping o-- ApplicationFunction : aggregates ×6
+  Grouping o-- Node : aggregates ×6
   Value -- Stakeholder : associated with ×6
   ApplicationProcess ..|> Capability : realises ×5
-  BusinessRole -- Stakeholder : associated with ×5
   Grouping o-- BusinessProcess : aggregates ×5
-  Grouping o-- Node : aggregates ×5
   Value ..> Outcome : influences ×5
   ApplicationComponent --> ApplicationFunction : assigned to ×4
   ApplicationComponent --> ApplicationInteraction : assigned to ×4
@@ -147,6 +147,8 @@ classDiagram
   Grouping o-- BusinessCollaboration : aggregates ×1
   Grouping o-- Device : aggregates ×1
   Grouping o-- Requirement : aggregates ×1
+  Node --> ApplicationComponent : serves ×1
+  Node --> BusinessProcess : serves ×1
   Outcome -- Capability : associated with ×1
   Outcome *-- Outcome : composed of ×1
   Outcome ..> Outcome : influences ×1

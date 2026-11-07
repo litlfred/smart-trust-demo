@@ -11,7 +11,7 @@
   "title" : "Birth clinic issuing system",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-06T08:51:07+00:00",
+  "date" : "2026-11-07T11:05:24+00:00",
   "publisher" : "litlfred",
   "contact" : [{
     "name" : "litlfred",
@@ -20,7 +20,7 @@
       "value" : "https://github.com/litlfred/smart-trust-demo"
     }]
   }],
-  "description" : "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by**: Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) (fictional).",
+  "description" : "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by** (fictional):\n\n- Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)\n\n**In the user scenarios**:\n\n- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand\n\n**Lanes and tasks in the business processes**:\n\n- [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): Build one DVCMinPreQual payload per dose; Prepare: CWT claims and the COSE Sig_structure; Finish: COSE_Sign1, deflate, Base45, HC1:\n\n**Data sets its tasks record or read**: [TD.J1 Birth-dose DVC](dictionary.html#tdj1-birth-dose-dvc)",
   "type" : "system",
   "documentation" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json",
   "derivedFrom" : ["http://smart.who.int/trust/ActorDefinition/Issuer",

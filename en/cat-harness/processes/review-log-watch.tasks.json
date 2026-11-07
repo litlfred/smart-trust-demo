@@ -1,0 +1,139 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_ReviewLogWatch",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_ReadSheet",
+   "name": "Read the Contributor Feedback tab",
+   "left": 20.94,
+   "top": 16.18,
+   "box": {
+    "left": 15.54,
+    "top": 35.29,
+    "width": 1.79,
+    "height": 7.06
+   }
+  },
+  {
+   "id": "Task_RunCheck",
+   "name": "Run the review-log-watch check",
+   "left": 34.35,
+   "top": 16.18,
+   "box": {
+    "left": 28.95,
+    "top": 35.29,
+    "width": 1.79,
+    "height": 7.06
+   }
+  },
+  {
+   "id": "Task_AppendRows",
+   "name": "Append rows for new issues; hide closed ones",
+   "left": 55.96,
+   "top": 16.18,
+   "box": {
+    "left": 50.56,
+    "top": 35.29,
+    "width": 1.79,
+    "height": 7.06
+   }
+  },
+  {
+   "id": "Task_AgentPass",
+   "name": "Agent pass on the changed rows",
+   "left": 69.37,
+   "top": 16.18,
+   "box": {
+    "left": 63.97,
+    "top": 35.29,
+    "width": 1.79,
+    "height": 7.06
+   }
+  },
+  {
+   "id": "Task_Accept",
+   "name": "Accept the new state",
+   "left": 82.79,
+   "top": 16.18,
+   "box": {
+    "left": 77.38,
+    "top": 35.29,
+    "width": 1.79,
+    "height": 7.06
+   }
+  }
+ ],
+ "tasks": {
+  "Task_ReadSheet": {
+   "id": "Task_ReadSheet",
+   "name": "Read the Contributor Feedback tab",
+   "type": "bpmn:ServiceTask",
+   "lane": "Log watcher (authoring agent)",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_RunCheck": {
+   "id": "Task_RunCheck",
+   "name": "Run the review-log-watch check",
+   "type": "bpmn:ServiceTask",
+   "lane": "Log watcher (authoring agent)",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_AppendRows": {
+   "id": "Task_AppendRows",
+   "name": "Append rows for new issues; hide closed ones",
+   "type": "bpmn:ServiceTask",
+   "lane": "Log watcher (authoring agent)",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_AgentPass": {
+   "id": "Task_AgentPass",
+   "name": "Agent pass on the changed rows",
+   "type": "bpmn:CallActivity",
+   "lane": "Log watcher (authoring agent)",
+   "skills": [],
+   "calls": {
+    "name": "Contributor feedback on a working draft",
+    "href": "contributor-feedback.html",
+    "diagram": "contributor-feedback.html"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_Accept": {
+   "id": "Task_Accept",
+   "name": "Accept the new state",
+   "type": "bpmn:ServiceTask",
+   "lane": "Log watcher (authoring agent)",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}
