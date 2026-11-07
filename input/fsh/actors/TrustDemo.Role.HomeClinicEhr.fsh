@@ -15,7 +15,29 @@ The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list
 
 **Also known as**: Verifier at the home clinic (SMART Trust Receiver)
 
-**Played in the journeys by**: Vientiane District Health Center EHR (Country B) (fictional).
+**Played in the journeys by** (fictional):
+
+- Vientiane District Health Center EHR (Country B)
+
+**In the user scenarios**:
+
+- [J3 — Made official](scenarios.html#j3--made-official-vientiane-district-health-center-4-weeks-later): J3a The clinic confirms the cards are genuine; J3b Thai vaccines are fitted to the Lao schedule
+
+**Lanes and tasks in the business processes**:
+
+- [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic): Verify each HCERT against the trust list; Import the doses as FHIR Immunization resources; Add the national schedule code beside the foreign vaccine code; Evaluate the national schedule
+
+**Decisions it makes**:
+
+- Decision table [TD.DT.01 What does a scanned DVC become in the child's record?](decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record), in: Verify each HCERT against the trust list; Every DVC verified?; Import the doses as FHIR Immunization resources
+- Decision table [TD.DT.02 Which national schedule code does an imported dose carry?](decision-logic.html#tddt02-which-national-schedule-code-does-an-imported-dose-carry), in: Add the national schedule code beside the foreign vaccine code
+- Decision table [TD.DT.03 Does the national schedule count this dose?](decision-logic.html#tddt03-does-the-national-schedule-count-this-dose), in: Evaluate the national schedule
+- Decision table [TD.DT.04 Is this dose of the national schedule due?](decision-logic.html#tddt04-is-this-dose-of-the-national-schedule-due), in: Evaluate the national schedule
+- Gateway "Every DVC verified?" in [J3 Verify, import and schedule at the home clinic](business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic)
+
+**Data sets its tasks record or read**: [TD.J3A DVC verification and import](dictionary.html#tdj3a-dvc-verification-and-import); [TD.J3B Imported dose and schedule](dictionary.html#tdj3b-imported-dose-and-schedule)
+
+**Indicators that count its decisions**: [TD.IND.01 Foreign doses imported as verified](indicators.html#tdind01-foreign-doses-imported-as-verified); [TD.IND.03 CHW referrals for verification completed at the clinic](indicators.html#tdind03-chw-referrals-for-verification-completed-at-the-clinic); [TD.IND.04 Imported doses carrying a national schedule code](indicators.html#tdind04-imported-doses-carrying-a-national-schedule-code)
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/Receiver"

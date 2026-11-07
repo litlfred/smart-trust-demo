@@ -15,7 +15,19 @@ The hospital system abroad that issues a DVC per dose with the HCERT library: th
 
 **Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)
 
-**Played in the journeys by**: Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) (fictional).
+**Played in the journeys by** (fictional):
+
+- Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)
+
+**In the user scenarios**:
+
+- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand
+
+**Lanes and tasks in the business processes**:
+
+- [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): Build one DVCMinPreQual payload per dose; Prepare: CWT claims and the COSE Sig_structure; Finish: COSE_Sign1, deflate, Base45, HC1:
+
+**Data sets its tasks record or read**: [TD.J1 Birth-dose DVC](dictionary.html#tdj1-birth-dose-dvc)
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
 * derivedFrom[+] = "http://smart.who.int/trust/ActorDefinition/Issuer"
