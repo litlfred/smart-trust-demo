@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.2.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j4-1-full-history-abroad",
   "title": "J4.1 — Crossing back: a Thai doctor sees the full history",
   "description": "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Lao PDR is told who looked.",
@@ -181,6 +181,24 @@
             "AuditEvent/TrustDemoJ41WrongPasscode"
           ],
           "spec": "https://profiles.ihe.net/ITI/BALP/"
+        }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdVhlAccess",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT05",
+          "rel": "decides"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT06",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND02",
+          "rel": "measures"
         }
       ]
     }
