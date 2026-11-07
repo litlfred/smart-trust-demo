@@ -80,15 +80,19 @@ msgid "Show the paper DVCs from Country A"
 msgstr "Montrer les DVC papier du Pays A"
 
 #: processes/content/j2-chw-discovery-referral.bpmn:33
-#. Diagram element documentation
-msgid "Add the infant to the household; save the doses as reported, not verified."
-msgstr "Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées."
-
-#: processes/content/j2-chw-discovery-referral.bpmn:33
 #. Diagram label
 msgid "Add the infant; save doses as reported"
 msgstr "Ajouter le nourrisson ; enregistrer les doses comme déclarées"
 
+#: processes/content/j2-chw-discovery-referral.bpmn:33
+#. Diagram element documentation
+msgid "Add the infant to the household; save the doses as reported, not verified. The CHW completes the newborn registration form (data dictionary TD.J2A) in the CHW app through smart-base's reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response. chw-register-infant is what this journey's extraction writes: the Patient and the caregiver's RelatedPerson, and each dose read by the triage read as an Immunization tagged unverified."
+msgstr "Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées. Le CHW remplit le formulaire d’enregistrement du nouveau-né (dictionnaire de données TD.J2A) dans l’application CHW au moyen du processus réutilisable de saisie de données SDC de smart-base : complete-sdc-questionnaire, puis extract-questionnaire-response. chw-register-infant est ce que l’extraction de ce parcours écrit : le Patient et la RelatedPerson de l’aidant, ainsi que chaque dose lue par la lecture de triage, sous forme d’Immunization étiquetée non vérifiée."
+
 #. Diagram label
 #~ msgid "Add the infant to the household; save the doses as reported, not verified"
 #~ msgstr "Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées"
+
+#. Diagram element documentation
+#~ msgid "Add the infant to the household; save the doses as reported, not verified."
+#~ msgstr "Ajouter le nourrisson au ménage ; enregistrer les doses comme déclarées, non vérifiées."
