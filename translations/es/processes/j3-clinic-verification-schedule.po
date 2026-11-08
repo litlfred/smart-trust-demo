@@ -14,11 +14,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: processes/content/j3-clinic-verification-schedule.bpmn:43
-#. Diagram label
-msgid "Add the national schedule code beside the foreign vaccine code"
-msgstr "Añadir el código del calendario nacional junto al código extranjero de la vacuna"
-
 #: processes/content/j3-clinic-verification-schedule.bpmn:20
 #. Diagram label
 msgid "Caregiver"
@@ -84,11 +79,6 @@ msgstr "no"
 msgid "PlanDefinition/$apply over the imported Immunizations, read by their national schedule codes: the Hep B and BCG birth doses count; the 6-week doses (pentavalent, bOPV, PCV) are due, and a reminder Task is created for that date."
 msgstr "PlanDefinition/$apply sobre los Immunization importados, leídos por sus códigos del calendario nacional: las dosis al nacer de Hep B y BCG cuentan; corresponden las dosis de las 6 semanas (pentavalente, bOPV, PCV) y se crea un Task de recordatorio para esa fecha."
 
-#: processes/content/j3-clinic-verification-schedule.bpmn:41
-#. Diagram label
-msgid "Record the failure reason; decide doses by national policy"
-msgstr "Registrar el motivo del fallo; decidir las dosis según la política nacional"
-
 #: processes/content/j3-clinic-verification-schedule.bpmn:38
 #. Diagram label
 msgid "Scan the QRs and open the referral"
@@ -99,11 +89,6 @@ msgstr "Escanear los QR y abrir la derivación"
 msgid "The child is on Country B&#x27;s schedule"
 msgstr "El niño está en el calendario del País B"
 
-#: processes/content/j3-clinic-verification-schedule.bpmn:43
-#. Diagram element documentation
-msgid "The imported doses keep the issuer&#x27;s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it."
-msgstr "Las dosis importadas conservan la codificación de la vacuna del emisor (producto PreQual de la OMS, tal como se firmó en el DVC) y reciben además la codificación del calendario nacional junto a ella, nunca en su lugar. La HCE traduce con el ConceptMap nacional; un producto sin correspondencia pasa a la enfermera, que confirma el antígeno y la dosis equivalentes del calendario, y esa decisión se registra para que la siguiente clínica no tenga que repetirla."
-
 #: processes/content/j3-clinic-verification-schedule.bpmn:39
 #. Diagram label
 msgid "Verify each HCERT against the trust list"
@@ -113,3 +98,40 @@ msgstr "Verificar cada HCERT contra la lista de confianza"
 #. Diagram label
 msgid "yes"
 msgstr "sí"
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:43
+#. Diagram label
+msgid "Add national codes beside foreign ones"
+msgstr "Añadir los códigos nacionales junto a los extranjeros"
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:43
+#. Diagram element documentation
+msgid "Add the national schedule code beside the foreign vaccine code. The imported doses keep the issuer&#x27;s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it."
+msgstr "Añadir el código del calendario nacional junto al código extranjero de la vacuna. Las dosis importadas conservan la codificación de la vacuna del emisor (producto PreQual de la OMS, tal como se firmó en el DVC) y reciben además la codificación del calendario nacional junto a ella, nunca en su lugar. La HCE traduce con el ConceptMap nacional; un producto sin correspondencia pasa a la enfermera, que confirma el antígeno y la dosis equivalentes del calendario, y esa decisión se registra para que la siguiente clínica no tenga que repetirla."
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:41
+#. Diagram label
+msgid "Note the failure; decide doses by policy"
+msgstr "Anotar el fallo; decidir las dosis según la política"
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:41
+#. Diagram element documentation
+msgid "Record the failure reason; decide doses by national policy."
+msgstr "Registrar el motivo del fallo; decidir las dosis según la política nacional."
+
+#: processes/content/j3-clinic-verification-schedule.bpmn:45
+#. Diagram element documentation
+msgid "The nurse acts on the schedule evaluation's guidance (TD.DT.04, which doses are due and from when) the way smart-base's act-on-decision-support process does it: accept or decline each proposed dose, one tap each. Saying why is optional (record-decision-rationale) and never holds up the visit."
+msgstr "La enfermera actúa según la orientación de la evaluación del calendario (TD.DT.04: qué dosis corresponden y desde cuándo) tal como lo hace el proceso act-on-decision-support de smart-base: aceptar o rechazar cada dosis propuesta, con un toque cada una. Indicar el motivo es opcional (record-decision-rationale) y nunca retrasa la visita."
+
+#. Diagram label
+#~ msgid "Add the national schedule code beside the foreign vaccine code"
+#~ msgstr "Añadir el código del calendario nacional junto al código extranjero de la vacuna"
+
+#. Diagram label
+#~ msgid "Record the failure reason; decide doses by national policy"
+#~ msgstr "Registrar el motivo del fallo; decidir las dosis según la política nacional"
+
+#. Diagram element documentation
+#~ msgid "The imported doses keep the issuer&#x27;s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it."
+#~ msgstr "Las dosis importadas conservan la codificación de la vacuna del emisor (producto PreQual de la OMS, tal como se firmó en el DVC) y reciben además la codificación del calendario nacional junto a ella, nunca en su lugar. La HCE traduce con el ConceptMap nacional; un producto sin correspondencia pasa a la enfermera, que confirma el antígeno y la dosis equivalentes del calendario, y esa decisión se registra para que la siguiente clínica no tenga que repetirla."

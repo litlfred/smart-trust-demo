@@ -51,7 +51,7 @@ msgstr "从 FSH 构建 L3 IG（CI 作业 {code0}）。这是构建每个 FHIR IG
 #: docs/dependencies.md:22
 #, python-brace-format
 msgid "Bun, for the harness's BPMN drawing and checklist generators in CI job {code0}; the same pin the harness layers use. Bun itself installs from {code1} ({code2}), whose install scripts stay off ({code3}). The renderer's Chromium is the build the lockfile's Playwright names, installed by {code4}, as the harness layers' CI does."
-msgstr "Bun，用于 CI 作业 {code0} 中框架 (harness) 的 BPMN 绘图和检查清单生成器；与框架各层使用的固定版本相同。Bun 本身从 {code1}（{code2}）安装，其安装脚本保持关闭（{code3}）。渲染器使用的 Chromium 是锁文件中 Playwright 所指定的构建，由 {code4} 安装，与框架各层的 CI 做法一致。"
+msgstr "Bun，用于 CI 作业 {code0} 中工具框架的 BPMN 绘图和检查清单生成器；与工具框架各层使用的固定版本相同。Bun 本身从 {code1}（{code2}）安装，其安装脚本保持关闭（{code3}）。渲染器使用的 Chromium 是锁文件中 Playwright 所指定的构建，由 {code4} 安装，与工具框架各层的 CI 做法一致。"
 
 #: docs/dependencies.md:17
 msgid "Check out the repository; the same pin smart-trust-tools uses."
@@ -74,11 +74,6 @@ msgstr "DPI-H RA ArchiMate 模型（{code0}）和 {code1}"
 #, python-brace-format
 msgid "Every dependency of this repository, with its reason. A new or bumped dependency is a release at least 14 days old, pinned (lockfile or {code0} with sha256) and added here in the same pull request."
 msgstr "本仓库的每一项依赖及其理由。新增或升级的依赖必须是发布至少 14 天的版本，须固定版本（通过锁文件或带 sha256 的 {code0}），并在同一个拉取请求中添加到此处。"
-
-#: docs/dependencies.md:33
-#, python-brace-format
-msgid "FHIR packages: {code0} 5.0.0, {code1} 7.0.1, {code2} 5.3.0-ballot-tc1, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
-msgstr "FHIR 包：{code0} 5.0.0、{code1} 7.0.1、{code2} 5.3.0-ballot-tc1、{code3} 1.1.0、{code4} 0.2.0、{code5} 0.1.0"
 
 #: docs/dependencies.md:13
 msgid "GitHub Actions (pinned by commit SHA)"
@@ -181,10 +176,6 @@ msgstr "本演示项目所要检验的库。由 <a0>{code0}</a0> 使用 smart-tr
 msgid "The model the <a0>ArchiMate overlay</a0> is drawn on, and smart-ra's own script for adding to it without rewriting it. Source files, not a package; the generated model is committed, so the site build does not fetch."
 msgstr "绘制 <a0>ArchiMate 叠加图</a0>所基于的模型，以及 smart-ra 自带的、可在不重写模型的情况下向其添加内容的脚本。这些是源文件而非软件包；生成的模型已提交，因此站点构建时不会获取。"
 
-#: docs/dependencies.md:33
-msgid "The packages the IG's FSH is resolved against: FHIR R5 (as smart-trust and smart-trust-phw use), the three SUSHI provides for an R5 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time."
-msgstr "解析 IG 的 FSH 所依据的包：FHIR R5（与 smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R5 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载。"
-
 #: docs/dependencies.md:36
 msgid "The workshop walkthrough of the journeys, moved from litlfred/vaxlink with its dependencies unchanged except that the lock was re-resolved to the 14-day cutoff. A static site: nothing here runs on a server."
 msgstr "用于研讨会的旅程演练，从 litlfred/vaxlink 迁移而来，依赖保持不变，只是锁文件按 14 天截止期重新解析。这是一个静态站点：此处没有任何内容在服务器上运行。"
@@ -198,3 +189,28 @@ msgstr "VaxLink 演练（{code0}）：React 18.3.1、{code1} 18.3.1、{code2} 0.
 #: docs/dependencies.md:27
 msgid "Why"
 msgstr "理由"
+
+#: docs/dependencies.md:33
+#, python-brace-format
+msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.2.0-litlfred"
+msgstr "FHIR 包：{code0} 4.0.1、{code1} 7.0.1、{code2} 5.3.0、{code3} 1.1.0、{code4} 0.2.0、{code5} 0.2.0-litlfred"
+
+#: docs/dependencies.md:33
+#, python-brace-format
+msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512. {code2} 0.2.0-litlfred is the fork build of the Personal Health Wallet guide (R4, with consent): the {code3} on litlfred/smart-trust-phw's gh-pages, pinned by commit and sha512, never published to packages.fhir.org under WHO's id."
+msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R4 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载；{code0}（npm 上只有占位包）和 {code1} 5.3.0（npm 上只有投票版）取自固定提交的 <a0>litlfred/fhir-package-mirror</a0>，并以同一 sha512 校验。{code2} 0.2.0-litlfred 是 Personal Health Wallet 指南（个人健康钱包，R4，含同意）的派生构建版本：即 litlfred/smart-trust-phw 的 gh-pages 上的 {code3}，按提交和 sha512 固定，从未以世卫组织（WHO）的 id 发布到 packages.fhir.org。"
+
+#~ #, python-brace-format
+#~ msgid "FHIR packages: {code0} 5.0.0, {code1} 7.0.1, {code2} 5.3.0-ballot-tc1, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+#~ msgstr "FHIR 包：{code0} 5.0.0、{code1} 7.0.1、{code2} 5.3.0-ballot-tc1、{code3} 1.1.0、{code4} 0.2.0、{code5} 0.1.0"
+
+#~ msgid "The packages the IG's FSH is resolved against: FHIR R5 (as smart-trust and smart-trust-phw use), the three SUSHI provides for an R5 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time."
+#~ msgstr "解析 IG 的 FSH 所依据的包：FHIR R5（与 smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R5 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载。"
+
+#~ #, python-brace-format
+#~ msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+#~ msgstr "FHIR 包：{code0} 4.0.1、{code1} 7.0.1、{code2} 5.3.0、{code3} 1.1.0、{code4} 0.2.0、{code5} 0.1.0"
+
+#~ #, python-brace-format
+#~ msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
+#~ msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R4 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载；{code0}（npm 上只有占位包）和 {code1} 5.3.0（npm 上只有投票版）取自固定提交的 <a0>litlfred/fhir-package-mirror</a0>，并以同一 sha512 校验。"

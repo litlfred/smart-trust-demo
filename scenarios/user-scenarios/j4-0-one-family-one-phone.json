@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.1.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j4-0-one-family-one-phone",
   "title": "J4.0 — Crossing back: one family, one phone",
   "description": "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
@@ -7,7 +7,6 @@
     "bounmy-sengmany",
     "khamla-sengmany"
   ],
-  "follows": "j3-made-official",
   "when": "12 months later",
   "where": "Lao PDR",
   "country": "Cross-Border",
@@ -48,7 +47,9 @@
         "summary": "Somsack’s summary is ready to share",
         "carrier": "FHIR API (HTTPS) via Info Gateway",
         "payload": "IPS Bundle per family member",
-        "offline": false
+        "offline": false,
+        "from": "Lao national FHIR server",
+        "to": "Family wallet"
       },
       "whatIf": [
         {
@@ -84,6 +85,33 @@
       ],
       "examples": [
         "Bundle/TrustDemoJ4Ips"
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j4-crossing-back.jpg",
+        "alt": "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+      },
+      "fhirChanges": [
+        {
+          "resource": "Bundle (IPS)",
+          "change": "Generated: 2 Thai + 4 Lao doses",
+          "why": "An International Patient Summary is what any country’s clinic can read, whatever its own system.",
+          "examples": [
+            "Bundle/TrustDemoJ4Ips",
+            "Immunization/TrustDemoLaoPenta1"
+          ],
+          "spec": "https://hl7.org/fhir/uv/ips/"
+        },
+        {
+          "resource": "Group (household)",
+          "change": "Drives the profile switcher",
+          "why": "One shared phone, three family members: the household decides whose records the wallet shows.",
+          "profile": "TrustDemoLaoHousehold",
+          "profileOf": "LA",
+          "examples": [
+            "Group/TrustDemoHousehold"
+          ],
+          "spec": "https://hl7.org/fhir/group.html"
+        }
       ]
     },
     {
@@ -122,7 +150,9 @@
         "summary": "A QR on Dad’s phone + a passcode he can say aloud",
         "carrier": "HTTPS",
         "payload": "VHL manifest + Consent registered",
-        "offline": false
+        "offline": false,
+        "from": "Family wallet",
+        "to": "Lao national server"
       },
       "whatIf": [
         {
@@ -177,7 +207,48 @@
       "examples": [
         "Composition/TrustDemoJ4Composition",
         "Consent/TrustDemoJ4Consent"
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j4-crossing-back.jpg",
+        "alt": "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+      },
+      "fhirChanges": [
+        {
+          "resource": "Consent (IHE PCF)",
+          "change": "Created: scope = IPS, expires in 14 days",
+          "why": "Bounmy decides what is shared and for how long; the gateway checks this before releasing anything.",
+          "examples": [
+            "Consent/TrustDemoJ4Consent"
+          ],
+          "spec": "https://profiles.ihe.net/ITI/PCF/"
+        },
+        {
+          "resource": "VHL manifest",
+          "change": "Signed pointer to encrypted IPS",
+          "why": "Not a copy of the record: a signed, passcode-protected pointer back to Lao PDR.",
+          "spec": "https://profiles.ihe.net/ITI/VHL/volume-1.html"
+        }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdVhlShare",
+          "rel": "data"
+        }
       ]
+    }
+  ],
+  "references": [
+    {
+      "label": "User scenario in the IG",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later",
+      "rel": "scenario"
+    }
+  ],
+  "views": [
+    {
+      "model": "0.1.0",
+      "view": "id-ae1502fd9fb158c3bcb643bf39006d41",
+      "label": "J4.0"
     }
   ]
 }

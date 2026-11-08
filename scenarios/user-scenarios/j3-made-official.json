@@ -1,5 +1,5 @@
 {
-  "$schema": "user-scenario/0.1.0",
+  "$schema": "user-scenario/0.3.0",
   "id": "j3-made-official",
   "title": "J3 — Made official",
   "description": "A nurse verifies the cards are genuine and fits the Thai doses into the Lao schedule.",
@@ -60,7 +60,9 @@
         "summary": "Verified doses, ready to schedule",
         "carrier": "Camera scan + local trust-list check",
         "payload": "Verified DVC → Immunization updated",
-        "offline": true
+        "offline": true,
+        "from": "Paper card",
+        "to": "Clinic tablet"
       },
       "whatIf": [
         {
@@ -123,6 +125,61 @@
         "Immunization/TrustDemoJ3HepB",
         "Immunization/TrustDemoJ3Bcg",
         "Provenance/TrustDemoJ3Verification"
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j3-made-official.jpg",
+        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Lao schedule; Khamla and Bounmy hold Somsack"
+      },
+      "fhirChanges": [
+        {
+          "resource": "Immunization ×2",
+          "change": "primarySource flipped to true",
+          "why": "A verified DVC is the signing hospital’s own record, so the dose now counts; the Thai record it came from is unchanged.",
+          "profile": "TrustDemoLaoImmunization",
+          "profileOf": "LA",
+          "examples": [
+            "Immunization/TrustDemoJ3HepB",
+            "Immunization/TrustDemoJ1HepB"
+          ],
+          "spec": "https://hl7.org/fhir/immunization.html"
+        },
+        {
+          "resource": "Provenance",
+          "change": "Created: author = Thailand MOPH, verifier = nurse",
+          "why": "Anyone who later doubts a dose can follow it back to the signed certificate and Thailand’s key.",
+          "profile": "TrustDemoLaoDvcVerification",
+          "profileOf": "LA",
+          "examples": [
+            "Provenance/TrustDemoJ3Verification"
+          ],
+          "spec": "https://hl7.org/fhir/provenance.html"
+        }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdChwReferral",
+          "rel": "data"
+        },
+        {
+          "key": "StructureDefinition/TrustDemoDdDvcVerification",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT01",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND01",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND03",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND04",
+          "rel": "measures"
+        }
       ]
     },
     {
@@ -160,7 +217,9 @@
         "summary": "Somsack continues on the Lao schedule for a year",
         "carrier": "FHIR API via Info Gateway",
         "payload": "Dual-coded Immunization + next-dose Task",
-        "offline": false
+        "offline": false,
+        "from": "Clinic tablet",
+        "to": "Lao national FHIR server"
       },
       "whatIf": [
         {
@@ -224,7 +283,103 @@
         "PlanDefinition/TrustDemoLaoInfantSchedule",
         "ImmunizationRecommendation/TrustDemoJ3Recommendation",
         "Task/TrustDemoJ3Reminder"
+      ],
+      "illustration": {
+        "src": "docs/images/moment-j3-made-official.jpg",
+        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Lao schedule; Khamla and Bounmy hold Somsack"
+      },
+      "fhirChanges": [
+        {
+          "resource": "Immunization.vaccineCode",
+          "change": "Lao EPI code added; PreQual code kept",
+          "why": "The Lao schedule runs on Lao EPI codes, so one is required; the Thai product code stays beside it, never overwritten.",
+          "profile": "TrustDemoLaoImmunization",
+          "profileOf": "LA",
+          "examples": [
+            "Immunization/TrustDemoJ3HepB",
+            "Immunization/TrustDemoJ1HepB"
+          ],
+          "spec": "https://hl7.org/fhir/immunization.html"
+        },
+        {
+          "resource": "ConceptMap",
+          "change": "Nurse’s mapping decision recorded",
+          "why": "Lao PDR’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.",
+          "examples": [
+            "ConceptMap/TrustDemoProductToLaoEpi",
+            "Provenance/TrustDemoJ3Adjudication"
+          ],
+          "spec": "https://hl7.org/fhir/conceptmap.html"
+        },
+        {
+          "resource": "Task / Appointment",
+          "change": "6-week pentavalent booked",
+          "why": "The Lao schedule (PlanDefinition) finds the 6-week doses due; the reminder brings him back.",
+          "examples": [
+            "PlanDefinition/TrustDemoLaoInfantSchedule",
+            "Task/TrustDemoJ3Reminder"
+          ],
+          "spec": "https://hl7.org/fhir/plandefinition.html"
+        }
+      ],
+      "dak": [
+        {
+          "key": "StructureDefinition/TrustDemoDdImportedDose",
+          "rel": "data"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT02",
+          "rel": "decides"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT03",
+          "rel": "decides"
+        },
+        {
+          "key": "PlanDefinition/TrustDemoDT04",
+          "rel": "decides"
+        },
+        {
+          "key": "Measure/TrustDemoIND01",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND03",
+          "rel": "measures"
+        },
+        {
+          "key": "Measure/TrustDemoIND04",
+          "rel": "measures"
+        }
       ]
+    }
+  ],
+  "scene": [
+    {
+      "icon": "tablet",
+      "label": "Clinic tablet"
+    },
+    {
+      "icon": "shield-check",
+      "label": "Signature verified"
+    },
+    {
+      "icon": "calendar-check",
+      "label": "On the Lao schedule"
+    }
+  ],
+  "references": [
+    {
+      "label": "User scenario in the IG",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j3--made-official-vientiane-district-health-center-4-weeks-later",
+      "rel": "scenario"
+    }
+  ],
+  "views": [
+    {
+      "model": "0.1.0",
+      "view": "id-c1154579a67d5815921b72f71587df50",
+      "label": "J3"
     }
   ]
 }

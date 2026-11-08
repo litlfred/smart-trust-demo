@@ -1,0 +1,132 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S6",
+  "title": "One Family, One Phone Household Wallet",
+  "description": "One phone, three people: Bounmy holds the whole family's records, Somsack's immunization summary first.",
+  "device": "phone",
+  "owner": "bounmy-sengmany",
+  "steps": [
+    {
+      "scenario": "j4-0-one-family-one-phone",
+      "step": "J4.0a"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Lao PDR Family Health Wallet",
+      "subtitle": "Sengmany Family • 3 Members • FHIR Group",
+      "icon": "family",
+      "status": {
+        "text": "National Portal Connected",
+        "tone": "success"
+      }
+    },
+    {
+      "type": "recordList",
+      "title": "Household",
+      "icon": "users",
+      "rows": [
+        {
+          "icon": "baby",
+          "label": "Somsack",
+          "detail": "Child (12m)",
+          "status": {
+            "text": "Selected",
+            "tone": "info"
+          }
+        },
+        {
+          "icon": "user",
+          "label": "Bounmy",
+          "detail": "Father (Head)"
+        },
+        {
+          "icon": "user",
+          "label": "Khamla",
+          "detail": "Mother"
+        }
+      ]
+    },
+    {
+      "type": "recordList",
+      "title": "Longitudinal Immunization Summary (IPS)",
+      "icon": "shield-check",
+      "summary": {
+        "text": "6 Doses Verified",
+        "tone": "success"
+      },
+      "example": "Bundle/TrustDemoJ4Ips",
+      "rows": [
+        {
+          "icon": "globe",
+          "label": "Hepatitis B Birth Dose",
+          "code": "TH-4821 • Lao HepB-BD",
+          "detail": "Cross-Border Provenance: Thailand (T0)",
+          "status": {
+            "text": "GDHCN Verified",
+            "tone": "success"
+          }
+        },
+        {
+          "icon": "globe",
+          "label": "BCG Birth Dose",
+          "code": "TH-9012 • Lao BCG-BD",
+          "detail": "Cross-Border Provenance: Thailand (T0)",
+          "status": {
+            "text": "GDHCN Verified",
+            "tone": "success"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Pentavalent (DTP-HepB-Hib-1)",
+          "detail": "Date: 2025-12-10 • Lot: LA-2201",
+          "status": {
+            "text": "primarySource: true",
+            "tone": "success"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Bivalent Oral Polio (bOPV-1)",
+          "detail": "Date: 2025-12-10 • Lot: LA-5531",
+          "status": {
+            "text": "primarySource: true",
+            "tone": "success"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Pneumococcal Conjugate (PCV-1)",
+          "detail": "Date: 2025-12-10 • Lot: LA-8819",
+          "status": {
+            "text": "primarySource: true",
+            "tone": "success"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Measles-Rubella Vaccine (MR-1)",
+          "detail": "Date: 2026-07-28 • Lot: LA-9923",
+          "status": {
+            "text": "primarySource: true",
+            "tone": "success"
+          }
+        }
+      ],
+      "footnote": "FHIR Bundle [IPS] • Somsack Sengmany (12 Months) • the last four are Domestic Lao PDR EPI Routine Doses"
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Request Verifiable Health Links (VHL) for All 3",
+          "style": "primary",
+          "icon": "qr"
+        }
+      ],
+      "caption": "Hosted in Lao PDR • Records stay in home country custody"
+    }
+  ]
+}

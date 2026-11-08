@@ -23,13 +23,17 @@ The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage
 
 - [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2a A health worker finds the baby — and reads his cards; J2b Registered at home, and referred
 
+**On the device screens**: [S2 Offline QR Scan of the Foreign Cards (Vilay's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S2/); [S3 Newborn Registration & Clinic Referral (Vilay's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S3/)
+
+**Discussed in the workshop modules**: [M2 The reference architecture and where you stand](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m2/); [M3 Standards, specifications and the core data set](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m3/); [M4 Trust, credentials and wallets](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m4/); [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/)
+
 **Lanes and tasks in the business processes**:
 
-- [J2 Discover and refer an unregistered infant in Country B](business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b): Read each DVC unverified (triage); Add the infant to the household; save the doses as reported, not verified; Create a referral to the home clinic for verification
+- [J2 Discover and refer an unregistered infant in Country B](business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b): Read each DVC unverified (triage); Add the infant; save doses as reported; Create a referral to the home clinic for verification
 
 **Decisions it makes**:
 
-- Decision table [TD.DT.01 What does a scanned DVC become in the child's record?](decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record), in: Read each DVC unverified (triage); Add the infant to the household; save the doses as reported, not verified
+- Decision table [TD.DT.01 What does a scanned DVC become in the child's record?](decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record), in: Read each DVC unverified (triage); Add the infant; save doses as reported
 
 **Data sets its tasks record or read**: [TD.J2A Newborn registration on a home visit](dictionary.html#tdj2a-newborn-registration-on-a-home-visit); [TD.J2B Referral for verification](dictionary.html#tdj2b-referral-for-verification)
 

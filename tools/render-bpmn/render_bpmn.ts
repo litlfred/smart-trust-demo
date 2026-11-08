@@ -1,9 +1,11 @@
 /**
  * Draw each journey's BPMN (processes/content/*.bpmn) as an SVG beside its
  * source, with bootstrap-tools' renderer (bpmn-js in headless Chromium), as
- * bootstrap commits its own diagrams. ig_gen.py embeds these SVGs in the
- * business processes page, so the page shows the diagrams whichever publish
- * route builds the site.
+ * bootstrap commits its own diagrams. They are the drawings GitHub shows
+ * beside each source and the walkthrough (web/) imports. The guide's business
+ * processes page shows the site's own drawing instead
+ * (assets/img/workflows/, written by the harness's render:bpmn at publish),
+ * which carries the step links.
  *
  *   bun tools/render-bpmn/render_bpmn.ts          (write)
  *   bun tools/render-bpmn/render_bpmn.ts --check  (fail if an SVG is stale)

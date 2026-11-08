@@ -1,0 +1,68 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S2",
+  "title": "Offline QR Scan of the Foreign Cards",
+  "description": "Vilay's phone, offline: the two Thai cards read but not checked.",
+  "device": "phone",
+  "owner": "vilay",
+  "steps": [
+    {
+      "scenario": "j2-found-at-home",
+      "step": "J2a"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Foreign Card Scan (2 of 2)",
+      "icon": "scan",
+      "status": {
+        "text": "Offline Decode Only",
+        "tone": "warning"
+      }
+    },
+    {
+      "type": "alert",
+      "severity": "warning",
+      "title": "Unverified Foreign Record (read, not checked)",
+      "text": "Payload decoded offline from paper QR. Nothing is saved yet: the doses are saved as reported (primarySource: false) when Somsack is registered. Signature verification and schedule mapping happen at the health center."
+    },
+    {
+      "type": "recordList",
+      "title": "Decoded cards",
+      "icon": "qr",
+      "rows": [
+        {
+          "icon": "syringe",
+          "label": "BCG Birth Dose",
+          "code": "PreQual Code: vp-bcg-freeze-dried",
+          "detail": "Card 1 / 2 • Date (T0) 2025-10-28 • Issuer Thailand (XXR)",
+          "status": {
+            "text": "No Local Lao Schedule Mapping — Stored as Issued",
+            "tone": "warning"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "Hepatitis B Birth Dose",
+          "code": "PreQual Code: vp-hepb-peds-monovalent",
+          "detail": "Card 2 / 2 • Date (T0) 2025-10-28 • Issuer Thailand (XXR)",
+          "status": {
+            "text": "Unmapped Foreign Product Code — Preserved Unchanged",
+            "tone": "warning"
+          }
+        }
+      ]
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Continue: Register Somsack & Save the Doses",
+          "style": "primary"
+        }
+      ],
+      "caption": "Decoded on the phone only; nothing is written until registration"
+    }
+  ]
+}

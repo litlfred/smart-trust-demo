@@ -27,12 +27,12 @@
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:startEvent id="Start" name="Home visit finds an unregistered infant"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent>
-    <bpmn:userTask id="Task_Show" name="Show the paper DVCs from Country A"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:userTask>
-    <bpmn:userTask id="Task_Scan" name="Scan each QR with the CHW app"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:userTask>
+    <bpmn:userTask id="Task_Show" name="Show the paper DVCs from Country A"><bpmn:extensionElements><bootstrap.processes:skill ref="holder-present-credential"/></bpmn:extensionElements><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:userTask>
+    <bpmn:userTask id="Task_Scan" name="Scan each QR with the CHW app"><bpmn:extensionElements><bootstrap.processes:skill ref="receiver-scan-credential"/></bpmn:extensionElements><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:userTask>
     <bpmn:serviceTask id="Task_Read" name="Read each DVC unverified (triage)"><bpmn:documentation>read-unverified (STT-VER-011): strip HC1:, Base45, inflate within limits (STT-B45-002, STT-ZIP-002), bounded CBOR (STT-CBR-003), payloads read but flagged unverified; no trust list needed, fully offline.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="hcert-verify"/></bpmn:extensionElements><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_Register" name="Add the infant to the household; save the doses as reported, not verified"><bpmn:extensionElements><bootstrap.processes:skill ref="chw-register-infant"/></bpmn:extensionElements><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:serviceTask>
+    <bpmn:callActivity id="Task_Register" name="Add the infant; save doses as reported" calledElement="Process_QuestionnaireDataCapture"><bpmn:documentation>Add the infant to the household; save the doses as reported, not verified. The CHW completes the newborn registration form (data dictionary TD.J2A) in the CHW app through smart-base's reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response. chw-register-infant is what this journey's extraction writes: the Patient and the caregiver's RelatedPerson, and each dose read by the triage read as an Immunization tagged unverified.</bpmn:documentation><bpmn:extensionElements><bootstrap.processes:skill ref="chw-register-infant"/></bpmn:extensionElements><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:callActivity>
     <bpmn:serviceTask id="Task_Refer" name="Create a referral to the home clinic for verification"><bpmn:extensionElements><bootstrap.processes:skill ref="chw-refer"/></bpmn:extensionElements><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:serviceTask>
-    <bpmn:userTask id="Task_Slip" name="Explain the referral to the family"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:userTask>
+    <bpmn:userTask id="Task_Slip" name="Explain the referral to the family"><bpmn:extensionElements><bootstrap.processes:skill ref="inform-client"/></bpmn:extensionElements><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:userTask>
     <bpmn:endEvent id="End" name="Family has a referral; the record syncs when online"><bpmn:incoming>Flow_7</bpmn:incoming></bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1" sourceRef="Start" targetRef="Task_Show"/>
     <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_Show" targetRef="Task_Scan"/>
@@ -44,25 +44,56 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Process_J2ChwDiscovery">
-      <bpmndi:BPMNShape id="Participant_Process_J2ChwDiscovery_di" bpmnElement="Participant_Process_J2ChwDiscovery" isHorizontal="true"><dc:Bounds x="100" y="60" width="1570" height="510"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1540" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_community-health-worker_di" bpmnElement="Lane_community-health-worker" isHorizontal="true"><dc:Bounds x="130" y="230" width="1540" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_chw-app_di" bpmnElement="Lane_chw-app" isHorizontal="true"><dc:Bounds x="130" y="400" width="1540" height="170"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="277" y="297" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="235" y="339" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Show_di" bpmnElement="Task_Show"><dc:Bounds x="405" y="105" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Scan_di" bpmnElement="Task_Scan"><dc:Bounds x="580" y="275" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Read_di" bpmnElement="Task_Read"><dc:Bounds x="755" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Register_di" bpmnElement="Task_Register"><dc:Bounds x="930" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Refer_di" bpmnElement="Task_Refer"><dc:Bounds x="1105" y="445" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_Slip_di" bpmnElement="Task_Slip"><dc:Bounds x="1280" y="275" width="130" height="80"/></bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1502" y="127" width="36" height="36"/><bpmndi:BPMNLabel><dc:Bounds x="1460" y="169" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="313" y="315"/><di:waypoint x="359" y="315"/><di:waypoint x="359" y="145"/><di:waypoint x="405" y="145"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"><di:waypoint x="535" y="145"/><di:waypoint x="557" y="145"/><di:waypoint x="557" y="315"/><di:waypoint x="580" y="315"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"><di:waypoint x="710" y="315"/><di:waypoint x="732" y="315"/><di:waypoint x="732" y="485"/><di:waypoint x="755" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"><di:waypoint x="885" y="485"/><di:waypoint x="930" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"><di:waypoint x="1060" y="485"/><di:waypoint x="1105" y="485"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"><di:waypoint x="1235" y="485"/><di:waypoint x="1257" y="485"/><di:waypoint x="1257" y="315"/><di:waypoint x="1280" y="315"/></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"><di:waypoint x="1410" y="315"/><di:waypoint x="1456" y="315"/><di:waypoint x="1456" y="145"/><di:waypoint x="1502" y="145"/></bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_Process_J2ChwDiscovery_di" bpmnElement="Participant_Process_J2ChwDiscovery" isHorizontal="true"><dc:Bounds x="100" y="60" width="1570" height="510" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_caregiver_di" bpmnElement="Lane_caregiver" isHorizontal="true"><dc:Bounds x="130" y="60" width="1540" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_community-health-worker_di" bpmnElement="Lane_community-health-worker" isHorizontal="true"><dc:Bounds x="130" y="230" width="1540" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_chw-app_di" bpmnElement="Lane_chw-app" isHorizontal="true"><dc:Bounds x="130" y="400" width="1540" height="170" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="277" y="297" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="235" y="339" width="120" height="40"/></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Show_di" bpmnElement="Task_Show"><dc:Bounds x="410" y="85" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Scan_di" bpmnElement="Task_Scan"><dc:Bounds x="585" y="255" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Read_di" bpmnElement="Task_Read"><dc:Bounds x="760" y="425" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Register_di" bpmnElement="Task_Register"><dc:Bounds x="935" y="425" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Refer_di" bpmnElement="Task_Refer"><dc:Bounds x="1110" y="425" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Slip_di" bpmnElement="Task_Slip"><dc:Bounds x="1285" y="255" width="120" height="120" /></bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1502" y="127" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1542" y="109.5" width="120" height="71" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="313" y="315" />
+        <di:waypoint x="361.5" y="315" />
+        <di:waypoint x="361.5" y="145" />
+        <di:waypoint x="410" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="530" y="145" />
+        <di:waypoint x="557.5" y="145" />
+        <di:waypoint x="557.5" y="315" />
+        <di:waypoint x="585" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="705" y="315" />
+        <di:waypoint x="732.5" y="315" />
+        <di:waypoint x="732.5" y="485" />
+        <di:waypoint x="760" y="485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="880" y="485" />
+        <di:waypoint x="935" y="485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="1055" y="485" />
+        <di:waypoint x="1110" y="485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="1230" y="485" />
+        <di:waypoint x="1257.5" y="485" />
+        <di:waypoint x="1257.5" y="315" />
+        <di:waypoint x="1285" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="1405" y="315" />
+        <di:waypoint x="1453.5" y="315" />
+        <di:waypoint x="1453.5" y="145" />
+        <di:waypoint x="1502" y="145" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

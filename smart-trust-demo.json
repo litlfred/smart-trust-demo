@@ -7,7 +7,8 @@
   "title": "SMART Trust demonstrator",
   "description": "The user journeys J1 to J4 of one cross-border family (birth-dose DVCs abroad, CHW triage read, clinic verification and schedule, family VHLs on one phone) as BPMN processes, personas and user scenarios, an Open Health Stack app that runs them with the Kotlin HCERT library, the Android test of that library, and the VaxLink workshop walkthrough of the same journeys (web/).",
   "needs": [
-    "smart-trust-tools"
+    "smart-trust-tools",
+    "smart-base"
   ],
   "mountApprovers": [
     "litlfred"
@@ -67,7 +68,7 @@
       "graphTypologies": [
         "scenarios"
       ],
-      "description": "The roles that play the journeys' lanes, the personas and systems that play them (each naming the WHO SMART Trust, smart-trust-phw and IHE ITI VHL ActorDefinitions it instantiates), and the user stories. Every person is fictional. scenarios/user-scenarios/ holds one user scenario per journey (J1, J2, J3, J4.0, J4.1) in the draft user-scenario/0.1.0 shape (docs/proposals/user-scenario/), from which tools/ig-gen/ig_gen.py writes the User scenarios section of docs/journeys.md; tools/user-scenarios/check.py checks them in CI."
+      "description": "The roles that play the journeys' lanes, the personas and systems that play them (each naming the WHO SMART Trust, smart-trust-phw and IHE ITI VHL ActorDefinitions it instantiates), and the user stories. Every person is fictional. scenarios/user-scenarios/ holds one user scenario per journey (J1, J2, J3, J4.0, J4.1) and the group journey J4, in the harness's user-scenario kind, from which tools/ig-gen/ig_gen.py writes the User scenarios section of docs/journeys.md; the harness's check:journey-refs checks their references in CI."
     },
     {
       "id": "memory",
@@ -161,6 +162,54 @@
         "processes"
       ],
       "description": "The published walkthrough, on the gh-pages branch inside the demonstrator's site: vaxlink/ for main, STAGING/<branch>/vaxlink/ for any other branch. Built by npm run build in web/ (never committed) and placed by web/scripts/publish.sh after the site's own publish; index.config.json keeps vaxlink/ in a root publish."
+    },
+    {
+      "id": "user-scenarios",
+      "path": "scenarios/user-scenarios/",
+      "graphTypologies": [
+        "user-scenario"
+      ],
+      "description": "The journeys J1 to J4.1 as user scenarios (journey maps), J4 as the group journey over J4.0 and J4.1, each with its scene, illustrations, FHIR changes and ArchiMate views. The building-block catalogue their steps use is in archimate/building-blocks/."
+    },
+    {
+      "id": "device-screens",
+      "path": "scenarios/device-screens/",
+      "graphTypologies": [
+        "device-screen"
+      ],
+      "description": "What each person sees on their own device at a journey step: the VaxLink screens S1 to S8 as device-screen nodes (the harness's kind), drawn by the journeys viewer as device mocks in the workshop's Device Demo and linked both ways with the walkthrough. Every person is fictional."
+    },
+    {
+      "id": "workshops",
+      "path": "workshops/",
+      "graphTypologies": [
+        "workshop"
+      ],
+      "description": "The DPI-H policy-maker track taught from the journeys."
+    },
+    {
+      "id": "code-lists",
+      "path": "code-lists/",
+      "graphTypologies": [
+        "code-list"
+      ],
+      "description": "The record-trust ladder the journeys' steps name."
+    },
+    {
+      "id": "building-blocks",
+      "path": "archimate/building-blocks/",
+      "graphTypologies": [
+        "building-blocks"
+      ],
+      "description": "The building-block catalogue the journeys steps use."
+    },
+    {
+      "id": "fhir-artifact-index",
+      "path": "fhir-artifact-index/",
+      "graphTypologies": [
+        "fhir-artifact-index"
+      ],
+      "description": "The artefact index, built at publish from the IG AST."
     }
   ],
   "visualisers": [
@@ -170,6 +219,15 @@
       "covers": [
         "archimate"
       ]
+    },
+    {
+      "id": "journeys",
+      "renderedBy": "journeys-viewer",
+      "coversKinds": [
+        "user-scenario",
+        "workshop"
+      ],
+      "subgraphs": "instance"
     }
   ]
 }

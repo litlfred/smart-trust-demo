@@ -15,8 +15,8 @@ J1, Cross-border birth and initial vaccination.
 ### 1. Give Hep B and BCG birth doses and record them (`Task_Vaccinate`)
 
 - Who: the `Birth clinic vaccinator` lane (role `birth-clinic-vaccinator`).
-- What: The vaccinator records each dose (vaccine product, date, batch) in the hospital system.
-- Record it: `workflow_complete` with `node: "Task_Vaccinate"`.
+- What: The vaccinator records each dose (vaccine product, date, batch) in the hospital system, on its dose form, through smart-base's reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response, which writes the Immunization each DVC is built from.
+- A subprocess (`Process_QuestionnaireDataCapture`): `workflow_next` reports its own steps; complete those — this call activity itself is not completable.
 - next: → `Task_Payload` (Build one DVCMinPreQual payload per dose)
 
 ### 2. Build one DVCMinPreQual payload per dose (`Task_Payload`)
@@ -54,6 +54,7 @@ J1, Cross-border birth and initial vaccination.
 ### 6. Print the paper DVC, one QR per dose (`Task_Print`)
 
 - Who: the `Birth clinic vaccinator` lane (role `birth-clinic-vaccinator`).
+- Skill: `hand-over-credential`.
 - Record it: `workflow_complete` with `node: "Task_Print"`.
 - next: → `End` (The caregiver holds two signed paper DVCs)
 

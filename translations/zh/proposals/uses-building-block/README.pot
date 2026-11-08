@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-06T09:26:50.962Z\n"
+"POT-Creation-Date: 2026-11-07T05:27:52.134Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: zh\n"
@@ -13,6 +13,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: docs/proposals/uses-building-block/README.md:52
+#, python-brace-format
+msgid "{code0} (now at {code1}, a directory declaring the harness's {code2} kind, beside the ArchiMate model; {code3} reads it): the catalogue, converted once from vaxlink's {code4}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
+msgstr ""
 
 #: docs/proposals/uses-building-block/README.md:26
 #, python-brace-format
@@ -27,11 +32,6 @@ msgstr ""
 #: docs/proposals/uses-building-block/README.md:43
 #, python-brace-format
 msgid "{code0} is the point of the edge: the same block plays a different role in each step."
-msgstr ""
-
-#: docs/proposals/uses-building-block/README.md:58
-#, python-brace-format
-msgid "{code0} now also checks:"
 msgstr ""
 
 #: docs/proposals/uses-building-block/README.md:28
@@ -49,11 +49,6 @@ msgstr ""
 msgid "{code0}: every step now has {code1} and {code2}, and its hand-off has {code3} and {code4}, converted from {code5}."
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:52
-#, python-brace-format
-msgid "{code0}: the catalogue, converted once from vaxlink's {code1}. It has 19 blocks, 10 of them linked to overlay components. Kind, jurisdiction and components were mapped by hand."
-msgstr ""
-
 #: docs/proposals/uses-building-block/README.md:21
 #, python-brace-format
 msgid "<a0>{code0}</a0> ({code1}): one catalogue of blocks. Each block has:"
@@ -63,9 +58,9 @@ msgstr ""
 msgid "as the walkthrough shows them"
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:59
+#: docs/proposals/uses-building-block/README.md:58
 #, python-brace-format
-msgid "each {code0} names a block in the catalogue, once per step, and a {code1} is one of that block's;"
+msgid "Checks: the harness's {code0} resolves each {code1} to a block of a declared catalogue, and its kind validator checks the catalogue's shape; {code2} refuses a component that is not an element of the overlay and records each element's blocks as a property. ({code3}, which did this first, is retired.)"
 msgstr ""
 
 #: docs/proposals/uses-building-block/README.md:24
@@ -77,10 +72,6 @@ msgid "Files"
 msgstr ""
 
 #: docs/proposals/uses-building-block/README.md:64
-msgid "It passes, and reports each of three seeded errors."
-msgstr ""
-
-#: docs/proposals/uses-building-block/README.md:66
 msgid "Left out on purpose"
 msgstr ""
 
@@ -88,7 +79,7 @@ msgstr ""
 msgid "one of the catalogue's layers: tools & apps, data standards, trust & exchange"
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:76
+#: docs/proposals/uses-building-block/README.md:74
 msgid "Open questions"
 msgstr ""
 
@@ -100,7 +91,7 @@ msgstr ""
 msgid "Question: each step of a journey uses tools, standards and trust services, and each one does something particular to that step. For example, the OHS FHIR SDK caches the trust list in J3a and decodes a QR in J2a. Where does that fact live, so that the walkthrough, the IG and the ArchiMate views all read it from one place?"
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:82
+#: docs/proposals/uses-building-block/README.md:80
 #, python-brace-format
 msgid "Rendering. Should {code0} show a \"Uses\" line per step, from {code1}, as it shows pain points and enablers? The walkthrough already shows it under \"Under the hood\"."
 msgstr ""
@@ -114,17 +105,12 @@ msgstr ""
 msgid "The answer: a catalogue, and an edge from the step"
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:61
-#, python-brace-format
-msgid "the catalogue's block ids are unique, its layers are known, and its components are element keys of {code0}."
-msgstr ""
-
 #: docs/proposals/uses-building-block/README.md:32
 #, python-brace-format
 msgid "The edge sits on a user-scenario step (<a0>{code0}</a0>):"
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:68
+#: docs/proposals/uses-building-block/README.md:66
 #, python-brace-format
 msgid "The FHIR changes per step (vaxlink's {code0}: resource, change, profile, why). This is the step → {code1} edge with a reason, and could be added there."
 msgstr ""
@@ -134,7 +120,7 @@ msgstr ""
 msgid "the overlay's ArchiMate element keys that deploy the block ({code0} for the OHS Info Gateway)"
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:71
+#: docs/proposals/uses-building-block/README.md:69
 #, python-brace-format
 msgid "The RA building blocks themselves. They are smart-ra's ArchiMate elements, which {code0} already reads. A catalogue {code1} block points at overlay components, and those components specialize RA blocks, so the path from a step to the RA is step → block → component → RA block."
 msgstr ""
@@ -153,7 +139,7 @@ msgstr ""
 msgid "vaxlink's {code0}: 19 generic blocks ({code1}), and per step the blocks it uses with a one-line role ({code2});"
 msgstr ""
 
-#: docs/proposals/uses-building-block/README.md:78
+#: docs/proposals/uses-building-block/README.md:76
 #, python-brace-format
 msgid "Where the catalogue lives once adopted. It could live in {code0}, with {code1} reading it instead of its own {code2} list, so the components are kept once. That is the ArchiMate session's file, so it is their call."
 msgstr ""

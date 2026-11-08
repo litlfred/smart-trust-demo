@@ -7,9 +7,9 @@
 - Every Markdown file under memory/ has the folio-memory front matter.
 - The journeys hang together: every BPMN lane, actor and story names a role
   in scenarios/roles.json, and every skill a task or role names is one of
-  this instance's (skills/*/package-manifest.json) or of smart-trust-tools'
-  hcert and vhl packages (names hcert-*, vhl-*), whose existence the harness
-  check verifies once mounted.
+  this instance's (skills/*/package-manifest.json) or a package's of a layer
+  it needs: smart-trust-tools (hcert, vhl, wallet) or smart-base
+  (point-of-care), at the pinned commit.
 - Every user story traces to requirements (scenarios/story-requirements.json:
   every story has an entry, an empty one says why in `note`), and every
   requirement id cited there, in docs/journeys.md and in the BPMN exists:
@@ -22,14 +22,17 @@
   resolve: every requirement id they cite exists, every BPMN task they serve,
   every FSH artifact and data element they name, every decision table an
   indicator names; and each table's entries stay in the FEEL subset the
-  harness interprets (tools/dak/dak.py).
+  harness interprets (tools/dak/dak.py). Each journey step's `dak` edges
+  are what tools/dak/journey_dak.py derives from them and the step's BPMN
+  tasks.
 
 - Every skill a BPMN task names exists (this instance's, or a smart-trust-tools
-  package's at the pinned commit); a task's skill is one its lane's role
-  has; and every person and system role plays a lane in some journey.
+  or smart-base package's at the pinned commit); a task's skill is one its
+  lane's role has; and every person and system role plays a lane in some
+  journey.
 
-Run from anywhere: python3 tools/repo-checks/repo_checks.py [--smart-trust-tools DIR]
-(DIR defaults to the smart-trust-tools mount; CI fetches its skills/ there.)
+Run from anywhere: python3 tools/repo-checks/repo_checks.py [--smart-trust-tools DIR] [--smart-base DIR]
+(each DIR defaults to that layer's mount; CI fetches their skills/ there.)
 """
 import fnmatch
 import json
@@ -99,10 +102,12 @@ def main():
         head = md.read_text().split("---")
         if len(head) < 3 or "$schema: folio-memory/v1" not in head[1] or f"id: {md.stem}" not in head[1]:
             errors.append(f"{md.relative_to(ROOT)}: missing folio-memory/v1 front matter with id {md.stem}")
-    errors += journey_errors()
     stt = pathlib.Path(_arg("--smart-trust-tools") or ROOT / "smart-trust-tools")
+    sb = pathlib.Path(_arg("--smart-base") or ROOT / "smart-base")
+    upstream = upstream_skills(stt / "skills", sb / "skills")
+    errors += journey_errors(upstream)
     errors += requirement_errors(stt / "skills" / "requirements")
-    errors += binding_errors(stt / "skills")
+    errors += binding_errors(upstream)
     errors += dak_errors(stt / "skills" / "requirements")
     for e in errors:
         print(e, file=sys.stderr)
@@ -112,10 +117,18 @@ def main():
 
 BPMN = "{http://www.omg.org/spec/BPMN/20100524/MODEL}"
 SKILL = "{https://litlfred.github.io/bootstrap/v0/processes/ns/}skill"
-UPSTREAM_SKILL = re.compile(r"^(hcert|vhl)-[a-z0-9-]+$")
 
 
-def journey_errors():
+def upstream_skills(*skill_dirs):
+    """The skills the layers this instance needs declare: every package-manifest.json under each skills/ (a missing directory is reported by binding_errors)."""
+    known = set()
+    for d in skill_dirs:
+        for m in pathlib.Path(d).glob("**/package-manifest.json"):
+            known.update(json.loads(m.read_text()).get("skills", []))
+    return known
+
+
+def journey_errors(upstream):
     errors = []
     roles_file = ROOT / "scenarios" / "roles.json"
     if not roles_file.exists():
@@ -136,7 +149,7 @@ def journey_errors():
                 errors.append(f"{m.relative_to(ROOT)}: skill {name} has no {name}.md")
 
     def skill_ok(name):
-        return name in own_skills or UPSTREAM_SKILL.match(name)
+        return name in own_skills or name in upstream
 
     for rid, r in roles.items():
         for s in r.get("skills", []):
@@ -230,13 +243,13 @@ def requirement_errors(req_dir):
     return errors
 
 
-def binding_errors(stt_skills):
-    """Task skills exist and belong to their lane's role; every person and system role plays a lane."""
+def binding_errors(upstream):
+    """Task skills exist and belong to their lane's role; every person and system role plays a lane, or (a person's) is a scenario persona's."""
     errors = []
-    if not stt_skills.is_dir():
-        return [f"{stt_skills}: no smart-trust-tools skills here; mount the pinned layers or pass --smart-trust-tools DIR"]
-    known = set()
-    for m in [*stt_skills.glob("*/package-manifest.json"), *(ROOT / "skills").glob("*/package-manifest.json")]:
+    if not upstream:
+        return ["no smart-trust-tools or smart-base skills found; mount the pinned layers or pass --smart-trust-tools DIR and --smart-base DIR"]
+    known = set(upstream)
+    for m in (ROOT / "skills").glob("*/package-manifest.json"):
         known.update(json.loads(m.read_text()).get("skills", []))
     roles = {r["id"]: r for r in graph.roles(ROOT)}
     in_lanes = set()
@@ -252,11 +265,18 @@ def binding_errors(stt_skills):
                 errors.append(f"{rel}: task {t['id']} is in no lane")
             elif role in roles and t["skill"] not in roles[role].get("skills", []):
                 errors.append(f"{rel}: task {t['id']}'s skill {t['skill']} is not one of its lane role {role}'s skills (scenarios/roles.json)")
+    # A person who takes part in a journey without a lane of their own (the
+    # newborn, the subject of care, acts through the caregiver) plays a role
+    # that is in a journey by a user scenario naming one of its actors as a
+    # persona; a role nobody in any journey plays is still an error.
+    personas = {a for f in (ROOT / "scenarios" / "user-scenarios").glob("*.json") for a in json.loads(f.read_text(encoding="utf-8")).get("personas", [])}
+    in_scenes = {rr for f in (ROOT / "scenarios" / "actors").glob("*.json") for a in [json.loads(f.read_text(encoding="utf-8"))]
+                 if a["id"] in personas and a.get("kind") == "person" for rr in a.get("roles", [])}
     for rid, r in roles.items():
         for s in r.get("skills", []):
             if s not in known:
                 errors.append(f"scenarios/roles.json: role {rid} names skill {s}, which no skill package defines")
-        if rid not in in_lanes and set(r.get("actorKinds", [])) & {"person", "system"}:
+        if rid not in in_lanes and rid not in in_scenes and set(r.get("actorKinds", [])) & {"person", "system"}:
             errors.append(f"scenarios/roles.json: role {rid} plays no lane in any journey")
     return errors
 
@@ -272,7 +292,16 @@ def dak_errors(req_dir):
             rid = json.loads(f.read_text()).get("id", "")
             if rid.startswith("req:"):
                 known.add(rid[4:].upper())
-    return _load_dak().errors(known, ROOT)
+    return _load_dak().errors(known, ROOT) + _load_journey_dak().errors(ROOT)
+
+
+def _load_journey_dak():
+    """tools/dak/journey_dak.py, which derives each journey step's `dak` edges."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("journey_dak", ROOT / "tools" / "dak" / "journey_dak.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 if __name__ == "__main__":

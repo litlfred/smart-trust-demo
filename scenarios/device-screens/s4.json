@@ -1,0 +1,131 @@
+{
+  "$schema": "device-screen/0.1.0",
+  "id": "S4",
+  "title": "Clinic Referral & GDHCN Verification",
+  "description": "Nurse Chanthasone scans a Thai card: the signature is checked against the GDHCN trust list, and the doses can be recorded as verified.",
+  "device": "tablet",
+  "owner": "chanthasone",
+  "steps": [
+    {
+      "scenario": "j3-made-official",
+      "step": "J3a"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "app": "Vientiane District Health Center — OHS Player Facility EMR",
+      "subtitle": "Practitioner: Nurse Chanthasone",
+      "icon": "building",
+      "chips": [
+        {
+          "text": "DEV Trust List Cached • Updated 2h ago",
+          "tone": "success"
+        }
+      ]
+    },
+    {
+      "type": "personCard",
+      "actor": "somsack-sengmany",
+      "name": "Somsack Sengmany",
+      "banner": true,
+      "chips": [
+        {
+          "text": "Age: 4 Weeks (T0+4w)",
+          "tone": "info"
+        },
+        {
+          "text": "Referred by CHW Vilay",
+          "tone": "warning"
+        }
+      ]
+    },
+    {
+      "type": "fields",
+      "title": "Incoming CHW Referral",
+      "icon": "file",
+      "rows": [
+        {
+          "label": "ServiceRequest",
+          "value": "#req-verify-001",
+          "mono": true
+        },
+        {
+          "label": "Reason",
+          "value": "Foreign vaccination cards presented at household in Village 04 — require cryptographic signature verification & Lao EPI schedule check."
+        }
+      ]
+    },
+    {
+      "type": "recordList",
+      "title": "Unverified Records Under Review",
+      "summary": {
+        "text": "2 Pending DVC Doses",
+        "tone": "warning"
+      },
+      "rows": [
+        {
+          "icon": "syringe",
+          "label": "Hepatitis B Pediatric Dose",
+          "code": "Code: vp-hepb-peds-monovalent • Lot: TH-4821",
+          "detail": "Origin: Chiang Rai Provincial Hospital (Thailand)",
+          "status": {
+            "text": "primarySource: false",
+            "tone": "warning"
+          }
+        },
+        {
+          "icon": "syringe",
+          "label": "BCG Vaccine (Freeze-Dried)",
+          "code": "Code: vp-bcg-freeze-dried • Lot: TH-9012",
+          "detail": "Origin: Chiang Rai Provincial Hospital (Thailand)",
+          "status": {
+            "text": "primarySource: false",
+            "tone": "warning"
+          }
+        }
+      ]
+    },
+    {
+      "type": "qr",
+      "column": "side",
+      "mode": "scan",
+      "payload": "HC1:6BFOXN%TSMAHN-H8/N2S$K980F2A.0K.136D/S6A5$P*Q0*3YF3$G4*43-C3XED9/D:98$H:836XDXK7/93.3%J9$6K90K:98-H$H83-D:837W6V5R254G59$6-C66O4442*96/3DF98%HN-HM/G$07*G7-G4$C4*D3*K3%J47/D%HN-H/8E/N2$Q9.0K8E%J9*K9$6-C6604%J9$6-C6604-A7*G4%J9*K9$6-C6604*E3*K3%J47/D8HN",
+      "label": "Optical Camera Feed • Live Frame",
+      "badge": {
+        "text": "Decoded: HC1:6BFOXN...",
+        "tone": "success"
+      }
+    },
+    {
+      "type": "statusBadge",
+      "column": "side",
+      "status": "verified",
+      "text": "VALID COSE_Sign1 SIGNATURE (ES256)",
+      "verdict": "PASS",
+      "fields": [
+        {
+          "label": "Trust Authority",
+          "value": "Thailand MOPH (DEV Participant XXR)"
+        },
+        {
+          "label": "Key ID (kid)",
+          "value": "916ffa567c0f44a2",
+          "mono": true
+        }
+      ],
+      "detail": "Header Validated • Certificate Within DSC Validity Window. Action: Attaches FHIR Provenance referencing DVC entity & updates Immunization.primarySource to true."
+    },
+    {
+      "type": "actions",
+      "buttons": [
+        {
+          "label": "Confirm Verification & Proceed to Schedule Evaluation",
+          "style": "primary"
+        }
+      ],
+      "caption": "Status: Cryptographic trust verified via GDHCN DEV network"
+    }
+  ],
+  "try": "Ask the room what a tampered card would show here: the signature fails, and the doses stay unverified"
+}

@@ -24,11 +24,6 @@ msgstr "Un niño de la familia necesita atención en el extranjero"
 msgid "Caregiver"
 msgstr "Cuidador"
 
-#: processes/content/j4-1-vhl-point-of-care.bpmn:51
-#. Diagram label
-msgid "Check the passcode, return the manifest and log the access"
-msgstr "Comprobar el código de acceso, devolver el manifiesto y registrar el acceso"
-
 #: processes/content/j4-1-vhl-point-of-care.bpmn:52
 #. Diagram label
 msgid "Decrypt the IPS and DVCs"
@@ -68,11 +63,6 @@ msgstr "Portal nacional de salud"
 #. Diagram label
 msgid "no"
 msgstr "no"
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:49
-#. Diagram label
-msgid "No digital verification: treat the records like paper"
-msgstr "Sin verificación digital: tratar los registros como en papel"
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:29
 #. Diagram label
@@ -119,16 +109,6 @@ msgstr "STT-VHL-005, STT-VHL-006, STT-VHL-008; el anfitrión realiza el HTTP, la
 msgid "The child is treated with the full record"
 msgstr "El niño recibe atención con el registro completo"
 
-#: processes/content/j4-1-vhl-point-of-care.bpmn:49
-#. Diagram element documentation
-msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
-msgstr "El HCERT no superó la verificación. El resultado tipado indica el paso y el motivo (STT-VER-008), por ejemplo un DSC que falta en la lista de confianza en caché (STT-VER-006). Nada se verifica digitalmente, así que no se sigue el VHL ni se solicita ningún manifiesto. Lo que la familia pueda mostrar, como los DVC en papel o un QR leído sin verificar (STT-VER-011), tiene el mismo valor que un registro en papel: el profesional clínico decide sobre ello según su criterio clínico y la política local, y registra por qué no se verificó."
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:51
-#. Diagram element documentation
-msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
-msgstr "El portal del país de residencia aloja el manifiesto (ITI-YY5). Comprueba el código de acceso, la caducidad del enlace y el consentimiento que dio el titular al compartir (IHE PCF), devuelve el manifiesto de archivos cifrados si todo es correcto y registra cada solicitud, concedida o rechazada, como un AuditEvent (IHE BALP) en el país de residencia. Un código de acceso incorrecto se rechaza y aun así se registra. Los registros siguen alojados en el país de residencia: el receptor los consulta y no se copia nada en ningún sistema de registro del extranjero."
-
 #: processes/content/j4-1-vhl-point-of-care.bpmn:47
 #. Diagram label
 msgid "Verify the HCERT and read the VHL at key 5"
@@ -138,3 +118,39 @@ msgstr "Verificar el HCERT y leer el VHL en la clave 5"
 #. Diagram label
 msgid "yes"
 msgstr "sí"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram label
+msgid "Check passcode, log access, return manifest"
+msgstr "Comprobar el código de acceso, registrar el acceso, devolver el manifiesto"
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram element documentation
+msgid "Check the passcode, return the manifest and log the access. The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
+msgstr "Comprobar el código de acceso, devolver el manifiesto y registrar el acceso. El portal del país de residencia aloja el manifiesto (ITI-YY5). Comprueba el código de acceso, la caducidad del enlace y el consentimiento que dio el titular al compartir (IHE PCF), devuelve el manifiesto de archivos cifrados si todo es correcto y registra cada solicitud, concedida o rechazada, como un AuditEvent (IHE BALP) en el país de residencia. Un código de acceso incorrecto se rechaza y aun así se registra. Los registros siguen alojados en el país de residencia: el receptor los consulta y no se copia nada en ningún sistema de registro del extranjero."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram element documentation
+msgid "No digital verification: treat the records like paper. The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+msgstr "Sin verificación digital: tratar los registros como en papel. El HCERT no superó la verificación. El resultado tipado indica el paso y el motivo (STT-VER-008), por ejemplo un DSC que falta en la lista de confianza en caché (STT-VER-006). Nada se verifica digitalmente, así que no se sigue el VHL ni se solicita ningún manifiesto. Lo que la familia pueda mostrar, como los DVC en papel o un QR leído sin verificar (STT-VER-011), tiene el mismo valor que un registro en papel: el profesional clínico decide sobre ello según su criterio clínico y la política local, y registra por qué no se verificó."
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram label
+msgid "Not verified: treat records as paper"
+msgstr "Sin verificar: tratar los registros como papel"
+
+#. Diagram label
+#~ msgid "Check the passcode, return the manifest and log the access"
+#~ msgstr "Comprobar el código de acceso, devolver el manifiesto y registrar el acceso"
+
+#. Diagram label
+#~ msgid "No digital verification: treat the records like paper"
+#~ msgstr "Sin verificación digital: tratar los registros como en papel"
+
+#. Diagram element documentation
+#~ msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+#~ msgstr "El HCERT no superó la verificación. El resultado tipado indica el paso y el motivo (STT-VER-008), por ejemplo un DSC que falta en la lista de confianza en caché (STT-VER-006). Nada se verifica digitalmente, así que no se sigue el VHL ni se solicita ningún manifiesto. Lo que la familia pueda mostrar, como los DVC en papel o un QR leído sin verificar (STT-VER-011), tiene el mismo valor que un registro en papel: el profesional clínico decide sobre ello según su criterio clínico y la política local, y registra por qué no se verificó."
+
+#. Diagram element documentation
+#~ msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
+#~ msgstr "El portal del país de residencia aloja el manifiesto (ITI-YY5). Comprueba el código de acceso, la caducidad del enlace y el consentimiento que dio el titular al compartir (IHE PCF), devuelve el manifiesto de archivos cifrados si todo es correcto y registra cada solicitud, concedida o rechazada, como un AuditEvent (IHE BALP) en el país de residencia. Un código de acceso incorrecto se rechaza y aun así se registra. Los registros siguen alojados en el país de residencia: el receptor los consulta y no se copia nada en ningún sistema de registro del extranjero."

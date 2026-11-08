@@ -218,11 +218,6 @@ msgstr "Dates. Comme dans la présentation guidée : naissance le 2025-10-28, J2
 msgid "Each country records only what its own step needs, so the guide has a small profile per country where the two differ. Each profile's description says how it is used in the journey and why its constraints are there. These are demonstrator profiles: they show what each step relies on and are not a ministry's national specification."
 msgstr "Chaque pays n'enregistre que ce dont sa propre étape a besoin ; le guide comporte donc un petit profil par pays là où les deux diffèrent. La description de chaque profil indique comment il est utilisé dans le parcours et pourquoi ses contraintes existent. Ce sont des profils de démonstration : ils montrent ce sur quoi repose chaque étape et ne constituent pas la spécification nationale d'un ministère."
 
-#: docs/vaxlink-examples.md:14
-#, python-brace-format
-msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R5, as this guide is."
-msgstr "Chaque exemple est publié deux fois : sous forme de page, et en JSON brut à une URL stable que la présentation guidée peut récupérer ({code0}). Ils sont en FHIR R5, comme ce guide."
-
 #: docs/vaxlink-examples.md:47
 msgid "Every VHL access logged at home, refusals included (IHE BALP pattern)."
 msgstr "Chaque accès au VHL est journalisé dans le pays de résidence, refus compris (modèle IHE BALP)."
@@ -333,16 +328,6 @@ msgstr "Profil"
 #: docs/vaxlink-examples.md:61
 msgid "Provenance"
 msgstr "Provenance"
-
-#: docs/vaxlink-examples.md:62
-#, python-brace-format
-msgid "R5 shape: {code0}, {code1}, {code2}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
-msgstr "Forme R5 : {code0}, {code1}, {code2} ; le destinataire est le demandeur, la passerelle lao le dépositaire et l'observateur. Le code d'accès n'est jamais journalisé."
-
-#: docs/vaxlink-examples.md:58
-#, python-brace-format
-msgid "R5: {code0} replaces {code1}; the household code is {code2} with the text \"Household\"."
-msgstr "R5 : {code0} remplace {code1} ; le code du ménage est {code2} avec le texte « Household »."
 
 #: docs/vaxlink-examples.md:20
 msgid "Screen"
@@ -466,3 +451,30 @@ msgstr "Qui a vérifié quel DVC par rapport à la liste de confiance du GDHCN, 
 #: docs/vaxlink-examples.md:35
 msgid "Why it is there"
 msgstr "Pourquoi il est là"
+
+#: docs/vaxlink-examples.md:58
+#, python-brace-format
+msgid "{code0}; the members are Patients (FHIR R4 Group lists Patients, so each parent is a Patient beside their RelatedPerson role); the household code is {code1} with the text \"Household\"."
+msgstr "{code0} ; les membres sont des Patients (en FHIR R4, Group liste des Patients, donc chaque parent est un Patient à côté de son rôle RelatedPerson) ; le code du ménage est {code1}, avec le texte « Household »."
+
+#: docs/vaxlink-examples.md:14
+#, python-brace-format
+msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R4 (4.0.1), as this guide is, like smart-base and the Personal Health Wallet guide."
+msgstr "Chaque exemple est publié deux fois : sous forme de page, et en JSON brut à une URL stable que la présentation guidée peut récupérer ({code0}). Ils sont en FHIR R4 (4.0.1), comme ce guide, ainsi que smart-base et le guide Personal Health Wallet."
+
+#: docs/vaxlink-examples.md:62
+#, python-brace-format
+msgid "R4 shape: {code0}, {code1}, {code2}, {code3}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
+msgstr "Forme R4 : {code0}, {code1}, {code2}, {code3} ; le destinataire est le demandeur, la passerelle lao le dépositaire et l'observateur. Le code d'accès n'est jamais journalisé."
+
+#~ #, python-brace-format
+#~ msgid "Every example is published twice: as a page, and as raw JSON at a stable URL the walkthrough can fetch ({code0}). They are FHIR R5, as this guide is."
+#~ msgstr "Chaque exemple est publié deux fois : sous forme de page, et en JSON brut à une URL stable que la présentation guidée peut récupérer ({code0}). Ils sont en FHIR R5, comme ce guide."
+
+#~ #, python-brace-format
+#~ msgid "R5 shape: {code0}, {code1}, {code2}; the receiver is the requestor, the Lao gateway the custodian and observer. The passcode is never logged."
+#~ msgstr "Forme R5 : {code0}, {code1}, {code2} ; le destinataire est le demandeur, la passerelle lao le dépositaire et l'observateur. Le code d'accès n'est jamais journalisé."
+
+#~ #, python-brace-format
+#~ msgid "R5: {code0} replaces {code1}; the household code is {code2} with the text \"Household\"."
+#~ msgstr "R5 : {code0} remplace {code1} ; le code du ménage est {code2} avec le texte « Household »."

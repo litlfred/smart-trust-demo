@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: j4-1-vhl-point-of-care\n"
-"POT-Creation-Date: 2026-11-06T09:25:07.925Z\n"
+"POT-Creation-Date: 2026-11-07T05:27:52.064Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: zh\n"
@@ -26,7 +26,12 @@ msgstr ""
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:51
 #. Diagram label
-msgid "Check the passcode, return the manifest and log the access"
+msgid "Check passcode, log access, return manifest"
+msgstr ""
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:51
+#. Diagram element documentation
+msgid "Check the passcode, return the manifest and log the access. The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
 msgstr ""
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:52
@@ -70,8 +75,13 @@ msgid "no"
 msgstr ""
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:49
+#. Diagram element documentation
+msgid "No digital verification: treat the records like paper. The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
+msgstr ""
+
+#: processes/content/j4-1-vhl-point-of-care.bpmn:49
 #. Diagram label
-msgid "No digital verification: treat the records like paper"
+msgid "Not verified: treat records as paper"
 msgstr ""
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:29
@@ -117,16 +127,6 @@ msgstr ""
 #: processes/content/j4-1-vhl-point-of-care.bpmn:54
 #. Diagram label
 msgid "The child is treated with the full record"
-msgstr ""
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:49
-#. Diagram element documentation
-msgid "The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified."
-msgstr ""
-
-#: processes/content/j4-1-vhl-point-of-care.bpmn:51
-#. Diagram element documentation
-msgid "The home country&#x27;s portal hosts the manifest (ITI-YY5). It checks the passcode and the link&#x27;s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad."
 msgstr ""
 
 #: processes/content/j4-1-vhl-point-of-care.bpmn:47

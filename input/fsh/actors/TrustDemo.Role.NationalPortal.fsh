@@ -24,14 +24,18 @@ The home country's portal that issues each family member's records (IPS, DVCs) a
 - [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later): J4.0b Dad creates a link to share at the clinic
 - [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history
 
+**On the device screens**: [S7 VHL QR Display & Passcode Protection (Bounmy's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S7/); [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)
+
+**Discussed in the workshop modules**: [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/); [M6 Doing it once, together](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m6/); [M7 Our first move, what it costs, and what we ask for](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m7/)
+
 **Lanes and tasks in the business processes**:
 
-- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Assemble each member's IPS and DVCs; Encrypt the documents and publish a passcode-protected manifest; Prepare the HCERT carrying the VHL at key 5; Finish the HC1 QR text
-- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Check the passcode, return the manifest and log the access
+- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Assemble each member's IPS and DVCs; Encrypt, publish a passcode manifest; Prepare the HCERT carrying the VHL at key 5; Finish the HC1 QR text
+- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Check passcode, log access, return manifest
 
 **Decisions it makes**:
 
-- Decision table [TD.DT.05 Does the portal release the manifest for this request?](decision-logic.html#tddt05-does-the-portal-release-the-manifest-for-this-request), in: Check the passcode, return the manifest and log the access
+- Decision table [TD.DT.05 Does the portal release the manifest for this request?](decision-logic.html#tddt05-does-the-portal-release-the-manifest-for-this-request), in: Check passcode, log access, return manifest
 
 **Data sets its tasks record or read**: [TD.J40 Shared link and consent](dictionary.html#tdj40-shared-link-and-consent); [TD.J41 Access to a shared link](dictionary.html#tdj41-access-to-a-shared-link)
 

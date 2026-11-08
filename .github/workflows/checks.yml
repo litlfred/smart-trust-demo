@@ -24,10 +24,15 @@ jobs:
           git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" smart-trust-tools
           git -C smart-trust-tools sparse-checkout set skills
           git -C smart-trust-tools checkout -q "$ref"
+      - name: smart-base's skills at the pinned commit (index.lock.json)
+        # The instance is the smart-base/ directory of that repository.
+        run: |
+          read -r repo ref < <(python3 -c "import json;m=next(m for m in json.load(open('index.lock.json'))['mounts'] if m['harness']=='smart-base');print(m['repository'],m['ref'])")
+          git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" smart-base-repo
+          git -C smart-base-repo sparse-checkout set smart-base/skills
+          git -C smart-base-repo checkout -q "$ref"
       - name: Actions pinned, JSON parses, memory front matter; the journeys, their skills and their requirements hang together
-        run: python3 tools/repo-checks/repo_checks.py --smart-trust-tools smart-trust-tools
-      - name: User scenarios reference real actors, stories, BPMN tasks and examples
-        run: python3 tools/user-scenarios/check.py
+        run: python3 tools/repo-checks/repo_checks.py --smart-trust-tools smart-trust-tools --smart-base smart-base-repo/smart-base
 
   bpmn-generated:
     # The BPMN drawings and checklists are generated from processes/content/
@@ -40,10 +45,21 @@ jobs:
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
       - name: Lay down the pinned layers (index.lock.json)
         run: |
-          python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness']!='smart-trust-tools']" > "$RUNNER_TEMP/mounts.txt"
+          python3 -c "import json;[print(m['harness'],m['repository'],m['ref']) for m in json.load(open('index.lock.json'))['mounts'] if m['harness'] not in ('smart-trust-tools','smart-base','who-iris')]" > "$RUNNER_TEMP/mounts.txt"
           while read -r h r ref; do git clone -q --filter=blob:none --no-checkout "https://github.com/$r" "$h" && git -C "$h" checkout -q "$ref" && rm -rf "$h/.git"; done < "$RUNNER_TEMP/mounts.txt"
           bun install --frozen-lockfile
           bun run cat mount:lock
+      - name: The journeys and the workshop are well-formed and every reference they name resolves
+        # The harness's gate over the user-scenario, workshop and
+        # building-blocks kinds (it replaces tools/user-scenarios/check.py):
+        # a file that does not parse as its kind is a finding too. An
+        # example a step names is looked up in the artefact index the site's
+        # publish builds (fhir-artifact-index/, gitignored), so here those
+        # references can only be undetermined: every other reference must
+        # resolve, and the examples are checked where the index exists.
+        run: |
+          bun run cat-harness-tools/scripts/check-journey-refs.ts --json > "$RUNNER_TEMP/journey-refs.json" || true
+          python3 -c "import json,sys;r=json.load(open(sys.argv[1]));bad=r['findings']+[f for f in r['couldNotDetermine'] if 'built at publish' not in f['message']];[print('✗',f['file'],f['at'],f['message']) for f in bad];sys.exit(1 if bad or r.get('undetermined') else 0)" "$RUNNER_TEMP/journey-refs.json"
       - name: The translation templates are current (translations/)
         # One extraction for every translator: BPMN by the harness's
         # translate-bpmn, the pages by tools/translation/pages-pot.ts (the
@@ -51,6 +67,7 @@ jobs:
         run: |
           bun run cat translate-bpmn:check -- --instance .
           bun tools/translation/pages-pot.ts --check
+          bun run cat translate-user-scenarios:check -- --instance .
           bun run cat kg:locale:check -- --instance .
           bun run cat check:translation-officiality
       - name: How far each translation is behind its template (warns, never fails)
@@ -60,6 +77,13 @@ jobs:
         run: bun tools/translation/po-status.ts --github
       - name: Translation QA (fails only on a lost placeholder, tag or URL, or an official claim)
         run: python3 -I tools/translation/glossary_qa.py --check
+      - name: A glossary term used in its sense uses its fixed translation (translation:glossary:check)
+        # Where a narrative uses a glossary term in the term's sense (by rule,
+        # or by the adjudicator's verdict in translations/glossary-sense.json),
+        # the translation must use the glossary's fixed rendering; an
+        # exception needs a recorded verdict. Uses still pending adjudication
+        # are listed and fail nothing.
+        run: bun run cat translation:glossary:check -- --instance . --all-locales
       - name: Chromium, for the BPMN renderer
         # The renderer draws through bpmn-js in Chromium. The lockfile's own
         # Playwright installs the browser build it expects, as the harness

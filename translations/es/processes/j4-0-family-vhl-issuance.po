@@ -29,11 +29,6 @@ msgstr "Cuidador"
 msgid "Choose who to share, with a passcode and an expiry"
 msgstr "Elegir de quién se comparten los registros, con un código de acceso y una caducidad"
 
-#: processes/content/j4-0-family-vhl-issuance.bpmn:40
-#. Diagram label
-msgid "Encrypt the documents and publish a passcode-protected manifest"
-msgstr "Cifrar los documentos y publicar un manifiesto protegido con código de acceso"
-
 #: processes/content/j4-0-family-vhl-issuance.bpmn:33
 #. Diagram label
 msgid "Family phone"
@@ -84,17 +79,39 @@ msgstr "Preparar el HCERT con el VHL en la clave 5"
 msgid "Sign with Country B&#x27;s DSC key"
 msgstr "Firmar con la clave del DSC del País B"
 
-#: processes/content/j4-0-family-vhl-issuance.bpmn:44
-#. Diagram label
-msgid "Store one VHL QR per member on the shared phone"
-msgstr "Guardar un QR VHL por miembro en el teléfono compartido"
-
-#: processes/content/j4-0-family-vhl-issuance.bpmn:40
-#. Diagram element documentation
-msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
-msgstr "Generación de la clave del VHL (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), indicador de código de acceso y caducidad (STT-VHL-009); la biblioteca no realiza E/S (STT-VHL-010)."
-
 #: processes/content/j4-0-family-vhl-issuance.bpmn:41
 #. Diagram element documentation
 msgid "VHL payload as a CBOR map at key 5 (STT-VHL-002); two-phase signing (STT-ISS-004)."
 msgstr "Carga útil del VHL como mapa CBOR en la clave 5 (STT-VHL-002); firma en dos fases (STT-ISS-004)."
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram element documentation
+msgid "Encrypt the documents and publish a passcode-protected manifest. VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+msgstr "Cifrar los documentos y publicar un manifiesto protegido con código de acceso. Generación de la clave del VHL (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), indicador de código de acceso y caducidad (STT-VHL-009); la biblioteca no realiza E/S (STT-VHL-010)."
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram label
+msgid "Encrypt, publish a passcode manifest"
+msgstr "Cifrar y publicar un manifiesto con código de acceso"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
+#. Diagram label
+msgid "Store each member&#x27;s VHL QR on the phone"
+msgstr "Guardar en el teléfono el QR VHL de cada miembro"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
+#. Diagram element documentation
+msgid "Store one VHL QR per member on the shared phone."
+msgstr "Guardar un QR VHL por miembro en el teléfono compartido."
+
+#. Diagram label
+#~ msgid "Encrypt the documents and publish a passcode-protected manifest"
+#~ msgstr "Cifrar los documentos y publicar un manifiesto protegido con código de acceso"
+
+#. Diagram label
+#~ msgid "Store one VHL QR per member on the shared phone"
+#~ msgstr "Guardar un QR VHL por miembro en el teléfono compartido"
+
+#. Diagram element documentation
+#~ msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+#~ msgstr "Generación de la clave del VHL (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), indicador de código de acceso y caducidad (STT-VHL-009); la biblioteca no realiza E/S (STT-VHL-010)."

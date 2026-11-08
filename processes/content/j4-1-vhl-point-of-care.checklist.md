@@ -22,6 +22,7 @@ J4.1.
 ### 2. Scan the QR and enter the passcode the caregiver says (`Task_Scan`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
+- Skill: `receiver-scan-credential`.
 - Record it: `workflow_complete` with `node: "Task_Scan"`.
 - next: → `Task_Verify` (Verify the HCERT and read the VHL at key 5)
 
@@ -37,7 +38,7 @@ J4.1.
 
 - Call `workflow_complete` with `node: "Gateway_Verified"` and `outcome` set to the label that holds:
   - «yes» → `Task_Fetch` (Request the manifest (ITI-YY5), signed)
-  - «no» → `Task_Unverified` (No digital verification: treat the records like paper)
+  - «no» → `Task_Unverified` (Not verified: treat records as paper)
 
 ### 4. Request the manifest (ITI-YY5), signed (`Task_Fetch`)
 
@@ -45,26 +46,28 @@ J4.1.
 - Skill: `vhl-receive`.
 - What: STT-VHL-005, STT-VHL-006, STT-VHL-008; the host does the HTTP, the library builds and reads (STT-VHL-010).
 - Record it: `workflow_complete` with `node: "Task_Fetch"`.
-- next: → `Task_Release` (Check the passcode, return the manifest and log the access)
+- next: → `Task_Release` (Check passcode, log access, return manifest)
 
-### 5. No digital verification: treat the records like paper (`Task_Unverified`)
+### 5. Not verified: treat records as paper (`Task_Unverified`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
-- What: The HCERT failed verification.
+- Skill: `review-client-history`.
+- What: No digital verification: treat the records like paper.
 - Record it: `workflow_complete` with `node: "Task_Unverified"`.
 - next: → `Task_Review` (Review history, allergies and vaccinations)
 
-### 6. Check the passcode, return the manifest and log the access (`Task_Release`)
+### 6. Check passcode, log access, return manifest (`Task_Release`)
 
 - Who: the `National health portal` lane (role `national-portal`).
 - Skill: `portal-serve-manifest`.
-- What: The home country's portal hosts the manifest (ITI-YY5).
+- What: Check the passcode, return the manifest and log the access.
 - Record it: `workflow_complete` with `node: "Task_Release"`.
 - next: → `Task_Decrypt` (Decrypt the IPS and DVCs)
 
 ### 7. Review history, allergies and vaccinations (`Task_Review`)
 
 - Who: the `Point-of-care provider` lane (role `poc-provider`).
+- Skill: `review-client-history`.
 - Record it: `workflow_complete` with `node: "Task_Review"`.
 - next: → `End` (The child is treated with the full record)
 

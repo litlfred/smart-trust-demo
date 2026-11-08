@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: j2-chw-discovery-referral\n"
-"POT-Creation-Date: 2026-11-06T09:25:07.520Z\n"
+"POT-Creation-Date: 2026-11-07T20:32:38.558Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: fr\n"
@@ -15,8 +15,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: processes/content/j2-chw-discovery-referral.bpmn:33
+#. Diagram element documentation
+msgid "Add the infant to the household; save the doses as reported, not verified. The CHW completes the newborn registration form (data dictionary TD.J2A) in the CHW app through smart-base's reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response. chw-register-infant is what this journey's extraction writes: the Patient and the caregiver's RelatedPerson, and each dose read by the triage read as an Immunization tagged unverified."
+msgstr ""
+
+#: processes/content/j2-chw-discovery-referral.bpmn:33
 #. Diagram label
-msgid "Add the infant to the household; save the doses as reported, not verified"
+msgid "Add the infant; save doses as reported"
 msgstr ""
 
 #: processes/content/j2-chw-discovery-referral.bpmn:14

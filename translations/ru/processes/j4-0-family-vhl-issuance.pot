@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: j4-0-family-vhl-issuance\n"
-"POT-Creation-Date: 2026-11-06T09:25:07.719Z\n"
+"POT-Creation-Date: 2026-11-07T05:27:52.063Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: ru\n"
@@ -30,8 +30,13 @@ msgid "Choose who to share, with a passcode and an expiry"
 msgstr ""
 
 #: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram element documentation
+msgid "Encrypt the documents and publish a passcode-protected manifest. VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+msgstr ""
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
 #. Diagram label
-msgid "Encrypt the documents and publish a passcode-protected manifest"
+msgid "Encrypt, publish a passcode manifest"
 msgstr ""
 
 #: processes/content/j4-0-family-vhl-issuance.bpmn:33
@@ -86,12 +91,12 @@ msgstr ""
 
 #: processes/content/j4-0-family-vhl-issuance.bpmn:44
 #. Diagram label
-msgid "Store one VHL QR per member on the shared phone"
+msgid "Store each member&#x27;s VHL QR on the phone"
 msgstr ""
 
-#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
 #. Diagram element documentation
-msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+msgid "Store one VHL QR per member on the shared phone."
 msgstr ""
 
 #: processes/content/j4-0-family-vhl-issuance.bpmn:41

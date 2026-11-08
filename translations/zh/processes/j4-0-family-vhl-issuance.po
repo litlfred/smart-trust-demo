@@ -30,11 +30,6 @@ msgstr "照护者"
 msgid "Choose who to share, with a passcode and an expiry"
 msgstr "选择共享对象，设置通行码和有效期"
 
-#: processes/content/j4-0-family-vhl-issuance.bpmn:40
-#. Diagram label
-msgid "Encrypt the documents and publish a passcode-protected manifest"
-msgstr "加密文档并发布受通行码保护的清单"
-
 #: processes/content/j4-0-family-vhl-issuance.bpmn:33
 #. Diagram label
 msgid "Family phone"
@@ -85,17 +80,39 @@ msgstr "准备在键 5 承载 VHL 的 HCERT"
 msgid "Sign with Country B&#x27;s DSC key"
 msgstr "用 B 国的 DSC 密钥签名"
 
-#: processes/content/j4-0-family-vhl-issuance.bpmn:44
-#. Diagram label
-msgid "Store one VHL QR per member on the shared phone"
-msgstr "在共用手机上为每位成员存储一个 VHL QR 码"
-
-#: processes/content/j4-0-family-vhl-issuance.bpmn:40
-#. Diagram element documentation
-msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
-msgstr "VHL 密钥生成（STT-VHL-004），JWE dir/A256GCM（STT-VHL-007），通行码标志和有效期（STT-VHL-009）；库不执行任何 I/O（STT-VHL-010）。"
-
 #: processes/content/j4-0-family-vhl-issuance.bpmn:41
 #. Diagram element documentation
 msgid "VHL payload as a CBOR map at key 5 (STT-VHL-002); two-phase signing (STT-ISS-004)."
 msgstr "VHL 载荷作为键 5 处的 CBOR 映射（STT-VHL-002）；两阶段签名（STT-ISS-004）。"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram element documentation
+msgid "Encrypt the documents and publish a passcode-protected manifest. VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+msgstr "加密文档并发布受通行码保护的清单。VHL 密钥生成（STT-VHL-004），JWE dir/A256GCM（STT-VHL-007），通行码标志和有效期（STT-VHL-009）；库不执行任何 I/O（STT-VHL-010）。"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:40
+#. Diagram label
+msgid "Encrypt, publish a passcode manifest"
+msgstr "加密并发布通行码清单"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
+#. Diagram label
+msgid "Store each member&#x27;s VHL QR on the phone"
+msgstr "在手机上存储每位成员的 VHL QR 码"
+
+#: processes/content/j4-0-family-vhl-issuance.bpmn:44
+#. Diagram element documentation
+msgid "Store one VHL QR per member on the shared phone."
+msgstr "在共用手机上为每位成员存储一个 VHL QR 码。"
+
+#. Diagram label
+#~ msgid "Encrypt the documents and publish a passcode-protected manifest"
+#~ msgstr "加密文档并发布受通行码保护的清单"
+
+#. Diagram label
+#~ msgid "Store one VHL QR per member on the shared phone"
+#~ msgstr "在共用手机上为每位成员存储一个 VHL QR 码"
+
+#. Diagram element documentation
+#~ msgid "VHL key generation (STT-VHL-004), JWE dir/A256GCM (STT-VHL-007), passcode flag and expiry (STT-VHL-009); the library does no I/O (STT-VHL-010)."
+#~ msgstr "VHL 密钥生成（STT-VHL-004），JWE dir/A256GCM（STT-VHL-007），通行码标志和有效期（STT-VHL-009）；库不执行任何 I/O（STT-VHL-010）。"

@@ -23,6 +23,10 @@ The hospital system abroad that issues a DVC per dose with the HCERT library: th
 
 - [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand
 
+**On the device screens**: [S1 Birth Abroad & Printed DVC QR Cards (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S1/)
+
+**Discussed in the workshop modules**: [M1 From journey to capabilities](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m1/); [M4 Trust, credentials and wallets](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m4/); [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/)
+
 **Lanes and tasks in the business processes**:
 
 - [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): Build one DVCMinPreQual payload per dose; Prepare: CWT claims and the COSE Sig_structure; Finish: COSE_Sign1, deflate, Base45, HC1:

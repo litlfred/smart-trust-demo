@@ -15,11 +15,15 @@ The clinician abroad who scans the family's QR and reads the child's records (J4
 
 **Played in the journeys by** (fictional):
 
-- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjNjQ3NDhiIi8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-thai-clinician--birth--follow-up-thailand), Dr Anan (clinician, Chiang Rai, Thailand)
+- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjZDk3NzA2Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-thai-clinician--birth--follow-up-thailand), Dr Anan (clinician, Chiang Rai, Thailand)
 
 **In the user scenarios**:
 
 - [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history (told through Dr. Anan)
+
+**On the device screens**: [S1 Birth Abroad & Printed DVC QR Cards (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S1/); [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)
+
+**Discussed in the workshop modules**: [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/); [M6 Doing it once, together](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m6/); [M7 Our first move, what it costs, and what we ask for](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m7/)
 
 **User stories** ([all stories](scenarios.html#user-stories)):
 
@@ -28,10 +32,10 @@ The clinician abroad who scans the family's QR and reads the child's records (J4
 
 **Lanes and tasks in the business processes**:
 
-- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Scan the QR and enter the passcode the caregiver says; No digital verification: treat the records like paper; Review history, allergies and vaccinations
+- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Scan the QR and enter the passcode the caregiver says; Not verified: treat records as paper; Review history, allergies and vaccinations
 
 **Decisions it makes**:
 
-- Decision table [TD.DT.06 Does the receiver follow the VHL?](decision-logic.html#tddt06-does-the-receiver-follow-the-vhl), in: No digital verification: treat the records like paper
+- Decision table [TD.DT.06 Does the receiver follow the VHL?](decision-logic.html#tddt06-does-the-receiver-follow-the-vhl), in: Not verified: treat records as paper
 """
 * documentation = "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"

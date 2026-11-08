@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-06T09:26:50.936Z\n"
+"POT-Creation-Date: 2026-11-07T18:37:37.293Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: zh\n"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: docs/dependencies.md:33
 #, python-brace-format
-msgid "FHIR packages: {code0} 5.0.0, {code1} 7.0.1, {code2} 5.3.0-ballot-tc1, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.1.0"
+msgid "FHIR packages: {code0} 4.0.1, {code1} 7.0.1, {code2} 5.3.0, {code3} 1.1.0, {code4} 0.2.0, {code5} 0.2.0-litlfred"
 msgstr ""
 
 #: docs/dependencies.md:13
@@ -181,7 +181,8 @@ msgid "The model the <a0>ArchiMate overlay</a0> is drawn on, and smart-ra's own 
 msgstr ""
 
 #: docs/dependencies.md:33
-msgid "The packages the IG's FSH is resolved against: FHIR R5 (as smart-trust and smart-trust-phw use), the three SUSHI provides for an R5 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time."
+#, python-brace-format
+msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512. {code2} 0.2.0-litlfred is the fork build of the Personal Health Wallet guide (R4, with consent): the {code3} on litlfred/smart-trust-phw's gh-pages, pinned by commit and sha512, never published to packages.fhir.org under WHO's id."
 msgstr ""
 
 #: docs/dependencies.md:36
