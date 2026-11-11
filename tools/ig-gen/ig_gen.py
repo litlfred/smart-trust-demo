@@ -438,7 +438,7 @@ def gen_personas(roles, by_role):
     if people:
         out.append("\n### The people of the journeys\n")
         out.append("Each is fictional. Their goals, needs and frustrations are kept in "
-                   "`scenarios/actors/*.json` (`meta.persona`), and the VaxLink walkthrough shows the same text.\n")
+                   "`scenarios/actors/*.json` (`meta.persona`), and the journeys viewer shows the same text.\n")
         for a in people:
             p = a["meta"]["persona"]
             out.append(f"\n#### {persona_heading(p)}\n")

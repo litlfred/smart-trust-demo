@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-06T09:26:50.947Z\n"
+"POT-Creation-Date: 2026-11-11T08:55:28.645Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: ru\n"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: docs/journeys.md:93
 #, python-brace-format
-msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
+msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the journeys walkthrough presents them."
 msgstr ""
 
 #: docs/journeys.md:146
@@ -313,7 +313,7 @@ msgid "home-clinic-ehr"
 msgstr ""
 
 #: docs/journeys.md:44
-msgid "How far a clinician can rely on Somsack's record, step by step (the VaxLink \"follow the record\" ladder):"
+msgid "How far a clinician can rely on Somsack's record, step by step (the journeys walkthrough's \"follow the record\" ladder):"
 msgstr ""
 
 #: docs/journeys.md:238
@@ -456,7 +456,7 @@ msgid "Khamla gives birth to Somsack on 2025-10-28 at Chiang Rai Provincial Hosp
 msgstr ""
 
 #: docs/journeys.md:115
-msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsack's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsack's DVC payloads are illustrative. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
 msgstr ""
 
 #: docs/journeys.md:74
@@ -660,6 +660,10 @@ msgstr ""
 msgid "The cast: Khamla SENGMANY (mother), Bounmy SENGMANY (father, holds the family phone), Vilay (community health worker, Village 04), Nurse Chanthasone (Vientiane District Health Center) and Dr Anan (Thai clinician, at the birth and a year later)."
 msgstr ""
 
+#: docs/journeys.md:236
+msgid "The journeys walkthrough closes with four policy questions:"
+msgstr ""
+
 #: docs/journeys.md:217
 #, python-brace-format
 msgid "The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
@@ -675,11 +679,7 @@ msgstr ""
 
 #: docs/journeys.md:12
 #, python-brace-format
-msgid "The story is the one the <a0>VaxLink walkthrough</a0> tells, moment by moment, with the people, the technical layer and the policy questions (interactive; its source is {code0} in this repository), documented here as a WHO SMART Guidelines L2 DAK and L3 implementation guide. Its FHIR examples are materialized in this guide; the <a1>VaxLink examples</a1> page maps each moment and device screen to them."
-msgstr ""
-
-#: docs/journeys.md:236
-msgid "The VaxLink walkthrough closes with four policy questions:"
+msgid "The story is the one the <a0>journeys walkthrough</a0> tells, moment by moment, with the people, the technical layer and the policy questions (interactive; its source is {code0} in this repository), documented here as a WHO SMART Guidelines L2 DAK and L3 implementation guide. Its FHIR examples are materialized in this guide; the <a1>Journey examples</a1> page maps each moment and device screen to them."
 msgstr ""
 
 #: docs/journeys.md:218

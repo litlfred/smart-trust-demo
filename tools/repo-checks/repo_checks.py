@@ -160,7 +160,7 @@ def journey_errors(upstream):
         for rid in actor.get("roles", []):
             if rid not in roles:
                 errors.append(f"{a.relative_to(ROOT)}: unknown role {rid}")
-        # meta.persona is read by the IG's personas page and by the VaxLink walkthrough.
+        # meta.persona is read by the IG's personas page and by the journeys viewer.
         persona = actor.get("meta", {}).get("persona")
         if persona is not None:
             for key in ("name", "role", "country", "goal"):

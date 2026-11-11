@@ -1,6 +1,6 @@
 # Journeys viewer: parity with VaxLink
 
-**Status:** spec, 2026-11-05.
+**Status:** spec, 2026-11-05. VaxLink was retired on 2026-11-11 by the owner's choice (issue #111): `web/` and `vaxlink/` are gone, and the gaps still open are beans.
 
 **Owner's decisions (2026-11-05):**
 

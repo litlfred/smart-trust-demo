@@ -156,19 +156,3 @@ jobs:
         run: python3 tools/ig-gen/fhir_cache.py
       - name: SUSHI, no errors
         run: tools/ig-gen/node_modules/.bin/sushi build .
-      - name: The walkthrough's FHIR examples are SUSHI's (web/src/data/ig/)
-        run: node web/scripts/ig-examples.mjs --check
-
-  web:
-    # The VaxLink walkthrough (web/) builds from this commit: its BPMN
-    # drawings, actors and moment pictures are read from processes/content/,
-    # scenarios/actors/ and docs/images/ at build time, so a build here is the
-    # check that they still resolve. npm installs from web/package-lock.json
-    # (integrity), install scripts off. Node is the runner's own, as in ig-sushi.
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-      - name: Install from the lockfile, install scripts off
-        run: npm ci --ignore-scripts --no-audit --no-fund --prefix web
-      - name: Type-check and build
-        run: npm run build --prefix web
