@@ -106,7 +106,8 @@
           "label": "Priority",
           "value": "Routine Checkup"
         }
-      ]
+      ],
+      "id": "referral"
     },
     {
       "type": "actions",
@@ -118,6 +119,36 @@
         }
       ],
       "caption": "Patient, Group, Immunization x2 (primarySource: false) and ServiceRequest queued for Info Gateway sync"
+    }
+  ],
+  "stateLabel": "Routine referral",
+  "states": [
+    {
+      "id": "urgent",
+      "label": "Urgent referral",
+      "blocks": [
+        {
+          "type": "fields",
+          "title": "Clinic Verification Referral (FHIR ServiceRequest)",
+          "icon": "file",
+          "rows": [
+            {
+              "label": "Target Facility",
+              "value": "Lomaru District Health Center [Seeded Facility]"
+            },
+            {
+              "label": "Referral Reason",
+              "value": "Verify foreign DVC signature & map birth doses to Onesan schedule"
+            },
+            {
+              "label": "Priority",
+              "value": "Urgent"
+            }
+          ],
+          "id": "referral"
+        }
+      ],
+      "try": "Ask who decides what makes a referral urgent, and whether the CHW's app should say so"
     }
   ]
 }

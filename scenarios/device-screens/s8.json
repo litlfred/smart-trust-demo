@@ -28,7 +28,8 @@
       "type": "statusBadge",
       "status": "verified",
       "text": "Passcode Verified (✓) • Read-Only Zero-Retention Clinical Session",
-      "detail": "Live AuditEvent: Logged at Onesan OHS Info Gateway"
+      "detail": "Live AuditEvent: Logged at Onesan OHS Info Gateway",
+      "id": "access"
     },
     {
       "type": "personCard",
@@ -47,7 +48,8 @@
           "value": "sovereign-fhir.moh.gov.la",
           "mono": true
         }
-      ]
+      ],
+      "id": "patient"
     },
     {
       "type": "recordList",
@@ -122,7 +124,8 @@
           }
         }
       ],
-      "footnote": "Cross-border verified provenance linking Taifafeki birth doses and Onesan national EPI"
+      "footnote": "Cross-border verified provenance linking Taifafeki birth doses and Onesan national EPI",
+      "id": "ips"
     },
     {
       "type": "fields",
@@ -136,7 +139,8 @@
           "label": "Active Problems & Encounters",
           "value": "Healthy 12-Month Pediatric Well-Child Checkup."
         }
-      ]
+      ],
+      "id": "sections"
     },
     {
       "type": "actions",
@@ -150,10 +154,144 @@
           "label": "Complete Walkthrough & Restart (J1)",
           "style": "secondary"
         }
-      ]
+      ],
+      "id": "actions"
     }
   ],
   "try": "Ask the room what happens on a wrong passcode: three tries, then the link is revoked, and Onesa sees each attempt",
+  "stateLabel": "Passcode right",
+  "states": [
+    {
+      "id": "wrong-1",
+      "label": "Wrong passcode (1st)",
+      "blocks": [
+        {
+          "type": "statusBadge",
+          "id": "access",
+          "status": "failed",
+          "text": "Passcode Lock Active • Awaiting Clinician Unlock",
+          "verdict": "2 LEFT",
+          "fields": [
+            {
+              "label": "Entered",
+              "value": "0000",
+              "mono": true
+            }
+          ],
+          "detail": "Invalid passcode: 2 attempt(s) remaining before link revocation. Live AuditEvent: the failed attempt is logged at the Onesan OHS Info Gateway."
+        },
+        {
+          "type": "passcode",
+          "id": "patient",
+          "label": "Enter Verbal Passcode to Decrypt IPS",
+          "digits": "0000",
+          "shown": true,
+          "entry": true,
+          "note": "Father (Bounmy Sengmany) must say the 4-digit code from the Onesan Family Wallet"
+        },
+        {
+          "type": "actions",
+          "id": "actions",
+          "buttons": [
+            {
+              "label": "Verify Passcode & Fetch IPS Bundle",
+              "style": "primary",
+              "icon": "unlock"
+            }
+          ],
+          "caption": "No IPS is fetched until the passcode is right"
+        }
+      ],
+      "hide": [
+        "ips",
+        "sections"
+      ],
+      "try": "The clinic sees nothing, and Onesa sees the attempt: ask who should be told, and when"
+    },
+    {
+      "id": "wrong-2",
+      "label": "Wrong passcode (2nd)",
+      "blocks": [
+        {
+          "type": "statusBadge",
+          "id": "access",
+          "status": "failed",
+          "text": "Passcode Lock Active • Awaiting Clinician Unlock",
+          "verdict": "1 LEFT",
+          "fields": [
+            {
+              "label": "Entered",
+              "value": "0000",
+              "mono": true
+            }
+          ],
+          "detail": "Invalid passcode: 1 attempt(s) remaining before link revocation. Live AuditEvent: the failed attempt is logged at the Onesan OHS Info Gateway."
+        },
+        {
+          "type": "passcode",
+          "id": "patient",
+          "label": "Enter Verbal Passcode to Decrypt IPS",
+          "digits": "0000",
+          "shown": true,
+          "entry": true,
+          "note": "Father (Bounmy Sengmany) must say the 4-digit code from the Onesan Family Wallet"
+        },
+        {
+          "type": "actions",
+          "id": "actions",
+          "buttons": [
+            {
+              "label": "Verify Passcode & Fetch IPS Bundle",
+              "style": "primary",
+              "icon": "unlock"
+            }
+          ],
+          "caption": "No IPS is fetched until the passcode is right"
+        }
+      ],
+      "hide": [
+        "ips",
+        "sections"
+      ]
+    },
+    {
+      "id": "revoked",
+      "label": "3rd wrong try: revoked",
+      "blocks": [
+        {
+          "type": "statusBadge",
+          "id": "access",
+          "status": "failed",
+          "text": "Link Revoked • 3 Failed Attempts",
+          "verdict": "REVOKED",
+          "detail": "The VHL no longer opens anywhere. Onesa saw all three attempts as AuditEvents and the family can issue a new link from the wallet."
+        },
+        {
+          "type": "alert",
+          "id": "patient",
+          "severity": "danger",
+          "title": "Nothing was shared",
+          "text": "The IPS never left Onesa: the clinic fetched no data, and there is nothing to delete."
+        },
+        {
+          "type": "actions",
+          "id": "actions",
+          "buttons": [
+            {
+              "label": "Ask the family for a new link",
+              "style": "secondary"
+            }
+          ],
+          "caption": "Rate limit: max 3 failed attempts (set when the link was made)"
+        }
+      ],
+      "hide": [
+        "ips",
+        "sections"
+      ],
+      "try": "After three wrong tries the link is dead: ask whether three is the right number for a clinic at a border"
+    }
+  ],
   "client": {
     "name": "OHS Facility Client",
     "version": "2.4.1",

@@ -46,7 +46,8 @@
           "label": "Khamla",
           "detail": "Mother"
         }
-      ]
+      ],
+      "id": "household"
     },
     {
       "type": "recordList",
@@ -115,7 +116,8 @@
           }
         }
       ],
-      "footnote": "FHIR Bundle [IPS] • Somsak Sengmany (12 Months) • the last four are Domestic Onesa EPI Routine Doses"
+      "footnote": "FHIR Bundle [IPS] • Somsak Sengmany (12 Months) • the last four are Domestic Onesa EPI Routine Doses",
+      "id": "record"
     },
     {
       "type": "actions",
@@ -127,6 +129,117 @@
         }
       ],
       "caption": "Hosted in Onesa • Records stay in home country custody"
+    }
+  ],
+  "stateLabel": "Somsak",
+  "states": [
+    {
+      "id": "bounmy",
+      "label": "Bounmy",
+      "blocks": [
+        {
+          "type": "recordList",
+          "title": "Household",
+          "icon": "users",
+          "rows": [
+            {
+              "icon": "baby",
+              "label": "Somsak",
+              "detail": "Child (12m)"
+            },
+            {
+              "icon": "user",
+              "label": "Bounmy",
+              "detail": "Father (Head)",
+              "status": {
+                "text": "Selected",
+                "tone": "info"
+              }
+            },
+            {
+              "icon": "user",
+              "label": "Khamla",
+              "detail": "Mother"
+            }
+          ],
+          "id": "household"
+        },
+        {
+          "type": "recordList",
+          "id": "record",
+          "title": "Father's International Patient Summary (IPS)",
+          "icon": "pill",
+          "summary": {
+            "text": "Phone Holder",
+            "tone": "info"
+          },
+          "rows": [
+            {
+              "icon": "pill",
+              "label": "Active MedicationStatement (Hypertension)",
+              "code": "Amlodipine 5mg oral daily",
+              "detail": "Prescribed at the Onesan National Hospital"
+            }
+          ],
+          "footnote": "Bounmy Sengmany (29y) • This record goes into Bounmy's own cross-border VHL travel link"
+        }
+      ],
+      "try": "One phone holds three people's records: ask who may open whose record, and from what age a child holds their own"
+    },
+    {
+      "id": "khamla",
+      "label": "Khamla",
+      "blocks": [
+        {
+          "type": "recordList",
+          "title": "Household",
+          "icon": "users",
+          "rows": [
+            {
+              "icon": "baby",
+              "label": "Somsak",
+              "detail": "Child (12m)"
+            },
+            {
+              "icon": "user",
+              "label": "Bounmy",
+              "detail": "Father (Head)"
+            },
+            {
+              "icon": "user",
+              "label": "Khamla",
+              "detail": "Mother",
+              "status": {
+                "text": "Selected",
+                "tone": "info"
+              }
+            }
+          ],
+          "id": "household"
+        },
+        {
+          "type": "recordList",
+          "id": "record",
+          "title": "Mother's International Patient Summary (IPS)",
+          "icon": "heart",
+          "rows": [
+            {
+              "icon": "heart",
+              "label": "Maternal Health Records",
+              "detail": "Antenatal and delivery summary"
+            },
+            {
+              "icon": "syringe",
+              "label": "Tetanus-Diphtheria (Td) Adult Boosters",
+              "status": {
+                "text": "Verified",
+                "tone": "success"
+              }
+            }
+          ],
+          "footnote": "Khamla Sengmany (26y)"
+        }
+      ]
     }
   ]
 }
