@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: j3-clinic-verification-schedule\n"
-"POT-Creation-Date: 2026-11-07T20:32:38.560Z\n"
+"POT-Creation-Date: 2026-11-11T13:09:56.504Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: es\n"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: processes/content/j3-clinic-verification-schedule.bpmn:11
 #. Diagram element documentation
-msgid "J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them."
+msgid "J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, [retrieves (smart-trust-phw retrieve-pki-material)](https://litlfred.github.io/smart-trust-phw/artifact/Requirements-retrieve-pki-material.html). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them."
 msgstr ""
 
 #: processes/content/j3-clinic-verification-schedule.bpmn:51
