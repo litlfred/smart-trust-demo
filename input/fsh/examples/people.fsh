@@ -1,24 +1,24 @@
 // The people, places and systems the journey examples share. The story is the
-// VaxLink workshop walkthrough's (fredhersch/vaxlink): Somsack SENGMANY, a Lao
-// baby born in Thailand, followed over his first year. Every person here is
-// fictional (AGENTS.md). Country A, the birth country, is Thailand, played on
-// the GDHCN DEV network by test participant XXR; Country B, home, is Lao PDR,
-// played by the fictional participant XXH. Neither is a real ministry's key.
+// VaxLink workshop walkthrough's (fredhersch/vaxlink): Somsack SENGMANY, an Onesan
+// baby born in Taifafeki, followed over his first year. Every person here is
+// fictional (AGENTS.md). Country A, the birth country, is Taifafeki, played on
+// the GDHCN DEV network by test participant XXR; Country B, home, is Onesa,
+// played by the test participant XXK. Neither is a real ministry's key.
 
 Alias: $cvx = http://hl7.org/fhir/sid/cvx
 Alias: $loinc = http://loinc.org
 Alias: $sct = http://snomed.info/sct
 Alias: $v3-RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode
-Alias: $LaoTmpId = http://smart.who.int/trust-demo/sid/lao-temporary-id
-Alias: $HouseholdId = http://smart.who.int/trust-demo/sid/lao-household-id
+Alias: $OnesaTmpId = http://smart.who.int/trust-demo/sid/onesa-temporary-id
+Alias: $HouseholdId = http://smart.who.int/trust-demo/sid/onesa-household-id
 
 Instance: TrustDemoSomsack
-InstanceOf: TrustDemoLaoPatient
+InstanceOf: TrustDemoOnesaPatient
 Title: "Somsack SENGMANY (newborn)"
-Description: "The subject of every journey, as the CHW registers him in Lao PDR (Country B) in J2: born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), with no Thai identity number. Until civil registration catches up he has a temporary id. Fictional."
+Description: "The subject of every journey, as the CHW registers him in Onesa (Country B) in J2: born 2025-10-28 at Kesaro Provincial Hospital, Taifafeki (Country A), with no Taifafeki identity number. Until civil registration catches up he has a temporary id. Fictional."
 Usage: #example
-* identifier[temporaryId].system = $LaoTmpId
-* identifier[temporaryId].value = "LAO-TMP-2025-00918"
+* identifier[temporaryId].system = $OnesaTmpId
+* identifier[temporaryId].value = "XXK-TMP-2025-00918"
 * active = true
 * name.use = #official
 * name.family = "SENGMANY"
@@ -78,7 +78,7 @@ Usage: #example
 
 Instance: TrustDemoAnan
 InstanceOf: Practitioner
-Title: "Dr Anan (clinician, Chiang Rai, Thailand)"
+Title: "Dr Anan (clinician, Kesaro, Taifafeki)"
 Description: "Gives Somsack's birth doses and prints the DVCs (J1), and reads his record through the VHL a year later (J4.1). Fictional."
 Usage: #example
 * name.text = "Dr Anan"
@@ -87,7 +87,7 @@ Usage: #example
 
 Instance: TrustDemoVilay
 InstanceOf: Practitioner
-Title: "Vilay (community health worker, Village 04, Lao PDR)"
+Title: "Vilay (community health worker, Village 04, Onesa)"
 Description: "The CHW who finds Somsack missing from the household roster in J2. Fictional."
 Usage: #example
 * name.text = "Vilay"
@@ -95,47 +95,47 @@ Usage: #example
 
 Instance: TrustDemoChanthasone
 InstanceOf: Practitioner
-Title: "Nurse Chanthasone (Vientiane District Health Center)"
-Description: "The nurse who verifies the DVCs and fits the Thai doses to the Lao schedule in J3. Fictional."
+Title: "Nurse Chanthasone (Lomaru District Health Center)"
+Description: "The nurse who verifies the DVCs and fits the Taifafeki doses to the Onesan schedule in J3. Fictional."
 Usage: #example
 * name.text = "Nurse Chanthasone"
 * name.given = "Chanthasone"
 
-Instance: TrustDemoChiangRaiHospital
+Instance: TrustDemoKesaroHospital
 InstanceOf: Organization
-Title: "Chiang Rai Provincial Hospital, Thailand (Country A)"
-Description: "The birth hospital of J1. Its DVCs are signed with the DSC of GDHCN DEV test participant XXR, which plays Thailand in the demonstrator."
+Title: "Kesaro Provincial Hospital, Taifafeki (Country A)"
+Description: "The birth hospital of J1. Its DVCs are signed with the DSC of GDHCN DEV test participant XXR, which plays Taifafeki in the demonstrator."
 Usage: #example
-* name = "Chiang Rai Provincial Hospital (demonstrator)"
-* contact.address.country = "TH"
+* name = "Kesaro Provincial Hospital (demonstrator)"
+* contact.address.country = "XXR"
 
-Instance: TrustDemoVientianeDhc
+Instance: TrustDemoLomaruDhc
 InstanceOf: Organization
-Title: "Vientiane District Health Center, Lao PDR (Country B)"
-Description: "The district health center of J3 and of Somsack's later Lao doses."
+Title: "Lomaru District Health Center, Onesa (Country B)"
+Description: "The district health center of J3 and of Somsack's later Onesan doses."
 Usage: #example
-* name = "Vientiane District Health Center (demonstrator)"
-* contact.address.country = "LA"
+* name = "Lomaru District Health Center (demonstrator)"
+* contact.address.country = "XXK"
 
-Instance: TrustDemoLaoPortalOrg
+Instance: TrustDemoOnesaPortalOrg
 InstanceOf: Organization
-Title: "Lao PDR national health portal (Country B, XXH)"
-Description: "The national service that hosts the family's records, issues their VHLs (J4.0) and logs every access (J4.1). On the GDHCN DEV network it is the fictional participant XXH."
+Title: "Onesa national health portal (Country B, XXK)"
+Description: "The national service that hosts the family's records, issues their VHLs (J4.0) and logs every access (J4.1). On the GDHCN DEV network it is the test participant XXK."
 Usage: #example
-* name = "Lao PDR national health portal (demonstrator, GDHCN DEV participant XXH)"
-* contact.address.country = "LA"
+* name = "Onesa national health portal (demonstrator, GDHCN DEV participant XXK)"
+* contact.address.country = "XXK"
 
-Instance: TrustDemoChiangRaiClinic
+Instance: TrustDemoKesaroClinic
 InstanceOf: Organization
-Title: "Chiang Rai primary care clinic, Thailand (J4.1)"
+Title: "Kesaro primary care clinic, Taifafeki (J4.1)"
 Description: "Where Dr Anan sees Somsack a year after his birth, back in Country A."
 Usage: #example
-* name = "Chiang Rai primary care clinic (demonstrator)"
-* contact.address.country = "TH"
+* name = "Kesaro primary care clinic (demonstrator)"
+* contact.address.country = "XXR"
 
 Instance: TrustDemoChwApp
 InstanceOf: Device
-Title: "CHW app (OHS, community configuration), Lao PDR"
+Title: "CHW app (OHS, community configuration), Onesa"
 Description: "The offline app on Vilay's phone (J2): household registration, triage read of foreign DVCs (STT-VER-011), referral."
 Usage: #example
 * deviceName[+].name = "CHW app, Village 04 (offline)"
@@ -143,21 +143,21 @@ Usage: #example
 
 Instance: TrustDemoDhcEhr
 InstanceOf: Device
-Title: "District health center EHR (OHS, facility configuration), Lao PDR"
+Title: "District health center EHR (OHS, facility configuration), Onesa"
 Description: "The clinic tablet's record system that verifies the DVCs offline against its cached GDHCN trust list, imports them and evaluates the schedule (J3)."
 Usage: #example
-* deviceName[+].name = "Vientiane District Health Center EHR"
+* deviceName[+].name = "Lomaru District Health Center EHR"
 * deviceName[=].type = #user-friendly-name
-* owner = Reference(TrustDemoVientianeDhc)
+* owner = Reference(TrustDemoLomaruDhc)
 
-Instance: TrustDemoLaoGateway
+Instance: TrustDemoOnesaGateway
 InstanceOf: Device
-Title: "Lao PDR national FHIR server and info gateway"
+Title: "Onesa national FHIR server and info gateway"
 Description: "Hosts the VHL manifests, checks passcode, expiry and consent, and records every access as an AuditEvent (J4.1)."
 Usage: #example
-* deviceName[+].name = "Lao PDR national FHIR server and OHS FHIR Info Gateway"
+* deviceName[+].name = "Onesa national FHIR server and OHS FHIR Info Gateway"
 * deviceName[=].type = #user-friendly-name
-* owner = Reference(TrustDemoLaoPortalOrg)
+* owner = Reference(TrustDemoOnesaPortalOrg)
 
 Instance: TrustDemoFamilyPhone
 InstanceOf: Device
@@ -169,9 +169,9 @@ Usage: #example
 
 Instance: TrustDemoClinicViewer
 InstanceOf: Device
-Title: "VHL viewer, Chiang Rai primary care clinic"
+Title: "VHL viewer, Kesaro primary care clinic"
 Description: "The point-of-care system that verifies the VHL, fetches the manifest by ITI-YY5 after the passcode is entered, and decrypts the records for viewing (J4.1): a VHL Receiver."
 Usage: #example
-* deviceName[+].name = "Chiang Rai clinic VHL viewer"
+* deviceName[+].name = "Kesaro clinic VHL viewer"
 * deviceName[=].type = #user-friendly-name
-* owner = Reference(TrustDemoChiangRaiClinic)
+* owner = Reference(TrustDemoKesaroClinic)

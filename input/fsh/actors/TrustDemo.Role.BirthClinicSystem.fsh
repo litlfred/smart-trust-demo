@@ -17,11 +17,11 @@ The hospital system abroad that issues a DVC per dose with the HCERT library: th
 
 **Played in the journeys by** (fictional):
 
-- Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)
+- Kesaro Provincial Hospital system, Taifafeki (Country A, XXR)
 
 **In the user scenarios**:
 
-- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand
+- [J1 — Born abroad](scenarios.html#j1--born-abroad-taifafeki-birth-day): J1 An Onesan baby is born in Taifafeki
 
 **On the device screens**: [S1 Birth Abroad & Printed DVC QR Cards (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S1/)
 

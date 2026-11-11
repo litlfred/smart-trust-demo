@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-11T08:55:28.693Z\n"
+"POT-Creation-Date: 2026-11-11T09:10:10.607Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: es\n"
@@ -68,11 +68,11 @@ msgstr ""
 
 #: input/pagecontent/scenarios.md:154
 #, python-brace-format
-msgid "A wrong passcode is refused, and the attempt is still logged in Lao PDR ({code0}). If the HCERT does not verify (for example, Country B's DSC is missing from the cached list), there is no digital verification. The clinic names the step and the reason (<a0>STT-VER-008</a0>), does not follow the VHL, and Dr Anan treats whatever the family can show as he would a paper record."
+msgid "A wrong passcode is refused, and the attempt is still logged in Onesa ({code0}). If the HCERT does not verify (for example, Country B's DSC is missing from the cached list), there is no digital verification. The clinic names the step and the reason (<a0>STT-VER-008</a0>), does not follow the VHL, and Dr Anan treats whatever the family can show as he would a paper record."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:144
-msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Chiang Rai. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Lao gateway take five steps:"
+msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Kesaro. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Onesan gateway take five steps:"
 msgstr ""
 
 #: input/pagecontent/scenarios.md:13
@@ -113,11 +113,11 @@ msgid "Enabler (J2b): An offline form links the baby to his household immediatel
 msgstr ""
 
 #: input/pagecontent/scenarios.md:110
-msgid "Enabler (J3a): Thailand’s signing key is on the shared WHO trust list, so any clinic can check it locally."
+msgid "Enabler (J3a): Taifafeki’s signing key is on the shared WHO trust list, so any clinic can check it locally."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:111
-msgid "Enabler (J3b): Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due."
+msgid "Enabler (J3b): Taifafeki’s original code is kept and the Onesan code is added alongside; the schedule engine calculates what’s due."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:135
@@ -133,7 +133,7 @@ msgid "Enabler: A digitally signed QR card travels with the family — no ID num
 msgstr ""
 
 #: input/pagecontent/scenarios.md:162
-msgid "Enabler: The record is fetched live from Lao PDR, viewed without being copied, and an access log is sent home."
+msgid "Enabler: The record is fetched live from Onesa, viewed without being copied, and an access log is sent home."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:10
@@ -195,15 +195,15 @@ msgid "It shows them to Dr Anan: every dose since the birth, viewed, never copie
 msgstr ""
 
 #: input/pagecontent/scenarios.md:35
-msgid "J1 — Born abroad (Thailand, birth day)"
+msgid "J1 — Born abroad (Taifafeki, birth day)"
 msgstr ""
 
 #: input/pagecontent/scenarios.md:60
-msgid "J2 — Found at home (Lao PDR, 3 weeks later)"
+msgid "J2 — Found at home (Onesa, 3 weeks later)"
 msgstr ""
 
 #: input/pagecontent/scenarios.md:62
-msgid "J2a. On a routine visit to Village 04, Vilay finds a newborn the Lao system does not know exists. Her phone has had no signal for weeks. Khamla shows the two cards. The CHW app reads them with read-unverified (<a0>STT-VER-011</a0>; <a1>STT-B45-002</a1>, <a2>STT-ZIP-002</a2>, <a3>STT-CBR-003</a3>), which needs no trust list. It shows the doses, but checks no signature and saves nothing yet."
+msgid "J2a. On a routine visit to Village 04, Vilay finds a newborn the Onesan system does not know exists. Her phone has had no signal for weeks. Khamla shows the two cards. The CHW app reads them with read-unverified (<a0>STT-VER-011</a0>; <a1>STT-B45-002</a1>, <a2>STT-ZIP-002</a2>, <a3>STT-CBR-003</a3>), which needs no trust list. It shows the doses, but checks no signature and saves nothing yet."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:68
@@ -212,26 +212,26 @@ msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she
 msgstr ""
 
 #: input/pagecontent/scenarios.md:84
-msgid "J3 — Made official (Vientiane District Health Center, 4 weeks later)"
+msgid "J3 — Made official (Lomaru District Health Center, 4 weeks later)"
 msgstr ""
 
 #: input/pagecontent/scenarios.md:88
 #, python-brace-format
-msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), without contacting Thailand. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
+msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), without contacting Taifafeki. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:97
 #, python-brace-format
-msgid "J3b. The Thai Hep B product matches nothing on the national schedule. The EHR keeps Thailand's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthasone makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsack gets those doses and measles-rubella at 9 months, in Lao PDR."
+msgid "J3b. The Taifafeki Hep B product matches nothing on the national schedule. The EHR keeps Taifafeki's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthasone makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsack gets those doses and measles-rubella at 9 months, in Onesa."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:115
-msgid "J4.0 — Crossing back: one family, one phone (Lao PDR, 12 months later)"
+msgid "J4.0 — Crossing back: one family, one phone (Onesa, 12 months later)"
 msgstr ""
 
 #: input/pagecontent/scenarios.md:117
 #, python-brace-format
-msgid "J4.0a. The family plans a trip to Thailand. Bounmy's phone holds the family wallet, with a profile for each of them. Somsack's summary ({code0}) shows six doses: two from Thailand, four from Lao PDR."
+msgid "J4.0a. The family plans a trip to Taifafeki. Bounmy's phone holds the family wallet, with a profile for each of them. Somsack's summary ({code0}) shows six doses: two from Taifafeki, four from Onesa."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:123
@@ -240,7 +240,7 @@ msgid "J4.0b. For Somsack, Bounmy shares his record with a 4-digit passcode he c
 msgstr ""
 
 #: input/pagecontent/scenarios.md:140
-msgid "J4.1 — Crossing back: a Thai doctor sees the full history (Chiang Rai, 12 months later)"
+msgid "J4.1 — Crossing back: a Taifafeki doctor sees the full history (Kesaro, 12 months later)"
 msgstr ""
 
 #: input/pagecontent/scenarios.md:19
@@ -248,7 +248,7 @@ msgid "Keep the foreign vaccine code and add our schedule code beside it, decidi
 msgstr ""
 
 #: input/pagecontent/scenarios.md:39
-msgid "Khamla gives birth to Somsack on 2025-10-28 at Chiang Rai Provincial Hospital, away from home. He has no Thai identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
+msgid "Khamla gives birth to Somsack on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
 msgstr ""
 
 #: input/pagecontent/scenarios.md:48
@@ -292,7 +292,7 @@ msgid "Pain point (J4.0b): Sending photos or PDFs of records leaks data and can�
 msgstr ""
 
 #: input/pagecontent/scenarios.md:56
-msgid "Pain point: The baby has no Thai ID number, so his records would normally stay locked inside the Thai hospital’s system."
+msgid "Pain point: The baby has no Taifafeki ID number, so his records would normally stay locked inside the Taifafeki hospital’s system."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:161
@@ -313,7 +313,7 @@ msgid "Policy (J2b): Newborns can be registered at home, offline, before civil r
 msgstr ""
 
 #: input/pagecontent/scenarios.md:112
-msgid "Policy (J3a): Trust is decentralized: a Lao clinic verifies a Thai signature itself, without contacting Thailand."
+msgid "Policy (J3a): Trust is decentralized: an Onesan clinic verifies a Taifafeki signature itself, without contacting Taifafeki."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:113
@@ -325,7 +325,7 @@ msgid "Policy (J4.0a): Design for shared devices (“One Family, One Phone”) s
 msgstr ""
 
 #: input/pagecontent/scenarios.md:138
-msgid "Policy (J4.0b): Data sovereignty: the record stays in Lao PDR until the family authorizes someone to open it."
+msgid "Policy (J4.0b): Data sovereignty: the record stays in Onesa until the family authorizes someone to open it."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:58
@@ -337,7 +337,7 @@ msgid "Policy: Continuity of care across borders: each country keeps its own rec
 msgstr ""
 
 #: input/pagecontent/scenarios.md:121
-msgid "Precondition, as in J1: Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1."
+msgid "Precondition, as in J1: Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Taifafeki verify the link in J4.1."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:142
@@ -398,7 +398,7 @@ msgstr ""
 
 #: input/pagecontent/scenarios.md:150
 #, python-brace-format
-msgid "The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
+msgid "The Onesan gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:19
@@ -406,7 +406,7 @@ msgid "the other country's record is never overwritten and the next nurse need n
 msgstr ""
 
 #: input/pagecontent/scenarios.md:131
-msgid "The QR holds only a pointer and a key: the record stays in Lao PDR."
+msgid "The QR holds only a pointer and a key: the record stays in Onesa."
 msgstr ""
 
 #: input/pagecontent/scenarios.md:12

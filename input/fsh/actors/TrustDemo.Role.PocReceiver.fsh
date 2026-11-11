@@ -17,11 +17,11 @@ The clinic system abroad that scans a VHL, verifies it, fetches the manifest (IT
 
 **Played in the journeys by** (fictional):
 
-- Chiang Rai primary care clinic viewer, Thailand (J4.1)
+- Kesaro primary care clinic viewer, Taifafeki (J4.1)
 
 **In the user scenarios**:
 
-- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history
+- [J4.1 — Crossing back: a Taifafeki doctor sees the full history](scenarios.html#j41--crossing-back-a-taifafeki-doctor-sees-the-full-history-kesaro-12-months-later): J4.1 A Taifafeki doctor sees the full history
 
 **On the device screens**: [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)
 

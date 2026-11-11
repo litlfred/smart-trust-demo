@@ -17,12 +17,12 @@ The home country's portal that issues each family member's records (IPS, DVCs) a
 
 **Played in the journeys by** (fictional):
 
-- Lao PDR national health portal and gateway (Country B, XXH)
+- Onesa national health portal and gateway (Country B, XXK)
 
 **In the user scenarios**:
 
-- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later): J4.0b Dad creates a link to share at the clinic
-- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history
+- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-onesa-12-months-later): J4.0b Dad creates a link to share at the clinic
+- [J4.1 — Crossing back: a Taifafeki doctor sees the full history](scenarios.html#j41--crossing-back-a-taifafeki-doctor-sees-the-full-history-kesaro-12-months-later): J4.1 A Taifafeki doctor sees the full history
 
 **On the device screens**: [S7 VHL QR Display & Passcode Protection (Bounmy's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S7/); [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)
 

@@ -1,8 +1,8 @@
 {
-  "id": "lao-national-portal",
-  "title": "Lao PDR national health portal and gateway (Country B, XXH)",
+  "id": "onesa-national-portal",
+  "title": "Onesa national health portal and gateway (Country B, XXK)",
   "kind": "system",
-  "description": "Lao PDR's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the fictional participant XXH, so no real ministry's key is implied.",
+  "description": "Onesa's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the test participant XXK, so no real ministry's key is implied.",
   "roles": [
     "national-portal"
   ],
@@ -18,51 +18,51 @@
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-sharer",
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/trust-network-participant"
     ],
-    "country": "Lao PDR",
+    "country": "Onesa",
     "parts": [
       {
-        "id": "la-national-fhir",
+        "id": "xxk-national-fhir",
         "title": "FHIR record server",
         "raBlock": "Lifelong Health Record",
         "description": "Holds each person's records (IPS, DVCs) as FHIR resources, from which the portal assembles what a VHL shares (J4.0, J4.1).",
         "ig": "Bundle/TrustDemoJ4Ips"
       },
       {
-        "id": "la-vhl-issuer",
+        "id": "xxk-vhl-issuer",
         "title": "VHL issuer",
         "raBlock": "National Trust Services",
-        "description": "Issues a passcode-protected Verifiable Health Link per family member, in an HCERT signed with Lao PDR's document signer key (J4.0)."
+        "description": "Issues a passcode-protected Verifiable Health Link per family member, in an HCERT signed with Onesa's document signer key (J4.0)."
       },
       {
-        "id": "la-info-gateway",
+        "id": "xxk-info-gateway",
         "title": "Information gateway and access log (OHS)",
         "raBlock": "DPI-F Information Mediator",
-        "description": "Answers a VHL manifest request after checking its signature, the passcode, the expiry and the consent, and logs each access in Lao PDR (J4.1).",
-        "ig": "StructureDefinition/TrustDemoLaoVhlAccess"
+        "description": "Answers a VHL manifest request after checking its signature, the passcode, the expiry and the consent, and logs each access in Onesa (J4.1).",
+        "ig": "StructureDefinition/TrustDemoOnesaVhlAccess"
       },
       {
-        "id": "la-client-registry",
+        "id": "xxk-client-registry",
         "title": "Client registry (children, households)",
         "raBlock": "Client Registry for Health",
         "description": "Identifies each person the portal serves, children and their households included.",
-        "ig": "StructureDefinition/TrustDemoLaoPatient"
+        "ig": "StructureDefinition/TrustDemoOnesaPatient"
       },
       {
-        "id": "la-facility-registry",
+        "id": "xxk-facility-registry",
         "title": "Facility registry (clinics, health centres)",
         "raBlock": "Health Facility Registry",
         "description": "Lists the clinics and health centres that record and share care.",
-        "ig": "Organization/TrustDemoVientianeDhc"
+        "ig": "Organization/TrustDemoLomaruDhc"
       },
       {
-        "id": "la-workforce-registry",
+        "id": "xxk-workforce-registry",
         "title": "Health workforce registry (CHWs, nurses)",
         "raBlock": "Health Workforce Registry",
         "description": "Lists the health workers, community health workers and nurses among them, who record care.",
         "ig": "Practitioner/TrustDemoVilay"
       },
       {
-        "id": "la-data-pipes",
+        "id": "xxk-data-pipes",
         "title": "Analytics pipeline (OHS FHIR Data Pipes)",
         "raBlock": "Health Management Information System",
         "description": "Copies the portal's FHIR data into an analytics store for reporting."

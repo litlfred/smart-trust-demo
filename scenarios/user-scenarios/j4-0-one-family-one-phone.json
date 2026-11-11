@@ -2,24 +2,24 @@
   "$schema": "user-scenario/0.3.0",
   "id": "j4-0-one-family-one-phone",
   "title": "J4.0 — Crossing back: one family, one phone",
-  "description": "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
+  "description": "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
   "personas": [
     "bounmy-sengmany",
     "khamla-sengmany"
   ],
   "when": "12 months later",
-  "where": "Lao PDR",
+  "where": "Onesa",
   "country": "Cross-Border",
   "trustLadder": "record-trust",
   "steps": [
     {
       "id": "J4.0a",
       "title": "One phone holds the whole family’s records",
-      "headline": "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
+      "headline": "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
       "when": "T0 + 12 months",
-      "where": "Vientiane, Lao PDR",
+      "where": "Lomaru, Onesa",
       "touchpoint": "Family wallet app on Dad’s phone",
-      "narrative": "The family plans a trip to Thailand. Bounmy's phone holds the\nfamily wallet, with a profile for each of them. Somsack's summary\n(`TrustDemoJ4Ips`) shows six doses: two from Thailand, four from Lao PDR.",
+      "narrative": "The family plans a trip to Taifafeki. Bounmy's phone holds the\nfamily wallet, with a profile for each of them. Somsack's summary\n(`TrustDemoJ4Ips`) shows six doses: two from Taifafeki, four from Onesa.",
       "lead": "bounmy-sengmany",
       "experiences": [
         {
@@ -40,15 +40,15 @@
       "policy": "Design for shared devices (“One Family, One Phone”) so families with only one phone aren’t left out.",
       "record": {
         "state": "portable",
-        "description": "12-month summary: 2 Thai + 4 Lao doses",
-        "heldWhere": "Lao national records + family wallet"
+        "description": "12-month summary: 2 Taifafeki + 4 Onesan doses",
+        "heldWhere": "Onesan national records + family wallet"
       },
       "handoff": {
         "summary": "Somsack’s summary is ready to share",
         "carrier": "FHIR API (HTTPS) via Info Gateway",
         "payload": "IPS Bundle per family member",
         "offline": false,
-        "from": "Lao national FHIR server",
+        "from": "Onesan national FHIR server",
         "to": "Family wallet"
       },
       "whatIf": [
@@ -80,7 +80,7 @@
         },
         {
           "block": "provenance",
-          "role": "Thai origin of birth doses still visible"
+          "role": "Taifafeki origin of birth doses still visible"
         }
       ],
       "examples": [
@@ -88,16 +88,16 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j4-crossing-back.jpg",
-        "alt": "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+        "alt": "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
       },
       "fhirChanges": [
         {
           "resource": "Bundle (IPS)",
-          "change": "Generated: 2 Thai + 4 Lao doses",
+          "change": "Generated: 2 Taifafeki + 4 Onesan doses",
           "why": "An International Patient Summary is what any country’s clinic can read, whatever its own system.",
           "examples": [
             "Bundle/TrustDemoJ4Ips",
-            "Immunization/TrustDemoLaoPenta1"
+            "Immunization/TrustDemoOnesaPenta1"
           ],
           "spec": "https://hl7.org/fhir/uv/ips/"
         },
@@ -105,8 +105,8 @@
           "resource": "Group (household)",
           "change": "Drives the profile switcher",
           "why": "One shared phone, three family members: the household decides whose records the wallet shows.",
-          "profile": "TrustDemoLaoHousehold",
-          "profileOf": "LA",
+          "profile": "TrustDemoOnesaHousehold",
+          "profileOf": "XXK",
           "examples": [
             "Group/TrustDemoHousehold"
           ],
@@ -117,18 +117,18 @@
     {
       "id": "J4.0b",
       "title": "Dad creates a link to share at the clinic",
-      "headline": "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR.",
+      "headline": "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Onesa.",
       "when": "T0 + 12 months",
-      "where": "Lao–Thai Friendship Bridge",
+      "where": "Onesan–Taifafeki Friendship Bridge",
       "touchpoint": "Family wallet app (share link)",
       "preconditions": [
         {
           "title": "Country B's DSC is shared with the trust anchor",
-          "description": "**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1.",
+          "description": "**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Taifafeki verify the link in J4.1.",
           "requirements": []
         }
       ],
-      "narrative": "For Somsack, Bounmy shares his record with a 4-digit passcode he\ncan say aloud, valid for 14 days. The portal records his consent\n(`TrustDemoJ4Consent`), then does three things:\n\n1. It assembles the IPS and Somsack's DVCs.\n2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n\nThe QR holds only a pointer and a key: the record stays in Lao PDR.",
+      "narrative": "For Somsack, Bounmy shares his record with a 4-digit passcode he\ncan say aloud, valid for 14 days. The portal records his consent\n(`TrustDemoJ4Consent`), then does three things:\n\n1. It assembles the IPS and Somsack's DVCs.\n2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n\nThe QR holds only a pointer and a key: the record stays in Onesa.",
       "lead": "bounmy-sengmany",
       "experiences": [
         {
@@ -140,11 +140,11 @@
       ],
       "painPoint": "Sending photos or PDFs of records leaks data and can’t be verified by the receiver.",
       "enabler": "A Verifiable Health Link: the QR holds only a locked pointer; the data stays home until the passcode is given.",
-      "policy": "Data sovereignty: the record stays in Lao PDR until the family authorizes someone to open it.",
+      "policy": "Data sovereignty: the record stays in Onesa until the family authorizes someone to open it.",
       "record": {
         "state": "portable",
-        "description": "Shareable link created; data stays in Lao PDR",
-        "heldWhere": "Lao national records (QR is just a pointer)"
+        "description": "Shareable link created; data stays in Onesa",
+        "heldWhere": "Onesan national records (QR is just a pointer)"
       },
       "handoff": {
         "summary": "A QR on Dad’s phone + a passcode he can say aloud",
@@ -152,7 +152,7 @@
         "payload": "VHL manifest + Consent registered",
         "offline": false,
         "from": "Family wallet",
-        "to": "Lao national server"
+        "to": "Onesan national server"
       },
       "whatIf": [
         {
@@ -178,7 +178,7 @@
           ]
         }
       ],
-      "technicalSummary": "The QR is a key, not a copy. The record stays on the Lao server, and the family’s consent (who, how long) is recorded in a standard form and enforced.",
+      "technicalSummary": "The QR is a key, not a copy. The record stays on the Onesan server, and the family’s consent (who, how long) is recorded in a standard form and enforced.",
       "uses": [
         {
           "block": "family-wallet",
@@ -210,7 +210,7 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j4-crossing-back.jpg",
-        "alt": "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+        "alt": "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
       },
       "fhirChanges": [
         {
@@ -225,7 +225,7 @@
         {
           "resource": "VHL manifest",
           "change": "Signed pointer to encrypted IPS",
-          "why": "Not a copy of the record: a signed, passcode-protected pointer back to Lao PDR.",
+          "why": "Not a copy of the record: a signed, passcode-protected pointer back to Onesa.",
           "spec": "https://profiles.ihe.net/ITI/VHL/volume-1.html"
         }
       ],
@@ -240,7 +240,7 @@
   "references": [
     {
       "label": "User scenario in the IG",
-      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j40--crossing-back-one-family-one-phone-onesa-12-months-later",
       "rel": "scenario"
     }
   ],

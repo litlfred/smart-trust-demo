@@ -12,7 +12,7 @@ updated_at: 2026-11-05T12:00:00Z
 
 The BPMN says only "decide doses by national policy" for a DVC that fails verification. Decision table TD.DT.01 (`processes/content/decisions/`) turns that into outcomes: verified, kept as reported-unverified, rejected, or not read. Those outcomes are an illustrative reading, not a stated policy, and the Decision-support Logic page says so (owner, 2026-11-05: "B. Make a bean to review").
 
-Related gap found at the same time: `TrustDemoLaoImmunization` requires a national schedule code, so it cannot hold a verified dose that TD.DT.02 leaves unmapped.
+Related gap found at the same time: `TrustDemoOnesaImmunization` requires a national schedule code, so it cannot hold a verified dose that TD.DT.02 leaves unmapped.
 
 ## Done when
 

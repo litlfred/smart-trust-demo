@@ -62,94 +62,9 @@
       "status": "candidate"
     },
     {
-      "id": "actor-chiang-rai-clinic-viewer",
-      "prefLabel": "Chiang Rai primary care clinic viewer, Thailand (J4.1)",
-      "definition": "The VHL viewer of a primary care clinic in Chiang Rai, Thailand, back in Country A a year after the birth (J4.1): verifies the VHL, fetches the manifest with an HTTP Message Signature after the passcode is entered, and decrypts the documents for viewing. Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection.",
-      "altLabel": [
-        "Chiang Rai primary care clinic system"
-      ],
-      "source": "scenarios/actors/chiang-rai-clinic-viewer.json",
-      "status": "candidate"
-    },
-    {
-      "id": "part-th-vhl-viewer",
-      "prefLabel": "VHL viewer",
-      "definition": "Reads a Verifiable Health Link QR at the point of care, checks its signature against the GDHCN trust list, fetches the manifest from Lao PDR with a signed request and shows the decrypted records (J4.1).",
-      "broader": [
-        "actor-chiang-rai-clinic-viewer"
-      ],
-      "related": [
-        "instance-thailand-provider-systems"
-      ],
-      "source": "scenarios/actors/chiang-rai-clinic-viewer.json#th-vhl-viewer",
-      "status": "candidate"
-    },
-    {
-      "id": "actor-chiang-rai-provincial-hospital",
-      "prefLabel": "Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)",
-      "definition": "The hospital record system and DVC issuing service of Chiang Rai Provincial Hospital in Thailand (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Thailand in the demonstrator. XXR is a DEV test participant, not Thailand's production key.",
-      "altLabel": [
-        "Chiang Rai Provincial Hospital system"
-      ],
-      "source": "scenarios/actors/chiang-rai-provincial-hospital.json",
-      "status": "candidate"
-    },
-    {
-      "id": "part-th-birth-ehr",
-      "prefLabel": "Patient record (EHR)",
-      "definition": "The hospital's electronic health record, in which the vaccinator records each birth dose given to the newborn (J1).",
-      "broader": [
-        "actor-chiang-rai-provincial-hospital"
-      ],
-      "related": [
-        "instance-thailand-provider-systems"
-      ],
-      "source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-birth-ehr",
-      "status": "candidate"
-    },
-    {
-      "id": "part-th-immunization-record",
-      "prefLabel": "Immunization record service",
-      "definition": "Keeps the newborn's immunizations as FHIR Immunization resources, from which each DVC is made (J1).",
-      "broader": [
-        "actor-chiang-rai-provincial-hospital"
-      ],
-      "related": [
-        "instance-thailand-lifelong-health-record"
-      ],
-      "source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-immunization-record",
-      "status": "candidate"
-    },
-    {
-      "id": "part-th-product-codes",
-      "prefLabel": "Vaccine product code registry",
-      "definition": "Publishes the vaccine product codes the hospital records doses against, which the receiving country maps to its own schedule codes (J1, J3).",
-      "broader": [
-        "actor-chiang-rai-provincial-hospital"
-      ],
-      "related": [
-        "instance-thailand-product-registry"
-      ],
-      "source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-product-codes",
-      "status": "candidate"
-    },
-    {
-      "id": "part-th-dvc-signer",
-      "prefLabel": "DVC signer (HCERT)",
-      "definition": "Builds each Digital Vaccination Certificate as an HCERT payload and has it signed with Thailand's document signer key, published to GDHCN (J1).",
-      "broader": [
-        "actor-chiang-rai-provincial-hospital"
-      ],
-      "related": [
-        "instance-thailand-national-trust-services"
-      ],
-      "source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-dvc-signer",
-      "status": "candidate"
-    },
-    {
       "id": "actor-chw-app",
-      "prefLabel": "CHW app, Lao PDR (Country B)",
-      "definition": "The OHS app on the community health worker's phone in Lao PDR (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust.",
+      "prefLabel": "CHW app, Onesa (Country B)",
+      "definition": "The OHS app on the community health worker's phone in Onesa (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust.",
       "altLabel": [
         "CHW app (OHS)"
       ],
@@ -157,78 +72,78 @@
       "status": "candidate"
     },
     {
-      "id": "part-la-chw-app",
+      "id": "part-xxk-chw-app",
       "prefLabel": "Smart forms (SDC)",
       "definition": "The registration and referral forms of the CHW app, FHIR Questionnaires filled in with Structured Data Capture, which also read the doses on a paper DVC (J2).",
       "broader": [
         "actor-chw-app"
       ],
       "related": [
-        "instance-lao-pdr-chw-community"
+        "instance-onesa-chw-community"
       ],
-      "source": "scenarios/actors/chw-app.json#la-chw-app",
+      "source": "scenarios/actors/chw-app.json#xxk-chw-app",
       "status": "candidate"
     },
     {
       "id": "actor-district-health-center-ehr",
-      "prefLabel": "Vientiane District Health Center EHR (Country B)",
-      "definition": "The district health center's OHS-based record system in Lao PDR (Country B), on a tablet (J3): verifies DVCs against its cached GDHCN trust list, imports them with provenance, adds the Lao schedule code beside each foreign vaccine code and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly); it fetches nothing during J3.",
+      "prefLabel": "Lomaru District Health Center EHR (Country B)",
+      "definition": "The district health center's OHS-based record system in Onesa (Country B), on a tablet (J3): verifies DVCs against its cached GDHCN trust list, imports them with provenance, adds the Onesan schedule code beside each foreign vaccine code and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly); it fetches nothing during J3.",
       "altLabel": [
-        "Vientiane District Health Center EHR"
+        "Lomaru District Health Center EHR"
       ],
       "source": "scenarios/actors/district-health-center-ehr.json",
       "status": "candidate"
     },
     {
-      "id": "part-la-dhc-ehr",
+      "id": "part-xxk-dhc-ehr",
       "prefLabel": "Patient record",
       "definition": "The health centre's record of each patient, where imported immunizations are kept with their provenance (J3).",
       "broader": [
         "actor-district-health-center-ehr"
       ],
       "related": [
-        "instance-lao-pdr-provider-systems"
+        "instance-onesa-provider-systems"
       ],
-      "source": "scenarios/actors/district-health-center-ehr.json#la-dhc-ehr",
+      "source": "scenarios/actors/district-health-center-ehr.json#xxk-dhc-ehr",
       "status": "candidate"
     },
     {
-      "id": "part-la-conceptmap",
-      "prefLabel": "Code mapping service (product to Lao EPI)",
-      "definition": "Maps a foreign vaccine product code to the Lao EPI schedule code, which is added beside the original code on import (J3).",
+      "id": "part-xxk-conceptmap",
+      "prefLabel": "Code mapping service (product to Onesan EPI)",
+      "definition": "Maps a foreign vaccine product code to the Onesan EPI schedule code, which is added beside the original code on import (J3).",
       "broader": [
         "actor-district-health-center-ehr"
       ],
       "related": [
-        "instance-lao-pdr-terminology-service"
+        "instance-onesa-terminology-service"
       ],
-      "source": "scenarios/actors/district-health-center-ehr.json#la-conceptmap",
+      "source": "scenarios/actors/district-health-center-ehr.json#xxk-conceptmap",
       "status": "candidate"
     },
     {
-      "id": "part-la-schedule",
-      "prefLabel": "Schedule evaluator (Lao infant schedule)",
-      "definition": "Evaluates the Lao infant immunization schedule against the child's doses, imported ones included, and says which are due (J3).",
+      "id": "part-xxk-schedule",
+      "prefLabel": "Schedule evaluator (Onesan infant schedule)",
+      "definition": "Evaluates the Onesan infant immunization schedule against the child's doses, imported ones included, and says which are due (J3).",
       "broader": [
         "actor-district-health-center-ehr"
       ],
       "related": [
-        "instance-lao-pdr-computable-decision-support-engine"
+        "instance-onesa-computable-decision-support-engine"
       ],
-      "source": "scenarios/actors/district-health-center-ehr.json#la-schedule",
+      "source": "scenarios/actors/district-health-center-ehr.json#xxk-schedule",
       "status": "candidate"
     },
     {
-      "id": "part-la-dvc-verifier",
+      "id": "part-xxk-dvc-verifier",
       "prefLabel": "DVC verifier",
       "definition": "Verifies a DVC's HCERT signature against the GDHCN trust list cached on the device (J3).",
       "broader": [
         "actor-district-health-center-ehr"
       ],
       "related": [
-        "instance-lao-pdr-national-trust-services"
+        "instance-onesa-national-trust-services"
       ],
-      "source": "scenarios/actors/district-health-center-ehr.json#la-dvc-verifier",
+      "source": "scenarios/actors/district-health-center-ehr.json#xxk-dvc-verifier",
       "status": "candidate"
     },
     {
@@ -242,22 +157,22 @@
       "status": "candidate"
     },
     {
-      "id": "part-la-family-wallet",
+      "id": "part-xxk-family-wallet",
       "prefLabel": "Family wallet",
       "definition": "The wallet app on the family's phone: a profile per family member, each holding that member's VHL QR, shown when asked (J4.0, J4.1).",
       "broader": [
         "actor-family-phone"
       ],
       "related": [
-        "instance-lao-pdr-citizen-patient-apps"
+        "instance-onesa-citizen-patient-apps"
       ],
-      "source": "scenarios/actors/family-phone.json#la-family-wallet",
+      "source": "scenarios/actors/family-phone.json#xxk-family-wallet",
       "status": "candidate"
     },
     {
       "id": "actor-gdhcn-dev-trust-anchor",
       "prefLabel": "GDHCN DEV trust network (WHO)",
-      "definition": "WHO's Global Digital Health Certification Network, DEV environment: receives participants' PKI material and distributes it as DID trust lists (DEV: tng-cdn-dev.who.int). Country A (Thailand, played by XXR) and Country B (Lao PDR, played by the fictional XXH) are its participants.",
+      "definition": "WHO's Global Digital Health Certification Network, DEV environment: receives participants' PKI material and distributes it as DID trust lists (DEV: tng-cdn-dev.who.int). Country A (Taifafeki, played by XXR) and Country B (Onesa, played by the fictional XXK) are its participants.",
       "altLabel": [
         "WHO GDHCN trust network (DEV)"
       ],
@@ -265,109 +180,194 @@
       "status": "candidate"
     },
     {
-      "id": "actor-lao-national-portal",
-      "prefLabel": "Lao PDR national health portal and gateway (Country B, XXH)",
-      "definition": "Lao PDR's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the fictional participant XXH, so no real ministry's key is implied.",
+      "id": "actor-kesaro-clinic-viewer",
+      "prefLabel": "Kesaro primary care clinic viewer, Taifafeki (J4.1)",
+      "definition": "The VHL viewer of a primary care clinic in Kesaro, Taifafeki, back in Country A a year after the birth (J4.1): verifies the VHL, fetches the manifest with an HTTP Message Signature after the passcode is entered, and decrypts the documents for viewing. Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection.",
       "altLabel": [
-        "Lao national health portal"
+        "Kesaro primary care clinic system"
       ],
-      "source": "scenarios/actors/lao-national-portal.json",
+      "source": "scenarios/actors/kesaro-clinic-viewer.json",
       "status": "candidate"
     },
     {
-      "id": "part-la-national-fhir",
+      "id": "part-xxr-vhl-viewer",
+      "prefLabel": "VHL viewer",
+      "definition": "Reads a Verifiable Health Link QR at the point of care, checks its signature against the GDHCN trust list, fetches the manifest from Onesa with a signed request and shows the decrypted records (J4.1).",
+      "broader": [
+        "actor-kesaro-clinic-viewer"
+      ],
+      "related": [
+        "instance-taifafeki-provider-systems"
+      ],
+      "source": "scenarios/actors/kesaro-clinic-viewer.json#xxr-vhl-viewer",
+      "status": "candidate"
+    },
+    {
+      "id": "actor-kesaro-provincial-hospital",
+      "prefLabel": "Kesaro Provincial Hospital system, Taifafeki (Country A, XXR)",
+      "definition": "The hospital record system and DVC issuing service of Kesaro Provincial Hospital in Taifafeki (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Taifafeki in the demonstrator. XXR is a DEV test participant, not Taifafeki's production key.",
+      "altLabel": [
+        "Kesaro Provincial Hospital system"
+      ],
+      "source": "scenarios/actors/kesaro-provincial-hospital.json",
+      "status": "candidate"
+    },
+    {
+      "id": "part-xxr-birth-ehr",
+      "prefLabel": "Patient record (EHR)",
+      "definition": "The hospital's electronic health record, in which the vaccinator records each birth dose given to the newborn (J1).",
+      "broader": [
+        "actor-kesaro-provincial-hospital"
+      ],
+      "related": [
+        "instance-taifafeki-provider-systems"
+      ],
+      "source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-birth-ehr",
+      "status": "candidate"
+    },
+    {
+      "id": "part-xxr-immunization-record",
+      "prefLabel": "Immunization record service",
+      "definition": "Keeps the newborn's immunizations as FHIR Immunization resources, from which each DVC is made (J1).",
+      "broader": [
+        "actor-kesaro-provincial-hospital"
+      ],
+      "related": [
+        "instance-taifafeki-lifelong-health-record"
+      ],
+      "source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-immunization-record",
+      "status": "candidate"
+    },
+    {
+      "id": "part-xxr-product-codes",
+      "prefLabel": "Vaccine product code registry",
+      "definition": "Publishes the vaccine product codes the hospital records doses against, which the receiving country maps to its own schedule codes (J1, J3).",
+      "broader": [
+        "actor-kesaro-provincial-hospital"
+      ],
+      "related": [
+        "instance-taifafeki-product-registry"
+      ],
+      "source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-product-codes",
+      "status": "candidate"
+    },
+    {
+      "id": "part-xxr-dvc-signer",
+      "prefLabel": "DVC signer (HCERT)",
+      "definition": "Builds each Digital Vaccination Certificate as an HCERT payload and has it signed with Taifafeki's document signer key, published to GDHCN (J1).",
+      "broader": [
+        "actor-kesaro-provincial-hospital"
+      ],
+      "related": [
+        "instance-taifafeki-national-trust-services"
+      ],
+      "source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-dvc-signer",
+      "status": "candidate"
+    },
+    {
+      "id": "actor-onesa-national-portal",
+      "prefLabel": "Onesa national health portal and gateway (Country B, XXK)",
+      "definition": "Onesa's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the test participant XXK, so no real ministry's key is implied.",
+      "altLabel": [
+        "Onesan national health portal"
+      ],
+      "source": "scenarios/actors/onesa-national-portal.json",
+      "status": "candidate"
+    },
+    {
+      "id": "part-xxk-national-fhir",
       "prefLabel": "FHIR record server",
       "definition": "Holds each person's records (IPS, DVCs) as FHIR resources, from which the portal assembles what a VHL shares (J4.0, J4.1).",
       "broader": [
-        "actor-lao-national-portal"
+        "actor-onesa-national-portal"
       ],
       "related": [
-        "instance-lao-pdr-lifelong-health-record"
+        "instance-onesa-lifelong-health-record"
       ],
-      "source": "scenarios/actors/lao-national-portal.json#la-national-fhir",
+      "source": "scenarios/actors/onesa-national-portal.json#xxk-national-fhir",
       "status": "candidate"
     },
     {
-      "id": "part-la-vhl-issuer",
+      "id": "part-xxk-vhl-issuer",
       "prefLabel": "VHL issuer",
-      "definition": "Issues a passcode-protected Verifiable Health Link per family member, in an HCERT signed with Lao PDR's document signer key (J4.0).",
+      "definition": "Issues a passcode-protected Verifiable Health Link per family member, in an HCERT signed with Onesa's document signer key (J4.0).",
       "broader": [
-        "actor-lao-national-portal"
+        "actor-onesa-national-portal"
       ],
       "related": [
-        "instance-lao-pdr-national-trust-services"
+        "instance-onesa-national-trust-services"
       ],
-      "source": "scenarios/actors/lao-national-portal.json#la-vhl-issuer",
+      "source": "scenarios/actors/onesa-national-portal.json#xxk-vhl-issuer",
       "status": "candidate"
     },
     {
-      "id": "part-la-info-gateway",
+      "id": "part-xxk-info-gateway",
       "prefLabel": "Information gateway and access log (OHS)",
-      "definition": "Answers a VHL manifest request after checking its signature, the passcode, the expiry and the consent, and logs each access in Lao PDR (J4.1).",
+      "definition": "Answers a VHL manifest request after checking its signature, the passcode, the expiry and the consent, and logs each access in Onesa (J4.1).",
       "broader": [
-        "actor-lao-national-portal"
+        "actor-onesa-national-portal"
       ],
       "related": [
-        "instance-lao-pdr-dpi-f-information-mediator"
+        "instance-onesa-dpi-f-information-mediator"
       ],
-      "source": "scenarios/actors/lao-national-portal.json#la-info-gateway",
+      "source": "scenarios/actors/onesa-national-portal.json#xxk-info-gateway",
       "status": "candidate"
     },
     {
-      "id": "part-la-client-registry",
+      "id": "part-xxk-client-registry",
       "prefLabel": "Client registry (children, households)",
       "definition": "Identifies each person the portal serves, children and their households included.",
       "broader": [
-        "actor-lao-national-portal"
+        "actor-onesa-national-portal"
       ],
       "related": [
-        "instance-lao-pdr-client-registry-for-health"
+        "instance-onesa-client-registry-for-health"
       ],
-      "source": "scenarios/actors/lao-national-portal.json#la-client-registry",
+      "source": "scenarios/actors/onesa-national-portal.json#xxk-client-registry",
       "status": "candidate"
     },
     {
-      "id": "part-la-facility-registry",
+      "id": "part-xxk-facility-registry",
       "prefLabel": "Facility registry (clinics, health centres)",
       "definition": "Lists the clinics and health centres that record and share care.",
       "broader": [
-        "actor-lao-national-portal"
+        "actor-onesa-national-portal"
       ],
       "related": [
-        "instance-lao-pdr-health-facility-registry"
+        "instance-onesa-health-facility-registry"
       ],
-      "source": "scenarios/actors/lao-national-portal.json#la-facility-registry",
+      "source": "scenarios/actors/onesa-national-portal.json#xxk-facility-registry",
       "status": "candidate"
     },
     {
-      "id": "part-la-workforce-registry",
+      "id": "part-xxk-workforce-registry",
       "prefLabel": "Health workforce registry (CHWs, nurses)",
       "definition": "Lists the health workers, community health workers and nurses among them, who record care.",
       "broader": [
-        "actor-lao-national-portal"
+        "actor-onesa-national-portal"
       ],
       "related": [
-        "instance-lao-pdr-health-workforce-registry"
+        "instance-onesa-health-workforce-registry"
       ],
-      "source": "scenarios/actors/lao-national-portal.json#la-workforce-registry",
+      "source": "scenarios/actors/onesa-national-portal.json#xxk-workforce-registry",
       "status": "candidate"
     },
     {
-      "id": "part-la-data-pipes",
+      "id": "part-xxk-data-pipes",
       "prefLabel": "Analytics pipeline (OHS FHIR Data Pipes)",
       "definition": "Copies the portal's FHIR data into an analytics store for reporting.",
       "broader": [
-        "actor-lao-national-portal"
+        "actor-onesa-national-portal"
       ],
       "related": [
-        "instance-lao-pdr-health-management-information-system"
+        "instance-onesa-health-management-information-system"
       ],
-      "source": "scenarios/actors/lao-national-portal.json#la-data-pipes",
+      "source": "scenarios/actors/onesa-national-portal.json#xxk-data-pipes",
       "status": "candidate"
     },
     {
       "id": "actor-xxr-dsc-key",
-      "prefLabel": "XXR document signer key (Country A, Thailand)",
+      "prefLabel": "XXR document signer key (Country A, Taifafeki)",
       "definition": "The private key of XXR's document signer certificate (DSC), kid kW/6VnwPRKI= (hex 916ffa567c0f44a2), whose public DID document is on the GDHCN DEV trust list (did:web:tng-cdn-dev.who.int:v2:trustlist:-:XXR:DSC, as the DEV host serves it; the guide prints the production host, smart-trust-tools OI-34). XXR is a Trust Network Participant.",
       "source": "scenarios/actors/xxr-dsc-key.json",
       "status": "candidate"
@@ -385,7 +385,7 @@
     {
       "id": "journey-j2",
       "prefLabel": "J2 Discover and refer an unregistered infant in Country B",
-      "definition": "J2, Return home, CHW discovery and referral. Back in Country B (home, XXH), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).",
+      "definition": "J2, Return home, CHW discovery and referral. Back in Country B (home, XXK), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).",
       "altLabel": [
         "J2 Discover and refer the infant"
       ],
@@ -423,114 +423,114 @@
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-chw-community",
-      "prefLabel": "CHW & Community (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block CHW & Community: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-chw-community",
+      "prefLabel": "CHW & Community (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block CHW & Community: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-citizen-patient-apps",
-      "prefLabel": "Citizen / Patient Apps (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Citizen / Patient Apps: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-citizen-patient-apps",
+      "prefLabel": "Citizen / Patient Apps (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Citizen / Patient Apps: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-client-registry-for-health",
-      "prefLabel": "Client Registry for Health (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Client Registry for Health: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-client-registry-for-health",
+      "prefLabel": "Client Registry for Health (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Client Registry for Health: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-computable-decision-support-engine",
-      "prefLabel": "Computable Decision Support Engine (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Computable Decision Support Engine: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-computable-decision-support-engine",
+      "prefLabel": "Computable Decision Support Engine (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Computable Decision Support Engine: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-dpi-f-information-mediator",
-      "prefLabel": "DPI-F Information Mediator (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block DPI-F Information Mediator: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-dpi-f-information-mediator",
+      "prefLabel": "DPI-F Information Mediator (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block DPI-F Information Mediator: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-health-facility-registry",
-      "prefLabel": "Health Facility Registry (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Health Facility Registry: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-health-facility-registry",
+      "prefLabel": "Health Facility Registry (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Health Facility Registry: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-health-management-information-system",
-      "prefLabel": "Health Management Information System (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Health Management Information System: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-health-management-information-system",
+      "prefLabel": "Health Management Information System (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Health Management Information System: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-health-workforce-registry",
-      "prefLabel": "Health Workforce Registry (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Health Workforce Registry: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-health-workforce-registry",
+      "prefLabel": "Health Workforce Registry (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Health Workforce Registry: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-lifelong-health-record",
-      "prefLabel": "Lifelong Health Record (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-lifelong-health-record",
+      "prefLabel": "Lifelong Health Record (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-national-trust-services",
-      "prefLabel": "National Trust Services (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block National Trust Services: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-national-trust-services",
+      "prefLabel": "National Trust Services (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block National Trust Services: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-provider-systems",
-      "prefLabel": "Provider Systems (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Provider Systems: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-provider-systems",
+      "prefLabel": "Provider Systems (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Provider Systems: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-lao-pdr-terminology-service",
-      "prefLabel": "Terminology Service (Lao PDR)",
-      "definition": "Lao PDR's instance of the DPI-H Reference Architecture building block Terminology Service: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-onesa-terminology-service",
+      "prefLabel": "Terminology Service (Onesa)",
+      "definition": "Onesa's instance of the DPI-H Reference Architecture building block Terminology Service: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-thailand-lifelong-health-record",
-      "prefLabel": "Lifelong Health Record (Thailand)",
-      "definition": "Thailand's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-taifafeki-lifelong-health-record",
+      "prefLabel": "Lifelong Health Record (Taifafeki)",
+      "definition": "Taifafeki's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-thailand-national-trust-services",
-      "prefLabel": "National Trust Services (Thailand)",
-      "definition": "Thailand's instance of the DPI-H Reference Architecture building block National Trust Services: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-taifafeki-national-trust-services",
+      "prefLabel": "National Trust Services (Taifafeki)",
+      "definition": "Taifafeki's instance of the DPI-H Reference Architecture building block National Trust Services: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-thailand-product-registry",
-      "prefLabel": "Product Registry (Thailand)",
-      "definition": "Thailand's instance of the DPI-H Reference Architecture building block Product Registry: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-taifafeki-product-registry",
+      "prefLabel": "Product Registry (Taifafeki)",
+      "definition": "Taifafeki's instance of the DPI-H Reference Architecture building block Product Registry: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     },
     {
-      "id": "instance-thailand-provider-systems",
-      "prefLabel": "Provider Systems (Thailand)",
-      "definition": "Thailand's instance of the DPI-H Reference Architecture building block Provider Systems: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
+      "id": "instance-taifafeki-provider-systems",
+      "prefLabel": "Provider Systems (Taifafeki)",
+      "definition": "Taifafeki's instance of the DPI-H Reference Architecture building block Provider Systems: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's.",
       "source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "status": "candidate"
     }

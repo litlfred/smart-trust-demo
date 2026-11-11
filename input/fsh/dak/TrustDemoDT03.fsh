@@ -17,9 +17,9 @@ Usage: #definition
 * relatedArtifact[=].document.url = "https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-counts.dmn"
 * relatedArtifact[=].document.title = "dose-counts.dmn"
 * relatedArtifact[+].type = #depends-on
-* relatedArtifact[=].resource = Canonical(TrustDemoLaoImmunization)
+* relatedArtifact[=].resource = Canonical(TrustDemoOnesaImmunization)
 * relatedArtifact[+].type = #depends-on
-* relatedArtifact[=].resource = Canonical(TrustDemoLaoReportedImmunization)
+* relatedArtifact[=].resource = Canonical(TrustDemoOnesaReportedImmunization)
 * action[+].title = "Rule 1"
 * action[=].description = "When primarySource is false: counts = false; why = Reported, not verified. A reported dose (J2: TrustDemoJ2HepBReported) is shown but not counted."
 * action[+].title = "Rule 2"

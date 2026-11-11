@@ -17,7 +17,7 @@ Usage: #definition
 * relatedArtifact[=].document.url = "https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-due.dmn"
 * relatedArtifact[=].document.title = "dose-due.dmn"
 * relatedArtifact[+].type = #depends-on
-* relatedArtifact[=].resource = Canonical(TrustDemoLaoInfantSchedule)
+* relatedArtifact[=].resource = Canonical(TrustDemoOnesaInfantSchedule)
 * action[+].title = "Rule 1"
 * action[=].description = "When counted is true: forecast = complete. J3: the Hep B and BCG birth doses count once imported, so they are not recommended again (STD-SCH-001)."
 * action[+].title = "Rule 2"

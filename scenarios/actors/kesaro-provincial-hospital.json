@@ -1,8 +1,8 @@
 {
-  "id": "chiang-rai-provincial-hospital",
-  "title": "Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)",
+  "id": "kesaro-provincial-hospital",
+  "title": "Kesaro Provincial Hospital system, Taifafeki (Country A, XXR)",
   "kind": "system",
-  "description": "The hospital record system and DVC issuing service of Chiang Rai Provincial Hospital in Thailand (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Thailand in the demonstrator. XXR is a DEV test participant, not Thailand's production key.",
+  "description": "The hospital record system and DVC issuing service of Kesaro Provincial Hospital in Taifafeki (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Taifafeki in the demonstrator. XXR is a DEV test participant, not Taifafeki's production key.",
   "roles": [
     "birth-clinic-system"
   ],
@@ -16,34 +16,34 @@
     "playsActor": [
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-sharer"
     ],
-    "country": "Thailand",
+    "country": "Taifafeki",
     "parts": [
       {
-        "id": "th-birth-ehr",
+        "id": "xxr-birth-ehr",
         "title": "Patient record (EHR)",
         "raBlock": "Provider Systems",
         "description": "The hospital's electronic health record, in which the vaccinator records each birth dose given to the newborn (J1).",
-        "ig": "StructureDefinition/TrustDemoThImmunization"
+        "ig": "StructureDefinition/TrustDemoTaifafekiImmunization"
       },
       {
-        "id": "th-immunization-record",
+        "id": "xxr-immunization-record",
         "title": "Immunization record service",
         "raBlock": "Lifelong Health Record",
         "description": "Keeps the newborn's immunizations as FHIR Immunization resources, from which each DVC is made (J1).",
         "ig": "Immunization/TrustDemoJ1HepB"
       },
       {
-        "id": "th-product-codes",
+        "id": "xxr-product-codes",
         "title": "Vaccine product code registry",
         "raBlock": "Product Registry",
         "description": "Publishes the vaccine product codes the hospital records doses against, which the receiving country maps to its own schedule codes (J1, J3).",
         "ig": "CodeSystem/TrustDemoVaccineProduct"
       },
       {
-        "id": "th-dvc-signer",
+        "id": "xxr-dvc-signer",
         "title": "DVC signer (HCERT)",
         "raBlock": "National Trust Services",
-        "description": "Builds each Digital Vaccination Certificate as an HCERT payload and has it signed with Thailand's document signer key, published to GDHCN (J1)."
+        "description": "Builds each Digital Vaccination Certificate as an HCERT payload and has it signed with Taifafeki's document signer key, published to GDHCN (J1)."
       }
     ]
   }

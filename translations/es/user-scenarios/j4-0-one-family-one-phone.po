@@ -21,8 +21,8 @@ msgstr "Transfronterizo"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:5
 msgctxt "description"
-msgid "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses."
-msgstr "Un año después, la familia planea un viaje a Tailandia. El teléfono de Bounmy contiene los registros de los tres, incluidas las seis dosis verificadas de Somsack."
+msgid "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses."
+msgstr "Un año después, la familia planea un viaje a Taifafeki. El teléfono de Bounmy contiene los registros de los tres, incluidas las seis dosis verificadas de Somsack."
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:242
 msgctxt "references.label"
@@ -81,8 +81,8 @@ msgstr "Controla el selector de perfiles"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:96
 msgctxt "step.fhirChanges.change"
-msgid "Generated: 2 Thai + 4 Lao doses"
-msgstr "Generado: 2 dosis tailandesas + 4 lao"
+msgid "Generated: 2 Taifafeki + 4 Onesan doses"
+msgstr "Generado: 2 dosis de Taifafeki + 4 de Onesa"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:227
 msgctxt "step.fhirChanges.change"
@@ -101,8 +101,8 @@ msgstr "Bounmy decide qué se comparte y durante cuánto tiempo; la puerta de en
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:228
 msgctxt "step.fhirChanges.why"
-msgid "Not a copy of the record: a signed, passcode-protected pointer back to Lao PDR."
-msgstr "No es una copia del registro: es un puntero firmado y protegido por código de acceso que remite a la RDP Lao."
+msgid "Not a copy of the record: a signed, passcode-protected pointer back to Onesa."
+msgstr "No es una copia del registro: es un puntero firmado y protegido por código de acceso que remite a Onesa."
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:107
 msgctxt "step.fhirChanges.why"
@@ -141,19 +141,19 @@ msgstr "El resumen de Somsack está listo para compartirse"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:5
 msgctxt "step.headline"
-msgid "A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses."
-msgstr "Un año después, la familia planea un viaje a Tailandia. El teléfono de Bounmy contiene los registros de los tres, incluidas las seis dosis verificadas de Somsack."
+msgid "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses."
+msgstr "Un año después, la familia planea un viaje a Taifafeki. El teléfono de Bounmy contiene los registros de los tres, incluidas las seis dosis verificadas de Somsack."
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:120
 msgctxt "step.headline"
-msgid "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR."
-msgstr "Antes del viaje, Bounmy crea un enlace QR al registro de Somsack, protegido con un código de acceso de 4 dígitos y válido durante 14 días (la configuración de la demostración: cada país fijaría la suya). El registro propiamente dicho permanece en la RDP Lao."
+msgid "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Onesa."
+msgstr "Antes del viaje, Bounmy crea un enlace QR al registro de Somsack, protegido con un código de acceso de 4 dígitos y válido durante 14 días (la configuración de la demostración: cada país fijaría la suya). El registro propiamente dicho permanece en Onesa."
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:91
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:91
 msgctxt "step.illustration.alt"
-msgid "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
-msgstr "De vuelta en Tailandia, Bounmy comparte desde su teléfono un enlace al registro de vacunación y el Dr. Anan ve el historial de vacunación de Somsack; Khamla y el pequeño Somsack están a su lado"
+msgid "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+msgstr "De vuelta en Taifafeki, Bounmy comparte desde su teléfono un enlace al registro de vacunación y el Dr. Anan ve el historial de vacunación de Somsack; Khamla y el pequeño Somsack están a su lado"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:131
 msgctxt "step.narrative"
@@ -166,16 +166,16 @@ msgid ""
 "2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n"
 "3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n"
 "\n"
-"The QR holds only a pointer and a key: the record stays in Lao PDR.\n"
-msgstr "Para Somsack, Bounmy comparte su registro con un código de acceso de 4 dígitos que puede decir en voz alta, válido durante 14 días. El portal registra su consentimiento (`TrustDemoJ4Consent`) y luego hace tres cosas:\n\n1. Reúne el IPS y los DVC de Somsack.\n2. Los cifra (STT-VHL-004, STT-VHL-007) tras un manifiesto protegido por código de acceso y con fecha de caducidad (STT-VHL-009).\n3. Emite el enlace como un HCERT, con el VHL en la clave 5 (STT-VHL-001, STT-VHL-002), firmado con el DSC del País B.\n\nEl QR contiene solo un puntero y una clave: el registro permanece en la RDP Lao.\n"
+"The QR holds only a pointer and a key: the record stays in Onesa.\n"
+msgstr "Para Somsack, Bounmy comparte su registro con un código de acceso de 4 dígitos que puede decir en voz alta, válido durante 14 días. El portal registra su consentimiento (`TrustDemoJ4Consent`) y luego hace tres cosas:\n\n1. Reúne el IPS y los DVC de Somsack.\n2. Los cifra (STT-VHL-004, STT-VHL-007) tras un manifiesto protegido por código de acceso y con fecha de caducidad (STT-VHL-009).\n3. Emite el enlace como un HCERT, con el VHL en la clave 5 (STT-VHL-001, STT-VHL-002), firmado con el DSC del País B.\n\nEl QR contiene solo un puntero y una clave: el registro permanece en Onesa.\n"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:22
 msgctxt "step.narrative"
 msgid ""
-"The family plans a trip to Thailand. Bounmy's phone holds the\n"
+"The family plans a trip to Taifafeki. Bounmy's phone holds the\n"
 "family wallet, with a profile for each of them. Somsack's summary\n"
-"(`TrustDemoJ4Ips`) shows six doses: two from Thailand, four from Lao PDR.\n"
-msgstr "La familia planea un viaje a Tailandia. El teléfono de Bounmy contiene la billetera familiar, con un perfil para cada uno de ellos. El resumen de Somsack (`TrustDemoJ4Ips`) muestra seis dosis: dos de Tailandia y cuatro de la RDP Lao.\n"
+"(`TrustDemoJ4Ips`) shows six doses: two from Taifafeki, four from Onesa.\n"
+msgstr "La familia planea un viaje a Taifafeki. El teléfono de Bounmy contiene la billetera familiar, con un perfil para cada uno de ellos. El resumen de Somsack (`TrustDemoJ4Ips`) muestra seis dosis: dos de Taifafeki y cuatro de Onesa.\n"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:38
 msgctxt "step.painPoint"
@@ -189,8 +189,8 @@ msgstr "Enviar fotos o PDF de los registros filtra datos y el receptor no puede 
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:143
 msgctxt "step.policy"
-msgid "Data sovereignty: the record stays in Lao PDR until the family authorizes someone to open it."
-msgstr "Soberanía de los datos: el registro permanece en la RDP Lao hasta que la familia autoriza a alguien a abrirlo."
+msgid "Data sovereignty: the record stays in Onesa until the family authorizes someone to open it."
+msgstr "Soberanía de los datos: el registro permanece en Onesa hasta que la familia autoriza a alguien a abrirlo."
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:40
 msgctxt "step.policy"
@@ -199,8 +199,8 @@ msgstr "Diseñar para dispositivos compartidos (“Una familia, un teléfono”)
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:127
 msgctxt "step.preconditions.description"
-msgid "**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1."
-msgstr "**Condición previa, como en J1:** el DSC del País B, emitido bajo la CSCA del País B, ya se ha compartido con la GDHCN, el ancla de confianza. Eso es lo que permite a la clínica de Tailandia verificar el enlace en J4.1."
+msgid "**Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Taifafeki verify the link in J4.1."
+msgstr "**Condición previa, como en J1:** el DSC del País B, emitido bajo la CSCA del País B, ya se ha compartido con la GDHCN, el ancla de confianza. Eso es lo que permite a la clínica de Taifafeki verificar el enlace en J4.1."
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:126
 msgctxt "step.preconditions.title"
@@ -209,23 +209,23 @@ msgstr "El DSC del País B está compartido con el ancla de confianza"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:43
 msgctxt "step.record.description"
-msgid "12-month summary: 2 Thai + 4 Lao doses"
-msgstr "Resumen de los 12 meses: 2 dosis tailandesas + 4 lao"
+msgid "12-month summary: 2 Taifafeki + 4 Onesan doses"
+msgstr "Resumen de los 12 meses: 2 dosis de Taifafeki + 4 de Onesa"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:146
 msgctxt "step.record.description"
-msgid "Shareable link created; data stays in Lao PDR"
-msgstr "Enlace para compartir creado; los datos permanecen en la RDP Lao"
+msgid "Shareable link created; data stays in Onesa"
+msgstr "Enlace para compartir creado; los datos permanecen en Onesa"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:147
 msgctxt "step.record.heldWhere"
-msgid "Lao national records (QR is just a pointer)"
-msgstr "Registros nacionales lao (el QR es solo un puntero)"
+msgid "Onesan national records (QR is just a pointer)"
+msgstr "Registros nacionales de Onesa (el QR es solo un puntero)"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:44
 msgctxt "step.record.heldWhere"
-msgid "Lao national records + family wallet"
-msgstr "Registros nacionales lao + billetera familiar"
+msgid "Onesan national records + family wallet"
+msgstr "Registros nacionales de Onesa + billetera familiar"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:63
 msgctxt "step.technicalSummary"
@@ -234,8 +234,8 @@ msgstr "Un año de registros de dos países se reúne en un único resumen inter
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:181
 msgctxt "step.technicalSummary"
-msgid "The QR is a key, not a copy. The record stays on the Lao server, and the family’s consent (who, how long) is recorded in a standard form and enforced."
-msgstr "El QR es una llave, no una copia. El registro permanece en el servidor lao, y el consentimiento de la familia (quién y durante cuánto tiempo) se registra en un formato estándar y se hace cumplir."
+msgid "The QR is a key, not a copy. The record stays on the Onesan server, and the family’s consent (who, how long) is recorded in a standard form and enforced."
+msgstr "El QR es una llave, no una copia. El registro permanece en el servidor de Onesa, y el consentimiento de la familia (quién y durante cuánto tiempo) se registra en un formato estándar y se hace cumplir."
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:119
 msgctxt "step.title"
@@ -299,8 +299,8 @@ msgstr "Fuente de referencia de las 6 dosis"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:83
 msgctxt "step.uses.role"
-msgid "Thai origin of birth doses still visible"
-msgstr "El origen tailandés de las dosis al nacer sigue siendo visible"
+msgid "Taifafeki origin of birth doses still visible"
+msgstr "El origen de Taifafeki de las dosis al nacer sigue siendo visible"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:160
 msgctxt "step.whatIf.outcome"
@@ -330,13 +330,13 @@ msgstr "T0 + 12 meses"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:122
 msgctxt "step.where"
-msgid "Lao–Thai Friendship Bridge"
-msgstr "Puente de la Amistad Lao-Tailandés"
+msgid "Onesan–Taifafeki Friendship Bridge"
+msgstr "Puente de la Amistad Onesa-Taifafeki"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:20
 msgctxt "step.where"
-msgid "Vientiane, Lao PDR"
-msgstr "Vientiane, RDP Lao"
+msgid "Lomaru, Onesa"
+msgstr "Lomaru, Onesa"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:4
 msgctxt "title"
@@ -355,5 +355,5 @@ msgstr "12 meses después"
 
 #: scenarios/user-scenarios/j4-0-one-family-one-phone.json:11
 msgctxt "where"
-msgid "Lao PDR"
-msgstr "RDP Lao"
+msgid "Onesa"
+msgstr "Onesa"

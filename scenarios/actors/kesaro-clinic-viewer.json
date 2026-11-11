@@ -1,0 +1,30 @@
+{
+  "id": "kesaro-clinic-viewer",
+  "title": "Kesaro primary care clinic viewer, Taifafeki (J4.1)",
+  "kind": "system",
+  "description": "The VHL viewer of a primary care clinic in Kesaro, Taifafeki, back in Country A a year after the birth (J4.1): verifies the VHL, fetches the manifest with an HTTP Message Signature after the passcode is entered, and decrypts the documents for viewing. Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection.",
+  "roles": [
+    "poc-receiver"
+  ],
+  "capabilities": [],
+  "meta": {
+    "definedBy": [
+      "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLReceiver",
+      "http://smart.who.int/trust/ActorDefinition/Receiver",
+      "http://smart.who.int/trust-phw/ActorDefinition/Receiver"
+    ],
+    "playsActor": [
+      "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-receiver"
+    ],
+    "country": "Taifafeki",
+    "parts": [
+      {
+        "id": "xxr-vhl-viewer",
+        "title": "VHL viewer",
+        "raBlock": "Provider Systems",
+        "description": "Reads a Verifiable Health Link QR at the point of care, checks its signature against the GDHCN trust list, fetches the manifest from Onesa with a signed request and shows the decrypted records (J4.1).",
+        "ig": "StructureDefinition/TrustDemoTaifafekiVhlReceipt"
+      }
+    ]
+  }
+}

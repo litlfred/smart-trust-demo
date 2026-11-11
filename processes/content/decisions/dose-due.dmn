@@ -2,7 +2,7 @@
 <!--
   TD.DT.04: which doses of the national schedule are due once the counted
   doses are known. J3 Task_Schedule and Task_Plan (STD-SCH-001), evaluated
-  once per action of PlanDefinition TrustDemoLaoInfantSchedule. The excerpt
+  once per action of PlanDefinition TrustDemoOnesaInfantSchedule. The excerpt
   schedule is illustrative; catch-up rules for a dose whose age has passed
   are the national schedule's and are not modelled here.
 -->
@@ -18,7 +18,7 @@
       <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Schedule"/>
       <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Plan"/>
       <trace:requirement ref="STD-SCH-001"/>
-      <trace:artifact ref="PlanDefinition/TrustDemoLaoInfantSchedule"/>
+      <trace:artifact ref="PlanDefinition/TrustDemoOnesaInfantSchedule"/>
       <trace:artifact ref="ImmunizationRecommendation/TrustDemoJ3Recommendation"/>
       <trace:artifact ref="Task/TrustDemoJ3Reminder"/>
       <trace:dataElement ref="TD.J3B.DE05"/>

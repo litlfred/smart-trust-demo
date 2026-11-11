@@ -14,7 +14,7 @@ Today it is in two places that do not know about each other:
 - vaxlink's `techData.ts`: 19 generic blocks (`BUILDING_BLOCKS`), and per step
   the blocks it uses with a one-line role (`STEP_TECH`);
 - `tools/archimate/overlay.py`: 18 deployed components (`COMPONENTS`), each a
-  part of a Thai or Lao system and a specialization of a DPI-H RA block.
+  part of a Taifafeki or Onesan system and a specialization of a DPI-H RA block.
 
 ## The answer: a catalogue, and an edge from the step
 
@@ -23,27 +23,27 @@ Today it is in two places that do not know about each other:
 
 | Field | |
 |---|---|
-| `kind` | `tool` (OHS FHIR SDK), `system` (the Lao national FHIR server), `standard` (IHE VHL), or `network` (WHO GDHCN) |
+| `kind` | `tool` (OHS FHIR SDK), `system` (the Onesan national FHIR server), `standard` (IHE VHL), or `network` (WHO GDHCN) |
 | `layer` | one of the catalogue's layers: tools & apps, data standards, trust & exchange |
-| `jurisdiction` | `Thailand`, `Lao PDR`, or `International`. A country's deployed system is that country's; what anyone can adopt is International. The ArchiMate views are to split the RA by jurisdiction on this field (owner, 2026-11-05) |
+| `jurisdiction` | `Taifafeki`, `Onesa`, or `International`. A country's deployed system is that country's; what anyone can adopt is International. The ArchiMate views are to split the RA by jurisdiction on this field (owner, 2026-11-05) |
 | `owner`, `what`, `soWhat`, `links` | as the walkthrough shows them |
-| `components` | the overlay's ArchiMate element keys that deploy the block (`la-info-gateway` for the OHS Info Gateway) |
+| `components` | the overlay's ArchiMate element keys that deploy the block (`xxk-info-gateway` for the OHS Info Gateway) |
 
 **The edge** sits on a user-scenario step
 ([`../user-scenario/user-scenario.schema.json`](../user-scenario/user-scenario.schema.json)):
 
 ```json
-"technicalSummary": "The clinic checks Thailand’s signature against WHO’s trust list, stored locally. …",
+"technicalSummary": "The clinic checks Taifafeki’s signature against WHO’s trust list, stored locally. …",
 "uses": [
   { "block": "ohs-fhir-sdk", "role": "Clinic tablet app; caches the trust list" },
-  { "block": "gdhcn", "role": "Supplies Thailand’s public key (downloaded in advance)" }
+  { "block": "gdhcn", "role": "Supplies Taifafeki’s public key (downloaded in advance)" }
 ]
 ```
 
 - `role` is the point of the edge: the same block plays a different role in
   each step.
 - `component` (optional) names which deployment plays it, when a block has
-  more than one (`thai-his` → `th-birth-ehr`, `th-dvc-signer`).
+  more than one (`thai-his` → `xxr-birth-ehr`, `xxr-dvc-signer`).
 - The step's `handoff` gains `carrier` and `payload`: how the data travels
   and what it is.
 

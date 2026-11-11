@@ -1,8 +1,8 @@
 {
   "$schema": "user-scenario/0.3.0",
   "id": "j4-1-full-history-abroad",
-  "title": "J4.1 — Crossing back: a Thai doctor sees the full history",
-  "description": "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Lao PDR is told who looked.",
+  "title": "J4.1 — Crossing back: a Taifafeki doctor sees the full history",
+  "description": "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Onesa is told who looked.",
   "personas": [
     "anan",
     "somsack-sengmany",
@@ -10,16 +10,16 @@
     "khamla-sengmany"
   ],
   "when": "12 months later",
-  "where": "Chiang Rai",
+  "where": "Kesaro",
   "country": "Cross-Border",
   "trustLadder": "record-trust",
   "steps": [
     {
       "id": "J4.1",
-      "title": "A Thai doctor sees the full history",
-      "headline": "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Lao PDR is told who looked.",
+      "title": "A Taifafeki doctor sees the full history",
+      "headline": "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Onesa is told who looked.",
       "when": "T0 + 12 months",
-      "where": "Chiang Rai primary care clinic",
+      "where": "Kesaro primary care clinic",
       "touchpoint": "Clinic viewer (scan link + passcode)",
       "preconditions": [
         {
@@ -33,7 +33,7 @@
           ]
         }
       ],
-      "narrative": "Back where it began, Dr Anan sees Somsack at a primary care clinic in\nChiang Rai. Bounmy shows the QR on his phone and says the passcode. The\nclinic viewer and the Lao gateway take five steps:\n\n1. The viewer verifies the HCERT against Country B's DSC in its copy of the trust list.\n2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).\n3. The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home (`TrustDemoJ41Access`).\n4. The viewer decrypts the IPS and DVCs (STT-VHL-007) (`TrustDemoJ41Received`).\n5. It shows them to Dr Anan: every dose since the birth, viewed, never copied.\n\nA wrong passcode is refused, and the attempt is still logged in Lao PDR\n(`TrustDemoJ41WrongPasscode`). If the HCERT does not verify (for example,\nCountry B's DSC is missing from the cached list), there is no digital\nverification. The clinic names the step and the reason (STT-VER-008), does not\nfollow the VHL, and Dr Anan treats whatever the family can show as he\nwould a paper record.",
+      "narrative": "Back where it began, Dr Anan sees Somsack at a primary care clinic in\nKesaro. Bounmy shows the QR on his phone and says the passcode. The\nclinic viewer and the Onesan gateway take five steps:\n\n1. The viewer verifies the HCERT against Country B's DSC in its copy of the trust list.\n2. It requests the manifest by ITI-YY5, signed with HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).\n3. The Onesan gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home (`TrustDemoJ41Access`).\n4. The viewer decrypts the IPS and DVCs (STT-VHL-007) (`TrustDemoJ41Received`).\n5. It shows them to Dr Anan: every dose since the birth, viewed, never copied.\n\nA wrong passcode is refused, and the attempt is still logged in Onesa\n(`TrustDemoJ41WrongPasscode`). If the HCERT does not verify (for example,\nCountry B's DSC is missing from the cached list), there is no digital\nverification. The clinic names the step and the reason (STT-VER-008), does not\nfollow the VHL, and Dr Anan treats whatever the family can show as he\nwould a paper record.",
       "lead": "anan",
       "experiences": [
         {
@@ -44,7 +44,7 @@
         },
         {
           "actor": "somsack-sengmany",
-          "doing": "Back in Chiang Rai with a fever, he is seen by the doctor who vaccinated him at birth.",
+          "doing": "Back in Kesaro with a fever, he is seen by the doctor who vaccinated him at birth.",
           "feeling": "“A strange room, but nobody has to guess what he has had.”",
           "emotion": 1
         },
@@ -62,25 +62,25 @@
         }
       ],
       "painPoint": "Without the history, the doctor would repeat vaccines or have to guess.",
-      "enabler": "The record is fetched live from Lao PDR, viewed without being copied, and an access log is sent home.",
+      "enabler": "The record is fetched live from Onesa, viewed without being copied, and an access log is sent home.",
       "policy": "Continuity of care across borders: each country keeps its own records, with no international patient registry and no vendor lock-in. What is agreed regionally is the data model and the trust list, not a shared copy of the data.",
       "record": {
         "state": "shared-audited",
-        "description": "Viewed in Thailand, never copied; access logged in Lao PDR",
-        "heldWhere": "Lao national records"
+        "description": "Viewed in Taifafeki, never copied; access logged in Onesa",
+        "heldWhere": "Onesan national records"
       },
       "handoff": {
-        "summary": "Journey complete — full circle back to Thailand",
+        "summary": "Journey complete — full circle back to Taifafeki",
         "carrier": "HTTPS (VHL fetch) across the border",
         "payload": "Encrypted IPS Bundle → decrypted in memory",
         "offline": false,
-        "from": "Lao national server",
-        "to": "Thai clinic viewer"
+        "from": "Onesan national server",
+        "to": "Taifafeki clinic viewer"
       },
       "whatIf": [
         {
           "scenario": "The wrong passcode is entered.",
-          "outcome": "Access is refused and the attempt is still logged back in Lao PDR."
+          "outcome": "Access is refused and the attempt is still logged back in Onesa."
         }
       ],
       "stories": [
@@ -103,7 +103,7 @@
           ]
         }
       ],
-      "technicalSummary": "A standard viewer fetches the record from Lao PDR, decrypts it in memory, and leaves an audit trail at home. Cross-border care with no shared database between the countries.",
+      "technicalSummary": "A standard viewer fetches the record from Onesa, decrypts it in memory, and leaves an audit trail at home. Cross-border care with no shared database between the countries.",
       "uses": [
         {
           "block": "vhl-viewer",
@@ -119,11 +119,11 @@
         },
         {
           "block": "ips",
-          "role": "Rendered for the Thai clinician"
+          "role": "Rendered for the Taifafeki clinician"
         },
         {
           "block": "audit",
-          "role": "AuditEvent recorded in Lao PDR"
+          "role": "AuditEvent recorded in Onesa"
         },
         {
           "block": "ohs-data-pipes",
@@ -143,7 +143,7 @@
         "AuditEvent/TrustDemoJ41WrongPasscode"
       ],
       "gaps": [
-        "No agreement yet says who in Lao PDR reads the access log, or how often."
+        "No agreement yet says who in Onesa reads the access log, or how often."
       ],
       "references": [
         {
@@ -154,15 +154,15 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j4-crossing-back.jpg",
-        "alt": "Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+        "alt": "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
       },
       "fhirChanges": [
         {
           "resource": "Provenance",
-          "change": "Summary viewed, not stored in Thailand",
-          "why": "The Thai clinic keeps a note of what it saw and how it was verified, without copying the Lao record.",
-          "profile": "TrustDemoThVhlReceipt",
-          "profileOf": "TH",
+          "change": "Summary viewed, not stored in Taifafeki",
+          "why": "The Taifafeki clinic keeps a note of what it saw and how it was verified, without copying the Onesan record.",
+          "profile": "TrustDemoTaifafekiVhlReceipt",
+          "profileOf": "XXR",
           "examples": [
             "Provenance/TrustDemoJ41Received",
             "Bundle/TrustDemoJ4Ips"
@@ -171,10 +171,10 @@
         },
         {
           "resource": "AuditEvent",
-          "change": "Created at Lao Info Gateway",
+          "change": "Created at Onesan Info Gateway",
           "why": "The data stays home, so the access log does too: the family can see who looked, from where and when.",
-          "profile": "TrustDemoLaoVhlAccess",
-          "profileOf": "LA",
+          "profile": "TrustDemoOnesaVhlAccess",
+          "profileOf": "XXK",
           "examples": [
             "AuditEvent/TrustDemoJ41Access",
             "AuditEvent/TrustDemoJ41WrongPasscode"
@@ -212,7 +212,7 @@
   "references": [
     {
       "label": "User scenario in the IG",
-      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j41--crossing-back-a-taifafeki-doctor-sees-the-full-history-kesaro-12-months-later",
       "rel": "scenario"
     }
   ]

@@ -17,7 +17,7 @@ Usage: #definition
 * relatedArtifact[=].document.url = "https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vaccine-code-mapping.dmn"
 * relatedArtifact[=].document.title = "vaccine-code-mapping.dmn"
 * relatedArtifact[+].type = #depends-on
-* relatedArtifact[=].resource = Canonical(TrustDemoProductToLaoEpi)
+* relatedArtifact[=].resource = Canonical(TrustDemoProductToOnesaEpi)
 * action[+].title = "Rule 1"
 * action[=].description = "When outcome is one of reported-unverified, rejected, not-read: mappingBasis = not-imported; action = No schedule code is added. Only a verified dose is imported and mapped (J3's yes path); a reported dose keeps the issuer's code alone."
 * action[+].title = "Rule 2"

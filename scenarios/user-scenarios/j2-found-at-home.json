@@ -11,23 +11,23 @@
   ],
   "follows": "j1-born-abroad",
   "when": "3 weeks later",
-  "where": "Lao PDR",
-  "country": "Lao PDR",
+  "where": "Onesa",
+  "country": "Onesa",
   "trustLadder": "record-trust",
   "steps": [
     {
       "id": "J2a",
       "title": "A health worker finds the baby — and reads his cards",
-      "headline": "On a routine village visit, Vilay finds a newborn the Lao system doesn’t know exists. She can read the vaccines on his cards, but she can’t prove they are genuine.",
+      "headline": "On a routine village visit, Vilay finds a newborn the Onesan system doesn’t know exists. She can read the vaccines on his cards, but she can’t prove they are genuine.",
       "when": "T0 + 3 weeks",
       "where": "Catchment Village 04",
       "touchpoint": "Offline phone app (QR scan)",
-      "narrative": "On a routine visit to Village 04, Vilay finds a newborn the Lao\nsystem does not know exists. Her phone has had no signal for weeks. Khamla\nshows the two cards. The CHW app reads them with **read-unverified**\n(STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), which needs no trust\nlist. It shows the doses, but checks no signature and saves nothing yet.",
+      "narrative": "On a routine visit to Village 04, Vilay finds a newborn the Onesan\nsystem does not know exists. Her phone has had no signal for weeks. Khamla\nshows the two cards. The CHW app reads them with **read-unverified**\n(STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), which needs no trust\nlist. It shows the doses, but checks no signature and saves nothing yet.",
       "lead": "vilay",
       "experiences": [
         {
           "actor": "khamla-sengmany",
-          "doing": "Tells Vilay about the birth in Thailand and shows the cards.",
+          "doing": "Tells Vilay about the birth in Taifafeki and shows the cards.",
           "feeling": "“I hope we’re not in trouble for giving birth abroad.”",
           "emotion": -1
         },
@@ -85,7 +85,7 @@
         },
         {
           "block": "smart-imm",
-          "role": "PreQual codes read, but not yet mapped to the Lao schedule"
+          "role": "PreQual codes read, but not yet mapped to the Onesan schedule"
         }
       ],
       "requirements": [
@@ -96,7 +96,7 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j2-found-at-home.jpg",
-        "alt": "In a Lao village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on"
+        "alt": "In an Onesan village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on"
       },
       "dak": [
         {
@@ -131,7 +131,7 @@
         },
         {
           "actor": "somsack-sengmany",
-          "doing": "Is added to his household: the Lao health system now knows he exists.",
+          "doing": "Is added to his household: the Onesan health system now knows he exists.",
           "feeling": "“Three weeks old, and now he counts.”",
           "emotion": 1
         },
@@ -212,18 +212,18 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j2-found-at-home.jpg",
-        "alt": "In a Lao village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on"
+        "alt": "In an Onesan village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on"
       },
       "fhirChanges": [
         {
           "resource": "Patient",
-          "change": "Created with a temporary Lao ID",
-          "why": "He is not in the Lao civil registry yet; a temporary id lets the CHW, clinic and portal all mean the same child. Thailand only gave him a hospital number.",
-          "profile": "TrustDemoLaoPatient",
-          "profileOf": "LA",
+          "change": "Created with a temporary Onesan ID",
+          "why": "He is not in the Onesan civil registry yet; a temporary id lets the CHW, clinic and portal all mean the same child. Taifafeki only gave him a hospital number.",
+          "profile": "TrustDemoOnesaPatient",
+          "profileOf": "XXK",
           "examples": [
             "Patient/TrustDemoSomsack",
-            "Patient/TrustDemoThSomsack"
+            "Patient/TrustDemoTaifafekiSomsack"
           ],
           "spec": "https://hl7.org/fhir/patient.html"
         },
@@ -231,8 +231,8 @@
           "resource": "Group (household)",
           "change": "Somsack added as member",
           "why": "CHW work is organised by household: the roster is how a missing newborn is noticed.",
-          "profile": "TrustDemoLaoHousehold",
-          "profileOf": "LA",
+          "profile": "TrustDemoOnesaHousehold",
+          "profileOf": "XXK",
           "examples": [
             "Group/TrustDemoHousehold"
           ],
@@ -242,8 +242,8 @@
           "resource": "QuestionnaireResponse",
           "change": "The registration form, answered offline (SDC)",
           "why": "The form is configuration, not code; keeping the answers lets every extracted record trace back to what was asked.",
-          "profile": "TrustDemoLaoRegistration",
-          "profileOf": "LA",
+          "profile": "TrustDemoOnesaRegistration",
+          "profileOf": "XXK",
           "examples": [
             "QuestionnaireResponse/TrustDemoJ2Registration",
             "Questionnaire/TrustDemoHouseholdRegistration"
@@ -254,8 +254,8 @@
           "resource": "Immunization ×2",
           "change": "Created as primarySource = false",
           "why": "Read without checking the signature, so kept as reported: not lost, but not counted by the schedule yet.",
-          "profile": "TrustDemoLaoReportedImmunization",
-          "profileOf": "LA",
+          "profile": "TrustDemoOnesaReportedImmunization",
+          "profileOf": "XXK",
           "examples": [
             "Immunization/TrustDemoJ2HepBReported",
             "Immunization/TrustDemoJ1HepB"
@@ -266,8 +266,8 @@
           "resource": "ServiceRequest",
           "change": "Referral to District Health Center",
           "why": "The phone cannot verify a DVC but the clinic can; the referral points at exactly the doses to check.",
-          "profile": "TrustDemoLaoReferral",
-          "profileOf": "LA",
+          "profile": "TrustDemoOnesaReferral",
+          "profileOf": "XXK",
           "examples": [
             "ServiceRequest/TrustDemoJ2Referral"
           ],
@@ -311,7 +311,7 @@
   "references": [
     {
       "label": "User scenario in the IG",
-      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j2--found-at-home-lao-pdr-3-weeks-later",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j2--found-at-home-onesa-3-weeks-later",
       "rel": "scenario"
     }
   ],

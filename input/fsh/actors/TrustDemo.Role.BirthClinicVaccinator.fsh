@@ -15,11 +15,11 @@ The clinician abroad who gives the birth doses and hands over the signed paper D
 
 **Played in the journeys by** (fictional):
 
-- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjZDk3NzA2Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-thai-clinician--birth--follow-up-thailand), Dr Anan (clinician, Chiang Rai, Thailand)
+- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjZDk3NzA2Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-taifafeki-clinician--birth--follow-up-taifafeki), Dr Anan (clinician, Kesaro, Taifafeki)
 
 **In the user scenarios**:
 
-- [J1 — Born abroad](scenarios.html#j1--born-abroad-thailand-birth-day): J1 A Lao baby is born in Thailand (told through Dr. Anan)
+- [J1 — Born abroad](scenarios.html#j1--born-abroad-taifafeki-birth-day): J1 An Onesan baby is born in Taifafeki (told through Dr. Anan)
 
 **On the device screens**: [S1 Birth Abroad & Printed DVC QR Cards (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S1/); [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)
 

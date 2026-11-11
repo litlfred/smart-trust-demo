@@ -17,11 +17,11 @@ The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list
 
 **Played in the journeys by** (fictional):
 
-- Vientiane District Health Center EHR (Country B)
+- Lomaru District Health Center EHR (Country B)
 
 **In the user scenarios**:
 
-- [J3 — Made official](scenarios.html#j3--made-official-vientiane-district-health-center-4-weeks-later): J3a The clinic confirms the cards are genuine; J3b Thai vaccines are fitted to the Lao schedule
+- [J3 — Made official](scenarios.html#j3--made-official-lomaru-district-health-center-4-weeks-later): J3a The clinic confirms the cards are genuine; J3b Taifafeki vaccines are fitted to the Onesan schedule
 
 **On the device screens**: [S4 Clinic Referral & GDHCN Verification (Chanthasone's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S4/); [S5 Terminology Adjudication & National Schedule (Chanthasone's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S5/)
 

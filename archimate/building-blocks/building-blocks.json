@@ -20,18 +20,18 @@
   "blocks": [
     {
       "id": "thai-his",
-      "name": "Thai hospital system + DVC issuing service",
-      "short": "Thai hospital system",
+      "name": "Taifafeki hospital system + DVC issuing service",
+      "short": "Taifafeki hospital system",
       "kind": "system",
       "layer": "apps",
-      "jurisdiction": "Thailand",
-      "owner": "Thailand MOPH",
+      "jurisdiction": "Taifafeki",
+      "owner": "Taifafeki MOPH",
       "what": "The hospital’s own information system records the birth doses and calls a national signing service to print Digital Vaccine Certificates.",
-      "soWhat": "Thailand doesn’t need to change its hospital systems. It only needs to be able to sign certificates in the agreed format.",
+      "soWhat": "Taifafeki doesn’t need to change its hospital systems. It only needs to be able to sign certificates in the agreed format.",
       "components": [
-        "th-birth-ehr",
-        "th-immunization-record",
-        "th-dvc-signer"
+        "xxr-birth-ehr",
+        "xxr-immunization-record",
+        "xxr-dvc-signer"
       ],
       "links": [
         {
@@ -68,7 +68,7 @@
       "what": "Renders FHIR Questionnaires as forms on the device and turns the answers into FHIR resources (extraction).",
       "soWhat": "The Ministry can change a registration form by publishing a new Questionnaire, without rebuilding the app.",
       "components": [
-        "la-chw-app"
+        "xxk-chw-app"
       ],
       "links": [
         {
@@ -94,9 +94,9 @@
       "jurisdiction": "International",
       "owner": "Open Health Stack (open source)",
       "what": "The authorization (AuthZ) layer in front of the national FHIR server. It checks the caller’s access token from the identity provider, applies access rules (role, facility, household, consent) to every request, and records each access.",
-      "soWhat": "Every app, from the CHW phone to the Thai clinic viewer, goes through one front door. Lao PDR keeps the records at home and decides who can read or write what, including requests from abroad.",
+      "soWhat": "Every app, from the CHW phone to the Taifafeki clinic viewer, goes through one front door. Onesa keeps the records at home and decides who can read or write what, including requests from abroad.",
       "components": [
-        "la-info-gateway"
+        "xxk-info-gateway"
       ],
       "links": [
         {
@@ -107,16 +107,16 @@
     },
     {
       "id": "national-fhir",
-      "name": "Lao national FHIR repository",
+      "name": "Onesan national FHIR repository",
       "short": "National FHIR server",
       "kind": "system",
       "layer": "apps",
-      "jurisdiction": "Lao PDR",
-      "owner": "Lao PDR MOH",
+      "jurisdiction": "Onesa",
+      "owner": "Onesa MOH",
       "what": "The national store of immunization and health summary data, using the FHIR standard API.",
       "soWhat": "It is the one source of truth that the family wallet, clinics and VHL links all point back to.",
       "components": [
-        "la-national-fhir"
+        "xxk-national-fhir"
       ],
       "links": [
         {
@@ -136,7 +136,7 @@
       "what": "Open-source pipelines that copy FHIR data from the national server, including Provenance and AuditEvent, into analytics-ready tables for reports and dashboards.",
       "soWhat": "The Ministry sees patterns, not just single records: how many foreign certificates were verified, how often records are opened abroad, and any unusual access.",
       "components": [
-        "la-data-pipes"
+        "xxk-data-pipes"
       ],
       "links": [
         {
@@ -151,12 +151,12 @@
       "short": "Family wallet",
       "kind": "system",
       "layer": "apps",
-      "jurisdiction": "Lao PDR",
-      "owner": "Lao PDR MOH (built on OHS)",
+      "jurisdiction": "Onesa",
+      "owner": "Onesa MOH (built on OHS)",
       "what": "A phone app that holds health summaries for several household members and can create shareable links.",
       "soWhat": "It puts the family in control of sharing, on a device they already own.",
       "components": [
-        "la-family-wallet"
+        "xxk-family-wallet"
       ],
       "links": [
         {
@@ -171,12 +171,12 @@
       "short": "VHL viewer",
       "kind": "system",
       "layer": "apps",
-      "jurisdiction": "Thailand",
-      "owner": "Any conformant vendor (Thailand)",
+      "jurisdiction": "Taifafeki",
+      "owner": "Any conformant vendor (Taifafeki)",
       "what": "A web or tablet app that scans a VHL QR, takes the passcode, fetches the record and displays it.",
-      "soWhat": "The Thai clinic needs no account in the Lao system. Any viewer that follows the VHL standard works.",
+      "soWhat": "The Taifafeki clinic needs no account in the Onesan system. Any viewer that follows the VHL standard works.",
       "components": [
-        "th-vhl-viewer"
+        "xxr-vhl-viewer"
       ],
       "links": [
         {
@@ -215,7 +215,7 @@
       "jurisdiction": "International",
       "owner": "WHO",
       "what": "WHO’s machine-readable immunization guidance: data dictionary, FHIR profiles, PreQual vaccine product codes and schedule logic.",
-      "soWhat": "Both countries use the same WHO vaccine codes and profiles, so a dose recorded in Thailand means the same thing in Lao PDR.",
+      "soWhat": "Both countries use the same WHO vaccine codes and profiles, so a dose recorded in Taifafeki means the same thing in Onesa.",
       "links": [
         {
           "label": "WHO SMART Immunizations",
@@ -232,7 +232,7 @@
       "jurisdiction": "International",
       "owner": "HL7 / ISO 27269",
       "what": "A standard, minimal health summary (immunizations, allergies, medications, problems) designed for care across borders.",
-      "soWhat": "The Thai doctor gets a predictable summary they know how to read, not a dump of another country’s records.",
+      "soWhat": "The Taifafeki doctor gets a predictable summary they know how to read, not a dump of another country’s records.",
       "links": [
         {
           "label": "HL7 IPS",
@@ -253,9 +253,9 @@
       "jurisdiction": "International",
       "owner": "HL7 FHIR",
       "what": "A FHIR resource that records how a code in one system maps to a code in another, including who decided and how confident they are.",
-      "soWhat": "Foreign vaccines are translated without overwriting them. The original Thai code stays alongside the Lao one.",
+      "soWhat": "Foreign vaccines are translated without overwriting them. The original Taifafeki code stays alongside the Onesan one.",
       "components": [
-        "la-conceptmap"
+        "xxk-conceptmap"
       ],
       "links": [
         {
@@ -264,7 +264,7 @@
         },
         {
           "label": "The map in this journey (IG)",
-          "url": "https://litlfred.github.io/smart-trust-demo/artifact/ConceptMap-TrustDemoProductToLaoEpi.html"
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/ConceptMap-TrustDemoProductToOnesaEpi.html"
         }
       ]
     },
@@ -277,9 +277,9 @@
       "jurisdiction": "International",
       "owner": "HL7 FHIR / WHO SMART",
       "what": "Computable rules for the national schedule that work out which doses are due next.",
-      "soWhat": "Once foreign doses are mapped, they automatically count toward the Lao schedule. No mental arithmetic for the nurse.",
+      "soWhat": "Once foreign doses are mapped, they automatically count toward the Onesan schedule. No mental arithmetic for the nurse.",
       "components": [
-        "la-schedule"
+        "xxk-schedule"
       ],
       "links": [
         {
@@ -292,7 +292,7 @@
         },
         {
           "label": "The schedule (IG)",
-          "url": "https://litlfred.github.io/smart-trust-demo/artifact/PlanDefinition-TrustDemoLaoInfantSchedule.html"
+          "url": "https://litlfred.github.io/smart-trust-demo/artifact/PlanDefinition-TrustDemoOnesaInfantSchedule.html"
         }
       ]
     },
@@ -305,7 +305,7 @@
       "jurisdiction": "International",
       "owner": "HL7 FHIR",
       "what": "Records where a piece of data came from, who verified it and how.",
-      "soWhat": "Anyone can see later that a dose was issued by Thailand and verified in Lao PDR. Trust is visible, not assumed.",
+      "soWhat": "Anyone can see later that a dose was issued by Taifafeki and verified in Onesa. Trust is visible, not assumed.",
       "links": [
         {
           "label": "FHIR Provenance",
@@ -347,7 +347,7 @@
       "jurisdiction": "International",
       "owner": "WHO",
       "what": "A WHO-run network where countries publish the public keys used to sign their health documents, as a shared trust list.",
-      "soWhat": "Lao PDR can verify a Thai signature without a bilateral agreement or a live call to Thailand. Trust is set up once and works between all members.",
+      "soWhat": "Onesa can verify a Taifafeki signature without a bilateral agreement or a live call to Taifafeki. Trust is set up once and works between all members.",
       "components": [
         "gdhcn"
       ],
@@ -430,7 +430,7 @@
     {
       "id": "same-language",
       "title": "Speak the same language",
-      "text": "FHIR and WHO SMART Guidelines mean a dose recorded in Thailand has the same structure and codes in Lao PDR.",
+      "text": "FHIR and WHO SMART Guidelines mean a dose recorded in Taifafeki has the same structure and codes in Onesa.",
       "blocks": [
         "fhir-r4",
         "smart-imm",

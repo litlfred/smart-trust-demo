@@ -4,7 +4,7 @@
   record. J3 Task_Schedule (STD-SCH-001): verified doses imported from
   abroad count by their mapped codes and dates, as doses given at home do;
   reported doses are not counted until a clinic verifies them
-  (TrustDemoLaoReportedImmunization).
+  (TrustDemoOnesaReportedImmunization).
 -->
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
              xmlns:trace="https://litlfred.github.io/smart-trust-demo/ns/dak/"
@@ -18,8 +18,8 @@
       <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Schedule"/>
       <trace:requirement ref="STD-SCH-001"/>
       <trace:requirement ref="STD-SEM-001"/>
-      <trace:artifact ref="StructureDefinition/TrustDemoLaoImmunization"/>
-      <trace:artifact ref="StructureDefinition/TrustDemoLaoReportedImmunization"/>
+      <trace:artifact ref="StructureDefinition/TrustDemoOnesaImmunization"/>
+      <trace:artifact ref="StructureDefinition/TrustDemoOnesaReportedImmunization"/>
       <trace:dataElement ref="TD.J3B.DE02"/>
       <trace:dataElement ref="TD.J3B.DE05"/>
     </extensionElements>

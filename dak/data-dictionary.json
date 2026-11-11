@@ -97,22 +97,22 @@
       ],
       "requirements": ["STT-PAY-001", "STT-PAY-002", "STT-PAY-003", "STT-PAY-005", "STT-CWT-001"],
       "realisedBy": [
-        "StructureDefinition/TrustDemoThPatient",
-        "StructureDefinition/TrustDemoThImmunization",
-        "Patient/TrustDemoThSomsack",
+        "StructureDefinition/TrustDemoTaifafekiPatient",
+        "StructureDefinition/TrustDemoTaifafekiImmunization",
+        "Patient/TrustDemoTaifafekiSomsack",
         "Immunization/TrustDemoJ1HepB",
         "Immunization/TrustDemoJ1Bcg"
       ],
       "elements": [
-        {"code": "DE01", "path": "name", "card": "1..1", "type": "string", "label": "Name", "definition": "The child's name as the birth hospital records it.", "maps": ["TrustDemoThPatient: Patient.name", "DVCMinPreQual.n"]},
-        {"code": "DE02", "path": "dateOfBirth", "card": "1..1", "type": "date", "label": "Date of birth", "definition": "The child's date of birth.", "maps": ["TrustDemoThPatient: Patient.birthDate", "DVCMinPreQual.dob"]},
+        {"code": "DE01", "path": "name", "card": "1..1", "type": "string", "label": "Name", "definition": "The child's name as the birth hospital records it.", "maps": ["TrustDemoTaifafekiPatient: Patient.name", "DVCMinPreQual.n"]},
+        {"code": "DE02", "path": "dateOfBirth", "card": "1..1", "type": "date", "label": "Date of birth", "definition": "The child's date of birth.", "maps": ["TrustDemoTaifafekiPatient: Patient.birthDate", "DVCMinPreQual.dob"]},
         {"code": "DE03", "path": "guardianName", "card": "0..1", "type": "string", "label": "Parent or guardian name", "definition": "The parent or guardian, for a subject with no identity document such as a newborn (STT-PAY-005).", "maps": ["DVCMinPreQual.gn"]},
-        {"code": "DE04", "path": "hospitalNumber", "card": "1..1", "type": "Identifier", "label": "Hospital number", "definition": "The birth hospital's own identifier for the child. It is not carried in the DVC.", "maps": ["TrustDemoThPatient: Patient.identifier[hn]"]},
-        {"code": "DE05", "path": "vaccineProduct", "card": "1..1", "type": "Coding", "label": "Vaccine product", "definition": "The product given, in the issuer's product coding (illustrative PreQual-style codes).", "binding": {"valueSet": "TrustDemoVaccineProducts", "strength": "required"}, "maps": ["TrustDemoThImmunization: Immunization.vaccineCode.coding[product]", "DVCMinPreQual.v.vp"]},
-        {"code": "DE06", "path": "dateOfVaccination", "card": "1..1", "type": "date", "label": "Date of vaccination", "definition": "The date the dose was given. The hospital record holds the time as well; the DVC carries the date.", "maps": ["TrustDemoThImmunization: Immunization.occurrenceDateTime", "DVCMinPreQual.v.dt"]},
-        {"code": "DE07", "path": "batchNumber", "card": "1..1", "type": "string", "label": "Batch number", "definition": "The batch (lot) of the vaccine given.", "maps": ["TrustDemoThImmunization: Immunization.lotNumber", "DVCMinPreQual.v.bo"]},
-        {"code": "DE08", "path": "doseNumber", "card": "1..1", "type": "string", "label": "Dose number", "definition": "The dose's number in its series. Recorded by the hospital; the minimal DVC payload does not carry it.", "maps": ["TrustDemoThImmunization: Immunization.protocolApplied.doseNumber"]},
-        {"code": "DE09", "path": "clinician", "card": "0..1", "type": "string", "label": "Supervising clinician", "definition": "The clinician who gave or supervised the dose.", "maps": ["TrustDemoThImmunization: Immunization.performer.actor", "DVCMinPreQual.v.cn"]},
+        {"code": "DE04", "path": "hospitalNumber", "card": "1..1", "type": "Identifier", "label": "Hospital number", "definition": "The birth hospital's own identifier for the child. It is not carried in the DVC.", "maps": ["TrustDemoTaifafekiPatient: Patient.identifier[hn]"]},
+        {"code": "DE05", "path": "vaccineProduct", "card": "1..1", "type": "Coding", "label": "Vaccine product", "definition": "The product given, in the issuer's product coding (illustrative PreQual-style codes).", "binding": {"valueSet": "TrustDemoVaccineProducts", "strength": "required"}, "maps": ["TrustDemoTaifafekiImmunization: Immunization.vaccineCode.coding[product]", "DVCMinPreQual.v.vp"]},
+        {"code": "DE06", "path": "dateOfVaccination", "card": "1..1", "type": "date", "label": "Date of vaccination", "definition": "The date the dose was given. The hospital record holds the time as well; the DVC carries the date.", "maps": ["TrustDemoTaifafekiImmunization: Immunization.occurrenceDateTime", "DVCMinPreQual.v.dt"]},
+        {"code": "DE07", "path": "batchNumber", "card": "1..1", "type": "string", "label": "Batch number", "definition": "The batch (lot) of the vaccine given.", "maps": ["TrustDemoTaifafekiImmunization: Immunization.lotNumber", "DVCMinPreQual.v.bo"]},
+        {"code": "DE08", "path": "doseNumber", "card": "1..1", "type": "string", "label": "Dose number", "definition": "The dose's number in its series. Recorded by the hospital; the minimal DVC payload does not carry it.", "maps": ["TrustDemoTaifafekiImmunization: Immunization.protocolApplied.doseNumber"]},
+        {"code": "DE09", "path": "clinician", "card": "0..1", "type": "string", "label": "Supervising clinician", "definition": "The clinician who gave or supervised the dose.", "maps": ["TrustDemoTaifafekiImmunization: Immunization.performer.actor", "DVCMinPreQual.v.cn"]},
         {"code": "DE10", "path": "issuerCountry", "card": "1..1", "type": "code", "label": "Issuing country", "definition": "The trust-network participant whose key signs the DVC (J1: XXR).", "maps": ["CWT claim 1 (iss)"]},
         {"code": "DE11", "path": "issuedAt", "card": "1..1", "type": "dateTime", "label": "Issued at", "definition": "When the DVC was signed.", "maps": ["CWT claim 6 (iat)"]},
         {"code": "DE12", "path": "expiresAt", "card": "0..1", "type": "dateTime", "label": "Expires at", "definition": "When the DVC stops verifying, where the issuer sets an expiry.", "maps": ["CWT claim 4 (exp)"]},
@@ -130,32 +130,32 @@
       "requirements": ["STT-VER-011", "STT-PAY-005"],
       "realisedBy": [
         "Questionnaire/TrustDemoHouseholdRegistration",
-        "StructureDefinition/TrustDemoLaoRegistration",
-        "StructureDefinition/TrustDemoLaoHousehold",
-        "StructureDefinition/TrustDemoLaoPatient",
-        "StructureDefinition/TrustDemoLaoReportedImmunization",
+        "StructureDefinition/TrustDemoOnesaRegistration",
+        "StructureDefinition/TrustDemoOnesaHousehold",
+        "StructureDefinition/TrustDemoOnesaPatient",
+        "StructureDefinition/TrustDemoOnesaReportedImmunization",
         "QuestionnaireResponse/TrustDemoJ2Registration",
         "Group/TrustDemoHousehold",
         "Immunization/TrustDemoJ2HepBReported",
         "Immunization/TrustDemoJ2BcgReported"
       ],
       "elements": [
-        {"code": "DE01", "path": "householdId", "card": "1..1", "type": "Identifier", "label": "Household id", "definition": "The household on the CHW's roster that the child joins.", "maps": ["TrustDemoHouseholdRegistration item household", "TrustDemoLaoHousehold: Group.identifier[household]"]},
-        {"code": "DE02", "path": "givenName", "card": "1..1", "type": "string", "label": "Child's given name", "definition": "The child's given name.", "maps": ["TrustDemoHouseholdRegistration item given", "TrustDemoLaoPatient: Patient.name.given"]},
-        {"code": "DE03", "path": "familyName", "card": "1..1", "type": "string", "label": "Child's family name", "definition": "The child's family name.", "maps": ["TrustDemoHouseholdRegistration item family", "TrustDemoLaoPatient: Patient.name.family"]},
-        {"code": "DE04", "path": "birthDate", "card": "1..1", "type": "date", "label": "Date of birth", "definition": "The child's date of birth.", "maps": ["TrustDemoHouseholdRegistration item birthDate", "TrustDemoLaoPatient: Patient.birthDate"]},
+        {"code": "DE01", "path": "householdId", "card": "1..1", "type": "Identifier", "label": "Household id", "definition": "The household on the CHW's roster that the child joins.", "maps": ["TrustDemoHouseholdRegistration item household", "TrustDemoOnesaHousehold: Group.identifier[household]"]},
+        {"code": "DE02", "path": "givenName", "card": "1..1", "type": "string", "label": "Child's given name", "definition": "The child's given name.", "maps": ["TrustDemoHouseholdRegistration item given", "TrustDemoOnesaPatient: Patient.name.given"]},
+        {"code": "DE03", "path": "familyName", "card": "1..1", "type": "string", "label": "Child's family name", "definition": "The child's family name.", "maps": ["TrustDemoHouseholdRegistration item family", "TrustDemoOnesaPatient: Patient.name.family"]},
+        {"code": "DE04", "path": "birthDate", "card": "1..1", "type": "date", "label": "Date of birth", "definition": "The child's date of birth.", "maps": ["TrustDemoHouseholdRegistration item birthDate", "TrustDemoOnesaPatient: Patient.birthDate"]},
         {"code": "DE05", "path": "birthCountry", "card": "0..1", "type": "string", "label": "Country of birth", "definition": "The country the child was born in, when abroad.", "maps": ["TrustDemoHouseholdRegistration item birthCountry"]},
         {"code": "DE06", "path": "foreignCardsHeld", "card": "0..1", "type": "boolean", "label": "Foreign vaccination cards held", "definition": "Whether the family holds vaccination cards from abroad.", "maps": ["TrustDemoHouseholdRegistration item foreignCards"]},
-        {"code": "DE07", "path": "temporaryId", "card": "0..1", "type": "Identifier", "label": "Temporary id", "definition": "The id the child carries until civil registration catches up.", "maps": ["TrustDemoLaoPatient: Patient.identifier[temporaryId]"]},
-        {"code": "DE08", "path": "registeredBy", "card": "1..1", "type": "Reference(Practitioner)", "label": "Registered by", "definition": "The community health worker who registered the child.", "maps": ["TrustDemoLaoRegistration: QuestionnaireResponse.author"]},
-        {"code": "DE09", "path": "registeredAt", "card": "1..1", "type": "dateTime", "label": "Registered at", "definition": "When the registration was captured, on the phone, possibly offline.", "maps": ["TrustDemoLaoRegistration: QuestionnaireResponse.authored"]},
-        {"code": "DE10", "path": "informant", "card": "0..1", "type": "Reference(RelatedPerson)", "label": "Informant", "definition": "The family member who gave the answers.", "maps": ["TrustDemoLaoRegistration: QuestionnaireResponse.source"]},
-        {"code": "DE11", "path": "reportedDose", "card": "0..*", "type": "BackboneElement", "label": "Dose read from a foreign card", "definition": "One dose read from a foreign DVC with the unverified triage read (STT-VER-011), saved as reported by the family.", "maps": ["TrustDemoLaoReportedImmunization: Immunization"]},
-        {"code": "DE12", "path": "reportedDose.vaccineProduct", "card": "1..1", "type": "Coding", "label": "Vaccine product (as read)", "definition": "The issuer's product code as read from the card; no national code is added yet.", "binding": {"valueSet": "TrustDemoVaccineProducts", "strength": "required"}, "maps": ["TrustDemoLaoReportedImmunization: Immunization.vaccineCode"]},
-        {"code": "DE13", "path": "reportedDose.dateOfVaccination", "card": "1..1", "type": "date", "label": "Date of vaccination (as read)", "definition": "The date of vaccination as read from the card.", "maps": ["TrustDemoLaoReportedImmunization: Immunization.occurrenceDateTime"]},
-        {"code": "DE14", "path": "reportedDose.batchNumber", "card": "0..1", "type": "string", "label": "Batch number (as read)", "definition": "The batch number as read from the card.", "maps": ["TrustDemoLaoReportedImmunization: Immunization.lotNumber"]},
-        {"code": "DE15", "path": "reportedDose.reportedBy", "card": "1..1", "type": "Reference(RelatedPerson)", "label": "Reported by", "definition": "The family member who showed the card: the dose's information source.", "maps": ["TrustDemoLaoReportedImmunization: Immunization.informationSource"]},
-        {"code": "DE16", "path": "reportedDose.outcome", "card": "1..1", "type": "code", "label": "Record outcome", "definition": "Always reported-unverified for a triage read (decision table TD.DT.01); recorded as primarySource false with a note.", "binding": {"valueSet": "TrustDemoDvcOutcomeVS", "strength": "required"}, "maps": ["TrustDemoLaoReportedImmunization: Immunization.primarySource = false", "TrustDemoLaoReportedImmunization: Immunization.note"]}
+        {"code": "DE07", "path": "temporaryId", "card": "0..1", "type": "Identifier", "label": "Temporary id", "definition": "The id the child carries until civil registration catches up.", "maps": ["TrustDemoOnesaPatient: Patient.identifier[temporaryId]"]},
+        {"code": "DE08", "path": "registeredBy", "card": "1..1", "type": "Reference(Practitioner)", "label": "Registered by", "definition": "The community health worker who registered the child.", "maps": ["TrustDemoOnesaRegistration: QuestionnaireResponse.author"]},
+        {"code": "DE09", "path": "registeredAt", "card": "1..1", "type": "dateTime", "label": "Registered at", "definition": "When the registration was captured, on the phone, possibly offline.", "maps": ["TrustDemoOnesaRegistration: QuestionnaireResponse.authored"]},
+        {"code": "DE10", "path": "informant", "card": "0..1", "type": "Reference(RelatedPerson)", "label": "Informant", "definition": "The family member who gave the answers.", "maps": ["TrustDemoOnesaRegistration: QuestionnaireResponse.source"]},
+        {"code": "DE11", "path": "reportedDose", "card": "0..*", "type": "BackboneElement", "label": "Dose read from a foreign card", "definition": "One dose read from a foreign DVC with the unverified triage read (STT-VER-011), saved as reported by the family.", "maps": ["TrustDemoOnesaReportedImmunization: Immunization"]},
+        {"code": "DE12", "path": "reportedDose.vaccineProduct", "card": "1..1", "type": "Coding", "label": "Vaccine product (as read)", "definition": "The issuer's product code as read from the card; no national code is added yet.", "binding": {"valueSet": "TrustDemoVaccineProducts", "strength": "required"}, "maps": ["TrustDemoOnesaReportedImmunization: Immunization.vaccineCode"]},
+        {"code": "DE13", "path": "reportedDose.dateOfVaccination", "card": "1..1", "type": "date", "label": "Date of vaccination (as read)", "definition": "The date of vaccination as read from the card.", "maps": ["TrustDemoOnesaReportedImmunization: Immunization.occurrenceDateTime"]},
+        {"code": "DE14", "path": "reportedDose.batchNumber", "card": "0..1", "type": "string", "label": "Batch number (as read)", "definition": "The batch number as read from the card.", "maps": ["TrustDemoOnesaReportedImmunization: Immunization.lotNumber"]},
+        {"code": "DE15", "path": "reportedDose.reportedBy", "card": "1..1", "type": "Reference(RelatedPerson)", "label": "Reported by", "definition": "The family member who showed the card: the dose's information source.", "maps": ["TrustDemoOnesaReportedImmunization: Immunization.informationSource"]},
+        {"code": "DE16", "path": "reportedDose.outcome", "card": "1..1", "type": "code", "label": "Record outcome", "definition": "Always reported-unverified for a triage read (decision table TD.DT.01); recorded as primarySource false with a note.", "binding": {"valueSet": "TrustDemoDvcOutcomeVS", "strength": "required"}, "maps": ["TrustDemoOnesaReportedImmunization: Immunization.primarySource = false", "TrustDemoOnesaReportedImmunization: Immunization.note"]}
       ]
     },
     {
@@ -169,17 +169,17 @@
       ],
       "requirements": ["STT-VER-011"],
       "realisedBy": [
-        "StructureDefinition/TrustDemoLaoReferral",
+        "StructureDefinition/TrustDemoOnesaReferral",
         "ServiceRequest/TrustDemoJ2Referral"
       ],
       "elements": [
-        {"code": "DE01", "path": "child", "card": "1..1", "type": "Reference(Patient)", "label": "Child", "definition": "The child referred.", "maps": ["TrustDemoLaoReferral: ServiceRequest.subject"]},
-        {"code": "DE02", "path": "referredBy", "card": "1..1", "type": "Reference(Practitioner)", "label": "Referred by", "definition": "The community health worker who made the referral.", "maps": ["TrustDemoLaoReferral: ServiceRequest.requester"]},
-        {"code": "DE03", "path": "referredTo", "card": "1..1", "type": "Reference(Organization)", "label": "Referred to", "definition": "The clinic that will verify the cards.", "maps": ["TrustDemoLaoReferral: ServiceRequest.performer"]},
-        {"code": "DE04", "path": "referredAt", "card": "1..1", "type": "dateTime", "label": "Referred at", "definition": "When the referral was made.", "maps": ["TrustDemoLaoReferral: ServiceRequest.authoredOn"]},
-        {"code": "DE05", "path": "reason", "card": "1..1", "type": "string", "label": "Reason", "definition": "Why the child is referred: unverified foreign vaccination cards.", "maps": ["TrustDemoLaoReferral: ServiceRequest.reason.concept.text"]},
-        {"code": "DE06", "path": "dosesToVerify", "card": "1..*", "type": "Reference(Immunization)", "label": "Doses to verify", "definition": "The reported doses the clinic is asked to verify.", "maps": ["TrustDemoLaoReferral: ServiceRequest.supportingInfo"]},
-        {"code": "DE07", "path": "status", "card": "1..1", "type": "code", "label": "Referral status", "definition": "Active until the clinic records an outcome for every dose it lists, then completed (indicator TD.IND.03).", "binding": {"valueSet": "http://hl7.org/fhir/ValueSet/request-status", "strength": "required"}, "maps": ["TrustDemoLaoReferral: ServiceRequest.status"]}
+        {"code": "DE01", "path": "child", "card": "1..1", "type": "Reference(Patient)", "label": "Child", "definition": "The child referred.", "maps": ["TrustDemoOnesaReferral: ServiceRequest.subject"]},
+        {"code": "DE02", "path": "referredBy", "card": "1..1", "type": "Reference(Practitioner)", "label": "Referred by", "definition": "The community health worker who made the referral.", "maps": ["TrustDemoOnesaReferral: ServiceRequest.requester"]},
+        {"code": "DE03", "path": "referredTo", "card": "1..1", "type": "Reference(Organization)", "label": "Referred to", "definition": "The clinic that will verify the cards.", "maps": ["TrustDemoOnesaReferral: ServiceRequest.performer"]},
+        {"code": "DE04", "path": "referredAt", "card": "1..1", "type": "dateTime", "label": "Referred at", "definition": "When the referral was made.", "maps": ["TrustDemoOnesaReferral: ServiceRequest.authoredOn"]},
+        {"code": "DE05", "path": "reason", "card": "1..1", "type": "string", "label": "Reason", "definition": "Why the child is referred: unverified foreign vaccination cards.", "maps": ["TrustDemoOnesaReferral: ServiceRequest.reason.concept.text"]},
+        {"code": "DE06", "path": "dosesToVerify", "card": "1..*", "type": "Reference(Immunization)", "label": "Doses to verify", "definition": "The reported doses the clinic is asked to verify.", "maps": ["TrustDemoOnesaReferral: ServiceRequest.supportingInfo"]},
+        {"code": "DE07", "path": "status", "card": "1..1", "type": "code", "label": "Referral status", "definition": "Active until the clinic records an outcome for every dose it lists, then completed (indicator TD.IND.03).", "binding": {"valueSet": "http://hl7.org/fhir/ValueSet/request-status", "strength": "required"}, "maps": ["TrustDemoOnesaReferral: ServiceRequest.status"]}
       ]
     },
     {
@@ -192,25 +192,25 @@
       ],
       "requirements": ["STT-VER-001", "STT-VER-006", "STT-VER-008"],
       "realisedBy": [
-        "StructureDefinition/TrustDemoLaoDvcVerification",
-        "StructureDefinition/TrustDemoLaoImmunization",
+        "StructureDefinition/TrustDemoOnesaDvcVerification",
+        "StructureDefinition/TrustDemoOnesaImmunization",
         "Provenance/TrustDemoJ3Verification",
         "Immunization/TrustDemoJ3HepB",
         "Immunization/TrustDemoJ3Bcg"
       ],
       "elements": [
-        {"code": "DE01", "path": "keyId", "card": "1..1", "type": "string", "label": "Key identifier (kid)", "definition": "The kid of the DVC verified, which names the signer's certificate.", "maps": ["TrustDemoLaoDvcVerification: Provenance.entity.what.display"]},
-        {"code": "DE02", "path": "issuerCountry", "card": "1..1", "type": "code", "label": "Issuing country", "definition": "The participant that signed the DVC (CWT iss).", "maps": ["TrustDemoLaoDvcVerification: Provenance.entity.what.display"]},
-        {"code": "DE03", "path": "verifiedAt", "card": "1..1", "type": "dateTime", "label": "Verified at", "definition": "When the verification ran.", "maps": ["TrustDemoLaoDvcVerification: Provenance.recorded"]},
-        {"code": "DE04", "path": "verifier", "card": "1..1", "type": "Reference(Device)", "label": "Verifier", "definition": "The system that verified the DVC.", "maps": ["TrustDemoLaoDvcVerification: Provenance.agent (verifier)"]},
-        {"code": "DE05", "path": "result", "card": "1..1", "type": "code", "label": "Verification result", "definition": "The library's typed result (STT-VER-008).", "binding": {"valueSet": "TrustDemoVerificationResultVS", "strength": "required"}, "maps": ["TrustDemoLaoDvcVerification: Provenance.activity.text"]},
+        {"code": "DE01", "path": "keyId", "card": "1..1", "type": "string", "label": "Key identifier (kid)", "definition": "The kid of the DVC verified, which names the signer's certificate.", "maps": ["TrustDemoOnesaDvcVerification: Provenance.entity.what.display"]},
+        {"code": "DE02", "path": "issuerCountry", "card": "1..1", "type": "code", "label": "Issuing country", "definition": "The participant that signed the DVC (CWT iss).", "maps": ["TrustDemoOnesaDvcVerification: Provenance.entity.what.display"]},
+        {"code": "DE03", "path": "verifiedAt", "card": "1..1", "type": "dateTime", "label": "Verified at", "definition": "When the verification ran.", "maps": ["TrustDemoOnesaDvcVerification: Provenance.recorded"]},
+        {"code": "DE04", "path": "verifier", "card": "1..1", "type": "Reference(Device)", "label": "Verifier", "definition": "The system that verified the DVC.", "maps": ["TrustDemoOnesaDvcVerification: Provenance.agent (verifier)"]},
+        {"code": "DE05", "path": "result", "card": "1..1", "type": "code", "label": "Verification result", "definition": "The library's typed result (STT-VER-008).", "binding": {"valueSet": "TrustDemoVerificationResultVS", "strength": "required"}, "maps": ["TrustDemoOnesaDvcVerification: Provenance.activity.text"]},
         {"code": "DE06", "path": "failedStep", "card": "0..1", "type": "code", "label": "Failed step", "definition": "The step at which verification stopped, when it failed.", "binding": {"valueSet": "TrustDemoVerificationStepVS", "strength": "required"}, "maps": ["not yet realised in the examples (J3's DVCs verify)"]},
         {"code": "DE07", "path": "failureReason", "card": "0..1", "type": "code", "label": "Failure reason", "definition": "Why verification stopped, when it failed: the input of decision table TD.DT.01.", "binding": {"valueSet": "TrustDemoVerificationFailureReasonVS", "strength": "required"}, "maps": ["not yet realised in the examples (J3's DVCs verify)"]},
         {"code": "DE08", "path": "trustListRefreshedAt", "card": "0..1", "type": "dateTime", "label": "Trust list refreshed at", "definition": "When the verifier last refreshed its cached copy of the trust list; a signer added since then fails with KidNotFound (STT-VER-006).", "maps": ["not yet realised in the examples"]},
-        {"code": "DE09", "path": "outcome", "card": "1..1", "type": "code", "label": "Record outcome", "definition": "What the DVC becomes in the record (decision table TD.DT.01).", "binding": {"valueSet": "TrustDemoDvcOutcomeVS", "strength": "required"}, "maps": ["TrustDemoLaoImmunization: Immunization.primarySource = true (verified)", "TrustDemoLaoDvcVerification: Provenance"]},
-        {"code": "DE10", "path": "importedDose", "card": "0..1", "type": "Reference(Immunization)", "label": "Imported dose", "definition": "The dose recorded from the verified DVC.", "maps": ["TrustDemoLaoDvcVerification: Provenance.target"]},
-        {"code": "DE11", "path": "replacesReportedDose", "card": "0..*", "type": "Reference(Immunization)", "label": "Reported dose replaced", "definition": "The reported dose the verified one replaces.", "maps": ["TrustDemoLaoDvcVerification: Provenance.entity (role removal)"]},
-        {"code": "DE12", "path": "policy", "card": "1..1", "type": "uri", "label": "Trust policy", "definition": "The trust framework the DVC was verified under.", "maps": ["TrustDemoLaoDvcVerification: Provenance.policy"]}
+        {"code": "DE09", "path": "outcome", "card": "1..1", "type": "code", "label": "Record outcome", "definition": "What the DVC becomes in the record (decision table TD.DT.01).", "binding": {"valueSet": "TrustDemoDvcOutcomeVS", "strength": "required"}, "maps": ["TrustDemoOnesaImmunization: Immunization.primarySource = true (verified)", "TrustDemoOnesaDvcVerification: Provenance"]},
+        {"code": "DE10", "path": "importedDose", "card": "0..1", "type": "Reference(Immunization)", "label": "Imported dose", "definition": "The dose recorded from the verified DVC.", "maps": ["TrustDemoOnesaDvcVerification: Provenance.target"]},
+        {"code": "DE11", "path": "replacesReportedDose", "card": "0..*", "type": "Reference(Immunization)", "label": "Reported dose replaced", "definition": "The reported dose the verified one replaces.", "maps": ["TrustDemoOnesaDvcVerification: Provenance.entity (role removal)"]},
+        {"code": "DE12", "path": "policy", "card": "1..1", "type": "uri", "label": "Trust policy", "definition": "The trust framework the DVC was verified under.", "maps": ["TrustDemoOnesaDvcVerification: Provenance.policy"]}
       ]
     },
     {
@@ -223,21 +223,21 @@
       ],
       "requirements": ["STD-SEM-001", "STD-SCH-001"],
       "realisedBy": [
-        "StructureDefinition/TrustDemoLaoImmunization",
-        "ConceptMap/TrustDemoProductToLaoEpi",
+        "StructureDefinition/TrustDemoOnesaImmunization",
+        "ConceptMap/TrustDemoProductToOnesaEpi",
         "Provenance/TrustDemoJ3Adjudication",
-        "PlanDefinition/TrustDemoLaoInfantSchedule",
+        "PlanDefinition/TrustDemoOnesaInfantSchedule",
         "ImmunizationRecommendation/TrustDemoJ3Recommendation",
         "Task/TrustDemoJ3Reminder"
       ],
       "elements": [
-        {"code": "DE01", "path": "productCode", "card": "1..1", "type": "Coding", "label": "Issuer's product code", "definition": "The vaccine code as the issuer signed it; kept, never replaced (STD-SEM-001).", "binding": {"valueSet": "TrustDemoVaccineProducts", "strength": "required"}, "maps": ["TrustDemoLaoImmunization: Immunization.vaccineCode.coding[product]"]},
-        {"code": "DE02", "path": "scheduleCode", "card": "0..1", "type": "Coding", "label": "National schedule code", "definition": "The national schedule's antigen-and-dose code, added beside the product code. Absent for an unmapped dose, which the TrustDemoLaoImmunization profile (laoEpi 1..1) does not yet represent.", "binding": {"valueSet": "TrustDemoLaoEpiScheduleCodes", "strength": "required"}, "maps": ["TrustDemoLaoImmunization: Immunization.vaccineCode.coding[laoEpi]"]},
-        {"code": "DE03", "path": "mappingBasis", "card": "1..1", "type": "code", "label": "Mapping basis", "definition": "How the schedule code was found (decision table TD.DT.02).", "binding": {"valueSet": "TrustDemoCodeMappingBasisVS", "strength": "required"}, "maps": ["TrustDemoProductToLaoEpi: ConceptMap.group.element (concept-map)", "Provenance (clinician-confirmed), as TrustDemoJ3Adjudication"]},
+        {"code": "DE01", "path": "productCode", "card": "1..1", "type": "Coding", "label": "Issuer's product code", "definition": "The vaccine code as the issuer signed it; kept, never replaced (STD-SEM-001).", "binding": {"valueSet": "TrustDemoVaccineProducts", "strength": "required"}, "maps": ["TrustDemoOnesaImmunization: Immunization.vaccineCode.coding[product]"]},
+        {"code": "DE02", "path": "scheduleCode", "card": "0..1", "type": "Coding", "label": "National schedule code", "definition": "The national schedule's antigen-and-dose code, added beside the product code. Absent for an unmapped dose, which the TrustDemoOnesaImmunization profile (onesaEpi 1..1) does not yet represent.", "binding": {"valueSet": "TrustDemoOnesaEpiScheduleCodes", "strength": "required"}, "maps": ["TrustDemoOnesaImmunization: Immunization.vaccineCode.coding[onesaEpi]"]},
+        {"code": "DE03", "path": "mappingBasis", "card": "1..1", "type": "code", "label": "Mapping basis", "definition": "How the schedule code was found (decision table TD.DT.02).", "binding": {"valueSet": "TrustDemoCodeMappingBasisVS", "strength": "required"}, "maps": ["TrustDemoProductToOnesaEpi: ConceptMap.group.element (concept-map)", "Provenance (clinician-confirmed), as TrustDemoJ3Adjudication"]},
         {"code": "DE04", "path": "confirmedBy", "card": "0..1", "type": "Reference(Practitioner)", "label": "Confirmed by", "definition": "The clinician who confirmed an equivalent the map did not cover.", "maps": ["Provenance.agent (attester), as TrustDemoJ3Adjudication"]},
         {"code": "DE05", "path": "countsTowardSchedule", "card": "1..1", "type": "boolean", "label": "Counts toward the schedule", "definition": "Whether the schedule counts the dose (decision table TD.DT.03): only doses from a primary source with a national schedule code.", "maps": ["ImmunizationRecommendation.recommendation.supportingImmunization"]},
         {"code": "DE06", "path": "dueDose", "card": "0..*", "type": "BackboneElement", "label": "Dose due", "definition": "A dose of the national schedule the evaluation finds due (decision table TD.DT.04).", "maps": ["ImmunizationRecommendation.recommendation, as TrustDemoJ3Recommendation"]},
-        {"code": "DE07", "path": "dueDose.scheduleCode", "card": "1..1", "type": "Coding", "label": "Schedule dose", "definition": "The schedule's antigen-and-dose code of the dose due.", "binding": {"valueSet": "TrustDemoLaoEpiScheduleCodes", "strength": "required"}, "maps": ["ImmunizationRecommendation.recommendation.vaccineCode"]},
+        {"code": "DE07", "path": "dueDose.scheduleCode", "card": "1..1", "type": "Coding", "label": "Schedule dose", "definition": "The schedule's antigen-and-dose code of the dose due.", "binding": {"valueSet": "TrustDemoOnesaEpiScheduleCodes", "strength": "required"}, "maps": ["ImmunizationRecommendation.recommendation.vaccineCode"]},
         {"code": "DE08", "path": "dueDose.forecast", "card": "1..1", "type": "code", "label": "Forecast status", "definition": "The forecast for the dose.", "binding": {"valueSet": "http://hl7.org/fhir/ValueSet/immunization-recommendation-status", "strength": "example"}, "maps": ["ImmunizationRecommendation.recommendation.forecastStatus"]},
         {"code": "DE09", "path": "dueDose.dueDate", "card": "1..1", "type": "date", "label": "Due date", "definition": "The child's date of birth plus the schedule action's timing age.", "maps": ["ImmunizationRecommendation.recommendation.dateCriterion (LOINC 30980-7)"]},
         {"code": "DE10", "path": "reminder", "card": "0..1", "type": "Reference(Task)", "label": "Reminder", "definition": "The reminder created for the next visit.", "maps": ["Task, as TrustDemoJ3Reminder"]}
@@ -278,21 +278,21 @@
       ],
       "requirements": ["STD-ACC-001", "STT-VHL-005"],
       "realisedBy": [
-        "StructureDefinition/TrustDemoLaoVhlAccess",
+        "StructureDefinition/TrustDemoOnesaVhlAccess",
         "AuditEvent/TrustDemoJ41Access",
         "AuditEvent/TrustDemoJ41WrongPasscode"
       ],
       "elements": [
-        {"code": "DE01", "path": "requestedAt", "card": "1..1", "type": "dateTime", "label": "Requested at", "definition": "When the request arrived.", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.recorded"]},
-        {"code": "DE02", "path": "requester", "card": "1..1", "type": "Reference(Device)", "label": "Requester", "definition": "The receiving system abroad that asked for the manifest.", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.agent (IRCP).who"]},
-        {"code": "DE03", "path": "requesterAddress", "card": "0..1", "type": "string", "label": "Requester network address", "definition": "Where the request came from.", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.agent.networkString"]},
-        {"code": "DE04", "path": "custodian", "card": "1..1", "type": "Reference(Device)", "label": "Custodian", "definition": "The home-country gateway that answered and logged the request.", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.agent (CST).who", "TrustDemoLaoVhlAccess: AuditEvent.source.observer"]},
-        {"code": "DE05", "path": "patient", "card": "1..1", "type": "Reference(Patient)", "label": "Patient", "definition": "Whose record was asked for.", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.entity (role Patient)"]},
-        {"code": "DE06", "path": "released", "card": "1..1", "type": "boolean", "label": "Released", "definition": "Whether the manifest was released (decision table TD.DT.05).", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.outcome.code"]},
-        {"code": "DE07", "path": "outcome", "card": "1..1", "type": "code", "label": "Audit outcome", "definition": "0 when released; 4 (minor failure) when refused.", "binding": {"valueSet": "http://hl7.org/fhir/ValueSet/audit-event-outcome", "strength": "preferred"}, "maps": ["TrustDemoLaoVhlAccess: AuditEvent.outcome.code"]},
-        {"code": "DE08", "path": "refusalReason", "card": "0..1", "type": "code", "label": "Refusal reason", "definition": "Why nothing was released, when refused.", "binding": {"valueSet": "TrustDemoVhlRefusalReasonVS", "strength": "required"}, "maps": ["TrustDemoLaoVhlAccess: AuditEvent.outcome.detail"]},
-        {"code": "DE09", "path": "consent", "card": "0..1", "type": "Reference(Consent)", "label": "Consent", "definition": "The holder's consent the request was checked against.", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.entity"]},
-        {"code": "DE10", "path": "document", "card": "0..1", "type": "Reference(Bundle)", "label": "Document released", "definition": "The summary released, when released.", "maps": ["TrustDemoLaoVhlAccess: AuditEvent.entity"]}
+        {"code": "DE01", "path": "requestedAt", "card": "1..1", "type": "dateTime", "label": "Requested at", "definition": "When the request arrived.", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.recorded"]},
+        {"code": "DE02", "path": "requester", "card": "1..1", "type": "Reference(Device)", "label": "Requester", "definition": "The receiving system abroad that asked for the manifest.", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.agent (IRCP).who"]},
+        {"code": "DE03", "path": "requesterAddress", "card": "0..1", "type": "string", "label": "Requester network address", "definition": "Where the request came from.", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.agent.networkString"]},
+        {"code": "DE04", "path": "custodian", "card": "1..1", "type": "Reference(Device)", "label": "Custodian", "definition": "The home-country gateway that answered and logged the request.", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.agent (CST).who", "TrustDemoOnesaVhlAccess: AuditEvent.source.observer"]},
+        {"code": "DE05", "path": "patient", "card": "1..1", "type": "Reference(Patient)", "label": "Patient", "definition": "Whose record was asked for.", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.entity (role Patient)"]},
+        {"code": "DE06", "path": "released", "card": "1..1", "type": "boolean", "label": "Released", "definition": "Whether the manifest was released (decision table TD.DT.05).", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.outcome.code"]},
+        {"code": "DE07", "path": "outcome", "card": "1..1", "type": "code", "label": "Audit outcome", "definition": "0 when released; 4 (minor failure) when refused.", "binding": {"valueSet": "http://hl7.org/fhir/ValueSet/audit-event-outcome", "strength": "preferred"}, "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.outcome.code"]},
+        {"code": "DE08", "path": "refusalReason", "card": "0..1", "type": "code", "label": "Refusal reason", "definition": "Why nothing was released, when refused.", "binding": {"valueSet": "TrustDemoVhlRefusalReasonVS", "strength": "required"}, "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.outcome.detail"]},
+        {"code": "DE09", "path": "consent", "card": "0..1", "type": "Reference(Consent)", "label": "Consent", "definition": "The holder's consent the request was checked against.", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.entity"]},
+        {"code": "DE10", "path": "document", "card": "0..1", "type": "Reference(Bundle)", "label": "Document released", "definition": "The summary released, when released.", "maps": ["TrustDemoOnesaVhlAccess: AuditEvent.entity"]}
       ]
     }
   ]

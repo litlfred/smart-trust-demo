@@ -1,8 +1,8 @@
 {
   "id": "chw-app",
-  "title": "CHW app, Lao PDR (Country B)",
+  "title": "CHW app, Onesa (Country B)",
   "kind": "system",
-  "description": "The OHS app on the community health worker's phone in Lao PDR (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust.",
+  "description": "The OHS app on the community health worker's phone in Onesa (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust.",
   "roles": [
     "chw-app"
   ],
@@ -16,14 +16,14 @@
     "playsActor": [
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-receiver"
     ],
-    "country": "Lao PDR",
+    "country": "Onesa",
     "parts": [
       {
-        "id": "la-chw-app",
+        "id": "xxk-chw-app",
         "title": "Smart forms (SDC)",
         "raBlock": "CHW & Community",
         "description": "The registration and referral forms of the CHW app, FHIR Questionnaires filled in with Structured Data Capture, which also read the doses on a paper DVC (J2).",
-        "ig": "StructureDefinition/TrustDemoLaoRegistration"
+        "ig": "StructureDefinition/TrustDemoOnesaRegistration"
       }
     ]
   }

@@ -22,8 +22,8 @@ What it adds, and where each part comes from:
   country's instance of the RA building block it plays, as the RA draws a
   concrete system realizing a component (Table 3.3);
 - each country's instance of every RA building block its parts play
-  ("Provider Systems (Thailand)", "Provider Systems (Lao PDR)"): a
-  Specialization of the RA block, since Thailand and Lao PDR are different
+  ("Provider Systems (Taifafeki)", "Provider Systems (Onesa)"): a
+  Specialization of the RA block, since Taifafeki and Onesa are different
   jurisdictions and neither's systems are the other's;
 - where the two countries meet, as Flow and Triggering relationships between
   their parts: read from the BPMN wherever a sequence flow leads from a task
@@ -248,16 +248,16 @@ for _a in ACTORS.values():
 PART_DESCRIPTION = {_p["id"]: _p["description"] for _a in ACTORS.values() for _p in _a.get("meta", {}).get("parts", [])}
 for _k, _n, _ra, _a, _ig in COMPONENTS:
     assert _a in ACTORS and ACTORS[_a]["kind"] == "system", f"component {_k}: {_a} is not a system actor in scenarios/actors/"
-COUNTRY_OF = {"th": "Thailand", "la": "Lao PDR"}
+COUNTRY_OF = {"xxr": "Taifafeki", "xxk": "Onesa"}
 PARTS = {a["id"]: [c for c in COMPONENTS if c[3] == a["id"]] for a in SYSTEMS}
 SYSTEM_COUNTRY = {a: ACTORS[a]["meta"]["country"] for a, ps in PARTS.items() if ps}
-assert set(SYSTEM_COUNTRY.values()) <= set(COUNTRY_OF.values()), "a system actor's meta.country is Thailand or Lao PDR"
+assert set(SYSTEM_COUNTRY.values()) <= set(COUNTRY_OF.values()), "a system actor's meta.country is Taifafeki or Onesa"
 
 # WHO GDHCN, the trust network beneath both countries (an external actor,
 # with no lane of its own): it serves the trust components that publish a key
 # to it or read its list, and so the journeys of the systems that host them.
 GDHCN = ("gdhcn", "WHO GDHCN trust network (DEV)", "gdhcn-dev-trust-anchor")
-GDHCN_SERVES = ["th-dvc-signer", "th-vhl-viewer", "la-dvc-verifier", "la-vhl-issuer"]
+GDHCN_SERVES = ["xxr-dvc-signer", "xxr-vhl-viewer", "xxk-dvc-verifier", "xxk-vhl-issuer"]
 _HOST = {c[0]: c[3] for c in COMPONENTS}
 GDHCN_JOURNEYS = [j for j in JOURNEYS if any(j in SYSTEM_JOURNEYS[_HOST[k]] for k in GDHCN_SERVES)]
 
@@ -266,9 +266,9 @@ GDHCN_JOURNEYS = [j for j in JOURNEYS if any(j in SYSTEM_JOURNEYS[_HOST[k]] for 
 # holds the private key (two-phase signing). A Node, the HSM, cloud KMS or
 # keystore that holds it, in its own country (meta.country), Serving the part
 # it signs for and the journeys its lane is in that the part's system serves
-# (the issuer-key lane of J4.0 is the Lao portal's key, which no actor plays
+# (the issuer-key lane of J4.0 is the Onesan portal's key, which no actor plays
 # yet). (actor, the part it serves)
-SIGNING_KEYS = [("xxr-dsc-key", "th-dvc-signer")]
+SIGNING_KEYS = [("xxr-dsc-key", "xxr-dvc-signer")]
 KEY_JOURNEYS = {a: [j for j in graph.journeys_of_roles(ACTORS[a]["roles"], PROCESSES) if j in SYSTEM_JOURNEYS[_HOST[k]]] for a, k in SIGNING_KEYS}
 KEY_COUNTRY = {a: ACTORS[a]["meta"]["country"] for a, _k in SIGNING_KEYS}
 for _a, _k in SIGNING_KEYS:
@@ -299,10 +299,10 @@ def _blocks(key):
 TRUST_FRAMEWORK = ("trust-framework", "WHO SMART Trust specifications (HCERT, DVC, VHL)")
 
 # --- Jurisdictions: each country's instance of the RA blocks it uses -------
-# Thailand and Lao PDR are different jurisdictions: a Thai part is an
-# instance of Thailand's provider systems, not of Lao PDR's. So each country
+# Taifafeki and Onesa are different jurisdictions: a Taifafeki part is an
+# instance of Taifafeki's provider systems, not of Onesa's. So each country
 # has its own instance of every RA block its parts play, keyed <cc>-<RA key>
-# (th-ra-provider-systems), which specializes the RA block; the country's
+# (xxr-ra-provider-systems), which specializes the RA block; the country's
 # parts specialize that instance.
 CC = {v: k for k, v in COUNTRY_OF.items()}
 
@@ -316,7 +316,7 @@ def instance_of(component):
     return ikey(SYSTEM_COUNTRY[component[3]], component[2])
 
 
-INSTANCES = sorted({(SYSTEM_COUNTRY[c[3]], c[2]) for c in COMPONENTS}, key=lambda t: (t[0] != "Thailand", ORDER.index(t[1])))
+INSTANCES = sorted({(SYSTEM_COUNTRY[c[3]], c[2]) for c in COMPONENTS}, key=lambda t: (t[0] != "Taifafeki", ORDER.index(t[1])))
 
 # --- Where the countries meet ------------------------------------------------
 # A sequence flow from a task in one system's lane to a task in another's,
@@ -330,14 +330,14 @@ INSTANCES = sorted({(SYSTEM_COUNTRY[c[3]], c[2]) for c in COMPONENTS}, key=lambd
 # otherwise).
 SYSTEM_OF_ROLE = {r: a["id"] for a in SYSTEMS for r in a["roles"]}
 TASK_PART = {
-    ("chiang-rai-provincial-hospital", "hcert-prefix-context"): "th-dvc-signer",
-    ("district-health-center-ehr", "hcert-verify"): "la-dvc-verifier",
-    ("lao-national-portal", "portal-serve-manifest"): "la-info-gateway",
+    ("kesaro-provincial-hospital", "hcert-prefix-context"): "xxr-dvc-signer",
+    ("district-health-center-ehr", "hcert-verify"): "xxk-dvc-verifier",
+    ("onesa-national-portal", "portal-serve-manifest"): "xxk-info-gateway",
 }
 INTERACTION_NAME = {
     ("J4.1", "Task_Open", "Task_Verify"): "VHL QR, shown",
     ("J4.1", "Task_Fetch", "Task_Release"): "ITI-YY5 manifest request, signed",
-    ("J4.1", "Task_Release", "Task_Decrypt"): "manifest; access logged in Lao PDR",
+    ("J4.1", "Task_Release", "Task_Decrypt"): "manifest; access logged in Onesa",
 }
 # Hand-overs between journeys, which no single BPMN draws: the paper DVC J1
 # prints is what the family shows in J2 and J3. (journey, task, journey, task, label)
@@ -454,8 +454,8 @@ def fhir_actor(role_id):
 # --- Elements --------------------------------------------------------------
 
 ELEMENTS = {
-    "country-th": ("Grouping", "Thailand (Country A, XXR)", "The jurisdiction where the newborn is born (J1) and later seen at the point of care (J4.1): its systems and its instances of the RA building blocks.", {}),
-    "country-la": ("Grouping", "Lao PDR (Country B, home)", "The family’s home jurisdiction (J2, J3, J4.0), whose national portal serves their records abroad (J4.1): its systems and its instances of the RA building blocks.", {}),
+    "country-xxr": ("Grouping", "Taifafeki (Country A, XXR)", "The jurisdiction where the newborn is born (J1) and later seen at the point of care (J4.1): its systems and its instances of the RA building blocks.", {}),
+    "country-xxk": ("Grouping", "Onesa (Country B, home)", "The family’s home jurisdiction (J2, J3, J4.0), whose national portal serves their records abroad (J4.1): its systems and its instances of the RA building blocks.", {}),
     "intl": ("Grouping", "International: shared by both", "What the two jurisdictions share, and nothing else: WHO GDHCN and the WHO SMART Trust specifications. Neither country’s systems connect to the other’s except through what the family carries and the VHL fetch.", {}),
     "group-ra": ("Grouping", "Reference architecture (DPI-H RA)", "The DPI-H RA’s own building blocks, by the layers of its Integrated View (Fig. 3.2): generic, no country’s. Each country’s instance of a block specializes it.", {}),
     "group-journeys": ("Grouping", "Journeys (use cases)", "The demonstrator's user journeys, one BPMN process each, in processes/content/.", {}),
@@ -497,7 +497,7 @@ for a, k in SIGNING_KEYS:
                           **concept("actor-" + a), "fhir-actor": fhir_actor(ACTORS[a]["roles"][0])})
 
 ELEMENTS[GDHCN[0]] = ("ApplicationComponent", ACTORS[GDHCN[2]]["title"],
-                      "WHO’s Global Digital Health Certification Network: the trust list of participants’ public keys that lets a Lao clinic believe a Thai certificate, and a Thai clinic a Lao link, with no connection between the two countries' systems. Not a building block of the RA's Integrated View: it sits beneath both countries.",
+                      "WHO’s Global Digital Health Certification Network: the trust list of participants’ public keys that lets an Onesan clinic believe a Taifafeki certificate, and a Taifafeki clinic an Onesan link, with no connection between the two countries' systems. Not a building block of the RA's Integrated View: it sits beneath both countries.",
                       {"scenarioActor": f"scenarios/actors/{GDHCN[2]}.json", "spec": "https://smart.who.int/trust/",
                        **concept("actor-" + GDHCN[2]), "fhir-actor": fhir_actor(ACTORS[GDHCN[2]]["roles"][0]), **_blocks(GDHCN[0])})
 
@@ -548,8 +548,8 @@ for r in ROLES:
     if r["id"] in ROLE_STAKEHOLDER:  # a role not mapped yet is drawn without one
         RELATIONS.append(("Association", "role-" + r["id"], ROLE_STAKEHOLDER[r["id"]]))
 GROUP_MEMBERS = {
-    "country-th": [skey(a) for a, c in SYSTEM_COUNTRY.items() if c == "Thailand"] + [kkey(a) for a, c in KEY_COUNTRY.items() if c == "Thailand"] + [ikey(c, ra) for c, ra in INSTANCES if c == "Thailand"],
-    "country-la": [skey(a) for a, c in SYSTEM_COUNTRY.items() if c == "Lao PDR"] + [kkey(a) for a, c in KEY_COUNTRY.items() if c == "Lao PDR"] + [ikey(c, ra) for c, ra in INSTANCES if c == "Lao PDR"],
+    "country-xxr": [skey(a) for a, c in SYSTEM_COUNTRY.items() if c == "Taifafeki"] + [kkey(a) for a, c in KEY_COUNTRY.items() if c == "Taifafeki"] + [ikey(c, ra) for c, ra in INSTANCES if c == "Taifafeki"],
+    "country-xxk": [skey(a) for a, c in SYSTEM_COUNTRY.items() if c == "Onesa"] + [kkey(a) for a, c in KEY_COUNTRY.items() if c == "Onesa"] + [ikey(c, ra) for c, ra in INSTANCES if c == "Onesa"],
     "intl": ["gdhcn", TRUST_FRAMEWORK[0]],
     "group-ra": [l for l, _bs in RA_LAYERS],
     "group-journeys": [jkey(c) for c in JOURNEYS],
@@ -674,7 +674,7 @@ def journey_view(code):
             shown |= {a, b}
     actors = [a["id"] for a in SYSTEMS if any(c[0] in shown for c in PARTS[a["id"]])]
     bands, parts = [], []
-    for country, gkey in (("Thailand", "country-th"), ("Lao PDR", "country-la")):
+    for country, gkey in (("Taifafeki", "country-xxr"), ("Onesa", "country-xxk")):
         sys_ = country_systems(country, actors)
         if not sys_:
             continue
@@ -716,7 +716,7 @@ def journey_view(code):
     return (journey_view_name(code), doc, ("col", rows)), conns
 
 
-# The Integrated View is drawn in two columns, Thailand left and Lao PDR
+# The Integrated View is drawn in two columns, Taifafeki left and Onesa
 # right, with what they share between them; LAYOUT_TREES gives build.py that
 # layout, and add_views.py draws the same boxes from lowered(), which has only
 # the node kinds it knows. In a column the country's systems stack top to
@@ -729,8 +729,8 @@ def journey_view(code):
 # instance of that block: those boxes stood outside the systems and drew 18
 # lines that said what a word can. The instances, the realizations and the
 # RA's own blocks are in the model and in each journey's view.
-COLUMN_SLOTS = {"Thailand": 2, "Lao PDR": 3}
-FACING = {"Thailand": "right", "Lao PDR": "left"}
+COLUMN_SLOTS = {"Taifafeki": 2, "Onesa": 3}
+FACING = {"Taifafeki": "right", "Onesa": "left"}
 MEETS = {k for _t, a, b, _n, _j in INTERACTIONS for k in (a, b)} | set(GDHCN_SERVES)
 PART_W, PART_H = 170, 88  # room for a two-line name and a two-line «block» tag
 NOTES = {}  # view name: {part key: the tag build.py writes inside its box}
@@ -811,20 +811,20 @@ LAYOUT_TREES = {}
 
 
 def _systems_view():
-    """Thailand (left) and Lao PDR (right) as columns, what they share between them.
+    """Taifafeki (left) and Onesa (right) as columns, what they share between them.
 
-    Lao PDR is laid out first: each Thai system stands level with the first
-    Lao system it meets, so the lines where they meet run across.
+    Onesa is laid out first: each Taifafeki system stands level with the first
+    Onesan system it meets, so the lines where they meet run across.
     """
-    la, la_parts, la_at = country_column("Lao PDR", "country-la")
+    la, la_parts, la_at = country_column("Onesa", "country-xxk")
     level = {}
     for _t, a, b, _n, _js in INTERACTIONS:
-        th_end, la_end = (a, b) if SYSTEM_COUNTRY[_HOST[a]] == "Thailand" else (b, a)
+        th_end, la_end = (a, b) if SYSTEM_COUNTRY[_HOST[a]] == "Taifafeki" else (b, a)
         level[_HOST[th_end]] = min(level.get(_HOST[th_end], 1e9), la_at[_HOST[la_end]])
-    th, th_parts, _ = country_column("Thailand", "country-th", level)
+    th, th_parts, _ = country_column("Taifafeki", "country-xxr", level)
     intl = ("group", "intl", 1, [box("gdhcn"), box(TRUST_FRAMEWORK[0])])
     # The shared band stands just above the lowest level where the countries
-    # meet (the Thai system lowest down), so the lines there run straight
+    # meet (the Taifafeki system lowest down), so the lines there run straight
     # across under it, and those above it over it.
     lift = max(level.values()) - _height(intl) - LAYOUT["gap"]
     layout = ("row", [th, ("col", [("space", 0, lift - LAYOUT["gap"]), intl]) if lift >= LAYOUT["gap"] else intl, la])
@@ -833,12 +833,12 @@ def _systems_view():
     conns = interactions({c[0] for c in COMPONENTS})
     conns += [("Serving", "gdhcn", k) for k in GDHCN_SERVES] + [("Realization", "gdhcn", TRUST_FRAMEWORK[0])]
     conns += [("Serving", kkey(a), k) for a, k in SIGNING_KEYS]
-    doc = ("The two jurisdictions the demonstrator spans, Thailand (left) and Lao PDR (right), with what they share between them: "
+    doc = ("The two jurisdictions the demonstrator spans, Taifafeki (left) and Onesa (right), with what they share between them: "
            "WHO GDHCN and the WHO SMART Trust specifications. In each country its systems hold their parts, and each part says "
            "inside its box which DPI-H RA building block it plays («Provider Systems»): it realizes its own country’s instance of "
            "that block, a kind of the RA’s own, drawn in each journey’s view. The lines that run from one country to the other "
            "are where they meet: the paper DVC the family carries from J1 to J2 and J3, and the VHL QR and ITI-YY5 manifest fetch "
-           "of J4.1, logged in Lao PDR.")
+           "of J4.1, logged in Onesa.")
     return (SYSTEMS_VIEW, doc, lowered(layout)), conns
 
 
