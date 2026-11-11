@@ -636,7 +636,7 @@ def gen_scenarios(roles, journeys):
 DOC_PAGES = {
     "docs/index.md": "index",
     "docs/journeys.md": "journeys",
-    "docs/vaxlink-examples.md": "vaxlink-examples",
+    "docs/journey-examples.md": "journey-examples",
     "docs/architecture.md": "architecture",
     "docs/plan.md": "plan",
     "docs/dependencies.md": "dependencies",

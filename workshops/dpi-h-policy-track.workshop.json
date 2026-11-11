@@ -2,7 +2,7 @@
   "$schema": "workshop/0.1.0",
   "id": "dpi-h-policy-track",
   "title": "Verifiable immunization records across borders: the policy-maker track",
-  "description": "The seven modules (M1 to M7) of the DPI-H workshop's policy-maker track, taught from the journeys J1 to J4.1 of one cross-border family: domestic and cross-border verifiable immunization records as the entry point to a personal health record. Converted from the VaxLink walkthrough's policyData.ts (scratch proof).",
+  "description": "The seven modules (M1 to M7) of the DPI-H workshop's policy-maker track, taught from the journeys J1 to J4.1 of one cross-border family: domestic and cross-border verifiable immunization records as the entry point to a personal health record.",
   "audience": "Ministry of Health policy makers and digital health leads, at tables of one country each",
   "promise": "You will not leave with an assessment or a plan. You will leave knowing what each consists of, where your country stands on its first page, and who you would do the rest with.",
   "useCaseStatement": "A child vaccinated in ___ should be able to ___ in ___.",
@@ -866,7 +866,7 @@
       },
       {
         "label": "FHIR examples",
-        "href": "https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html"
+        "href": "https://litlfred.github.io/smart-trust-demo/journey-examples.html"
       },
       {
         "label": "Source",
@@ -899,6 +899,38 @@
         "view": "id-c6cae81c85da5fc197ab58547274a481",
         "label": "Journeys"
       }
-    ]
+    ],
+    "inspector": {
+      "title": "FHIR R4 & WHO GDHCN payload inspector",
+      "key": "DEV Key: 916ffa567c0f44a2 (XXR)",
+      "hint": "Click to inspect raw FHIR / CBOR payload"
+    },
+    "architecture": {
+      "model": "0.1.0",
+      "root": "id-65795122cc715cc8914ea02ee18f0d2a",
+      "countries": [
+        {
+          "group": "id-f6321e916b0759948c0ee1d2aa09f985",
+          "label": "Taifafeki (Kesaro)",
+          "code": "XXR"
+        },
+        {
+          "group": "id-1068df9675a55b61a72544c8fad7b1d3",
+          "label": "Onesa (home)",
+          "code": "XXK"
+        }
+      ],
+      "shared": "id-8393ba34788c525da7f5c9a3b6751cc0",
+      "title": "Architecture: two countries on one trust foundation",
+      "intro": "Each country builds its own stack on the layers of the DPI-H reference architecture. Underneath both is WHO GDHCN: the shared trust list that lets an Onesan clinic believe a Taifafeki certificate, and a Taifafeki clinic believe an Onesan link, with no direct connection between the two.",
+      "notes": [
+        "Taifafeki publishes the key it signs certificates with.",
+        "Onesa caches the list, so its clinics verify Taifafeki cards offline; Taifafeki does the same for Onesan VHLs.",
+        "Data crosses only as a signed QR the family carries, or a VHL the family shares: never system to system."
+      ]
+    },
+    "cover": {
+      "table": "patterns"
+    }
   }
 }

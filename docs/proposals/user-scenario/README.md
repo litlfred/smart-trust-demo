@@ -78,7 +78,7 @@ what joins the two.
   2026-11-05 (owner): vaxlink was reordered** to match the BPMN. J2a now reads
   the cards (`Task_Show`, `Task_Scan`, `Task_Read`), and J2b registers, saves
   the doses as reported and refers (`Task_Register`, `Task_Refer`, `Task_Slip`).
-  `docs/journeys.md` and `docs/vaxlink-examples.md` follow.
+  `docs/journeys.md` and `docs/journey-examples.md` follow.
 - **Pain points and enablers are worded twice.** `docs/journeys.md` and vaxlink
   say the same thing in different words (and journeys.md says it once per
   journey, vaxlink once per step). The examples take vaxlink's wording, per
