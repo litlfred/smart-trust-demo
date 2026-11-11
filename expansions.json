@@ -1,0 +1,622 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "40d91b38-ae36-4cba-ae16-a768ab6507a3",
+  "meta" : {
+    "lastUpdated" : "2026-11-11T13:52:38.361+00:00"
+  },
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoCodeMappingBasisVS",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoCodeMappingBasis.html\">codesystem How an imported dose got its national schedule code v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 4 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-concept-map\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-concept-map\">concept-map</a></td><td>By the national ConceptMap</td><td>The issuer's product code has an equivalent schedule code in the national map.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;concept-map&quot;, &quot;display&quot;: &quot;By the national ConceptMap&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;concept-map&quot;/&gt;&lt;display value=&quot;By the national ConceptMap&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-clinician-confirmed\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-clinician-confirmed\">clinician-confirmed</a></td><td>Confirmed by the clinician</td><td>The map had no entry; the clinician confirmed the equivalent, and the decision is added to the map.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;clinician-confirmed&quot;, &quot;display&quot;: &quot;Confirmed by the clinician&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;clinician-confirmed&quot;/&gt;&lt;display value=&quot;Confirmed by the clinician&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-unmapped\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-unmapped\">unmapped</a></td><td>Unmapped</td><td>No equivalent is known; the issuer's code is kept as it is and shown as unmapped.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;unmapped&quot;, &quot;display&quot;: &quot;Unmapped&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;unmapped&quot;/&gt;&lt;display value=&quot;Unmapped&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-not-imported\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-not-imported\">not-imported</a></td><td>Not imported</td><td>The dose was not verified, so it was not imported and not mapped.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;not-imported&quot;, &quot;display&quot;: &quot;Not imported&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;not-imported&quot;/&gt;&lt;display value=&quot;Not imported&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoCodeMappingBasisVS",
+      "version" : "0.1.0",
+      "name" : "TrustDemoCodeMappingBasisVS",
+      "title" : "How an imported dose got its national schedule code",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:2a6e93af-5078-4684-96aa-ed6457b1c5c0",
+        "timestamp" : "2026-11-11T13:53:21+00:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis",
+          "code" : "concept-map",
+          "display" : "By the national ConceptMap"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis",
+          "code" : "clinician-confirmed",
+          "display" : "Confirmed by the clinician"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis",
+          "code" : "unmapped",
+          "display" : "Unmapped"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis",
+          "code" : "not-imported",
+          "display" : "Not imported"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoDvcOutcomeVS",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoDvcOutcome.html\">codesystem What a scanned DVC becomes in the record v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 4 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-verified\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-verified\">verified</a></td><td>Verified</td><td>Recorded from its primary source, with provenance of the verification.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;verified&quot;, &quot;display&quot;: &quot;Verified&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;verified&quot;/&gt;&lt;display value=&quot;Verified&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-reported-unverified\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-reported-unverified\">reported-unverified</a></td><td>Reported, not verified</td><td>Kept as reported by the family (primarySource false); not counted by the schedule.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;reported-unverified&quot;, &quot;display&quot;: &quot;Reported, not verified&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;reported-unverified&quot;/&gt;&lt;display value=&quot;Reported, not verified&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-rejected\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-rejected\">rejected</a></td><td>Rejected</td><td>The certificate is not evidence of a dose; the step and reason are recorded.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;rejected&quot;, &quot;display&quot;: &quot;Rejected&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;rejected&quot;/&gt;&lt;display value=&quot;Rejected&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-not-read\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-not-read\">not-read</a></td><td>Not read</td><td>Nothing could be read from the QR; the card is treated as paper.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;not-read&quot;, &quot;display&quot;: &quot;Not read&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;not-read&quot;/&gt;&lt;display value=&quot;Not read&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoDvcOutcomeVS",
+      "version" : "0.1.0",
+      "name" : "TrustDemoDvcOutcomeVS",
+      "title" : "What a scanned DVC becomes in the record",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:33100ed7-d485-4c82-8855-aa45d8a1e026",
+        "timestamp" : "2026-11-11T13:53:21+00:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome",
+          "code" : "verified",
+          "display" : "Verified"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome",
+          "code" : "reported-unverified",
+          "display" : "Reported, not verified"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome",
+          "code" : "rejected",
+          "display" : "Rejected"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome",
+          "code" : "not-read",
+          "display" : "Not read"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoOnesaEpiScheduleCodes",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html\">codesystem National schedule antigen-dose codes (illustrative, Onesa) v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 6 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule-XXK-EPI-HEPB-BD\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-HEPB-BD\">XXK-EPI-HEPB-BD</a></td><td>Hepatitis B birth dose</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;XXK-EPI-HEPB-BD&quot;, &quot;display&quot;: &quot;Hepatitis B birth dose&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;XXK-EPI-HEPB-BD&quot;/&gt;&lt;display value=&quot;Hepatitis B birth dose&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule-XXK-EPI-BCG\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-BCG\">XXK-EPI-BCG</a></td><td>BCG</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;XXK-EPI-BCG&quot;, &quot;display&quot;: &quot;BCG&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;XXK-EPI-BCG&quot;/&gt;&lt;display value=&quot;BCG&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule-XXK-EPI-PENTA-1\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-PENTA-1\">XXK-EPI-PENTA-1</a></td><td>Pentavalent (DTP-HepB-Hib), dose 1</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;XXK-EPI-PENTA-1&quot;, &quot;display&quot;: &quot;Pentavalent (DTP-HepB-Hib), dose 1&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;XXK-EPI-PENTA-1&quot;/&gt;&lt;display value=&quot;Pentavalent (DTP-HepB-Hib), dose 1&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule-XXK-EPI-OPV-1\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-OPV-1\">XXK-EPI-OPV-1</a></td><td>bOPV, dose 1</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;XXK-EPI-OPV-1&quot;, &quot;display&quot;: &quot;bOPV, dose 1&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;XXK-EPI-OPV-1&quot;/&gt;&lt;display value=&quot;bOPV, dose 1&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule-XXK-EPI-PCV-1\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-PCV-1\">XXK-EPI-PCV-1</a></td><td>PCV, dose 1</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;XXK-EPI-PCV-1&quot;, &quot;display&quot;: &quot;PCV, dose 1&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;XXK-EPI-PCV-1&quot;/&gt;&lt;display value=&quot;PCV, dose 1&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule-XXK-EPI-MR-1\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-MR-1\">XXK-EPI-MR-1</a></td><td>Measles-rubella, dose 1</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;XXK-EPI-MR-1&quot;, &quot;display&quot;: &quot;Measles-rubella, dose 1&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;XXK-EPI-MR-1&quot;/&gt;&lt;display value=&quot;Measles-rubella, dose 1&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoOnesaEpiScheduleCodes",
+      "version" : "0.1.0",
+      "name" : "TrustDemoOnesaEpiScheduleCodes",
+      "title" : "National schedule codes of the journeys",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:ed2fa8d8-fd54-4c7f-82d3-3edfebe17575",
+        "timestamp" : "2026-11-11T13:53:21+00:00",
+        "total" : 6,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
+          "code" : "XXK-EPI-HEPB-BD",
+          "display" : "Hepatitis B birth dose"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
+          "code" : "XXK-EPI-BCG",
+          "display" : "BCG"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
+          "code" : "XXK-EPI-PENTA-1",
+          "display" : "Pentavalent (DTP-HepB-Hib), dose 1"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
+          "code" : "XXK-EPI-OPV-1",
+          "display" : "bOPV, dose 1"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
+          "code" : "XXK-EPI-PCV-1",
+          "display" : "PCV, dose 1"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
+          "code" : "XXK-EPI-MR-1",
+          "display" : "Measles-rubella, dose 1"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoVaccineProduct.html\">codesystem Vaccine products (illustrative PreQual-style codes) v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 6 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b><a href=\"ValueSet-TrustDemoOnesaEpiScheduleCodes.html\">J3 map: vaccine product to national schedule dose</a></b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-vp-hepb-peds-monovalent\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVaccineProduct.html#TrustDemoVaccineProduct-vp-hepb-peds-monovalent\">vp-hepb-peds-monovalent</a></td><td>Hepatitis B vaccine, paediatric, monovalent</td><td><span title=\"EQUIVALENT\">~</span><a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-HEPB-BD\">XXK-EPI-HEPB-BD</a><i>(Added from the nurse's adjudication at Lomaru District Health Center, 2025-11-25: a monovalent paediatric Hep B dose given within 24 hours of birth counts as the schedule's birth dose.)</i></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;vp-hepb-peds-monovalent&quot;, &quot;display&quot;: &quot;Hepatitis B vaccine, paediatric, monovalent&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;vp-hepb-peds-monovalent&quot;/&gt;&lt;display value=&quot;Hepatitis B vaccine, paediatric, monovalent&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-vp-bcg-freeze-dried\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVaccineProduct.html#TrustDemoVaccineProduct-vp-bcg-freeze-dried\">vp-bcg-freeze-dried</a></td><td>BCG vaccine, freeze-dried</td><td><span title=\"EQUIVALENT\">~</span><a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-BCG\">XXK-EPI-BCG</a></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;vp-bcg-freeze-dried&quot;, &quot;display&quot;: &quot;BCG vaccine, freeze-dried&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;vp-bcg-freeze-dried&quot;/&gt;&lt;display value=&quot;BCG vaccine, freeze-dried&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-vp-pentavalent-liquid\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVaccineProduct.html#TrustDemoVaccineProduct-vp-pentavalent-liquid\">vp-pentavalent-liquid</a></td><td>DTP-HepB-Hib (pentavalent), liquid</td><td><span title=\"EQUIVALENT\">~</span><a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-PENTA-1\">XXK-EPI-PENTA-1</a></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;vp-pentavalent-liquid&quot;, &quot;display&quot;: &quot;DTP-HepB-Hib (pentavalent), liquid&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;vp-pentavalent-liquid&quot;/&gt;&lt;display value=&quot;DTP-HepB-Hib (pentavalent), liquid&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-vp-bopv-drops\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVaccineProduct.html#TrustDemoVaccineProduct-vp-bopv-drops\">vp-bopv-drops</a></td><td>Bivalent oral polio vaccine (bOPV), drops</td><td><span title=\"EQUIVALENT\">~</span><a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-OPV-1\">XXK-EPI-OPV-1</a></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;vp-bopv-drops&quot;, &quot;display&quot;: &quot;Bivalent oral polio vaccine (bOPV), drops&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;vp-bopv-drops&quot;/&gt;&lt;display value=&quot;Bivalent oral polio vaccine (bOPV), drops&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-vp-pcv-13-dose\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVaccineProduct.html#TrustDemoVaccineProduct-vp-pcv-13-dose\">vp-pcv-13-dose</a></td><td>Pneumococcal conjugate vaccine (PCV)</td><td><span title=\"EQUIVALENT\">~</span><a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-PCV-1\">XXK-EPI-PCV-1</a></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;vp-pcv-13-dose&quot;, &quot;display&quot;: &quot;Pneumococcal conjugate vaccine (PCV)&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;vp-pcv-13-dose&quot;/&gt;&lt;display value=&quot;Pneumococcal conjugate vaccine (PCV)&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-vp-mr-freeze-dried\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVaccineProduct.html#TrustDemoVaccineProduct-vp-mr-freeze-dried\">vp-mr-freeze-dried</a></td><td>Measles-rubella vaccine, freeze-dried</td><td><span title=\"EQUIVALENT\">~</span><a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html#TrustDemoOnesaEpiSchedule-XXK-EPI-MR-1\">XXK-EPI-MR-1</a></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;vp-mr-freeze-dried&quot;, &quot;display&quot;: &quot;Measles-rubella vaccine, freeze-dried&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;vp-mr-freeze-dried&quot;/&gt;&lt;display value=&quot;Measles-rubella vaccine, freeze-dried&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
+      "version" : "0.1.0",
+      "name" : "TrustDemoVaccineProducts",
+      "title" : "Vaccine products of the journeys",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:313f784c-5d48-465c-b9ef-732331b194be",
+        "timestamp" : "2026-11-11T13:53:21+00:00",
+        "total" : 6,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+          "code" : "vp-hepb-peds-monovalent",
+          "display" : "Hepatitis B vaccine, paediatric, monovalent"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+          "code" : "vp-bcg-freeze-dried",
+          "display" : "BCG vaccine, freeze-dried"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+          "code" : "vp-pentavalent-liquid",
+          "display" : "DTP-HepB-Hib (pentavalent), liquid"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+          "code" : "vp-bopv-drops",
+          "display" : "Bivalent oral polio vaccine (bOPV), drops"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+          "code" : "vp-pcv-13-dose",
+          "display" : "Pneumococcal conjugate vaccine (PCV)"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
+          "code" : "vp-mr-freeze-dried",
+          "display" : "Measles-rubella vaccine, freeze-dried"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationFailureReasonVS",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoVerificationFailureReason.html\">codesystem Verification failure reasons v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 16 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-BadPrefix\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-BadPrefix\">BadPrefix</a></td><td>Bad prefix</td><td>The text does not start with the HC1: prefix.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;BadPrefix&quot;, &quot;display&quot;: &quot;Bad prefix&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;BadPrefix&quot;/&gt;&lt;display value=&quot;Bad prefix&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-UnsupportedContextVersion\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-UnsupportedContextVersion\">UnsupportedContextVersion</a></td><td>Unsupported context version</td><td>The context identifier names a version the verifier does not support.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;UnsupportedContextVersion&quot;, &quot;display&quot;: &quot;Unsupported context version&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;UnsupportedContextVersion&quot;/&gt;&lt;display value=&quot;Unsupported context version&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-Base45Invalid\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-Base45Invalid\">Base45Invalid</a></td><td>Base45 invalid</td><td>The text is not valid Base45.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;Base45Invalid&quot;, &quot;display&quot;: &quot;Base45 invalid&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;Base45Invalid&quot;/&gt;&lt;display value=&quot;Base45 invalid&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-InflateFailed\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-InflateFailed\">InflateFailed</a></td><td>Inflate failed</td><td>The compressed bytes do not decompress.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;InflateFailed&quot;, &quot;display&quot;: &quot;Inflate failed&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;InflateFailed&quot;/&gt;&lt;display value=&quot;Inflate failed&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-LimitExceeded\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-LimitExceeded\">LimitExceeded</a></td><td>Limit exceeded</td><td>A decode limit (size or depth) was exceeded.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;LimitExceeded&quot;, &quot;display&quot;: &quot;Limit exceeded&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;LimitExceeded&quot;/&gt;&lt;display value=&quot;Limit exceeded&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-CoseMalformed\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-CoseMalformed\">CoseMalformed</a></td><td>COSE malformed</td><td>The bytes are not a well-formed COSE_Sign1.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;CoseMalformed&quot;, &quot;display&quot;: &quot;COSE malformed&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;CoseMalformed&quot;/&gt;&lt;display value=&quot;COSE malformed&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-HeaderInvalid\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-HeaderInvalid\">HeaderInvalid</a></td><td>Header invalid</td><td>A COSE header is missing or not as required.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;HeaderInvalid&quot;, &quot;display&quot;: &quot;Header invalid&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;HeaderInvalid&quot;/&gt;&lt;display value=&quot;Header invalid&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-UnsupportedAlgorithm\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-UnsupportedAlgorithm\">UnsupportedAlgorithm</a></td><td>Unsupported algorithm</td><td>The signature algorithm is not one the verifier accepts.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;UnsupportedAlgorithm&quot;, &quot;display&quot;: &quot;Unsupported algorithm&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;UnsupportedAlgorithm&quot;/&gt;&lt;display value=&quot;Unsupported algorithm&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-KidNotFound\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-KidNotFound\">KidNotFound</a></td><td>Key not found</td><td>No certificate on the verifier's copy of the trust list has the kid (STT-VER-006).</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;KidNotFound&quot;, &quot;display&quot;: &quot;Key not found&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;KidNotFound&quot;/&gt;&lt;display value=&quot;Key not found&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-SignatureInvalid\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-SignatureInvalid\">SignatureInvalid</a></td><td>Signature invalid</td><td>The signature does not verify with any certificate with the kid.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;SignatureInvalid&quot;, &quot;display&quot;: &quot;Signature invalid&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;SignatureInvalid&quot;/&gt;&lt;display value=&quot;Signature invalid&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-KeyUsageMismatch\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-KeyUsageMismatch\">KeyUsageMismatch</a></td><td>Key usage mismatch</td><td>The signer's certificate may not sign this kind of certificate.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;KeyUsageMismatch&quot;, &quot;display&quot;: &quot;Key usage mismatch&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;KeyUsageMismatch&quot;/&gt;&lt;display value=&quot;Key usage mismatch&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-Expired\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-Expired\">Expired</a></td><td>Expired</td><td>The certificate's expiry has passed.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;Expired&quot;, &quot;display&quot;: &quot;Expired&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;Expired&quot;/&gt;&lt;display value=&quot;Expired&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-NotYetValid\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-NotYetValid\">NotYetValid</a></td><td>Not yet valid</td><td>The certificate's issued-at time is in the future.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;NotYetValid&quot;, &quot;display&quot;: &quot;Not yet valid&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;NotYetValid&quot;/&gt;&lt;display value=&quot;Not yet valid&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-HcertMissing\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-HcertMissing\">HcertMissing</a></td><td>HCERT missing</td><td>The claim set has no hcert claim.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;HcertMissing&quot;, &quot;display&quot;: &quot;HCERT missing&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;HcertMissing&quot;/&gt;&lt;display value=&quot;HCERT missing&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-MultipleSubclaims\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-MultipleSubclaims\">MultipleSubclaims</a></td><td>Multiple subclaims</td><td>The hcert claim has more subclaims than the verifier accepts.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;MultipleSubclaims&quot;, &quot;display&quot;: &quot;Multiple subclaims&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;MultipleSubclaims&quot;/&gt;&lt;display value=&quot;Multiple subclaims&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-PayloadInvalid\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-PayloadInvalid\">PayloadInvalid</a></td><td>Payload invalid</td><td>The payload does not conform to its logical model.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;PayloadInvalid&quot;, &quot;display&quot;: &quot;Payload invalid&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;PayloadInvalid&quot;/&gt;&lt;display value=&quot;Payload invalid&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationFailureReasonVS",
+      "version" : "0.1.0",
+      "name" : "TrustDemoVerificationFailureReasonVS",
+      "title" : "Verification failure reasons",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:e6fc34a7-deb9-4501-8949-2009be145d16",
+        "timestamp" : "2026-11-11T13:53:21+00:00",
+        "total" : 16,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "BadPrefix",
+          "display" : "Bad prefix"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "UnsupportedContextVersion",
+          "display" : "Unsupported context version"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "Base45Invalid",
+          "display" : "Base45 invalid"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "InflateFailed",
+          "display" : "Inflate failed"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "LimitExceeded",
+          "display" : "Limit exceeded"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "CoseMalformed",
+          "display" : "COSE malformed"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "HeaderInvalid",
+          "display" : "Header invalid"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "UnsupportedAlgorithm",
+          "display" : "Unsupported algorithm"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "KidNotFound",
+          "display" : "Key not found"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "SignatureInvalid",
+          "display" : "Signature invalid"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "KeyUsageMismatch",
+          "display" : "Key usage mismatch"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "Expired",
+          "display" : "Expired"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "NotYetValid",
+          "display" : "Not yet valid"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "HcertMissing",
+          "display" : "HCERT missing"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "MultipleSubclaims",
+          "display" : "Multiple subclaims"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+          "code" : "PayloadInvalid",
+          "display" : "Payload invalid"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationResultVS",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoVerificationResult.html\">codesystem Result of reading a DVC v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 3 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult-verified\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-verified\">verified</a></td><td>Verified</td><td>Every step of verification passed (STT-VER-001).</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;verified&quot;, &quot;display&quot;: &quot;Verified&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;verified&quot;/&gt;&lt;display value=&quot;Verified&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult-failed\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-failed\">failed</a></td><td>Failed</td><td>Verification stopped at a step, for a reason from the closed set of STT-VER-008.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;failed&quot;, &quot;display&quot;: &quot;Failed&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;failed&quot;/&gt;&lt;display value=&quot;Failed&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult-unverified\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-unverified\">unverified</a></td><td>Read, not verified</td><td>The payload was read by read-unverified, with no trust lookup or signature check (STT-VER-011).</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;unverified&quot;, &quot;display&quot;: &quot;Read, not verified&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;unverified&quot;/&gt;&lt;display value=&quot;Read, not verified&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationResultVS",
+      "version" : "0.1.0",
+      "name" : "TrustDemoVerificationResultVS",
+      "title" : "Result of reading a DVC",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:d7ad511f-398c-43b6-b8c5-551719bb45d1",
+        "timestamp" : "2026-11-11T13:53:22+00:00",
+        "total" : 3,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult",
+          "code" : "verified",
+          "display" : "Verified"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult",
+          "code" : "failed",
+          "display" : "Failed"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult",
+          "code" : "unverified",
+          "display" : "Read, not verified"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationStepVS",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoVerificationStep.html\">codesystem Verification steps v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 12 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-prefix\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-prefix\">prefix</a></td><td>Prefix</td><td>The HC1: context prefix and version.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;prefix&quot;, &quot;display&quot;: &quot;Prefix&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;prefix&quot;/&gt;&lt;display value=&quot;Prefix&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-base45\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-base45\">base45</a></td><td>Base45</td><td>Base45 decoding of the QR text.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;base45&quot;, &quot;display&quot;: &quot;Base45&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;base45&quot;/&gt;&lt;display value=&quot;Base45&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-inflate\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-inflate\">inflate</a></td><td>Inflate</td><td>ZLIB decompression, within limits.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;inflate&quot;, &quot;display&quot;: &quot;Inflate&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;inflate&quot;/&gt;&lt;display value=&quot;Inflate&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-cose\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-cose\">cose</a></td><td>COSE</td><td>Parsing the COSE_Sign1 structure.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;cose&quot;, &quot;display&quot;: &quot;COSE&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;cose&quot;/&gt;&lt;display value=&quot;COSE&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-header\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-header\">header</a></td><td>Header</td><td>The protected and unprotected headers.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;header&quot;, &quot;display&quot;: &quot;Header&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;header&quot;/&gt;&lt;display value=&quot;Header&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-trust-lookup\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-trust-lookup\">trust-lookup</a></td><td>Trust lookup</td><td>Finding the signer's certificate by kid on the trust list.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;trust-lookup&quot;, &quot;display&quot;: &quot;Trust lookup&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;trust-lookup&quot;/&gt;&lt;display value=&quot;Trust lookup&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-signature\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-signature\">signature</a></td><td>Signature</td><td>Checking the signature with the signer's key.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;signature&quot;, &quot;display&quot;: &quot;Signature&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;signature&quot;/&gt;&lt;display value=&quot;Signature&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-key-usage\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-key-usage\">key-usage</a></td><td>Key usage</td><td>Checking the signer's certificate may sign this kind of certificate.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;key-usage&quot;, &quot;display&quot;: &quot;Key usage&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;key-usage&quot;/&gt;&lt;display value=&quot;Key usage&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-cwt\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-cwt\">cwt</a></td><td>CWT</td><td>Reading the CWT claim set.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;cwt&quot;, &quot;display&quot;: &quot;CWT&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;cwt&quot;/&gt;&lt;display value=&quot;CWT&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-time\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-time\">time</a></td><td>Time</td><td>Checking issued-at and expiry against the verifier's clock.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;time&quot;, &quot;display&quot;: &quot;Time&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;time&quot;/&gt;&lt;display value=&quot;Time&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-hcert\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-hcert\">hcert</a></td><td>HCERT</td><td>Finding the hcert claim and its subclaim.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;hcert&quot;, &quot;display&quot;: &quot;HCERT&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;hcert&quot;/&gt;&lt;display value=&quot;HCERT&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-payload\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-payload\">payload</a></td><td>Payload</td><td>Reading the payload against its logical model.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;payload&quot;, &quot;display&quot;: &quot;Payload&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;payload&quot;/&gt;&lt;display value=&quot;Payload&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationStepVS",
+      "version" : "0.1.0",
+      "name" : "TrustDemoVerificationStepVS",
+      "title" : "Verification steps",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:a8b2c03d-52b6-4279-81d9-b55486b1309d",
+        "timestamp" : "2026-11-11T13:53:22+00:00",
+        "total" : 12,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "prefix",
+          "display" : "Prefix"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "base45",
+          "display" : "Base45"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "inflate",
+          "display" : "Inflate"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "cose",
+          "display" : "COSE"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "header",
+          "display" : "Header"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "trust-lookup",
+          "display" : "Trust lookup"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "signature",
+          "display" : "Signature"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "key-usage",
+          "display" : "Key usage"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "cwt",
+          "display" : "CWT"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "time",
+          "display" : "Time"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "hcert",
+          "display" : "HCERT"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+          "code" : "payload",
+          "display" : "Payload"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlRefusalReasonVS",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoVhlRefusalReason.html\">codesystem Why a shared link released nothing v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 3 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-withdrawn\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-withdrawn\">withdrawn</a></td><td>Withdrawn</td><td>The holder withdrew the link before it expired.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;withdrawn&quot;, &quot;display&quot;: &quot;Withdrawn&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;withdrawn&quot;/&gt;&lt;display value=&quot;Withdrawn&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-expired\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-expired\">expired</a></td><td>Expired</td><td>The request came after the expiry the holder chose.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;expired&quot;, &quot;display&quot;: &quot;Expired&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;expired&quot;/&gt;&lt;display value=&quot;Expired&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-wrong-passcode\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-wrong-passcode\">wrong-passcode</a></td><td>Wrong passcode</td><td>The passcode given does not match the one the holder set.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;wrong-passcode&quot;, &quot;display&quot;: &quot;Wrong passcode&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;wrong-passcode&quot;/&gt;&lt;display value=&quot;Wrong passcode&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlRefusalReasonVS",
+      "version" : "0.1.0",
+      "name" : "TrustDemoVhlRefusalReasonVS",
+      "title" : "Why a shared link released nothing",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-11T13:52:38+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:46a5823a-f387-433a-9680-a8d8e96fb743",
+        "timestamp" : "2026-11-11T13:53:22+00:00",
+        "total" : 3,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason",
+          "code" : "withdrawn",
+          "display" : "Withdrawn"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason",
+          "code" : "expired",
+          "display" : "Expired"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason",
+          "code" : "wrong-passcode",
+          "display" : "Wrong passcode"
+        }]
+      }
+    }
+  }]
+}

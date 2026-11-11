@@ -1,0 +1,64 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoCodeMappingBasis-ar",
+  "language" : "ar",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ar\" lang=\"ar\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoCodeMappingBasis-ar</b></p><a name=\"TrustDemoCodeMappingBasis-ar\"> </a><a name=\"hcTrustDemoCodeMappingBasis-ar\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ar</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-ar</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-concept-map\">concept-map</a><a name=\"TrustDemoCodeMappingBasis-ar-concept-map\"> </a></td><td>بواسطة ConceptMap الوطني</td><td>لرمز المنتج لدى الجهة المُصدِرة رمز مكافئ في جدول التطعيم ضمن الخريطة الوطنية.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-clinician-confirmed\">clinician-confirmed</a><a name=\"TrustDemoCodeMappingBasis-ar-clinician-confirmed\"> </a></td><td>مؤكَّد من الممارس السريري</td><td>لم يكن في الخريطة أي مُدخل؛ أكّد الممارس السريري المكافئ، وأُضيف القرار إلى الخريطة.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-unmapped\">unmapped</a><a name=\"TrustDemoCodeMappingBasis-ar-unmapped\"> </a></td><td>غير مُطابَق</td><td>لا يُعرف أي مكافئ؛ يُحفَظ رمز الجهة المُصدِرة كما هو ويُعرَض على أنه غير مُطابَق.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-not-imported\">not-imported</a><a name=\"TrustDemoCodeMappingBasis-ar-not-imported\"> </a></td><td>غير مستوردة</td><td>لم يُتحقَّق من الجرعة، لذا لم تُستورَد ولم تُطابَق.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-ar",
+  "version" : "0.1.0",
+  "name" : "TrustDemoCodeMappingBasisAr",
+  "title" : "كيف حصلت جرعة مستوردة على رمزها في جدول التطعيم الوطني",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-11T13:52:38+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoCodeMappingBasis: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis",
+  "concept" : [{
+    "code" : "concept-map",
+    "display" : "بواسطة ConceptMap الوطني",
+    "definition" : "لرمز المنتج لدى الجهة المُصدِرة رمز مكافئ في جدول التطعيم ضمن الخريطة الوطنية.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "بواسطة ConceptMap الوطني"
+    }]
+  },
+  {
+    "code" : "clinician-confirmed",
+    "display" : "مؤكَّد من الممارس السريري",
+    "definition" : "لم يكن في الخريطة أي مُدخل؛ أكّد الممارس السريري المكافئ، وأُضيف القرار إلى الخريطة.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "مؤكَّد من الممارس السريري"
+    }]
+  },
+  {
+    "code" : "unmapped",
+    "display" : "غير مُطابَق",
+    "definition" : "لا يُعرف أي مكافئ؛ يُحفَظ رمز الجهة المُصدِرة كما هو ويُعرَض على أنه غير مُطابَق.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "غير مُطابَق"
+    }]
+  },
+  {
+    "code" : "not-imported",
+    "display" : "غير مستوردة",
+    "definition" : "لم يُتحقَّق من الجرعة، لذا لم تُستورَد ولم تُطابَق.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "غير مستوردة"
+    }]
+  }]
+}

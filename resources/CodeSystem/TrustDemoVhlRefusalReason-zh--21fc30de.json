@@ -1,0 +1,48 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVhlRefusalReason-zh",
+  "language" : "zh",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"zh\" lang=\"zh\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVhlRefusalReason-zh</b></p><a name=\"TrustDemoVhlRefusalReason-zh\"> </a><a name=\"hcTrustDemoVhlRefusalReason-zh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: zh</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-zh</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-withdrawn\">withdrawn</a><a name=\"TrustDemoVhlRefusalReason-zh-withdrawn\"> </a></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-expired\">expired</a><a name=\"TrustDemoVhlRefusalReason-zh-expired\"> </a></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-wrong-passcode\">wrong-passcode</a><a name=\"TrustDemoVhlRefusalReason-zh-wrong-passcode\"> </a></td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-zh",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlRefusalReasonZh",
+  "title" : "TrustDemoVhlRefusalReason — Chinese (zh) supplement",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-11T13:52:38+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Simplified Chinese (zh) display designations for the TrustDemoVhlRefusalReason code system, drafted by an agent and not signed off by a human.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason",
+  "concept" : [{
+    "code" : "withdrawn",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "已撤回"
+    }]
+  },
+  {
+    "code" : "expired",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "已过期"
+    }]
+  },
+  {
+    "code" : "wrong-passcode",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "通行码错误"
+    }]
+  }]
+}

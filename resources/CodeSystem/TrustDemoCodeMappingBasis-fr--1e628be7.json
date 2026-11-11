@@ -1,0 +1,64 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoCodeMappingBasis-fr",
+  "language" : "fr",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoCodeMappingBasis-fr</b></p><a name=\"TrustDemoCodeMappingBasis-fr\"> </a><a name=\"hcTrustDemoCodeMappingBasis-fr\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: fr</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-fr</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-concept-map\">concept-map</a><a name=\"TrustDemoCodeMappingBasis-fr-concept-map\"> </a></td><td>Par la ConceptMap nationale</td><td>Le code produit de l'émetteur a un code du calendrier équivalent dans la table de correspondance nationale.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-clinician-confirmed\">clinician-confirmed</a><a name=\"TrustDemoCodeMappingBasis-fr-clinician-confirmed\"> </a></td><td>Confirmé par le clinicien</td><td>La table de correspondance n'avait pas d'entrée ; le clinicien a confirmé l'équivalent, et la décision est ajoutée à la table de correspondance.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-unmapped\">unmapped</a><a name=\"TrustDemoCodeMappingBasis-fr-unmapped\"> </a></td><td>Sans correspondance</td><td>Aucun équivalent n'est connu ; le code de l'émetteur est conservé tel quel et affiché comme sans correspondance.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoCodeMappingBasis.html#TrustDemoCodeMappingBasis-not-imported\">not-imported</a><a name=\"TrustDemoCodeMappingBasis-fr-not-imported\"> </a></td><td>Non importée</td><td>La dose n'a pas été vérifiée ; elle n'a donc été ni importée ni mise en correspondance.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis-fr",
+  "version" : "0.1.0",
+  "name" : "TrustDemoCodeMappingBasisFr",
+  "title" : "Comment une dose importée a obtenu son code du calendrier national",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-11T13:52:38+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "French (fr) supplement to TrustDemoCodeMappingBasis: displays and definitions in French. Unofficial agent translation.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis",
+  "count" : 4,
+  "concept" : [{
+    "code" : "concept-map",
+    "display" : "Par la ConceptMap nationale",
+    "definition" : "Le code produit de l'émetteur a un code du calendrier équivalent dans la table de correspondance nationale.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Par la ConceptMap nationale"
+    }]
+  },
+  {
+    "code" : "clinician-confirmed",
+    "display" : "Confirmé par le clinicien",
+    "definition" : "La table de correspondance n'avait pas d'entrée ; le clinicien a confirmé l'équivalent, et la décision est ajoutée à la table de correspondance.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Confirmé par le clinicien"
+    }]
+  },
+  {
+    "code" : "unmapped",
+    "display" : "Sans correspondance",
+    "definition" : "Aucun équivalent n'est connu ; le code de l'émetteur est conservé tel quel et affiché comme sans correspondance.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Sans correspondance"
+    }]
+  },
+  {
+    "code" : "not-imported",
+    "display" : "Non importée",
+    "definition" : "La dose n'a pas été vérifiée ; elle n'a donc été ni importée ni mise en correspondance.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Non importée"
+    }]
+  }]
+}

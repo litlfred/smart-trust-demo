@@ -1,0 +1,124 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationStep-ru",
+  "language" : "ru",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ru\" lang=\"ru\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationStep-ru</b></p><a name=\"TrustDemoVerificationStep-ru\"> </a><a name=\"hcTrustDemoVerificationStep-ru\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ru</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-ru</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-prefix\">prefix</a><a name=\"TrustDemoVerificationStep-ru-prefix\"> </a></td><td>Prefix</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-base45\">base45</a><a name=\"TrustDemoVerificationStep-ru-base45\"> </a></td><td>Base45</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-inflate\">inflate</a><a name=\"TrustDemoVerificationStep-ru-inflate\"> </a></td><td>Inflate</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-cose\">cose</a><a name=\"TrustDemoVerificationStep-ru-cose\"> </a></td><td>COSE</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-header\">header</a><a name=\"TrustDemoVerificationStep-ru-header\"> </a></td><td>Header</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-trust-lookup\">trust-lookup</a><a name=\"TrustDemoVerificationStep-ru-trust-lookup\"> </a></td><td>Trust lookup</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-signature\">signature</a><a name=\"TrustDemoVerificationStep-ru-signature\"> </a></td><td>Signature</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-key-usage\">key-usage</a><a name=\"TrustDemoVerificationStep-ru-key-usage\"> </a></td><td>Key usage</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-cwt\">cwt</a><a name=\"TrustDemoVerificationStep-ru-cwt\"> </a></td><td>CWT</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-time\">time</a><a name=\"TrustDemoVerificationStep-ru-time\"> </a></td><td>Time</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-hcert\">hcert</a><a name=\"TrustDemoVerificationStep-ru-hcert\"> </a></td><td>HCERT</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationStep.html#TrustDemoVerificationStep-payload\">payload</a><a name=\"TrustDemoVerificationStep-ru-payload\"> </a></td><td>Payload</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep-ru",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationStepRu",
+  "title" : "TrustDemoVerificationStep (ru designations, unofficial)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-11T13:52:38+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Russian designations for TrustDemoVerificationStep: an agent translation that no person has signed off.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
+  "concept" : [{
+    "code" : "prefix",
+    "display" : "Prefix",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Префикс"
+    }]
+  },
+  {
+    "code" : "base45",
+    "display" : "Base45",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Base45"
+    }]
+  },
+  {
+    "code" : "inflate",
+    "display" : "Inflate",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Распаковка"
+    }]
+  },
+  {
+    "code" : "cose",
+    "display" : "COSE",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "COSE"
+    }]
+  },
+  {
+    "code" : "header",
+    "display" : "Header",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Заголовок"
+    }]
+  },
+  {
+    "code" : "trust-lookup",
+    "display" : "Trust lookup",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Поиск в списке доверия"
+    }]
+  },
+  {
+    "code" : "signature",
+    "display" : "Signature",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Подпись"
+    }]
+  },
+  {
+    "code" : "key-usage",
+    "display" : "Key usage",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Назначение ключа"
+    }]
+  },
+  {
+    "code" : "cwt",
+    "display" : "CWT",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "CWT"
+    }]
+  },
+  {
+    "code" : "time",
+    "display" : "Time",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Время"
+    }]
+  },
+  {
+    "code" : "hcert",
+    "display" : "HCERT",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "HCERT"
+    }]
+  },
+  {
+    "code" : "payload",
+    "display" : "Payload",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Полезная нагрузка"
+    }]
+  }]
+}

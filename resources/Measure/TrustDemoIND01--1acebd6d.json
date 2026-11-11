@@ -1,0 +1,86 @@
+{
+  "resourceType" : "Measure",
+  "id" : "TrustDemoIND01",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <table class=\"narrative-table\">\n    <tbody>\n<tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Knowledge Artifact Metadata</th>\n\n</tr>\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Name (machine-readable)</th>\n\n<td class=\"content-container\">TrustDemoIND01</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Title (human-readable)</th>\n\n<td class=\"content-container\">TD.IND.01 Foreign doses imported as verified</td>\n</tr>\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Status</th>\n\n<td class=\"content-container\">Draft</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Experimental</th>\n\n<td class=\"content-container\">true</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n<td class=\"content-container\"><div><p>Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.</p>\n</div></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Measure Steward</th>\n\n<td class=\"content-container\">litlfred</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Steward Contact Details</th>\n\n<td class=\"content-container\">litlfred: <a href=\"https://github.com/litlfred/smart-trust-demo\">https://github.com/litlfred/smart-trust-demo</a></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Measure Metadata</th>\n\n</tr>\n\n\n\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Version Number</th>\n\n<td class=\"content-container\">0.1.0</td>\n</tr>\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Measure Scoring</th>\n\n<td class=\"content-container\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/measure-scoring proportion}\">Proportion</span></td>\n</tr>\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n<th scope=\"row\" class=\"row-header\">Guidance</th>\n\n<td class=\"content-container\"><div><p>A definition only: it states no target and no value. Data elements: TD.J3A.DE02 Issuing country; TD.J3A.DE03 Verified at; TD.J3A.DE05 Verification result; TD.J3A.DE07 Failure reason; TD.J3A.DE09 Record outcome. Decision tables: TD.DT.01. Requirements: STT-VER-001, STT-VER-006, STT-VER-008. The populations are described, not computable: this guide carries no CQL.</p>\n</div></td>\n</tr>\n\n\n\n\n\n\n  \n    <tr>\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Measure Population Criteria</th>\n\n</tr>\n  \n  \n  \n  \n    <tr>\n      \n        \n<th scope=\"row\" class=\"row-header\">Denominator</th>\n\n      \n      <td class=\"content-container\">\n        \n        \n          <em>Description</em>:\n          <p style=\"white-space: pre-line\" class=\"tab-one\">Foreign DVCs scanned for verification in the reporting period.</p>\n        \n        \n          \n        \n      </td>\n    </tr>\n  \n\n  \n    <tr>\n      \n        \n<th scope=\"row\" class=\"row-header\">Numerator</th>\n\n      \n      <td class=\"content-container\">\n        \n        \n          <em>Description</em>:\n          <p style=\"white-space: pre-line\" class=\"tab-one\">Foreign DVCs scanned for verification in the reporting period whose dose was recorded as verified.</p>\n        \n        \n          \n        \n      </td>\n    </tr>\n  \n\n  \n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Record outcome</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: verified, reported-unverified, rejected, not-read (TD.DT.01)\n    \n  </td>\n</tr>\n\n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Failure reason</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: the STT-VER-008 reason, for DVCs that did not verify\n    \n  </td>\n</tr>\n\n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Issuing country</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: the participant that signed the DVC\n    \n  </td>\n</tr>\n\n<tr>\n  \n<th scope=\"row\" class=\"row-header\">Stratifier</th>\n\n  <td class=\"content-container\">\n    \n    \n      \n        <em>Code</em>: <span title=\"Codes:\">Facility</span>\n      \n      \n        <br/>\n      \n    \n    \n      <em>Description</em>: the clinic that verified\n    \n  </td>\n</tr>\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n  <th colspan=\"2\" scope=\"row\" class=\"row-header\">Generated using version 0.4.6 of the sample-content-ig Liquid templates</th>\n</tr>\n    </tbody>\n  </table>\n</div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/Measure/TrustDemoIND01",
+  "version" : "0.1.0",
+  "name" : "TrustDemoIND01",
+  "title" : "TD.IND.01 Foreign doses imported as verified",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-11T13:52:38+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Of the foreign DVCs a clinic scans to verify, the proportion whose dose is recorded as verified.",
+  "scoring" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/measure-scoring",
+      "code" : "proportion",
+      "display" : "Proportion"
+    }]
+  },
+  "guidance" : "A definition only: it states no target and no value. Data elements: TD.J3A.DE02 Issuing country; TD.J3A.DE03 Verified at; TD.J3A.DE05 Verification result; TD.J3A.DE07 Failure reason; TD.J3A.DE09 Record outcome. Decision tables: TD.DT.01. Requirements: STT-VER-001, STT-VER-006, STT-VER-008. The populations are described, not computable: this guide carries no CQL.",
+  "group" : [{
+    "population" : [{
+      "code" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code" : "denominator",
+          "display" : "Denominator"
+        }]
+      },
+      "description" : "Foreign DVCs scanned for verification in the reporting period.",
+      "criteria" : {
+        "language" : "text/plain",
+        "expression" : "COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period"
+      }
+    },
+    {
+      "code" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code" : "numerator",
+          "display" : "Numerator"
+        }]
+      },
+      "description" : "Foreign DVCs scanned for verification in the reporting period whose dose was recorded as verified.",
+      "criteria" : {
+        "language" : "text/plain",
+        "expression" : "COUNT of verification records (TD.J3A) WHERE \"Verified at\" is in the reporting period AND \"Record outcome\" = verified"
+      }
+    }],
+    "stratifier" : [{
+      "code" : {
+        "text" : "Record outcome"
+      },
+      "description" : "verified, reported-unverified, rejected, not-read (TD.DT.01)"
+    },
+    {
+      "code" : {
+        "text" : "Failure reason"
+      },
+      "description" : "the STT-VER-008 reason, for DVCs that did not verify"
+    },
+    {
+      "code" : {
+        "text" : "Issuing country"
+      },
+      "description" : "the participant that signed the DVC"
+    },
+    {
+      "code" : {
+        "text" : "Facility"
+      },
+      "description" : "the clinic that verified"
+    }]
+  }]
+}

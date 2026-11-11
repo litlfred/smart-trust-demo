@@ -1,0 +1,83 @@
+{
+  "resourceType" : "Basic",
+  "id" : "TrustDemo.Role.GdhcnTrustAnchor",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ActorDefinition TrustDemo.Role.GdhcnTrustAnchor</b></p><a name=\"TrustDemo.Role.GdhcnTrustAnchor\"> </a><a name=\"hcTrustDemo.Role.GdhcnTrustAnchor\"> </a><table class=\"grid\"><tr><td><b>Actor: GdhcnTrustAnchor </b></td><td>GDHCN trust anchor</td><td>Type: system </td></tr><tr><td colspan=\"3\"><div><p>https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json</p>\n</div></td><td>Derived From</td><td colspan=\"2\"/></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.url",
+    "valueUri" : "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.version",
+    "valueString" : "0.1.0"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.name",
+    "valueString" : "GdhcnTrustAnchor"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.title",
+    "valueString" : "GDHCN trust anchor"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.status",
+    "valueCode" : "draft"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.experimental",
+    "valueBoolean" : true
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.date",
+    "valueDateTime" : "2026-11-11T13:52:38+00:00"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.publisher",
+    "valueString" : "litlfred"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.contact",
+    "valueContactDetail" : {
+      "name" : "litlfred",
+      "telecom" : [{
+        "system" : "url",
+        "value" : "https://github.com/litlfred/smart-trust-demo"
+      }]
+    }
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.description",
+    "valueMarkdown" : "WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL).\n\n**Persona**: A WHO service publishing DID documents over did:web; verifiers fetch it when online and keep a copy.\n\n**Also known as**: Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL)\n\n**Played in the journeys by** (fictional):\n\n- GDHCN DEV trust network (WHO)"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.jurisdiction"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.type",
+    "valueCode" : "system"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.documentation",
+    "valueMarkdown" : "https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/roles.json"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.derivedFrom",
+    "valueCanonical" : "http://smart.who.int/trust/ActorDefinition/TrustNetworkAnchor"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.derivedFrom",
+    "valueCanonical" : "http://smart.who.int/trust-phw/ActorDefinition/TrustNetworkAnchor"
+  },
+  {
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ActorDefinition.derivedFrom",
+    "valueCanonical" : "https://profiles.ihe.net/ITI/VHL/ActorDefinition/TrustAnchor"
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/fhir-types",
+      "code" : "ActorDefinition"
+    }]
+  }
+}

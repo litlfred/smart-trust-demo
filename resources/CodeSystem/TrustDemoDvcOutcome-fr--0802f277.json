@@ -1,0 +1,64 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoDvcOutcome-fr",
+  "language" : "fr",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoDvcOutcome-fr</b></p><a name=\"TrustDemoDvcOutcome-fr\"> </a><a name=\"hcTrustDemoDvcOutcome-fr\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: fr</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-fr</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-verified\">verified</a><a name=\"TrustDemoDvcOutcome-fr-verified\"> </a></td><td>Vérifié</td><td>Enregistré à partir de sa source primaire, avec la provenance de la vérification.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-reported-unverified\">reported-unverified</a><a name=\"TrustDemoDvcOutcome-fr-reported-unverified\"> </a></td><td>Déclaré, non vérifié</td><td>Conservé comme déclaré par la famille (primarySource false) ; non pris en compte par le calendrier.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-rejected\">rejected</a><a name=\"TrustDemoDvcOutcome-fr-rejected\"> </a></td><td>Rejeté</td><td>Le certificat ne constitue pas une preuve de dose ; l'étape et le motif sont enregistrés.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-not-read\">not-read</a><a name=\"TrustDemoDvcOutcome-fr-not-read\"> </a></td><td>Non lu</td><td>Rien n'a pu être lu dans le code QR ; la carte est traitée comme une carte papier.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-fr",
+  "version" : "0.1.0",
+  "name" : "TrustDemoDvcOutcomeFr",
+  "title" : "Ce que devient un DVC scanné dans le dossier",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-11T13:52:38+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "French (fr) supplement to TrustDemoDvcOutcome: displays and definitions in French. Unofficial agent translation.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome",
+  "count" : 4,
+  "concept" : [{
+    "code" : "verified",
+    "display" : "Vérifié",
+    "definition" : "Enregistré à partir de sa source primaire, avec la provenance de la vérification.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Vérifié"
+    }]
+  },
+  {
+    "code" : "reported-unverified",
+    "display" : "Déclaré, non vérifié",
+    "definition" : "Conservé comme déclaré par la famille (primarySource false) ; non pris en compte par le calendrier.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Déclaré, non vérifié"
+    }]
+  },
+  {
+    "code" : "rejected",
+    "display" : "Rejeté",
+    "definition" : "Le certificat ne constitue pas une preuve de dose ; l'étape et le motif sont enregistrés.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Rejeté"
+    }]
+  },
+  {
+    "code" : "not-read",
+    "display" : "Non lu",
+    "definition" : "Rien n'a pu être lu dans le code QR ; la carte est traitée comme une carte papier.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Non lu"
+    }]
+  }]
+}
