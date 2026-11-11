@@ -436,12 +436,15 @@
    }
   }
  ],
+ "processHref": "dth-authoring.html",
  "tasks": {
   "Task_Scope": {
    "id": "Task_Scope",
    "name": "0 · Scope the DTH and place it in the DIIG",
    "type": "bpmn:UserTask",
+   "stepHref": "dth-authoring.html#step-Task_Scope",
    "lane": "DTH lead (programme manager)",
+   "laneHref": "dth-authoring.html#lane-Lane_Lead",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -454,7 +457,9 @@
    "id": "Task_Team",
    "name": "Form the TWG; record roles and RACI",
    "type": "bpmn:UserTask",
+   "stepHref": "dth-authoring.html#step-Task_Team",
    "lane": "DTH lead (programme manager)",
+   "laneHref": "dth-authoring.html#lane-Lane_Lead",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -467,7 +472,9 @@
    "id": "Task_Scaffold",
    "name": "Create the DTH repository from the DTH layout",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Scaffold",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -480,7 +487,9 @@
    "id": "Task_SeedBeans",
    "name": "Seed the work plan",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_SeedBeans",
    "lane": "Work plan (beans)",
+   "laneHref": "dth-authoring.html#lane-Lane_WorkPlan",
    "skills": [],
    "role": {
     "name": "work-plan",
@@ -493,7 +502,9 @@
    "id": "M0",
    "name": "Record milestone M0 · Charter recorded",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-M0",
    "lane": "Work plan (beans)",
+   "laneHref": "dth-authoring.html#lane-Lane_WorkPlan",
    "skills": [],
    "role": {
     "name": "work-plan",
@@ -506,7 +517,9 @@
    "id": "Task_Ingest",
    "name": "1 · Ingest sources into library/",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Ingest",
    "lane": "Librarian",
+   "laneHref": "dth-authoring.html#lane-Lane_Librarian",
    "skills": [],
    "role": {
     "name": "librarian",
@@ -519,7 +532,9 @@
    "id": "Task_L1",
    "name": "Extract L1 from WHO publications",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_L1",
    "lane": "Librarian",
+   "laneHref": "dth-authoring.html#lane-Lane_Librarian",
    "skills": [],
    "role": {
     "name": "librarian",
@@ -532,7 +547,9 @@
    "id": "Task_Coverage",
    "name": "Account for every normative sentence",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Coverage",
    "lane": "Librarian",
+   "laneHref": "dth-authoring.html#lane-Lane_Librarian",
    "skills": [],
    "role": {
     "name": "librarian",
@@ -545,7 +562,9 @@
    "id": "M1",
    "name": "Record milestone M1 · Library frozen",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-M1",
    "lane": "Librarian",
+   "laneHref": "dth-authoring.html#lane-Lane_Librarian",
    "skills": [],
    "role": {
     "name": "librarian",
@@ -558,7 +577,9 @@
    "id": "Task_Outline",
    "name": "2 · Outline chapters against the dth kind",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Outline",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -571,7 +592,9 @@
    "id": "Task_Intro",
    "name": "Draft introduction, audience and DIIG alignment",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Intro",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -584,7 +607,9 @@
    "id": "Task_GlossaryCandidates",
    "name": "Build glossary candidates from the TWG workbook",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_GlossaryCandidates",
    "lane": "Terminologist",
+   "laneHref": "dth-authoring.html#lane-Lane_Terminologist",
    "skills": [],
    "role": {
     "name": "terminologist",
@@ -597,7 +622,9 @@
    "id": "Task_Inventory",
    "name": "List processes, roles, decisions and indicators to model",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Inventory",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -610,7 +637,9 @@
    "id": "Task_OutlineReview",
    "name": "TWG reviews the outline",
    "type": "bpmn:UserTask",
+   "stepHref": "dth-authoring.html#step-Task_OutlineReview",
    "lane": "TWG and contributors",
+   "laneHref": "dth-authoring.html#lane-Lane_Contributors",
    "skills": [],
    "role": {
     "name": "feedback-provider",
@@ -623,7 +652,9 @@
    "id": "M2",
    "name": "Record milestone M2 · Outline agreed",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-M2",
    "lane": "TWG and contributors",
+   "laneHref": "dth-authoring.html#lane-Lane_Contributors",
    "skills": [],
    "role": {
     "name": "feedback-provider",
@@ -636,7 +667,9 @@
    "id": "Call_Personas",
    "name": "Personas and roles",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Personas",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -654,7 +687,9 @@
    "id": "Call_Scenarios",
    "name": "User scenarios",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Scenarios",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -672,7 +707,9 @@
    "id": "Call_Bpmn",
    "name": "Business processes · BPMN",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Bpmn",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -690,7 +727,9 @@
    "id": "Call_Dmn",
    "name": "Decision tables · DMN",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Dmn",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -708,7 +747,9 @@
    "id": "Call_Data",
    "name": "Data elements, indicators, requirements",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Data",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -726,7 +767,9 @@
    "id": "Call_Steps",
    "name": "Planning steps per chapter",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Steps",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -744,7 +787,9 @@
    "id": "Call_Archimate",
    "name": "Link to smart-ra ArchiMate",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Archimate",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -762,7 +807,9 @@
    "id": "Call_Glossary",
    "name": "Link glossary to smart-ra SKOS",
    "type": "bpmn:CallActivity",
+   "stepHref": "dth-authoring.html#step-Call_Glossary",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -780,7 +827,9 @@
    "id": "Task_Validate",
    "name": "Validate the draft",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Validate",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -793,7 +842,9 @@
    "id": "Task_ArchReview",
    "name": "Architect group and handbook owners review",
    "type": "bpmn:UserTask",
+   "stepHref": "dth-authoring.html#step-Task_ArchReview",
    "lane": "Architect group and handbook owners",
+   "laneHref": "dth-authoring.html#lane-Lane_Reviewers",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -806,7 +857,9 @@
    "id": "M3",
    "name": "Record milestone M3 · Zero draft",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-M3",
    "lane": "Business analyst",
+   "laneHref": "dth-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -819,7 +872,9 @@
    "id": "Task_Comments",
    "name": "4 · Comment via contributor log sheet or GitHub pc:",
    "type": "bpmn:UserTask",
+   "stepHref": "dth-authoring.html#step-Task_Comments",
    "lane": "TWG and contributors",
+   "laneHref": "dth-authoring.html#lane-Lane_Contributors",
    "skills": [],
    "role": {
     "name": "feedback-provider",
@@ -832,7 +887,9 @@
    "id": "Task_Import",
    "name": "Import into review/wg-comment and form change sets",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Import",
    "lane": "Editor",
+   "laneHref": "dth-authoring.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -845,7 +902,9 @@
    "id": "M4",
    "name": "Record milestone M4 · Working-group draft",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-M4",
    "lane": "Editor",
+   "laneHref": "dth-authoring.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -858,7 +917,9 @@
    "id": "Task_OpenPublic",
    "name": "5 · Open public comment",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_OpenPublic",
    "lane": "Editor",
+   "laneHref": "dth-authoring.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -871,7 +932,9 @@
    "id": "M5",
    "name": "Record milestone M5 · Public draft released",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-M5",
    "lane": "Editor",
+   "laneHref": "dth-authoring.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -884,7 +947,9 @@
    "id": "Task_PublicComments",
    "name": "Public comments",
    "type": "bpmn:UserTask",
+   "stepHref": "dth-authoring.html#step-Task_PublicComments",
    "lane": "TWG and contributors",
+   "laneHref": "dth-authoring.html#lane-Lane_Contributors",
    "skills": [],
    "role": {
     "name": "feedback-provider",
@@ -897,7 +962,9 @@
    "id": "Task_Disposition",
    "name": "Disposition comments and apply change sets",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Disposition",
    "lane": "Editor",
+   "laneHref": "dth-authoring.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -910,7 +977,9 @@
    "id": "M6",
    "name": "Record milestone M6 · Comments dispositioned",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-M6",
    "lane": "Editor",
+   "laneHref": "dth-authoring.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -923,7 +992,9 @@
    "id": "Task_Qa",
    "name": "6 · Editorial, voice and translation QA",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Qa",
    "lane": "Editor",
+   "laneHref": "dth-authoring.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -936,7 +1007,9 @@
    "id": "Task_Publish",
    "name": "Publish the handbook",
    "type": "bpmn:Task",
+   "stepHref": "dth-authoring.html#step-Task_Publish",
    "lane": "Publication manager",
+   "laneHref": "dth-authoring.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",

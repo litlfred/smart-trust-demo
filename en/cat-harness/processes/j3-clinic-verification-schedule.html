@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="J3 Verify, import and schedule at the home clinic" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j3-clinic-verification-schedule.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j3-clinic-verification-schedule.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="J3 Verify, import and schedule at the home clinic" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J3 Verify, import and schedule at the home clinic","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j3-clinic-verification-schedule.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J3 Verify, import and schedule at the home clinic","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j3-clinic-verification-schedule.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -969,8 +969,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1156,17 +1162,17 @@
   </thead>
   <tbody>
     <tr>
-      <td>Caregiver</td>
+      <td><a id="lane-Lane_caregiver"></a>Caregiver</td>
       <td><code class="language-plaintext highlighter-rouge">caregiver</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Home clinic provider</td>
+      <td><a id="lane-Lane_home-clinic-provider"></a>Home clinic provider</td>
       <td><code class="language-plaintext highlighter-rouge">home-clinic-provider</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Home clinic EHR</td>
+      <td><a id="lane-Lane_home-clinic-ehr"></a>Home clinic EHR</td>
       <td><code class="language-plaintext highlighter-rouge">home-clinic-ehr</code></td>
       <td>—</td>
     </tr>
@@ -1194,45 +1200,45 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Scan the QRs and open the referral</strong><br /><code class="language-plaintext highlighter-rouge">Task_Scan</code></td>
+      <td><a id="step-Task_Scan"></a><strong>Scan the QRs and open the referral</strong><br /><code class="language-plaintext highlighter-rouge">Task_Scan</code></td>
       <td>Home clinic provider</td>
-      <td><code class="language-plaintext highlighter-rouge">receiver-scan-credential</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/receiver-scan-credential.html"><code class="language-plaintext highlighter-rouge">receiver-scan-credential</code></a></td>
       <td>—</td>
     </tr>
     <tr>
-      <td><strong>Verify each HCERT against the trust list</strong><br /><code class="language-plaintext highlighter-rouge">Task_Verify</code></td>
+      <td><a id="step-Task_Verify"></a><strong>Verify each HCERT against the trust list</strong><br /><code class="language-plaintext highlighter-rouge">Task_Verify</code></td>
       <td>Home clinic EHR</td>
-      <td><code class="language-plaintext highlighter-rouge">hcert-verify</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/hcert-verify.html"><code class="language-plaintext highlighter-rouge">hcert-verify</code></a></td>
       <td>HcertVerifier.verify: STT-VER-001 order, no payload before the signature (STT-VER-002), every DSC with the kid tried (STT-KID-002), EKU (STT-VER-004), time with an injected clock (STT-VER-005), typed result naming step and reason (STT-VER-008), fully offline (STT-VER-009); several payloads per HCERT (STT-SEL-004). It checks against the DID list the preconditions establish: a DSC added to the GDHCN list after the clinic’s last refresh is not in that copy, so its DVC fails at the trust-list step (STT-VER-006) and takes the “no” path, with that reason, until the next refresh.</td>
     </tr>
     <tr>
-      <td><strong>Note the failure; decide doses by policy</strong><br /><code class="language-plaintext highlighter-rouge">Task_Unverified</code></td>
+      <td><a id="step-Task_Unverified"></a><strong>Note the failure; decide doses by policy</strong><br /><code class="language-plaintext highlighter-rouge">Task_Unverified</code></td>
       <td>Home clinic provider</td>
-      <td><code class="language-plaintext highlighter-rouge">review-decision-support-guidance</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/review-decision-support-guidance.html"><code class="language-plaintext highlighter-rouge">review-decision-support-guidance</code></a></td>
       <td>Record the failure reason; decide doses by national policy.</td>
     </tr>
     <tr>
-      <td><strong>Import the doses as FHIR Immunization resources</strong><br /><code class="language-plaintext highlighter-rouge">Task_Import</code></td>
+      <td><a id="step-Task_Import"></a><strong>Import the doses as FHIR Immunization resources</strong><br /><code class="language-plaintext highlighter-rouge">Task_Import</code></td>
       <td>Home clinic EHR</td>
-      <td><code class="language-plaintext highlighter-rouge">ehr-import-immunization</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/ehr-import-immunization.html"><code class="language-plaintext highlighter-rouge">ehr-import-immunization</code></a></td>
       <td>—</td>
     </tr>
     <tr>
-      <td><strong>Add national codes beside foreign ones</strong><br /><code class="language-plaintext highlighter-rouge">Task_Map</code></td>
+      <td><a id="step-Task_Map"></a><strong>Add national codes beside foreign ones</strong><br /><code class="language-plaintext highlighter-rouge">Task_Map</code></td>
       <td>Home clinic EHR</td>
-      <td><code class="language-plaintext highlighter-rouge">map-vaccine-codes</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/map-vaccine-codes.html"><code class="language-plaintext highlighter-rouge">map-vaccine-codes</code></a></td>
       <td>Add the national schedule code beside the foreign vaccine code. The imported doses keep the issuer’s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it.</td>
     </tr>
     <tr>
-      <td><strong>Evaluate the national schedule</strong><br /><code class="language-plaintext highlighter-rouge">Task_Schedule</code></td>
+      <td><a id="step-Task_Schedule"></a><strong>Evaluate the national schedule</strong><br /><code class="language-plaintext highlighter-rouge">Task_Schedule</code></td>
       <td>Home clinic EHR</td>
-      <td><code class="language-plaintext highlighter-rouge">schedule-evaluate</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/schedule-evaluate.html"><code class="language-plaintext highlighter-rouge">schedule-evaluate</code></a></td>
       <td>PlanDefinition/$apply over the imported Immunizations, read by their national schedule codes: the Hep B and BCG birth doses count; the 6-week doses (pentavalent, bOPV, PCV) are due, and a reminder Task is created for that date.</td>
     </tr>
     <tr>
-      <td><strong>Give due doses and book the next visit</strong><br /><code class="language-plaintext highlighter-rouge">Task_Plan</code></td>
+      <td><a id="step-Task_Plan"></a><strong>Give due doses and book the next visit</strong><br /><code class="language-plaintext highlighter-rouge">Task_Plan</code></td>
       <td>Home clinic provider</td>
-      <td><code class="language-plaintext highlighter-rouge">review-decision-support-guidance</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/review-decision-support-guidance.html"><code class="language-plaintext highlighter-rouge">review-decision-support-guidance</code></a></td>
       <td>The nurse acts on the schedule evaluation’s guidance (TD.DT.04, which doses are due and from when) the way smart-base’s act-on-decision-support process does it: accept or decline each proposed dose, one tap each. Saying why is optional (record-decision-rationale) and never holds up the visit.</td>
     </tr>
   </tbody>

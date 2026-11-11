@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="J2 Discover and refer an unregistered infant in Country B" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j2/" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j2/" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="J2 Discover and refer an unregistered infant in Country B" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J2 Discover and refer an unregistered infant in Country B","url":"https://litlfred.github.io/smart-trust-demo/en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j2/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J2 Discover and refer an unregistered infant in Country B","url":"https://litlfred.github.io/smart-trust-demo/en/folio-assistant-core/glossary/instance/smart-trust-demo/architecture/journey-j2/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -868,7 +868,7 @@
 </h1>
     
 
-<p>J2, Return home, CHW discovery and referral. Back in Country B (home, XXH), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).</p>
+<p>J2, Return home, CHW discovery and referral. Back in Country B (home, XXK), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).</p>
 <p class="fa-gloss-meta">Also called: J2 Discover and refer the infant</p>
 <h2>
   
@@ -906,7 +906,7 @@
  "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/journey-j2",
  "@type": "skos:Concept",
  "skos:prefLabel": "J2 Discover and refer an unregistered infant in Country B",
- "skos:definition": "J2, Return home, CHW discovery and referral. Back in Country B (home, XXH), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).",
+ "skos:definition": "J2, Return home, CHW discovery and referral. Back in Country B (home, XXK), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver).",
  "skos:inScheme": {
   "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
  },

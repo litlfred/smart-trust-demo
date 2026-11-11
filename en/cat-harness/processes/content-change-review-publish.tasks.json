@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "content-change-review-publish.html",
  "tasks": {
   "Task_Merge": {
    "id": "Task_Merge",
    "name": "Merge, on explicit confirmation",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-publish.html#step-Task_Merge",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-publish.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -70,7 +73,9 @@
    "id": "Task_CleanupStaging",
    "name": "Remove STAGING/<slug>/",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-publish.html#step-Task_CleanupStaging",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -83,7 +88,9 @@
    "id": "Task_RebuildMain",
    "name": "Rebuild main site",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-publish.html#step-Task_RebuildMain",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -96,7 +103,9 @@
    "id": "Task_WatchMainCI",
    "name": "Note the main-branch watch",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-publish.html#step-Task_WatchMainCI",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",

@@ -2,15 +2,15 @@
   "resourceType" : "Group",
   "id" : "TrustDemoHousehold",
   "meta" : {
-    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoHousehold"]
+    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoOnesaHousehold"]
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Group TrustDemoHousehold</b></p><a name=\"TrustDemoHousehold\"> </a><a name=\"hcTrustDemoHousehold\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoLaoHousehold.html\">Lao PDR: household on the CHW's roster</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Sengmany household (Person, enumerated, 3 members) (http://smart.who.int/trust-demo/sid/lao-household-id#HH-LAO-204)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"The kind of things that are members of the group\">Type:</td><td>Person</td><td style=\"background-color: #f3f5da\" title=\"The number of members in the group\">Quantity:</td><td>3</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Whether the members are listed (enumerated), or the group is a definition of what could be a member (definitional)\">Membership:</td><td colspan=\"3\">enumerated</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The kind of members of the group, beyond the basic type\">Kind:</td><td colspan=\"3\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-RoleCode FAMMEMB}\">Household</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The entity responsible for the group\">Managed By:</td><td colspan=\"3\"><a href=\"RelatedPerson-TrustDemoBounmy.html\">Bounmy SENGMANY - father</a></td></tr></table><p><b>Members</b></p><table class=\"grid\"><tr><th>Member</th><th>Period</th></tr><tr><td><a href=\"Patient-TrustDemoBounmyPatient.html\">Bounmy SENGMANY  Male, DoB Unknown</a></td><td/></tr><tr><td><a href=\"Patient-TrustDemoKhamlaPatient.html\">Khamla SENGMANY  Female, DoB Unknown</a></td><td/></tr><tr><td><a href=\"Patient-TrustDemoSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/lao-temporary-id#LAO-TMP-2025-00918)</a></td><td>2025-11-18 --&gt; (ongoing)</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Group TrustDemoHousehold</b></p><a name=\"TrustDemoHousehold\"> </a><a name=\"hcTrustDemoHousehold\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoOnesaHousehold.html\">Onesa: household on the CHW's roster</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Sengmany household (Person, enumerated, 3 members) (http://smart.who.int/trust-demo/sid/onesa-household-id#HH-XXK-204)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"The kind of things that are members of the group\">Type:</td><td>Person</td><td style=\"background-color: #f3f5da\" title=\"The number of members in the group\">Quantity:</td><td>3</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Whether the members are listed (enumerated), or the group is a definition of what could be a member (definitional)\">Membership:</td><td colspan=\"3\">enumerated</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The kind of members of the group, beyond the basic type\">Kind:</td><td colspan=\"3\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-RoleCode FAMMEMB}\">Household</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The entity responsible for the group\">Managed By:</td><td colspan=\"3\"><a href=\"RelatedPerson-TrustDemoBounmy.html\">Bounmy SENGMANY - father</a></td></tr></table><p><b>Members</b></p><table class=\"grid\"><tr><th>Member</th><th>Period</th></tr><tr><td><a href=\"Patient-TrustDemoBounmyPatient.html\">Bounmy SENGMANY  Male, DoB Unknown</a></td><td/></tr><tr><td><a href=\"Patient-TrustDemoKhamlaPatient.html\">Khamla SENGMANY  Female, DoB Unknown</a></td><td/></tr><tr><td><a href=\"Patient-TrustDemoSomsak.html\">Somsak SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/onesa-temporary-id#XXK-TMP-2025-00918)</a></td><td>2025-11-18 --&gt; (ongoing)</td></tr></table></div>"
   },
   "identifier" : [{
-    "system" : "http://smart.who.int/trust-demo/sid/lao-household-id",
-    "value" : "HH-LAO-204"
+    "system" : "http://smart.who.int/trust-demo/sid/onesa-household-id",
+    "value" : "HH-XXK-204"
   }],
   "type" : "person",
   "actual" : true,
@@ -39,7 +39,7 @@
   },
   {
     "entity" : {
-      "reference" : "Patient/TrustDemoSomsack"
+      "reference" : "Patient/TrustDemoSomsak"
     },
     "period" : {
       "start" : "2025-11-18"

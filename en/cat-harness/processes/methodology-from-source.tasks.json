@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "methodology-from-source.html",
  "tasks": {
   "A_Origin": {
    "id": "A_Origin",
    "name": "Establish origin and licence",
    "type": "bpmn:Task",
+   "stepHref": "methodology-from-source.html#step-A_Origin",
    "lane": "Agent",
+   "laneHref": "methodology-from-source.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -118,7 +121,9 @@
    "id": "Call_Ingest",
    "name": "Ingest into library/",
    "type": "bpmn:CallActivity",
+   "stepHref": "methodology-from-source.html#step-Call_Ingest",
    "lane": "Agent",
+   "laneHref": "methodology-from-source.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "Basic ingestion — an upload to an asset catalogued in library/",
@@ -136,12 +141,12 @@
    "id": "Call_RelatedWork",
    "name": "Related work: find, sort, ask",
    "type": "bpmn:CallActivity",
+   "stepHref": "methodology-from-source.html#step-Call_RelatedWork",
    "lane": "Agent",
+   "laneHref": "methodology-from-source.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Related work: find, sort, summarize, ask to coordinate",
-    "href": "related-work.html",
-    "diagram": "related-work.html"
+    "name": "Process_RelatedWork"
    },
    "role": {
     "name": "authoring-agent",
@@ -154,7 +159,9 @@
    "id": "A_Render",
    "name": "Render the method: adopted vs refused",
    "type": "bpmn:Task",
+   "stepHref": "methodology-from-source.html#step-A_Render",
    "lane": "Agent",
+   "laneHref": "methodology-from-source.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -167,7 +174,9 @@
    "id": "A_Place",
    "name": "Place by ownership; declare the directory",
    "type": "bpmn:Task",
+   "stepHref": "methodology-from-source.html#step-A_Place",
    "lane": "Agent",
+   "laneHref": "methodology-from-source.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -180,7 +189,9 @@
    "id": "A_Integrate",
    "name": "Integrate: call existing processes",
    "type": "bpmn:Task",
+   "stepHref": "methodology-from-source.html#step-A_Integrate",
    "lane": "Agent",
+   "laneHref": "methodology-from-source.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -193,7 +204,9 @@
    "id": "A_Tools",
    "name": "Every skill and tool used becomes a Tool",
    "type": "bpmn:Task",
+   "stepHref": "methodology-from-source.html#step-A_Tools",
    "lane": "Agent",
+   "laneHref": "methodology-from-source.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -206,7 +219,9 @@
    "id": "O_Review",
    "name": "Review the adoption",
    "type": "bpmn:Task",
+   "stepHref": "methodology-from-source.html#step-O_Review",
    "lane": "Owner",
+   "laneHref": "methodology-from-source.html#lane-Lane_Owner",
    "skills": [],
    "role": {
     "name": "user",

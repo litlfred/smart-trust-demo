@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="IRIS CDN initial load" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/iris-cdn-initial-load.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/iris-cdn-initial-load.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="IRIS CDN initial load" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"IRIS CDN initial load","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/iris-cdn-initial-load.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"IRIS CDN initial load","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/iris-cdn-initial-load.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -974,8 +974,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1161,17 +1167,17 @@
   </thead>
   <tbody>
     <tr>
-      <td>Owner</td>
+      <td><a id="lane-Lane_Owner"></a>Owner</td>
       <td><code class="language-plaintext highlighter-rouge">iris-cdn-owner</code></td>
       <td>A person: decides scope, budget and the storage target. Nothing downstream widens what the owner approved.</td>
     </tr>
     <tr>
-      <td>IRIS CDN Exporter (agent)</td>
+      <td><a id="lane-Lane_Exporter"></a>IRIS CDN Exporter (agent)</td>
       <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></td>
       <td>The agent role. It plans, reviews and reports; it does not hold the signing key, and it never pushes to a WHO repository.</td>
     </tr>
     <tr>
-      <td>Build pipeline</td>
+      <td><a id="lane-Lane_Pipeline"></a>Build pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>Deterministic scripts in scripts/iris-cdn/, entry point run.ts. Same input, same bytes.</td>
     </tr>
@@ -1199,63 +1205,63 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>State scope and budget, with denominators</strong><br /><code class="language-plaintext highlighter-rouge">Task_StateBudget</code></td>
+      <td><a id="step-Task_StateBudget"></a><strong>State scope and budget, with denominators</strong><br /><code class="language-plaintext highlighter-rouge">Task_StateBudget</code></td>
       <td>Owner</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-cdn-exporter.html"><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></a></td>
       <td>Items, files and bytes upstream (273,559 items, 1,057,223 files, 361.55 GiB as last transcribed), the storage target for each kind of file, and a request rate IRIS will tolerate. A budget with no denominator is a preference, not a limit.</td>
     </tr>
     <tr>
-      <td><strong>Plan batches by community and collection</strong><br /><code class="language-plaintext highlighter-rouge">Task_PlanBatches</code></td>
+      <td><a id="step-Task_PlanBatches"></a><strong>Plan batches by community and collection</strong><br /><code class="language-plaintext highlighter-rouge">Task_PlanBatches</code></td>
       <td>IRIS CDN Exporter (agent)</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code><br /><code class="language-plaintext highlighter-rouge">iris-dspace</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-cdn-exporter.html"><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></a><br /><a href="../../../en/cat-harness/processes/skills/iris-dspace.html"><code class="language-plaintext highlighter-rouge">iris-dspace</code></a></td>
       <td>One batch per collection (large collections split by page).</td>
     </tr>
     <tr>
-      <td><strong>Harvest a batch of item records (REST)</strong><br /><code class="language-plaintext highlighter-rouge">Task_HarvestBatch</code></td>
+      <td><a id="step-Task_HarvestBatch"></a><strong>Harvest a batch of item records (REST)</strong><br /><code class="language-plaintext highlighter-rouge">Task_HarvestBatch</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-rest-feed</code><br /><code class="language-plaintext highlighter-rouge">iris-dspace</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-rest-feed.html"><code class="language-plaintext highlighter-rouge">iris-rest-feed</code></a><br /><a href="../../../en/cat-harness/processes/skills/iris-dspace.html"><code class="language-plaintext highlighter-rouge">iris-dspace</code></a></td>
       <td>DSpace REST: the item, its metadata, bundles and bitstream descriptors. Written as canonical JSON (sorted keys, LF, no fetch timestamp inside the record) so the same item always serialises to the same bytes.</td>
     </tr>
     <tr>
-      <td><strong>Fetch bitstreams not already held</strong><br /><code class="language-plaintext highlighter-rouge">Task_FetchBitstreams</code></td>
+      <td><a id="step-Task_FetchBitstreams"></a><strong>Fetch bitstreams not already held</strong><br /><code class="language-plaintext highlighter-rouge">Task_FetchBitstreams</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-cdn-exporter.html"><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></a></td>
       <td>A bitstream is stored under its SHA-256. If that object already exists it is not downloaded again; a re-run of a batch therefore moves no bytes.</td>
     </tr>
     <tr>
-      <td><strong>Store bytes under SHA-256 (skip if held)</strong><br /><code class="language-plaintext highlighter-rouge">Task_StoreBytes</code></td>
+      <td><a id="step-Task_StoreBytes"></a><strong>Store bytes under SHA-256 (skip if held)</strong><br /><code class="language-plaintext highlighter-rouge">Task_StoreBytes</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-cdn-exporter.html"><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></a></td>
       <td>—</td>
     </tr>
     <tr>
-      <td><strong>Commit the batch checkpoint</strong><br /><code class="language-plaintext highlighter-rouge">Task_Checkpoint</code></td>
+      <td><a id="step-Task_Checkpoint"></a><strong>Commit the batch checkpoint</strong><br /><code class="language-plaintext highlighter-rouge">Task_Checkpoint</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-cdn-exporter.html"><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></a></td>
       <td>state/initial-load.json in the Cloudflare git repository. A restarted load reads it and skips finished batches.</td>
     </tr>
     <tr>
-      <td><strong>Quarantine and report the mismatch</strong><br /><code class="language-plaintext highlighter-rouge">Task_Quarantine</code></td>
+      <td><a id="step-Task_Quarantine"></a><strong>Quarantine and report the mismatch</strong><br /><code class="language-plaintext highlighter-rouge">Task_Quarantine</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-cdn-exporter.html"><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></a></td>
       <td>Not published, not retried silently. The record keeps its reference to IRIS and the bitstream is marked unknown.</td>
     </tr>
     <tr>
-      <td><strong>Build the graph partitions</strong><br /><code class="language-plaintext highlighter-rouge">Call_BuildGraph</code></td>
+      <td><a id="step-Call_BuildGraph"></a><strong>Build the graph partitions</strong><br /><code class="language-plaintext highlighter-rouge">Call_BuildGraph</code></td>
       <td>Build pipeline</td>
-      <td>calls <a href="nquads-distribution.html">Package and distribute partitioned W3C N-Quads and named queries</a><br /><code class="language-plaintext highlighter-rouge">iris-oxigraph</code><br /><code class="language-plaintext highlighter-rouge">nquads-distribution</code></td>
+      <td>calls <a href="nquads-distribution.html">Package and distribute partitioned W3C N-Quads and named queries</a><br /><a href="../../../en/cat-harness/processes/skills/iris-oxigraph.html"><code class="language-plaintext highlighter-rouge">iris-oxigraph</code></a><br /><a href="../../../en/cat-harness/processes/skills/nquads-distribution.html"><code class="language-plaintext highlighter-rouge">nquads-distribution</code></a></td>
       <td>The platform process nquads-distribution (cat-harness): spine plus one partition per community, zero blank nodes, sorted N-Quads.</td>
     </tr>
     <tr>
-      <td><strong>Sign and publish the release</strong><br /><code class="language-plaintext highlighter-rouge">Call_SignPublish</code></td>
+      <td><a id="step-Call_SignPublish"></a><strong>Sign and publish the release</strong><br /><code class="language-plaintext highlighter-rouge">Call_SignPublish</code></td>
       <td>Build pipeline</td>
-      <td>calls <a href="iris-cdn-sign-publish.html">Sign and publish an IRIS CDN release</a><br /><code class="language-plaintext highlighter-rouge">iris-cdn-signing</code></td>
+      <td>calls <a href="iris-cdn-sign-publish.html">Sign and publish an IRIS CDN release</a><br /><a href="../../../en/cat-harness/processes/skills/iris-cdn-signing.html"><code class="language-plaintext highlighter-rouge">iris-cdn-signing</code></a></td>
       <td>—</td>
     </tr>
     <tr>
-      <td><strong>Review the load report; open beans for gaps</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewLoad</code></td>
+      <td><a id="step-Task_ReviewLoad"></a><strong>Review the load report; open beans for gaps</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewLoad</code></td>
       <td>IRIS CDN Exporter (agent)</td>
-      <td><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/iris-cdn-exporter.html"><code class="language-plaintext highlighter-rouge">iris-cdn-exporter</code></a></td>
       <td>—</td>
     </tr>
   </tbody>

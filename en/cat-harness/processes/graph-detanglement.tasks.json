@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "graph-detanglement.html",
  "tasks": {
   "Task_Brief": {
    "id": "Task_Brief",
    "name": "Brief the topic before touching anything",
    "type": "bpmn:Task",
+   "stepHref": "graph-detanglement.html#step-Task_Brief",
    "lane": "Authoring agent",
+   "laneHref": "graph-detanglement.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -118,7 +121,9 @@
    "id": "Task_Declare",
    "name": "1 · Declare in place (nothing moves)",
    "type": "bpmn:Task",
+   "stepHref": "graph-detanglement.html#step-Task_Declare",
    "lane": "Authoring agent",
+   "laneHref": "graph-detanglement.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -131,7 +136,9 @@
    "id": "Task_Measure",
    "name": "2a · Measure — unassigned column FIRST",
    "type": "bpmn:Task",
+   "stepHref": "graph-detanglement.html#step-Task_Measure",
    "lane": "Authoring agent",
+   "laneHref": "graph-detanglement.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -144,7 +151,9 @@
    "id": "Task_Move",
    "name": "2b · Prune, merge, factor — or the classification is wrong",
    "type": "bpmn:Task",
+   "stepHref": "graph-detanglement.html#step-Task_Move",
    "lane": "Authoring agent",
+   "laneHref": "graph-detanglement.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -157,7 +166,9 @@
    "id": "Task_Isolate",
    "name": "3 · Isolate — own declaration, namespace, artefact",
    "type": "bpmn:Task",
+   "stepHref": "graph-detanglement.html#step-Task_Isolate",
    "lane": "Authoring agent",
+   "laneHref": "graph-detanglement.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -170,7 +181,9 @@
    "id": "Task_Propose",
    "name": "Report what would move — sizes, and what breaks",
    "type": "bpmn:Task",
+   "stepHref": "graph-detanglement.html#step-Task_Propose",
    "lane": "Authoring agent",
+   "laneHref": "graph-detanglement.html#lane-Lane_Agent",
    "skills": [],
    "shared": {
     "id": "GT_ReportWhatMoves",
@@ -187,7 +200,9 @@
    "id": "Task_Authorise",
    "name": "Authorise the extraction",
    "type": "bpmn:CallActivity",
+   "stepHref": "graph-detanglement.html#step-Task_Authorise",
    "lane": "Administrator",
+   "laneHref": "graph-detanglement.html#lane-Lane_Admin",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -205,7 +220,9 @@
    "id": "Task_Extract",
    "name": "4 · Extract — a directory move, not a file-by-file sift",
    "type": "bpmn:Task",
+   "stepHref": "graph-detanglement.html#step-Task_Extract",
    "lane": "Authoring agent",
+   "laneHref": "graph-detanglement.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",

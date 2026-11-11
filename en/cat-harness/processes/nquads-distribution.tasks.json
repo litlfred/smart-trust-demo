@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "nquads-distribution.html",
  "tasks": {
   "A_ExtractSkolemize": {
    "id": "A_ExtractSkolemize",
    "name": "Extract & Skolemize RDF Dataset",
    "type": "bpmn:Task",
+   "stepHref": "nquads-distribution.html#step-A_ExtractSkolemize",
    "lane": "Knowledge Graph Engineer",
+   "laneHref": "nquads-distribution.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -106,7 +109,9 @@
    "id": "A_PartitionQuads",
    "name": "Stream W3C N-Quads into Subgraph Partitions",
    "type": "bpmn:Task",
+   "stepHref": "nquads-distribution.html#step-A_PartitionQuads",
    "lane": "Knowledge Graph Engineer",
+   "laneHref": "nquads-distribution.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -119,7 +124,9 @@
    "id": "A_ReportBudgetExcess",
    "name": "Report Budget Finding; Refine Subgraph Splitting",
    "type": "bpmn:Task",
+   "stepHref": "nquads-distribution.html#step-A_ReportBudgetExcess",
    "lane": "Knowledge Graph Engineer",
+   "laneHref": "nquads-distribution.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -132,7 +139,9 @@
    "id": "A_DeclareManifest",
    "name": "Declare Distribution Manifest & Named Queries",
    "type": "bpmn:Task",
+   "stepHref": "nquads-distribution.html#step-A_DeclareManifest",
    "lane": "Knowledge Graph Engineer",
+   "laneHref": "nquads-distribution.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -145,7 +154,9 @@
    "id": "A_VerifyQueries",
    "name": "Verify Queries via CLI & Test Graph Availability",
    "type": "bpmn:Task",
+   "stepHref": "nquads-distribution.html#step-A_VerifyQueries",
    "lane": "Knowledge Graph Engineer",
+   "laneHref": "nquads-distribution.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -158,7 +169,9 @@
    "id": "A_GateCheck",
    "name": "Audit the manifest and schemas",
    "type": "bpmn:ServiceTask",
+   "stepHref": "nquads-distribution.html#step-A_GateCheck",
    "lane": "CI/CD Pipeline",
+   "laneHref": "nquads-distribution.html#lane-Lane_Ci",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -171,7 +184,9 @@
    "id": "A_DeployPages",
    "name": "Publish Distribution via 'served: true' to Pages",
    "type": "bpmn:ServiceTask",
+   "stepHref": "nquads-distribution.html#step-A_DeployPages",
    "lane": "CI/CD Pipeline",
+   "laneHref": "nquads-distribution.html#lane-Lane_Ci",
    "skills": [],
    "role": {
     "name": "build-pipeline",

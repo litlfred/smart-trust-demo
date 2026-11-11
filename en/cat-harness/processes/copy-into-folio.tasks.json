@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "copy-into-folio.html",
  "tasks": {
   "Task_ChooseAsset": {
    "id": "Task_ChooseAsset",
    "name": "Select upstream asset and target folio",
    "type": "bpmn:UserTask",
+   "stepHref": "copy-into-folio.html#step-Task_ChooseAsset",
    "lane": "Folio author",
+   "laneHref": "copy-into-folio.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -118,7 +121,9 @@
    "id": "Task_ProbeWriteCapability",
    "name": "Probe write capability",
    "type": "bpmn:ServiceTask",
+   "stepHref": "copy-into-folio.html#step-Task_ProbeWriteCapability",
    "lane": "Authoring agent",
+   "laneHref": "copy-into-folio.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -131,7 +136,9 @@
    "id": "Task_InspectReadOnly",
    "name": "Browse in place, emit a KgAsset snippet",
    "type": "bpmn:UserTask",
+   "stepHref": "copy-into-folio.html#step-Task_InspectReadOnly",
    "lane": "Folio author",
+   "laneHref": "copy-into-folio.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -144,7 +151,9 @@
    "id": "Task_ReadUpstreamAsset",
    "name": "Read the upstream asset (no writes)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "copy-into-folio.html#step-Task_ReadUpstreamAsset",
    "lane": "Source knowledge graph — read-only",
+   "laneHref": "copy-into-folio.html#lane-Lane_Source",
    "skills": [],
    "role": {
     "name": "corpus",
@@ -157,7 +166,9 @@
    "id": "Task_CopyAndDeclareAsset",
    "name": "Copy asset into target folio and declare in assets[]",
    "type": "bpmn:ServiceTask",
+   "stepHref": "copy-into-folio.html#step-Task_CopyAndDeclareAsset",
    "lane": "Authoring agent",
+   "laneHref": "copy-into-folio.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -170,7 +181,9 @@
    "id": "Task_StampAssetSource",
    "name": "Stamp the asset's source",
    "type": "bpmn:ServiceTask",
+   "stepHref": "copy-into-folio.html#step-Task_StampAssetSource",
    "lane": "Authoring agent",
+   "laneHref": "copy-into-folio.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -183,7 +196,9 @@
    "id": "Task_ValidateDeclaredAsset",
    "name": "Validate the asset and provenance",
    "type": "bpmn:ServiceTask",
+   "stepHref": "copy-into-folio.html#step-Task_ValidateDeclaredAsset",
    "lane": "Validation pipeline",
+   "laneHref": "copy-into-folio.html#lane-Lane_Validate",
    "skills": [],
    "role": {
     "name": "validation-pipeline",
@@ -196,7 +211,9 @@
    "id": "Task_WorkOnCopy",
    "name": "Edit, comment or raise todos on the folio's copy",
    "type": "bpmn:UserTask",
+   "stepHref": "copy-into-folio.html#step-Task_WorkOnCopy",
    "lane": "Folio author",
+   "laneHref": "copy-into-folio.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",

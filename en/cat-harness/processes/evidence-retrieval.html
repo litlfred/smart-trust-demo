@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Evidence for a recommendation" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/evidence-retrieval.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/evidence-retrieval.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Evidence for a recommendation" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Evidence for a recommendation","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/evidence-retrieval.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Evidence for a recommendation","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/evidence-retrieval.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -972,8 +972,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1159,17 +1165,17 @@
   </thead>
   <tbody>
     <tr>
-      <td>Author / guideline developer (person)</td>
+      <td><a id="lane-Lane_Author"></a>Author / guideline developer (person)</td>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
       <td>Brackets the machine work rather than doing it: frames the PICO before Lane_Agent fans out across evidence classes, then is the only lane that grades what comes back and decides whether it is sufficient for a recommendation; retrieval and authority-checking are delegated.</td>
     </tr>
     <tr>
-      <td>Evidence agent (system)</td>
+      <td><a id="lane-Lane_Agent"></a>Evidence agent (system)</td>
       <td><code class="language-plaintext highlighter-rouge">evidence-agent</code></td>
       <td>Fans out in parallel across the three evidence classes and joins the candidates. It owns coverage, not judgement: grading is Lane_Author’s call and authority is Lane_Trusted’s.</td>
     </tr>
     <tr>
-      <td>Trusted registries and observatories (external)</td>
+      <td><a id="lane-Lane_Trusted"></a>Trusted registries and observatories (external)</td>
       <td><code class="language-plaintext highlighter-rouge">external-registry</code></td>
       <td>Task_VerifyAuthority and its gateway sit here rather than with Lane_Agent because the decision is a readout of what the external API returns, not this instance’s call; when that answer is uncertain or absent, a bean is opened rather than a verdict invented.</td>
     </tr>
@@ -1197,63 +1203,63 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Review the existing guidance</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewExisting</code></td>
+      <td><a id="step-Task_ReviewExisting"></a><strong>Review the existing guidance</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewExisting</code></td>
       <td>Author / guideline developer (person)</td>
-      <td><code class="language-plaintext highlighter-rouge">content-review</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-review.html"><code class="language-plaintext highlighter-rouge">content-review</code></a></td>
       <td>The author reads what the document, DAK or IG ALREADY says on this question, before looking outward. A recommendation that contradicts a sibling recommendation in the same artefact is a defect no external evidence will reveal.</td>
     </tr>
     <tr>
-      <td><strong>Frame the question as PICO</strong><br /><code class="language-plaintext highlighter-rouge">Task_FramePico</code></td>
+      <td><a id="step-Task_FramePico"></a><strong>Frame the question as PICO</strong><br /><code class="language-plaintext highlighter-rouge">Task_FramePico</code></td>
       <td>Author / guideline developer (person)</td>
-      <td><code class="language-plaintext highlighter-rouge">content-author</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-author.html"><code class="language-plaintext highlighter-rouge">content-author</code></a></td>
       <td>Population, Intervention, Comparator, Outcome. The PICO is what makes the search reproducible and the evidence auditable: without it, ‘we looked for evidence’ is not a claim anyone can check. WHO guideline development states the question this way before any retrieval.</td>
     </tr>
     <tr>
-      <td><strong>Search trusted L1 sources</strong><br /><code class="language-plaintext highlighter-rouge">Task_L1Sources</code></td>
+      <td><a id="step-Task_L1Sources"></a><strong>Search trusted L1 sources</strong><br /><code class="language-plaintext highlighter-rouge">Task_L1Sources</code></td>
       <td>Evidence agent (system)</td>
-      <td><code class="language-plaintext highlighter-rouge">document-intake</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/document-intake.html"><code class="language-plaintext highlighter-rouge">document-intake</code></a></td>
       <td>Ingested primary literature under library/: the sections/*.md tree and, where a document was scanned, ocr/page-NNN.txt. NOTE the known blind spot — a document OCR’d but never re-run through pdf-structure.py has only a stub in sections/, so a sections-only search misses it.</td>
     </tr>
     <tr>
-      <td><strong>Search trusted L2 and L3 content</strong><br /><code class="language-plaintext highlighter-rouge">Task_L2L3Content</code></td>
+      <td><a id="step-Task_L2L3Content"></a><strong>Search trusted L2 and L3 content</strong><br /><code class="language-plaintext highlighter-rouge">Task_L2L3Content</code></td>
       <td>Evidence agent (system)</td>
-      <td><code class="language-plaintext highlighter-rouge">document-intake</code><br /><code class="language-plaintext highlighter-rouge">document-intake</code><br /><code class="language-plaintext highlighter-rouge">document-intake</code></td>
-      <td>Already-adjudicated guidance: WHO SMART DAKs at L2 and FHIR Implementation Guides at L3. A recommendation adopted in a published DAK is evidence of a different kind from a primary study – it is a prior decision, with its own provenance, and must be cited as that rather than laundered into primary evidence.<br />NOT YET SKILL-BACKED: no skill searches adjudicated L2/L3 content for<br />evidence. <code class="language-plaintext highlighter-rouge">corpus-grep</code> is a different task (checking that a gap is really<br />open).</td>
+      <td><a href="../../../en/cat-harness/processes/skills/document-intake.html"><code class="language-plaintext highlighter-rouge">document-intake</code></a><br /><a href="../../../en/cat-harness/processes/skills/document-intake.html"><code class="language-plaintext highlighter-rouge">document-intake</code></a><br /><a href="../../../en/cat-harness/processes/skills/document-intake.html"><code class="language-plaintext highlighter-rouge">document-intake</code></a></td>
+      <td>Already-adjudicated guidance: WHO SMART DAKs at L2 and FHIR Implementation Guides at L3. A recommendation adopted in a published DAK is evidence of a different kind from a primary study – it is a prior decision, with its own provenance, and must be cited as that rather than laundered into primary evidence.<br />NOT YET SKILL-BACKED: no skill searches adjudicated L2/L3 content for<br />evidence. <a href="../../../en/cat-harness/processes/skills/corpus-grep.html"><code class="language-plaintext highlighter-rouge">corpus-grep</code></a> is a different task (checking that a gap is really<br />open).</td>
     </tr>
     <tr>
-      <td><strong>Query data repositories and statistical datasets</strong><br /><code class="language-plaintext highlighter-rouge">Task_DataRepos</code></td>
+      <td><a id="step-Task_DataRepos"></a><strong>Query data repositories and statistical datasets</strong><br /><code class="language-plaintext highlighter-rouge">Task_DataRepos</code></td>
       <td>Evidence agent (system)</td>
-      <td><code class="language-plaintext highlighter-rouge">document-intake</code><br /><code class="language-plaintext highlighter-rouge">document-intake</code><br /><code class="language-plaintext highlighter-rouge">document-intake</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/document-intake.html"><code class="language-plaintext highlighter-rouge">document-intake</code></a><br /><a href="../../../en/cat-harness/processes/skills/document-intake.html"><code class="language-plaintext highlighter-rouge">document-intake</code></a><br /><a href="../../../en/cat-harness/processes/skills/document-intake.html"><code class="language-plaintext highlighter-rouge">document-intake</code></a></td>
       <td>Indicator and microdata sources. Distinct from the two above because the unit of evidence is a MEASUREMENT with a population, a period and a method, not a claim in prose.</td>
     </tr>
     <tr>
-      <td><strong>Verify authority against the registry</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerifyAuthority</code></td>
+      <td><a id="step-Task_VerifyAuthority"></a><strong>Verify authority against the registry</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerifyAuthority</code></td>
       <td>Trusted registries and observatories (external)</td>
-      <td><code class="language-plaintext highlighter-rouge">registry-authority-contract</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/registry-authority-contract.html"><code class="language-plaintext highlighter-rouge">registry-authority-contract</code></a></td>
       <td>Each candidate is resolved against the standard API of the body that publishes it, so that ‘authoritative’ is a RESOLVED FACT rather than an assertion in the citation. What is checked: that the identifier resolves at the publisher; that the retrieved record matches what the citation claims; that the version and date are the ones cited; and that the publisher is one this folio has declared trusted. STRAWPERSON: the concrete registry list and endpoints are not settled here – see the cat-harness.processes:policy note.</td>
     </tr>
     <tr>
-      <td><strong>Open a bean for the unverified citation</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordUnverified</code></td>
+      <td><a id="step-Task_RecordUnverified"></a><strong>Open a bean for the unverified citation</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordUnverified</code></td>
       <td>Author / guideline developer (person)</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>An unresolvable citation is not dropped and not silently kept. It becomes a tracked item, so the gap is visible in the work plan rather than surviving as a footnote nobody re-checks.</td>
     </tr>
     <tr>
-      <td><strong>Appraise and grade the body of evidence</strong><br /><code class="language-plaintext highlighter-rouge">Task_AppraiseGrade</code></td>
+      <td><a id="step-Task_AppraiseGrade"></a><strong>Appraise and grade the body of evidence</strong><br /><code class="language-plaintext highlighter-rouge">Task_AppraiseGrade</code></td>
       <td>Author / guideline developer (person)</td>
-      <td><code class="language-plaintext highlighter-rouge">evidence-appraisal</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/evidence-appraisal.html"><code class="language-plaintext highlighter-rouge">evidence-appraisal</code></a></td>
       <td>Certainty of evidence per the grading system the folio declares. The grade attaches to the BODY of evidence for one PICO question, not to an individual citation – which is why this step is after the join and not inside the fan-out.</td>
     </tr>
     <tr>
-      <td><strong>Record the evidence gap</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordGap</code></td>
+      <td><a id="step-Task_RecordGap"></a><strong>Record the evidence gap</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordGap</code></td>
       <td>Author / guideline developer (person)</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>Insufficient evidence is a RESULT. It is recorded as such – an honest gap the guideline can state – rather than being closed by weakening the recommendation until the available evidence supports it.</td>
     </tr>
     <tr>
-      <td><strong>Attach the evidence</strong><br /><code class="language-plaintext highlighter-rouge">Task_AttachEvidence</code></td>
+      <td><a id="step-Task_AttachEvidence"></a><strong>Attach the evidence</strong><br /><code class="language-plaintext highlighter-rouge">Task_AttachEvidence</code></td>
       <td>Author / guideline developer (person)</td>
-      <td><code class="language-plaintext highlighter-rouge">content-author</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-author.html"><code class="language-plaintext highlighter-rouge">content-author</code></a></td>
       <td>The PICO, the graded body of evidence, each verified citation and its resolved authority record are written onto the recommendation block, so a reader can retrace the whole chain from the sentence back to the source.</td>
     </tr>
   </tbody>

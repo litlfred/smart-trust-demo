@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "j2-chw-discovery-referral.html",
  "tasks": {
   "Task_Show": {
    "id": "Task_Show",
    "name": "Show the paper DVCs from Country A",
    "type": "bpmn:UserTask",
+   "stepHref": "j2-chw-discovery-referral.html#step-Task_Show",
    "lane": "Caregiver",
+   "laneHref": "j2-chw-discovery-referral.html#lane-Lane_caregiver",
    "skills": [],
    "role": {
     "name": "caregiver",
@@ -94,7 +97,9 @@
    "id": "Task_Scan",
    "name": "Scan each QR with the CHW app",
    "type": "bpmn:UserTask",
+   "stepHref": "j2-chw-discovery-referral.html#step-Task_Scan",
    "lane": "Community health worker",
+   "laneHref": "j2-chw-discovery-referral.html#lane-Lane_community-health-worker",
    "skills": [],
    "role": {
     "name": "community-health-worker",
@@ -107,7 +112,9 @@
    "id": "Task_Read",
    "name": "Read each DVC unverified (triage)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j2-chw-discovery-referral.html#step-Task_Read",
    "lane": "CHW app",
+   "laneHref": "j2-chw-discovery-referral.html#lane-Lane_chw-app",
    "skills": [],
    "role": {
     "name": "chw-app",
@@ -120,7 +127,9 @@
    "id": "Task_Register",
    "name": "Add the infant; save doses as reported",
    "type": "bpmn:CallActivity",
+   "stepHref": "j2-chw-discovery-referral.html#step-Task_Register",
    "lane": "CHW app",
+   "laneHref": "j2-chw-discovery-referral.html#lane-Lane_chw-app",
    "skills": [],
    "calls": {
     "name": "Capture data with an SDC questionnaire",
@@ -138,7 +147,9 @@
    "id": "Task_Refer",
    "name": "Create a referral to the home clinic for verification",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j2-chw-discovery-referral.html#step-Task_Refer",
    "lane": "CHW app",
+   "laneHref": "j2-chw-discovery-referral.html#lane-Lane_chw-app",
    "skills": [],
    "role": {
     "name": "chw-app",
@@ -151,7 +162,9 @@
    "id": "Task_Slip",
    "name": "Explain the referral to the family",
    "type": "bpmn:UserTask",
+   "stepHref": "j2-chw-discovery-referral.html#step-Task_Slip",
    "lane": "Community health worker",
+   "laneHref": "j2-chw-discovery-referral.html#lane-Lane_community-health-worker",
    "skills": [],
    "role": {
     "name": "community-health-worker",

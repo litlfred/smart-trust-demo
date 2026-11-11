@@ -316,17 +316,18 @@
    }
   }
  ],
+ "processHref": "dsa-document-lifecycle.html",
  "tasks": {
   "Call_BeanOpen": {
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "dsa-document-lifecycle.html#step-Call_BeanOpen",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "author",
@@ -339,7 +340,9 @@
    "id": "Task_AgreeTerms",
    "name": "P1.1 · Agree the terms",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_AgreeTerms",
    "lane": "Parties and signatories (provider, recipient)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Parties",
    "skills": [],
    "role": {
     "name": "stakeholder",
@@ -352,7 +355,9 @@
    "id": "Task_WriteText",
    "name": "P1.2 · Write the legal text",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_WriteText",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -365,7 +370,9 @@
    "id": "Task_RecordLegalBasis",
    "name": "P1.2a · Record the legal basis",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_RecordLegalBasis",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -378,7 +385,9 @@
    "id": "Task_PlainSummary",
    "name": "P1.2b · Draft the plain summary",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_PlainSummary",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -391,7 +400,9 @@
    "id": "Task_DeriveOdrl",
    "name": "P1.3 · Derive the ODRL 2.2 Agreement",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_DeriveOdrl",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -404,7 +415,9 @@
    "id": "Task_CheckOdrl",
    "name": "P1.4 · Check the ODRL against the text",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_CheckOdrl",
    "lane": "Reviewer (legal, policy)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -417,7 +430,9 @@
    "id": "Task_SplitAnnexes",
    "name": "P1.5 · Split public terms from private annexes",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_SplitAnnexes",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -430,7 +445,9 @@
    "id": "Task_Review",
    "name": "Review the draft agreement",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_Review",
    "lane": "Reviewer (legal, policy)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -443,7 +460,9 @@
    "id": "Call_PublicComment",
    "name": "Public comment on the template",
    "type": "bpmn:CallActivity",
+   "stepHref": "dsa-document-lifecycle.html#step-Call_PublicComment",
    "lane": "Public review (commenters, review committee, editor)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_PublicReview",
    "skills": [],
    "calls": {
     "name": "Public comment on a review draft",
@@ -461,7 +480,9 @@
    "id": "Task_Render",
    "name": "Render the text to HTML and PDF",
    "type": "bpmn:ServiceTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_Render",
    "lane": "Build pipeline (system)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -474,7 +495,9 @@
    "id": "Task_Sign",
    "name": "P1.6 · Sign",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_Sign",
    "lane": "Parties and signatories (provider, recipient)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Parties",
    "skills": [],
    "role": {
     "name": "stakeholder",
@@ -487,7 +510,9 @@
    "id": "Task_AssignVersion",
    "name": "P2.1 · Assign version and fixed URL",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_AssignVersion",
    "lane": "Publisher (data provider's publication manager)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -500,7 +525,9 @@
    "id": "Task_Hash",
    "name": "P2.2 · Record each file's SHA-256",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_Hash",
    "lane": "Publisher (data provider's publication manager)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -513,7 +540,9 @@
    "id": "Task_HashSummary",
    "name": "P2.2a · Hash the plain summary",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_HashSummary",
    "lane": "Publisher (data provider's publication manager)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -526,7 +555,9 @@
    "id": "Task_ConsentCitation",
    "name": "P2.2b · State the URL and hash to cite",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_ConsentCitation",
    "lane": "Publisher (data provider's publication manager)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -539,7 +570,9 @@
    "id": "Task_OdrlCitesText",
    "name": "P2.3 · Make the ODRL cite the text",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_OdrlCitesText",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -552,7 +585,9 @@
    "id": "Task_Publish",
    "name": "Publish the version at its URL",
    "type": "bpmn:ServiceTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_Publish",
    "lane": "Build pipeline (system)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -565,7 +600,9 @@
    "id": "Task_Catalogue",
    "name": "P2.4–5 · Write the DCAT 3 record",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_Catalogue",
    "lane": "Publisher (data provider's publication manager)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -578,12 +615,12 @@
    "id": "Call_BeanOpenChange",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "dsa-document-lifecycle.html#step-Call_BeanOpenChange",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "author",
@@ -596,7 +633,9 @@
    "id": "Task_DecideChange",
    "name": "Decide: amend, renew or end",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_DecideChange",
    "lane": "Parties and signatories (provider, recipient)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Parties",
    "skills": [],
    "role": {
     "name": "stakeholder",
@@ -609,7 +648,9 @@
    "id": "Task_DecideGrants",
    "name": "P14.2 · Decide what happens to existing grants",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_DecideGrants",
    "lane": "Parties and signatories (provider, recipient)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Parties",
    "skills": [],
    "role": {
     "name": "stakeholder",
@@ -622,7 +663,9 @@
    "id": "Task_NewConsentNeeded",
    "name": "P14.3 · New consent needed",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_NewConsentNeeded",
    "lane": "Parties and signatories (provider, recipient)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Parties",
    "skills": [],
    "role": {
     "name": "stakeholder",
@@ -635,7 +678,9 @@
    "id": "Task_SetStatus",
    "name": "P14.5 · Set the status to ended",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_SetStatus",
    "lane": "Publisher (data provider's publication manager)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -648,7 +693,9 @@
    "id": "Task_EndDuties",
    "name": "Revoke grants and start end-of-agreement duties",
    "type": "bpmn:UserTask",
+   "stepHref": "dsa-document-lifecycle.html#step-Task_EndDuties",
    "lane": "Parties and signatories (provider, recipient)",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Parties",
    "skills": [],
    "role": {
     "name": "stakeholder",
@@ -661,12 +708,12 @@
    "id": "Call_BeanCloseEnded",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "dsa-document-lifecycle.html#step-Call_BeanCloseEnded",
    "lane": "Author and policy author",
+   "laneHref": "dsa-document-lifecycle.html#lane-Lane_Author",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "author",

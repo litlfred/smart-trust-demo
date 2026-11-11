@@ -11,7 +11,7 @@
   "title" : "TD.J1 Birth-dose DVC",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-07T20:39:34+00:00",
+  "date" : "2026-11-11T10:58:56+00:00",
   "publisher" : "litlfred",
   "contact" : [{
     "name" : "litlfred",
@@ -74,7 +74,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThPatient: Patient.name; DVCMinPreQual.n"
+        "map" : "TrustDemoTaifafekiPatient: Patient.name; DVCMinPreQual.n"
       }]
     },
     {
@@ -99,7 +99,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThPatient: Patient.birthDate; DVCMinPreQual.dob"
+        "map" : "TrustDemoTaifafekiPatient: Patient.birthDate; DVCMinPreQual.dob"
       }]
     },
     {
@@ -149,7 +149,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThPatient: Patient.identifier[hn]"
+        "map" : "TrustDemoTaifafekiPatient: Patient.identifier[hn]"
       }]
     },
     {
@@ -178,7 +178,7 @@
       },
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.vaccineCode.coding[product]; DVCMinPreQual.v.vp"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.vaccineCode.coding[product]; DVCMinPreQual.v.vp"
       }]
     },
     {
@@ -203,7 +203,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.occurrenceDateTime; DVCMinPreQual.v.dt"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.occurrenceDateTime; DVCMinPreQual.v.dt"
       }]
     },
     {
@@ -228,7 +228,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.lotNumber; DVCMinPreQual.v.bo"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.lotNumber; DVCMinPreQual.v.bo"
       }]
     },
     {
@@ -253,7 +253,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.protocolApplied.doseNumber"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.protocolApplied.doseNumber"
       }]
     },
     {
@@ -278,7 +278,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.performer.actor; DVCMinPreQual.v.cn"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.performer.actor; DVCMinPreQual.v.cn"
       }]
     },
     {
@@ -406,7 +406,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThPatient: Patient.name; DVCMinPreQual.n"
+        "map" : "TrustDemoTaifafekiPatient: Patient.name; DVCMinPreQual.n"
       }]
     },
     {
@@ -426,7 +426,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThPatient: Patient.birthDate; DVCMinPreQual.dob"
+        "map" : "TrustDemoTaifafekiPatient: Patient.birthDate; DVCMinPreQual.dob"
       }]
     },
     {
@@ -466,7 +466,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThPatient: Patient.identifier[hn]"
+        "map" : "TrustDemoTaifafekiPatient: Patient.identifier[hn]"
       }]
     },
     {
@@ -490,7 +490,7 @@
       },
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.vaccineCode.coding[product]; DVCMinPreQual.v.vp"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.vaccineCode.coding[product]; DVCMinPreQual.v.vp"
       }]
     },
     {
@@ -510,7 +510,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.occurrenceDateTime; DVCMinPreQual.v.dt"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.occurrenceDateTime; DVCMinPreQual.v.dt"
       }]
     },
     {
@@ -530,7 +530,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.lotNumber; DVCMinPreQual.v.bo"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.lotNumber; DVCMinPreQual.v.bo"
       }]
     },
     {
@@ -550,7 +550,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.protocolApplied.doseNumber"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.protocolApplied.doseNumber"
       }]
     },
     {
@@ -570,7 +570,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoThImmunization: Immunization.performer.actor; DVCMinPreQual.v.cn"
+        "map" : "TrustDemoTaifafekiImmunization: Immunization.performer.actor; DVCMinPreQual.v.cn"
       }]
     },
     {

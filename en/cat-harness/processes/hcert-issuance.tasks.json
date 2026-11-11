@@ -136,12 +136,15 @@
    }
   }
  ],
+ "processHref": "hcert-issuance.html",
  "tasks": {
   "Task_SelectPayload": {
    "id": "Task_SelectPayload",
    "name": "Select the payload type and subclaim",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_SelectPayload",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -154,7 +157,9 @@
    "id": "Task_AssemblePayload",
    "name": "Assemble and validate the payload",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_AssemblePayload",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -167,7 +172,9 @@
    "id": "Task_BuildCwt",
    "name": "Build the CWT claim set",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_BuildCwt",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -180,7 +187,9 @@
    "id": "Task_EncodeCbor",
    "name": "Serialise as deterministic CBOR",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_EncodeCbor",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -193,7 +202,9 @@
    "id": "Task_Prepare",
    "name": "Prepare the Sig_structure",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_Prepare",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -206,7 +217,9 @@
    "id": "Task_Sign",
    "name": "Sign the bytes with the DSC key",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_Sign",
    "lane": "Signing key holder",
+   "laneHref": "hcert-issuance.html#lane-Lane_Key",
    "skills": [],
    "role": {
     "name": "hcert-key-holder",
@@ -219,7 +232,9 @@
    "id": "Task_Finish",
    "name": "Attach the signature as COSE_Sign1",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_Finish",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -232,7 +247,9 @@
    "id": "Task_Compress",
    "name": "Compress with ZLIB",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_Compress",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -245,7 +262,9 @@
    "id": "Task_Base45",
    "name": "Encode as Base45",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_Base45",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -258,7 +277,9 @@
    "id": "Task_Prefix",
    "name": "Prefix HC1:",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_Prefix",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",
@@ -271,7 +292,9 @@
    "id": "Task_Render",
    "name": "Render the QR code (Alphanumeric, EC Q)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-issuance.html#step-Task_Render",
    "lane": "HCERT issuing system",
+   "laneHref": "hcert-issuance.html#lane-Lane_Issuer",
    "skills": [],
    "role": {
     "name": "hcert-issuing-system",

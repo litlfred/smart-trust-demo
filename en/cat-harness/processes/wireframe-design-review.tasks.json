@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "wireframe-design-review.html",
  "tasks": {
   "D_Intent": {
    "id": "D_Intent",
    "name": "Write the design intent",
    "type": "bpmn:Task",
+   "stepHref": "wireframe-design-review.html#step-D_Intent",
    "lane": "Designer",
+   "laneHref": "wireframe-design-review.html#lane-Lane_Designer",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -94,7 +97,9 @@
    "id": "D_Candidates",
    "name": "Produce >= 2 candidates, web + mobile",
    "type": "bpmn:Task",
+   "stepHref": "wireframe-design-review.html#step-D_Candidates",
    "lane": "Designer",
+   "laneHref": "wireframe-design-review.html#lane-Lane_Designer",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -107,7 +112,9 @@
    "id": "D_Check",
    "name": "Mechanical checks, both viewports",
    "type": "bpmn:Task",
+   "stepHref": "wireframe-design-review.html#step-D_Check",
    "lane": "Designer",
+   "laneHref": "wireframe-design-review.html#lane-Lane_Designer",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -120,7 +127,9 @@
    "id": "R_Review",
    "name": "Blind review per criterion",
    "type": "bpmn:Task",
+   "stepHref": "wireframe-design-review.html#step-R_Review",
    "lane": "Feedback providers",
+   "laneHref": "wireframe-design-review.html#lane-Lane_Reviewers",
    "skills": [],
    "role": {
     "name": "feedback-provider",
@@ -133,12 +142,12 @@
    "id": "Call_Adjudicate",
    "name": "Adjudication",
    "type": "bpmn:CallActivity",
+   "stepHref": "wireframe-design-review.html#step-Call_Adjudicate",
    "lane": "Adjudicator",
+   "laneHref": "wireframe-design-review.html#lane-Lane_Adjudicator",
    "skills": [],
    "calls": {
-    "name": "Criterion adjudication",
-    "href": "criterion-adjudication.html",
-    "diagram": "criterion-adjudication.html"
+    "name": "Process_CriterionAdjudication"
    },
    "role": {
     "name": "adjudicator",
@@ -151,12 +160,12 @@
    "id": "Call_Choose",
    "name": "Choose a candidate",
    "type": "bpmn:CallActivity",
+   "stepHref": "wireframe-design-review.html#step-Call_Choose",
    "lane": "Adjudicator",
+   "laneHref": "wireframe-design-review.html#lane-Lane_Adjudicator",
    "skills": [],
    "calls": {
-    "name": "Options analysis",
-    "href": "options-analysis.html",
-    "diagram": "options-analysis.html"
+    "name": "Process_OptionsAnalysis"
    },
    "role": {
     "name": "adjudicator",

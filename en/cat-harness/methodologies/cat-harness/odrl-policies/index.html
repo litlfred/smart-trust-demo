@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -938,14 +938,14 @@
 
 <p><code class="language-plaintext highlighter-rouge">odrl-policies</code> — declared by <code class="language-plaintext highlighter-rouge">cat-harness</code> — <span class="mv-tag mv-ingested">source held</span></p>
 
-<p><strong>Applies when.</strong> <strong>What an actor may DO — may this party perform this action, here?</strong> Use it when a grant or a refusal has to be written down so a machine can evaluate it: who holds an action, scoped to a process, a task or a role, and which broader action it falls under. It answers <em>permit</em>, <em>deny</em> or <em>nobody has said</em>. It does NOT answer who is involved in an activity (<code class="language-plaintext highlighter-rouge">raci</code>), which lane an actor may act in (<code class="language-plaintext highlighter-rouge">role-model</code>), or how a decision is reached (<code class="language-plaintext highlighter-rouge">kepner-tregoe</code>, <code class="language-plaintext highlighter-rouge">dmn</code>). It is not used here for source licences, which are recorded as SPDX ids in each library entry’s <code class="language-plaintext highlighter-rouge">licence.json</code>.</p>
+<p><strong>Applies when.</strong> <strong>What an actor may DO — may this party perform this action, here?</strong> Use it when a grant or a refusal has to be written down so a machine can evaluate it: who holds an action, scoped to a process, a task or a role, and which broader action it falls under. It answers <em>permit</em>, <em>deny</em> or <em>nobody has said</em>. It does NOT answer who is involved in an activity (<a href="../../#raci"><code class="language-plaintext highlighter-rouge">raci</code></a>), which lane an actor may act in (<code class="language-plaintext highlighter-rouge">role-model</code>), or how a decision is reached (<a href="../../#kepner-tregoe"><code class="language-plaintext highlighter-rouge">kepner-tregoe</code></a>, <a href="../../#dmn"><code class="language-plaintext highlighter-rouge">dmn</code></a>). It is not used here for source licences, which are recorded as SPDX ids in each library entry’s <code class="language-plaintext highlighter-rouge">licence.json</code>.</p>
 
 <p><strong>Origin.</strong> W3C, “ODRL Information Model 2.2”, W3C Recommendation 15 February 2018, edited by Renato Iannella and Serena Villata, produced by the W3C Permissions and Obligations Expression Working Group. The held copy is the Working Group’s own staged REC snapshot (github.com/w3c/poe), not compared byte for byte with the w3.org copy and without later errata — see the entry’s <code class="language-plaintext highlighter-rouge">licence.json</code>. The companion “ODRL Vocabulary &amp; Expression 2.2”, which the model defers to for normative serialisation and the Common Vocabulary, is NOT held.</p>
 
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/w3c-2018-odrl-model-2-2</code></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Fw3c-2018-odrl-model-2-2"><code class="language-plaintext highlighter-rouge">library/w3c-2018-odrl-model-2-2</code></a> · <a href="../../../library/cat-harness/w3c-2018-odrl-model-2-2/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/conduct/w3c-2018-odrl-model-2-2/README.md">item page</a></li>
 </ul>
 
 <p><strong>Node file:</strong> <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/odrl-policies.md">odrl-policies.md</a></p>

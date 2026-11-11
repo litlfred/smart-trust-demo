@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Make the content change" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/content-change-review-make.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/content-change-review-make.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Make the content change" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Make the content change","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/content-change-review-make.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Make the content change","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/content-change-review-make.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -920,7 +920,6 @@
 <button type="button" class="pt-mark" data-task="Task_EditContent" style="left:41.06%;top:12.5%" aria-expanded="false" aria-label="About step: Edit narrative content blocks" title="About: Edit narrative content blocks">i</button>
 <button type="button" class="pt-mark" data-task="Task_EditLogic" style="left:50.56%;top:12.5%" aria-expanded="false" aria-label="About step: Edit deterministic logic (if needed)" title="About: Edit deterministic logic (if needed)">i</button>
 <button type="button" class="pt-mark" data-task="Task_AssessImpact" style="left:60.06%;top:12.5%" aria-expanded="false" aria-label="About step: Assess downstream impact" title="About: Assess downstream impact">i</button>
-<a class="pt-go" href="options-analysis.html" style="left:66.06%;top:71.88%;width:1.34%;height:15%" aria-label="Open subprocess: Options analysis how to absorb the impact" title="Open subprocess: Options analysis how to absorb the impact"></a>
 <button type="button" class="pt-mark" data-task="Call_OptionsAnalysis" style="left:70.11%;top:12.5%" aria-expanded="false" aria-label="About step: Options analysis how to absorb the impact" title="About: Options analysis how to absorb the impact">i</button>
 <button type="button" class="pt-mark" data-task="Task_CommitPush" style="left:80.17%;top:12.5%" aria-expanded="false" aria-label="About step: Commit, push, update PR" title="About: Commit, push, update PR">i</button>
 </div>
@@ -972,8 +971,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1136,7 +1141,7 @@
 
 <ul>
   <li><strong>Called by:</strong> <a href="content-change-review.html">Content Change and Review</a></li>
-  <li><strong>Calls:</strong> <a href="options-analysis.html">Options analysis</a></li>
+  <li><strong>Calls:</strong> <code class="language-plaintext highlighter-rouge">Process_OptionsAnalysis</code> (not loadable here)</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1159,7 +1164,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Folio-Assistant Agent</td>
+      <td><a id="lane-Lane_Agent"></a>Folio-Assistant Agent</td>
       <td><code class="language-plaintext highlighter-rouge">authoring-agent</code></td>
       <td>Owns the technical execution of the change: scoping, branching, editing narrative and deterministic logic, assessing what else it touches, weighing how to absorb that, and pushing. It is also the single re-entry point for the author’s and the committee’s feedback (Task_Iterate in the caller).</td>
     </tr>
@@ -1187,43 +1192,43 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Detect change scope &amp; impact</strong><br /><code class="language-plaintext highlighter-rouge">Task_DetectScope</code></td>
+      <td><a id="step-Task_DetectScope"></a><strong>Detect change scope &amp; impact</strong><br /><code class="language-plaintext highlighter-rouge">Task_DetectScope</code></td>
       <td>Folio-Assistant Agent</td>
       <td>—</td>
       <td>Agent analyses the requested change:<br />- Which content blocks are affected?<br />- Are there downstream implications (indicators, referral logic, visit schedules)?<br />- Will deterministic logic (CQL/DMN) need updating?<br />skill: content-graph, integration-watcher</td>
     </tr>
     <tr>
-      <td><strong>Create feature branch</strong><br /><code class="language-plaintext highlighter-rouge">Task_CreateBranch</code></td>
+      <td><a id="step-Task_CreateBranch"></a><strong>Create feature branch</strong><br /><code class="language-plaintext highlighter-rouge">Task_CreateBranch</code></td>
       <td>Folio-Assistant Agent</td>
       <td><code class="language-plaintext highlighter-rouge">feature-staging</code></td>
       <td>Agent creates a feature branch from main.<br />Branch naming: feature/&lt;short-description&gt;<br />Opens a PR immediately (AGENTS.md: “open the PR at the first commit”).</td>
     </tr>
     <tr>
-      <td><strong>Edit narrative content blocks</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditContent</code></td>
+      <td><a id="step-Task_EditContent"></a><strong>Edit narrative content blocks</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditContent</code></td>
       <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">content-author</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-author.html"><code class="language-plaintext highlighter-rouge">content-author</code></a></td>
       <td>Agent modifies the relevant content blocks (.md files, block manifests).<br />Validates each edit against the schema (content_validate).<br />skill: content editing, block builders</td>
     </tr>
     <tr>
-      <td><strong>Edit deterministic logic (if needed)</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditLogic</code></td>
+      <td><a id="step-Task_EditLogic"></a><strong>Edit deterministic logic (if needed)</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditLogic</code></td>
       <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">content-author</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-author.html"><code class="language-plaintext highlighter-rouge">content-author</code></a></td>
       <td>If the content change affects decision logic, indicators, or workflows:<br />- Update CQL expressions<br />- Update DMN decision tables<br />- Adjust indicator definitions<br />skill: dak-authoring, fhir-pipeline</td>
     </tr>
     <tr>
-      <td><strong>Assess downstream impact</strong><br /><code class="language-plaintext highlighter-rouge">Task_AssessImpact</code></td>
+      <td><a id="step-Task_AssessImpact"></a><strong>Assess downstream impact</strong><br /><code class="language-plaintext highlighter-rouge">Task_AssessImpact</code></td>
       <td>Folio-Assistant Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">content-graph</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-graph.html"><code class="language-plaintext highlighter-rouge">content-graph</code></a></td>
       <td>Agent reviews downstream implications:<br />- Will indicators need adjustment?<br />- Will referral/follow-up for next visit be impacted?<br />- Are translations affected (re-extract POT)?<br />- Do Lean proofs still hold?<br />skill: integration-watcher, translation-manager</td>
     </tr>
     <tr>
-      <td><strong>Options analysis how to absorb the impact</strong><br /><code class="language-plaintext highlighter-rouge">Call_OptionsAnalysis</code></td>
+      <td><a id="step-Call_OptionsAnalysis"></a><strong>Options analysis how to absorb the impact</strong><br /><code class="language-plaintext highlighter-rouge">Call_OptionsAnalysis</code></td>
       <td>Folio-Assistant Agent</td>
-      <td>calls <a href="options-analysis.html">Options analysis</a></td>
-      <td>On the edge OUT of <code class="language-plaintext highlighter-rouge">Task_AssessImpact</code> and before <code class="language-plaintext highlighter-rouge">Task_CommitPush</code>, because the impact assessment is the evidence the options are weighed against. An analysis before it would compare ways of absorbing a downstream effect nobody has measured yet; one after the commit would be a rationalisation of a choice already pushed.<br />Not between <code class="language-plaintext highlighter-rouge">Task_AssessImpact</code> and <code class="language-plaintext highlighter-rouge">Task_ReviewImpact</code>: those are in different processes with no sequence flow between them; the assessment reaches the committee through <code class="language-plaintext highlighter-rouge">Task_CompareBeforeAfter</code>.<br />In the Agent lane, matching <code class="language-plaintext highlighter-rouge">upstream-version-adoption</code>: this step produces the options and their trade-offs, and <code class="language-plaintext highlighter-rouge">GW_Approved</code> in the committee review is where a decision is taken.<br />On the trigger: reaching this call is not the same as running the whole of it. <a href="options-analysis.html"><code class="language-plaintext highlighter-rouge">Process_OptionsAnalysis</code></a> opens with <code class="language-plaintext highlighter-rouge">A_Frame</code>, whose trigger is <code class="language-plaintext highlighter-rouge">opening-brief</code>’s — irreversibility and surprise, not size — and leaving at that first activity is a correct outcome rather than a skipped step. A copy-edit exits immediately; a logic change that moves an indicator (from <code class="language-plaintext highlighter-rouge">Task_EditLogic</code>) does not.</td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_OptionsAnalysis</code></td>
+      <td>On the edge OUT of <code class="language-plaintext highlighter-rouge">Task_AssessImpact</code> and before <code class="language-plaintext highlighter-rouge">Task_CommitPush</code>, because the impact assessment is the evidence the options are weighed against. An analysis before it would compare ways of absorbing a downstream effect nobody has measured yet; one after the commit would be a rationalisation of a choice already pushed.<br />Not between <code class="language-plaintext highlighter-rouge">Task_AssessImpact</code> and <code class="language-plaintext highlighter-rouge">Task_ReviewImpact</code>: those are in different processes with no sequence flow between them; the assessment reaches the committee through <code class="language-plaintext highlighter-rouge">Task_CompareBeforeAfter</code>.<br />In the Agent lane, matching <code class="language-plaintext highlighter-rouge">upstream-version-adoption</code>: this step produces the options and their trade-offs, and <code class="language-plaintext highlighter-rouge">GW_Approved</code> in the committee review is where a decision is taken.<br />On the trigger: reaching this call is not the same as running the whole of it. <code class="language-plaintext highlighter-rouge">Process_OptionsAnalysis</code> opens with <code class="language-plaintext highlighter-rouge">A_Frame</code>, whose trigger is <code class="language-plaintext highlighter-rouge">opening-brief</code>’s — irreversibility and surprise, not size — and leaving at that first activity is a correct outcome rather than a skipped step. A copy-edit exits immediately; a logic change that moves an indicator (from <code class="language-plaintext highlighter-rouge">Task_EditLogic</code>) does not.</td>
     </tr>
     <tr>
-      <td><strong>Commit, push, update PR</strong><br /><code class="language-plaintext highlighter-rouge">Task_CommitPush</code></td>
+      <td><a id="step-Task_CommitPush"></a><strong>Commit, push, update PR</strong><br /><code class="language-plaintext highlighter-rouge">Task_CommitPush</code></td>
       <td>Folio-Assistant Agent</td>
       <td><code class="language-plaintext highlighter-rouge">prepare-merge-auto</code><br /><code class="language-plaintext highlighter-rouge">before-after-preview</code></td>
       <td>Agent commits all changes to the feature branch and pushes.<br />The feature-staging.yml workflow automatically deploys to<br />STAGING/&lt;branch-slug&gt;/ and comments the URL on the PR.<br />For a rendered change the agent also produces the before/after<br />preview (skill before-after-preview) and links it in the PR body.</td>

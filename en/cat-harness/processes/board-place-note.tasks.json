@@ -40,12 +40,15 @@
    }
   }
  ],
+ "processHref": "board-place-note.html",
  "tasks": {
   "A_CreateNote": {
    "id": "A_CreateNote",
    "name": "Write the note into the folio — with no coordinate",
    "type": "bpmn:Task",
+   "stepHref": "board-place-note.html#step-A_CreateNote",
    "lane": "Author",
+   "laneHref": "board-place-note.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -58,7 +61,9 @@
    "id": "A_Place",
    "name": "Record x,y for this note on THIS board",
    "type": "bpmn:Task",
+   "stepHref": "board-place-note.html#step-A_Place",
    "lane": "Layout layer",
+   "laneHref": "board-place-note.html#lane-Lane_Layer",
    "skills": [],
    "role": {
     "name": "corpus",
@@ -71,7 +76,9 @@
    "id": "A_SweepOrphans",
    "name": "Sweep positions whose note is gone",
    "type": "bpmn:Task",
+   "stepHref": "board-place-note.html#step-A_SweepOrphans",
    "lane": "Layout layer",
+   "laneHref": "board-place-note.html#lane-Lane_Layer",
    "skills": [],
    "role": {
     "name": "corpus",

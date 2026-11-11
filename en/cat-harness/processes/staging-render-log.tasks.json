@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "staging-render-log.html",
  "tasks": {
   "A_LogRendered": {
    "id": "A_LogRendered",
    "name": "Append `rendered`",
    "type": "bpmn:Task",
+   "stepHref": "staging-render-log.html#step-A_LogRendered",
    "lane": "CI/CD Pipeline",
+   "laneHref": "staging-render-log.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -94,7 +97,9 @@
    "id": "A_Preflight",
    "name": "Preflight: is the preview live?",
    "type": "bpmn:Task",
+   "stepHref": "staging-render-log.html#step-A_Preflight",
    "lane": "CI/CD Pipeline",
+   "laneHref": "staging-render-log.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -107,7 +112,9 @@
    "id": "A_LogRetained",
    "name": "Append `retained` with the reason",
    "type": "bpmn:ServiceTask",
+   "stepHref": "staging-render-log.html#step-A_LogRetained",
    "lane": "CI/CD Pipeline",
+   "laneHref": "staging-render-log.html#lane-Lane_Pipeline",
    "skills": [],
    "shared": {
     "id": "GT_LogRetained",
@@ -124,7 +131,9 @@
    "id": "A_LogRemoved",
    "name": "Append `removed` with the reason",
    "type": "bpmn:Task",
+   "stepHref": "staging-render-log.html#step-A_LogRemoved",
    "lane": "CI/CD Pipeline",
+   "laneHref": "staging-render-log.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -137,7 +146,9 @@
    "id": "A_Remove",
    "name": "Remove the artefact",
    "type": "bpmn:Task",
+   "stepHref": "staging-render-log.html#step-A_Remove",
    "lane": "CI/CD Pipeline",
+   "laneHref": "staging-render-log.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -150,7 +161,9 @@
    "id": "A_LogRestored",
    "name": "Append `restored`",
    "type": "bpmn:Task",
+   "stepHref": "staging-render-log.html#step-A_LogRestored",
    "lane": "CI/CD Pipeline",
+   "laneHref": "staging-render-log.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",

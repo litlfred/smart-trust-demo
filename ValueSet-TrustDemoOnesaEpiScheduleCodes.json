@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "TrustDemoOnesaEpiScheduleCodes",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet TrustDemoOnesaEpiScheduleCodes</b></p><a name=\"TrustDemoOnesaEpiScheduleCodes\"> </a><a name=\"hcTrustDemoOnesaEpiScheduleCodes\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-TrustDemoOnesaEpiSchedule.html\"><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version &#x1F4E6;0.1.0</span></li></ul></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoOnesaEpiScheduleCodes",
+  "version" : "0.1.0",
+  "name" : "TrustDemoOnesaEpiScheduleCodes",
+  "title" : "National schedule codes of the journeys",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-11T10:58:56+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Every code of TrustDemoOnesaEpiSchedule: the target of the national ConceptMap.",
+  "compose" : {
+    "include" : [{
+      "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule"
+    }]
+  }
+}

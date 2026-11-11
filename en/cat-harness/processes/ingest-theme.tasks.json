@@ -64,12 +64,15 @@
    }
   }
  ],
+ "processHref": "ingest-theme.html",
  "tasks": {
   "Task_ReadStylesheet": {
    "id": "Task_ReadStylesheet",
    "name": "Read the served stylesheet's declarations",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-theme.html#step-Task_ReadStylesheet",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-theme.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -82,7 +85,9 @@
    "id": "Task_ReadGuide",
    "name": "Read the guide's own stated rules",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-theme.html#step-Task_ReadGuide",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-theme.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -95,7 +100,9 @@
    "id": "Task_MapRoles",
    "name": "Map values onto palette roles",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-theme.html#step-Task_MapRoles",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-theme.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -108,7 +115,9 @@
    "id": "Task_Contradictions",
    "name": "Record contradictions IN the source",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-theme.html#step-Task_Contradictions",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-theme.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -121,7 +130,9 @@
    "id": "Task_Review",
    "name": "Theme and UI review",
    "type": "bpmn:CallActivity",
+   "stepHref": "ingest-theme.html#step-Task_Review",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-theme.html#lane-Lane_0",
    "skills": [],
    "calls": {
     "name": "Theme and UI review — at ingestion",

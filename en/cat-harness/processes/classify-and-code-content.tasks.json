@@ -64,12 +64,15 @@
    }
   }
  ],
+ "processHref": "classify-and-code-content.html",
  "tasks": {
   "Task_IdentifySlots": {
    "id": "Task_IdentifySlots",
    "name": "Identify slots and proposed exclusions",
    "type": "bpmn:Task",
+   "stepHref": "classify-and-code-content.html#step-Task_IdentifySlots",
    "lane": "Authoring agent",
+   "laneHref": "classify-and-code-content.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -82,7 +85,9 @@
    "id": "Task_LookupAndCode",
    "name": "Run reuse-first lookup and record candidates",
    "type": "bpmn:Task",
+   "stepHref": "classify-and-code-content.html#step-Task_LookupAndCode",
    "lane": "Authoring agent",
+   "laneHref": "classify-and-code-content.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -95,7 +100,9 @@
    "id": "Task_StageForReview",
    "name": "Stage codings, warnings and exclusions for review",
    "type": "bpmn:Task",
+   "stepHref": "classify-and-code-content.html#step-Task_StageForReview",
    "lane": "Authoring agent",
+   "laneHref": "classify-and-code-content.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -108,7 +115,9 @@
    "id": "Task_ReviewExclusions",
    "name": "Check exclusions against page and sign",
    "type": "bpmn:UserTask",
+   "stepHref": "classify-and-code-content.html#step-Task_ReviewExclusions",
    "lane": "L1 extraction reviewer (person)",
+   "laneHref": "classify-and-code-content.html#lane-Lane_ExtractionReviewer",
    "skills": [],
    "role": {
     "name": "l1-extraction-reviewer",
@@ -121,7 +130,9 @@
    "id": "Task_ReviewCodings",
    "name": "Adjudicate slot codings and glossary candidates",
    "type": "bpmn:UserTask",
+   "stepHref": "classify-and-code-content.html#step-Task_ReviewCodings",
    "lane": "Terminologist / ontologist reviewer (person)",
+   "laneHref": "classify-and-code-content.html#lane-Lane_Terminologist",
    "skills": [],
    "role": {
     "name": "terminologist",

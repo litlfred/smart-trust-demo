@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "hcert-contract-change.html",
  "tasks": {
   "Task_Requirements": {
    "id": "Task_Requirements",
    "name": "Amend the requirements within the architecture rules",
    "type": "bpmn:Task",
+   "stepHref": "hcert-contract-change.html#step-Task_Requirements",
    "lane": "Library maintainer",
+   "laneHref": "hcert-contract-change.html#lane-Lane_Maintainer",
    "skills": [],
    "role": {
     "name": "library-maintainer",
@@ -70,7 +73,9 @@
    "id": "Task_Contract",
    "name": "Change the WIT or CDDL and regenerate its views",
    "type": "bpmn:Task",
+   "stepHref": "hcert-contract-change.html#step-Task_Contract",
    "lane": "Library maintainer",
+   "laneHref": "hcert-contract-change.html#lane-Lane_Maintainer",
    "skills": [],
    "role": {
     "name": "library-maintainer",
@@ -83,7 +88,9 @@
    "id": "Task_Test",
    "name": "Test against the shared vectors",
    "type": "bpmn:Task",
+   "stepHref": "hcert-contract-change.html#step-Task_Test",
    "lane": "Library maintainer",
+   "laneHref": "hcert-contract-change.html#lane-Lane_Maintainer",
    "skills": [],
    "role": {
     "name": "library-maintainer",
@@ -96,7 +103,9 @@
    "id": "Task_Publish",
    "name": "Check the graph and publish the site",
    "type": "bpmn:Task",
+   "stepHref": "hcert-contract-change.html#step-Task_Publish",
    "lane": "Library maintainer",
+   "laneHref": "hcert-contract-change.html#lane-Lane_Maintainer",
    "skills": [],
    "role": {
     "name": "library-maintainer",

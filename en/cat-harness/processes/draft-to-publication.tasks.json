@@ -160,17 +160,18 @@
    }
   }
  ],
+ "processHref": "draft-to-publication.html",
  "tasks": {
   "Task_OpenReleaseBean": {
    "id": "Task_OpenReleaseBean",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "draft-to-publication.html#step-Task_OpenReleaseBean",
    "lane": "Build pipeline (system)",
+   "laneHref": "draft-to-publication.html#lane-Lane_Build",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "build-pipeline",
@@ -183,7 +184,9 @@
    "id": "Task_BuildDraft",
    "name": "Build the draft publication",
    "type": "bpmn:ServiceTask",
+   "stepHref": "draft-to-publication.html#step-Task_BuildDraft",
    "lane": "Build pipeline (system)",
+   "laneHref": "draft-to-publication.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -196,7 +199,9 @@
    "id": "Task_PublicationQa",
    "name": "Run publication QA gates",
    "type": "bpmn:ServiceTask",
+   "stepHref": "draft-to-publication.html#step-Task_PublicationQa",
    "lane": "Build pipeline (system)",
+   "laneHref": "draft-to-publication.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -209,7 +214,9 @@
    "id": "CallActivity_Editing",
    "name": "Editing and HCI validation",
    "type": "bpmn:CallActivity",
+   "stepHref": "draft-to-publication.html#step-CallActivity_Editing",
    "lane": "Editors + authoring agents",
+   "laneHref": "draft-to-publication.html#lane-Lane_Editors",
    "skills": [],
    "calls": {
     "name": "Editing and HCI validation",
@@ -227,7 +234,9 @@
    "id": "Task_CirculateDraft",
    "name": "Circulate the draft",
    "type": "bpmn:UserTask",
+   "stepHref": "draft-to-publication.html#step-Task_CirculateDraft",
    "lane": "Publication manager",
+   "laneHref": "draft-to-publication.html#lane-Lane_PubMgr",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -240,7 +249,9 @@
    "id": "CallActivity_PublicComment",
    "name": "Release for public comment",
    "type": "bpmn:CallActivity",
+   "stepHref": "draft-to-publication.html#step-CallActivity_PublicComment",
    "lane": "Public review (commenters, review committee, editor)",
+   "laneHref": "draft-to-publication.html#lane-Lane_PublicReview",
    "skills": [],
    "calls": {
     "name": "Release a draft for public comment",
@@ -258,7 +269,9 @@
    "id": "Task_ReviewDraft",
    "name": "Review the draft publication",
    "type": "bpmn:UserTask",
+   "stepHref": "draft-to-publication.html#step-Task_ReviewDraft",
    "lane": "Review team (content · QC · technical officer)",
+   "laneHref": "draft-to-publication.html#lane-Lane_ReviewTeam",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -271,7 +284,9 @@
    "id": "Task_SmeSignoff",
    "name": "Clinical or scientific sign-off",
    "type": "bpmn:UserTask",
+   "stepHref": "draft-to-publication.html#step-Task_SmeSignoff",
    "lane": "Clinical / scientific SMEs",
+   "laneHref": "draft-to-publication.html#lane-Lane_Sme",
    "skills": [],
    "role": {
     "name": "clinical-sme",
@@ -284,7 +299,9 @@
    "id": "Task_OpenChangeBeans",
    "name": "Open beans for the change requests",
    "type": "bpmn:Task",
+   "stepHref": "draft-to-publication.html#step-Task_OpenChangeBeans",
    "lane": "Publication manager",
+   "laneHref": "draft-to-publication.html#lane-Lane_PubMgr",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -297,7 +314,9 @@
    "id": "Task_AuthorizeRelease",
    "name": "Authorise the release",
    "type": "bpmn:UserTask",
+   "stepHref": "draft-to-publication.html#step-Task_AuthorizeRelease",
    "lane": "Programme manager (release authority)",
+   "laneHref": "draft-to-publication.html#lane-Lane_ProgMgr",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -310,7 +329,9 @@
    "id": "Task_PublishRelease",
    "name": "Version, tag and publish",
    "type": "bpmn:ServiceTask",
+   "stepHref": "draft-to-publication.html#step-Task_PublishRelease",
    "lane": "Publication manager",
+   "laneHref": "draft-to-publication.html#lane-Lane_PubMgr",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -323,7 +344,9 @@
    "id": "Task_CloseReleaseBeans",
    "name": "Close the release beans",
    "type": "bpmn:Task",
+   "stepHref": "draft-to-publication.html#step-Task_CloseReleaseBeans",
    "lane": "Publication manager",
+   "laneHref": "draft-to-publication.html#lane-Lane_PubMgr",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -336,12 +359,12 @@
    "id": "Task_ArchiveReleaseBean",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "draft-to-publication.html#step-Task_ArchiveReleaseBean",
    "lane": "Publication manager",
+   "laneHref": "draft-to-publication.html#lane-Lane_PubMgr",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "publication-manager",

@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "ingest-derive-content.html",
  "tasks": {
   "Task_Archive": {
    "id": "Task_Archive",
    "name": "Archive → greppable contents manifest",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-derive-content.html#step-Task_Archive",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-derive-content.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -94,7 +97,9 @@
    "id": "Task_TechMeta",
    "name": "File info, sizes, hashes, timestamps, mimetype",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-derive-content.html#step-Task_TechMeta",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-derive-content.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -107,7 +112,9 @@
    "id": "Task_Image",
    "name": "Narrative description per image, localized",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-derive-content.html#step-Task_Image",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-derive-content.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -120,7 +127,9 @@
    "id": "Task_Audio",
    "name": "Transcribe and translate audio",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-derive-content.html#step-Task_Audio",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-derive-content.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -133,7 +142,9 @@
    "id": "Task_Tabular",
    "name": "Sheet names, headers, shape, narrative",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-derive-content.html#step-Task_Tabular",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-derive-content.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -146,7 +157,9 @@
    "id": "Task_Provenance",
    "name": "Cite the author of every narrative",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-derive-content.html#step-Task_Provenance",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-derive-content.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",

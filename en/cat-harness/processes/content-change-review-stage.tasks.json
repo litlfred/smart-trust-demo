@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "content-change-review-stage.html",
  "tasks": {
   "Task_BuildStaging": {
    "id": "Task_BuildStaging",
    "name": "Build staging site",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-stage.html#step-Task_BuildStaging",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review-stage.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -70,7 +73,9 @@
    "id": "Task_DeployStaging",
    "name": "Deploy to STAGING/<slug>/",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-stage.html#step-Task_DeployStaging",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review-stage.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -83,7 +88,9 @@
    "id": "Task_CommentPR",
    "name": "Comment staging URL on PR",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-stage.html#step-Task_CommentPR",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review-stage.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -96,7 +103,9 @@
    "id": "Task_WatchBranchCI",
    "name": "Open the branch-watch bean",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-stage.html#step-Task_WatchBranchCI",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review-stage.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",

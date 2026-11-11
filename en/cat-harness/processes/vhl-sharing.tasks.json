@@ -64,12 +64,15 @@
    }
   }
  ],
+ "processHref": "vhl-sharing.html",
  "tasks": {
   "Task_Key": {
    "id": "Task_Key",
    "name": "Generate the link key and encrypt each document",
    "type": "bpmn:ServiceTask",
+   "stepHref": "vhl-sharing.html#step-Task_Key",
    "lane": "VHL sharer",
+   "laneHref": "vhl-sharing.html#lane-Lane_Sharer",
    "skills": [],
    "role": {
     "name": "vhl-sharer",
@@ -82,7 +85,9 @@
    "id": "Task_Link",
    "name": "Issue the VHL payload as an HCERT (key 5, CBOR map)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "vhl-sharing.html#step-Task_Link",
    "lane": "VHL sharer",
+   "laneHref": "vhl-sharing.html#lane-Lane_Sharer",
    "skills": [],
    "role": {
     "name": "vhl-sharer",
@@ -95,7 +100,9 @@
    "id": "Task_VerifyLink",
    "name": "Verify the VHL HCERT and its exp",
    "type": "bpmn:ServiceTask",
+   "stepHref": "vhl-sharing.html#step-Task_VerifyLink",
    "lane": "VHL receiver",
+   "laneHref": "vhl-sharing.html#lane-Lane_Receiver",
    "skills": [],
    "role": {
     "name": "vhl-receiver",
@@ -108,7 +115,9 @@
    "id": "Task_Request",
    "name": "Build and sign the ITI-YY5 manifest request",
    "type": "bpmn:ServiceTask",
+   "stepHref": "vhl-sharing.html#step-Task_Request",
    "lane": "VHL receiver",
+   "laneHref": "vhl-sharing.html#lane-Lane_Receiver",
    "skills": [],
    "role": {
     "name": "vhl-receiver",
@@ -121,7 +130,9 @@
    "id": "Task_Read",
    "name": "Read the manifest Bundle and decrypt each document",
    "type": "bpmn:ServiceTask",
+   "stepHref": "vhl-sharing.html#step-Task_Read",
    "lane": "VHL receiver",
+   "laneHref": "vhl-sharing.html#lane-Lane_Receiver",
    "skills": [],
    "role": {
     "name": "vhl-receiver",

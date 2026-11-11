@@ -172,12 +172,15 @@
    }
   }
  ],
+ "processHref": "l1-document-ingestion.html",
  "tasks": {
   "CallActivity_Basic": {
    "id": "CallActivity_Basic",
    "name": "Basic ingestion (harness)",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_Basic",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Basic ingestion — an upload to an asset catalogued in library/",
@@ -195,7 +198,9 @@
    "id": "Task_Detect",
    "name": "Detect media type, mint a doc id",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l1-document-ingestion.html#step-Task_Detect",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -208,7 +213,9 @@
    "id": "Task_Licence",
    "name": "Establish the licence from the upload",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l1-document-ingestion.html#step-Task_Licence",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -221,7 +228,9 @@
    "id": "CallActivity_Extract",
    "name": "Extract structure",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_Extract",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Ingestion subprocess — extract structure",
@@ -239,7 +248,9 @@
    "id": "CallActivity_Derive",
    "name": "Derive content from the assets",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_Derive",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Ingestion subprocess — derive content from the assets",
@@ -257,7 +268,9 @@
    "id": "CallActivity_IngestTheme",
    "name": "Ingest the theme",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_IngestTheme",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Ingestion subprocess — ingest a theme",
@@ -275,12 +288,12 @@
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-Call_BeanOpen",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "ingestion-agent",
@@ -293,12 +306,12 @@
    "id": "Call_BeanClose",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-Call_BeanClose",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "ingestion-agent",
@@ -311,7 +324,9 @@
    "id": "CallActivity_BuildKg",
    "name": "Build the L1 knowledge graph",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_BuildKg",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Ingestion subprocess — build the L1 knowledge graph",
@@ -329,7 +344,9 @@
    "id": "CallActivity_Gate",
    "name": "L1 completeness gate",
    "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_Gate",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Ingestion subprocess — the L1 completeness gate",
@@ -347,7 +364,9 @@
    "id": "Task_OpenBean",
    "name": "Record the gap as a bean",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l1-document-ingestion.html#step-Task_OpenBean",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -360,7 +379,9 @@
    "id": "Task_Promote",
    "name": "Move into library/<bib-slug>/",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l1-document-ingestion.html#step-Task_Promote",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -373,7 +394,9 @@
    "id": "Task_SummaryQueue",
    "name": "Queue prose blocks for summary",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l1-document-ingestion.html#step-Task_SummaryQueue",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -386,7 +409,9 @@
    "id": "Task_Citeable",
    "name": "Available to cite as an L1 source",
    "type": "bpmn:Task",
+   "stepHref": "l1-document-ingestion.html#step-Task_Citeable",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",

@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "j4-0-family-vhl-issuance.html",
  "tasks": {
   "Task_Request": {
    "id": "Task_Request",
    "name": "Choose who to share, with a passcode and an expiry",
    "type": "bpmn:UserTask",
+   "stepHref": "j4-0-family-vhl-issuance.html#step-Task_Request",
    "lane": "Caregiver",
+   "laneHref": "j4-0-family-vhl-issuance.html#lane-Lane_caregiver",
    "skills": [],
    "role": {
     "name": "caregiver",
@@ -106,7 +109,9 @@
    "id": "Task_Assemble",
    "name": "Assemble each member's IPS and DVCs",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-0-family-vhl-issuance.html#step-Task_Assemble",
    "lane": "National health portal",
+   "laneHref": "j4-0-family-vhl-issuance.html#lane-Lane_national-portal",
    "skills": [],
    "role": {
     "name": "national-portal",
@@ -119,7 +124,9 @@
    "id": "Task_Share",
    "name": "Encrypt, publish a passcode manifest",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-0-family-vhl-issuance.html#step-Task_Share",
    "lane": "National health portal",
+   "laneHref": "j4-0-family-vhl-issuance.html#lane-Lane_national-portal",
    "skills": [],
    "role": {
     "name": "national-portal",
@@ -132,7 +139,9 @@
    "id": "Task_Prepare",
    "name": "Prepare the HCERT carrying the VHL at key 5",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-0-family-vhl-issuance.html#step-Task_Prepare",
    "lane": "National health portal",
+   "laneHref": "j4-0-family-vhl-issuance.html#lane-Lane_national-portal",
    "skills": [],
    "role": {
     "name": "national-portal",
@@ -145,7 +154,9 @@
    "id": "Task_Sign",
    "name": "Sign with Country B's DSC key",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-0-family-vhl-issuance.html#step-Task_Sign",
    "lane": "Issuer signing key",
+   "laneHref": "j4-0-family-vhl-issuance.html#lane-Lane_issuer-key",
    "skills": [],
    "role": {
     "name": "issuer-key",
@@ -158,7 +169,9 @@
    "id": "Task_Finish",
    "name": "Finish the HC1 QR text",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-0-family-vhl-issuance.html#step-Task_Finish",
    "lane": "National health portal",
+   "laneHref": "j4-0-family-vhl-issuance.html#lane-Lane_national-portal",
    "skills": [],
    "role": {
     "name": "national-portal",
@@ -171,7 +184,9 @@
    "id": "Task_Store",
    "name": "Store each member's VHL QR on the phone",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-0-family-vhl-issuance.html#step-Task_Store",
    "lane": "Family phone",
+   "laneHref": "j4-0-family-vhl-issuance.html#lane-Lane_family-phone",
    "skills": [],
    "role": {
     "name": "family-phone",

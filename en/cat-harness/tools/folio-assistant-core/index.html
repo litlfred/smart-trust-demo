@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -1011,9 +1011,32 @@ to do that</em>, never <em>this skill is a tool</em>.</p>
 </h2>
     
 
-<p>Yes — all <strong>20</strong> skills named across <strong>25</strong> tools resolve to a
-skill document in this checkout. A <code class="language-plaintext highlighter-rouge">satisfies</code> pointing at nothing would be a
-tool advertising a capability the graph cannot locate.</p>
+<p><strong>3 of 20 do not.</strong> A <code class="language-plaintext highlighter-rouge">satisfies</code> naming a skill that is
+not in this checkout is a dangling reference — the tool advertises a capability
+the graph cannot locate.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>unresolved skill</th>
+      <th>named by</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">diff</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-changeset</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">staging-review</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-changeset</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">visual-diff</code></td>
+      <td><code class="language-plaintext highlighter-rouge">folio-block-screenshots</code></td>
+    </tr>
+  </tbody>
+</table></div>
 <h2 id="every-tool">
   
   

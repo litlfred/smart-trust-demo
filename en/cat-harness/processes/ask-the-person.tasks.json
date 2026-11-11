@@ -40,12 +40,15 @@
    }
   }
  ],
+ "processHref": "ask-the-person.html",
  "tasks": {
   "A_Compose": {
    "id": "A_Compose",
    "name": "Compose the full question",
    "type": "bpmn:Task",
+   "stepHref": "ask-the-person.html#step-A_Compose",
    "lane": "Agent",
+   "laneHref": "ask-the-person.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -58,7 +61,9 @@
    "id": "Call_Discuss",
    "name": "Discuss it with the person",
    "type": "bpmn:CallActivity",
+   "stepHref": "ask-the-person.html#step-Call_Discuss",
    "lane": "Agent",
+   "laneHref": "ask-the-person.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "Human–agent discussion",
@@ -76,7 +81,9 @@
    "id": "A_HandBack",
    "name": "Hand back to the discussion",
    "type": "bpmn:Task",
+   "stepHref": "ask-the-person.html#step-A_HandBack",
    "lane": "Agent",
+   "laneHref": "ask-the-person.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",

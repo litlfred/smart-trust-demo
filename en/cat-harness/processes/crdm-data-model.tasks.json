@@ -64,12 +64,15 @@
    }
   }
  ],
+ "processHref": "crdm-data-model.html",
  "tasks": {
   "A_Entities": {
    "id": "A_Entities",
    "name": "Identify entities from the BPA and requirements",
    "type": "bpmn:Task",
+   "stepHref": "crdm-data-model.html#step-A_Entities",
    "lane": "Agent",
+   "laneHref": "crdm-data-model.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -82,7 +85,9 @@
    "id": "A_Relations",
    "name": "Relations and cardinalities, both ways",
    "type": "bpmn:Task",
+   "stepHref": "crdm-data-model.html#step-A_Relations",
    "lane": "Agent",
+   "laneHref": "crdm-data-model.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -95,7 +100,9 @@
    "id": "BA_ConfirmEntities",
    "name": "Confirm the entities are the ones meant",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-data-model.html#step-BA_ConfirmEntities",
    "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-data-model.html#lane-Lane_BA",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -113,7 +120,9 @@
    "id": "S_ConfirmCardinality",
    "name": "Confirm the cardinalities",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-data-model.html#step-S_ConfirmCardinality",
    "lane": "Stakeholders",
+   "laneHref": "crdm-data-model.html#lane-Lane_Stakeholders",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -131,7 +140,9 @@
    "id": "A_Declare",
    "name": "Declare the model where a tool can read it",
    "type": "bpmn:Task",
+   "stepHref": "crdm-data-model.html#step-A_Declare",
    "lane": "Agent",
+   "laneHref": "crdm-data-model.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",

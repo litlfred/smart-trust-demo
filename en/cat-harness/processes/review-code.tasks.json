@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "review-code.html",
  "tasks": {
   "Task_RunNodeAudits": {
    "id": "Task_RunNodeAudits",
    "name": "Run the node audits",
    "type": "bpmn:Task",
+   "stepHref": "review-code.html#step-Task_RunNodeAudits",
    "lane": "Code reviewer",
+   "laneHref": "review-code.html#lane-Lane_CodeReviewer",
    "skills": [],
    "role": {
     "name": "code-reviewer",
@@ -70,7 +73,9 @@
    "id": "Task_ReviewTool",
    "name": "Review the Tool node",
    "type": "bpmn:Task",
+   "stepHref": "review-code.html#step-Task_ReviewTool",
    "lane": "Code reviewer",
+   "laneHref": "review-code.html#lane-Lane_CodeReviewer",
    "skills": [],
    "role": {
     "name": "code-reviewer",
@@ -83,7 +88,9 @@
    "id": "Task_ReviewSchema",
    "name": "Review the schema definition node",
    "type": "bpmn:Task",
+   "stepHref": "review-code.html#step-Task_ReviewSchema",
    "lane": "Code reviewer",
+   "laneHref": "review-code.html#lane-Lane_CodeReviewer",
    "skills": [],
    "role": {
     "name": "code-reviewer",
@@ -96,7 +103,9 @@
    "id": "Task_RecordVerdict",
    "name": "Record the verdict on the node",
    "type": "bpmn:Task",
+   "stepHref": "review-code.html#step-Task_RecordVerdict",
    "lane": "Code reviewer",
+   "laneHref": "review-code.html#lane-Lane_CodeReviewer",
    "skills": [],
    "role": {
     "name": "code-reviewer",

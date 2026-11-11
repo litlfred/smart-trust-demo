@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Each IG, composed into a host docs site and rendered with just-the-docs" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/ig-docs-site-compose.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/ig-docs-site-compose.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Each IG, composed into a host docs site and rendered with just-the-docs" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Each IG, composed into a host docs site and rendered with just-the-docs","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/ig-docs-site-compose.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Each IG, composed into a host docs site and rendered with just-the-docs","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/ig-docs-site-compose.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -907,9 +907,9 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_IgDocsSiteCompose</code> · advisory · 4 step(s)</p>
 
-<p>How a host docs site builds every IG it mounts INSIDE itself, so each IG’s pages wear the host’s chrome (one sidebar, one search, one language selector) rather than being a site of their own. Subprocess of Tool <code class="language-plaintext highlighter-rouge">stage-ig-sites</code>; reached from <code class="language-plaintext highlighter-rouge">docs-site-publish</code>’s <code class="language-plaintext highlighter-rouge">Call_InstanceSites</code> (skill <code class="language-plaintext highlighter-rouge">docs-generation</code>).</p>
+<p>How a host docs site builds every IG it mounts INSIDE itself, so each IG’s pages wear the host’s chrome (one sidebar, one search, one language selector) rather than being a site of their own. Subprocess of Tool <code class="language-plaintext highlighter-rouge">stage-ig-sites</code>; reached from <code class="language-plaintext highlighter-rouge">docs-site-publish</code>’s <code class="language-plaintext highlighter-rouge">Call_InstanceSites</code> (skill <a href="https://github.com/litlfred/cat-harness/blob/main/skills/ui/ui-core/docs-generation.md"><code class="language-plaintext highlighter-rouge">docs-generation</code></a>).</p>
 
-<p>NO IG PUBLISHER RUNS. <code class="language-plaintext highlighter-rouge">build-ig-site</code> turns the IG’s source into Jekyll source, with the Publisher’s <code class="language-plaintext highlighter-rouge">site.data.fhir</code> filled from the IG’s AST and <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code>, and the host’s ONE Jekyll build renders it with just-the-docs (skill <code class="language-plaintext highlighter-rouge">ig-render-jekyll</code>). Which IGs is DATA: each instance whose <code class="language-plaintext highlighter-rouge">fhir-artifact-index/menu.json</code> records a <code class="language-plaintext highlighter-rouge">source.of</code> (the IG repository) and <code class="language-plaintext highlighter-rouge">source.ref</code> (the commit). No workflow and no step here names an IG.</p>
+<p>NO IG PUBLISHER RUNS. <code class="language-plaintext highlighter-rouge">build-ig-site</code> turns the IG’s source into Jekyll source, with the Publisher’s <code class="language-plaintext highlighter-rouge">site.data.fhir</code> filled from the IG’s AST and <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code>, and the host’s ONE Jekyll build renders it with just-the-docs (skill <a href="../../../en/cat-harness/processes/skills/ig-render-jekyll.html"><code class="language-plaintext highlighter-rouge">ig-render-jekyll</code></a>). Which IGs is DATA: each instance whose <code class="language-plaintext highlighter-rouge">fhir-artifact-index/menu.json</code> records a <code class="language-plaintext highlighter-rouge">source.of</code> (the IG repository) and <code class="language-plaintext highlighter-rouge">source.ref</code> (the commit). No workflow and no step here names an IG.</p>
 
 <p><code class="language-plaintext highlighter-rouge">feature-staging.yml</code> runs the same steps for a pull request’s preview, with <code class="language-plaintext highlighter-rouge">--changed-files</code>, so only the IGs a change reaches are rebuilt. An IG repository building its OWN site runs <code class="language-plaintext highlighter-rouge">stage-ig-sites --only &lt;instance&gt; --source &lt;checkout&gt; --compose-into &lt;shell&gt; --compose-at-root</code>, which is <code class="language-plaintext highlighter-rouge">ig-ast-cache</code>’s <code class="language-plaintext highlighter-rouge">Task_BuildSite</code>, not this process.</p>
 <style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
@@ -970,8 +970,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1157,7 +1163,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Host docs site build (CI runner)</td>
+      <td><a id="lane-Lane_Build"></a>Host docs site build (CI runner)</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>The host’s publish or preview job: GitHub Actions running each Tool’s command in one runner. An instance with no recorded source is skipped and named, never silently absent, and a theme it cannot choose between is refused.</td>
     </tr>
@@ -1185,27 +1191,27 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Build each IG’s artefact index</strong><br /><code class="language-plaintext highlighter-rouge">Task_Indexes</code></td>
+      <td><a id="step-Task_Indexes"></a><strong>Build each IG’s artefact index</strong><br /><code class="language-plaintext highlighter-rouge">Task_Indexes</code></td>
       <td>Host docs site build (CI runner)</td>
-      <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/ig-build-pipeline.html"><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></a></td>
       <td>Tool <code class="language-plaintext highlighter-rouge">ig-index-build</code>: <code class="language-plaintext highlighter-rouge">bun run cat ig-index:build</code>. Restores each IG’s AST from its cache branch and writes <code class="language-plaintext highlighter-rouge">fhir-artifact-index/</code> (<code class="language-plaintext highlighter-rouge">index.json</code>, <code class="language-plaintext highlighter-rouge">menu.json</code> with the <code class="language-plaintext highlighter-rouge">source.of</code>/<code class="language-plaintext highlighter-rouge">source.ref</code> that <code class="language-plaintext highlighter-rouge">Task_Stage</code> clones from, <code class="language-plaintext highlighter-rouge">releases.json</code>, <code class="language-plaintext highlighter-rouge">package.tgz</code>). A missing input skips that instance, named.</td>
     </tr>
     <tr>
-      <td><strong>Generate each IG instance’s artefact pages</strong><br /><code class="language-plaintext highlighter-rouge">Task_Pages</code></td>
+      <td><a id="step-Task_Pages"></a><strong>Generate each IG instance’s artefact pages</strong><br /><code class="language-plaintext highlighter-rouge">Task_Pages</code></td>
       <td>Host docs site build (CI runner)</td>
-      <td><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/ig-build-pipeline.html"><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></a></td>
       <td>Tool <code class="language-plaintext highlighter-rouge">ig-pages</code>: <code class="language-plaintext highlighter-rouge">bun run fhir-harness/scripts/gen-ig-pages.ts --instance &lt;instance&gt; ...</code>, run for every IG instance by its own pages script. Writes <code class="language-plaintext highlighter-rouge">&lt;instance&gt;/docs/</code> from the artefact index: one thin page per artefact with its JSON-LD node, and, for an instance whose docs declare <code class="language-plaintext highlighter-rouge">igSite</code>, only a front-matter <code class="language-plaintext highlighter-rouge">artifacts.md</code>. Built at publish, never committed.</td>
     </tr>
     <tr>
-      <td><strong>Clone each IG at its recorded commit and stage it</strong><br /><code class="language-plaintext highlighter-rouge">Task_Stage</code></td>
+      <td><a id="step-Task_Stage"></a><strong>Clone each IG at its recorded commit and stage it</strong><br /><code class="language-plaintext highlighter-rouge">Task_Stage</code></td>
       <td>Host docs site build (CI runner)</td>
-      <td><code class="language-plaintext highlighter-rouge">ig-render-jekyll</code><br /><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/ig-render-jekyll.html"><code class="language-plaintext highlighter-rouge">ig-render-jekyll</code></a><br /><a href="../../../en/cat-harness/processes/skills/ig-build-pipeline.html"><code class="language-plaintext highlighter-rouge">ig-build-pipeline</code></a></td>
       <td>Tool <code class="language-plaintext highlighter-rouge">stage-ig-sites</code>: <code class="language-plaintext highlighter-rouge">bun run fhir-harness/scripts/stage-ig-sites.ts --work ./_ig --baseurl /&lt;repo&gt; --plantuml-jar &lt;jar&gt;</code>. Clones each IG at its recorded commit and stages ONE just-the-docs Jekyll source per IG with Tool <code class="language-plaintext highlighter-rouge">build-ig-site</code> (pages, includes, images, PlantUML, <code class="language-plaintext highlighter-rouge">_data/</code>, theme colours); the artefact lists (<code class="language-plaintext highlighter-rouge">artifacts</code>, <code class="language-plaintext highlighter-rouge">toc</code>) are thin pages over the artefact index node (Liquid only under <code class="language-plaintext highlighter-rouge">--full-pages</code>), and the instance’s artefact pages from <code class="language-plaintext highlighter-rouge">Task_Pages</code> are copied in. The theme is the one <code class="language-plaintext highlighter-rouge">webpage</code> theme the instance declares or inherits along <code class="language-plaintext highlighter-rouge">needs</code>; two at the same distance are refused.</td>
     </tr>
     <tr>
-      <td><strong>Compose each staged IG into the host source</strong><br /><code class="language-plaintext highlighter-rouge">Task_ComposeInto</code></td>
+      <td><a id="step-Task_ComposeInto"></a><strong>Compose each staged IG into the host source</strong><br /><code class="language-plaintext highlighter-rouge">Task_ComposeInto</code></td>
       <td>Host docs site build (CI runner)</td>
-      <td><code class="language-plaintext highlighter-rouge">ig-render-jekyll</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/ig-render-jekyll.html"><code class="language-plaintext highlighter-rouge">ig-render-jekyll</code></a></td>
       <td>Tool <code class="language-plaintext highlighter-rouge">stage-ig-sites</code> with <code class="language-plaintext highlighter-rouge">--compose-into ./_docs</code> (the same run as <code class="language-plaintext highlighter-rouge">Task_Stage</code>). Moves each staged site INTO the host’s Jekyll source at <code class="language-plaintext highlighter-rouge">&lt;instance&gt;/</code>, with its includes and data namespaced per IG. Pages wear the thin layout with the host’s chrome linked (<code class="language-plaintext highlighter-rouge">--full-pages</code> inlines the host’s full chrome instead). Prints one <code class="language-plaintext highlighter-rouge">&lt;instance&gt; &lt;jekyll source&gt; &lt;at&gt;</code> line per IG: the build list the host keeps (<code class="language-plaintext highlighter-rouge">./_ig-list.txt</code>) for the post-build pass.</td>
     </tr>
   </tbody>

@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -938,23 +938,23 @@
 
 <p><code class="language-plaintext highlighter-rouge">process-model-quality</code> — declared by <code class="language-plaintext highlighter-rouge">cat-harness</code> — <span class="mv-tag mv-ingested">source held</span></p>
 
-<p><strong>Applies when.</strong> A BPMN diagram is being written, reviewed or checked, and the question is which readability rules rest on evidence and how strong it is. It is the source behind the rules in the <code class="language-plaintext highlighter-rouge">bpmn-authoring</code> skill and the <code class="language-plaintext highlighter-rouge">diagram-quality</code> checks. Not for layout geometry the owner set as house style (fixed task size, text size, right-angle edges, loop-backs below the lane): those are policy, and this methodology does not claim evidence for them. Not for DMN tables (<code class="language-plaintext highlighter-rouge">dmn</code>).</p>
+<p><strong>Applies when.</strong> A BPMN diagram is being written, reviewed or checked, and the question is which readability rules rest on evidence and how strong it is. It is the source behind the rules in the <code class="language-plaintext highlighter-rouge">bpmn-authoring</code> skill and the <code class="language-plaintext highlighter-rouge">diagram-quality</code> checks. Not for layout geometry the owner set as house style (fixed task size, text size, right-angle edges, loop-backs below the lane): those are policy, and this methodology does not claim evidence for them. Not for DMN tables (<a href="../../#dmn"><code class="language-plaintext highlighter-rouge">dmn</code></a>).</p>
 
 <p><strong>Origin.</strong> The process-model quality literature, chiefly Mendling, Reijers and van der Aalst, “Seven Process Modeling Guidelines (7PMG)”, Information and Software Technology 52(2), 2010; its threshold study, Mendling, Sánchez-González, García and La Rosa, Journal of Systems and Software 85(5), 2012; and the guideline review of Avila et al., Business Process Management Journal 27(1), 2021. The other sources below test single guidelines. Most are publisher copyright and RECORDED, not held: the library keeps their bibliographic record and structured notes, not their text.</p>
 
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/mendling-2010-7pmg</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/mendling-2012-thresholds-error-probability</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/avila-2021-process-modeling-guidelines-slr</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/mendling-2010-activity-labeling</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/leopold-2016-bpmn-quality-issues-industry</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2106.12880v1</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/figl-strembeck-2015-flow-direction-experiment</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2504-10971v1</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/reijers-2011-syntax-highlighting</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/zur-muehlen-recker-2008-how-much-language</code></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Fmendling-2010-7pmg"><code class="language-plaintext highlighter-rouge">library/mendling-2010-7pmg</code></a> · <a href="../../../library/cat-harness/mendling-2010-7pmg/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/mendling-2010-7pmg/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Fmendling-2012-thresholds-error-probability"><code class="language-plaintext highlighter-rouge">library/mendling-2012-thresholds-error-probability</code></a> · <a href="../../../library/cat-harness/mendling-2012-thresholds-error-probability/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/mendling-2012-thresholds-error-probability/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Favila-2021-process-modeling-guidelines-slr"><code class="language-plaintext highlighter-rouge">library/avila-2021-process-modeling-guidelines-slr</code></a> · <a href="../../../library/cat-harness/avila-2021-process-modeling-guidelines-slr/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/avila-2021-process-modeling-guidelines-slr/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Fmendling-2010-activity-labeling"><code class="language-plaintext highlighter-rouge">library/mendling-2010-activity-labeling</code></a> · <a href="../../../library/cat-harness/mendling-2010-activity-labeling/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/mendling-2010-activity-labeling/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Fleopold-2016-bpmn-quality-issues-industry"><code class="language-plaintext highlighter-rouge">library/leopold-2016-bpmn-quality-issues-industry</code></a> · <a href="../../../library/cat-harness/leopold-2016-bpmn-quality-issues-industry/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/leopold-2016-bpmn-quality-issues-industry/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2106.12880v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2106.12880v1</code></a> · <a href="../../../library/cat-harness/arxiv-2106.12880v1/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/arxiv-2106.12880v1/README.md">item page</a> · <a href="https://arxiv.org/abs/2106.12880v1">source</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Ffigl-strembeck-2015-flow-direction-experiment"><code class="language-plaintext highlighter-rouge">library/figl-strembeck-2015-flow-direction-experiment</code></a> · <a href="../../../library/cat-harness/figl-strembeck-2015-flow-direction-experiment/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/figl-strembeck-2015-flow-direction-experiment/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2504-10971v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2504-10971v1</code></a> · <a href="../../../library/cat-harness/arxiv-2504-10971v1/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/arxiv-2504-10971v1/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Freijers-2011-syntax-highlighting"><code class="language-plaintext highlighter-rouge">library/reijers-2011-syntax-highlighting</code></a> · <a href="../../../library/cat-harness/reijers-2011-syntax-highlighting/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/reijers-2011-syntax-highlighting/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Fzur-muehlen-recker-2008-how-much-language"><code class="language-plaintext highlighter-rouge">library/zur-muehlen-recker-2008-how-much-language</code></a> · <a href="../../../library/cat-harness/zur-muehlen-recker-2008-how-much-language/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/zur-muehlen-recker-2008-how-much-language/README.md">item page</a></li>
 </ul>
 
 <p><strong>Node file:</strong> <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/process-model-quality.md">process-model-quality.md</a></p>

@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="J4.1 Read a family member’s records at the point of care abroad" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j4-1-vhl-point-of-care.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j4-1-vhl-point-of-care.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="J4.1 Read a family member’s records at the point of care abroad" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J4.1 Read a family member’s records at the point of care abroad","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j4-1-vhl-point-of-care.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J4.1 Read a family member’s records at the point of care abroad","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j4-1-vhl-point-of-care.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -970,8 +970,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1157,27 +1163,27 @@
   </thead>
   <tbody>
     <tr>
-      <td>Caregiver</td>
+      <td><a id="lane-Lane_caregiver"></a>Caregiver</td>
       <td><code class="language-plaintext highlighter-rouge">caregiver</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Family phone</td>
+      <td><a id="lane-Lane_family-phone"></a>Family phone</td>
       <td><code class="language-plaintext highlighter-rouge">family-phone</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Point-of-care provider</td>
+      <td><a id="lane-Lane_poc-provider"></a>Point-of-care provider</td>
       <td><code class="language-plaintext highlighter-rouge">poc-provider</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Point-of-care receiver</td>
+      <td><a id="lane-Lane_poc-receiver"></a>Point-of-care receiver</td>
       <td><code class="language-plaintext highlighter-rouge">poc-receiver</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>National health portal</td>
+      <td><a id="lane-Lane_national-portal"></a>National health portal</td>
       <td><code class="language-plaintext highlighter-rouge">national-portal</code></td>
       <td>—</td>
     </tr>
@@ -1205,51 +1211,51 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Show the child’s VHL QR</strong><br /><code class="language-plaintext highlighter-rouge">Task_Open</code></td>
+      <td><a id="step-Task_Open"></a><strong>Show the child’s VHL QR</strong><br /><code class="language-plaintext highlighter-rouge">Task_Open</code></td>
       <td>Family phone</td>
-      <td><code class="language-plaintext highlighter-rouge">wallet-hold-vhl</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/wallet-hold-vhl.html"><code class="language-plaintext highlighter-rouge">wallet-hold-vhl</code></a></td>
       <td>—</td>
     </tr>
     <tr>
-      <td><strong>Scan the QR and enter the passcode the caregiver says</strong><br /><code class="language-plaintext highlighter-rouge">Task_Scan</code></td>
+      <td><a id="step-Task_Scan"></a><strong>Scan the QR and enter the passcode the caregiver says</strong><br /><code class="language-plaintext highlighter-rouge">Task_Scan</code></td>
       <td>Point-of-care provider</td>
-      <td><code class="language-plaintext highlighter-rouge">receiver-scan-credential</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/receiver-scan-credential.html"><code class="language-plaintext highlighter-rouge">receiver-scan-credential</code></a></td>
       <td>—</td>
     </tr>
     <tr>
-      <td><strong>Verify the HCERT and read the VHL at key 5</strong><br /><code class="language-plaintext highlighter-rouge">Task_Verify</code></td>
+      <td><a id="step-Task_Verify"></a><strong>Verify the HCERT and read the VHL at key 5</strong><br /><code class="language-plaintext highlighter-rouge">Task_Verify</code></td>
       <td>Point-of-care receiver</td>
-      <td><code class="language-plaintext highlighter-rouge">hcert-verify</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/hcert-verify.html"><code class="language-plaintext highlighter-rouge">hcert-verify</code></a></td>
       <td>STT-VER-001 against Country B’s DSC on the trust list the preconditions establish; VHL expiry (STT-VHL-009). A DSC Country B published after the hospital’s last refresh is not in its copy, so the HCERT fails at the trust-list step (STT-VER-006), naming that reason.</td>
     </tr>
     <tr>
-      <td><strong>Not verified: treat records as paper</strong><br /><code class="language-plaintext highlighter-rouge">Task_Unverified</code></td>
+      <td><a id="step-Task_Unverified"></a><strong>Not verified: treat records as paper</strong><br /><code class="language-plaintext highlighter-rouge">Task_Unverified</code></td>
       <td>Point-of-care provider</td>
-      <td><code class="language-plaintext highlighter-rouge">review-client-history</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/review-client-history.html"><code class="language-plaintext highlighter-rouge">review-client-history</code></a></td>
       <td>No digital verification: treat the records like paper. The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified.</td>
     </tr>
     <tr>
-      <td><strong>Request the manifest (ITI-YY5), signed</strong><br /><code class="language-plaintext highlighter-rouge">Task_Fetch</code></td>
+      <td><a id="step-Task_Fetch"></a><strong>Request the manifest (ITI-YY5), signed</strong><br /><code class="language-plaintext highlighter-rouge">Task_Fetch</code></td>
       <td>Point-of-care receiver</td>
-      <td><code class="language-plaintext highlighter-rouge">vhl-receive</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/vhl-receive.html"><code class="language-plaintext highlighter-rouge">vhl-receive</code></a></td>
       <td>STT-VHL-005, STT-VHL-006, STT-VHL-008; the host does the HTTP, the library builds and reads (STT-VHL-010).</td>
     </tr>
     <tr>
-      <td><strong>Check passcode, log access, return manifest</strong><br /><code class="language-plaintext highlighter-rouge">Task_Release</code></td>
+      <td><a id="step-Task_Release"></a><strong>Check passcode, log access, return manifest</strong><br /><code class="language-plaintext highlighter-rouge">Task_Release</code></td>
       <td>National health portal</td>
-      <td><code class="language-plaintext highlighter-rouge">portal-serve-manifest</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/portal-serve-manifest.html"><code class="language-plaintext highlighter-rouge">portal-serve-manifest</code></a></td>
       <td>Check the passcode, return the manifest and log the access. The home country’s portal hosts the manifest (ITI-YY5). It checks the passcode and the link’s expiry and the consent the holder gave when sharing (IHE PCF), returns the manifest of encrypted files on success, and records every request, granted or refused, as an AuditEvent (IHE BALP) in the home country. A wrong passcode is refused and still logged. The records stay hosted at home: the receiver views them and nothing is copied into a registry abroad.</td>
     </tr>
     <tr>
-      <td><strong>Decrypt the IPS and DVCs</strong><br /><code class="language-plaintext highlighter-rouge">Task_Decrypt</code></td>
+      <td><a id="step-Task_Decrypt"></a><strong>Decrypt the IPS and DVCs</strong><br /><code class="language-plaintext highlighter-rouge">Task_Decrypt</code></td>
       <td>Point-of-care receiver</td>
-      <td><code class="language-plaintext highlighter-rouge">vhl-receive</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/vhl-receive.html"><code class="language-plaintext highlighter-rouge">vhl-receive</code></a></td>
       <td>JWE dir/A256GCM (STT-VHL-007).</td>
     </tr>
     <tr>
-      <td><strong>Review history, allergies and vaccinations</strong><br /><code class="language-plaintext highlighter-rouge">Task_Review</code></td>
+      <td><a id="step-Task_Review"></a><strong>Review history, allergies and vaccinations</strong><br /><code class="language-plaintext highlighter-rouge">Task_Review</code></td>
       <td>Point-of-care provider</td>
-      <td><code class="language-plaintext highlighter-rouge">review-client-history</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/review-client-history.html"><code class="language-plaintext highlighter-rouge">review-client-history</code></a></td>
       <td>—</td>
     </tr>
   </tbody>

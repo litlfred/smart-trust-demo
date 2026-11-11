@@ -11,7 +11,7 @@
   "title" : "TD.J2A Newborn registration on a home visit",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-07T20:39:34+00:00",
+  "date" : "2026-11-11T10:58:56+00:00",
   "publisher" : "litlfred",
   "contact" : [{
     "name" : "litlfred",
@@ -74,7 +74,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item household; TrustDemoLaoHousehold: Group.identifier[household]"
+        "map" : "TrustDemoHouseholdRegistration item household; TrustDemoOnesaHousehold: Group.identifier[household]"
       }]
     },
     {
@@ -99,7 +99,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item given; TrustDemoLaoPatient: Patient.name.given"
+        "map" : "TrustDemoHouseholdRegistration item given; TrustDemoOnesaPatient: Patient.name.given"
       }]
     },
     {
@@ -124,7 +124,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item family; TrustDemoLaoPatient: Patient.name.family"
+        "map" : "TrustDemoHouseholdRegistration item family; TrustDemoOnesaPatient: Patient.name.family"
       }]
     },
     {
@@ -149,7 +149,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item birthDate; TrustDemoLaoPatient: Patient.birthDate"
+        "map" : "TrustDemoHouseholdRegistration item birthDate; TrustDemoOnesaPatient: Patient.birthDate"
       }]
     },
     {
@@ -224,7 +224,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoPatient: Patient.identifier[temporaryId]"
+        "map" : "TrustDemoOnesaPatient: Patient.identifier[temporaryId]"
       }]
     },
     {
@@ -250,7 +250,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoRegistration: QuestionnaireResponse.author"
+        "map" : "TrustDemoOnesaRegistration: QuestionnaireResponse.author"
       }]
     },
     {
@@ -275,7 +275,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoRegistration: QuestionnaireResponse.authored"
+        "map" : "TrustDemoOnesaRegistration: QuestionnaireResponse.authored"
       }]
     },
     {
@@ -301,7 +301,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoRegistration: QuestionnaireResponse.source"
+        "map" : "TrustDemoOnesaRegistration: QuestionnaireResponse.source"
       }]
     },
     {
@@ -334,7 +334,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization"
       }]
     },
     {
@@ -483,7 +483,7 @@
       },
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.vaccineCode"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.vaccineCode"
       }]
     },
     {
@@ -508,7 +508,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.occurrenceDateTime"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.occurrenceDateTime"
       }]
     },
     {
@@ -533,7 +533,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.lotNumber"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.lotNumber"
       }]
     },
     {
@@ -559,7 +559,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.informationSource"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.informationSource"
       }]
     },
     {
@@ -588,7 +588,7 @@
       },
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.primarySource = false; TrustDemoLaoReportedImmunization: Immunization.note"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.primarySource = false; TrustDemoOnesaReportedImmunization: Immunization.note"
       }]
     }]
   },
@@ -616,7 +616,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item household; TrustDemoLaoHousehold: Group.identifier[household]"
+        "map" : "TrustDemoHouseholdRegistration item household; TrustDemoOnesaHousehold: Group.identifier[household]"
       }]
     },
     {
@@ -636,7 +636,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item given; TrustDemoLaoPatient: Patient.name.given"
+        "map" : "TrustDemoHouseholdRegistration item given; TrustDemoOnesaPatient: Patient.name.given"
       }]
     },
     {
@@ -656,7 +656,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item family; TrustDemoLaoPatient: Patient.name.family"
+        "map" : "TrustDemoHouseholdRegistration item family; TrustDemoOnesaPatient: Patient.name.family"
       }]
     },
     {
@@ -676,7 +676,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoHouseholdRegistration item birthDate; TrustDemoLaoPatient: Patient.birthDate"
+        "map" : "TrustDemoHouseholdRegistration item birthDate; TrustDemoOnesaPatient: Patient.birthDate"
       }]
     },
     {
@@ -736,7 +736,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoPatient: Patient.identifier[temporaryId]"
+        "map" : "TrustDemoOnesaPatient: Patient.identifier[temporaryId]"
       }]
     },
     {
@@ -757,7 +757,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoRegistration: QuestionnaireResponse.author"
+        "map" : "TrustDemoOnesaRegistration: QuestionnaireResponse.author"
       }]
     },
     {
@@ -777,7 +777,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoRegistration: QuestionnaireResponse.authored"
+        "map" : "TrustDemoOnesaRegistration: QuestionnaireResponse.authored"
       }]
     },
     {
@@ -798,7 +798,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoRegistration: QuestionnaireResponse.source"
+        "map" : "TrustDemoOnesaRegistration: QuestionnaireResponse.source"
       }]
     },
     {
@@ -818,7 +818,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization"
       }]
     },
     {
@@ -842,7 +842,7 @@
       },
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.vaccineCode"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.vaccineCode"
       }]
     },
     {
@@ -862,7 +862,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.occurrenceDateTime"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.occurrenceDateTime"
       }]
     },
     {
@@ -882,7 +882,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.lotNumber"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.lotNumber"
       }]
     },
     {
@@ -903,7 +903,7 @@
       }],
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.informationSource"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.informationSource"
       }]
     },
     {
@@ -927,7 +927,7 @@
       },
       "mapping" : [{
         "identity" : "realisation",
-        "map" : "TrustDemoLaoReportedImmunization: Immunization.primarySource = false; TrustDemoLaoReportedImmunization: Immunization.note"
+        "map" : "TrustDemoOnesaReportedImmunization: Immunization.primarySource = false; TrustDemoOnesaReportedImmunization: Immunization.note"
       }]
     }]
   }

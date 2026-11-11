@@ -112,12 +112,15 @@
    }
   }
  ],
+ "processHref": "iris-cdn-nightly.html",
  "tasks": {
   "Task_ReadCursor": {
    "id": "Task_ReadCursor",
    "name": "Read the cursor of the last published run",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-nightly.html#step-Task_ReadCursor",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -130,7 +133,9 @@
    "id": "Task_ListChanged",
    "name": "List items changed since the cursor",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-nightly.html#step-Task_ListChanged",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -143,7 +148,9 @@
    "id": "Task_FetchChanged",
    "name": "Fetch the changed records and bitstream lists",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-nightly.html#step-Task_FetchChanged",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -156,7 +163,9 @@
    "id": "Task_FetchNewBytes",
    "name": "Fetch only bitstreams whose checksum changed",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-nightly.html#step-Task_FetchNewBytes",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -169,7 +178,9 @@
    "id": "Task_WriteRecords",
    "name": "Write canonical records into the library",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-nightly.html#step-Task_WriteRecords",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -182,7 +193,9 @@
    "id": "Call_Rebuild",
    "name": "Rebuild the whole graph (sorted output)",
    "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-nightly.html#step-Call_Rebuild",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Package and distribute partitioned W3C N-Quads and named queries",
@@ -200,7 +213,9 @@
    "id": "Call_SignPublish",
    "name": "Sign and publish the release",
    "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-nightly.html#step-Call_SignPublish",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Sign and publish an IRIS CDN release",
@@ -218,7 +233,9 @@
    "id": "Task_AdvanceCursor",
    "name": "Commit the advanced cursor",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-nightly.html#step-Task_AdvanceCursor",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -231,7 +248,9 @@
    "id": "Task_Review",
    "name": "Review the run report; open beans for anomalies",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-nightly.html#step-Task_Review",
    "lane": "IRIS CDN Exporter (agent)",
+   "laneHref": "iris-cdn-nightly.html#lane-Lane_Exporter",
    "skills": [],
    "role": {
     "name": "iris-cdn-exporter",

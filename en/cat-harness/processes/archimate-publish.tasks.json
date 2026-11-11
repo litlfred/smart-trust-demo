@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "archimate-publish.html",
  "tasks": {
   "A_Check": {
    "id": "A_Check",
    "name": "Check the model parses and resolves",
    "type": "bpmn:Task",
+   "stepHref": "archimate-publish.html#step-A_Check",
    "lane": "CI/CD Pipeline",
+   "laneHref": "archimate-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -70,7 +73,9 @@
    "id": "A_Metamodel",
    "name": "Derive the metamodel in use",
    "type": "bpmn:Task",
+   "stepHref": "archimate-publish.html#step-A_Metamodel",
    "lane": "CI/CD Pipeline",
+   "laneHref": "archimate-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -83,7 +88,9 @@
    "id": "A_FixModel",
    "name": "Fix the relationship in Archi",
    "type": "bpmn:Task",
+   "stepHref": "archimate-publish.html#step-A_FixModel",
    "lane": "Model author",
+   "laneHref": "archimate-publish.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -96,7 +103,9 @@
    "id": "A_Pages",
    "name": "Write pages, drawings and the metamodel page",
    "type": "bpmn:Task",
+   "stepHref": "archimate-publish.html#step-A_Pages",
    "lane": "CI/CD Pipeline",
+   "laneHref": "archimate-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",

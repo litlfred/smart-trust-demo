@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Translation refresh (watcher)" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-refresh.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-refresh.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Translation refresh (watcher)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Translation refresh (watcher)","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-refresh.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Translation refresh (watcher)","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/translation-refresh.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -909,7 +909,7 @@
 
 <p>Keep every locale current after the source moves: detect, refresh the templates, merge them into each locale, translate only what is new or fuzzy, check it, and land one PR per instance on main.</p>
 
-<p>You are in this process when the watcher scheduled by <code class="language-plaintext highlighter-rouge">multi-locale-translation</code> wakes, or when a template check has failed. It is the loop that process ends with. A fresh session can run it cold: the skill <code class="language-plaintext highlighter-rouge">translation-refresh</code> gives each step as a command, and each instance’s own AGENTS.md names what is particular to it. One run walks every instance in turn, and each instance with something to refresh gets its own PR.</p>
+<p>You are in this process when the watcher scheduled by <code class="language-plaintext highlighter-rouge">multi-locale-translation</code> wakes, or when a template check has failed. It is the loop that process ends with. A fresh session can run it cold: the skill <a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a> gives each step as a command, and each instance’s own AGENTS.md names what is particular to it. One run walks every instance in turn, and each instance with something to refresh gets its own PR.</p>
 
 <p>A refresh never re-translates a finished string. Obsolete strings are kept as <code class="language-plaintext highlighter-rouge">#~</code> entries, new ones arrive empty, and only new and fuzzy strings are translated, with the terms the term base already fixes. The round trip runs on the changed strings only.</p>
 <style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
@@ -977,8 +977,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1144,6 +1150,7 @@
   <li><strong>Calls:</strong> <a href="translation-round-trip.html">Translation round trip (untainted)</a></li>
   <li><strong>Names the <code class="language-plaintext highlighter-rouge">translation-refresh</code> skill without calling this process:</strong> <a href="multi-locale-translation.html">Multi-locale translation</a> — <code class="language-plaintext highlighter-rouge">activity-calls-skill-process</code> asks whether each should be a call activity.</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -1165,12 +1172,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>Locale translator</td>
+      <td><a id="lane-Lane_TR_Translator"></a>Locale translator</td>
       <td><code class="language-plaintext highlighter-rouge">locale-translator</code></td>
       <td>The same position as in the first translation, now working on a delta: only the strings the merge left empty or fuzzy, in every locale, then the gates and the round trip over those strings.</td>
     </tr>
     <tr>
-      <td>Source-language lead (watcher)</td>
+      <td><a id="lane-Lane_TR_Lead"></a>Source-language lead (watcher)</td>
       <td><code class="language-plaintext highlighter-rouge">translation-source-lead</code></td>
       <td>Owns the watcher. It decides whether anything changed from the files, not from memory, refreshes the templates once for every locale, and merges the instance’s PR only where the instance declares merge-when-green, every check is green and the round trip records no fail.</td>
     </tr>
@@ -1198,63 +1205,63 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Cold start: mount and attach</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_ColdStart</code></td>
+      <td><a id="step-Task_TR_ColdStart"></a><strong>Cold start: mount and attach</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_ColdStart</code></td>
       <td>Source-language lead (watcher)</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-refresh</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a></td>
       <td>Lay down every pinned layer from each instance’s lock, as its AGENTS.md cold start says, and attach each repository the run will change.</td>
     </tr>
     <tr>
-      <td><strong>Detect what moved</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Detect</code></td>
+      <td><a id="step-Task_TR_Detect"></a><strong>Detect what moved</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Detect</code></td>
       <td>Source-language lead (watcher)</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-refresh</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">translation:status --instance &lt;root&gt;</code> for new, obsolete and fuzzy strings, and the instance’s template check. Either failing, or showing anything but zero, is a change.</td>
     </tr>
     <tr>
-      <td><strong>Refresh the templates</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Templates</code></td>
+      <td><a id="step-Task_TR_Templates"></a><strong>Refresh the templates</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Templates</code></td>
       <td>Source-language lead (watcher)</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-refresh</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a></td>
       <td>Re-run the instance’s extractors, once for every locale: pages, diagrams, glossary schemes.</td>
     </tr>
     <tr>
-      <td><strong>Merge into each locale</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_MergeLocales</code></td>
+      <td><a id="step-Task_TR_MergeLocales"></a><strong>Merge into each locale</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_MergeLocales</code></td>
       <td>Source-language lead (watcher)</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-refresh</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a></td>
       <td>Merge each refreshed template into every locale’s catalogue: new strings arrive empty, changed ones fuzzy, and obsolete ones are kept as <code class="language-plaintext highlighter-rouge">#~</code> entries, never deleted.</td>
     </tr>
     <tr>
-      <td><strong>Translate new and fuzzy only</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Translate</code></td>
+      <td><a id="step-Task_TR_Translate"></a><strong>Translate new and fuzzy only</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Translate</code></td>
       <td>Locale translator</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-manager</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-manager.html"><code class="language-plaintext highlighter-rouge">translation-manager</code></a></td>
       <td>Only the empty and fuzzy entries, in every locale, with the terms the term base fixes. A finished string is not touched.</td>
     </tr>
     <tr>
-      <td><strong>Re-run the gates</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Gates</code></td>
+      <td><a id="step-Task_TR_Gates"></a><strong>Re-run the gates</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Gates</code></td>
       <td>Locale translator</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-manager</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-manager.html"><code class="language-plaintext highlighter-rouge">translation-manager</code></a></td>
       <td>Officiality, catalogue coverage, translated links, <code class="language-plaintext highlighter-rouge">kg:locale</code>, <code class="language-plaintext highlighter-rouge">translation:glossary:check</code>, and the supplements compiling.</td>
     </tr>
     <tr>
-      <td><strong>Round trip on the changed strings</strong><br /><code class="language-plaintext highlighter-rouge">Call_TR_RoundTrip</code></td>
+      <td><a id="step-Call_TR_RoundTrip"></a><strong>Round trip on the changed strings</strong><br /><code class="language-plaintext highlighter-rouge">Call_TR_RoundTrip</code></td>
       <td>Locale translator</td>
       <td>calls <a href="translation-round-trip.html">Translation round trip (untainted)</a></td>
       <td>The untainted round trip, with the sample restricted to the strings this run translated.</td>
     </tr>
     <tr>
-      <td><strong>QA report and one PR to main</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Report</code></td>
+      <td><a id="step-Task_TR_Report"></a><strong>QA report and one PR to main</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Report</code></td>
       <td>Locale translator</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-manager</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-manager.html"><code class="language-plaintext highlighter-rouge">translation-manager</code></a></td>
       <td>Write each locale’s QA report, then open one PR for the instance, based on and targeting main.</td>
     </tr>
     <tr>
-      <td><strong>Report source errors as one issue</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_SourceIssue</code></td>
+      <td><a id="step-Task_TR_SourceIssue"></a><strong>Report source errors as one issue</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_SourceIssue</code></td>
       <td>Source-language lead (watcher)</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-refresh</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a></td>
       <td>Any source-text error the translators found goes into one issue on the source, with its location. When there is none, this step writes nothing.</td>
     </tr>
     <tr>
-      <td><strong>Merge the PR</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Merge</code></td>
+      <td><a id="step-Task_TR_Merge"></a><strong>Merge the PR</strong><br /><code class="language-plaintext highlighter-rouge">Task_TR_Merge</code></td>
       <td>Source-language lead (watcher)</td>
-      <td><code class="language-plaintext highlighter-rouge">translation-refresh</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/translation-refresh.html"><code class="language-plaintext highlighter-rouge">translation-refresh</code></a></td>
       <td>Merge the instance’s PR to main, then confirm the template checks pass on main.</td>
     </tr>
   </tbody>

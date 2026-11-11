@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Copy out materialized content — to work on somebody else’s bytes" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/copy-out-materialized.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/copy-out-materialized.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Copy out materialized content — to work on somebody else’s bytes" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Copy out materialized content — to work on somebody else’s bytes","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/copy-out-materialized.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Copy out materialized content — to work on somebody else’s bytes","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/copy-out-materialized.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -973,8 +973,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1139,6 +1145,7 @@
   <li><strong>Called by:</strong> no call activity names this process</li>
   <li><strong>Calls:</strong> none</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/copy-out-materialized.html"><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -1160,22 +1167,22 @@
   </thead>
   <tbody>
     <tr>
-      <td>Reader (any actor)</td>
+      <td><a id="lane-Lane_Reader"></a>Reader (any actor)</td>
       <td><code class="language-plaintext highlighter-rouge">user</code></td>
       <td>ANY reader, not only an editor. Refusing a copy would not protect the original, because the original is protected by being read-only; a permission here would only stop people working. So this lane has no entry condition, and the one decision in it is about the TARGET rather than about the actor.</td>
     </tr>
     <tr>
-      <td>Source graph — read-only</td>
+      <td><a id="lane-Lane_Source"></a>Source graph — read-only</td>
       <td><code class="language-plaintext highlighter-rouge">corpus</code></td>
       <td>This lane holds exactly one task and it WRITES NOTHING, which is the point of drawing it at all. A lane that is only ever read from is the visible form of the rule: the arrow runs out of here and never back.</td>
     </tr>
     <tr>
-      <td>Copier’s own folio/</td>
+      <td><a id="lane-Lane_Folio"></a>Copier’s own folio/</td>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
       <td>Where the copy lands: the copier’s own folio, never a scratch area, because a directory nobody declared is a directory nobody gates. The two writes here are ordered and both required — Task_Land puts the bytes somewhere, Task_RecordProvenance says what they are a copy OF, and a process that stopped after the first would produce a file indistinguishable from original work one rename later.</td>
     </tr>
     <tr>
-      <td>Verification</td>
+      <td><a id="lane-Lane_Verify"></a>Verification</td>
       <td><code class="language-plaintext highlighter-rouge">validation-pipeline</code></td>
       <td>Asks the question the whole process exists to keep answerable: does the SOURCE still hash to its recorded digest? A copy-out that disturbed the original is not a copy-out, and this lane is the only thing that can tell the difference after the fact — the bytes look the same either way.</td>
     </tr>
@@ -1203,33 +1210,33 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Edit it in place — it is your own content</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditDirectly</code></td>
+      <td><a id="step-Task_EditDirectly"></a><strong>Edit it in place — it is your own content</strong><br /><code class="language-plaintext highlighter-rouge">Task_EditDirectly</code></td>
       <td>Reader (any actor)</td>
-      <td><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/copy-out-materialized.html"><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></a></td>
       <td>The ordinary path, drawn so the process does not read as though every edit needs a copy. Content in a writable directory is authored content and is edited where it lives; the copy-out is for somebody else’s bytes, not for yours.</td>
     </tr>
     <tr>
-      <td><strong>Read the original — and write nothing</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReadSource</code></td>
+      <td><a id="step-Task_ReadSource"></a><strong>Read the original — and write nothing</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReadSource</code></td>
       <td>Source graph — read-only</td>
-      <td><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/copy-out-materialized.html"><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></a></td>
       <td>A read, and the only interaction this process has with the source. Its digest and <code class="language-plaintext highlighter-rouge">provenance</code> are carried forward: the digest so Task_VerifySourceUntouched has something to check against, and <code class="language-plaintext highlighter-rouge">provenance</code> so the copy can name what it came out of without re-deriving it.</td>
     </tr>
     <tr>
-      <td><strong>Land the bytes in the copier’s own folio/</strong><br /><code class="language-plaintext highlighter-rouge">Task_Land</code></td>
+      <td><a id="step-Task_Land"></a><strong>Land the bytes in the copier’s own folio/</strong><br /><code class="language-plaintext highlighter-rouge">Task_Land</code></td>
       <td>Copier’s own folio/</td>
-      <td><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/copy-out-materialized.html"><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></a></td>
       <td>Into the copier’s own declared <code class="language-plaintext highlighter-rouge">folio/</code>, never a scratch area — a directory nobody declared is a directory nobody gates, and the copy would be publishable by accident. The copy is NOT read-only: it is the copier’s own content, makes no claim about anybody else’s bytes, and freezing it too would mean the next person needs a copy of the copy.</td>
     </tr>
     <tr>
-      <td><strong>Record what this is a copy of</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordProvenance</code></td>
+      <td><a id="step-Task_RecordProvenance"></a><strong>Record what this is a copy of</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordProvenance</code></td>
       <td>Copier’s own folio/</td>
-      <td><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/copy-out-materialized.html"><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></a></td>
       <td>The step that is easy to omit and impossible to reconstruct afterwards. <code class="language-plaintext highlighter-rouge">provenance</code> is a PAIR: <code class="language-plaintext highlighter-rouge">upstream</code> is the remote thing, <code class="language-plaintext highlighter-rouge">local</code> is the original in this repository. A copy-out writes <code class="language-plaintext highlighter-rouge">local</code>; it does not overwrite <code class="language-plaintext highlighter-rouge">upstream</code>, and it does not reuse <code class="language-plaintext highlighter-rouge">upstream</code> for a local value. Without <code class="language-plaintext highlighter-rouge">local</code>, one rename later the copy is indistinguishable from original work and nothing downstream can repair it, because the information was never written down.</td>
     </tr>
     <tr>
-      <td><strong>Verify the ORIGINAL still hashes to its digest</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerifySourceUntouched</code></td>
+      <td><a id="step-Task_VerifySourceUntouched"></a><strong>Verify the ORIGINAL still hashes to its digest</strong><br /><code class="language-plaintext highlighter-rouge">Task_VerifySourceUntouched</code></td>
       <td>Verification</td>
-      <td><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/copy-out-materialized.html"><code class="language-plaintext highlighter-rouge">copy-out-materialized</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">check:materialized-fixity</code>. Run against the SOURCE, not the copy — the copy is new content with no claim to verify, and the source is the thing a botched copy-out would have disturbed. A mismatch here means the copy-out was an edit in place wearing a copy’s clothes, and it is the only signal that tells the two apart.</td>
     </tr>
   </tbody>

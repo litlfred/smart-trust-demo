@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "session-state-machine.html",
  "tasks": {
   "A_IdentifyActor": {
    "id": "A_IdentifyActor",
    "name": "Establish who is acting",
    "type": "bpmn:Task",
+   "stepHref": "session-state-machine.html#step-A_IdentifyActor",
    "lane": "Agent (playing the machine)",
+   "laneHref": "session-state-machine.html#lane-Lane_Machine",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -118,7 +121,9 @@
    "id": "A_AskWhoIsActing",
    "name": "Ask who is acting",
    "type": "bpmn:CallActivity",
+   "stepHref": "session-state-machine.html#step-A_AskWhoIsActing",
    "lane": "Human actor",
+   "laneHref": "session-state-machine.html#lane-Lane_Human",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -136,7 +141,9 @@
    "id": "A_OpenSession",
    "name": "Open the session record",
    "type": "bpmn:Task",
+   "stepHref": "session-state-machine.html#step-A_OpenSession",
    "lane": "Agent (playing the machine)",
+   "laneHref": "session-state-machine.html#lane-Lane_Machine",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -149,7 +156,9 @@
    "id": "Call_SecurePermissions",
    "name": "Secure the agent's permissions",
    "type": "bpmn:CallActivity",
+   "stepHref": "session-state-machine.html#step-Call_SecurePermissions",
    "lane": "Agent (playing the machine)",
+   "laneHref": "session-state-machine.html#lane-Lane_Machine",
    "skills": [],
    "calls": {
     "name": "Secure agent permissions",
@@ -167,7 +176,9 @@
    "id": "A_ReadTurn",
    "name": "Take in the turn",
    "type": "bpmn:Task",
+   "stepHref": "session-state-machine.html#step-A_ReadTurn",
    "lane": "Agent (playing the machine)",
+   "laneHref": "session-state-machine.html#lane-Lane_Machine",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -180,7 +191,9 @@
    "id": "A_Touch",
    "name": "Refresh `updatedAt` only",
    "type": "bpmn:Task",
+   "stepHref": "session-state-machine.html#step-A_Touch",
    "lane": "Agent (playing the machine)",
+   "laneHref": "session-state-machine.html#lane-Lane_Machine",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -193,7 +206,9 @@
    "id": "A_UpdateSession",
    "name": "Write what changed",
    "type": "bpmn:Task",
+   "stepHref": "session-state-machine.html#step-A_UpdateSession",
    "lane": "Agent (playing the machine)",
+   "laneHref": "session-state-machine.html#lane-Lane_Machine",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -206,7 +221,9 @@
    "id": "A_CloseSession",
    "name": "Close the session",
    "type": "bpmn:Task",
+   "stepHref": "session-state-machine.html#step-A_CloseSession",
    "lane": "Agent (playing the machine)",
+   "laneHref": "session-state-machine.html#lane-Lane_Machine",
    "skills": [],
    "role": {
     "name": "authoring-agent",

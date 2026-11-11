@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "l3-fhir-pipeline.html",
  "tasks": {
   "Task_AuthorFsh": {
    "id": "Task_AuthorFsh",
    "name": "Author FSH profiles",
    "type": "bpmn:UserTask",
+   "stepHref": "l3-fhir-pipeline.html#step-Task_AuthorFsh",
    "lane": "FHIR modeller",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_Modeller",
    "skills": [],
    "role": {
     "name": "fhir-modeller",
@@ -106,7 +109,9 @@
    "id": "Task_Sushi",
    "name": "Compile FSH to FHIR JSON",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l3-fhir-pipeline.html#step-Task_Sushi",
    "lane": "Build pipeline — SUSHI · validator · IG Publisher",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -119,7 +124,9 @@
    "id": "Task_Validate",
    "name": "Validate against profiles",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l3-fhir-pipeline.html#step-Task_Validate",
    "lane": "Build pipeline — SUSHI · validator · IG Publisher",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -132,7 +139,9 @@
    "id": "Task_QcGates",
    "name": "QC gates",
    "type": "bpmn:UserTask",
+   "stepHref": "l3-fhir-pipeline.html#step-Task_QcGates",
    "lane": "QC reviewer",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_Qc",
    "skills": [],
    "role": {
     "name": "qc-reviewer",
@@ -145,7 +154,9 @@
    "id": "Task_QcBeans",
    "name": "File QC findings as beans",
    "type": "bpmn:Task",
+   "stepHref": "l3-fhir-pipeline.html#step-Task_QcBeans",
    "lane": "FHIR modeller",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_Modeller",
    "skills": [],
    "role": {
     "name": "fhir-modeller",
@@ -158,7 +169,9 @@
    "id": "Task_IgPublisher",
    "name": "IG Publisher build",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l3-fhir-pipeline.html#step-Task_IgPublisher",
    "lane": "Build pipeline — SUSHI · validator · IG Publisher",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -171,7 +184,9 @@
    "id": "Task_PublishIg",
    "name": "Publish the IG site",
    "type": "bpmn:ServiceTask",
+   "stepHref": "l3-fhir-pipeline.html#step-Task_PublishIg",
    "lane": "Publication manager",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_PubMgr",
    "skills": [],
    "role": {
     "name": "publication-manager",

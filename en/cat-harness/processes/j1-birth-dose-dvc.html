@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="J1 Issue the newborn’s birth-dose DVCs in Country A" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j1-birth-dose-dvc.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j1-birth-dose-dvc.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="J1 Issue the newborn’s birth-dose DVCs in Country A" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J1 Issue the newborn’s birth-dose DVCs in Country A","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j1-birth-dose-dvc.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"J1 Issue the newborn’s birth-dose DVCs in Country A","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/j1-birth-dose-dvc.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -969,8 +969,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1156,22 +1162,22 @@
   </thead>
   <tbody>
     <tr>
-      <td>Caregiver</td>
+      <td><a id="lane-Lane_caregiver"></a>Caregiver</td>
       <td><code class="language-plaintext highlighter-rouge">caregiver</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Birth clinic vaccinator</td>
+      <td><a id="lane-Lane_birth-clinic-vaccinator"></a>Birth clinic vaccinator</td>
       <td><code class="language-plaintext highlighter-rouge">birth-clinic-vaccinator</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Birth clinic issuing system</td>
+      <td><a id="lane-Lane_birth-clinic-system"></a>Birth clinic issuing system</td>
       <td><code class="language-plaintext highlighter-rouge">birth-clinic-system</code></td>
       <td>—</td>
     </tr>
     <tr>
-      <td>Issuer signing key</td>
+      <td><a id="lane-Lane_issuer-key"></a>Issuer signing key</td>
       <td><code class="language-plaintext highlighter-rouge">issuer-key</code></td>
       <td>—</td>
     </tr>
@@ -1199,39 +1205,39 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Give Hep B and BCG birth doses and record them</strong><br /><code class="language-plaintext highlighter-rouge">Task_Vaccinate</code></td>
+      <td><a id="step-Task_Vaccinate"></a><strong>Give Hep B and BCG birth doses and record them</strong><br /><code class="language-plaintext highlighter-rouge">Task_Vaccinate</code></td>
       <td>Birth clinic vaccinator</td>
       <td>calls <a href="questionnaire-data-capture.html">Capture data with an SDC questionnaire</a></td>
       <td>The vaccinator records each dose (vaccine product, date, batch) in the hospital system, on its dose form, through smart-base’s reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response, which writes the Immunization each DVC is built from.</td>
     </tr>
     <tr>
-      <td><strong>Build one DVCMinPreQual payload per dose</strong><br /><code class="language-plaintext highlighter-rouge">Task_Payload</code></td>
+      <td><a id="step-Task_Payload"></a><strong>Build one DVCMinPreQual payload per dose</strong><br /><code class="language-plaintext highlighter-rouge">Task_Payload</code></td>
       <td>Birth clinic issuing system</td>
-      <td><code class="language-plaintext highlighter-rouge">hcert-select-payload</code></td>
-      <td>One immunization event per DVC (STT-PAY-003), typed DVCMin models (STT-PAY-001, STT-PAY-002), nationality alpha-3 LAO (STT-PAY-007), subject with no identity document (STT-PAY-005); subclaim -6 in the development range, opted into explicitly (STT-SEL-003).</td>
+      <td><a href="../../../en/cat-harness/processes/skills/hcert-select-payload.html"><code class="language-plaintext highlighter-rouge">hcert-select-payload</code></a></td>
+      <td>One immunization event per DVC (STT-PAY-003), typed DVCMin models (STT-PAY-001, STT-PAY-002), nationality alpha-3 XXK (STT-PAY-007), subject with no identity document (STT-PAY-005); subclaim -6 in the development range, opted into explicitly (STT-SEL-003).</td>
     </tr>
     <tr>
-      <td><strong>Prepare: CWT claims and the COSE Sig_structure</strong><br /><code class="language-plaintext highlighter-rouge">Task_Prepare</code></td>
+      <td><a id="step-Task_Prepare"></a><strong>Prepare: CWT claims and the COSE Sig_structure</strong><br /><code class="language-plaintext highlighter-rouge">Task_Prepare</code></td>
       <td>Birth clinic issuing system</td>
-      <td><code class="language-plaintext highlighter-rouge">hcert-build-cwt</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/hcert-build-cwt.html"><code class="language-plaintext highlighter-rouge">hcert-build-cwt</code></a></td>
       <td>iss XR, iat, exp inside the DSC validity (STT-CWT-001 to 005); kid from the DSC (STT-KID-001); the library returns the bytes to sign (STT-ISS-004).</td>
     </tr>
     <tr>
-      <td><strong>Sign the bytes with XXR’s DSC key</strong><br /><code class="language-plaintext highlighter-rouge">Task_Sign</code></td>
+      <td><a id="step-Task_Sign"></a><strong>Sign the bytes with XXR’s DSC key</strong><br /><code class="language-plaintext highlighter-rouge">Task_Sign</code></td>
       <td>Issuer signing key</td>
-      <td><code class="language-plaintext highlighter-rouge">hcert-sign-cose</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/hcert-sign-cose.html"><code class="language-plaintext highlighter-rouge">hcert-sign-cose</code></a></td>
       <td>ES256 or PS256 (STT-COS-002) in the HSM, KMS or Keystore; the library never holds the private key (STT-COS-006).</td>
     </tr>
     <tr>
-      <td><strong>Finish: COSE_Sign1, deflate, Base45, HC1:</strong><br /><code class="language-plaintext highlighter-rouge">Task_Finish</code></td>
+      <td><a id="step-Task_Finish"></a><strong>Finish: COSE_Sign1, deflate, Base45, HC1:</strong><br /><code class="language-plaintext highlighter-rouge">Task_Finish</code></td>
       <td>Birth clinic issuing system</td>
-      <td><code class="language-plaintext highlighter-rouge">hcert-prefix-context</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/hcert-prefix-context.html"><code class="language-plaintext highlighter-rouge">hcert-prefix-context</code></a></td>
       <td>STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001; QR-ready text, no QR encoding in the library (STT-QR-001).</td>
     </tr>
     <tr>
-      <td><strong>Print the paper DVC, one QR per dose</strong><br /><code class="language-plaintext highlighter-rouge">Task_Print</code></td>
+      <td><a id="step-Task_Print"></a><strong>Print the paper DVC, one QR per dose</strong><br /><code class="language-plaintext highlighter-rouge">Task_Print</code></td>
       <td>Birth clinic vaccinator</td>
-      <td><code class="language-plaintext highlighter-rouge">hand-over-credential</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/hand-over-credential.html"><code class="language-plaintext highlighter-rouge">hand-over-credential</code></a></td>
       <td>—</td>
     </tr>
   </tbody>

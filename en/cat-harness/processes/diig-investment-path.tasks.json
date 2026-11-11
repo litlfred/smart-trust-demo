@@ -136,12 +136,15 @@
    }
   }
  ],
+ "processHref": "diig-investment-path.html",
  "tasks": {
   "A_FormTeam": {
    "id": "A_FormTeam",
    "name": "Form the team and establish goals",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_FormTeam",
    "lane": "Programme manager",
+   "laneHref": "diig-investment-path.html#lane-Lane_ProgrammeManager",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -154,7 +157,9 @@
    "id": "A_MapCurrentState",
    "name": "Map the current state and confirm bottlenecks",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_MapCurrentState",
    "lane": "Business analyst",
+   "laneHref": "diig-investment-path.html#lane-Lane_BusinessAnalyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -167,7 +172,9 @@
    "id": "A_PrioritizeBottlenecks",
    "name": "Prioritize, and map to health system challenges",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_PrioritizeBottlenecks",
    "lane": "Business analyst",
+   "laneHref": "diig-investment-path.html#lane-Lane_BusinessAnalyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -180,7 +187,9 @@
    "id": "A_DetermineInterventions",
    "name": "Determine appropriate digital health interventions",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_DetermineInterventions",
    "lane": "Business analyst",
+   "laneHref": "diig-investment-path.html#lane-Lane_BusinessAnalyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -193,7 +202,9 @@
    "id": "A_PlanImplementation",
    "name": "Plan the implementation",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_PlanImplementation",
    "lane": "Programme manager",
+   "laneHref": "diig-investment-path.html#lane-Lane_ProgrammeManager",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -206,7 +217,9 @@
    "id": "A_LinkEnterpriseArchitecture",
    "name": "Link to the enterprise architecture",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_LinkEnterpriseArchitecture",
    "lane": "Business analyst",
+   "laneHref": "diig-investment-path.html#lane-Lane_BusinessAnalyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -219,7 +232,9 @@
    "id": "A_DevelopBudget",
    "name": "Develop a budget",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_DevelopBudget",
    "lane": "Programme manager",
+   "laneHref": "diig-investment-path.html#lane-Lane_ProgrammeManager",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -232,7 +247,9 @@
    "id": "A_MonitorAndUseData",
    "name": "Monitor, and use data effectively",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_MonitorAndUseData",
    "lane": "Programme manager",
+   "laneHref": "diig-investment-path.html#lane-Lane_ProgrammeManager",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -245,7 +262,9 @@
    "id": "A_ValueProposition",
    "name": "Make the value proposition and set next steps",
    "type": "bpmn:Task",
+   "stepHref": "diig-investment-path.html#step-A_ValueProposition",
    "lane": "Programme manager",
+   "laneHref": "diig-investment-path.html#lane-Lane_ProgrammeManager",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -258,12 +277,12 @@
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "diig-investment-path.html#step-Call_BeanOpen",
    "lane": "Programme manager",
+   "laneHref": "diig-investment-path.html#lane-Lane_ProgrammeManager",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "programme-manager",
@@ -276,12 +295,12 @@
    "id": "Call_BeanClose",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "diig-investment-path.html#step-Call_BeanClose",
    "lane": "Programme manager",
+   "laneHref": "diig-investment-path.html#lane-Lane_ProgrammeManager",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "programme-manager",

@@ -28,12 +28,15 @@
    }
   }
  ],
+ "processHref": "questionnaire-data-capture.html",
  "tasks": {
   "Task_Complete": {
    "id": "Task_Complete",
    "name": "Complete the form",
    "type": "bpmn:UserTask",
+   "stepHref": "questionnaire-data-capture.html#step-Task_Complete",
    "lane": "Health worker",
+   "laneHref": "questionnaire-data-capture.html#lane-Lane_HealthWorker",
    "skills": [],
    "role": {
     "name": "health-worker",
@@ -46,7 +49,9 @@
    "id": "Task_Extract",
    "name": "Extract and save the resources",
    "type": "bpmn:ServiceTask",
+   "stepHref": "questionnaire-data-capture.html#step-Task_Extract",
    "lane": "Point-of-care system",
+   "laneHref": "questionnaire-data-capture.html#lane-Lane_System",
    "skills": [],
    "role": {
     "name": "point-of-care-system",

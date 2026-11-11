@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Remote-mount a dependency" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/mount-dependency.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/mount-dependency.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Remote-mount a dependency" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Remote-mount a dependency","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/mount-dependency.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Remote-mount a dependency","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/mount-dependency.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -911,7 +911,7 @@
 
 <p>You are in this process whenever a folio or harness needs a layer it does not hold: a downstream folio built on a content layer above this harness, a separated instance whose foundation lives elsewhere. The downstream names the harness, its repository and a 40-character pin as a <code class="language-plaintext highlighter-rouge">source.remote</code> instance in its root <code class="language-plaintext highlighter-rouge">index.config.json</code> (legacy: <code class="language-plaintext highlighter-rouge">remoteMounts</code> on its declaration, never both); everything else is read from the harness’s own declaration at that pin.</p>
 
-<p>Every instance reached ends in one of three states — mounted, missing, could-not-determine — and the third is never reported as the first. The skill is <code class="language-plaintext highlighter-rouge">remote-mount</code>.</p>
+<p>Every instance reached ends in one of three states — mounted, missing, could-not-determine — and the third is never reported as the first. The skill is <a href="../../../en/cat-harness/processes/skills/remote-mount.html"><code class="language-plaintext highlighter-rouge">remote-mount</code></a>.</p>
 <style>.pt-diagram{position:relative;width:100%}.pt-diagram>img{display:block;width:100%;height:auto}.pt-mark{position:absolute;transform:translate(-50%,-50%);width:1.35em;height:1.35em;padding:0;border-radius:50%;border:1px solid #1f6feb;background:#fff;color:#1f6feb;font:bold 0.8em/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.25)}.pt-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2}.pt-layer>*{pointer-events:auto}.pt-go{position:absolute;display:block;border-radius:3px;cursor:pointer}.pt-go:hover,.pt-go:focus-visible{outline:2px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.07)}.pt-mark{z-index:1}.pt-mark:hover,.pt-mark[aria-expanded=true]{background:#1f6feb;color:#fff}.pt-mark:focus-visible{outline:2px solid #1f6feb;outline-offset:2px}.pt-panel{position:absolute;z-index:5;text-align:left;margin:0.9em 0 0 -0.6em;max-width:min(26em,90vw);min-width:14em;padding:0.6em 0.7em;background:#fff;color:#1b1f24;border:1px solid #8c959f;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:0.85em;line-height:1.35}.pt-close{position:absolute;top:0.2em;right:0.35em;border:0;background:none;font-size:1.2em;cursor:pointer;color:inherit}.pt-obj{border:1px solid #57606a;border-radius:3px;margin:0.15em 0}.pt-head{border-bottom:1px solid #57606a;padding:0.15em 0.45em;background:#f6f8fa;text-decoration:underline}.pt-head .pt-st{text-decoration:none;display:inline-block;margin-right:0.35em}.pt-attr{padding:0.1em 0.45em}.pt-st,.pt-via{color:#57606a;font-size:0.9em}.pt-edge{color:#57606a;font-size:0.85em;padding-left:1em}.pt-role .pt-head{background:#fff8c5}.pt-skill .pt-head{background:#ddf4ff}.pt-task .pt-head{background:#f6f8fa}.pt-none{color:#57606a;font-style:italic;margin-top:0.3em}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>:first-child{stroke:#d97706!important;stroke-width:4px!important;fill:#fff3d6!important}.pt-diagram [data-pt-hl]>[class$="djs-visual"]>path:first-child{fill:none!important}.pt-has-hl [class*="djs-shape"]:not([data-pt-hl])>[class$="djs-visual"]>:first-child{opacity:.75}</style>
 
 <div class="pt-diagram" data-panel="mount-dependency.tasks.json">
@@ -972,8 +972,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1159,12 +1165,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>Downstream author</td>
+      <td><a id="lane-Lane_Author"></a>Downstream author</td>
       <td><code class="language-plaintext highlighter-rouge">author</code></td>
       <td>A person decides WHICH harness and WHICH pin, and whether to override a default. Nothing below chooses a pin: a branch name is refused, and so is an abbreviated SHA.</td>
     </tr>
     <tr>
-      <td>Build pipeline</td>
+      <td><a id="lane-Lane_Pipeline"></a>Build pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>Mechanical from the declaration on: the same declaration mounts the same bytes in every container, and only an override by id changes where or what.</td>
     </tr>
@@ -1192,39 +1198,39 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Declare the mount: harness, repository, pin</strong><br /><code class="language-plaintext highlighter-rouge">Task_DeclareMount</code></td>
+      <td><a id="step-Task_DeclareMount"></a><strong>Declare the mount: harness, repository, pin</strong><br /><code class="language-plaintext highlighter-rouge">Task_DeclareMount</code></td>
       <td>Downstream author</td>
-      <td><code class="language-plaintext highlighter-rouge">remote-mount</code><br /><code class="language-plaintext highlighter-rouge">index-config</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/remote-mount.html"><code class="language-plaintext highlighter-rouge">remote-mount</code></a><br /><a href="../../../en/cat-harness/processes/skills/index-config.html"><code class="language-plaintext highlighter-rouge">index-config</code></a></td>
       <td>An instance <code class="language-plaintext highlighter-rouge">{ name, source: { remote: { repository, ref } } }</code> in the<br />downstream’s root <code class="language-plaintext highlighter-rouge">index.config.json</code>, written through<br /><code class="language-plaintext highlighter-rouge">writeDeclaredMounts</code>. A folio with no index still reads <code class="language-plaintext highlighter-rouge">remoteMounts</code><br />on its declaration; both at once is refused. <code class="language-plaintext highlighter-rouge">ref</code> is a full<br />40-character commit. Overrides, if any, are keyed by instance name and<br />then by directory id — never by path. The index itself is the<br />index-config skill’s.<br />Decide first whether you want a remote mount at all: reading another<br />graph without holding its code is a SUBSCRIPTION, not a mount.</td>
     </tr>
     <tr>
-      <td><strong>Resolve the closure at the pin</strong><br /><code class="language-plaintext highlighter-rouge">Task_ResolveClosure</code></td>
+      <td><a id="step-Task_ResolveClosure"></a><strong>Resolve the closure at the pin</strong><br /><code class="language-plaintext highlighter-rouge">Task_ResolveClosure</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">remote-mount</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/remote-mount.html"><code class="language-plaintext highlighter-rouge">remote-mount</code></a></td>
       <td>Fetch the pinned tree (shallow, blobless). Read the harness’s declaration<br />from it; for each <code class="language-plaintext highlighter-rouge">needs</code> name, find that instance in the same tree, else<br />follow a GITLINK at that tree as a pin into its own repository. A need<br />found in neither is missing; one the downstream already holds is local.<br />Paths and directories come from <code class="language-plaintext highlighter-rouge">mountDefaults</code> unless overridden.</td>
     </tr>
     <tr>
-      <td><strong>Mount each instance at its declared path</strong><br /><code class="language-plaintext highlighter-rouge">Task_MountInstances</code></td>
+      <td><a id="step-Task_MountInstances"></a><strong>Mount each instance at its declared path</strong><br /><code class="language-plaintext highlighter-rouge">Task_MountInstances</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">remote-mount</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/remote-mount.html"><code class="language-plaintext highlighter-rouge">remote-mount</code></a></td>
       <td>Sparse checkout of the declaration and the chosen directories, copied to<br />the mount path (by default the instance’s home path, so relative imports<br />and sibling discovery hold). Never onto tracked bytes; never onto a<br />directory no lock says this mount made; never over edits to a previous<br />mount — those are left untouched and reported. A replay of the lock<br />tries the index’s layers cache ref first (<code class="language-plaintext highlighter-rouge">refs/cat/layers/&lt;key&gt;</code>,<br />then <code class="language-plaintext highlighter-rouge">refs/cat/layers/main</code>): one shallow fetch, every byte verified<br />against the lock, and any layer that does not verify is fetched from its<br />own repository.</td>
     </tr>
     <tr>
-      <td><strong>Write the lock</strong><br /><code class="language-plaintext highlighter-rouge">Task_WriteLock</code></td>
+      <td><a id="step-Task_WriteLock"></a><strong>Write the lock</strong><br /><code class="language-plaintext highlighter-rouge">Task_WriteLock</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">remote-mount</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/remote-mount.html"><code class="language-plaintext highlighter-rouge">remote-mount</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">index.lock.json</code> beside the downstream’s <code class="language-plaintext highlighter-rouge">index.config.json</code> (the<br />legacy <code class="language-plaintext highlighter-rouge">&lt;instance&gt;.mount-lock.json</code> is still read, and is renamed<br />onto the new name when rewritten; both present is an error): the<br />pins it was written for, each instance’s repository, SHA and how the pin<br />was found, each directory’s tree digest — and what was NOT mounted, with<br />why, so an offline check cannot read a gap as clean. Whoever writes the<br />lock writes its layers cache ref (<code class="language-plaintext highlighter-rouge">layers:publish</code>, which refuses unless<br />every mount hashes to the lock); on main, the index’s workflow does it.</td>
     </tr>
     <tr>
-      <td><strong>Re-render the agent surface</strong><br /><code class="language-plaintext highlighter-rouge">Task_RenderAgentSurface</code></td>
+      <td><a id="step-Task_RenderAgentSurface"></a><strong>Re-render the agent surface</strong><br /><code class="language-plaintext highlighter-rouge">Task_RenderAgentSurface</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">remote-mount</code><br /><code class="language-plaintext highlighter-rouge">agent-memory</code></td>
-      <td>When the lock changed, the layers an agent’s skills and memory are<br />generated from changed with it. <code class="language-plaintext highlighter-rouge">mount:remote</code> re-runs the generators<br />of what an agent actually reads — <code class="language-plaintext highlighter-rouge">skill:commands</code> (<code class="language-plaintext highlighter-rouge">.claude/commands/</code>)<br />and <code class="language-plaintext highlighter-rouge">agent-memory</code> (<code class="language-plaintext highlighter-rouge">.claude/agent-memory/</code> and the <code class="language-plaintext highlighter-rouge">.agents/</code> copies)<br />— from the checkout root, and a generator that fails fails the run.<br />A re-pin commit therefore carries the new layers AND the surface<br />rendered from them, because new layers shipped without their<br />rendered surface fail the agent-memory tests.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/remote-mount.html"><code class="language-plaintext highlighter-rouge">remote-mount</code></a><br /><a href="../../../en/cat-harness/processes/skills/agent-memory.html"><code class="language-plaintext highlighter-rouge">agent-memory</code></a></td>
+      <td>When the lock changed, the layers an agent’s skills and memory are<br />generated from changed with it. <code class="language-plaintext highlighter-rouge">mount:remote</code> re-runs the generators<br />of what an agent actually reads — <code class="language-plaintext highlighter-rouge">skill:commands</code> (<code class="language-plaintext highlighter-rouge">.claude/commands/</code>)<br />and <a href="../../../en/cat-harness/processes/skills/agent-memory.html"><code class="language-plaintext highlighter-rouge">agent-memory</code></a> (<code class="language-plaintext highlighter-rouge">.claude/agent-memory/</code> and the <code class="language-plaintext highlighter-rouge">.agents/</code> copies)<br />— from the checkout root, and a generator that fails fails the run.<br />A re-pin commit therefore carries the new layers AND the surface<br />rendered from them, because new layers shipped without their<br />rendered surface fail the agent-memory tests.</td>
     </tr>
     <tr>
-      <td><strong>Check disk against lock against declaration</strong><br /><code class="language-plaintext highlighter-rouge">Task_CheckAgainstLock</code></td>
+      <td><a id="step-Task_CheckAgainstLock"></a><strong>Check disk against lock against declaration</strong><br /><code class="language-plaintext highlighter-rouge">Task_CheckAgainstLock</code></td>
       <td>Build pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">remote-mount</code><br /><code class="language-plaintext highlighter-rouge">ci-health</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/remote-mount.html"><code class="language-plaintext highlighter-rouge">remote-mount</code></a><br /><code class="language-plaintext highlighter-rouge">ci-health</code></td>
       <td><code class="language-plaintext highlighter-rouge">mount:remote:check</code>, with no network: the lock’s pins are the<br />declaration’s, and every locked directory is on disk and hashes to its<br />digest. Could-not-determine outranks missing, which outranks mounted.</td>
     </tr>
   </tbody>

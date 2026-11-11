@@ -64,12 +64,15 @@
    }
   }
  ],
+ "processHref": "board-relocate.html",
  "tasks": {
   "A_AskConfirm": {
    "id": "A_AskConfirm",
    "name": "Name what will move, and where it lands",
    "type": "bpmn:Task",
+   "stepHref": "board-relocate.html#step-A_AskConfirm",
    "lane": "Board renderer",
+   "laneHref": "board-relocate.html#lane-Lane_Renderer",
    "skills": [],
    "role": {
     "name": "board-renderer",
@@ -82,7 +85,9 @@
    "id": "A_Cancel",
    "name": "Leave the content exactly where it is",
    "type": "bpmn:Task",
+   "stepHref": "board-relocate.html#step-A_Cancel",
    "lane": "Board renderer",
+   "laneHref": "board-relocate.html#lane-Lane_Renderer",
    "skills": [],
    "role": {
     "name": "board-renderer",
@@ -95,7 +100,9 @@
    "id": "A_MoveContent",
    "name": "Relocate the content to the trashcan",
    "type": "bpmn:Task",
+   "stepHref": "board-relocate.html#step-A_MoveContent",
    "lane": "Board renderer",
+   "laneHref": "board-relocate.html#lane-Lane_Renderer",
    "skills": [],
    "role": {
     "name": "board-renderer",
@@ -108,7 +115,9 @@
    "id": "A_UpdateLayer",
    "name": "Drop its positions and sweep orphans",
    "type": "bpmn:Task",
+   "stepHref": "board-relocate.html#step-A_UpdateLayer",
    "lane": "Board renderer",
+   "laneHref": "board-relocate.html#lane-Lane_Renderer",
    "skills": [],
    "role": {
     "name": "board-renderer",
@@ -121,7 +130,9 @@
    "id": "A_ReportMove",
    "name": "Say what moved and where it went",
    "type": "bpmn:Task",
+   "stepHref": "board-relocate.html#step-A_ReportMove",
    "lane": "Board renderer",
+   "laneHref": "board-relocate.html#lane-Lane_Renderer",
    "skills": [],
    "role": {
     "name": "board-renderer",

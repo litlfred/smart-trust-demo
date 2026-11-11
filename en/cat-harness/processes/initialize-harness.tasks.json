@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "initialize-harness.html",
  "tasks": {
   "A_DetermineHarness": {
    "id": "A_DetermineHarness",
    "name": "Determine which harness, and where",
    "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_DetermineHarness",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "calls": {
     "name": "Determine the harness and repositories",
@@ -123,7 +126,9 @@
    "id": "A_ReadLocation",
    "name": "Read what each location already is",
    "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_ReadLocation",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "role": {
     "name": "bootstrapping-agent",
@@ -136,7 +141,9 @@
    "id": "A_ReadDeclaration",
    "name": "Read the harness's declaration and instructions",
    "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_ReadDeclaration",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "role": {
     "name": "bootstrapping-agent",
@@ -149,7 +156,9 @@
    "id": "A_LogInstallStart",
    "name": "Log the start of the install",
    "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_LogInstallStart",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "calls": {
     "name": "Log a message",
@@ -167,7 +176,9 @@
    "id": "A_Install",
    "name": "Follow them, at each location",
    "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_Install",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "role": {
     "name": "bootstrapping-agent",
@@ -180,7 +191,9 @@
    "id": "A_WriteRootReadme",
    "name": "Write the root README, if it is not there",
    "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_WriteRootReadme",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "role": {
     "name": "bootstrapping-agent",
@@ -193,7 +206,9 @@
    "id": "A_CompleteInitialization",
    "name": "Make sure every step is done",
    "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_CompleteInitialization",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "calls": {
     "name": "Complete initialization",
@@ -211,7 +226,9 @@
    "id": "A_LogFailure",
    "name": "Log the failure",
    "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_LogFailure",
    "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
    "skills": [],
    "calls": {
     "name": "Log a message",

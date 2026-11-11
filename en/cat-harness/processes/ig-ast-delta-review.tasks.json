@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "ig-ast-delta-review.html",
  "tasks": {
   "Task_Validity": {
    "id": "Task_Validity",
    "name": "Check the base AST against the inputs",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-ast-delta-review.html#step-Task_Validity",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-ast-delta-review.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -70,7 +73,9 @@
    "id": "Task_Diff",
    "name": "Diff the two ASTs",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-ast-delta-review.html#step-Task_Diff",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-ast-delta-review.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -83,7 +88,9 @@
    "id": "Task_Review",
    "name": "Read the delta",
    "type": "bpmn:UserTask",
+   "stepHref": "ig-ast-delta-review.html#step-Task_Review",
    "lane": "QC reviewer",
+   "laneHref": "ig-ast-delta-review.html#lane-Lane_Review",
    "skills": [],
    "role": {
     "name": "qc-reviewer",
@@ -96,7 +103,9 @@
    "id": "Task_FileCoupling",
    "name": "Note the missed coupling on the work plan",
    "type": "bpmn:Task",
+   "stepHref": "ig-ast-delta-review.html#step-Task_FileCoupling",
    "lane": "QC reviewer",
+   "laneHref": "ig-ast-delta-review.html#lane-Lane_Review",
    "skills": [],
    "role": {
     "name": "qc-reviewer",

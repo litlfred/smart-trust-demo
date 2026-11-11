@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "translation-round-trip.html",
  "tasks": {
   "Task_RT_Sample": {
    "id": "Task_RT_Sample",
    "name": "Draw the sample",
    "type": "bpmn:ServiceTask",
+   "stepHref": "translation-round-trip.html#step-Task_RT_Sample",
    "lane": "Locale translator",
+   "laneHref": "translation-round-trip.html#lane-Lane_RT_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -94,7 +97,9 @@
    "id": "Task_RT_RecordNA",
    "name": "Record could not dispatch",
    "type": "bpmn:ServiceTask",
+   "stepHref": "translation-round-trip.html#step-Task_RT_RecordNA",
    "lane": "Locale translator",
+   "laneHref": "translation-round-trip.html#lane-Lane_RT_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -107,7 +112,9 @@
    "id": "Task_RT_BackTranslate",
    "name": "Back-translate the target text",
    "type": "bpmn:Task",
+   "stepHref": "translation-round-trip.html#step-Task_RT_BackTranslate",
    "lane": "Back-translator",
+   "laneHref": "translation-round-trip.html#lane-Lane_RT_Back",
    "skills": [],
    "role": {
     "name": "back-translator",
@@ -120,7 +127,9 @@
    "id": "Task_RT_PreScreen",
    "name": "Pre-screen every pair",
    "type": "bpmn:ServiceTask",
+   "stepHref": "translation-round-trip.html#step-Task_RT_PreScreen",
    "lane": "Round-trip adjudicator",
+   "laneHref": "translation-round-trip.html#lane-Lane_RT_Adjudicator",
    "skills": [],
    "role": {
     "name": "round-trip-adjudicator",
@@ -133,7 +142,9 @@
    "id": "Task_RT_Rule",
    "name": "Read and rule each flagged pair",
    "type": "bpmn:Task",
+   "stepHref": "translation-round-trip.html#step-Task_RT_Rule",
    "lane": "Round-trip adjudicator",
+   "laneHref": "translation-round-trip.html#lane-Lane_RT_Adjudicator",
    "skills": [],
    "role": {
     "name": "round-trip-adjudicator",
@@ -146,7 +157,9 @@
    "id": "Task_RT_Record",
    "name": "Record both witnesses",
    "type": "bpmn:ServiceTask",
+   "stepHref": "translation-round-trip.html#step-Task_RT_Record",
    "lane": "Round-trip adjudicator",
+   "laneHref": "translation-round-trip.html#lane-Lane_RT_Adjudicator",
    "skills": [],
    "role": {
     "name": "round-trip-adjudicator",

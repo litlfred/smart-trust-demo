@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Build and publish a per-slice SQLite file" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/slice-sqlite-publish.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/slice-sqlite-publish.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Build and publish a per-slice SQLite file" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Build and publish a per-slice SQLite file","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/slice-sqlite-publish.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Build and publish a per-slice SQLite file","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/slice-sqlite-publish.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -907,7 +907,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_SliceSqlitePublish</code> · strict · 7 step(s)</p>
 
-<p>Build one named slice of a knowledge graph as a SQLite file a browser mounts without parsing, and publish it beside its manifest and its payloads. The contract is <code class="language-plaintext highlighter-rouge">kg-export</code> §”Per-slice SQLite”; the builder is the <code class="language-plaintext highlighter-rouge">slice-sqlite</code> Tool (<code class="language-plaintext highlighter-rouge">cat-harness-tools/scripts/gen-slice-sqlite.ts</code>), one table-driven builder with one definition per slice; the search is one page, <code class="language-plaintext highlighter-rouge">slices/search.html?slice=&lt;name&gt;</code>.</p>
+<p>Build one named slice of a knowledge graph as a SQLite file a browser mounts without parsing, and publish it beside its manifest and its payloads. The contract is <a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a> §”Per-slice SQLite”; the builder is the <code class="language-plaintext highlighter-rouge">slice-sqlite</code> Tool (<code class="language-plaintext highlighter-rouge">cat-harness-tools/scripts/gen-slice-sqlite.ts</code>), one table-driven builder with one definition per slice; the search is one page, <code class="language-plaintext highlighter-rouge">slices/search.html?slice=&lt;name&gt;</code>.</p>
 
 <p>THE SIZE IS MEASURED BEFORE THE SLICE IS WIRED. A slice that is wired first and measured afterwards ships whatever it weighs, because by then a manifest, a gate, two deploy steps and a page depend on it. The budget gateway sits between measuring and wiring so that an oversized slice stops with its measurement reported, rather than arriving on a reader’s connection.</p>
 
@@ -973,8 +973,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1160,12 +1166,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>Platform authoring agent</td>
+      <td><a id="lane-Lane_Author"></a>Platform authoring agent</td>
       <td><code class="language-plaintext highlighter-rouge">platform-authoring-agent</code></td>
       <td>Whoever adds or changes a slice: writes its definition in the builder’s slice table, measures the built file against the budget, wires it when it fits, and looks at the published search once it has deployed. The judgement in this process is theirs, at the budget gateway.</td>
     </tr>
     <tr>
-      <td>CI/CD Pipeline</td>
+      <td><a id="lane-Lane_Ci"></a>CI/CD Pipeline</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>The gate and the deploy. <code class="language-plaintext highlighter-rouge">code-quality-gates.yml</code> runs <code class="language-plaintext highlighter-rouge">slice:sqlite:check</code> on every pull request; <code class="language-plaintext highlighter-rouge">docs-site.yml</code> and <code class="language-plaintext highlighter-rouge">feature-staging.yml</code> build each slice into <code class="language-plaintext highlighter-rouge">_site/</code> from the tree they publish, one line per slice.</td>
     </tr>
@@ -1193,43 +1199,43 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Write the slice definition</strong><br /><code class="language-plaintext highlighter-rouge">A_Define</code></td>
+      <td><a id="step-A_Define"></a><strong>Write the slice definition</strong><br /><code class="language-plaintext highlighter-rouge">A_Define</code></td>
       <td>Platform authoring agent</td>
-      <td><code class="language-plaintext highlighter-rouge">kg-export</code></td>
-      <td>Add one <code class="language-plaintext highlighter-rouge">SliceDef</code> to the builder’s slice table: the DDL (one table per node type, edge tables, one CONTENTLESS full-detail FTS5), the order each table’s rows go in, the <code class="language-plaintext highlighter-rouge">load</code> that turns the source into rows, where the payloads live (written at deploy, or already published), and the <code class="language-plaintext highlighter-rouge">search</code> block the generic page reads. Choose the heavy fields by <code class="language-plaintext highlighter-rouge">kg-export</code> §”What is heavy”: a heavy field is a <code class="language-plaintext highlighter-rouge">payload_sha256</code> pointer, never a stored column. Never copy the builder.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a></td>
+      <td>Add one <code class="language-plaintext highlighter-rouge">SliceDef</code> to the builder’s slice table: the DDL (one table per node type, edge tables, one CONTENTLESS full-detail FTS5), the order each table’s rows go in, the <code class="language-plaintext highlighter-rouge">load</code> that turns the source into rows, where the payloads live (written at deploy, or already published), and the <code class="language-plaintext highlighter-rouge">search</code> block the generic page reads. Choose the heavy fields by <a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a> §”What is heavy”: a heavy field is a <code class="language-plaintext highlighter-rouge">payload_sha256</code> pointer, never a stored column. Never copy the builder.</td>
     </tr>
     <tr>
-      <td><strong>Build it locally and measure the file</strong><br /><code class="language-plaintext highlighter-rouge">A_Measure</code></td>
+      <td><a id="step-A_Measure"></a><strong>Build it locally and measure the file</strong><br /><code class="language-plaintext highlighter-rouge">A_Measure</code></td>
       <td>Platform authoring agent</td>
-      <td><code class="language-plaintext highlighter-rouge">kg-export</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a></td>
       <td>Run <code class="language-plaintext highlighter-rouge">bun run cat slice:sqlite -- --slice &lt;name&gt; --out &lt;scratch&gt;</code> and read the manifest: <code class="language-plaintext highlighter-rouge">bytes</code>, the row counts, the payload count and bytes, <code class="language-plaintext highlighter-rouge">overBudget</code>, <code class="language-plaintext highlighter-rouge">duplicateIds</code> and <code class="language-plaintext highlighter-rouge">findings</code>. Record the measurement in the work context with its provenance (the command and the date), beside the size of the source it replaces.</td>
     </tr>
     <tr>
-      <td><strong>Report the measurement; ship nothing</strong><br /><code class="language-plaintext highlighter-rouge">A_Report</code></td>
+      <td><a id="step-A_Report"></a><strong>Report the measurement; ship nothing</strong><br /><code class="language-plaintext highlighter-rouge">A_Report</code></td>
       <td>Platform authoring agent</td>
-      <td><code class="language-plaintext highlighter-rouge">kg-export</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a></td>
       <td>Write the measurement and what was tried into the work context, and ask the owner whether the slice should ship at that size, be cut further, or not exist. Nothing is wired: no manifest is published, no gate added, no deploy line written.</td>
     </tr>
     <tr>
-      <td><strong>Wire it: gate, deploy line, search, tests</strong><br /><code class="language-plaintext highlighter-rouge">A_Wire</code></td>
+      <td><a id="step-A_Wire"></a><strong>Wire it: gate, deploy line, search, tests</strong><br /><code class="language-plaintext highlighter-rouge">A_Wire</code></td>
       <td>Platform authoring agent</td>
-      <td><code class="language-plaintext highlighter-rouge">kg-export</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a></td>
       <td>Give the slice everything a slice owes: its manifest (written by the builder from the definition), its <code class="language-plaintext highlighter-rouge">--check</code> (covered by <code class="language-plaintext highlighter-rouge">slice:sqlite:check</code>), one deploy line in <code class="language-plaintext highlighter-rouge">docs-site.yml</code> and in <code class="language-plaintext highlighter-rouge">feature-staging.yml</code>, its search (the generic page needs no code, only the definition’s <code class="language-plaintext highlighter-rouge">search</code> block), a unit test over a fixture and over the real source, and a search in <code class="language-plaintext highlighter-rouge">slice-sqlite.e2e.ts</code>.</td>
     </tr>
     <tr>
-      <td><strong>Gate every slice: slice:sqlite:check</strong><br /><code class="language-plaintext highlighter-rouge">A_Check</code></td>
+      <td><a id="step-A_Check"></a><strong>Gate every slice: slice:sqlite:check</strong><br /><code class="language-plaintext highlighter-rouge">A_Check</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">kg-export</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a></td>
       <td>For every slice: build twice and require one sha256; read the row digest back from the file and require it to equal the digest computed from the source without SQLite; run an FTS5 phrase query for a known row; and audit the payloads with <code class="language-plaintext highlighter-rouge">auditPayloadTree</code> (deploy payloads as written, the kg slice’s pointers against the committed payload tree). A slice whose rows do not match its source fails; it never passes as whole.</td>
     </tr>
     <tr>
-      <td><strong>Build each slice into _site at deploy</strong><br /><code class="language-plaintext highlighter-rouge">A_Deploy</code></td>
+      <td><a id="step-A_Deploy"></a><strong>Build each slice into _site at deploy</strong><br /><code class="language-plaintext highlighter-rouge">A_Deploy</code></td>
       <td>CI/CD Pipeline</td>
-      <td><code class="language-plaintext highlighter-rouge">kg-export</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/kg-export.html"><code class="language-plaintext highlighter-rouge">kg-export</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">gen-slice-sqlite.ts --out ./_site/assets/slices --payload-out ./_site/payload/sha256 --slice &lt;name&gt;</code>, once per slice, from the tree being published: the file, its manifest, the slice index, and the deploy payloads beside the committed KG payloads. Never into the committed <code class="language-plaintext highlighter-rouge">docs/payload/</code>, whose orphan audit admits KG nodes only.</td>
     </tr>
     <tr>
-      <td><strong>Search the published slice in a browser</strong><br /><code class="language-plaintext highlighter-rouge">A_Verify</code></td>
+      <td><a id="step-A_Verify"></a><strong>Search the published slice in a browser</strong><br /><code class="language-plaintext highlighter-rouge">A_Verify</code></td>
       <td>Platform authoring agent</td>
       <td><code class="language-plaintext highlighter-rouge">rendered-verification</code></td>
       <td>Open <code class="language-plaintext highlighter-rouge">slices/search.html?slice=&lt;name&gt;</code> on the deployed site, run a phrase search for a known row, open it so its payload is fetched, and look at the result; send the screenshot rather than a description of it. Report the mode the page says it used (OPFS or in memory), never an assumed one.</td>

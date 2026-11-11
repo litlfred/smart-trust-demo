@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "theme-ui-review.html",
  "tasks": {
   "A_Inventory": {
    "id": "A_Inventory",
    "name": "Inventory the ingested assets",
    "type": "bpmn:Task",
+   "stepHref": "theme-ui-review.html#step-A_Inventory",
    "lane": "Agent",
+   "laneHref": "theme-ui-review.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -94,7 +97,9 @@
    "id": "A_Accessibility",
    "name": "Accessibility: measure, do not assert",
    "type": "bpmn:Task",
+   "stepHref": "theme-ui-review.html#step-A_Accessibility",
    "lane": "Agent",
+   "laneHref": "theme-ui-review.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -107,7 +112,9 @@
    "id": "A_Branding",
    "name": "Branding: does it read as this instance?",
    "type": "bpmn:Task",
+   "stepHref": "theme-ui-review.html#step-A_Branding",
    "lane": "Agent",
+   "laneHref": "theme-ui-review.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -120,7 +127,9 @@
    "id": "A_Locales",
    "name": "Languages: extracted, rendered, and RTL",
    "type": "bpmn:Task",
+   "stepHref": "theme-ui-review.html#step-A_Locales",
    "lane": "Agent",
+   "laneHref": "theme-ui-review.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -133,7 +142,9 @@
    "id": "R_Judge",
    "name": "Judge the assets in their design",
    "type": "bpmn:Task",
+   "stepHref": "theme-ui-review.html#step-R_Judge",
    "lane": "Reviewer",
+   "laneHref": "theme-ui-review.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -146,7 +157,9 @@
    "id": "A_RaiseFindings",
    "name": "Raise findings before the assets land",
    "type": "bpmn:Task",
+   "stepHref": "theme-ui-review.html#step-A_RaiseFindings",
    "lane": "Agent",
+   "laneHref": "theme-ui-review.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "ingestion-agent",

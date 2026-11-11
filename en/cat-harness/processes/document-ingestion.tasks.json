@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "document-ingestion.html",
  "tasks": {
   "Task_Place": {
    "id": "Task_Place",
    "name": "Place it in uploads/ by a declared route",
    "type": "bpmn:Task",
+   "stepHref": "document-ingestion.html#step-Task_Place",
    "lane": "Contributor (human or agent)",
+   "laneHref": "document-ingestion.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "user",
@@ -70,7 +73,9 @@
    "id": "Task_ExtractMetadata",
    "name": "Extract its metadata into the KG",
    "type": "bpmn:ServiceTask",
+   "stepHref": "document-ingestion.html#step-Task_ExtractMetadata",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -83,7 +88,9 @@
    "id": "Task_PlaceInLibrary",
    "name": "Place the asset in library/<slug>/",
    "type": "bpmn:ServiceTask",
+   "stepHref": "document-ingestion.html#step-Task_PlaceInLibrary",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -96,7 +103,9 @@
    "id": "Task_CatalogueReference",
    "name": "Record it in library/ as referenced",
    "type": "bpmn:ServiceTask",
+   "stepHref": "document-ingestion.html#step-Task_CatalogueReference",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "document-ingestion.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",

@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "iris-cdn-sign-publish.html",
  "tasks": {
   "Task_BuildBag": {
    "id": "Task_BuildBag",
    "name": "Write the BagIt tag files (sorted, no dates)",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_BuildBag",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -118,7 +121,9 @@
    "id": "Task_Diff",
    "name": "Diff against the published manifest",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_Diff",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -131,7 +136,9 @@
    "id": "Task_Upload",
    "name": "Store new objects (never overwrite)",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_Upload",
    "lane": "Release signer",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Signer",
    "skills": [],
    "role": {
     "name": "release-signer",
@@ -144,7 +151,9 @@
    "id": "Task_SignItems",
    "name": "Sign each changed item manifest (ES256)",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_SignItems",
    "lane": "Release signer",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Signer",
    "skills": [],
    "role": {
     "name": "release-signer",
@@ -157,7 +166,9 @@
    "id": "Task_Sign",
    "name": "Sign the release tag manifest (ES256)",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_Sign",
    "lane": "Release signer",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Signer",
    "skills": [],
    "role": {
     "name": "release-signer",
@@ -170,7 +181,9 @@
    "id": "Task_PublishTags",
    "name": "Commit tag files and signature, last",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_PublishTags",
    "lane": "Release signer",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Signer",
    "skills": [],
    "role": {
     "name": "release-signer",
@@ -183,7 +196,9 @@
    "id": "Task_Verify",
    "name": "Resolve did:web; verify JWS and digests",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_Verify",
    "lane": "Verifier",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Verifier",
    "skills": [],
    "role": {
     "name": "verifier",
@@ -196,7 +211,9 @@
    "id": "Task_Revert",
    "name": "Revert to the previous release",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-sign-publish.html#step-Task_Revert",
    "lane": "Verifier",
+   "laneHref": "iris-cdn-sign-publish.html#lane-Lane_Verifier",
    "skills": [],
    "role": {
     "name": "verifier",

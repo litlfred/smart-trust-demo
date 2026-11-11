@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "crdm-requirements-definition.html",
  "tasks": {
   "A_MapWorkflow": {
    "id": "A_MapWorkflow",
    "name": "Phase 2: Map current workflow (BPA)",
    "type": "bpmn:Task",
+   "stepHref": "crdm-requirements-definition.html#step-A_MapWorkflow",
    "lane": "Agent",
+   "laneHref": "crdm-requirements-definition.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -94,7 +97,9 @@
    "id": "A_DefineReqs",
    "name": "Phases 3–4: Define requirements + impact",
    "type": "bpmn:Task",
+   "stepHref": "crdm-requirements-definition.html#step-A_DefineReqs",
    "lane": "Agent",
+   "laneHref": "crdm-requirements-definition.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -107,7 +112,9 @@
    "id": "Call_Wireframe",
    "name": "Wireframe candidates (web + mobile)",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements-definition.html#step-Call_Wireframe",
    "lane": "Agent",
+   "laneHref": "crdm-requirements-definition.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "Wireframe design review",
@@ -125,7 +132,9 @@
    "id": "A_CompareOptions",
    "name": "Phase 4a: Compare the viable options",
    "type": "bpmn:Task",
+   "stepHref": "crdm-requirements-definition.html#step-A_CompareOptions",
    "lane": "Agent",
+   "laneHref": "crdm-requirements-definition.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -138,7 +147,9 @@
    "id": "BA_ReviewReqs",
    "name": "Review requirements and impact analysis",
    "type": "bpmn:Task",
+   "stepHref": "crdm-requirements-definition.html#step-BA_ReviewReqs",
    "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-requirements-definition.html#lane-Lane_BA",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -151,7 +162,9 @@
    "id": "S_ApproveReqs",
    "name": "Approve requirements",
    "type": "bpmn:Task",
+   "stepHref": "crdm-requirements-definition.html#step-S_ApproveReqs",
    "lane": "Stakeholders",
+   "laneHref": "crdm-requirements-definition.html#lane-Lane_Stakeholders",
    "skills": [],
    "role": {
     "name": "stakeholder",

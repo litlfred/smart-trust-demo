@@ -196,12 +196,15 @@
    }
   }
  ],
+ "processHref": "sub-kg-lifecycle.html",
  "tasks": {
   "Task_Brief": {
    "id": "Task_Brief",
    "name": "Brief the work",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Brief",
    "lane": "Authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Agent",
    "skills": [],
    "shared": {
     "id": "GT_Brief",
@@ -218,7 +221,9 @@
    "id": "Task_Declare",
    "name": "1 · Declare it in place, with its seam",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Declare",
    "lane": "Authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -231,7 +236,9 @@
    "id": "Task_Grow",
    "name": "2 · Grow it in place",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Grow",
    "lane": "Authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -244,7 +251,9 @@
    "id": "Task_DecideLeave",
    "name": "Should it leave now?",
    "type": "bpmn:CallActivity",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_DecideLeave",
    "lane": "Administrator (owner)",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Admin",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -262,7 +271,9 @@
    "id": "Task_PushDown",
    "name": "3 · Push generic down first",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_PushDown",
    "lane": "Platform authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Platform",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -275,7 +286,9 @@
    "id": "Task_Seam",
    "name": "4 · Route every climb through platform.ts",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Seam",
    "lane": "Platform authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Platform",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -288,7 +301,9 @@
    "id": "Task_Rehearse",
    "name": "5 · Rehearse self-contained",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Rehearse",
    "lane": "Build pipeline",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -301,7 +316,9 @@
    "id": "Task_Report",
    "name": "6 · Report what would move, and how it undoes",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Report",
    "lane": "Authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -314,7 +331,9 @@
    "id": "Task_ConfirmCreate",
    "name": "7 · Owner confirms: create the repository",
    "type": "bpmn:CallActivity",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_ConfirmCreate",
    "lane": "Administrator (owner)",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Admin",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -332,7 +351,9 @@
    "id": "Task_CreateRepo",
    "name": "8 · Create the repository",
    "type": "bpmn:UserTask",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_CreateRepo",
    "lane": "Administrator (owner)",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Admin",
    "skills": [],
    "role": {
     "name": "administrator",
@@ -345,7 +366,9 @@
    "id": "Task_Drain",
    "name": "Drain: land, close or re-target the open PRs",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Drain",
    "lane": "Authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Agent",
    "skills": [],
    "shared": {
     "id": "GT_Drain",
@@ -362,7 +385,9 @@
    "id": "Task_Seed",
    "name": "9 · Copy the staged contents in, with history",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Seed",
    "lane": "Authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -375,7 +400,9 @@
    "id": "Task_Repoint",
    "name": "10 · Re-point: livesAt, seam, mount or subscription",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Repoint",
    "lane": "Platform authoring agent",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Platform",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -388,7 +415,9 @@
    "id": "Task_FreshClone",
    "name": "11 · Verify on a fresh clone",
    "type": "bpmn:Task",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_FreshClone",
    "lane": "Build pipeline",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -401,7 +430,9 @@
    "id": "Task_ConfirmCutover",
    "name": "12 · Owner confirms: freeze the in-repo copy",
    "type": "bpmn:CallActivity",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_ConfirmCutover",
    "lane": "Administrator (owner)",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Admin",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -419,7 +450,9 @@
    "id": "Task_Cutover",
    "name": "13 · Cutover: freeze the copy in the kept trashcan",
    "type": "bpmn:UserTask",
+   "stepHref": "sub-kg-lifecycle.html#step-Task_Cutover",
    "lane": "Administrator (owner)",
+   "laneHref": "sub-kg-lifecycle.html#lane-Lane_Admin",
    "skills": [],
    "role": {
     "name": "administrator",

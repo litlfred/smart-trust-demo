@@ -196,12 +196,15 @@
    }
   }
  ],
+ "processHref": "getting-started.html",
  "tasks": {
   "Task_DetectModality": {
    "id": "Task_DetectModality",
    "name": "Detect the interaction modality",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_DetectModality",
    "lane": "Onboarding agent (system)",
+   "laneHref": "getting-started.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "onboarding-agent",
@@ -214,7 +217,9 @@
    "id": "Task_ReadFacts",
    "name": "Read the repository facts",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_ReadFacts",
    "lane": "Onboarding agent (system)",
+   "laneHref": "getting-started.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "onboarding-agent",
@@ -227,7 +232,9 @@
    "id": "Task_AskIntent",
    "name": "Choose from the offered options",
    "type": "bpmn:UserTask",
+   "stepHref": "getting-started.html#step-Task_AskIntent",
    "lane": "User (person)",
+   "laneHref": "getting-started.html#lane-Lane_User",
    "skills": [],
    "role": {
     "name": "user",
@@ -240,7 +247,9 @@
    "id": "Task_ScanRepo",
    "name": "Scan the repo for content worth importing",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_ScanRepo",
    "lane": "Onboarding agent (system)",
+   "laneHref": "getting-started.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "onboarding-agent",
@@ -253,7 +262,9 @@
    "id": "Task_ChooseHarnessed",
    "name": "Choose what the harness reads",
    "type": "bpmn:CallActivity",
+   "stepHref": "getting-started.html#step-Task_ChooseHarnessed",
    "lane": "User (person)",
+   "laneHref": "getting-started.html#lane-Lane_User",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -271,7 +282,9 @@
    "id": "Task_ConfirmImport",
    "name": "Import what, where, and who does it",
    "type": "bpmn:UserTask",
+   "stepHref": "getting-started.html#step-Task_ConfirmImport",
    "lane": "User (person)",
+   "laneHref": "getting-started.html#lane-Lane_User",
    "skills": [],
    "role": {
     "name": "user",
@@ -284,7 +297,9 @@
    "id": "Task_CreateRepo",
    "name": "Create the repository",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_CreateRepo",
    "lane": "Onboarding agent (system)",
+   "laneHref": "getting-started.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "onboarding-agent",
@@ -297,7 +312,9 @@
    "id": "Task_Scaffold",
    "name": "Scaffold the folio (folio_init)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_Scaffold",
    "lane": "Onboarding agent (system)",
+   "laneHref": "getting-started.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "onboarding-agent",
@@ -310,7 +327,9 @@
    "id": "Task_SeedPlan",
    "name": "Seed the work plan",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_SeedPlan",
    "lane": "Onboarding agent (system)",
+   "laneHref": "getting-started.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "onboarding-agent",
@@ -323,7 +342,9 @@
    "id": "Task_ProvisionGhPages",
    "name": "Provision gh-pages",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_ProvisionGhPages",
    "lane": "Publish — GitHub Pages",
+   "laneHref": "getting-started.html#lane-Lane_Publish",
    "skills": [],
    "role": {
     "name": "publish-target",
@@ -336,7 +357,9 @@
    "id": "Task_PagesBootstrap",
    "name": "Start the Pages build and derive the URL",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_PagesBootstrap",
    "lane": "Publish — GitHub Pages",
+   "laneHref": "getting-started.html#lane-Lane_Publish",
    "skills": [],
    "role": {
     "name": "publish-target",
@@ -349,7 +372,9 @@
    "id": "Task_ReportUrl",
    "name": "Hand over the live link",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_ReportUrl",
    "lane": "Publish — GitHub Pages",
+   "laneHref": "getting-started.html#lane-Lane_Publish",
    "skills": [],
    "role": {
     "name": "publish-target",
@@ -362,7 +387,9 @@
    "id": "Task_ReportPending",
    "name": "Say where it will be",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_ReportPending",
    "lane": "Publish — GitHub Pages",
+   "laneHref": "getting-started.html#lane-Lane_Publish",
    "skills": [],
    "role": {
     "name": "publish-target",
@@ -375,7 +402,9 @@
    "id": "Task_ReportUnknown",
    "name": "Say it could not be confirmed",
    "type": "bpmn:ServiceTask",
+   "stepHref": "getting-started.html#step-Task_ReportUnknown",
    "lane": "Publish — GitHub Pages",
+   "laneHref": "getting-started.html#lane-Lane_Publish",
    "skills": [],
    "role": {
     "name": "publish-target",
@@ -388,12 +417,12 @@
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "getting-started.html#step-Call_BeanOpen",
    "lane": "Onboarding agent (system)",
+   "laneHref": "getting-started.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "onboarding-agent",
@@ -406,12 +435,12 @@
    "id": "Call_BeanClose",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "getting-started.html#step-Call_BeanClose",
    "lane": "Publish — GitHub Pages",
+   "laneHref": "getting-started.html#lane-Lane_Publish",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "publish-target",

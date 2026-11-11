@@ -124,12 +124,15 @@
    }
   }
  ],
+ "processHref": "kg-to-portal.html",
  "tasks": {
   "D_Constraints": {
    "id": "D_Constraints",
    "name": "State the constraints, with denominators",
    "type": "bpmn:Task",
+   "stepHref": "kg-to-portal.html#step-D_Constraints",
    "lane": "Deployment owner",
+   "laneHref": "kg-to-portal.html#lane-Lane_Deployment",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -142,7 +145,9 @@
    "id": "E_Scope",
    "name": "Decide what may leave the repository",
    "type": "bpmn:Task",
+   "stepHref": "kg-to-portal.html#step-E_Scope",
    "lane": "Editorial",
+   "laneHref": "kg-to-portal.html#lane-Lane_Editorial",
    "skills": [],
    "role": {
     "name": "editor",
@@ -155,7 +160,9 @@
    "id": "A_Select",
    "name": "Cut the subgraph that leaves",
    "type": "bpmn:ServiceTask",
+   "stepHref": "kg-to-portal.html#step-A_Select",
    "lane": "Build pipeline",
+   "laneHref": "kg-to-portal.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -168,7 +175,9 @@
    "id": "A_Serialize",
    "name": "Serialize to JSON-LD",
    "type": "bpmn:ServiceTask",
+   "stepHref": "kg-to-portal.html#step-A_Serialize",
    "lane": "Build pipeline",
+   "laneHref": "kg-to-portal.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -181,7 +190,9 @@
    "id": "A_Package",
    "name": "Package with digests",
    "type": "bpmn:ServiceTask",
+   "stepHref": "kg-to-portal.html#step-A_Package",
    "lane": "Build pipeline",
+   "laneHref": "kg-to-portal.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -194,7 +205,9 @@
    "id": "S_Sign",
    "name": "Sign the package and/or each asset",
    "type": "bpmn:ServiceTask",
+   "stepHref": "kg-to-portal.html#step-S_Sign",
    "lane": "Attestation (GDHCN / WHO SMART Trust)",
+   "laneHref": "kg-to-portal.html#lane-Lane_Attestation",
    "skills": [],
    "role": {
     "name": "attestation-service",
@@ -207,7 +220,9 @@
    "id": "E_HumanEyes",
    "name": "Human eyes on the rendered artefact",
    "type": "bpmn:Task",
+   "stepHref": "kg-to-portal.html#step-E_HumanEyes",
    "lane": "Editorial",
+   "laneHref": "kg-to-portal.html#lane-Lane_Editorial",
    "skills": [],
    "role": {
     "name": "editor",
@@ -220,7 +235,9 @@
    "id": "D_Undetermined",
    "name": "Record the decision as still open",
    "type": "bpmn:Task",
+   "stepHref": "kg-to-portal.html#step-D_Undetermined",
    "lane": "Deployment owner",
+   "laneHref": "kg-to-portal.html#lane-Lane_Deployment",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -233,7 +250,9 @@
    "id": "A_Distribute",
    "name": "Publish to the origin (a cache may front it)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "kg-to-portal.html#step-A_Distribute",
    "lane": "Publish target",
+   "laneHref": "kg-to-portal.html#lane-Lane_Target",
    "skills": [],
    "role": {
     "name": "publish-target",
@@ -246,7 +265,9 @@
    "id": "P_Verify",
    "name": "Verify what arrived against what was signed",
    "type": "bpmn:Task",
+   "stepHref": "kg-to-portal.html#step-P_Verify",
    "lane": "Portal (external consumer)",
+   "laneHref": "kg-to-portal.html#lane-Lane_Portal",
    "skills": [],
    "role": {
     "name": "external-registry",

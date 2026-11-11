@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "slice-sqlite-publish.html",
  "tasks": {
   "A_Define": {
    "id": "A_Define",
    "name": "Write the slice definition",
    "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Define",
    "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -106,7 +109,9 @@
    "id": "A_Measure",
    "name": "Build it locally and measure the file",
    "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Measure",
    "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -119,7 +124,9 @@
    "id": "A_Report",
    "name": "Report the measurement; ship nothing",
    "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Report",
    "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -132,7 +139,9 @@
    "id": "A_Wire",
    "name": "Wire it: gate, deploy line, search, tests",
    "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Wire",
    "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",
@@ -145,7 +154,9 @@
    "id": "A_Check",
    "name": "Gate every slice: slice:sqlite:check",
    "type": "bpmn:ServiceTask",
+   "stepHref": "slice-sqlite-publish.html#step-A_Check",
    "lane": "CI/CD Pipeline",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Ci",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -158,7 +169,9 @@
    "id": "A_Deploy",
    "name": "Build each slice into _site at deploy",
    "type": "bpmn:ServiceTask",
+   "stepHref": "slice-sqlite-publish.html#step-A_Deploy",
    "lane": "CI/CD Pipeline",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Ci",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -171,7 +184,9 @@
    "id": "A_Verify",
    "name": "Search the published slice in a browser",
    "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Verify",
    "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "platform-authoring-agent",

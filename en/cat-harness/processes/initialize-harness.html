@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Initialize a harness" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/initialize-harness.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/initialize-harness.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Initialize a harness" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Initialize a harness","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/initialize-harness.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Initialize a harness","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/initialize-harness.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -907,7 +907,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Process_InitializeHarness</code> · strict (defaulted) · 8 step(s)</p>
 
-<p>THE ONLY PROCESS IN BOOTSTRAP AN ACTOR STARTS. A Bootstrapping Agent that has read bootstrap’s README.md is at its start event and has nowhere else to begin. Every other diagram here is reached from this one by a call activity and is never started: <code class="language-plaintext highlighter-rouge">discussion</code> determines which harness and where; <code class="language-plaintext highlighter-rouge">human-agent-discussion</code> is the one reusable way any diagram asks a person anything; <code class="language-plaintext highlighter-rouge">complete-initialization</code> makes sure every step the declarations name is done; <code class="language-plaintext highlighter-rouge">log-message</code> records what a step is doing.</p>
+<p>THE ONLY PROCESS IN BOOTSTRAP AN ACTOR STARTS. A Bootstrapping Agent that has read bootstrap’s README.md is at its start event and has nowhere else to begin. Every other diagram here is reached from this one by a call activity and is never started: <a href="../../../en/cat-harness/processes/skills/discussion.html"><code class="language-plaintext highlighter-rouge">discussion</code></a> determines which harness and where; <a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a> is the one reusable way any diagram asks a person anything; <code class="language-plaintext highlighter-rouge">complete-initialization</code> makes sure every step the declarations name is done; <a href="../../../en/cat-harness/processes/skills/log-message.html"><code class="language-plaintext highlighter-rouge">log-message</code></a> records what a step is doing.</p>
 
 <p>PRECONDITIONS are DECLARED below as bootstrap.processes:precondition elements rather than asserted here. Three of the four are kind=”stated”: nothing in this repository can observe whether an actor understands what a role is, so they evaluate to could-not-determine, never to satisfied. The fourth is checkable: README.md EXISTS. That the Bootstrapping Agent read it is not observable.</p>
 
@@ -978,8 +978,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1165,9 +1171,9 @@
   </thead>
   <tbody>
     <tr>
-      <td>Bootstrapping Agent</td>
+      <td><a id="lane-Lane_BootstrappingAgent"></a>Bootstrapping Agent</td>
       <td><code class="language-plaintext highlighter-rouge">bootstrapping-agent</code></td>
-      <td>Everything this process performs other than reading the target location. The one judgement — WHICH harness — is not made here: it is the Requestor’s, obtained inside <code class="language-plaintext highlighter-rouge">discussion</code> through <code class="language-plaintext highlighter-rouge">human-agent-discussion</code>, which is why this diagram has no Requestor lane. It follows the CHOSEN harness’s own instructions rather than any bootstrap holds.</td>
+      <td>Everything this process performs other than reading the target location. The one judgement — WHICH harness — is not made here: it is the Requestor’s, obtained inside <a href="../../../en/cat-harness/processes/skills/discussion.html"><code class="language-plaintext highlighter-rouge">discussion</code></a> through <a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a>, which is why this diagram has no Requestor lane. It follows the CHOSEN harness’s own instructions rather than any bootstrap holds.</td>
     </tr>
   </tbody>
 </table></div>
@@ -1193,51 +1199,51 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Determine which harness, and where</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineHarness</code></td>
+      <td><a id="step-A_DetermineHarness"></a><strong>Determine which harness, and where</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineHarness</code></td>
       <td>Bootstrapping Agent</td>
-      <td>calls <a href="discussion.html">Determine the harness and repositories</a><br /><code class="language-plaintext highlighter-rouge">confirm-harness</code></td>
-      <td>The candidates are listed and the Requestor is asked, in <code class="language-plaintext highlighter-rouge">discussion</code>, which asks through <code class="language-plaintext highlighter-rouge">human-agent-discussion</code>. IN: nothing but the context this agent was handed. OUT: zero or ONE harness, and the locations — a document conforming to <code class="language-plaintext highlighter-rouge">discussion.output.schema.json</code>. One at most: a list of two is not an answer, and the Bootstrapping Agent may not break the tie itself.</td>
+      <td>calls <a href="discussion.html">Determine the harness and repositories</a><br /><a href="../../../en/cat-harness/processes/skills/confirm-harness.html"><code class="language-plaintext highlighter-rouge">confirm-harness</code></a></td>
+      <td>The candidates are listed and the Requestor is asked, in <a href="../../../en/cat-harness/processes/skills/discussion.html"><code class="language-plaintext highlighter-rouge">discussion</code></a>, which asks through <a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a>. IN: nothing but the context this agent was handed. OUT: zero or ONE harness, and the locations — a document conforming to <code class="language-plaintext highlighter-rouge">discussion.output.schema.json</code>. One at most: a list of two is not an answer, and the Bootstrapping Agent may not break the tie itself.</td>
     </tr>
     <tr>
-      <td><strong>Read what each location already is</strong><br /><code class="language-plaintext highlighter-rouge">A_ReadLocation</code></td>
+      <td><a id="step-A_ReadLocation"></a><strong>Read what each location already is</strong><br /><code class="language-plaintext highlighter-rouge">A_ReadLocation</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></td>
-      <td>Ask the location, not your memory of it: a Knowledge Graph Data Store that carries a declaration at its root is ALREADY an instance, and it says so itself. <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> present and parsing is the whole test, and <code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code> says what the three answers mean — absent (not an instance yet), present, and present-but-unreadable, which is an instance asserting something broken and is not a green light either.<br />Done before reading the chosen harness: a location held by another harness ends the process here.</td>
+      <td><a href="../../../en/cat-harness/processes/skills/bootstrap-kg-navigation.html"><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></a></td>
+      <td>Ask the location, not your memory of it: a Knowledge Graph Data Store that carries a declaration at its root is ALREADY an instance, and it says so itself. <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code> present and parsing is the whole test, and <a href="../../../en/cat-harness/processes/skills/bootstrap-kg-navigation.html"><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></a> says what the three answers mean — absent (not an instance yet), present, and present-but-unreadable, which is an instance asserting something broken and is not a green light either.<br />Done before reading the chosen harness: a location held by another harness ends the process here.</td>
     </tr>
     <tr>
-      <td><strong>Read the harness’s declaration and instructions</strong><br /><code class="language-plaintext highlighter-rouge">A_ReadDeclaration</code></td>
+      <td><a id="step-A_ReadDeclaration"></a><strong>Read the harness’s declaration and instructions</strong><br /><code class="language-plaintext highlighter-rouge">A_ReadDeclaration</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/bootstrap-kg-navigation.html"><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></a></td>
       <td>Performed against the data store — a git repository, through the git CLI or a forge API. The instructions are at a PREDETERMINED spot on the harness: <code class="language-plaintext highlighter-rouge">&lt;name&gt;/docs/bootstrap/initialization.md</code>, the same for every harness, which is what lets a Bootstrapping Agent be pointed at one nobody has written yet.</td>
     </tr>
     <tr>
-      <td><strong>Log the start of the install</strong><br /><code class="language-plaintext highlighter-rouge">A_LogInstallStart</code></td>
+      <td><a id="step-A_LogInstallStart"></a><strong>Log the start of the install</strong><br /><code class="language-plaintext highlighter-rouge">A_LogInstallStart</code></td>
       <td>Bootstrapping Agent</td>
-      <td>calls <a href="log-message.html">Log a message</a><br /><code class="language-plaintext highlighter-rouge">log-message</code></td>
+      <td>calls <a href="log-message.html">Log a message</a><br /><a href="../../../en/cat-harness/processes/skills/log-message.html"><code class="language-plaintext highlighter-rouge">log-message</code></a></td>
       <td>REQUIRED logging, which is what drawing the call says. Logged before anything is written, so an install interrupted halfway is distinguishable from one never begun.</td>
     </tr>
     <tr>
-      <td><strong>Follow them, at each location</strong><br /><code class="language-plaintext highlighter-rouge">A_Install</code></td>
+      <td><a id="step-A_Install"></a><strong>Follow them, at each location</strong><br /><code class="language-plaintext highlighter-rouge">A_Install</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/bootstrap-kg-navigation.html"><code class="language-plaintext highlighter-rouge">bootstrap-kg-navigation</code></a></td>
       <td>The instructions belong to the harness being installed, not to bootstrap — bootstrap does not know what any Harness above it requires, and does not need to.</td>
     </tr>
     <tr>
-      <td><strong>Write the root README, if it is not there</strong><br /><code class="language-plaintext highlighter-rouge">A_WriteRootReadme</code></td>
+      <td><a id="step-A_WriteRootReadme"></a><strong>Write the root README, if it is not there</strong><br /><code class="language-plaintext highlighter-rouge">A_WriteRootReadme</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">root-readme</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/root-readme.html"><code class="language-plaintext highlighter-rouge">root-readme</code></a></td>
       <td>The repository now IS an instance of something, and nothing at its root says so. It carries a LINK to the harness that was installed and the OVERALL install status across every location — WHEN ABSENT, never replacing: where a README is already there, the link and status go in a marker pair the harness’s own README tool maintains.<br />Initialization may create the README: the rule that a running process never writes an <code class="language-plaintext highlighter-rouge">instance-readme</code> governs an instance that already exists.</td>
     </tr>
     <tr>
-      <td><strong>Make sure every step is done</strong><br /><code class="language-plaintext highlighter-rouge">A_CompleteInitialization</code></td>
+      <td><a id="step-A_CompleteInitialization"></a><strong>Make sure every step is done</strong><br /><code class="language-plaintext highlighter-rouge">A_CompleteInitialization</code></td>
       <td>Bootstrapping Agent</td>
-      <td>calls <a href="complete-initialization.html">Complete initialization</a><br /><code class="language-plaintext highlighter-rouge">initialization-steps</code></td>
+      <td>calls <a href="complete-initialization.html">Complete initialization</a><br /><a href="../../../en/cat-harness/processes/skills/initialization-steps.html"><code class="language-plaintext highlighter-rouge">initialization-steps</code></a></td>
       <td>Following a harness’s instructions once is not the same as every step being done. <code class="language-plaintext highlighter-rouge">complete-initialization</code> walks the steps the declarations name — FIRST the harness’s JSON Schemas and JSON-LD at the IRIs they name, the primary step of initializing a Knowledge Graph harness; then declared directories, assets, the README and its sections, and the site that carries the documents — checks each, does what can be done, asks the person for what only they can do, and reports every step in its state. An agent may be dispatched to run it on its own: it needs nothing but that diagram and the declarations.</td>
     </tr>
     <tr>
-      <td><strong>Log the failure</strong><br /><code class="language-plaintext highlighter-rouge">A_LogFailure</code></td>
+      <td><a id="step-A_LogFailure"></a><strong>Log the failure</strong><br /><code class="language-plaintext highlighter-rouge">A_LogFailure</code></td>
       <td>Bootstrapping Agent</td>
-      <td>calls <a href="log-message.html">Log a message</a><br /><code class="language-plaintext highlighter-rouge">log-message</code></td>
+      <td>calls <a href="log-message.html">Log a message</a><br /><a href="../../../en/cat-harness/processes/skills/log-message.html"><code class="language-plaintext highlighter-rouge">log-message</code></a></td>
       <td>Every failure path passes through here, so “logged as failed” is a step somebody performs rather than an adjective on an end event. What differs between the ways in is the message, which is an input, not the mechanism.</td>
     </tr>
   </tbody>

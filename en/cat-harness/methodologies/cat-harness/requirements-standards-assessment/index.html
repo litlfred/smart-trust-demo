@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -938,15 +938,15 @@
 
 <p><code class="language-plaintext highlighter-rouge">requirements-standards-assessment</code> — declared by <code class="language-plaintext highlighter-rouge">cat-harness</code> — <span class="mv-tag mv-ingested">source held</span></p>
 
-<p><strong>Applies when.</strong> <strong>Evaluating how requirements authored or verified in the harness map to or from open industry standards, interchange formats, statement grammars, and quality models — and deciding which transformations belong in higher harness layers (cat-harness, and content instances above it) while keeping the bootstrap Requirement schema strictly self-contained and free of external dependencies.</strong> It answers <em>how bootstrap requirements translate to ReqIF, OSLC-RM, EARS, ISO 29148, and ISO 25010, what each standard costs in serialization and semantic complexity, and where mapping adapters must live</em>. It does NOT govern runtime execution logs (<code class="language-plaintext highlighter-rouge">prov-o-provenance</code>), decision table structures (<code class="language-plaintext highlighter-rouge">dmn</code>), software package bills of materials (<code class="language-plaintext highlighter-rouge">spdx-3</code>), or access policy enforcement (<code class="language-plaintext highlighter-rouge">odrl-policies</code>).</p>
+<p><strong>Applies when.</strong> <strong>Evaluating how requirements authored or verified in the harness map to or from open industry standards, interchange formats, statement grammars, and quality models — and deciding which transformations belong in higher harness layers (cat-harness, and content instances above it) while keeping the bootstrap Requirement schema strictly self-contained and free of external dependencies.</strong> It answers <em>how bootstrap requirements translate to ReqIF, OSLC-RM, EARS, ISO 29148, and ISO 25010, what each standard costs in serialization and semantic complexity, and where mapping adapters must live</em>. It does NOT govern runtime execution logs (<a href="../../#prov-o-provenance"><code class="language-plaintext highlighter-rouge">prov-o-provenance</code></a>), decision table structures (<a href="../../#dmn"><code class="language-plaintext highlighter-rouge">dmn</code></a>), software package bills of materials (<a href="../../#spdx-3"><code class="language-plaintext highlighter-rouge">spdx-3</code></a>), or access policy enforcement (<a href="../../#odrl-policies"><code class="language-plaintext highlighter-rouge">odrl-policies</code></a>).</p>
 
 <p><strong>Origin.</strong> Survey and comparative assessment of formal and open requirements standards: OMG Requirements Interchange Format (ReqIF 1.2, formal/2013-10-01); OASIS Open Services for Lifecycle Collaboration Requirements Management (OSLC-RM 2.1 / OSLC Core 3.0); Easy Approach to Requirements Syntax (EARS: Mavin et al., IEEE RE 2009); ISO/IEC/IEEE 29148:2018 (Systems and software engineering — Life cycle processes — Requirements engineering); IEEE Std 830-1998 (Recommended Practice for Software Requirements Specifications, superseded by ISO/IEC/IEEE 29148); ISO/IEC 25010:2011/2023 (Systems and software engineering — Systems and software Quality Requirements and Evaluation — System and software quality models); INCOSE Guide for Writing Requirements (INCOSE-TP-2010-006-04, 4th Edition, 2023). Evaluated against the bootstrap Requirement schema (bootstrap/schemas/requirement.schema.json, Issue #1164).</p>
 
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/rfc2119-key-words-requirement-levels</code></li>
-  <li><code class="language-plaintext highlighter-rouge">library/rfc8174-uppercase-vs-lowercase-2119-key-words</code></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Frfc2119-key-words-requirement-levels"><code class="language-plaintext highlighter-rouge">library/rfc2119-key-words-requirement-levels</code></a> · <a href="../../../library/cat-harness/rfc2119-key-words-requirement-levels/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/content/rfc2119-key-words-requirement-levels/README.md">item page</a></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Frfc8174-uppercase-vs-lowercase-2119-key-words"><code class="language-plaintext highlighter-rouge">library/rfc8174-uppercase-vs-lowercase-2119-key-words</code></a> · <a href="../../../library/cat-harness/rfc8174-uppercase-vs-lowercase-2119-key-words/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/content/rfc8174-uppercase-vs-lowercase-2119-key-words/README.md">item page</a></li>
 </ul>
 
 <p><strong>Node file:</strong> <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/requirements-standards-assessment.md">requirements-standards-assessment.md</a></p>

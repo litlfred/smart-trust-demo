@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "hand-back-to-discussion.html",
  "tasks": {
   "S_Compose": {
    "id": "S_Compose",
    "name": "Compose the hand-back and post it in own thread",
    "type": "bpmn:Task",
+   "stepHref": "hand-back-to-discussion.html#step-S_Compose",
    "lane": "Sibling",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Sibling",
    "skills": [],
    "role": {
     "name": "sibling-session",
@@ -118,7 +121,9 @@
    "id": "S_Mirror",
    "name": "Mirror it to the feedback channel",
    "type": "bpmn:Task",
+   "stepHref": "hand-back-to-discussion.html#step-S_Mirror",
    "lane": "Sibling",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Sibling",
    "skills": [],
    "role": {
     "name": "sibling-session",
@@ -131,7 +136,9 @@
    "id": "S_HandBack",
    "name": "Hand it back to the discussion agent",
    "type": "bpmn:Task",
+   "stepHref": "hand-back-to-discussion.html#step-S_HandBack",
    "lane": "Sibling",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Sibling",
    "skills": [],
    "role": {
     "name": "sibling-session",
@@ -144,7 +151,9 @@
    "id": "D_Inform",
    "name": "Post it in the discussion",
    "type": "bpmn:Task",
+   "stepHref": "hand-back-to-discussion.html#step-D_Inform",
    "lane": "Discussion agent",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Discussion",
    "skills": [],
    "role": {
     "name": "session-coordinator",
@@ -157,7 +166,9 @@
    "id": "D_Ask",
    "name": "Ask the person",
    "type": "bpmn:CallActivity",
+   "stepHref": "hand-back-to-discussion.html#step-D_Ask",
    "lane": "Discussion agent",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Discussion",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -175,7 +186,9 @@
    "id": "D_RouteBack",
    "name": "Route the answer back, quoted",
    "type": "bpmn:Task",
+   "stepHref": "hand-back-to-discussion.html#step-D_RouteBack",
    "lane": "Discussion agent",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Discussion",
    "skills": [],
    "role": {
     "name": "session-coordinator",
@@ -188,7 +201,9 @@
    "id": "D_MarkAnswered",
    "name": "Mark every copy answered",
    "type": "bpmn:Task",
+   "stepHref": "hand-back-to-discussion.html#step-D_MarkAnswered",
    "lane": "Discussion agent",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Discussion",
    "skills": [],
    "role": {
     "name": "session-coordinator",
@@ -201,7 +216,9 @@
    "id": "S_Act",
    "name": "Act on the answer",
    "type": "bpmn:Task",
+   "stepHref": "hand-back-to-discussion.html#step-S_Act",
    "lane": "Sibling",
+   "laneHref": "hand-back-to-discussion.html#lane-Lane_Sibling",
    "skills": [],
    "role": {
     "name": "sibling-session",

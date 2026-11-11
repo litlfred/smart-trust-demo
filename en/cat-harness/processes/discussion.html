@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Determine the harness and repositories" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/discussion.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/discussion.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Determine the harness and repositories" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Determine the harness and repositories","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/discussion.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Determine the harness and repositories","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/discussion.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -911,7 +911,7 @@
 
 <p>WHERE THIS IS, DETERMINED FIRST. Before narrowing anything, the Bootstrapping Agent says which Process, which Roles and what context (A_DetermineWhere). These are declared below as preconditions of the listing; one that cannot be established becomes the FIRST question of the called discussion.</p>
 
-<p>THE ASKING IS NOT DRAWN HERE. This process narrows and records; the question itself is put through <code class="language-plaintext highlighter-rouge">human-agent-discussion</code>, the one reusable way bootstrap asks a person anything — context, options, a recommendation, one question, and what happens with no answer. What is particular to THIS question is carried in: the candidates, and that NO default is allowed. Which harness a repository becomes is not reversible by running anything again, so silence ends as unsettled, never as “bootstrap, by default”.</p>
+<p>THE ASKING IS NOT DRAWN HERE. This process narrows and records; the question itself is put through <a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a>, the one reusable way bootstrap asks a person anything — context, options, a recommendation, one question, and what happens with no answer. What is particular to THIS question is carried in: the candidates, and that NO default is allowed. Which harness a repository becomes is not reversible by running anything again, so silence ends as unsettled, never as “bootstrap, by default”.</p>
 
 <p>THE OUTPUT IS A DOCUMENT. The task is finished when a document conforming to <code class="language-plaintext highlighter-rouge">discussion.output.schema.json</code> exists.</p>
 
@@ -977,8 +977,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1143,6 +1149,7 @@
   <li><strong>Called by:</strong> <a href="initialize-harness.html">Initialize a harness</a></li>
   <li><strong>Calls:</strong> <a href="human-agent-discussion.html">Human–agent discussion</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/discussion.html"><code class="language-plaintext highlighter-rouge">discussion</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -1164,7 +1171,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Bootstrapping Agent</td>
+      <td><a id="lane-Lane_BootstrappingAgent"></a>Bootstrapping Agent</td>
       <td><code class="language-plaintext highlighter-rouge">bootstrapping-agent</code></td>
       <td>Narrows the candidates before spending the one question a reader is entitled to, and closes either with a determination or with what is still open — never a guess standing in for either. The Requestor takes part inside the called discussion, which is why this diagram has no lane for them.</td>
     </tr>
@@ -1192,39 +1199,39 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Determine where you are: process, roles, context</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineWhere</code></td>
+      <td><a id="step-A_DetermineWhere"></a><strong>Determine where you are: process, roles, context</strong><br /><code class="language-plaintext highlighter-rouge">A_DetermineWhere</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">discussion</code><br /><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/discussion.html"><code class="language-plaintext highlighter-rouge">discussion</code></a><br /><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>Before narrowing, say where this is happening, in the words you will use in the question. PROCESS: Initialize a harness, at its first step, inside Determine the harness and repositories — the only place a Bootstrapping Agent can be (FR-2). If you cannot say that (you were started some other way, or a step you believed done is not), you are out of process: do not infer your way back in. ROLES: you act as the Bootstrapping Agent because you were told so; the person you will ask is the Requestor — the one who asked for the harness, and the only one who may choose it. A request relayed by somebody else leaves the Requestor undetermined. CONTEXT: what the request said, and what the checkout holds — a declaration at its root, a harness named in the request. Whatever cannot be determined is handed to the called discussion as undetermined, and asked about first; it is never filled with a default.</td>
     </tr>
     <tr>
-      <td><strong>List the harnesses this could be</strong><br /><code class="language-plaintext highlighter-rouge">A_ListHarnesses</code></td>
+      <td><a id="step-A_ListHarnesses"></a><strong>List the harnesses this could be</strong><br /><code class="language-plaintext highlighter-rouge">A_ListHarnesses</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">confirm-harness</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/confirm-harness.html"><code class="language-plaintext highlighter-rouge">confirm-harness</code></a></td>
       <td>Zero or more. The candidate everybody has is bootstrap itself. Context may name others: “please set up &lt;owner&gt;/&lt;repo&gt; here” names one, and so does any Harness built on bootstrap that the Requestor mentions. This step narrows; it does not decide.</td>
     </tr>
     <tr>
-      <td><strong>List the locations this could install to</strong><br /><code class="language-plaintext highlighter-rouge">A_ListLocations</code></td>
+      <td><a id="step-A_ListLocations"></a><strong>List the locations this could install to</strong><br /><code class="language-plaintext highlighter-rouge">A_ListLocations</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">confirm-harness</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/confirm-harness.html"><code class="language-plaintext highlighter-rouge">confirm-harness</code></a></td>
       <td>Zero or more. Is this a git repository already, or were one or more URLs to repositories supplied? Both are Knowledge Graph Data Stores; the difference is only how they are reached. A location whose root already holds a declaration, <code class="language-plaintext highlighter-rouge">&lt;name&gt;.json</code>, is not a blank slate, and says so in the question.</td>
     </tr>
     <tr>
-      <td><strong>Ask which harness, and where</strong><br /><code class="language-plaintext highlighter-rouge">A_AskRequestor</code></td>
+      <td><a id="step-A_AskRequestor"></a><strong>Ask which harness, and where</strong><br /><code class="language-plaintext highlighter-rouge">A_AskRequestor</code></td>
       <td>Bootstrapping Agent</td>
-      <td>calls <a href="human-agent-discussion.html">Human–agent discussion</a><br /><code class="language-plaintext highlighter-rouge">confirm-harness</code><br /><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></td>
+      <td>calls <a href="human-agent-discussion.html">Human–agent discussion</a><br /><a href="../../../en/cat-harness/processes/skills/confirm-harness.html"><code class="language-plaintext highlighter-rouge">confirm-harness</code></a><br /><a href="../../../en/cat-harness/processes/skills/human-agent-discussion.html"><code class="language-plaintext highlighter-rouge">human-agent-discussion</code></a></td>
       <td>The candidates go in as the options; the recommendation may name one; the default is NONE. What A_DetermineWhere established goes in too — the process, the two roles, the context — so the called discussion checks it rather than re-deriving it; and anything it could not establish goes in as undetermined, to be asked first. The Requestor’s answer comes back as answered, or the question as still open.</td>
     </tr>
     <tr>
-      <td><strong>Record the determination</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordDetermination</code></td>
+      <td><a id="step-A_RecordDetermination"></a><strong>Record the determination</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordDetermination</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/discussion.html"><code class="language-plaintext highlighter-rouge">discussion</code></a></td>
       <td>Writes a document conforming to <code class="language-plaintext highlighter-rouge">discussion.output.schema.json</code>: the harness, the repositories as read-from / written-to pairs, <code class="language-plaintext highlighter-rouge">determinedBy: asked</code>, and who answered. This artefact is what finishes the task.</td>
     </tr>
     <tr>
-      <td><strong>Record what is still open</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordUnsettled</code></td>
+      <td><a id="step-A_RecordUnsettled"></a><strong>Record what is still open</strong><br /><code class="language-plaintext highlighter-rouge">A_RecordUnsettled</code></td>
       <td>Bootstrapping Agent</td>
-      <td><code class="language-plaintext highlighter-rouge">discussion</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/discussion.html"><code class="language-plaintext highlighter-rouge">discussion</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">outcome: unsettled</code> with what was asked and what is still open, so the next actor resumes rather than restarts. An agent that reaches for a default here has produced a guess, not a determination.</td>
     </tr>
   </tbody>

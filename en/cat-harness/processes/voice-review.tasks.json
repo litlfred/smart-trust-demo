@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "voice-review.html",
  "tasks": {
   "Task_LoadActive": {
    "id": "Task_LoadActive",
    "name": "Load the active voices",
    "type": "bpmn:Task",
+   "stepHref": "voice-review.html#step-Task_LoadActive",
    "lane": "Narrative reviewer",
+   "laneHref": "voice-review.html#lane-Lane_NarrativeReviewer",
    "skills": [],
    "role": {
     "name": "narrative-reviewer",
@@ -94,7 +97,9 @@
    "id": "Task_MechanicalHalf",
    "name": "Run the rule's mechanical half",
    "type": "bpmn:Task",
+   "stepHref": "voice-review.html#step-Task_MechanicalHalf",
    "lane": "Narrative reviewer",
+   "laneHref": "voice-review.html#lane-Lane_NarrativeReviewer",
    "skills": [],
    "role": {
     "name": "narrative-reviewer",
@@ -107,7 +112,9 @@
    "id": "Task_OpenCitation",
    "name": "Open the rule's citation",
    "type": "bpmn:Task",
+   "stepHref": "voice-review.html#step-Task_OpenCitation",
    "lane": "Narrative reviewer",
+   "laneHref": "voice-review.html#lane-Lane_NarrativeReviewer",
    "skills": [],
    "role": {
     "name": "narrative-reviewer",
@@ -120,7 +127,9 @@
    "id": "Task_RuleIsWrong",
    "name": "The RULE is the defect — bean it",
    "type": "bpmn:Task",
+   "stepHref": "voice-review.html#step-Task_RuleIsWrong",
    "lane": "Narrative reviewer",
+   "laneHref": "voice-review.html#lane-Lane_NarrativeReviewer",
    "skills": [],
    "role": {
     "name": "narrative-reviewer",
@@ -133,12 +142,12 @@
    "id": "Task_Adjudicate",
    "name": "Adjudicate: prose, scope, or exception",
    "type": "bpmn:CallActivity",
+   "stepHref": "voice-review.html#step-Task_Adjudicate",
    "lane": "Narrative reviewer",
+   "laneHref": "voice-review.html#lane-Lane_NarrativeReviewer",
    "skills": [],
    "calls": {
-    "name": "Criterion adjudication",
-    "href": "criterion-adjudication.html",
-    "diagram": "criterion-adjudication.html"
+    "name": "Process_CriterionAdjudication"
    },
    "role": {
     "name": "narrative-reviewer",
@@ -151,7 +160,9 @@
    "id": "Task_RecordOnSidecar",
    "name": "Record on the block's QA sidecar",
    "type": "bpmn:Task",
+   "stepHref": "voice-review.html#step-Task_RecordOnSidecar",
    "lane": "Narrative reviewer",
+   "laneHref": "voice-review.html#lane-Lane_NarrativeReviewer",
    "skills": [],
    "role": {
     "name": "narrative-reviewer",

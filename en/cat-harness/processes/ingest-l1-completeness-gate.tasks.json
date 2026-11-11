@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "ingest-l1-completeness-gate.html",
  "tasks": {
   "Task_CheckDerived": {
    "id": "Task_CheckDerived",
    "name": "Is every derived artefact present?",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-l1-completeness-gate.html#step-Task_CheckDerived",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-l1-completeness-gate.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -70,7 +73,9 @@
    "id": "Task_RoundTrip",
    "name": "Round-trip translation QA",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-l1-completeness-gate.html#step-Task_RoundTrip",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-l1-completeness-gate.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -83,12 +88,12 @@
    "id": "Task_FlagDrift",
    "name": "Adjudicate the flagged passage",
    "type": "bpmn:CallActivity",
+   "stepHref": "ingest-l1-completeness-gate.html#step-Task_FlagDrift",
    "lane": "Reviewer (SME or editor)",
+   "laneHref": "ingest-l1-completeness-gate.html#lane-Lane_1",
    "skills": [],
    "calls": {
-    "name": "Adjudication",
-    "href": "adjudication.html",
-    "diagram": "adjudication.html"
+    "name": "Process_Adjudication"
    },
    "role": {
     "name": "reviewer",
@@ -101,7 +106,9 @@
    "id": "Task_Verdict",
    "name": "Record the L1 completeness verdict",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-l1-completeness-gate.html#step-Task_Verdict",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-l1-completeness-gate.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",

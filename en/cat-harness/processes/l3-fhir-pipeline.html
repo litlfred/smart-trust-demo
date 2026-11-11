@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="L3 FHIR IG pipeline" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/l3-fhir-pipeline.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/l3-fhir-pipeline.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="L3 FHIR IG pipeline" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"L3 FHIR IG pipeline","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/l3-fhir-pipeline.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"L3 FHIR IG pipeline","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/l3-fhir-pipeline.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -969,8 +969,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1156,22 +1162,22 @@
   </thead>
   <tbody>
     <tr>
-      <td>FHIR modeller</td>
+      <td><a id="lane-Lane_Modeller"></a>FHIR modeller</td>
       <td><code class="language-plaintext highlighter-rouge">fhir-modeller</code></td>
       <td>Task_AuthorFsh is the single re-entry point for both failure paths: an invalid-FHIR loop from Gateway_Valid, which leaves no record, and a QC failure, which arrives after Task_QcBeans has filed it. Which edge fired is the only signal that tells a mechanical re-run from a finding to read.</td>
     </tr>
     <tr>
-      <td>Build pipeline — SUSHI · validator · IG Publisher</td>
+      <td><a id="lane-Lane_Build"></a>Build pipeline — SUSHI · validator · IG Publisher</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>Two jobs share this lane. Task_Sushi and Task_Validate turn FSH into validated FHIR JSON and loop back to the modeller lane on failure with no bean filed: re-running compile-and-validate is cheap. Task_IgPublisher runs only once Lane_Qc has passed, and its output is what Lane_PubMgr publishes.</td>
     </tr>
     <tr>
-      <td>QC reviewer</td>
+      <td><a id="lane-Lane_Qc"></a>QC reviewer</td>
       <td><code class="language-plaintext highlighter-rouge">qc-reviewer</code></td>
       <td>The single gate between valid FHIR JSON and the full IG Publisher build: Task_IgPublisher runs only once this lane says clean, so a compiling-but-wrong profile never reaches a publishable IG.</td>
     </tr>
     <tr>
-      <td>Publication manager</td>
+      <td><a id="lane-Lane_PubMgr"></a>Publication manager</td>
       <td><code class="language-plaintext highlighter-rouge">publication-manager</code></td>
       <td>The last lane, with no path back into the loop: reaching it means Task_IgPublisher succeeded on Lane_Qc’s clean verdict. It does not itself decide whether the release is authorised: that call is draft-to-publication.bpmn’s, and Task_PublishIg only executes what that separate process has already cleared.</td>
     </tr>
@@ -1199,45 +1205,45 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Author FSH profiles</strong><br /><code class="language-plaintext highlighter-rouge">Task_AuthorFsh</code></td>
+      <td><a id="step-Task_AuthorFsh"></a><strong>Author FSH profiles</strong><br /><code class="language-plaintext highlighter-rouge">Task_AuthorFsh</code></td>
       <td>FHIR modeller</td>
-      <td><code class="language-plaintext highlighter-rouge">l3-fhir-authoring</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/l3-fhir-authoring.html"><code class="language-plaintext highlighter-rouge">l3-fhir-authoring</code></a></td>
       <td>Write the FSH profiles, value sets and definitions the source model calls for. This is the stage where profiles, slicing and invariants belong — a decision that can only be expressed in FHIR comes here, not back into the source model.</td>
     </tr>
     <tr>
-      <td><strong>Compile FSH to FHIR JSON</strong><br /><code class="language-plaintext highlighter-rouge">Task_Sushi</code></td>
+      <td><a id="step-Task_Sushi"></a><strong>Compile FSH to FHIR JSON</strong><br /><code class="language-plaintext highlighter-rouge">Task_Sushi</code></td>
       <td>Build pipeline — SUSHI · validator · IG Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">l3-fhir-authoring</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/l3-fhir-authoring.html"><code class="language-plaintext highlighter-rouge">l3-fhir-authoring</code></a></td>
       <td>Compile the FSH to FHIR JSON with SUSHI. Compiling is not conformance: a green SUSHI result goes on to validation and never stands in for it.</td>
     </tr>
     <tr>
-      <td><strong>Validate against profiles</strong><br /><code class="language-plaintext highlighter-rouge">Task_Validate</code></td>
+      <td><a id="step-Task_Validate"></a><strong>Validate against profiles</strong><br /><code class="language-plaintext highlighter-rouge">Task_Validate</code></td>
       <td>Build pipeline — SUSHI · validator · IG Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">fhir-validation</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/fhir-validation.html"><code class="language-plaintext highlighter-rouge">fhir-validation</code></a></td>
       <td>Validate the compiled resources against their profiles and the packages they constrain. A validator that could not start is could-not-determine, never a pass with an empty findings list. Failures return to authoring.</td>
     </tr>
     <tr>
-      <td><strong>QC gates</strong><br /><code class="language-plaintext highlighter-rouge">Task_QcGates</code></td>
+      <td><a id="step-Task_QcGates"></a><strong>QC gates</strong><br /><code class="language-plaintext highlighter-rouge">Task_QcGates</code></td>
       <td>QC reviewer</td>
-      <td><code class="language-plaintext highlighter-rouge">quality-control</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/quality-control.html"><code class="language-plaintext highlighter-rouge">quality-control</code></a></td>
       <td>The QC reviewer rules on the aggregate QA against the publication gates. Emitting the QA report is mechanical; ruling on it is the reviewer’s decision.</td>
     </tr>
     <tr>
-      <td><strong>File QC findings as beans</strong><br /><code class="language-plaintext highlighter-rouge">Task_QcBeans</code></td>
+      <td><a id="step-Task_QcBeans"></a><strong>File QC findings as beans</strong><br /><code class="language-plaintext highlighter-rouge">Task_QcBeans</code></td>
       <td>FHIR modeller</td>
       <td><code class="language-plaintext highlighter-rouge">todo-manager</code></td>
       <td>Each QC finding becomes a bean on the work plan, which the modeller and the agents both see.</td>
     </tr>
     <tr>
-      <td><strong>IG Publisher build</strong><br /><code class="language-plaintext highlighter-rouge">Task_IgPublisher</code></td>
+      <td><a id="step-Task_IgPublisher"></a><strong>IG Publisher build</strong><br /><code class="language-plaintext highlighter-rouge">Task_IgPublisher</code></td>
       <td>Build pipeline — SUSHI · validator · IG Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">ig-publication</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/ig-publication.html"><code class="language-plaintext highlighter-rouge">ig-publication</code></a></td>
       <td>Run the IG Publisher: it renders output/, writes each resource’s JSON, the package, canonicals and qa.json, and does the two things no cache can — validates every resource against its profiles and resolves the dependency closure with terminology expansion.</td>
     </tr>
     <tr>
-      <td><strong>Publish the IG site</strong><br /><code class="language-plaintext highlighter-rouge">Task_PublishIg</code></td>
+      <td><a id="step-Task_PublishIg"></a><strong>Publish the IG site</strong><br /><code class="language-plaintext highlighter-rouge">Task_PublishIg</code></td>
       <td>Publication manager</td>
-      <td><code class="language-plaintext highlighter-rouge">content-publish</code><br /><code class="language-plaintext highlighter-rouge">ig-publication</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/content-publish.html"><code class="language-plaintext highlighter-rouge">content-publish</code></a><br /><a href="../../../en/cat-harness/processes/skills/ig-publication.html"><code class="language-plaintext highlighter-rouge">ig-publication</code></a></td>
       <td>Release authorisation and review follow draft-to-publication.bpmn.</td>
     </tr>
   </tbody>

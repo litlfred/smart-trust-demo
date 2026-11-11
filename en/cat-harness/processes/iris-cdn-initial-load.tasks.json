@@ -124,12 +124,15 @@
    }
   }
  ],
+ "processHref": "iris-cdn-initial-load.html",
  "tasks": {
   "Task_StateBudget": {
    "id": "Task_StateBudget",
    "name": "State scope and budget, with denominators",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_StateBudget",
    "lane": "Owner",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Owner",
    "skills": [],
    "role": {
     "name": "iris-cdn-owner",
@@ -142,7 +145,9 @@
    "id": "Task_PlanBatches",
    "name": "Plan batches by community and collection",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_PlanBatches",
    "lane": "IRIS CDN Exporter (agent)",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Exporter",
    "skills": [],
    "role": {
     "name": "iris-cdn-exporter",
@@ -155,7 +160,9 @@
    "id": "Task_HarvestBatch",
    "name": "Harvest a batch of item records (REST)",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_HarvestBatch",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -168,7 +175,9 @@
    "id": "Task_FetchBitstreams",
    "name": "Fetch bitstreams not already held",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_FetchBitstreams",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -181,7 +190,9 @@
    "id": "Task_StoreBytes",
    "name": "Store bytes under SHA-256 (skip if held)",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_StoreBytes",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -194,7 +205,9 @@
    "id": "Task_Checkpoint",
    "name": "Commit the batch checkpoint",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_Checkpoint",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -207,7 +220,9 @@
    "id": "Task_Quarantine",
    "name": "Quarantine and report the mismatch",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_Quarantine",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -220,7 +235,9 @@
    "id": "Call_BuildGraph",
    "name": "Build the graph partitions",
    "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-initial-load.html#step-Call_BuildGraph",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Package and distribute partitioned W3C N-Quads and named queries",
@@ -238,7 +255,9 @@
    "id": "Call_SignPublish",
    "name": "Sign and publish the release",
    "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-initial-load.html#step-Call_SignPublish",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Sign and publish an IRIS CDN release",
@@ -256,7 +275,9 @@
    "id": "Task_ReviewLoad",
    "name": "Review the load report; open beans for gaps",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-initial-load.html#step-Task_ReviewLoad",
    "lane": "IRIS CDN Exporter (agent)",
+   "laneHref": "iris-cdn-initial-load.html#lane-Lane_Exporter",
    "skills": [],
    "role": {
     "name": "iris-cdn-exporter",

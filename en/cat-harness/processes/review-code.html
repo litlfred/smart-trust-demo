@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Code node review" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/review-code.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/review-code.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Code node review" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Code node review","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/review-code.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Code node review","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/review-code.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -970,8 +970,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1157,7 +1163,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Code reviewer</td>
+      <td><a id="lane-Lane_CodeReviewer"></a>Code reviewer</td>
       <td><code class="language-plaintext highlighter-rouge">code-reviewer</code></td>
       <td>Forks on node kind but never on verdict: Task_ReviewTool catches a skill that is satisfied but whose mechanism is reachable from nowhere, Task_ReviewSchema catches a visual fact with two homes instead of one, and both branches converge on the same Task_RecordVerdict — so whichever kind of node changed, the reader of the finding sees one recording discipline, not two.</td>
     </tr>
@@ -1185,27 +1191,27 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Run the node audits</strong><br /><code class="language-plaintext highlighter-rouge">Task_RunNodeAudits</code></td>
+      <td><a id="step-Task_RunNodeAudits"></a><strong>Run the node audits</strong><br /><code class="language-plaintext highlighter-rouge">Task_RunNodeAudits</code></td>
       <td>Code reviewer</td>
-      <td><code class="language-plaintext highlighter-rouge">code-node-review</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/code-node-review.html"><code class="language-plaintext highlighter-rouge">code-node-review</code></a></td>
       <td><code class="language-plaintext highlighter-rouge">check:tools</code>, <code class="language-plaintext highlighter-rouge">kg:audit</code> and <code class="language-plaintext highlighter-rouge">typecheck</code>. Read the kg-qa sidecar rather<br />than the summary: it is written per node so an inherited defect and a<br />new one are distinguishable.</td>
     </tr>
     <tr>
-      <td><strong>Review the Tool node</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewTool</code></td>
+      <td><a id="step-Task_ReviewTool"></a><strong>Review the Tool node</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewTool</code></td>
       <td>Code reviewer</td>
-      <td><code class="language-plaintext highlighter-rouge">skills-and-tools</code><br /><code class="language-plaintext highlighter-rouge">covered-is-not-reachable</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/skills-and-tools.html"><code class="language-plaintext highlighter-rouge">skills-and-tools</code></a><br /><a href="../../../en/cat-harness/processes/skills/covered-is-not-reachable.html"><code class="language-plaintext highlighter-rouge">covered-is-not-reachable</code></a></td>
       <td>Does it name skills, and do they resolve? Is the mechanism it advertises<br />the one that actually runs? Are its IRIs minted rather than written out?<br />And the question a covered skill hides: is the COMMAND reachable, or only<br />the skill satisfied? A skill can be served by the neighbours of its<br />mechanism while the mechanism itself is reachable from no node, and<br />check:tools reports it as covered and is right to.</td>
     </tr>
     <tr>
-      <td><strong>Review the schema definition node</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewSchema</code></td>
+      <td><a id="step-Task_ReviewSchema"></a><strong>Review the schema definition node</strong><br /><code class="language-plaintext highlighter-rouge">Task_ReviewSchema</code></td>
       <td>Code reviewer</td>
-      <td><code class="language-plaintext highlighter-rouge">code-node-review</code><br /><code class="language-plaintext highlighter-rouge">site-presentation-assets</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/code-node-review.html"><code class="language-plaintext highlighter-rouge">code-node-review</code></a><br /><a href="../../../en/cat-harness/processes/skills/site-presentation-assets.html"><code class="language-plaintext highlighter-rouge">site-presentation-assets</code></a></td>
       <td>Does the node declare what KIND of node it is? Does a widened type carry<br />its mirrors? Does a removed field leave a reason behind, so the next<br />author does not re-add it in good faith?<br />And where the node RENDERS to something the site serves — a colour, a<br />glyph, a theme’s tokens — does a Tool maintain that artefact, and does the<br />visual fact have only one home? The node decides; the stylesheet reports.</td>
     </tr>
     <tr>
-      <td><strong>Record the verdict on the node</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordVerdict</code></td>
+      <td><a id="step-Task_RecordVerdict"></a><strong>Record the verdict on the node</strong><br /><code class="language-plaintext highlighter-rouge">Task_RecordVerdict</code></td>
       <td>Code reviewer</td>
-      <td><code class="language-plaintext highlighter-rouge">code-node-review</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/code-node-review.html"><code class="language-plaintext highlighter-rouge">code-node-review</code></a></td>
       <td>Findings are advice, not commits — the same separation the generic<br />reviewer lane keeps. Record them where the next reader meets the node.</td>
     </tr>
   </tbody>

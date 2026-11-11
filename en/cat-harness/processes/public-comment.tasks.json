@@ -124,12 +124,15 @@
    }
   }
  ],
+ "processHref": "public-comment.html",
  "tasks": {
   "Task_Ingest": {
    "id": "Task_Ingest",
    "name": "Ingest and place each comment",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_Ingest",
    "lane": "Intake agent",
+   "laneHref": "public-comment.html#lane-Lane_Intake",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -142,7 +145,9 @@
    "id": "Task_Triage",
    "name": "Triage: confirm the anchor, type and priority",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_Triage",
    "lane": "Review coordinator",
+   "laneHref": "public-comment.html#lane-Lane_Coordinator",
    "skills": [],
    "role": {
     "name": "review-coordinator",
@@ -155,7 +160,9 @@
    "id": "Task_ProposeChangeSets",
    "name": "Propose change-sets, as records with no issue yet",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_ProposeChangeSets",
    "lane": "Intake agent",
+   "laneHref": "public-comment.html#lane-Lane_Intake",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -168,7 +175,9 @@
    "id": "Task_GroupChangeSets",
    "name": "Agree each change-set's requirements on its issue",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_GroupChangeSets",
    "lane": "Review committee",
+   "laneHref": "public-comment.html#lane-Lane_Committee",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -181,7 +190,9 @@
    "id": "Task_RerouteChangeSet",
    "name": "Re-route to another committee",
    "type": "bpmn:UserTask",
+   "stepHref": "public-comment.html#step-Task_RerouteChangeSet",
    "lane": "Review committee",
+   "laneHref": "public-comment.html#lane-Lane_Committee",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -194,7 +205,9 @@
    "id": "Task_Assign",
    "name": "Assign to committee members",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_Assign",
    "lane": "Review coordinator",
+   "laneHref": "public-comment.html#lane-Lane_Coordinator",
    "skills": [],
    "role": {
     "name": "review-coordinator",
@@ -207,7 +220,9 @@
    "id": "Task_CommitteeRecommends",
    "name": "Recommend a decision, with a rationale",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_CommitteeRecommends",
    "lane": "Review committee",
+   "laneHref": "public-comment.html#lane-Lane_Committee",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -220,7 +235,9 @@
    "id": "Task_EditorDecides",
    "name": "Decide, weighing the recommendations",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_EditorDecides",
    "lane": "Editor",
+   "laneHref": "public-comment.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "editor",
@@ -233,7 +250,9 @@
    "id": "CallActivity_MakeChange",
    "name": "Make the change, check it and merge it",
    "type": "bpmn:CallActivity",
+   "stepHref": "public-comment.html#step-CallActivity_MakeChange",
    "lane": "Editor",
+   "laneHref": "public-comment.html#lane-Lane_Editor",
    "skills": [],
    "calls": {
     "name": "Make a decided public comment change",
@@ -251,7 +270,9 @@
    "id": "Task_Withdraw",
    "name": "Record the withdrawal",
    "type": "bpmn:Task",
+   "stepHref": "public-comment.html#step-Task_Withdraw",
    "lane": "Public commenter",
+   "laneHref": "public-comment.html#lane-Lane_Commenter",
    "skills": [],
    "role": {
     "name": "feedback-provider",

@@ -64,12 +64,15 @@
    }
   }
  ],
+ "processHref": "crdm-close.html",
  "tasks": {
   "S_FeatureSignoff": {
    "id": "S_FeatureSignoff",
    "name": "Feature sign-off on issue",
    "type": "bpmn:Task",
+   "stepHref": "crdm-close.html#step-S_FeatureSignoff",
    "lane": "Stakeholders",
+   "laneHref": "crdm-close.html#lane-Lane_Stakeholders",
    "skills": [],
    "role": {
     "name": "stakeholder",
@@ -82,12 +85,12 @@
    "id": "BA_Confirm",
    "name": "Confirm all criteria met",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-close.html#step-BA_Confirm",
    "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-close.html#lane-Lane_BA",
    "skills": [],
    "calls": {
-    "name": "Adjudication",
-    "href": "adjudication.html",
-    "diagram": "adjudication.html"
+    "name": "Process_Adjudication"
    },
    "role": {
     "name": "business-analyst",
@@ -100,7 +103,9 @@
    "id": "A_RecordSignoff",
    "name": "Record the sign-off attestation",
    "type": "bpmn:ServiceTask",
+   "stepHref": "crdm-close.html#step-A_RecordSignoff",
    "lane": "Agent",
+   "laneHref": "crdm-close.html#lane-Lane_Agent",
    "skills": [],
    "shared": {
     "id": "GT_RecordSignoff",
@@ -117,12 +122,12 @@
    "id": "Call_MergeToMain",
    "name": "Land the feature's PRs",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-close.html#step-Call_MergeToMain",
    "lane": "Agent",
+   "laneHref": "crdm-close.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Merge to main",
-    "href": "merge-to-main.html",
-    "diagram": "merge-to-main.html"
+    "name": "Process_MergeToMain"
    },
    "role": {
     "name": "authoring-agent",
@@ -135,7 +140,9 @@
    "id": "A_Close",
    "name": "Close issue ONLY on BA authorisation",
    "type": "bpmn:Task",
+   "stepHref": "crdm-close.html#step-A_Close",
    "lane": "Agent",
+   "laneHref": "crdm-close.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",

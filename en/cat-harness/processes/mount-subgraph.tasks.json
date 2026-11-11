@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "mount-subgraph.html",
  "tasks": {
   "Task_ResolveSource": {
    "id": "Task_ResolveSource",
    "name": "Resolve the subgraph's content source",
    "type": "bpmn:Task",
+   "stepHref": "mount-subgraph.html#step-Task_ResolveSource",
    "lane": "Build pipeline",
+   "laneHref": "mount-subgraph.html#lane-Lane_MountPipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -94,7 +97,9 @@
    "id": "Task_UseCheckoutPath",
    "name": "Use the checkout path in place",
    "type": "bpmn:Task",
+   "stepHref": "mount-subgraph.html#step-Task_UseCheckoutPath",
    "lane": "Build pipeline",
+   "laneHref": "mount-subgraph.html#lane-Lane_MountPipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -107,7 +112,9 @@
    "id": "Task_MountBranchTip",
    "name": "Mount the branch tip at the declared path",
    "type": "bpmn:Task",
+   "stepHref": "mount-subgraph.html#step-Task_MountBranchTip",
    "lane": "Build pipeline",
+   "laneHref": "mount-subgraph.html#lane-Lane_MountPipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -120,7 +127,9 @@
    "id": "Task_MountRemotePin",
    "name": "Mount the remote tree at its pin",
    "type": "bpmn:Task",
+   "stepHref": "mount-subgraph.html#step-Task_MountRemotePin",
    "lane": "Build pipeline",
+   "laneHref": "mount-subgraph.html#lane-Lane_MountPipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -133,7 +142,9 @@
    "id": "Task_RetrieveNpmPackage",
    "name": "Retrieve the npm package or tarball",
    "type": "bpmn:Task",
+   "stepHref": "mount-subgraph.html#step-Task_RetrieveNpmPackage",
    "lane": "Build pipeline",
+   "laneHref": "mount-subgraph.html#lane-Lane_MountPipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -146,7 +157,9 @@
    "id": "Task_RefuseUnknownKind",
    "name": "Refuse: no flow for this source kind",
    "type": "bpmn:Task",
+   "stepHref": "mount-subgraph.html#step-Task_RefuseUnknownKind",
    "lane": "Build pipeline",
+   "laneHref": "mount-subgraph.html#lane-Lane_MountPipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",

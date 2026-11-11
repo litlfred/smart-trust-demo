@@ -64,12 +64,15 @@
    }
   }
  ],
+ "processHref": "ingest-extract-structure.html",
  "tasks": {
   "Task_ExtractText": {
    "id": "Task_ExtractText",
    "name": "Extract the text layer",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_ExtractText",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -82,7 +85,9 @@
    "id": "Task_Ocr",
    "name": "OCR to ocr/page-*.txt",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Ocr",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -95,7 +100,9 @@
    "id": "Task_Sections",
    "name": "Split into sections/*.md with doc_brief front-matter",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Sections",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -108,7 +115,9 @@
    "id": "Task_Structure",
    "name": "Write structure.json",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Structure",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -121,7 +130,9 @@
    "id": "Task_Candidates",
    "name": "Extract claim candidates",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Candidates",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "ingestion-agent",

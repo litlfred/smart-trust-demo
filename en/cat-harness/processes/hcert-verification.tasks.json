@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "hcert-verification.html",
  "tasks": {
   "Task_Decode": {
    "id": "Task_Decode",
    "name": "Strip HC1:, Base45-decode and inflate",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-verification.html#step-Task_Decode",
    "lane": "HCERT verifying system",
+   "laneHref": "hcert-verification.html#lane-Lane_Verifier",
    "skills": [],
    "role": {
     "name": "hcert-verifying-system",
@@ -70,7 +73,9 @@
    "id": "Task_Parse",
    "name": "Parse COSE_Sign1 and validate the protected header",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-verification.html#step-Task_Parse",
    "lane": "HCERT verifying system",
+   "laneHref": "hcert-verification.html#lane-Lane_Verifier",
    "skills": [],
    "role": {
     "name": "hcert-verifying-system",
@@ -83,7 +88,9 @@
    "id": "Task_Lookup",
    "name": "Find every trusted DSC with the kid",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-verification.html#step-Task_Lookup",
    "lane": "HCERT verifying system",
+   "laneHref": "hcert-verification.html#lane-Lane_Verifier",
    "skills": [],
    "role": {
     "name": "hcert-verifying-system",
@@ -96,7 +103,9 @@
    "id": "Task_Check",
    "name": "Check signature, key usage, CWT and time; dispatch the payload",
    "type": "bpmn:ServiceTask",
+   "stepHref": "hcert-verification.html#step-Task_Check",
    "lane": "HCERT verifying system",
+   "laneHref": "hcert-verification.html#lane-Lane_Verifier",
    "skills": [],
    "role": {
     "name": "hcert-verifying-system",

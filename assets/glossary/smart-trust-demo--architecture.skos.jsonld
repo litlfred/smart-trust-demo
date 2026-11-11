@@ -154,195 +154,6 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-clinic-viewer",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "Chiang Rai primary care clinic viewer, Thailand (J4.1)"
-        }
-      ],
-      "skos:altLabel": [
-        "Chiang Rai primary care clinic system"
-      ],
-      "skos:definition": [
-        {
-          "@value": "The VHL viewer of a primary care clinic in Chiang Rai, Thailand, back in Country A a year after the birth (J4.1): verifies the VHL, fetches the manifest with an HTTP Message Signature after the passcode is entered, and decrypts the documents for viewing. Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection."
-        }
-      ],
-      "dcterms:source": "scenarios/actors/chiang-rai-clinic-viewer.json",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-th-vhl-viewer",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "VHL viewer"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Reads a Verifiable Health Link QR at the point of care, checks its signature against the GDHCN trust list, fetches the manifest from Lao PDR with a signed request and shows the decrypted records (J4.1)."
-        }
-      ],
-      "skos:broader": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-clinic-viewer"
-        }
-      ],
-      "skos:related": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-provider-systems"
-        }
-      ],
-      "dcterms:source": "scenarios/actors/chiang-rai-clinic-viewer.json#th-vhl-viewer",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-provincial-hospital",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "Chiang Rai Provincial Hospital system, Thailand (Country A, XXR)"
-        }
-      ],
-      "skos:altLabel": [
-        "Chiang Rai Provincial Hospital system"
-      ],
-      "skos:definition": [
-        {
-          "@value": "The hospital record system and DVC issuing service of Chiang Rai Provincial Hospital in Thailand (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Thailand in the demonstrator. XXR is a DEV test participant, not Thailand's production key."
-        }
-      ],
-      "dcterms:source": "scenarios/actors/chiang-rai-provincial-hospital.json",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-th-birth-ehr",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "Patient record (EHR)"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "The hospital's electronic health record, in which the vaccinator records each birth dose given to the newborn (J1)."
-        }
-      ],
-      "skos:broader": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-provincial-hospital"
-        }
-      ],
-      "skos:related": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-provider-systems"
-        }
-      ],
-      "dcterms:source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-birth-ehr",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-th-immunization-record",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "Immunization record service"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Keeps the newborn's immunizations as FHIR Immunization resources, from which each DVC is made (J1)."
-        }
-      ],
-      "skos:broader": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-provincial-hospital"
-        }
-      ],
-      "skos:related": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-lifelong-health-record"
-        }
-      ],
-      "dcterms:source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-immunization-record",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-th-product-codes",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "Vaccine product code registry"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Publishes the vaccine product codes the hospital records doses against, which the receiving country maps to its own schedule codes (J1, J3)."
-        }
-      ],
-      "skos:broader": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-provincial-hospital"
-        }
-      ],
-      "skos:related": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-product-registry"
-        }
-      ],
-      "dcterms:source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-product-codes",
-      "skos:note": "candidate"
-    },
-    {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-th-dvc-signer",
-      "@type": "skos:Concept",
-      "skos:inScheme": {
-        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
-      },
-      "skos:prefLabel": [
-        {
-          "@value": "DVC signer (HCERT)"
-        }
-      ],
-      "skos:definition": [
-        {
-          "@value": "Builds each Digital Vaccination Certificate as an HCERT payload and has it signed with Thailand's document signer key, published to GDHCN (J1)."
-        }
-      ],
-      "skos:broader": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chiang-rai-provincial-hospital"
-        }
-      ],
-      "skos:related": [
-        {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-national-trust-services"
-        }
-      ],
-      "dcterms:source": "scenarios/actors/chiang-rai-provincial-hospital.json#th-dvc-signer",
-      "skos:note": "candidate"
-    },
-    {
       "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-chw-app",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -350,7 +161,7 @@
       },
       "skos:prefLabel": [
         {
-          "@value": "CHW app, Lao PDR (Country B)"
+          "@value": "CHW app, Onesa (Country B)"
         }
       ],
       "skos:altLabel": [
@@ -358,14 +169,14 @@
       ],
       "skos:definition": [
         {
-          "@value": "The OHS app on the community health worker's phone in Lao PDR (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust."
+          "@value": "The OHS app on the community health worker's phone in Onesa (J2), community configuration, offline: adds the newborn to the household (structured data capture), triage-reads a foreign DVC without verifying it (STT-VER-011), saves the doses as reported, not verified, and records a referral. A Receiver that deliberately stops before trust."
         }
       ],
       "dcterms:source": "scenarios/actors/chw-app.json",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-chw-app",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-chw-app",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -387,10 +198,10 @@
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-chw-community"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-chw-community"
         }
       ],
-      "dcterms:source": "scenarios/actors/chw-app.json#la-chw-app",
+      "dcterms:source": "scenarios/actors/chw-app.json#xxk-chw-app",
       "skos:note": "candidate"
     },
     {
@@ -401,22 +212,22 @@
       },
       "skos:prefLabel": [
         {
-          "@value": "Vientiane District Health Center EHR (Country B)"
+          "@value": "Lomaru District Health Center EHR (Country B)"
         }
       ],
       "skos:altLabel": [
-        "Vientiane District Health Center EHR"
+        "Lomaru District Health Center EHR"
       ],
       "skos:definition": [
         {
-          "@value": "The district health center's OHS-based record system in Lao PDR (Country B), on a tablet (J3): verifies DVCs against its cached GDHCN trust list, imports them with provenance, adds the Lao schedule code beside each foreign vaccine code and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly); it fetches nothing during J3."
+          "@value": "The district health center's OHS-based record system in Onesa (Country B), on a tablet (J3): verifies DVCs against its cached GDHCN trust list, imports them with provenance, adds the Onesan schedule code beside each foreign vaccine code and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly); it fetches nothing during J3."
         }
       ],
       "dcterms:source": "scenarios/actors/district-health-center-ehr.json",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-dhc-ehr",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-dhc-ehr",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -438,26 +249,26 @@
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-provider-systems"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-provider-systems"
         }
       ],
-      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#la-dhc-ehr",
+      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#xxk-dhc-ehr",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-conceptmap",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-conceptmap",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Code mapping service (product to Lao EPI)"
+          "@value": "Code mapping service (product to Onesan EPI)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Maps a foreign vaccine product code to the Lao EPI schedule code, which is added beside the original code on import (J3)."
+          "@value": "Maps a foreign vaccine product code to the Onesan EPI schedule code, which is added beside the original code on import (J3)."
         }
       ],
       "skos:broader": [
@@ -467,26 +278,26 @@
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-terminology-service"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-terminology-service"
         }
       ],
-      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#la-conceptmap",
+      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#xxk-conceptmap",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-schedule",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-schedule",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Schedule evaluator (Lao infant schedule)"
+          "@value": "Schedule evaluator (Onesan infant schedule)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Evaluates the Lao infant immunization schedule against the child's doses, imported ones included, and says which are due (J3)."
+          "@value": "Evaluates the Onesan infant immunization schedule against the child's doses, imported ones included, and says which are due (J3)."
         }
       ],
       "skos:broader": [
@@ -496,14 +307,14 @@
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-computable-decision-support-engine"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-computable-decision-support-engine"
         }
       ],
-      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#la-schedule",
+      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#xxk-schedule",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-dvc-verifier",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-dvc-verifier",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -525,10 +336,10 @@
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-national-trust-services"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-national-trust-services"
         }
       ],
-      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#la-dvc-verifier",
+      "dcterms:source": "scenarios/actors/district-health-center-ehr.json#xxk-dvc-verifier",
       "skos:note": "candidate"
     },
     {
@@ -547,14 +358,14 @@
       ],
       "skos:definition": [
         {
-          "@value": "The one Android phone the Sengmany family shares, held by Bounmy (J4): a family wallet with a profile per member (Bounmy, Khamla, Somsack) and one VHL QR per member, presented by the VHL Holder. It is the Holder's device, not an actor of its own in either guide."
+          "@value": "The one Android phone the Sengmany family shares, held by Bounmy (J4): a family wallet with a profile per member (Bounmy, Khamla, Somsak) and one VHL QR per member, presented by the VHL Holder. It is the Holder's device, not an actor of its own in either guide."
         }
       ],
       "dcterms:source": "scenarios/actors/family-phone.json",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-family-wallet",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-family-wallet",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -576,10 +387,10 @@
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-citizen-patient-apps"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-citizen-patient-apps"
         }
       ],
-      "dcterms:source": "scenarios/actors/family-phone.json#la-family-wallet",
+      "dcterms:source": "scenarios/actors/family-phone.json#xxk-family-wallet",
       "skos:note": "candidate"
     },
     {
@@ -598,36 +409,225 @@
       ],
       "skos:definition": [
         {
-          "@value": "WHO's Global Digital Health Certification Network, DEV environment: receives participants' PKI material and distributes it as DID trust lists (DEV: tng-cdn-dev.who.int). Country A (Thailand, played by XXR) and Country B (Lao PDR, played by the fictional XXH) are its participants."
+          "@value": "WHO's Global Digital Health Certification Network, DEV environment: receives participants' PKI material and distributes it as DID trust lists (DEV: tng-cdn-dev.who.int). Country A (Taifafeki, played by XXR) and Country B (Onesa, played by the fictional XXK) are its participants."
         }
       ],
       "dcterms:source": "scenarios/actors/gdhcn-dev-trust-anchor.json",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-kesaro-clinic-viewer",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Lao PDR national health portal and gateway (Country B, XXH)"
+          "@value": "Kesaro primary care clinic viewer, Taifafeki (J4.1)"
         }
       ],
       "skos:altLabel": [
-        "Lao national health portal"
+        "Kesaro primary care clinic system"
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the fictional participant XXH, so no real ministry's key is implied."
+          "@value": "The VHL viewer of a primary care clinic in Kesaro, Taifafeki, back in Country A a year after the birth (J4.1): verifies the VHL, fetches the manifest with an HTTP Message Signature after the passcode is entered, and decrypts the documents for viewing. Its trust store is loaded before the visit from a cache of the GDHCN trust list refreshed nightly or hourly; verifying needs no connection."
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json",
+      "dcterms:source": "scenarios/actors/kesaro-clinic-viewer.json",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-national-fhir",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxr-vhl-viewer",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "VHL viewer"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Reads a Verifiable Health Link QR at the point of care, checks its signature against the GDHCN trust list, fetches the manifest from Onesa with a signed request and shows the decrypted records (J4.1)."
+        }
+      ],
+      "skos:broader": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-kesaro-clinic-viewer"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-provider-systems"
+        }
+      ],
+      "dcterms:source": "scenarios/actors/kesaro-clinic-viewer.json#xxr-vhl-viewer",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-kesaro-provincial-hospital",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Kesaro Provincial Hospital system, Taifafeki (Country A, XXR)"
+        }
+      ],
+      "skos:altLabel": [
+        "Kesaro Provincial Hospital system"
+      ],
+      "skos:definition": [
+        {
+          "@value": "The hospital record system and DVC issuing service of Kesaro Provincial Hospital in Taifafeki (Country A, the birth country): issues one DVC per birth dose (J1), signing with the DSC of GDHCN DEV test participant XXR (kid kW/6VnwPRKI=, hex 916ffa567c0f44a2), which plays Taifafeki in the demonstrator. XXR is a DEV test participant, not Taifafeki's production key."
+        }
+      ],
+      "dcterms:source": "scenarios/actors/kesaro-provincial-hospital.json",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxr-birth-ehr",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Patient record (EHR)"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The hospital's electronic health record, in which the vaccinator records each birth dose given to the newborn (J1)."
+        }
+      ],
+      "skos:broader": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-kesaro-provincial-hospital"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-provider-systems"
+        }
+      ],
+      "dcterms:source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-birth-ehr",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxr-immunization-record",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Immunization record service"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Keeps the newborn's immunizations as FHIR Immunization resources, from which each DVC is made (J1)."
+        }
+      ],
+      "skos:broader": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-kesaro-provincial-hospital"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-lifelong-health-record"
+        }
+      ],
+      "dcterms:source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-immunization-record",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxr-product-codes",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Vaccine product code registry"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Publishes the vaccine product codes the hospital records doses against, which the receiving country maps to its own schedule codes (J1, J3)."
+        }
+      ],
+      "skos:broader": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-kesaro-provincial-hospital"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-product-registry"
+        }
+      ],
+      "dcterms:source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-product-codes",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxr-dvc-signer",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "DVC signer (HCERT)"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Builds each Digital Vaccination Certificate as an HCERT payload and has it signed with Taifafeki's document signer key, published to GDHCN (J1)."
+        }
+      ],
+      "skos:broader": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-kesaro-provincial-hospital"
+        }
+      ],
+      "skos:related": [
+        {
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-national-trust-services"
+        }
+      ],
+      "dcterms:source": "scenarios/actors/kesaro-provincial-hospital.json#xxr-dvc-signer",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Onesa national health portal and gateway (Country B, XXK)"
+        }
+      ],
+      "skos:altLabel": [
+        "Onesan national health portal"
+      ],
+      "skos:definition": [
+        {
+          "@value": "Onesa's national FHIR server behind the OHS FHIR Info Gateway (J4.0, J4.1): assembles each family member's IPS and DVCs, issues each as a passcode-protected Verifiable Health Link in an HCERT signed with Country B's DSC, hosts the manifests (ITI-YY5), checks passcode, expiry and consent on each request, and logs every access as an AuditEvent at home. Country B is played on the GDHCN DEV network by the test participant XXK, so no real ministry's key is implied."
+        }
+      ],
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-national-fhir",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -644,19 +644,19 @@
       ],
       "skos:broader": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal"
         }
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-lifelong-health-record"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-lifelong-health-record"
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json#la-national-fhir",
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json#xxk-national-fhir",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-vhl-issuer",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-vhl-issuer",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -668,24 +668,24 @@
       ],
       "skos:definition": [
         {
-          "@value": "Issues a passcode-protected Verifiable Health Link per family member, in an HCERT signed with Lao PDR's document signer key (J4.0)."
+          "@value": "Issues a passcode-protected Verifiable Health Link per family member, in an HCERT signed with Onesa's document signer key (J4.0)."
         }
       ],
       "skos:broader": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal"
         }
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-national-trust-services"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-national-trust-services"
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json#la-vhl-issuer",
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json#xxk-vhl-issuer",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-info-gateway",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-info-gateway",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -697,24 +697,24 @@
       ],
       "skos:definition": [
         {
-          "@value": "Answers a VHL manifest request after checking its signature, the passcode, the expiry and the consent, and logs each access in Lao PDR (J4.1)."
+          "@value": "Answers a VHL manifest request after checking its signature, the passcode, the expiry and the consent, and logs each access in Onesa (J4.1)."
         }
       ],
       "skos:broader": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal"
         }
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-dpi-f-information-mediator"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-dpi-f-information-mediator"
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json#la-info-gateway",
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json#xxk-info-gateway",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-client-registry",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-client-registry",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -731,19 +731,19 @@
       ],
       "skos:broader": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal"
         }
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-client-registry-for-health"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-client-registry-for-health"
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json#la-client-registry",
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json#xxk-client-registry",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-facility-registry",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-facility-registry",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -760,19 +760,19 @@
       ],
       "skos:broader": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal"
         }
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-health-facility-registry"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-health-facility-registry"
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json#la-facility-registry",
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json#xxk-facility-registry",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-workforce-registry",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-workforce-registry",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -789,19 +789,19 @@
       ],
       "skos:broader": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal"
         }
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-health-workforce-registry"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-health-workforce-registry"
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json#la-workforce-registry",
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json#xxk-workforce-registry",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-la-data-pipes",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/part-xxk-data-pipes",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
@@ -818,15 +818,15 @@
       ],
       "skos:broader": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-lao-national-portal"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/actor-onesa-national-portal"
         }
       ],
       "skos:related": [
         {
-          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-health-management-information-system"
+          "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-health-management-information-system"
         }
       ],
-      "dcterms:source": "scenarios/actors/lao-national-portal.json#la-data-pipes",
+      "dcterms:source": "scenarios/actors/onesa-national-portal.json#xxk-data-pipes",
       "skos:note": "candidate"
     },
     {
@@ -837,7 +837,7 @@
       },
       "skos:prefLabel": [
         {
-          "@value": "XXR document signer key (Country A, Thailand)"
+          "@value": "XXR document signer key (Country A, Taifafeki)"
         }
       ],
       "skos:definition": [
@@ -886,7 +886,7 @@
       ],
       "skos:definition": [
         {
-          "@value": "J2, Return home, CHW discovery and referral. Back in Country B (home, XXH), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver)."
+          "@value": "J2, Return home, CHW discovery and referral. Back in Country B (home, XXK), where the family resides, the community health worker finds an infant born abroad who is missing from the household roster on a home visit. Offline, the CHW app adds the infant to the household (a FHIR Group, through a structured data capture form), reads the foreign DVCs without verifying them (read-unverified, STT-VER-011: the triage read stops before the trust lookup and marks every field unverified), saves the doses as reported by the family, not verified (Immunization.primarySource false), and refers the infant to the clinic for verification. Everything is queued on the phone and syncs when it next has a signal. The CHW app is a Receiver (SMART Trust, smart-trust-phw) that deliberately stops before trust; the caregiver provides the VDHC as Holder (smart-trust-phw requirement provide-a-vhl-to-a-receiver)."
         }
       ],
       "dcterms:source": "processes/content/j2-chw-discovery-referral.bpmn#Process_J2ChwDiscovery",
@@ -959,304 +959,304 @@
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-chw-community",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-chw-community",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "CHW & Community (Lao PDR)"
+          "@value": "CHW & Community (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block CHW & Community: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block CHW & Community: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-citizen-patient-apps",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-citizen-patient-apps",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Citizen / Patient Apps (Lao PDR)"
+          "@value": "Citizen / Patient Apps (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Citizen / Patient Apps: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Citizen / Patient Apps: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-client-registry-for-health",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-client-registry-for-health",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Client Registry for Health (Lao PDR)"
+          "@value": "Client Registry for Health (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Client Registry for Health: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Client Registry for Health: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-computable-decision-support-engine",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-computable-decision-support-engine",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Computable Decision Support Engine (Lao PDR)"
+          "@value": "Computable Decision Support Engine (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Computable Decision Support Engine: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Computable Decision Support Engine: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-dpi-f-information-mediator",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-dpi-f-information-mediator",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "DPI-F Information Mediator (Lao PDR)"
+          "@value": "DPI-F Information Mediator (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block DPI-F Information Mediator: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block DPI-F Information Mediator: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-health-facility-registry",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-health-facility-registry",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Health Facility Registry (Lao PDR)"
+          "@value": "Health Facility Registry (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Health Facility Registry: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Health Facility Registry: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-health-management-information-system",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-health-management-information-system",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Health Management Information System (Lao PDR)"
+          "@value": "Health Management Information System (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Health Management Information System: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Health Management Information System: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-health-workforce-registry",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-health-workforce-registry",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Health Workforce Registry (Lao PDR)"
+          "@value": "Health Workforce Registry (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Health Workforce Registry: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Health Workforce Registry: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-lifelong-health-record",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-lifelong-health-record",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Lifelong Health Record (Lao PDR)"
+          "@value": "Lifelong Health Record (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-national-trust-services",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-national-trust-services",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "National Trust Services (Lao PDR)"
+          "@value": "National Trust Services (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block National Trust Services: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block National Trust Services: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-provider-systems",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-provider-systems",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Provider Systems (Lao PDR)"
+          "@value": "Provider Systems (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Provider Systems: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Provider Systems: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-lao-pdr-terminology-service",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-onesa-terminology-service",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Terminology Service (Lao PDR)"
+          "@value": "Terminology Service (Onesa)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Lao PDR's instance of the DPI-H Reference Architecture building block Terminology Service: what Lao PDR's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Onesa's instance of the DPI-H Reference Architecture building block Terminology Service: what Onesa's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-lifelong-health-record",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-lifelong-health-record",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Lifelong Health Record (Thailand)"
+          "@value": "Lifelong Health Record (Taifafeki)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Thailand's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Taifafeki's instance of the DPI-H Reference Architecture building block Lifelong Health Record: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-national-trust-services",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-national-trust-services",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "National Trust Services (Thailand)"
+          "@value": "National Trust Services (Taifafeki)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Thailand's instance of the DPI-H Reference Architecture building block National Trust Services: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Taifafeki's instance of the DPI-H Reference Architecture building block National Trust Services: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-product-registry",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-product-registry",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Product Registry (Thailand)"
+          "@value": "Product Registry (Taifafeki)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Thailand's instance of the DPI-H Reference Architecture building block Product Registry: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Taifafeki's instance of the DPI-H Reference Architecture building block Product Registry: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",
       "skos:note": "candidate"
     },
     {
-      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-thailand-provider-systems",
+      "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture/instance-taifafeki-provider-systems",
       "@type": "skos:Concept",
       "skos:inScheme": {
         "@id": "https://litlfred.github.io/smart-trust-demo/v0/ns/glossary/architecture"
       },
       "skos:prefLabel": [
         {
-          "@value": "Provider Systems (Thailand)"
+          "@value": "Provider Systems (Taifafeki)"
         }
       ],
       "skos:definition": [
         {
-          "@value": "Thailand's instance of the DPI-H Reference Architecture building block Provider Systems: what Thailand's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
+          "@value": "Taifafeki's instance of the DPI-H Reference Architecture building block Provider Systems: what Taifafeki's parts that play that block are, one per jurisdiction, since neither country's systems are the other's."
         }
       ],
       "dcterms:source": "scenarios/actors/ (meta.country and meta.parts[].raBlock)",

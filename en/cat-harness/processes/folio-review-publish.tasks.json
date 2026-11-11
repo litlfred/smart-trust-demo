@@ -40,12 +40,15 @@
    }
   }
  ],
+ "processHref": "folio-review-publish.html",
  "tasks": {
   "Task_Review": {
    "id": "Task_Review",
    "name": "Review and record feedback",
    "type": "bpmn:UserTask",
+   "stepHref": "folio-review-publish.html#step-Task_Review",
    "lane": "Reviewer",
+   "laneHref": "folio-review-publish.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -58,7 +61,9 @@
    "id": "Task_Publish",
    "name": "Publish",
    "type": "bpmn:ServiceTask",
+   "stepHref": "folio-review-publish.html#step-Task_Publish",
    "lane": "Build pipeline",
+   "laneHref": "folio-review-publish.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -71,7 +76,9 @@
    "id": "Call_ContributorFeedback",
    "name": "Contributor feedback",
    "type": "bpmn:CallActivity",
+   "stepHref": "folio-review-publish.html#step-Call_ContributorFeedback",
    "lane": "Authoring Committee",
+   "laneHref": "folio-review-publish.html#lane-Lane_Committee",
    "skills": [],
    "calls": {
     "name": "Contributor feedback on a working draft",

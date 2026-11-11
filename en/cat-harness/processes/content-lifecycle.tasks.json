@@ -124,12 +124,15 @@
    }
   }
  ],
+ "processHref": "content-lifecycle.html",
  "tasks": {
   "Task_Plan": {
    "id": "Task_Plan",
    "name": "Plan scope, team, artifacts",
    "type": "bpmn:UserTask",
+   "stepHref": "content-lifecycle.html#step-Task_Plan",
    "lane": "Programme manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_ProgMgr",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -142,7 +145,9 @@
    "id": "Task_SeedBeans",
    "name": "Seed the work plan",
    "type": "bpmn:Task",
+   "stepHref": "content-lifecycle.html#step-Task_SeedBeans",
    "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
    "skills": [],
    "shared": {
     "id": "GT_SeedWorkPlan",
@@ -159,7 +164,9 @@
    "id": "CallActivity_Editing",
    "name": "Editing and HCI validation",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-CallActivity_Editing",
    "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
    "skills": [],
    "calls": {
     "name": "Editing and HCI validation",
@@ -177,7 +184,9 @@
    "id": "Task_Test",
    "name": "Integration test and QA sweep",
    "type": "bpmn:ServiceTask",
+   "stepHref": "content-lifecycle.html#step-Task_Test",
    "lane": "Validation and QA (mechanical + agents)",
+   "laneHref": "content-lifecycle.html#lane-Lane_Qa",
    "skills": [],
    "role": {
     "name": "validation-pipeline",
@@ -190,7 +199,9 @@
    "id": "CallActivity_Publication",
    "name": "Draft, review and publish",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-CallActivity_Publication",
    "lane": "Publication manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_PubMgr",
    "skills": [],
    "calls": {
     "name": "Draft, review and publish",
@@ -208,7 +219,9 @@
    "id": "Task_Feedback",
    "name": "Triage published feedback",
    "type": "bpmn:UserTask",
+   "stepHref": "content-lifecycle.html#step-Task_Feedback",
    "lane": "Review team and SMEs",
+   "laneHref": "content-lifecycle.html#lane-Lane_Review",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -221,7 +234,9 @@
    "id": "Task_FeedbackBeans",
    "name": "File feedback as beans",
    "type": "bpmn:Task",
+   "stepHref": "content-lifecycle.html#step-Task_FeedbackBeans",
    "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
    "skills": [],
    "role": {
     "name": "editor",
@@ -234,7 +249,9 @@
    "id": "Task_Retire",
    "name": "Retire or archive",
    "type": "bpmn:UserTask",
+   "stepHref": "content-lifecycle.html#step-Task_Retire",
    "lane": "Programme manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_ProgMgr",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -247,12 +264,12 @@
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-Call_BeanOpen",
    "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "editor",
@@ -265,12 +282,12 @@
    "id": "Call_BeanClose",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-Call_BeanClose",
    "lane": "Programme manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_ProgMgr",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "programme-manager",

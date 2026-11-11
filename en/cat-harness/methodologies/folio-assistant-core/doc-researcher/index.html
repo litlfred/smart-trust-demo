@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -940,12 +940,12 @@
 
 <p><strong>Applies when.</strong> <strong>A question must be answered from documents this folio has ingested, and one retrieval pass will not do it.</strong> Use it when the answer is spread across several documents, or across text and figures within one, or when the asker will follow up. It answers <em>how to search a corpus you already hold</em>, never <em>what to hold</em> — <code class="language-plaintext highlighter-rouge">library-ingestion</code> and the L1 completeness gate answer that, and this method assumes their output. Do NOT reach for it for a single lookup in a known document. The loop below costs iterations, and a method whose cheapest path is more expensive than reading the page is the wrong method.</p>
 
-<p><strong>Origin.</strong> Kuicai Dong, Shurui Huang, Fangda Ye, Wei Han, Zhi Zhang, Dexun Li, Wenjun Li, Qu Yang, Gang Wang, Yichao Wang, Chen Zhang and Yong Liu, “Doc-Researcher: A Unified System for Multimodal Document Parsing and Deep Research” (arXiv:2510.21603v1, Huawei Technologies, 24 October 2025). Open access. THE PRIMARY IS HELD AND PROMOTED, at <code class="language-plaintext highlighter-rouge">library/arxiv-2510.21603v1</code>, which is what <code class="language-plaintext highlighter-rouge">evidence:</code> below points at. It was staged and unpromotable for a day: the extractor reported <strong>383</strong> images, 335 of them on page 3, and its <code class="language-plaintext highlighter-rouge">image-descriptions</code> requirement could not be met. It holds <strong>fifty</strong>. See §”What this checkout holds” — the first reading of those 383 was wrong, and the correction is kept there rather than tidied away. It is a SYSTEM paper reporting one implementation against a benchmark its own authors built, so what is adopted below is the METHOD, and §”Where this rendering stops” says which parts were left behind.</p>
+<p><strong>Origin.</strong> Kuicai Dong, Shurui Huang, Fangda Ye, Wei Han, Zhi Zhang, Dexun Li, Wenjun Li, Qu Yang, Gang Wang, Yichao Wang, Chen Zhang and Yong Liu, “Doc-Researcher: A Unified System for Multimodal Document Parsing and Deep Research” (arXiv:2510.21603v1, Huawei Technologies, 24 October 2025). Open access. THE PRIMARY IS HELD AND PROMOTED, at <a href="../../../library/folio-assistant-core/#folio-assistant-core%2Farxiv-2510.21603v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2510.21603v1</code></a>, which is what <code class="language-plaintext highlighter-rouge">evidence:</code> below points at. It was staged and unpromotable for a day: the extractor reported <strong>383</strong> images, 335 of them on page 3, and its <code class="language-plaintext highlighter-rouge">image-descriptions</code> requirement could not be met. It holds <strong>fifty</strong>. See §”What this checkout holds” — the first reading of those 383 was wrong, and the correction is kept there rather than tidied away. It is a SYSTEM paper reporting one implementation against a benchmark its own authors built, so what is adopted below is the METHOD, and §”Where this rendering stops” says which parts were left behind.</p>
 
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2510.21603v1</code></li>
+  <li><a href="../../../library/folio-assistant-core/#folio-assistant-core%2Farxiv-2510.21603v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2510.21603v1</code></a> · <a href="../../../library/folio-assistant-core/arxiv-2510.21603v1/">view</a> · <a href="https://github.com/litlfred/folio-assistant-core/blob/main/library/arxiv-2510.21603v1/README.md">item page</a> · <a href="https://arxiv.org/abs/2510.21603v1">source</a></li>
 </ul>
 
 <p><strong>Node file:</strong> <a href="https://github.com/litlfred/folio-assistant-core/blob/main/methodologies/doc-researcher.md">doc-researcher.md</a></p>

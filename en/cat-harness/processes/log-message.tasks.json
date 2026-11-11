@@ -28,12 +28,15 @@
    }
   }
  ],
+ "processHref": "log-message.html",
  "tasks": {
   "A_Compose": {
    "id": "A_Compose",
    "name": "Compose the message",
    "type": "bpmn:Task",
+   "stepHref": "log-message.html#step-A_Compose",
    "lane": "Actor",
+   "laneHref": "log-message.html#lane-Lane_Actor",
    "skills": [],
    "binding": "variable"
   },
@@ -41,7 +44,9 @@
    "id": "A_Record",
    "name": "Record it where a person can read it",
    "type": "bpmn:Task",
+   "stepHref": "log-message.html#step-A_Record",
    "lane": "Logger",
+   "laneHref": "log-message.html#lane-Lane_Logger",
    "skills": [],
    "role": {
     "name": "logger",

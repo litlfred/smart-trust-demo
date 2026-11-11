@@ -160,12 +160,15 @@
    }
   }
  ],
+ "processHref": "multi-locale-translation.html",
  "tasks": {
   "Task_ML_Scope": {
    "id": "Task_ML_Scope",
    "name": "Set locales, scope and merge window",
    "type": "bpmn:UserTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_Scope",
    "lane": "Owner",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Owner",
    "skills": [],
    "role": {
     "name": "user",
@@ -178,7 +181,9 @@
    "id": "Task_ML_Extract",
    "name": "Extract every template once",
    "type": "bpmn:Task",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_Extract",
    "lane": "Source-language lead",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Lead",
    "skills": [],
    "shared": {
     "id": "GT_ExtractPot",
@@ -195,7 +200,9 @@
    "id": "Task_ML_SourcePR",
    "name": "Merge the one source PR to main",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_SourcePR",
    "lane": "Source-language lead",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Lead",
    "skills": [],
    "role": {
     "name": "translation-source-lead",
@@ -208,7 +215,9 @@
    "id": "Task_ML_Watcher",
    "name": "Schedule the refresh watcher",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_Watcher",
    "lane": "Source-language lead",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Lead",
    "skills": [],
    "role": {
     "name": "translation-source-lead",
@@ -221,7 +230,9 @@
    "id": "Task_ML_Translate",
    "name": "Translate one locale",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_Translate",
    "lane": "Locale translator (one per locale)",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -234,7 +245,9 @@
    "id": "Task_ML_SourceIssue",
    "name": "File the source errors as one issue",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_SourceIssue",
    "lane": "Source-language lead",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Lead",
    "skills": [],
    "role": {
     "name": "translation-source-lead",
@@ -247,7 +260,9 @@
    "id": "Task_ML_Gates",
    "name": "Run the deterministic gates",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_Gates",
    "lane": "Locale translator (one per locale)",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -260,7 +275,9 @@
    "id": "Call_ML_RoundTrip",
    "name": "Untainted round trip on a sample",
    "type": "bpmn:CallActivity",
+   "stepHref": "multi-locale-translation.html#step-Call_ML_RoundTrip",
    "lane": "Locale translator (one per locale)",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Translator",
    "skills": [],
    "calls": {
     "name": "Translation round trip (untainted)",
@@ -278,7 +295,9 @@
    "id": "Task_ML_Glossary",
    "name": "Check glossary consistency",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_Glossary",
    "lane": "Locale translator (one per locale)",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -291,7 +310,9 @@
    "id": "Task_ML_QAReport",
    "name": "Write the locale's QA report",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_QAReport",
    "lane": "Locale translator (one per locale)",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -304,7 +325,9 @@
    "id": "Task_ML_LocalePR",
    "name": "Open the locale PR to main",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_LocalePR",
    "lane": "Locale translator (one per locale)",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -317,7 +340,9 @@
    "id": "Task_ML_FixDrift",
    "name": "Fix each drift on the PR",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_FixDrift",
    "lane": "Locale translator (one per locale)",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Translator",
    "skills": [],
    "role": {
     "name": "locale-translator",
@@ -330,7 +355,9 @@
    "id": "Task_ML_Merge",
    "name": "Validate and merge in the window",
    "type": "bpmn:ServiceTask",
+   "stepHref": "multi-locale-translation.html#step-Task_ML_Merge",
    "lane": "Source-language lead",
+   "laneHref": "multi-locale-translation.html#lane-Lane_ML_Lead",
    "skills": [],
    "role": {
     "name": "translation-source-lead",

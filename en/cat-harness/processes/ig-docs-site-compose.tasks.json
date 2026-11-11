@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "ig-docs-site-compose.html",
  "tasks": {
   "Task_Indexes": {
    "id": "Task_Indexes",
    "name": "Build each IG's artefact index",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-docs-site-compose.html#step-Task_Indexes",
    "lane": "Host docs site build (CI runner)",
+   "laneHref": "ig-docs-site-compose.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -70,7 +73,9 @@
    "id": "Task_Pages",
    "name": "Generate each IG instance's artefact pages",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-docs-site-compose.html#step-Task_Pages",
    "lane": "Host docs site build (CI runner)",
+   "laneHref": "ig-docs-site-compose.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -83,7 +88,9 @@
    "id": "Task_Stage",
    "name": "Clone each IG at its recorded commit and stage it",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-docs-site-compose.html#step-Task_Stage",
    "lane": "Host docs site build (CI runner)",
+   "laneHref": "ig-docs-site-compose.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -96,7 +103,9 @@
    "id": "Task_ComposeInto",
    "name": "Compose each staged IG into the host source",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-docs-site-compose.html#step-Task_ComposeInto",
    "lane": "Host docs site build (CI runner)",
+   "laneHref": "ig-docs-site-compose.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",

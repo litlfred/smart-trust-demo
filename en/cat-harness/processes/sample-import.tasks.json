@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "sample-import.html",
  "tasks": {
   "Task_Scope": {
    "id": "Task_Scope",
    "name": "Scope the sample: items, store, permanence",
    "type": "bpmn:UserTask",
+   "stepHref": "sample-import.html#step-Task_Scope",
    "lane": "Contributor (human or agent)",
+   "laneHref": "sample-import.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "user",
@@ -106,7 +109,9 @@
    "id": "Call_Materialize",
    "name": "Materialize remote content (the five gates)",
    "type": "bpmn:CallActivity",
+   "stepHref": "sample-import.html#step-Call_Materialize",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "sample-import.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Materialize remote content: the shared subprocess",
@@ -124,7 +129,9 @@
    "id": "Task_Library",
    "name": "Land it in library/",
    "type": "bpmn:ServiceTask",
+   "stepHref": "sample-import.html#step-Task_Library",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "sample-import.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -137,7 +144,9 @@
    "id": "Task_Trial",
    "name": "Keep it as a trial: the unpublished trashcan",
    "type": "bpmn:ServiceTask",
+   "stepHref": "sample-import.html#step-Task_Trial",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "sample-import.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -150,7 +159,9 @@
    "id": "Task_ImportTest",
    "name": "Import into the store, and test the import",
    "type": "bpmn:ServiceTask",
+   "stepHref": "sample-import.html#step-Task_ImportTest",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "sample-import.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -163,7 +174,9 @@
    "id": "Task_RecordFindings",
    "name": "Record what failed",
    "type": "bpmn:ServiceTask",
+   "stepHref": "sample-import.html#step-Task_RecordFindings",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "sample-import.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -176,7 +189,9 @@
    "id": "Call_Refresh",
    "name": "Refresh materialized content",
    "type": "bpmn:CallActivity",
+   "stepHref": "sample-import.html#step-Call_Refresh",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "sample-import.html#lane-Lane_1",
    "skills": [],
    "calls": {
     "name": "Refresh materialized remote content",

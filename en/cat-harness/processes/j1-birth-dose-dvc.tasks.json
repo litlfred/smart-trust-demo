@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "j1-birth-dose-dvc.html",
  "tasks": {
   "Task_Vaccinate": {
    "id": "Task_Vaccinate",
    "name": "Give Hep B and BCG birth doses and record them",
    "type": "bpmn:CallActivity",
+   "stepHref": "j1-birth-dose-dvc.html#step-Task_Vaccinate",
    "lane": "Birth clinic vaccinator",
+   "laneHref": "j1-birth-dose-dvc.html#lane-Lane_birth-clinic-vaccinator",
    "skills": [],
    "calls": {
     "name": "Capture data with an SDC questionnaire",
@@ -99,7 +102,9 @@
    "id": "Task_Payload",
    "name": "Build one DVCMinPreQual payload per dose",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j1-birth-dose-dvc.html#step-Task_Payload",
    "lane": "Birth clinic issuing system",
+   "laneHref": "j1-birth-dose-dvc.html#lane-Lane_birth-clinic-system",
    "skills": [],
    "role": {
     "name": "birth-clinic-system",
@@ -112,7 +117,9 @@
    "id": "Task_Prepare",
    "name": "Prepare: CWT claims and the COSE Sig_structure",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j1-birth-dose-dvc.html#step-Task_Prepare",
    "lane": "Birth clinic issuing system",
+   "laneHref": "j1-birth-dose-dvc.html#lane-Lane_birth-clinic-system",
    "skills": [],
    "role": {
     "name": "birth-clinic-system",
@@ -125,7 +132,9 @@
    "id": "Task_Sign",
    "name": "Sign the bytes with XXR's DSC key",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j1-birth-dose-dvc.html#step-Task_Sign",
    "lane": "Issuer signing key",
+   "laneHref": "j1-birth-dose-dvc.html#lane-Lane_issuer-key",
    "skills": [],
    "role": {
     "name": "issuer-key",
@@ -138,7 +147,9 @@
    "id": "Task_Finish",
    "name": "Finish: COSE_Sign1, deflate, Base45, HC1:",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j1-birth-dose-dvc.html#step-Task_Finish",
    "lane": "Birth clinic issuing system",
+   "laneHref": "j1-birth-dose-dvc.html#lane-Lane_birth-clinic-system",
    "skills": [],
    "role": {
     "name": "birth-clinic-system",
@@ -151,7 +162,9 @@
    "id": "Task_Print",
    "name": "Print the paper DVC, one QR per dose",
    "type": "bpmn:UserTask",
+   "stepHref": "j1-birth-dose-dvc.html#step-Task_Print",
    "lane": "Birth clinic vaccinator",
+   "laneHref": "j1-birth-dose-dvc.html#lane-Lane_birth-clinic-vaccinator",
    "skills": [],
    "role": {
     "name": "birth-clinic-vaccinator",

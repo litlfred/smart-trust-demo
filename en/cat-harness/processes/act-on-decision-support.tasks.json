@@ -52,12 +52,15 @@
    }
   }
  ],
+ "processHref": "act-on-decision-support.html",
  "tasks": {
   "Task_Apply": {
    "id": "Task_Apply",
    "name": "Apply the PlanDefinition",
    "type": "bpmn:ServiceTask",
+   "stepHref": "act-on-decision-support.html#step-Task_Apply",
    "lane": "Point-of-care system",
+   "laneHref": "act-on-decision-support.html#lane-Lane_System",
    "skills": [],
    "role": {
     "name": "point-of-care-system",
@@ -70,7 +73,9 @@
    "id": "Task_Review",
    "name": "Accept or decline the guidance",
    "type": "bpmn:UserTask",
+   "stepHref": "act-on-decision-support.html#step-Task_Review",
    "lane": "Health worker",
+   "laneHref": "act-on-decision-support.html#lane-Lane_HealthWorker",
    "skills": [],
    "role": {
     "name": "health-worker",
@@ -83,7 +88,9 @@
    "id": "Task_Activate",
    "name": "Update the care plan",
    "type": "bpmn:ServiceTask",
+   "stepHref": "act-on-decision-support.html#step-Task_Activate",
    "lane": "Point-of-care system",
+   "laneHref": "act-on-decision-support.html#lane-Lane_System",
    "skills": [],
    "role": {
     "name": "point-of-care-system",
@@ -96,7 +103,9 @@
    "id": "Task_Rationale",
    "name": "Note the reason (optional)",
    "type": "bpmn:UserTask",
+   "stepHref": "act-on-decision-support.html#step-Task_Rationale",
    "lane": "Health worker",
+   "laneHref": "act-on-decision-support.html#lane-Lane_HealthWorker",
    "skills": [],
    "role": {
     "name": "health-worker",

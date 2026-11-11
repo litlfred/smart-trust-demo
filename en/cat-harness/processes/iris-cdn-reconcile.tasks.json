@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "iris-cdn-reconcile.html",
  "tasks": {
   "Task_ListAll": {
    "id": "Task_ListAll",
    "name": "List every item id IRIS reports",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_ListAll",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -106,7 +109,9 @@
    "id": "Task_Compare",
    "name": "Compare with the ids the library holds",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_Compare",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -119,7 +124,9 @@
    "id": "Task_Escalate",
    "name": "Treat the listing as faulty; escalate",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_Escalate",
    "lane": "IRIS CDN Exporter (agent)",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Exporter",
    "skills": [],
    "role": {
     "name": "iris-cdn-exporter",
@@ -132,7 +139,9 @@
    "id": "Task_Recheck",
    "name": "Re-check each missing item by id",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_Recheck",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -145,7 +154,9 @@
    "id": "Task_MarkWithdrawn",
    "name": "Mark confirmed items withdrawn (keep bytes)",
    "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_MarkWithdrawn",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -158,7 +169,9 @@
    "id": "Call_Rebuild",
    "name": "Rebuild the whole graph (sorted output)",
    "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-reconcile.html#step-Call_Rebuild",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Package and distribute partitioned W3C N-Quads and named queries",
@@ -176,7 +189,9 @@
    "id": "Call_SignPublish",
    "name": "Sign and publish the release",
    "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-reconcile.html#step-Call_SignPublish",
    "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Sign and publish an IRIS CDN release",

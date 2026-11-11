@@ -112,12 +112,15 @@
    }
   }
  ],
+ "processHref": "crdm-requirements.html",
  "tasks": {
   "BA_Submit": {
    "id": "BA_Submit",
    "name": "Describe the need (chat, issue, discussion)",
    "type": "bpmn:Task",
+   "stepHref": "crdm-requirements.html#step-BA_Submit",
    "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-requirements.html#lane-Lane_BA",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -130,7 +133,9 @@
    "id": "A_Detect",
    "name": "Detect feature request (crdm-detect skill)",
    "type": "bpmn:Task",
+   "stepHref": "crdm-requirements.html#step-A_Detect",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -143,7 +148,9 @@
    "id": "Call_Issue",
    "name": "Link the work to an issue",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements.html#step-Call_Issue",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "CRDM — link the work to an issue",
@@ -161,7 +168,9 @@
    "id": "Call_Needs",
    "name": "Phase 1 Needs",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements.html#step-Call_Needs",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "CRDM Phase 1 — needs",
@@ -179,7 +188,9 @@
    "id": "Call_Requirements",
    "name": "Phases 2–4 BPA + requirements",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements.html#step-Call_Requirements",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "CRDM Phases 2–4 — BPA and requirements",
@@ -197,7 +208,9 @@
    "id": "Call_DataModel",
    "name": "Data model Entities + cardinalities",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements.html#step-Call_DataModel",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "CRDM data model",
@@ -215,7 +228,9 @@
    "id": "Call_Signoff",
    "name": "Phase 5 Plan + sign-off",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements.html#step-Call_Signoff",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "CRDM Phase 5 — beans and sign-off",
@@ -233,7 +248,9 @@
    "id": "Call_Deliver",
    "name": "Phase 6 Implement + acceptance",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements.html#step-Call_Deliver",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "CRDM Phase 6 — implement, MVP, acceptance",
@@ -251,7 +268,9 @@
    "id": "Call_Close",
    "name": "Close-out",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-requirements.html#step-Call_Close",
    "lane": "Agent",
+   "laneHref": "crdm-requirements.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "CRDM close-out",

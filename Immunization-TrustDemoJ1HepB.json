@@ -2,11 +2,11 @@
   "resourceType" : "Immunization",
   "id" : "TrustDemoJ1HepB",
   "meta" : {
-    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoThImmunization"]
+    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoTaifafekiImmunization"]
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ1HepB</b></p><a name=\"TrustDemoJ1HepB\"> </a><a name=\"hcTrustDemoJ1HepB\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoThImmunization.html\">Thailand: dose given at the birth hospital (DVC source)</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-hepb-peds-monovalent}, {http://hl7.org/fhir/sid/cvx 08}\">Hepatitis B vaccine, paediatric, monovalent</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoThSomsack.html\">Somsack SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/th-chiang-rai-hn#CRH-HN-68-104377)</a></p><p><b>occurrence</b>: 2025-10-28 09:15:00+0700</p><p><b>location</b>: Chiang Rai Provincial Hospital, Thailand</p><p><b>lotNumber</b>: TH-4821</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Immunization TrustDemoJ1HepB</b></p><a name=\"TrustDemoJ1HepB\"> </a><a name=\"hcTrustDemoJ1HepB\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoTaifafekiImmunization.html\">Taifafeki: dose given at the birth hospital (DVC source)</a></p></div><p><b>status</b>: Completed</p><p><b>vaccineCode</b>: <span title=\"Codes:{http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct vp-hepb-peds-monovalent}, {http://hl7.org/fhir/sid/cvx 08}\">Hepatitis B vaccine, paediatric, monovalent</span></p><p><b>patient</b>: <a href=\"Patient-TrustDemoTaifafekiSomsak.html\">Somsak SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/xxr-kesaro-hn#CRH-HN-68-104377)</a></p><p><b>occurrence</b>: 2025-10-28 09:15:00+0700</p><p><b>location</b>: Kesaro Provincial Hospital, Taifafeki</p><p><b>lotNumber</b>: XXR-4821</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-TrustDemoAnan.html\">Dr Anan</a></td></tr></table><h3>ProtocolApplieds</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>DoseNumber[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td></tr></table></div>"
   },
   "status" : "completed",
   "vaccineCode" : {
@@ -22,13 +22,13 @@
     }]
   },
   "patient" : {
-    "reference" : "Patient/TrustDemoThSomsack"
+    "reference" : "Patient/TrustDemoTaifafekiSomsak"
   },
   "occurrenceDateTime" : "2025-10-28T09:15:00+07:00",
   "location" : {
-    "display" : "Chiang Rai Provincial Hospital, Thailand"
+    "display" : "Kesaro Provincial Hospital, Taifafeki"
   },
-  "lotNumber" : "TH-4821",
+  "lotNumber" : "XXR-4821",
   "performer" : [{
     "actor" : {
       "reference" : "Practitioner/TrustDemoAnan"

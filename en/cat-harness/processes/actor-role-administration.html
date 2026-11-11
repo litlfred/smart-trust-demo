@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Actor and role administration" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/actor-role-administration.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/actor-role-administration.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Actor and role administration" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Actor and role administration","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/actor-role-administration.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Actor and role administration","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/actor-role-administration.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -921,7 +921,6 @@
 <button type="button" class="pt-mark" data-task="Task_AssignRoles" style="left:37.18%;top:20.82%" aria-expanded="false" aria-label="About step: Open or close a role to an actor" title="About: Open or close a role to an actor">i</button>
 <button type="button" class="pt-mark" data-task="Task_GrantOrRevoke" style="left:37.18%;top:37.46%" aria-expanded="false" aria-label="About step: Grant or revoke a permission" title="About: Grant or revoke a permission">i</button>
 <button type="button" class="pt-mark" data-task="Task_RetireActor" style="left:37.18%;top:53.14%" aria-expanded="false" aria-label="About step: Retire an actor — never delete one" title="About: Retire an actor — never delete one">i</button>
-<a class="pt-go" href="code-change-review.html" style="left:53.37%;top:41.46%;width:1.54%;height:4.18%" aria-label="Open subprocess: Branch, gates, PR and review" title="Open subprocess: Branch, gates, PR and review"></a>
 <button type="button" class="pt-mark" data-task="CallActivity_CodeChangeReview" style="left:58.01%;top:24.91%" aria-expanded="false" aria-label="About step: Branch, gates, PR and review" title="About: Branch, gates, PR and review">i</button>
 <button type="button" class="pt-mark" data-task="Task_RunKgAudit" style="left:58.01%;top:76.13%" aria-expanded="false" aria-label="About step: Audit the graph" title="About: Audit the graph">i</button>
 </div>
@@ -973,8 +972,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1137,7 +1142,7 @@
 
 <ul>
   <li><strong>Called by:</strong> no call activity names this process</li>
-  <li><strong>Calls:</strong> <a href="code-change-review.html">Code change and review</a></li>
+  <li><strong>Calls:</strong> <code class="language-plaintext highlighter-rouge">Process_CodeChangeReview</code> (not loadable here)</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -1160,12 +1165,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>Administrator</td>
+      <td><a id="lane-Lane_Administrator"></a>Administrator</td>
       <td><code class="language-plaintext highlighter-rouge">administrator</code></td>
       <td>All four administration verbs — add, assign, grant, retire — converge at Gateway_Changed onto the same CallActivity_CodeChangeReview, so no kind of substrate edit gets a lighter review path than another; and Gateway_AuditClean’s ‘no’ branch (A13) loops back to this lane rather than ending the process, because whether a <code class="language-plaintext highlighter-rouge">major</code> finding holds the change is this lane’s policy call, not something Task_RunKgAudit decides for it.</td>
     </tr>
     <tr>
-      <td>Graph audit (system)</td>
+      <td><a id="lane-Lane_Audit"></a>Graph audit (system)</td>
       <td><code class="language-plaintext highlighter-rouge">build-pipeline</code></td>
       <td>Runs only after CallActivity_CodeChangeReview has already completed its own review, because the breakage this lane exists to catch — a join across role, lane, actor and skill — is invisible to a code reviewer reading the diff in isolation; ordinary code review clears the edit, and only this lane’s whole-graph pass can tell whether it silently broke something three diagrams away.</td>
     </tr>
@@ -1193,39 +1198,39 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Add an actor, and declare its kind</strong><br /><code class="language-plaintext highlighter-rouge">Task_AddActor</code></td>
+      <td><a id="step-Task_AddActor"></a><strong>Add an actor, and declare its kind</strong><br /><code class="language-plaintext highlighter-rouge">Task_AddActor</code></td>
       <td>Administrator</td>
-      <td><code class="language-plaintext highlighter-rouge">role-model</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/role-model.html"><code class="language-plaintext highlighter-rouge">role-model</code></a></td>
       <td>Human, agentic or mechanical. A userTask because the agentic/mechanical line is JUDGEMENT — role-model.md says so — and reading it wrong disqualifies the actor from every judgement task it exists to perform, silently.</td>
     </tr>
     <tr>
-      <td><strong>Open or close a role to an actor</strong><br /><code class="language-plaintext highlighter-rouge">Task_AssignRoles</code></td>
+      <td><a id="step-Task_AssignRoles"></a><strong>Open or close a role to an actor</strong><br /><code class="language-plaintext highlighter-rouge">Task_AssignRoles</code></td>
       <td>Administrator</td>
-      <td><code class="language-plaintext highlighter-rouge">role-model</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/role-model.html"><code class="language-plaintext highlighter-rouge">role-model</code></a></td>
       <td>The join every other diagram depends on. An empty <code class="language-plaintext highlighter-rouge">roles</code> is a DETERMINED empty — it says the actor takes on none — and is not the same as an absent one, which asserts nothing.</td>
     </tr>
     <tr>
-      <td><strong>Grant or revoke a permission</strong><br /><code class="language-plaintext highlighter-rouge">Task_GrantOrRevoke</code></td>
+      <td><a id="step-Task_GrantOrRevoke"></a><strong>Grant or revoke a permission</strong><br /><code class="language-plaintext highlighter-rouge">Task_GrantOrRevoke</code></td>
       <td>Administrator</td>
-      <td><code class="language-plaintext highlighter-rouge">role-model</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/role-model.html"><code class="language-plaintext highlighter-rouge">role-model</code></a></td>
       <td>A permission travels with the PARTICIPANT and cross-cuts every lane, so unlike a role it cannot be scoped by the diagram it is used in. Granting one is a standing decision, which is why this lane is person-only and why the log capture on this process is on.</td>
     </tr>
     <tr>
-      <td><strong>Retire an actor — never delete one</strong><br /><code class="language-plaintext highlighter-rouge">Task_RetireActor</code></td>
+      <td><a id="step-Task_RetireActor"></a><strong>Retire an actor — never delete one</strong><br /><code class="language-plaintext highlighter-rouge">Task_RetireActor</code></td>
       <td>Administrator</td>
-      <td><code class="language-plaintext highlighter-rouge">deletion-requires-confirmation</code><br /><code class="language-plaintext highlighter-rouge">role-model</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/deletion-requires-confirmation.html"><code class="language-plaintext highlighter-rouge">deletion-requires-confirmation</code></a><br /><a href="../../../en/cat-harness/processes/skills/role-model.html"><code class="language-plaintext highlighter-rouge">role-model</code></a></td>
       <td>An actor id is referenced from roles, diagrams, beans and commits, so removing the file leaves every one of those unable to tell retirement from accident. Same rule, and the same reason, as a scrapped bean.</td>
     </tr>
     <tr>
-      <td><strong>Branch, gates, PR and review</strong><br /><code class="language-plaintext highlighter-rouge">CallActivity_CodeChangeReview</code></td>
+      <td><a id="step-CallActivity_CodeChangeReview"></a><strong>Branch, gates, PR and review</strong><br /><code class="language-plaintext highlighter-rouge">CallActivity_CodeChangeReview</code></td>
       <td>Administrator</td>
-      <td>calls <a href="code-change-review.html">Code change and review</a><br /><code class="language-plaintext highlighter-rouge">prepare-merge</code><br /><code class="language-plaintext highlighter-rouge">continual-progress</code></td>
+      <td>calls <code class="language-plaintext highlighter-rouge">Process_CodeChangeReview</code><br /><code class="language-plaintext highlighter-rouge">prepare-merge</code><br /><code class="language-plaintext highlighter-rouge">continual-progress</code></td>
       <td>Called rather than restated. The mechanics of getting an edit reviewed and merged are not specific to the role graph, and a second description of them is a second thing free to disagree with the first.</td>
     </tr>
     <tr>
-      <td><strong>Audit the graph</strong><br /><code class="language-plaintext highlighter-rouge">Task_RunKgAudit</code></td>
+      <td><a id="step-Task_RunKgAudit"></a><strong>Audit the graph</strong><br /><code class="language-plaintext highlighter-rouge">Task_RunKgAudit</code></td>
       <td>Graph audit (system)</td>
-      <td><code class="language-plaintext highlighter-rouge">role-model</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/role-model.html"><code class="language-plaintext highlighter-rouge">role-model</code></a></td>
       <td>AFTER the change, not before. Every criterion here is a join — role to lane, actor to role, activity to skill — so what an administrative edit breaks is not in the file it edited. The sidecars under <code class="language-plaintext highlighter-rouge">test/results/kg-qa/</code> are committed for the reason a printed verdict is not: without them, “unbound since it was drawn” and “broken by this change” are indistinguishable. Runs <code class="language-plaintext highlighter-rouge">kg:audit</code>.</td>
     </tr>
   </tbody>

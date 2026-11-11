@@ -232,12 +232,15 @@
    }
   }
  ],
+ "processHref": "ig-incremental-build.html",
  "tasks": {
   "Task_Restore": {
    "id": "Task_Restore",
    "name": "Restore derived state",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Restore",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -250,7 +253,9 @@
    "id": "Task_LogEnvError",
    "name": "Log the environment error on the bean",
    "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_LogEnvError",
    "lane": "FHIR modeller / PR author (person + authoring agent)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "fhir-modeller",
@@ -263,7 +268,9 @@
    "id": "Task_FullBuild",
    "name": "Full publisher build",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_FullBuild",
    "lane": "Publisher + validator services (JVM)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Services",
    "skills": [],
    "role": {
     "name": "ig-publisher-service",
@@ -276,7 +283,9 @@
    "id": "Task_Cone",
    "name": "Compute the cone of the change",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Cone",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -289,7 +298,9 @@
    "id": "Task_ConeReport",
    "name": "Post the cone report on the PR",
    "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_ConeReport",
    "lane": "PR reviewer / QC reviewer",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Review",
    "skills": [],
    "role": {
     "name": "qc-reviewer",
@@ -302,7 +313,9 @@
    "id": "Task_Checkout",
    "name": "Restricted checkout of the backward cone",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Checkout",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -315,7 +328,9 @@
    "id": "Task_Sushi",
    "name": "SUSHI on the restricted tank",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Sushi",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -328,7 +343,9 @@
    "id": "Task_ContextLoad",
    "name": "Load or reuse the warm context",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_ContextLoad",
    "lane": "Publisher + validator services (JVM)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Services",
    "skills": [],
    "role": {
     "name": "ig-publisher-service",
@@ -341,7 +358,9 @@
    "id": "Task_Validate",
    "name": "Validate the cone (fhir_validate)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Validate",
    "lane": "Publisher + validator services (JVM)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Services",
    "skills": [],
    "role": {
     "name": "ig-publisher-service",
@@ -354,7 +373,9 @@
    "id": "Task_LogFindings",
    "name": "Log findings on the bean",
    "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_LogFindings",
    "lane": "FHIR modeller / PR author (person + authoring agent)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "fhir-modeller",
@@ -367,7 +388,9 @@
    "id": "Task_Render",
    "name": "Re-render the cone's records (fhir_narrative · skip lists)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Render",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -380,7 +403,9 @@
    "id": "Task_Merge",
    "name": "Merge restored and rebuilt records",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Merge",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -393,7 +418,9 @@
    "id": "Task_Index",
    "name": "Rebuild the meta-index (ig_metaindex_rebuild)",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Index",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -406,7 +433,9 @@
    "id": "Task_Site",
    "name": "Assemble the site",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Site",
    "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -419,7 +448,9 @@
    "id": "Task_Qa",
    "name": "Run QC gates on the aggregate QA",
    "type": "bpmn:UserTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Qa",
    "lane": "PR reviewer / QC reviewer",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Review",
    "skills": [],
    "role": {
     "name": "qc-reviewer",
@@ -432,7 +463,9 @@
    "id": "Task_QcBeans",
    "name": "File QC findings as beans",
    "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_QcBeans",
    "lane": "FHIR modeller / PR author (person + authoring agent)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "fhir-modeller",
@@ -445,7 +478,9 @@
    "id": "Task_DeployPreview",
    "name": "Deploy the preview site",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_DeployPreview",
    "lane": "PR reviewer / QC reviewer",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Review",
    "skills": [],
    "role": {
     "name": "qc-reviewer",
@@ -458,7 +493,9 @@
    "id": "Task_Deploy",
    "name": "Deploy the site",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Deploy",
    "lane": "Publication manager — deploy and seed",
+   "laneHref": "ig-incremental-build.html#lane-Lane_PubMgr",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -471,7 +508,9 @@
    "id": "Task_Seed",
    "name": "Seed the cache from the green build",
    "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Seed",
    "lane": "Publication manager — deploy and seed",
+   "laneHref": "ig-incremental-build.html#lane-Lane_PubMgr",
    "skills": [],
    "role": {
     "name": "publication-manager",

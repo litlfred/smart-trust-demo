@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ConceptMap-TrustDemoProductToOnesaEpi.jsonld",
+  "@type": "fhir:ConceptMap",
+  "dcterms:identifier": "ConceptMap/TrustDemoProductToOnesaEpi",
+  "schema:name": "TrustDemoProductToOnesaEpi",
+  "dcterms:title": "J3 map: vaccine product to national schedule dose",
+  "dcterms:description": "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthason confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Concept Maps",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToOnesaEpi"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ast-data/resources/ConceptMap/TrustDemoProductToOnesaEpi--78f348c0.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "fa6c6fea23d4127bf74ef075dddfc67c04a6d63d"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

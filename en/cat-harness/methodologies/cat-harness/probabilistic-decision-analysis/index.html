@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -938,14 +938,14 @@
 
 <p><code class="language-plaintext highlighter-rouge">probabilistic-decision-analysis</code> — declared by <code class="language-plaintext highlighter-rouge">cat-harness</code> — <span class="mv-tag mv-ingested">source held</span></p>
 
-<p><strong>Applies when.</strong> <strong>The alternatives can be TRIED, repeatedly, and what you learn from one try changes what you should try next.</strong> Bandits, Bayesian optimisation and tree search all live here. The defining features are that the alternative set is sampled rather than scored, that information is gathered adaptively, and that each trial costs something — the monograph’s motivating setting is scientific discovery, <em>“where experiments are costly”</em>. Reach for it also when the question is not which algorithm to run but <strong>what an existing bound entitles anyone to say</strong>: the monograph is an analysis text first, so it is the right source for reading a regret guarantee rather than quoting one. Do NOT reach for it for a one-shot choice from a fixed matrix — that is <code class="language-plaintext highlighter-rouge">mcdm-aggregation</code> — nor for a recurring rule (<code class="language-plaintext highlighter-rouge">dmn</code>), a MUST/WANT decision (<code class="language-plaintext highlighter-rouge">kepner-tregoe</code>), or grading evidence. And do not reach for it when you cannot actually run the alternatives: adaptivity is the whole premise, and without it every guarantee in the book is vacuous.</p>
+<p><strong>Applies when.</strong> <strong>The alternatives can be TRIED, repeatedly, and what you learn from one try changes what you should try next.</strong> Bandits, Bayesian optimisation and tree search all live here. The defining features are that the alternative set is sampled rather than scored, that information is gathered adaptively, and that each trial costs something — the monograph’s motivating setting is scientific discovery, <em>“where experiments are costly”</em>. Reach for it also when the question is not which algorithm to run but <strong>what an existing bound entitles anyone to say</strong>: the monograph is an analysis text first, so it is the right source for reading a regret guarantee rather than quoting one. Do NOT reach for it for a one-shot choice from a fixed matrix — that is <a href="../../#mcdm-aggregation"><code class="language-plaintext highlighter-rouge">mcdm-aggregation</code></a> — nor for a recurring rule (<a href="../../#dmn"><code class="language-plaintext highlighter-rouge">dmn</code></a>), a MUST/WANT decision (<a href="../../#kepner-tregoe"><code class="language-plaintext highlighter-rouge">kepner-tregoe</code></a>), or grading evidence. And do not reach for it when you cannot actually run the alternatives: adaptivity is the whole premise, and without it every guarantee in the book is vacuous.</p>
 
 <p><strong>Origin.</strong> Agustinus Kristiadi (Western University and Vector Institute, Canada), “Introduction to the Analysis of Probabilistic Decision-Making Algorithms”; arXiv:2508.21620v2 [cs.LG], 23 May 2026. A monograph, open access, ingested whole. Its stated aim is accessibility: <em>“theoretical analyses in the literature are often inaccessible to non-experts”</em>, and it assumes only basic probability and statistics plus some Gaussian processes.</p>
 
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2508.21620v2</code></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2508.21620v2"><code class="language-plaintext highlighter-rouge">library/arxiv-2508.21620v2</code></a> · <a href="../../../library/cat-harness/arxiv-2508.21620v2/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/content/arxiv-2508.21620v2/README.md">item page</a> · <a href="https://arxiv.org/abs/2508.21620v2">source</a></li>
 </ul>
 
 <p><strong>Node file:</strong> <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/probabilistic-decision-analysis.md">probabilistic-decision-analysis.md</a></p>

@@ -1,0 +1,25 @@
+{
+  "resourceType" : "Patient",
+  "id" : "TrustDemoTaifafekiSomsak",
+  "meta" : {
+    "profile" : ["http://smart.who.int/trust-demo/StructureDefinition/TrustDemoTaifafekiPatient"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Patient TrustDemoTaifafekiSomsak</b></p><a name=\"TrustDemoTaifafekiSomsak\"> </a><a name=\"hcTrustDemoTaifafekiSomsak\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TrustDemoTaifafekiPatient.html\">Taifafeki: newborn at the birth hospital</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Somsak SENGMANY (official) Male, DoB: 2025-10-28 ( http://smart.who.int/trust-demo/sid/xxr-kesaro-hn#CRH-HN-68-104377)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Patient Links\">Links:</td><td colspan=\"3\"><ul><li>Managing Organization: <a href=\"Organization-TrustDemoKesaroHospital.html\">Kesaro Provincial Hospital (demonstrator)</a></li></ul></td></tr></table></div>"
+  },
+  "identifier" : [{
+    "system" : "http://smart.who.int/trust-demo/sid/xxr-kesaro-hn",
+    "value" : "CRH-HN-68-104377"
+  }],
+  "name" : [{
+    "use" : "official",
+    "family" : "SENGMANY",
+    "given" : ["Somsak"]
+  }],
+  "gender" : "male",
+  "birthDate" : "2025-10-28",
+  "managingOrganization" : {
+    "reference" : "Organization/TrustDemoKesaroHospital"
+  }
+}

@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "crdm-signoff.html",
  "tasks": {
   "A_CreateBeans": {
    "id": "A_CreateBeans",
    "name": "Phase 5: Create beans",
    "type": "bpmn:Task",
+   "stepHref": "crdm-signoff.html#step-A_CreateBeans",
    "lane": "Agent",
+   "laneHref": "crdm-signoff.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -106,12 +109,12 @@
    "id": "BA_Signoff",
    "name": "Sign off on requirements",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-signoff.html#step-BA_Signoff",
    "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-signoff.html#lane-Lane_BA",
    "skills": [],
    "calls": {
-    "name": "Adjudication",
-    "href": "adjudication.html",
-    "diagram": "adjudication.html"
+    "name": "Process_Adjudication"
    },
    "role": {
     "name": "business-analyst",
@@ -124,7 +127,9 @@
    "id": "A_RecordSignoff",
    "name": "Record the sign-off attestation",
    "type": "bpmn:ServiceTask",
+   "stepHref": "crdm-signoff.html#step-A_RecordSignoff",
    "lane": "Agent",
+   "laneHref": "crdm-signoff.html#lane-Lane_Agent",
    "skills": [],
    "shared": {
     "id": "GT_RecordSignoff",
@@ -141,7 +146,9 @@
    "id": "A_AnnounceBranch",
    "name": "Announce the branch on the issue",
    "type": "bpmn:Task",
+   "stepHref": "crdm-signoff.html#step-A_AnnounceBranch",
    "lane": "Agent",
+   "laneHref": "crdm-signoff.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -154,7 +161,9 @@
    "id": "A_OfferKg",
    "name": "Offer KG destinations for the agreed set",
    "type": "bpmn:ServiceTask",
+   "stepHref": "crdm-signoff.html#step-A_OfferKg",
    "lane": "Agent",
+   "laneHref": "crdm-signoff.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -167,7 +176,9 @@
    "id": "BA_ChooseKg",
    "name": "Choose a destination, or none",
    "type": "bpmn:CallActivity",
+   "stepHref": "crdm-signoff.html#step-BA_ChooseKg",
    "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-signoff.html#lane-Lane_BA",
    "skills": [],
    "calls": {
     "name": "Ask the person",
@@ -185,7 +196,9 @@
    "id": "A_RecordKg",
    "name": "Run placement, file a bean",
    "type": "bpmn:ServiceTask",
+   "stepHref": "crdm-signoff.html#step-A_RecordKg",
    "lane": "Agent",
+   "laneHref": "crdm-signoff.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",

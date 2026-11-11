@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -938,14 +938,14 @@
 
 <p><code class="language-plaintext highlighter-rouge">adequacy-for-purpose-modelling</code> — declared by <code class="language-plaintext highlighter-rouge">cat-harness</code> — <span class="mv-tag mv-ingested">source held</span></p>
 
-<p><strong>Applies when.</strong> <strong>A formal model is being built, and somebody will later ask whether it is right.</strong> Use it when the artefact is a mathematical model of a process — agents, action and reward spaces, update rules — and the question is what the model is allowed to claim. It answers <em>what would count as this model succeeding</em>, and nothing else. Reach for it BEFORE the model is written, because its whole force is that the purpose is declared first and the evaluation follows from it. Reaching for it afterwards turns it into a defence of whatever the model happens to do. Do NOT reach for it to choose between options (<code class="language-plaintext highlighter-rouge">kepner-tregoe</code>), to grade evidence, to settle a recurring rule (<code class="language-plaintext highlighter-rouge">dmn</code>), or to pick an algorithm (<code class="language-plaintext highlighter-rouge">probabilistic-decision-analysis</code>, <code class="language-plaintext highlighter-rouge">mcdm-aggregation</code>). It is not a decision method at all: it is a rule for judging a model, and it is filed here because <code class="language-plaintext highlighter-rouge">methodology-adoption</code> routes “how do we evaluate X” to a methodology node.</p>
+<p><strong>Applies when.</strong> <strong>A formal model is being built, and somebody will later ask whether it is right.</strong> Use it when the artefact is a mathematical model of a process — agents, action and reward spaces, update rules — and the question is what the model is allowed to claim. It answers <em>what would count as this model succeeding</em>, and nothing else. Reach for it BEFORE the model is written, because its whole force is that the purpose is declared first and the evaluation follows from it. Reaching for it afterwards turns it into a defence of whatever the model happens to do. Do NOT reach for it to choose between options (<a href="../../#kepner-tregoe"><code class="language-plaintext highlighter-rouge">kepner-tregoe</code></a>), to grade evidence, to settle a recurring rule (<a href="../../#dmn"><code class="language-plaintext highlighter-rouge">dmn</code></a>), or to pick an algorithm (<a href="../../#probabilistic-decision-analysis"><code class="language-plaintext highlighter-rouge">probabilistic-decision-analysis</code></a>, <a href="../../#mcdm-aggregation"><code class="language-plaintext highlighter-rouge">mcdm-aggregation</code></a>). It is not a decision method at all: it is a rule for judging a model, and it is filed here because <code class="language-plaintext highlighter-rouge">methodology-adoption</code> routes “how do we evaluate X” to a methodology node.</p>
 
 <p><strong>Origin.</strong> Kavya Ravichandran, “Algorithmic Approaches to Sequential Decision-Making and Social Epistemology”, PhD thesis, Toyota Technological Institute at Chicago, August 2026; arXiv:2607.20636v1 [cs.DS], 22 July 2026. Chapter 5, “Why Algorithmic Approaches” — an essay inside the thesis rather than a result of it. Open access, ingested whole. The view it builds on is Wendy Parker’s (2020) “adequacy-for-purpose”, quoted directly in that chapter; the how-possibly / how-actually distinction is from the philosophy-of-explanation literature the chapter cites, and the confirmatory / applied prediction split is Elliott-Graves’. Ravichandran’s contribution adopted here is the ORDERED three-purpose taxonomy and the evaluation rule that follows from it.</p>
 
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2607.20636v1</code></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2607.20636v1"><code class="language-plaintext highlighter-rouge">library/arxiv-2607.20636v1</code></a> · <a href="../../../library/cat-harness/arxiv-2607.20636v1/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/content/arxiv-2607.20636v1/README.md">item page</a> · <a href="https://arxiv.org/abs/2607.20636v1">source</a></li>
 </ul>
 
 <p><strong>Node file:</strong> <a href="https://github.com/litlfred/cat-harness/blob/main/methodologies/adequacy-for-purpose-modelling.md">adequacy-for-purpose-modelling.md</a></p>

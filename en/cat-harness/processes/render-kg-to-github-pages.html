@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Render a Knowledge Graph to GitHub Pages" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/render-kg-to-github-pages.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/render-kg-to-github-pages.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Render a Knowledge Graph to GitHub Pages" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Render a Knowledge Graph to GitHub Pages","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/render-kg-to-github-pages.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Render a Knowledge Graph to GitHub Pages","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/render-kg-to-github-pages.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -977,8 +977,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1143,6 +1149,7 @@
   <li><strong>Called by:</strong> no call activity names this process</li>
   <li><strong>Calls:</strong> none</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -1164,12 +1171,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>Site Publisher</td>
+      <td><a id="lane-Lane_SitePublisher"></a>Site Publisher</td>
       <td><code class="language-plaintext highlighter-rouge">site-publisher</code></td>
       <td>An agent running these tools, or a Pages workflow running the same commands. It never reports a push it did not check.</td>
     </tr>
     <tr>
-      <td>GitHub Pages</td>
+      <td><a id="lane-Lane_GitHubPages"></a>GitHub Pages</td>
       <td><code class="language-plaintext highlighter-rouge">github-pages</code></td>
       <td>The host, a mechanical Actor whose contract is skill github-pages. It decides nothing: it receives the deployment and serves it at the publication root URL.</td>
     </tr>
@@ -1197,45 +1204,45 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Resolve the Subgraphs and the root URL</strong><br /><code class="language-plaintext highlighter-rouge">A_ResolveInputs</code></td>
+      <td><a id="step-A_ResolveInputs"></a><strong>Resolve the Subgraphs and the root URL</strong><br /><code class="language-plaintext highlighter-rouge">A_ResolveInputs</code></td>
       <td>Site Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></td>
       <td>Read the instance’s declaration. Every Subgraph id asked for must be one it declares; none asked for means the whole graph. The root URL is the one given, else the declaration’s iriBase, else https://&lt;owner&gt;.github.io/&lt;repo&gt;/. An unknown id is refused, never rendered as a smaller site.</td>
     </tr>
     <tr>
-      <td><strong>Make sure gh-pages exists and Pages serves it</strong><br /><code class="language-plaintext highlighter-rouge">A_Provision</code></td>
+      <td><a id="step-A_Provision"></a><strong>Make sure gh-pages exists and Pages serves it</strong><br /><code class="language-plaintext highlighter-rouge">A_Provision</code></td>
       <td>GitHub Pages</td>
-      <td><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></td>
       <td>Provisioning the target, owned by this process rather than by the publication step that calls it. Pages cannot serve a branch that does not exist, so in order: (1) an orphan gh-pages branch exists — git ls-remote –heads origin gh-pages; if absent, push a placeholder (index.html + .nojekyll); (2) Pages is on, Source = the gh-pages branch at / — gh api -X POST repos/&lt;o&gt;/&lt;r&gt;/pages -f source[branch]=gh-pages -f source[path]=/ when gh is signed in, otherwise the exact manual step (Settings → Pages → Deploy from a branch → gh-pages, / (root)). Each half is done, not done, or could not be determined; never assumed.</td>
     </tr>
     <tr>
-      <td><strong>Stage the rendering</strong><br /><code class="language-plaintext highlighter-rouge">A_Stage</code></td>
+      <td><a id="step-A_Stage"></a><strong>Stage the rendering</strong><br /><code class="language-plaintext highlighter-rouge">A_Stage</code></td>
       <td>Site Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></td>
       <td>site.ts –root &lt;instance&gt; –out &lt;dir&gt; [–subgraph &lt;id&gt;]…: every JSON Schema and JSON-LD document at the IRI it names, the files as they sit, the README page as README.md (served as README.html), and index.html as a redirect to it — the default landing page, which an index.html or index.md at the instance root replaces. Generated pages carry the generated-by notice at their top, and a footer that links their generator and source, never an edit page.</td>
     </tr>
     <tr>
-      <td><strong>Check what was staged</strong><br /><code class="language-plaintext highlighter-rouge">A_CheckStaged</code></td>
+      <td><a id="step-A_CheckStaged"></a><strong>Check what was staged</strong><br /><code class="language-plaintext highlighter-rouge">A_CheckStaged</code></td>
       <td>Site Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></td>
       <td>site.ts –check and readme-book.ts –check: every document at its address, no address taken by another file, every link on the page landing. This is the QA of what would be pushed.</td>
     </tr>
     <tr>
-      <td><strong>Deploy the rendering</strong><br /><code class="language-plaintext highlighter-rouge">A_Deploy</code></td>
+      <td><a id="step-A_Deploy"></a><strong>Deploy the rendering</strong><br /><code class="language-plaintext highlighter-rouge">A_Deploy</code></td>
       <td>GitHub Pages</td>
-      <td><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></td>
       <td>publish-site.ts commits the staged tree onto gh-pages as a full replace (run by the instance’s Pages workflow on a push to main, or by an agent with its own git credentials); GitHub Pages then builds it from the branch. Rebuild and retry on a rejected push; never rebase the branch. The report names the gh-pages commit SHA.</td>
     </tr>
     <tr>
-      <td><strong>Check what is served</strong><br /><code class="language-plaintext highlighter-rouge">A_CheckServed</code></td>
+      <td><a id="step-A_CheckServed"></a><strong>Check what is served</strong><br /><code class="language-plaintext highlighter-rouge">A_CheckServed</code></td>
       <td>Site Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></td>
       <td>Ask the root URL and every document address. 2xx or 3xx answers; 404 is not there; 403, 407, 5xx or no answer is about the way here and could not be determined.</td>
     </tr>
     <tr>
-      <td><strong>Report the push: status and message</strong><br /><code class="language-plaintext highlighter-rouge">A_Report</code></td>
+      <td><a id="step-A_Report"></a><strong>Report the push: status and message</strong><br /><code class="language-plaintext highlighter-rouge">A_Report</code></td>
       <td>Site Publisher</td>
-      <td><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/render-kg-to-github-pages.html"><code class="language-plaintext highlighter-rouge">render-kg-to-github-pages</code></a></td>
       <td>pages-status.ts: pushed, not-pushed or could-not-determine, and one line — the commit, the root URL, and the QA of both the staging and what is served. On the path from a failed staging it says not-pushed and names the problem. Required on every path: a caller that gets no status cannot tell a push from nothing.</td>
     </tr>
   </tbody>

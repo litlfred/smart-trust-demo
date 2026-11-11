@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "guideline-updates.html",
  "tasks": {
   "Task_ChangeNotes": {
    "id": "Task_ChangeNotes",
    "name": "Publish the version with its change notes",
    "type": "bpmn:Task",
+   "stepHref": "guideline-updates.html#step-Task_ChangeNotes",
    "lane": "Guideline publisher",
+   "laneHref": "guideline-updates.html#lane-Lane_Publisher",
    "skills": [],
    "role": {
     "name": "publication-manager",
@@ -118,7 +121,9 @@
    "id": "Task_MapCone",
    "name": "Map the affected layers in order",
    "type": "bpmn:Task",
+   "stepHref": "guideline-updates.html#step-Task_MapCone",
    "lane": "Re-pin steward and build pipeline",
+   "laneHref": "guideline-updates.html#lane-Lane_Steward",
    "skills": [],
    "role": {
     "name": "merge-steward",
@@ -131,7 +136,9 @@
    "id": "Task_OpenRepin",
    "name": "Open the re-pin for the next ready layer",
    "type": "bpmn:Task",
+   "stepHref": "guideline-updates.html#step-Task_OpenRepin",
    "lane": "Re-pin steward and build pipeline",
+   "laneHref": "guideline-updates.html#lane-Lane_Steward",
    "skills": [],
    "role": {
     "name": "merge-steward",
@@ -144,7 +151,9 @@
    "id": "Task_Impact",
    "name": "Compare old, new and our adaptations",
    "type": "bpmn:Task",
+   "stepHref": "guideline-updates.html#step-Task_Impact",
    "lane": "Adaptation team (human or agentic)",
+   "laneHref": "guideline-updates.html#lane-Lane_Adaptation",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -157,7 +166,9 @@
    "id": "Task_Review",
    "name": "Review the impact with stakeholders",
    "type": "bpmn:Task",
+   "stepHref": "guideline-updates.html#step-Task_Review",
    "lane": "Adaptation committee (policy, clinical, programme)",
+   "laneHref": "guideline-updates.html#lane-Lane_Committee",
    "skills": [],
    "role": {
     "name": "authoring-committee",
@@ -170,7 +181,9 @@
    "id": "Task_Decide",
    "name": "Decide each adaptation: keep, revise or retire",
    "type": "bpmn:Task",
+   "stepHref": "guideline-updates.html#step-Task_Decide",
    "lane": "Adaptation committee (policy, clinical, programme)",
+   "laneHref": "guideline-updates.html#lane-Lane_Committee",
    "skills": [],
    "role": {
     "name": "authoring-committee",
@@ -183,7 +196,9 @@
    "id": "Task_Revise",
    "name": "Revise the adaptations as decided",
    "type": "bpmn:CallActivity",
+   "stepHref": "guideline-updates.html#step-Task_Revise",
    "lane": "Adaptation team (human or agentic)",
+   "laneHref": "guideline-updates.html#lane-Lane_Adaptation",
    "skills": [],
    "calls": {
     "name": "Content Change and Review",
@@ -201,7 +216,9 @@
    "id": "Task_Merge",
    "name": "Merge the re-pin with its decided revisions",
    "type": "bpmn:Task",
+   "stepHref": "guideline-updates.html#step-Task_Merge",
    "lane": "Re-pin steward and build pipeline",
+   "laneHref": "guideline-updates.html#lane-Lane_Steward",
    "skills": [],
    "role": {
     "name": "merge-steward",

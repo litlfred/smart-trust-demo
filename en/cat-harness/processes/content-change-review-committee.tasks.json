@@ -124,12 +124,15 @@
    }
   }
  ],
+ "processHref": "content-change-review-committee.html",
  "tasks": {
   "Task_CompareBeforeAfter": {
    "id": "Task_CompareBeforeAfter",
    "name": "Compare main vs staging",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_CompareBeforeAfter",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -142,7 +145,9 @@
    "id": "Task_IngestComments",
    "name": "Ingest tagged review comments",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_IngestComments",
    "lane": "Review Coordinator",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Coordinator",
    "skills": [],
    "role": {
     "name": "review-coordinator",
@@ -155,7 +160,9 @@
    "id": "Task_SliceAndAssign",
    "name": "Slice the change and assign reviewers",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_SliceAndAssign",
    "lane": "Review Coordinator",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Coordinator",
    "skills": [],
    "role": {
     "name": "review-coordinator",
@@ -168,7 +175,9 @@
    "id": "Call_ReviewSlices",
    "name": "Review each slice",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review-committee.html#step-Call_ReviewSlices",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "calls": {
     "name": "Review task",
@@ -186,7 +195,9 @@
    "id": "Task_WithdrawComment",
    "name": "Withdraw a review comment",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_WithdrawComment",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -199,12 +210,12 @@
    "id": "Call_Adjudication",
    "name": "Adjudicate the disagreement",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review-committee.html#step-Call_Adjudication",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "calls": {
-    "name": "Adjudication",
-    "href": "adjudication.html",
-    "diagram": "adjudication.html"
+    "name": "Process_Adjudication"
    },
    "role": {
     "name": "reviewer",
@@ -217,7 +228,9 @@
    "id": "Task_ReviewUses",
    "name": "Review the editorial dependencies",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_ReviewUses",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -230,7 +243,9 @@
    "id": "Task_ReviewImpact",
    "name": "Review impact assessment",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_ReviewImpact",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -243,7 +258,9 @@
    "id": "Task_RequestChanges",
    "name": "Request changes",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_RequestChanges",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -256,7 +273,9 @@
    "id": "Task_Approve",
    "name": "Approve",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-committee.html#step-Task_Approve",
    "lane": "Review Committee",
+   "laneHref": "content-change-review-committee.html#lane-Lane_Reviewer",
    "skills": [],
    "role": {
     "name": "reviewer",

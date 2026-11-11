@@ -136,12 +136,15 @@
    }
   }
  ],
+ "processHref": "content-change-review.html",
  "tasks": {
   "Task_DescribeChange": {
    "id": "Task_DescribeChange",
    "name": "Describe the desired change",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_DescribeChange",
    "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -154,12 +157,12 @@
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_BeanOpen",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "authoring-agent",
@@ -172,7 +175,9 @@
    "id": "Call_MakeChange",
    "name": "Make the change",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_MakeChange",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
     "name": "Make the content change",
@@ -190,7 +195,9 @@
    "id": "Call_StageChange",
    "name": "Stage the change",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_StageChange",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Stage the content change",
@@ -208,7 +215,9 @@
    "id": "Task_ReviewStaging",
    "name": "Review staged rendering",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_ReviewStaging",
    "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -221,7 +230,9 @@
    "id": "Task_RequestRevision",
    "name": "Request further revisions",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_RequestRevision",
    "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -234,7 +245,9 @@
    "id": "Task_Iterate",
    "name": "Iterate on author feedback",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_Iterate",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -247,7 +260,9 @@
    "id": "Task_SubmitForReview",
    "name": "Submit to review committee",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_SubmitForReview",
    "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -260,7 +275,9 @@
    "id": "Call_CommitteeReview",
    "name": "Review the change",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_CommitteeReview",
    "lane": "Review Committee",
+   "laneHref": "content-change-review.html#lane-Lane_Reviewer",
    "skills": [],
    "calls": {
     "name": "Committee review of a content change",
@@ -278,7 +295,9 @@
    "id": "Call_Publish",
    "name": "Merge and publish",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_Publish",
    "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review.html#lane-Lane_Pipeline",
    "skills": [],
    "calls": {
     "name": "Merge and publish a content change",
@@ -296,12 +315,12 @@
    "id": "Call_BeanClose",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_BeanClose",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "authoring-agent",

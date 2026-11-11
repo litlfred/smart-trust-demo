@@ -172,12 +172,15 @@
    }
   }
  ],
+ "processHref": "l2-dak-authoring.html",
  "tasks": {
   "Task_ScopeDak": {
    "id": "Task_ScopeDak",
    "name": "Scope the DAK",
    "type": "bpmn:UserTask",
+   "stepHref": "l2-dak-authoring.html#step-Task_ScopeDak",
    "lane": "Programme manager / technical officer",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Programme",
    "skills": [],
    "role": {
     "name": "programme-manager",
@@ -190,7 +193,9 @@
    "id": "Task_L1Library",
    "name": "Build the L1 library from Component 1",
    "type": "bpmn:UserTask",
+   "stepHref": "l2-dak-authoring.html#step-Task_L1Library",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -203,7 +208,9 @@
    "id": "Task_SeedBeans",
    "name": "Seed the work plan",
    "type": "bpmn:Task",
+   "stepHref": "l2-dak-authoring.html#step-Task_SeedBeans",
    "lane": "Work plan — beans (shared by humans and agents)",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_WorkPlan",
    "skills": [],
    "role": {
     "name": "work-plan",
@@ -216,7 +223,9 @@
    "id": "Task_Personas",
    "name": "Personas and scenarios",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Task_Personas",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -234,7 +243,9 @@
    "id": "Task_Bpmn",
    "name": "Business processes · BPMN 2.0",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Task_Bpmn",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -252,7 +263,9 @@
    "id": "Task_Dmn",
    "name": "Decision logic · DMN tables",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Task_Dmn",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -270,7 +283,9 @@
    "id": "Task_DataDict",
    "name": "Data dictionary and core data elements",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Task_DataDict",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -288,7 +303,9 @@
    "id": "Task_Indicators",
    "name": "Indicators and requirements",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Task_Indicators",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -306,7 +323,9 @@
    "id": "Task_Terminology",
    "name": "Terminology bindings",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Task_Terminology",
    "lane": "Terminologist",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Terminologist",
    "skills": [],
    "calls": {
     "name": "L2 component edit and review",
@@ -324,7 +343,9 @@
    "id": "Task_SmeValidate",
    "name": "Clinical validation",
    "type": "bpmn:UserTask",
+   "stepHref": "l2-dak-authoring.html#step-Task_SmeValidate",
    "lane": "Clinical SME",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Sme",
    "skills": [],
    "role": {
     "name": "clinical-sme",
@@ -337,7 +358,9 @@
    "id": "Task_AssembleDak",
    "name": "Assemble and validate the DAK",
    "type": "bpmn:UserTask",
+   "stepHref": "l2-dak-authoring.html#step-Task_AssembleDak",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "role": {
     "name": "business-analyst",
@@ -350,12 +373,12 @@
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Call_BeanOpen",
    "lane": "Work plan — beans (shared by humans and agents)",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_WorkPlan",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "work-plan",
@@ -368,12 +391,12 @@
    "id": "Call_BeanClose",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Call_BeanClose",
    "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "business-analyst",
@@ -386,12 +409,12 @@
    "id": "Call_BeanClose_2",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Call_BeanClose_2",
    "lane": "Clinical SME",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Sme",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "clinical-sme",

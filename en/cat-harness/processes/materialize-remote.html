@@ -30,8 +30,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Materialize remote content: the shared subprocess" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
-<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
+<meta name="twitter:description" property="og:description" content="The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries." />
 <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/materialize-remote.html" />
 <meta property="og:url" content="https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/materialize-remote.html" />
 <meta property="og:site_name" content="SMART Trust demonstrator: journeys J1 to J4" />
@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Materialize remote content: the shared subprocess" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, as the VaxLink walkthrough tells them (birth-dose DVCs in Thailand, CHW registration and triage read in Lao PDR, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Thailand) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Materialize remote content: the shared subprocess","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/materialize-remote.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.","headline":"Materialize remote content: the shared subprocess","url":"https://litlfred.github.io/smart-trust-demo/en/cat-harness/processes/materialize-remote.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -975,8 +975,14 @@
     panel.textContent = "";
     var close = el("button", "pt-close", "\u00d7"); close.type = "button"; close.setAttribute("aria-label", "Close");
     close.onclick = function () { hide(); }; panel.appendChild(close);
-    var task = obj(t.type.replace(/^bpmn:/, ""), link({ name: t.name, href: t.href }), "task");
-    task.appendChild(el("div", "pt-attr", "id = " + t.id));
+    // The title opens the step's description below the drawing; the step's
+    // own page, where it has one, is its id.
+    var title = link({ name: t.name, href: t.stepHref || t.href });
+    if (t.stepHref) title.onclick = function () { hide(); };
+    var task = obj(t.type.replace(/^bpmn:/, ""), title, "task");
+    var idl = el("div", "pt-attr", "id = ");
+    if (t.stepHref && t.href) idl.appendChild(link({ name: t.id, href: t.href })); else idl.appendChild(document.createTextNode(t.id));
+    task.appendChild(idl);
     if (t.lane) {
       var ln = el("div", "pt-attr", "lane = "); ln.appendChild(link({ name: t.lane, href: t.laneHref }));
       // The lane is a partition; the Role it names is who acts (owner,
@@ -1142,6 +1148,7 @@
   <li><strong>Calls:</strong> none</li>
   <li><strong>Names the <code class="language-plaintext highlighter-rouge">materialize-remote</code> skill without calling this process:</strong> <a href="refresh-materialized.html">Refresh materialized remote content</a> — <code class="language-plaintext highlighter-rouge">activity-calls-skill-process</code> asks whether each should be a call activity.</li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
+  <li><strong>Skill:</strong> <a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
 <h2 id="lanes--who-acts">
@@ -1163,12 +1170,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>Contributor (human or agent)</td>
+      <td><a id="lane-Lane_0"></a>Contributor (human or agent)</td>
       <td><code class="language-plaintext highlighter-rouge">user</code></td>
       <td>One task, asked first for a reason: working vs. archival is not just an input to the five gates that follow, it changes what three of them MEAN — an archival copy is the only one that can discharge source loss, and a process that gated before asking this would be judging a copy against obligations it did not yet know applied.</td>
     </tr>
     <tr>
-      <td>Ingestion engine (agent, runs unattended)</td>
+      <td><a id="lane-Lane_1"></a>Ingestion engine (agent, runs unattended)</td>
       <td><code class="language-plaintext highlighter-rouge">ingestion-agent</code></td>
       <td>Runs the five gates in a fixed order and reaches Task_Fetch only after Gateway_Gates finds none of them refused. Before the first gate it resolves the request against the source DESCRIPTOR (Task_Enumerate), because the size being gated is the closure’s, not the request’s — size, restrictions, copyright, retention, source loss — so this lane’s job is not one decision but five independent ones, each of which can send the process to Task_StayRef on its own. It does not get to average them: <code class="language-plaintext highlighter-rouge">unknown</code> on any single gate is enough to keep the node <code class="language-plaintext highlighter-rouge">referenced</code> rather than <code class="language-plaintext highlighter-rouge">materialized</code>.</td>
     </tr>
@@ -1196,45 +1203,45 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Declare the purpose: working or archival</strong><br /><code class="language-plaintext highlighter-rouge">Task_Purpose</code></td>
+      <td><a id="step-Task_Purpose"></a><strong>Declare the purpose: working or archival</strong><br /><code class="language-plaintext highlighter-rouge">Task_Purpose</code></td>
       <td>Contributor (human or agent)</td>
-      <td><code class="language-plaintext highlighter-rouge">materialize-remote</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></td>
       <td>working or archival, and it is asked FIRST because three of the five gates mean different things under each. An archival copy keeps the original bytes, never expires, requires fixity, and is the only thing that discharges sourceLoss; a working copy keeps derived content and discharges none of that. A process that gated first and asked afterwards would be judging a copy whose obligations it did not yet know.</td>
     </tr>
     <tr>
-      <td><strong>Enumerate the source descriptor</strong><br /><code class="language-plaintext highlighter-rouge">Task_Enumerate</code></td>
+      <td><a id="step-Task_Enumerate"></a><strong>Enumerate the source descriptor</strong><br /><code class="language-plaintext highlighter-rouge">Task_Enumerate</code></td>
       <td>Ingestion engine (agent, runs unattended)</td>
-      <td><code class="language-plaintext highlighter-rouge">materialize-remote</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></td>
       <td>Resolve the request against the source’s descriptor (one per corpus, in the declared sources/ of the instance that owns it, e.g. who-iris/sources/), read against cat-harness/schemas/library/source-descriptor.ts BEFORE any gate. Three things come from it and none may be guessed. (1) Which subset strategies the source supports — supportsSubset(). (2) Whether a subset stands on its own: when subsetIsSelfContained is false (mathlib), the request is closed over its dependencies here, and every gate after this one is asked about the CLOSURE, because a subset that omits what its members depend on is not a smaller corpus, it is one that does not build. (3) What enumerating the whole costs — enumerationCost(), which is undefined when the descriptor has no measured denominator; SIZE then refuses rather than estimates. A source with no descriptor is not an error here: it is an unknown, and SIZE refuses on it. The descriptor is CALLED here rather than restated.</td>
     </tr>
     <tr>
-      <td><strong>Size the take and the whole</strong><br /><code class="language-plaintext highlighter-rouge">Task_Size</code></td>
+      <td><a id="step-Task_Size"></a><strong>Size the take and the whole</strong><br /><code class="language-plaintext highlighter-rouge">Task_Size</code></td>
       <td>Ingestion engine (agent, runs unattended)</td>
-      <td><code class="language-plaintext highlighter-rouge">materialize-remote</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></td>
       <td>What is being taken, and what the whole collection would cost. REFUSES when it cannot tell: ‘three items’ with no denominator is not a size answer. 0.7 TB is the measured reason the IRIS import is by reference.</td>
     </tr>
     <tr>
-      <td><strong>Answer the other four gates</strong><br /><code class="language-plaintext highlighter-rouge">Task_AnswerGates</code></td>
+      <td><a id="step-Task_AnswerGates"></a><strong>Answer the other four gates</strong><br /><code class="language-plaintext highlighter-rouge">Task_AnswerGates</code></td>
       <td>Ingestion engine (agent, runs unattended)</td>
-      <td><code class="language-plaintext highlighter-rouge">materialize-remote</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></td>
       <td>Restrictions, copyright, retention and source loss, each answered permitted, refused or unknown. They are four answers to one decision, and Gateway_Gates reads them with size through decisions/materialization-gate.dmn.<br />RESTRICTIONS. ‘No restrictions known in context’ is a STATE, not a green light. GateVerdict is three-valued for this reason alone, and <code class="language-plaintext highlighter-rouge">unknown</code> is never rendered as <code class="language-plaintext highlighter-rouge">permitted</code>.<br />COPYRIGHT. What the licence permits for THIS bitstream, and separately whether it permits the derivation. LICENSE-CONTENT.md exists in this repository and the ingestion pipeline does not read it.<br />RETENTION. A copy with no expiry cannot be told from an abandoned one — the same argument bean-blocking makes about a block with no expiry. An ARCHIVAL copy is the exception and it is a specification rather than an omission: freshness() reports it <code class="language-plaintext highlighter-rouge">permanent</code>, not <code class="language-plaintext highlighter-rouge">no-expiry</code>.<br />SOURCE LOSS. Not hypothetical. The one IRIS record this repository holds carries a handle on iris.wpro.who.int, a regional instance merged into the global one. Only an ARCHIVAL copy of the original bytes discharges this; a working copy cannot, because the derived sections are not the publication.</td>
     </tr>
     <tr>
-      <td><strong>Fetch, and record fixity</strong><br /><code class="language-plaintext highlighter-rouge">Task_Fetch</code></td>
+      <td><a id="step-Task_Fetch"></a><strong>Fetch, and record fixity</strong><br /><code class="language-plaintext highlighter-rouge">Task_Fetch</code></td>
       <td>Ingestion engine (agent, runs unattended)</td>
-      <td><code class="language-plaintext highlighter-rouge">materialize-remote</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></td>
       <td>Fetch, then record sha256 and byte count. Fixity is REQUIRED for an archival copy: an archive that cannot demonstrate it is unchanged is a copy, and it cannot be re-fetched to check, because the thing it would be re-fetched from is what it exists to survive. The data already exists — every structure.json carries sha256 and bytes, and nothing reads them as fixity.</td>
     </tr>
     <tr>
-      <td><strong>Declare the node materialized</strong><br /><code class="language-plaintext highlighter-rouge">Task_Declare</code></td>
+      <td><a id="step-Task_Declare"></a><strong>Declare the node materialized</strong><br /><code class="language-plaintext highlighter-rouge">Task_Declare</code></td>
       <td>Ingestion engine (agent, runs unattended)</td>
-      <td><code class="language-plaintext highlighter-rouge">materialize-remote</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></td>
       <td>The node’s state moves from <code class="language-plaintext highlighter-rouge">referenced</code> to <code class="language-plaintext highlighter-rouge">materialized</code>, carrying purpose, localPath, gates and (archival) fixity. There is NO default state: a node that has not said is invalid, because ‘the author did not say’ and ‘the author said they could not tell’ are different facts.</td>
     </tr>
     <tr>
-      <td><strong>Leave it referenced, record why</strong><br /><code class="language-plaintext highlighter-rouge">Task_StayRef</code></td>
+      <td><a id="step-Task_StayRef"></a><strong>Leave it referenced, record why</strong><br /><code class="language-plaintext highlighter-rouge">Task_StayRef</code></td>
       <td>Ingestion engine (agent, runs unattended)</td>
-      <td><code class="language-plaintext highlighter-rouge">materialize-remote</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/materialize-remote.html"><code class="language-plaintext highlighter-rouge">materialize-remote</code></a></td>
       <td>A refusal is not a failure of the process — it is the process working. The node stays <code class="language-plaintext highlighter-rouge">referenced</code>, which means the graph still knows it exists and where, and the refusing gate’s basis is recorded so the next caller does not re-litigate it.</td>
     </tr>
   </tbody>

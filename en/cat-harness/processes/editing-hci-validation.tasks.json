@@ -208,12 +208,15 @@
    }
   }
  ],
+ "processHref": "editing-hci-validation.html",
  "tasks": {
   "Task_DescribeChange": {
    "id": "Task_DescribeChange",
    "name": "Describe the intended change",
    "type": "bpmn:UserTask",
+   "stepHref": "editing-hci-validation.html#step-Task_DescribeChange",
    "lane": "Editor / author (person)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "author",
@@ -226,12 +229,12 @@
    "id": "Task_ClaimBean",
    "name": "Open the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "editing-hci-validation.html#step-Task_ClaimBean",
    "lane": "Authoring agent (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Open the bean",
-    "href": "bean-open.html",
-    "diagram": "bean-open.html"
+    "name": "Process_BeanOpen"
    },
    "role": {
     "name": "authoring-agent",
@@ -244,7 +247,9 @@
    "id": "CallActivity_Evidence",
    "name": "Gather and verify the evidence",
    "type": "bpmn:CallActivity",
+   "stepHref": "editing-hci-validation.html#step-CallActivity_Evidence",
    "lane": "Editor / author (person)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Editor",
    "skills": [],
    "calls": {
     "name": "Evidence for a recommendation",
@@ -262,7 +267,9 @@
    "id": "Task_DraftEdit",
    "name": "Draft the block edit",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_DraftEdit",
    "lane": "Authoring agent (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -275,7 +282,9 @@
    "id": "Task_SchemaValidate",
    "name": "Schema and constraint checks",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_SchemaValidate",
    "lane": "Mechanical validation (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Mechanical",
    "skills": [],
    "role": {
     "name": "validation-pipeline",
@@ -288,7 +297,9 @@
    "id": "Task_SyntaxSpell",
    "name": "Syntax, spelling and links",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_SyntaxSpell",
    "lane": "Mechanical validation (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Mechanical",
    "skills": [],
    "role": {
     "name": "validation-pipeline",
@@ -301,7 +312,9 @@
    "id": "Task_BuildGates",
    "name": "Build and QA gates",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_BuildGates",
    "lane": "Mechanical validation (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Mechanical",
    "skills": [],
    "role": {
     "name": "validation-pipeline",
@@ -314,7 +327,9 @@
    "id": "Task_AgentReview",
    "name": "Agent review of the change",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_AgentReview",
    "lane": "Non-mechanical validation (review agent or SME)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_NonMechanical",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -327,7 +342,9 @@
    "id": "Task_SmeReview",
    "name": "Human / SME review",
    "type": "bpmn:UserTask",
+   "stepHref": "editing-hci-validation.html#step-Task_SmeReview",
    "lane": "Non-mechanical validation (review agent or SME)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_NonMechanical",
    "skills": [],
    "role": {
     "name": "reviewer",
@@ -340,7 +357,9 @@
    "id": "Task_CollateFindings",
    "name": "Collate findings into a report",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_CollateFindings",
    "lane": "HCI validation pipeline (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "validation-pipeline",
@@ -353,7 +372,9 @@
    "id": "Task_LogFindings",
    "name": "Log findings on the bean",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_LogFindings",
    "lane": "Authoring agent (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -366,7 +387,9 @@
    "id": "Task_ReviewFindings",
    "name": "Review the findings",
    "type": "bpmn:UserTask",
+   "stepHref": "editing-hci-validation.html#step-Task_ReviewFindings",
    "lane": "Editor / author (person)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "author",
@@ -379,12 +402,12 @@
    "id": "Call_OptionsAnalysis",
    "name": "Options analysis accept · revise · discard",
    "type": "bpmn:CallActivity",
+   "stepHref": "editing-hci-validation.html#step-Call_OptionsAnalysis",
    "lane": "Authoring agent (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Options analysis",
-    "href": "options-analysis.html",
-    "diagram": "options-analysis.html"
+    "name": "Process_OptionsAnalysis"
    },
    "role": {
     "name": "authoring-agent",
@@ -397,7 +420,9 @@
    "id": "Task_RecordDecision",
    "name": "Record the decision and audit note",
    "type": "bpmn:UserTask",
+   "stepHref": "editing-hci-validation.html#step-Task_RecordDecision",
    "lane": "Editor / author (person)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Editor",
    "skills": [],
    "role": {
     "name": "author",
@@ -410,7 +435,9 @@
    "id": "Task_ReviseEdit",
    "name": "Revise the proposed change",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_ReviseEdit",
    "lane": "Authoring agent (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -423,7 +450,9 @@
    "id": "Task_Commit",
    "name": "Commit into the corpus",
    "type": "bpmn:ServiceTask",
+   "stepHref": "editing-hci-validation.html#step-Task_Commit",
    "lane": "Authoring agent (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -436,12 +465,12 @@
    "id": "Task_ResolveBean",
    "name": "Close the bean",
    "type": "bpmn:CallActivity",
+   "stepHref": "editing-hci-validation.html#step-Task_ResolveBean",
    "lane": "Authoring agent (system)",
+   "laneHref": "editing-hci-validation.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Close the bean",
-    "href": "bean-close.html",
-    "diagram": "bean-close.html"
+    "name": "Process_BeanClose"
    },
    "role": {
     "name": "authoring-agent",

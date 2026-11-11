@@ -88,12 +88,15 @@
    }
   }
  ],
+ "processHref": "content-change-review-make.html",
  "tasks": {
   "Task_DetectScope": {
    "id": "Task_DetectScope",
    "name": "Detect change scope & impact",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_DetectScope",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -106,7 +109,9 @@
    "id": "Task_CreateBranch",
    "name": "Create feature branch",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_CreateBranch",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -119,7 +124,9 @@
    "id": "Task_EditContent",
    "name": "Edit narrative content blocks",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_EditContent",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -132,7 +139,9 @@
    "id": "Task_EditLogic",
    "name": "Edit deterministic logic (if needed)",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_EditLogic",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -145,7 +154,9 @@
    "id": "Task_AssessImpact",
    "name": "Assess downstream impact",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_AssessImpact",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",
@@ -158,12 +169,12 @@
    "id": "Call_OptionsAnalysis",
    "name": "Options analysis how to absorb the impact",
    "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review-make.html#step-Call_OptionsAnalysis",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
    "skills": [],
    "calls": {
-    "name": "Options analysis",
-    "href": "options-analysis.html",
-    "diagram": "options-analysis.html"
+    "name": "Process_OptionsAnalysis"
    },
    "role": {
     "name": "authoring-agent",
@@ -176,7 +187,9 @@
    "id": "Task_CommitPush",
    "name": "Commit, push, update PR",
    "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_CommitPush",
    "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
    "skills": [],
    "role": {
     "name": "authoring-agent",

@@ -76,12 +76,15 @@
    }
   }
  ],
+ "processHref": "mount-dependency.html",
  "tasks": {
   "Task_DeclareMount": {
    "id": "Task_DeclareMount",
    "name": "Declare the mount: harness, repository, pin",
    "type": "bpmn:Task",
+   "stepHref": "mount-dependency.html#step-Task_DeclareMount",
    "lane": "Downstream author",
+   "laneHref": "mount-dependency.html#lane-Lane_Author",
    "skills": [],
    "role": {
     "name": "author",
@@ -94,7 +97,9 @@
    "id": "Task_ResolveClosure",
    "name": "Resolve the closure at the pin",
    "type": "bpmn:Task",
+   "stepHref": "mount-dependency.html#step-Task_ResolveClosure",
    "lane": "Build pipeline",
+   "laneHref": "mount-dependency.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -107,7 +112,9 @@
    "id": "Task_MountInstances",
    "name": "Mount each instance at its declared path",
    "type": "bpmn:Task",
+   "stepHref": "mount-dependency.html#step-Task_MountInstances",
    "lane": "Build pipeline",
+   "laneHref": "mount-dependency.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -120,7 +127,9 @@
    "id": "Task_WriteLock",
    "name": "Write the lock",
    "type": "bpmn:Task",
+   "stepHref": "mount-dependency.html#step-Task_WriteLock",
    "lane": "Build pipeline",
+   "laneHref": "mount-dependency.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -133,7 +142,9 @@
    "id": "Task_RenderAgentSurface",
    "name": "Re-render the agent surface",
    "type": "bpmn:Task",
+   "stepHref": "mount-dependency.html#step-Task_RenderAgentSurface",
    "lane": "Build pipeline",
+   "laneHref": "mount-dependency.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",
@@ -146,7 +157,9 @@
    "id": "Task_CheckAgainstLock",
    "name": "Check disk against lock against declaration",
    "type": "bpmn:Task",
+   "stepHref": "mount-dependency.html#step-Task_CheckAgainstLock",
    "lane": "Build pipeline",
+   "laneHref": "mount-dependency.html#lane-Lane_Pipeline",
    "skills": [],
    "role": {
     "name": "build-pipeline",

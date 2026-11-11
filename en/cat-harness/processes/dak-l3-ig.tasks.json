@@ -28,12 +28,15 @@
    }
   }
  ],
+ "processHref": "dak-l3-ig.html",
  "tasks": {
   "Task_MapL2": {
    "id": "Task_MapL2",
    "name": "Map L2 → L3",
    "type": "bpmn:UserTask",
+   "stepHref": "dak-l3-ig.html#step-Task_MapL2",
    "lane": "FHIR modeller",
+   "laneHref": "dak-l3-ig.html#lane-Lane_Modeller",
    "skills": [],
    "role": {
     "name": "fhir-modeller",
@@ -46,7 +49,9 @@
    "id": "CallActivity_L3Fhir",
    "name": "L3 FHIR IG pipeline (fhir-harness)",
    "type": "bpmn:CallActivity",
+   "stepHref": "dak-l3-ig.html#step-CallActivity_L3Fhir",
    "lane": "FHIR modeller",
+   "laneHref": "dak-l3-ig.html#lane-Lane_Modeller",
    "skills": [],
    "calls": {
     "name": "L3 FHIR IG pipeline",

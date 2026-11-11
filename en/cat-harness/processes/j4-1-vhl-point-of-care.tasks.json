@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "j4-1-vhl-point-of-care.html",
  "tasks": {
   "Task_Open": {
    "id": "Task_Open",
    "name": "Show the child's VHL QR",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Open",
    "lane": "Family phone",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_family-phone",
    "skills": [],
    "role": {
     "name": "family-phone",
@@ -118,7 +121,9 @@
    "id": "Task_Scan",
    "name": "Scan the QR and enter the passcode the caregiver says",
    "type": "bpmn:UserTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Scan",
    "lane": "Point-of-care provider",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_poc-provider",
    "skills": [],
    "role": {
     "name": "poc-provider",
@@ -131,7 +136,9 @@
    "id": "Task_Verify",
    "name": "Verify the HCERT and read the VHL at key 5",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Verify",
    "lane": "Point-of-care receiver",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_poc-receiver",
    "skills": [],
    "role": {
     "name": "poc-receiver",
@@ -144,7 +151,9 @@
    "id": "Task_Unverified",
    "name": "Not verified: treat records as paper",
    "type": "bpmn:UserTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Unverified",
    "lane": "Point-of-care provider",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_poc-provider",
    "skills": [],
    "role": {
     "name": "poc-provider",
@@ -157,7 +166,9 @@
    "id": "Task_Fetch",
    "name": "Request the manifest (ITI-YY5), signed",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Fetch",
    "lane": "Point-of-care receiver",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_poc-receiver",
    "skills": [],
    "role": {
     "name": "poc-receiver",
@@ -170,7 +181,9 @@
    "id": "Task_Release",
    "name": "Check passcode, log access, return manifest",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Release",
    "lane": "National health portal",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_national-portal",
    "skills": [],
    "role": {
     "name": "national-portal",
@@ -183,7 +196,9 @@
    "id": "Task_Decrypt",
    "name": "Decrypt the IPS and DVCs",
    "type": "bpmn:ServiceTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Decrypt",
    "lane": "Point-of-care receiver",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_poc-receiver",
    "skills": [],
    "role": {
     "name": "poc-receiver",
@@ -196,7 +211,9 @@
    "id": "Task_Review",
    "name": "Review history, allergies and vaccinations",
    "type": "bpmn:UserTask",
+   "stepHref": "j4-1-vhl-point-of-care.html#step-Task_Review",
    "lane": "Point-of-care provider",
+   "laneHref": "j4-1-vhl-point-of-care.html#lane-Lane_poc-provider",
    "skills": [],
    "role": {
     "name": "poc-provider",

@@ -607,7 +607,7 @@
      `avatars:css:check` fails the build when it is stale. One stylesheet
      rather than 68 assets: the glyph is a mask and the colour is a property,
      so a scheme swap is a custom property and the trash state is a selector. -->
-<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=c86745afe6e9">
+<link rel="stylesheet" href="../../../../../assets/css/avatars.css?v=045ae9db3919">
 
 <!--
   The kinds THIS INSTANCE DECLARES, for the avatar fan.
@@ -622,7 +622,7 @@
   all, and a fetch for that would put a spinner in front of a badge.
 -->
 <!-- NOT MOVED: same reason as fa-site-links above. -->
-<script type="application/json" id="fa-declared-kinds">["archimate","basic-cdn-site","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
+<script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script>
 <!--
   FIRST of the deferred scripts: it fills `#fa-navbar-row` and
   `meta[name=fa-tiles]` before any reader runs (bean `gp2f`).
@@ -938,14 +938,14 @@
 
 <p><code class="language-plaintext highlighter-rouge">hybrid-llm-deterministic</code> — declared by <code class="language-plaintext highlighter-rouge">cat-harness</code> — <span class="mv-tag mv-ingested">source held</span></p>
 
-<p><strong>Applies when.</strong> <strong>An agent must produce an artefact that something downstream will act on.</strong> Use it when a language model is in the loop and a wrong output would be acted on rather than merely read — a schema, a mapping, a classification, a branch, a judgement. It answers <em>how to get the output safely</em>, never <em>which option to choose</em>: a one-off choice among options is <code class="language-plaintext highlighter-rouge">kepner-tregoe</code>, a recurring rule is <code class="language-plaintext highlighter-rouge">dmn</code>, certainty of evidence is <code class="language-plaintext highlighter-rouge">grade</code>, the record of a decision is <code class="language-plaintext highlighter-rouge">madr</code>, who is involved is <code class="language-plaintext highlighter-rouge">raci</code>, and situation analysis is <code class="language-plaintext highlighter-rouge">swot</code>. Those pick an answer; this one constrains how an answer is produced. Not applicable where no model is involved, and unnecessary where the output is only ever read by a person who will notice it is wrong.</p>
+<p><strong>Applies when.</strong> <strong>An agent must produce an artefact that something downstream will act on.</strong> Use it when a language model is in the loop and a wrong output would be acted on rather than merely read — a schema, a mapping, a classification, a branch, a judgement. It answers <em>how to get the output safely</em>, never <em>which option to choose</em>: a one-off choice among options is <a href="../../#kepner-tregoe"><code class="language-plaintext highlighter-rouge">kepner-tregoe</code></a>, a recurring rule is <a href="../../#dmn"><code class="language-plaintext highlighter-rouge">dmn</code></a>, certainty of evidence is <code class="language-plaintext highlighter-rouge">grade</code>, the record of a decision is <a href="../../#madr"><code class="language-plaintext highlighter-rouge">madr</code></a>, who is involved is <a href="../../#raci"><code class="language-plaintext highlighter-rouge">raci</code></a>, and situation analysis is <a href="../../#swot"><code class="language-plaintext highlighter-rouge">swot</code></a>. Those pick an answer; this one constrains how an answer is produced. Not applicable where no model is involved, and unnecessary where the output is only ever read by a person who will notice it is wrong.</p>
 
 <p><strong>Origin.</strong> Felix Neubauer, Jürgen Pleiss and Benjamin Uekermann, “AI-assisted JSON Schema Creation and Mapping” (arXiv:2508.05192v2), University of Stuttgart. The authors’ own word for it is a <em>“hybrid approach that combines large language models (LLMs) with deterministic techniques”</em>. Open access, read whole and ingested here — unlike most nodes in this graph, the primary IS held. It is a tool paper reporting one implementation (MetaConfigurator), so what is adopted below is the METHOD it generalises, and §”Where this rendering stops” says which parts were left behind.</p>
 
 <p><strong>Ingested sources:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">library/arxiv-2508.05192v2</code></li>
+  <li><a href="../../../library/cat-harness/#cat-harness%2Farxiv-2508.05192v2"><code class="language-plaintext highlighter-rouge">library/arxiv-2508.05192v2</code></a> · <a href="../../../library/cat-harness/arxiv-2508.05192v2/">view</a> · <a href="https://github.com/litlfred/cat-harness/blob/main/library/process/arxiv-2508.05192v2/README.md">item page</a> · <a href="https://arxiv.org/abs/2508.05192v2">source</a></li>
 </ul>
 
 <p><strong>Applied by skills:</strong></p>

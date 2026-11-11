@@ -100,12 +100,15 @@
    }
   }
  ],
+ "processHref": "refresh-materialized.html",
  "tasks": {
   "Task_Fixity": {
    "id": "Task_Fixity",
    "name": "ARCHIVAL verify fixity — never re-fetch",
    "type": "bpmn:ServiceTask",
+   "stepHref": "refresh-materialized.html#step-Task_Fixity",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "refresh-materialized.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -118,7 +121,9 @@
    "id": "Task_Upstream",
    "name": "WORKING what changed upstream",
    "type": "bpmn:ServiceTask",
+   "stepHref": "refresh-materialized.html#step-Task_Upstream",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "refresh-materialized.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -131,7 +136,9 @@
    "id": "Task_Local",
    "name": "What changed LOCALLY since",
    "type": "bpmn:ServiceTask",
+   "stepHref": "refresh-materialized.html#step-Task_Local",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "refresh-materialized.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -144,12 +151,12 @@
    "id": "Task_Adjudicate",
    "name": "Adjudicate the conflict",
    "type": "bpmn:CallActivity",
+   "stepHref": "refresh-materialized.html#step-Task_Adjudicate",
    "lane": "Contributor (human or agent)",
+   "laneHref": "refresh-materialized.html#lane-Lane_0",
    "skills": [],
    "calls": {
-    "name": "Adjudication",
-    "href": "adjudication.html",
-    "diagram": "adjudication.html"
+    "name": "Process_Adjudication"
    },
    "role": {
     "name": "user",
@@ -162,7 +169,9 @@
    "id": "Task_Reconcile",
    "name": "Reconcile the two by hand",
    "type": "bpmn:Task",
+   "stepHref": "refresh-materialized.html#step-Task_Reconcile",
    "lane": "Contributor (human or agent)",
+   "laneHref": "refresh-materialized.html#lane-Lane_0",
    "skills": [],
    "role": {
     "name": "user",
@@ -175,7 +184,9 @@
    "id": "Task_Apply",
    "name": "Re-materialize and record new fixity",
    "type": "bpmn:ServiceTask",
+   "stepHref": "refresh-materialized.html#step-Task_Apply",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "refresh-materialized.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -188,7 +199,9 @@
    "id": "Task_KeepLocal",
    "name": "Keep the edit, re-pin",
    "type": "bpmn:ServiceTask",
+   "stepHref": "refresh-materialized.html#step-Task_KeepLocal",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "refresh-materialized.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
@@ -201,7 +214,9 @@
    "id": "Task_RecordConflict",
    "name": "Record the conflict: no decision, no re-pin",
    "type": "bpmn:ServiceTask",
+   "stepHref": "refresh-materialized.html#step-Task_RecordConflict",
    "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "refresh-materialized.html#lane-Lane_1",
    "skills": [],
    "role": {
     "name": "ingestion-agent",
