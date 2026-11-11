@@ -800,7 +800,7 @@
     }
   ],
   "presentation": {
-    "name": "VaxLink",
+    "name": "Journeys",
     "badge": "Interactive Spec",
     "tagline": "Open Health Stack (OHS) • WHO GDHCN • Verifiable Health Links (VHL)",
     "occasion": "WHO Pre-GDHF Vignette",
@@ -810,6 +810,17 @@
     "story": "Somsack is born in Thailand, grows up in Lao PDR, and one year later a Thai doctor can see every vaccine he has ever had — without a single record being copied across the border.",
     "lede": "A baby and five people around him, four moments, twelve months. Follow the people first; the technology is what makes each hand-off possible.",
     "recordOf": "somsack-sengmany",
+    "cast": [
+      "somsack-sengmany",
+      "khamla-sengmany",
+      "bounmy-sengmany",
+      "vilay",
+      "chanthasone",
+      "anan"
+    ],
+    "chapterTitles": {
+      "j4-family-records-abroad": "Crossing back"
+    },
     "presenterNote": "Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \"what does that look like?\"",
     "about": {
       "title": "This walkthrough is the demo of a FHIR implementation guide",
@@ -839,79 +850,6 @@
         "frame": "IG source"
       }
     ],
-    "deviceDemo": {
-      "href": "https://litlfred.github.io/smart-trust-demo/vaxlink/",
-      "label": "Device Demo",
-      "screens": [
-        {
-          "id": "S1",
-          "title": "Birth Abroad & Printed DVC QR Cards",
-          "device": "tablet",
-          "steps": [
-            "J1"
-          ]
-        },
-        {
-          "id": "S2",
-          "title": "Offline QR Scan of the Foreign Cards",
-          "device": "phone",
-          "steps": [
-            "J2a"
-          ]
-        },
-        {
-          "id": "S3",
-          "title": "Newborn Registration & Clinic Referral",
-          "device": "phone",
-          "steps": [
-            "J2b"
-          ]
-        },
-        {
-          "id": "S4",
-          "title": "Clinic Referral & GDHCN Verification",
-          "device": "tablet",
-          "steps": [
-            "J3a"
-          ],
-          "try": "Try “Simulate Tampered QR Card” on this screen"
-        },
-        {
-          "id": "S5",
-          "title": "Terminology Adjudication & National Schedule",
-          "device": "tablet",
-          "steps": [
-            "J3b"
-          ],
-          "try": "Walk through the 3-layer match on this screen"
-        },
-        {
-          "id": "S6",
-          "title": "One Family, One Phone Household Wallet",
-          "device": "phone",
-          "steps": [
-            "J4.0a"
-          ]
-        },
-        {
-          "id": "S7",
-          "title": "VHL QR Display & Passcode Protection",
-          "device": "phone",
-          "steps": [
-            "J4.0b"
-          ]
-        },
-        {
-          "id": "S8",
-          "title": "Foreign Clinic VHL Viewer & Audit Trace",
-          "device": "tablet",
-          "steps": [
-            "J4.1"
-          ],
-          "try": "Try the wrong-passcode test on this screen"
-        }
-      ]
-    },
     "ig": {
       "href": "",
       "example": "artifact/{type}-{id}.html",

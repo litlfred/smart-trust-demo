@@ -38,7 +38,7 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 
 ### The people of the journeys
 
-Each is fictional. Their goals, needs and frustrations are kept in `scenarios/actors/*.json` (`meta.persona`), and the VaxLink walkthrough shows the same text.
+Each is fictional. Their goals, needs and frustrations are kept in `scenarios/actors/*.json` (`meta.persona`), and the journeys viewer shows the same text.
 
 
 #### Dr. Anan (Thai clinician · birth & follow-up, Thailand)

@@ -11,8 +11,9 @@ everywhere. [`README.md`](README.md) says what this repository *is*;
 The demonstrator for the SMART Trust HCERT libraries: the user journeys J1–J4
 as BPMN processes, personas and scenarios, an Open Health Stack app that runs
 them with the Kotlin HCERT library, the Android emulator test of that
-library, and the VaxLink walkthrough of the journeys for workshops (`web/`,
-published at `vaxlink/` of this site). It becomes a cat-harness downstream of
+library, and the journeys themselves, drawn for workshops by the harness's
+journeys viewer (`en/smart-trust-demo/journeys/` of this site). It becomes a
+cat-harness downstream of
 [smart-trust-tools](https://github.com/litlfred/smart-trust-tools) (owner's
 choice, 2026-10-23), reusing its conventions: processes in `processes/`,
 roles and personas in `scenarios/`, owner directives in `memory/`, open
@@ -39,18 +40,7 @@ step traces to smart-trust-tools' `req:` nodes by id.
   WHO. No paywalled ISO.
 - **gh-pages is published by an agent, not a workflow.** main publishes to the
   root; every other branch to `branches/<branch-slug>/` (the harness's
-  preview prefix since 2026-11-05; older previews stay under `STAGING/`). The
-  walkthrough goes to `vaxlink/` inside that, by `web/scripts/publish.sh`,
-  after the site.
-- **The walkthrough (`web/`) restates nothing it can read.** Actors, BPMN
-  drawings and moment pictures are imported from `scenarios/actors/`,
-  `processes/content/` and `docs/images/` at build time; the ArchiMate views
-  are the site's own drawings. A persona's name, role, country, goal, needs
-  and frustrations are its actor's `meta.persona`; only initials and colours
-  are in `web/src/data/journeyData.ts`. The FHIR examples in
-  `web/src/data/ig/` are SUSHI's output, copied by
-  `node web/scripts/ig-examples.mjs` and checked by its `--check` in CI:
-  edit `input/fsh/`, never the copy.
+  preview prefix since 2026-11-05; older previews stay under `STAGING/`).
 - **Every person is fictional.** Personas and test patients are invented.
   The journeys follow the VaxLink walkthrough's family (issue #21); the WHO
   guide's own worked example (QR Code Generation §12) stays the library's
@@ -75,12 +65,9 @@ bun run cat mount:remote:check
 Generators that write below a mounted layer (for example `bpmn:checklist`,
 which also writes into `cat-harness/`) leave that mount "modified"; re-lay it
 with `rm -rf <layer>` and the clone line above, then `mount:lock`. Publish
-gh-pages with `bun cat-harness-tools/scripts/stage-local.ts --repo . --publisher ig`,
-then `sh web/scripts/publish.sh`, which builds `web/` and places it at
-`vaxlink/` (or `branches/<branch>/vaxlink/`) beside the site of the same
-commit. The site's publish keeps `vaxlink/` at the root because
-`index.config.json` lists it in `site.build.keep`; a branch's site publish
-replaces `branches/<branch>/` whole, so the walkthrough always goes second.
+gh-pages with `bun cat-harness-tools/scripts/stage-local.ts --repo . --publisher ig`.
+The VaxLink app that used to live in `web/` and at `vaxlink/` was retired on
+2026-11-11 (issue #111); the journeys viewer replaces it.
 
 ## Translations
 

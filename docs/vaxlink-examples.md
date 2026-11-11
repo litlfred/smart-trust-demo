@@ -1,15 +1,14 @@
 ---
-title: VaxLink examples
+title: Journey examples
 nav_order: 3
 ---
 
-# VaxLink examples
+# Journey examples
 
-The [VaxLink](https://fredhersch.github.io/vaxlink/) walkthrough
-([source](https://github.com/fredhersch/vaxlink)) shows sample FHIR payloads in
+The journeys walkthrough (first told in the [VaxLink](https://fredhersch.github.io/vaxlink/)
+workshop, [source](https://github.com/fredhersch/vaxlink)) shows sample FHIR payloads in
 its payload drawer and on its device screens S1 to S8. This page maps each of
-them to the example in this guide that materializes it, so the walkthrough can
-load the published examples instead of its own copies.
+them to the example in this guide that materializes it.
 
 Every example is published twice: as a page, and as raw JSON at a stable URL
 the walkthrough can fetch (`https://litlfred.github.io/smart-trust-demo/<Type>-<id>.json`).

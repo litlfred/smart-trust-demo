@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-06T09:26:50.941Z\n"
+"POT-Creation-Date: 2026-11-11T08:52:48.305Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: fr\n"
@@ -27,6 +27,11 @@ msgstr ""
 msgid "<a0>Functional requirements</a0>"
 msgstr ""
 
+#: docs/index.md:65
+#: docs/index.md:66
+msgid "<a0>Journey examples</a0>"
+msgstr ""
+
 #: docs/index.md:60
 msgid "<a0>Journeys J1–J4</a0>, <a1>user scenarios</a1>"
 msgstr ""
@@ -35,17 +40,12 @@ msgstr ""
 msgid "<a0>Personas</a0>, <a1>system actors</a1>"
 msgstr ""
 
-#: docs/index.md:65
-#: docs/index.md:66
-msgid "<a0>VaxLink examples</a0>"
-msgstr ""
-
 #: docs/index.md:24
 msgid "1. Born abroad Birth day · Chiang Rai, Thailand · J1 A Lao baby gets his first vaccines in Thailand. The hospital signs each dose as a Digital Vaccination Certificate, and the family leaves with two paper QR cards. Walk through it · Scenario · Process · Thai profile    2. Found at home 3 weeks later · Village 04, Lao PDR · J2 A health worker registers him offline and reads the cards. She records them as \"reported, not yet verified\" and refers him to the clinic. Walk through it · Scenario · Process · Lao profile    3. Made official 4 weeks later · district health centre, Lao PDR · J3 A nurse checks the signatures against the GDHCN trust list, offline. She maps the Thai vaccine codes to the Lao schedule and books the 6-week doses. Walk through it · Scenario · Process · Lao profile    4. Crossing back 12 months later · Lao PDR → Thailand · J4.0, J4.1 The family shares his whole record with a Thai doctor through a Verifiable Health Link on Dad's phone. Every access is logged back home. Walk through it · Scenario · Process · Lao profile"
 msgstr ""
 
 #: docs/index.md:19
-msgid "Each moment is one business process (BPMN), played by fictional people. Each one is linked to the user scenario, the process and the FHIR records it creates. Click a picture to walk through that moment in the <a0>VaxLink walkthrough</a0>."
+msgid "Each moment is one business process (BPMN), played by fictional people. Each one is linked to the user scenario, the process and the FHIR records it creates. Click a picture to walk through that moment in the <a0>journeys walkthrough</a0>."
 msgstr ""
 
 #: docs/index.md:94
@@ -53,7 +53,7 @@ msgid "Every person and record here is fictional, and every key is a test key. T
 msgstr ""
 
 #: docs/index.md:66
-msgid "Every screen and payload of the VaxLink walkthrough as a FHIR example, Thai and Lao"
+msgid "Every screen and payload of the journeys walkthrough as a FHIR example, Thai and Lao"
 msgstr ""
 
 #: docs/index.md:66
@@ -81,7 +81,7 @@ msgid "Lao profiles"
 msgstr ""
 
 #: docs/index.md:8
-msgid "One baby · two countries · one year Somsack is born in Thailand and grows up in Lao PDR. A year later, a Thai doctor sees every vaccine he has ever had, and no record is copied across the border. This guide is that story, the VaxLink walkthrough, written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN. Open the VaxLink walkthrough Read the journeys See the FHIR examples"
+msgid "One baby · two countries · one year Somsack is born in Thailand and grows up in Lao PDR. A year later, a Thai doctor sees every vaccine he has ever had, and no record is copied across the border. This guide is that story, told as the journeys J1 to J4 (first told in the VaxLink workshop), written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN. Walk through the journeys Read the journeys See the FHIR examples"
 msgstr ""
 
 #: docs/index.md:61
@@ -109,7 +109,7 @@ msgid "Thai profiles"
 msgstr ""
 
 #: docs/index.md:71
-msgid "Thailand and Lao PDR never connect to each other. Both build on WHO GDHCN. Thailand publishes the key it signs certificates with, and Lao PDR caches the trust list, so its clinics can verify a Thai card with no signal. A year later the same trust list lets a Thai clinic verify the Lao VHL. Data crosses the border in only two ways: as a signed QR card the family carries, or as a link the family chooses to share. The <a0>VaxLink walkthrough's \"How it works\" view</a0> lays out both countries' components on the <a1>DPI-H reference architecture</a1>, with GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's own model is on the <a2>architecture page</a2>."
+msgid "Thailand and Lao PDR never connect to each other. Both build on WHO GDHCN. Thailand publishes the key it signs certificates with, and Lao PDR caches the trust list, so its clinics can verify a Thai card with no signal. A year later the same trust list lets a Thai clinic verify the Lao VHL. Data crosses the border in only two ways: as a signed QR card the family carries, or as a link the family chooses to share. The <a0>journeys walkthrough's \"How it works\" view</a0> lays out both countries' components on the <a1>DPI-H reference architecture</a1>, with GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's own model is on the <a2>architecture page</a2>."
 msgstr ""
 
 #: docs/index.md:90

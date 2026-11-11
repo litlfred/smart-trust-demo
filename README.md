@@ -10,11 +10,11 @@ The journeys tell the story of the [VaxLink](https://fredhersch.github.io/vaxlin
 workshop walkthrough ([source](https://github.com/fredhersch/vaxlink)): Somsack
 SENGMANY, a Lao baby born in Thailand, followed over his first year. Its FHIR
 examples are materialized in the IG, and the
-[VaxLink examples](https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html)
-page maps each of its screens and payloads to them. The walkthrough itself
-lives here, in [`web/`](web/README.md), and is published inside this site at
-[litlfred.github.io/smart-trust-demo/vaxlink/](https://litlfred.github.io/smart-trust-demo/vaxlink/),
-built from the same commit as the journeys it shows.
+[Journey examples](https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html)
+page maps each of its screens and payloads to them. The journeys are
+presented for workshops by the harness's journeys viewer, at
+[the DPI-H policy track](https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/overview/),
+built from the same commit as the guide.
 
 | Journey | What happens | Library call |
 |---|---|---|
