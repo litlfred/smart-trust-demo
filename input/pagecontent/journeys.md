@@ -9,7 +9,7 @@ moment, with the people, the technical layer and the policy questions
 (interactive; its source is `web/` in this repository),
 documented here as a WHO SMART Guidelines L2 DAK and L3 implementation guide.
 Its FHIR examples are materialized in this guide; the
-[Journey examples](vaxlink-examples.html) page maps each moment and device screen
+[Journey examples](journey-examples.html) page maps each moment and device screen
 to them.
 
 - **Country A** (birth country) is **Taifafeki**. Somsak is born at Kesaro

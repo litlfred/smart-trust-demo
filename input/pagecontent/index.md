@@ -3,10 +3,10 @@
 <div style="border-radius:16px;padding:24px 28px;background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#e2e8f0;margin:8px 0 24px">
 <div style="font:600 11px/1.4 monospace;letter-spacing:.12em;color:#7dd3fc;text-transform:uppercase">One baby · two countries · one year</div>
 <p style="font-size:1.45em;line-height:1.3;font-weight:700;color:#fff;margin:10px 0 8px">Somsak is born in Taifafeki and grows up in Onesa. A year later, a Taifafeki doctor sees every vaccine he has ever had, and no record is copied across the border.</p>
-<p style="margin:0 0 16px;color:#cbd5e1">This guide is that story, told as the journeys J1 to J4 (first told in the <a style="color:#7dd3fc" href="https://fredhersch.github.io/vaxlink/">VaxLink</a> workshop), written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN.</p>
+<p style="margin:0 0 16px;color:#cbd5e1">This guide is that story, told as the journeys J1 to J4, written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN.</p>
 <a href="en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/overview/" style="display:inline-block;background:#0ea5e9;color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Walk through the journeys</a>
 <a href="journeys.html" style="display:inline-block;background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Read the journeys</a>
-<a href="vaxlink-examples.html" style="display:inline-block;background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 0 8px">See the FHIR examples</a>
+<a href="journey-examples.html" style="display:inline-block;background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:8px 14px;border-radius:8px;text-decoration:none;margin:0 0 8px">See the FHIR examples</a>
 </div>
 
 ### Four moments that matter
@@ -55,10 +55,10 @@ creates. Click a picture to walk through that moment in the
 | **Journeys** | The story moment by moment, with the user scenarios and what each person needs | [Journeys J1–J4](journeys.html), [user scenarios](https://litlfred.github.io/smart-trust-demo/scenarios.html) |
 | **Workflows** | One BPMN process per journey: every lane a role, every task a skill | [Business processes](https://litlfred.github.io/smart-trust-demo/business-processes.html) |
 | **Requirements** | Where the journeys' requirements are defined, in smart-trust-tools | [Functional requirements](https://litlfred.github.io/smart-trust-demo/functional-requirements.html) |
-| **Taifafeki profiles** | The birth hospital's patient and dose (the source of each DVC), and the record a Taifafeki clinic keeps when it reads a VHL | [Country profiles](vaxlink-examples.html#country-profiles) |
-| **Onesan profiles** | The child and household the CHW registers, reported and verified doses, the referral, DVC verification, and the access log | [Country profiles](vaxlink-examples.html#country-profiles) |
-| **Terminology and logic** | Vaccine products, the Onesan schedule codes, the ConceptMap between them, and the infant schedule as a PlanDefinition | [Journey examples](vaxlink-examples.html) |
-| **Examples** | Every screen and payload of the journeys walkthrough as a FHIR example, Taifafeki and Onesan | [Journey examples](vaxlink-examples.html) |
+| **Taifafeki profiles** | The birth hospital's patient and dose (the source of each DVC), and the record a Taifafeki clinic keeps when it reads a VHL | [Country profiles](journey-examples.html#country-profiles) |
+| **Onesan profiles** | The child and household the CHW registers, reported and verified doses, the referral, DVC verification, and the access log | [Country profiles](journey-examples.html#country-profiles) |
+| **Terminology and logic** | Vaccine products, the Onesan schedule codes, the ConceptMap between them, and the infant schedule as a PlanDefinition | [Journey examples](journey-examples.html) |
+| **Examples** | Every screen and payload of the journeys walkthrough as a FHIR example, Taifafeki and Onesan | [Journey examples](journey-examples.html) |
 {: .grid }
 
 ### How trust works here

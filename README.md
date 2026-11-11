@@ -10,7 +10,7 @@ The journeys tell the story of the [VaxLink](https://fredhersch.github.io/vaxlin
 workshop walkthrough ([source](https://github.com/fredhersch/vaxlink)): Somsak
 SENGMANY, an Onesan baby born in Taifafeki, followed over his first year. Its FHIR
 examples are materialized in the IG, and the
-[Journey examples](https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html)
+[Journey examples](https://litlfred.github.io/smart-trust-demo/journey-examples.html)
 page maps each of its screens and payloads to them. The journeys are
 presented for workshops by the harness's journeys viewer, at
 [the DPI-H policy track](https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/overview/),
