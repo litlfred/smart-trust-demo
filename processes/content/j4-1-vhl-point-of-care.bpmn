@@ -15,7 +15,7 @@
       <bootstrap.processes:precondition id="did-documents-loaded" kind="stated"
         text="Before the family arrives, the hospital system's trust store already holds the GDHCN trust list's DID documents, including Country B's DSC DID document, loaded with HcertTrustStore.addDidDocument (STT-TRU-001, STT-TRU-002, STT-TRU-005). Trust-list presence is the DSC validity check (STT-VER-006). Loading DIDs is not a step of this visit."/>
       <bootstrap.processes:precondition id="did-list-from-last-refresh" kind="stated"
-        text="The hospital's DID list is a cache it refreshes on a short schedule, nightly or hourly, from the list its own country retrieves as a Trust Network Participant from the GDHCN trust anchor (smart-trust-phw retrieve-pki-material). The hospital does not need to be online to verify: verification reads the cache and never fetches the list."/>
+        text="The hospital's DID list is a cache it refreshes on a short schedule, nightly or hourly, from the list its own country retrieves as a Trust Network Participant from the GDHCN trust anchor ([smart-trust-phw retrieve-pki-material](https://litlfred.github.io/smart-trust-phw/artifact/Requirements-retrieve-pki-material.html)). The hospital does not need to be online to verify: verification reads the cache and never fetches the list."/>
       <cat-harness.processes:policy enforcement="advisory"/><cat-harness.processes:log capture="off"/>
     </bpmn:extensionElements>
     <bpmn:laneSet id="LaneSet_Process_J41VhlFetch">
