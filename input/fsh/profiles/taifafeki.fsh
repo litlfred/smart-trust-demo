@@ -11,7 +11,7 @@ Parent: Patient
 Id: TrustDemoTaifafekiPatient
 Title: "Taifafeki: newborn at the birth hospital"
 Description: """
-How it is used: J1. Kesaro Provincial Hospital registers Somsack under its own hospital number on the day he is born.
+How it is used: J1. Kesaro Provincial Hospital registers Somsak under its own hospital number on the day he is born.
 
 Why: a baby born to Onesan parents in Taifafeki has no Taifafeki citizen id, so the hospital number is the only identifier the hospital can put behind the dose records it signs. The DVCs it prints carry the name and date of birth, not this number. The family's home country therefore cannot rely on any Taifafeki identifier, and links the doses to its own patient (see the Onesan patient profile).
 """
@@ -56,7 +56,7 @@ Parent: Provenance
 Id: TrustDemoTaifafekiVhlReceipt
 Title: "Taifafeki: record of a summary read through a VHL"
 Description: """
-How it is used: J4.1. The Kesaro clinic viewer keeps this record when it opens Somsack's patient summary through the Verifiable Health Link that his father shows.
+How it is used: J4.1. The Kesaro clinic viewer keeps this record when it opens Somsak's patient summary through the Verifiable Health Link that his father shows.
 
 Why: the Taifafeki clinic views the Onesan record and does not copy it into a Taifafeki registry. So the clinic keeps a note of what it saw, where it came from, and how it was verified: the VHL's signature against Onesa's key on the GDHCN trust list, the manifest fetch, and the passcode. The Onesan side keeps its own log of the same access (the Onesan audit profile).
 """

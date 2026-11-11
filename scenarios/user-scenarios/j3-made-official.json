@@ -4,7 +4,7 @@
   "title": "J3 — Made official",
   "description": "A nurse verifies the cards are genuine and fits the Taifafeki doses into the Onesan schedule.",
   "personas": [
-    "chanthasone",
+    "chanthason",
     "khamla-sengmany"
   ],
   "follows": "j2-found-at-home",
@@ -16,7 +16,7 @@
     {
       "id": "J3a",
       "title": "The clinic confirms the cards are genuine",
-      "headline": "Nurse Chanthasone scans the card, and her tablet checks Taifafeki’s digital signature against the WHO trust list — without contacting Taifafeki.",
+      "headline": "Nurse Chanthason scans the card, and her tablet checks Taifafeki’s digital signature against the WHO trust list — without contacting Taifafeki.",
       "when": "T0 + 4 weeks",
       "where": "Lomaru District Health Center",
       "touchpoint": "Clinic tablet (verification)",
@@ -32,18 +32,18 @@
           ]
         }
       ],
-      "narrative": "Nurse Chanthasone opens the referral and scans the QRs. The EHR\n**verifies** each DVC offline against that copy (STT-VER-001…009,\nSTT-KID-002), without contacting Taifafeki. Both verify, so it imports them as\nFHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\ndoses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\nthe reason, the doses stay unverified, and the nurse decides by national\ncatch-up policy.",
-      "lead": "chanthasone",
+      "narrative": "Nurse Chanthason opens the referral and scans the QRs. The EHR\n**verifies** each DVC offline against that copy (STT-VER-001…009,\nSTT-KID-002), without contacting Taifafeki. Both verify, so it imports them as\nFHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\ndoses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\nthe reason, the doses stay unverified, and the nurse decides by national\ncatch-up policy.",
+      "lead": "chanthason",
       "experiences": [
         {
-          "actor": "chanthasone",
+          "actor": "chanthason",
           "doing": "Scans the card; the tablet confirms the Taifafeki signature and marks the doses verified.",
           "feeling": "“A green tick — I can trust a hospital I’ve never heard of.”",
           "emotion": 2
         },
         {
           "actor": "khamla-sengmany",
-          "doing": "Brings Somsack in for the referral visit.",
+          "doing": "Brings Somsak in for the referral visit.",
           "feeling": "“They believe the Taifafeki papers!”",
           "emotion": 1
         }
@@ -128,7 +128,7 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j3-made-official.jpg",
-        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsack"
+        "alt": "At the district health centre, Nurse Chanthason checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsak"
       },
       "fhirChanges": [
         {
@@ -185,22 +185,22 @@
     {
       "id": "J3b",
       "title": "Taifafeki vaccines are fitted to the Onesan schedule",
-      "headline": "The Taifafeki Hep B product doesn’t match anything on the Onesan schedule. Chanthasone makes the clinical call, and the system works out what’s due next.",
+      "headline": "The Taifafeki Hep B product doesn’t match anything on the Onesan schedule. Chanthason makes the clinical call, and the system works out what’s due next.",
       "when": "T0 + 4 weeks",
       "where": "Lomaru District Health Center",
       "touchpoint": "Clinic tablet (vaccine matching + schedule)",
-      "narrative": "The Taifafeki Hep B product matches nothing on the national schedule.\nThe EHR keeps Taifafeki's product coding and adds the schedule coding beside\nit, from the national map (`TrustDemoProductToOnesaEpi`). For the Hep B product\nthe map has no entry, so Nurse Chanthasone makes the clinical call that it is\nthe schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is\nadded to the map for the next clinic. The schedule (`TrustDemoOnesaInfantSchedule`)\nthen runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\nat 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n(`TrustDemoJ3Reminder`). Over the year Somsack gets those doses and\nmeasles-rubella at 9 months, in Onesa.",
-      "lead": "chanthasone",
+      "narrative": "The Taifafeki Hep B product matches nothing on the national schedule.\nThe EHR keeps Taifafeki's product coding and adds the schedule coding beside\nit, from the national map (`TrustDemoProductToOnesaEpi`). For the Hep B product\nthe map has no entry, so Nurse Chanthason makes the clinical call that it is\nthe schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is\nadded to the map for the next clinic. The schedule (`TrustDemoOnesaInfantSchedule`)\nthen runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\nat 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n(`TrustDemoJ3Reminder`). Over the year Somsak gets those doses and\nmeasles-rubella at 9 months, in Onesa.",
+      "lead": "chanthason",
       "experiences": [
         {
-          "actor": "chanthasone",
+          "actor": "chanthason",
           "doing": "Confirms the Taifafeki product equals the Onesan birth dose; the system books the 6-week vaccines.",
           "feeling": "“Different name, same vaccine — I can make that call.”",
           "emotion": 1
         },
         {
           "actor": "khamla-sengmany",
-          "doing": "Leaves with a date for Somsack’s next vaccines.",
+          "doing": "Leaves with a date for Somsak’s next vaccines.",
           "feeling": "“Now I know exactly when to come back.”",
           "emotion": 2
         }
@@ -214,7 +214,7 @@
         "heldWhere": "Onesan national health records"
       },
       "handoff": {
-        "summary": "Somsack continues on the Onesan schedule for a year",
+        "summary": "Somsak continues on the Onesan schedule for a year",
         "carrier": "FHIR API via Info Gateway",
         "payload": "Dual-coded Immunization + next-dose Task",
         "offline": false,
@@ -286,7 +286,7 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j3-made-official.jpg",
-        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsack"
+        "alt": "At the district health centre, Nurse Chanthason checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsak"
       },
       "fhirChanges": [
         {

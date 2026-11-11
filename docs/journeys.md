@@ -5,7 +5,7 @@ nav_order: 2
 
 # Journeys J1–J4
 
-> Somsack is born in Taifafeki, grows up in Onesa, and one year later a Taifafeki
+> Somsak is born in Taifafeki, grows up in Onesa, and one year later a Taifafeki
 > doctor can see every vaccine he has ever had, without a single record being
 > copied across the border.
 
@@ -17,7 +17,7 @@ Its FHIR examples are materialized in this guide; the
 [Journey examples](vaxlink-examples.html) page maps each moment and device screen
 to them.
 
-- **Country A** (birth country) is **Taifafeki**. Somsack is born at Kesaro
+- **Country A** (birth country) is **Taifafeki**. Somsak is born at Kesaro
   Provincial Hospital and gets his birth doses there (J1). On the GDHCN DEV
   network, Taifafeki is played by the test participant **XXR**, whose DSC (kid
   `kW/6VnwPRKI=`, hex `916ffa567c0f44a2`) is on the live DEV trust list.
@@ -31,7 +31,7 @@ and nothing here implies a real ministry. Every person is fictional.
 
 **The cast:** Khamla SENGMANY (mother), Bounmy SENGMANY (father, holds the
 family phone), Vilay (community health worker, Village 04), Nurse
-Chanthasone (Lomaru District Health Center) and Dr Anan (Taifafeki
+Chanthason (Lomaru District Health Center) and Dr Anan (Taifafeki
 clinician, at the birth and a year later).
 
 | # | Moment | When | Where | Processes |
@@ -41,7 +41,7 @@ clinician, at the birth and a year later).
 | 3 | **Made official** | 4 weeks later | District Health Center, Onesa | J3 (J3a verify, J3b map and schedule) |
 | 4 | **Crossing back** | 12 months later | Onesa to Taifafeki | J4.0 (a wallet, b share link), J4.1 |
 
-How far a clinician can rely on Somsack's record, step by step (the journeys walkthrough's
+How far a clinician can rely on Somsak's record, step by step (the journeys walkthrough's
 "follow the record" ladder):
 
 | Step | Record state | Held where | FHIR |
@@ -80,7 +80,7 @@ guides' names appear as `otherNames` (also known as).
 | gdhcn-trust-anchor | GDHCN DEV (WHO) | [Trust Network Anchor](https://smart.who.int/trust/ActorDefinition-TrustNetworkAnchor.html) | [Trust Network Anchor](https://smart.who.int/trust-phw/ActorDefinition-TrustNetworkAnchor.html) | [TrustAnchor](https://profiles.ihe.net/ITI/VHL/ActorDefinition-TrustAnchor.html) | trust-anchor |
 | national-portal | Onesa national portal and gateway (XXK) | Issuer; Trust Network Participant | Issuer; Trust Network Participant | [VHLSharer](https://profiles.ihe.net/ITI/VHL/ActorDefinition-VHLSharer.html) | vhl-sharer |
 | poc-receiver | Kesaro primary care clinic viewer | Receiver | Receiver | VHLReceiver | vhl-receiver |
-| birth-clinic-vaccinator, community-health-worker, home-clinic-provider, poc-provider | Dr Anan, Vilay, Nurse Chanthasone, Dr Anan | — (the people operating the systems; no ActorDefinition in either guide) | — | — | — |
+| birth-clinic-vaccinator, community-health-worker, home-clinic-provider, poc-provider | Dr Anan, Vilay, Nurse Chanthason, Dr Anan | — (the people operating the systems; no ActorDefinition in either guide) | — | — | — |
 
 smart-trust-phw's requirements map onto the journeys as follows:
 
@@ -103,7 +103,7 @@ makes, as the journeys walkthrough presents them.
 
 **Precondition: the issuer's DSC is on the trust list.** XXR's document signer certificate (DSC), issued under XXR's Country Signing CA (CSCA), was shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN publishes it as a DID document. Sharing it is not a step of issuing. A DVC signed with a key whose DSC was never shared fails every receiver's trust-list check (STT-VER-006).
 
-Khamla gives birth to Somsack on 2025-10-28 at Kesaro Provincial
+Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial
 Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the
 Hep B and BCG birth doses and records them with their WHO PreQual product
 codes. For each dose, the hospital system does three things:
@@ -115,7 +115,7 @@ codes. For each dose, the hospital system does three things:
 Khamla leaves with two paper DVCs.
 *In the demo:* the library tests use the WHO guide's own two signed HC1
 strings ([QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)),
-which verify against the live DEV trust list under the same XXR key. Somsack's
+which verify against the live DEV trust list under the same XXR key. Somsak's
 DVC payloads are illustrative. Live issuance in the app uses a
 TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs
 do not verify in J3.
@@ -133,11 +133,11 @@ shows the two cards. The CHW app reads them with **read-unverified**
 list. It shows the doses, but checks no signature and saves nothing yet.
 
 **J2b.** On the CHW app's newborn form (structured data capture,
-`TrustDemoHouseholdRegistration`) she adds Somsack to the Sengmany household
+`TrustDemoHouseholdRegistration`) she adds Somsak to the Sengmany household
 (`TrustDemoHousehold`), with a temporary id. Bounmy confirms the details as
 head of household. The app saves the doses read from the cards as reported by
 the family, not verified (`TrustDemoJ2HepBReported`, `TrustDemoJ2BcgReported`:
-`primarySource` false). Vilay refers Somsack to the district health center
+`primarySource` false). Vilay refers Somsak to the district health center
 (`TrustDemoJ2Referral`). Everything stays queued on the phone, for 28 days if
 need be, and syncs when it next reaches a signal.
 
@@ -152,7 +152,7 @@ need be, and syncs when it next reaches a signal.
 
 **Precondition: the DID documents are already loaded.** Loading them is not a step of this visit. The clinic may be offline all day, so the EHR fetches nothing during it: its trust store holds the GDHCN DEV trust list as it was last refreshed, including XXR's DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). A clinic with no connection of its own refreshes it about weekly, when the CHW visits the base clinic or district health office, where Country B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in the clinic's copy, so its DVC fails the trust-list check (STT-VER-006) until the next refresh.
 
-**J3a.** Nurse Chanthasone opens the referral and scans the QRs. The EHR
+**J3a.** Nurse Chanthason opens the referral and scans the QRs. The EHR
 **verifies** each DVC offline against that copy (STT-VER-001…009,
 STT-KID-002), without contacting Taifafeki. Both verify, so it imports them as
 FHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance
@@ -164,12 +164,12 @@ catch-up policy.
 **J3b.** The Taifafeki Hep B product matches nothing on the national schedule.
 The EHR keeps Taifafeki's product coding and adds the schedule coding beside
 it, from the national map (`TrustDemoProductToOnesaEpi`). For the Hep B product
-the map has no entry, so Nurse Chanthasone makes the clinical call that it is
+the map has no entry, so Nurse Chanthason makes the clinical call that it is
 the schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is
 added to the map for the next clinic. The schedule (`TrustDemoOnesaInfantSchedule`)
 then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due
 at 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date
-(`TrustDemoJ3Reminder`). Over the year Somsack gets those doses and
+(`TrustDemoJ3Reminder`). Over the year Somsak gets those doses and
 measles-rubella at 9 months, in Onesa.
 
 - *Pain point (J3a):* Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly.
@@ -182,16 +182,16 @@ measles-rubella at 9 months, in Onesa.
 ### J4.0 — Crossing back: one family, one phone (Onesa, 12 months later)
 
 **J4.0a.** The family plans a trip to Taifafeki. Bounmy's phone holds the
-family wallet, with a profile for each of them. Somsack's summary
+family wallet, with a profile for each of them. Somsak's summary
 (`TrustDemoJ4Ips`) shows six doses: two from Taifafeki, four from Onesa.
 
 **Precondition, as in J1:** Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Taifafeki verify the link in J4.1.
 
-**J4.0b.** For Somsack, Bounmy shares his record with a 4-digit passcode he
+**J4.0b.** For Somsak, Bounmy shares his record with a 4-digit passcode he
 can say aloud, valid for 14 days. The portal records his consent
 (`TrustDemoJ4Consent`), then does three things:
 
-1. It assembles the IPS and Somsack's DVCs.
+1. It assembles the IPS and Somsak's DVCs.
 2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).
 3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.
 
@@ -208,7 +208,7 @@ The QR holds only a pointer and a key: the record stays in Onesa.
 
 **Precondition, as in J3: the DID documents are already loaded.** The clinic viewer's trust store is a cached copy of the GDHCN trust list, including Country B's DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). The clinic refreshes it nightly or hourly, against about weekly at the offline J3 clinic. It does not need to be online to verify: verifying reads the cache and never fetches the list. A DSC published after the last refresh fails the trust-list check (STT-VER-006), naming that reason.
 
-Back where it began, Dr Anan sees Somsack at a primary care clinic in
+Back where it began, Dr Anan sees Somsak at a primary care clinic in
 Kesaro. Bounmy shows the QR on his phone and says the passcode. The
 clinic viewer and the Onesan gateway take five steps:
 

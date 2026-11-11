@@ -73,8 +73,8 @@ msgid "A wrong passcode is refused, and the attempt is still logged in Onesa ({c
 msgstr "Неверный код доступа отклоняется, но попытка всё равно регистрируется в Онесе ({code0}). Если HCERT не проходит проверку (например, DSC Страны B отсутствует в кэшированном списке), цифровая проверка невозможна. Клиника указывает шаг и причину (<a0>STT-VER-008</a0>), не переходит по VHL, и доктор Anan относится ко всему, что может показать семья, как к бумажной записи."
 
 #: input/pagecontent/scenarios.md:144
-msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Kesaro. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Onesan gateway take five steps:"
-msgstr "Там же, где всё началось, доктор Anan принимает Somsack в клинике первичной медико-санитарной помощи в Кесаро (Kesaro). Bounmy показывает QR на своём телефоне и называет код доступа. Средство просмотра клиники и онесский шлюз выполняют пять шагов:"
+msgid "Back where it began, Dr Anan sees Somsak at a primary care clinic in Kesaro. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Onesan gateway take five steps:"
+msgstr "Там же, где всё началось, доктор Anan принимает Somsak в клинике первичной медико-санитарной помощи в Кесаро (Kesaro). Bounmy показывает QR на своём телефоне и называет код доступа. Средство просмотра клиники и онесский шлюз выполняют пять шагов:"
 
 #: input/pagecontent/scenarios.md:13
 msgid "Birth clinic vaccinator"
@@ -164,8 +164,8 @@ msgid "I want to"
 msgstr "Я хочу"
 
 #: input/pagecontent/scenarios.md:127
-msgid "It assembles the IPS and Somsack's DVCs."
-msgstr "Он собирает IPS и DVC Somsack."
+msgid "It assembles the IPS and Somsak's DVCs."
+msgstr "Он собирает IPS и DVC Somsak."
 
 #: input/pagecontent/scenarios.md:44
 msgid "It builds a DVCMinPreQual payload: <a0>STT-PAY-001</a0>…<a1>005</a1> and <a2>STT-PAY-007</a2>, with subclaim −6 (<a3>STT-SEL-003</a3>). No identity document is needed (<a4>STT-PAY-005</a4>)."
@@ -209,8 +209,8 @@ msgstr "J2a. Во время планового визита в деревню 0
 
 #: input/pagecontent/scenarios.md:68
 #, python-brace-format
-msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she adds Somsack to the Sengmany household ({code1}), with a temporary id. Bounmy confirms the details as head of household. The app saves the doses read from the cards as reported by the family, not verified ({code2}, {code3}: {code4} false). Vilay refers Somsack to the district health center ({code5}). Everything stays queued on the phone, for 28 days if need be, and syncs when it next reaches a signal."
-msgstr "J2b. В форме новорождённого в приложении CHW (структурированный сбор данных, {code0}) она добавляет Somsack в домохозяйство Sengmany ({code1}) с временным идентификатором. Bounmy как глава домохозяйства подтверждает сведения. Приложение сохраняет считанные с карточек дозы как заявленные семьёй, а не проверенные ({code2}, {code3}: {code4} false). Vilay направляет Somsack в районный центр здоровья ({code5}). Всё остаётся в очереди на телефоне — при необходимости 28 дней — и синхронизируется, как только появится сигнал."
+msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she adds Somsak to the Sengmany household ({code1}), with a temporary id. Bounmy confirms the details as head of household. The app saves the doses read from the cards as reported by the family, not verified ({code2}, {code3}: {code4} false). Vilay refers Somsak to the district health center ({code5}). Everything stays queued on the phone, for 28 days if need be, and syncs when it next reaches a signal."
+msgstr "J2b. В форме новорождённого в приложении CHW (структурированный сбор данных, {code0}) она добавляет Somsak в домохозяйство Sengmany ({code1}) с временным идентификатором. Bounmy как глава домохозяйства подтверждает сведения. Приложение сохраняет считанные с карточек дозы как заявленные семьёй, а не проверенные ({code2}, {code3}: {code4} false). Vilay направляет Somsak в районный центр здоровья ({code5}). Всё остаётся в очереди на телефоне — при необходимости 28 дней — и синхронизируется, как только появится сигнал."
 
 #: input/pagecontent/scenarios.md:84
 msgid "J3 — Made official (Lomaru District Health Center, 4 weeks later)"
@@ -218,13 +218,13 @@ msgstr "J3 — Официальное признание (районный це�
 
 #: input/pagecontent/scenarios.md:88
 #, python-brace-format
-msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), without contacting Taifafeki. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
-msgstr "J3a. Медсестра Chanthasone открывает направление и сканирует QR. Электронная медицинская карта (EHR) проверяет каждый DVC офлайн по этой копии (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), не обращаясь к Тайфафеки. Оба проходят проверку, поэтому EHR импортирует их как ресурсы FHIR {code0} ({code1}, {code2}) со сведениями о происхождении ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), заменяя заявленные дозы из J2. Если DVC не проходит проверку (например, карточка подделана), EHR указывает шаг и причину, дозы остаются непроверенными, и медсестра принимает решение в соответствии с национальной политикой догоняющей вакцинации."
+msgid "J3a. Nurse Chanthason opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), without contacting Taifafeki. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
+msgstr "J3a. Медсестра Chanthason открывает направление и сканирует QR. Электронная медицинская карта (EHR) проверяет каждый DVC офлайн по этой копии (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), не обращаясь к Тайфафеки. Оба проходят проверку, поэтому EHR импортирует их как ресурсы FHIR {code0} ({code1}, {code2}) со сведениями о происхождении ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), заменяя заявленные дозы из J2. Если DVC не проходит проверку (например, карточка подделана), EHR указывает шаг и причину, дозы остаются непроверенными, и медсестра принимает решение в соответствии с национальной политикой догоняющей вакцинации."
 
 #: input/pagecontent/scenarios.md:97
 #, python-brace-format
-msgid "J3b. The Taifafeki Hep B product matches nothing on the national schedule. The EHR keeps Taifafeki's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthasone makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsack gets those doses and measles-rubella at 9 months, in Onesa."
-msgstr "J3b. Тайфафекский препарат против гепатита B не соответствует ничему в национальном графике. EHR сохраняет кодировку препарата Тайфафеки и добавляет рядом кодировку графика по национальной таблице соответствия ({code0}). Для препарата против гепатита B в таблице нет записи, поэтому медсестра Chanthasone принимает клиническое решение, что это доза при рождении по графику ({code1}), и её решение добавляется в таблицу для следующей клиники. Затем применяется график ({code2}): дозы при рождении засчитываются, а пентавалентная вакцина 1, bOPV 1 и PCV 1 положены в 6 недель ({code3}). Khamla уходит с назначенной датой ({code4}). В течение года Somsack получает эти дозы, а в 9 месяцев — вакцину против кори и краснухи, в Онесе."
+msgid "J3b. The Taifafeki Hep B product matches nothing on the national schedule. The EHR keeps Taifafeki's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthason makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsak gets those doses and measles-rubella at 9 months, in Onesa."
+msgstr "J3b. Тайфафекский препарат против гепатита B не соответствует ничему в национальном графике. EHR сохраняет кодировку препарата Тайфафеки и добавляет рядом кодировку графика по национальной таблице соответствия ({code0}). Для препарата против гепатита B в таблице нет записи, поэтому медсестра Chanthason принимает клиническое решение, что это доза при рождении по графику ({code1}), и её решение добавляется в таблицу для следующей клиники. Затем применяется график ({code2}): дозы при рождении засчитываются, а пентавалентная вакцина 1, bOPV 1 и PCV 1 положены в 6 недель ({code3}). Khamla уходит с назначенной датой ({code4}). В течение года Somsak получает эти дозы, а в 9 месяцев — вакцину против кори и краснухи, в Онесе."
 
 #: input/pagecontent/scenarios.md:115
 msgid "J4.0 — Crossing back: one family, one phone (Onesa, 12 months later)"
@@ -232,13 +232,13 @@ msgstr "J4.0 — Обратно через границу: одна семья, 
 
 #: input/pagecontent/scenarios.md:117
 #, python-brace-format
-msgid "J4.0a. The family plans a trip to Taifafeki. Bounmy's phone holds the family wallet, with a profile for each of them. Somsack's summary ({code0}) shows six doses: two from Taifafeki, four from Onesa."
-msgstr "J4.0a. Семья планирует поездку в Тайфафеки. На телефоне Bounmy находится семейный кошелёк с профилем для каждого из них. Сводка Somsack ({code0}) показывает шесть доз: две из Тайфафеки, четыре из Онесы."
+msgid "J4.0a. The family plans a trip to Taifafeki. Bounmy's phone holds the family wallet, with a profile for each of them. Somsak's summary ({code0}) shows six doses: two from Taifafeki, four from Onesa."
+msgstr "J4.0a. Семья планирует поездку в Тайфафеки. На телефоне Bounmy находится семейный кошелёк с профилем для каждого из них. Сводка Somsak ({code0}) показывает шесть доз: две из Тайфафеки, четыре из Онесы."
 
 #: input/pagecontent/scenarios.md:123
 #, python-brace-format
-msgid "J4.0b. For Somsack, Bounmy shares his record with a 4-digit passcode he can say aloud, valid for 14 days. The portal records his consent ({code0}), then does three things:"
-msgstr "J4.0b. Bounmy предоставляет доступ к записи Somsack с 4-значным кодом доступа, который можно произнести вслух, сроком на 14 дней. Портал регистрирует его согласие ({code0}), а затем делает три вещи:"
+msgid "J4.0b. For Somsak, Bounmy shares his record with a 4-digit passcode he can say aloud, valid for 14 days. The portal records his consent ({code0}), then does three things:"
+msgstr "J4.0b. Bounmy предоставляет доступ к записи Somsak с 4-значным кодом доступа, который можно произнести вслух, сроком на 14 дней. Портал регистрирует его согласие ({code0}), а затем делает три вещи:"
 
 #: input/pagecontent/scenarios.md:140
 msgid "J4.1 — Crossing back: a Taifafeki doctor sees the full history (Kesaro, 12 months later)"
@@ -249,12 +249,12 @@ msgid "Keep the foreign vaccine code and add our schedule code beside it, decidi
 msgstr "Сохранять иностранный код вакцины и добавлять рядом код нашего графика, самостоятельно принимая решение, если соответствия нет"
 
 #: input/pagecontent/scenarios.md:39
-msgid "Khamla gives birth to Somsack on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
-msgstr "Khamla рожает Somsack 2025-10-28 в провинциальной больнице Кесаро (Kesaro Provincial Hospital), вдали от дома. У него нет тайфафекского идентификационного номера. Доктор Anan вводит дозы при рождении против гепатита B и БЦЖ (BCG) и регистрирует их с кодами препаратов ВОЗ PreQual. Для каждой дозы больничная система делает три вещи:"
+msgid "Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
+msgstr "Khamla рожает Somsak 2025-10-28 в провинциальной больнице Кесаро (Kesaro Provincial Hospital), вдали от дома. У него нет тайфафекского идентификационного номера. Доктор Anan вводит дозы при рождении против гепатита B и БЦЖ (BCG) и регистрирует их с кодами препаратов ВОЗ PreQual. Для каждой дозы больничная система делает три вещи:"
 
 #: input/pagecontent/scenarios.md:48
-msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsack's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
-msgstr "Khamla уходит с двумя бумажными DVC. В демонстрации: тесты библиотеки используют две собственные подписанные строки HC1 из руководства ВОЗ (<a0>QR Code Generation §12</a0>), которые проходят проверку по действующему списку доверия DEV под тем же ключом XXR. Полезные нагрузки DVC Somsack являются иллюстративными, как в VaxLink. Для выпуска в реальном времени в приложении используется ключ TEST-ONLY (<a1>STT-ISS-003</a1>), чей DSC отсутствует в списке GDHCN, поэтому его DVC не проходят проверку в J3."
+msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+msgstr "Khamla уходит с двумя бумажными DVC. В демонстрации: тесты библиотеки используют две собственные подписанные строки HC1 из руководства ВОЗ (<a0>QR Code Generation §12</a0>), которые проходят проверку по действующему списку доверия DEV под тем же ключом XXR. Полезные нагрузки DVC Somsak являются иллюстративными, как в VaxLink. Для выпуска в реальном времени в приложении используется ключ TEST-ONLY (<a1>STT-ISS-003</a1>), чей DSC отсутствует в списке GDHCN, поэтому его DVC не проходят проверку в J3."
 
 #: input/pagecontent/scenarios.md:21
 msgid "Know the record I read abroad came from the child's home country and was not altered"

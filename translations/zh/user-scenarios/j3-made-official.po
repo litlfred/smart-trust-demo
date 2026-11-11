@@ -57,8 +57,8 @@ msgstr "泰法费基的签名密钥在共享的 WHO 信任列表上，因此任�
 
 #: scenarios/user-scenarios/j3-made-official.json:46
 msgctxt "step.experiences.doing"
-msgid "Brings Somsack in for the referral visit."
-msgstr "带 Somsack 来进行转诊就诊。"
+msgid "Brings Somsak in for the referral visit."
+msgstr "带 Somsak 来进行转诊就诊。"
 
 #: scenarios/user-scenarios/j3-made-official.json:197
 msgctxt "step.experiences.doing"
@@ -67,8 +67,8 @@ msgstr "确认泰法费基产品即奥内萨的出生剂次；系统预约 6 周
 
 #: scenarios/user-scenarios/j3-made-official.json:203
 msgctxt "step.experiences.doing"
-msgid "Leaves with a date for Somsack’s next vaccines."
-msgstr "带着 Somsack 下一次接种的日期离开。"
+msgid "Leaves with a date for Somsak’s next vaccines."
+msgstr "带着 Somsak 下一次接种的日期离开。"
 
 #: scenarios/user-scenarios/j3-made-official.json:40
 msgctxt "step.experiences.doing"
@@ -167,8 +167,8 @@ msgstr "已验证的 DVC → 更新 Immunization"
 
 #: scenarios/user-scenarios/j3-made-official.json:217
 msgctxt "step.handoff.summary"
-msgid "Somsack continues on the Onesan schedule for a year"
-msgstr "Somsack 在一年内继续按奥内萨接种计划接种"
+msgid "Somsak continues on the Onesan schedule for a year"
+msgstr "Somsak 在一年内继续按奥内萨接种计划接种"
 
 #: scenarios/user-scenarios/j3-made-official.json:60
 msgctxt "step.handoff.summary"
@@ -177,24 +177,24 @@ msgstr "已验证的剂次，可纳入接种计划"
 
 #: scenarios/user-scenarios/j3-made-official.json:19
 msgctxt "step.headline"
-msgid "Nurse Chanthasone scans the card, and her tablet checks Taifafeki’s digital signature against the WHO trust list — without contacting Taifafeki."
-msgstr "Chanthasone 护士扫描卡片，她的平板电脑对照 WHO 信任列表核查泰法费基的数字签名——无需联系泰法费基。"
+msgid "Nurse Chanthason scans the card, and her tablet checks Taifafeki’s digital signature against the WHO trust list — without contacting Taifafeki."
+msgstr "Chanthason 护士扫描卡片，她的平板电脑对照 WHO 信任列表核查泰法费基的数字签名——无需联系泰法费基。"
 
 #: scenarios/user-scenarios/j3-made-official.json:188
 msgctxt "step.headline"
-msgid "The Taifafeki Hep B product doesn’t match anything on the Onesan schedule. Chanthasone makes the clinical call, and the system works out what’s due next."
-msgstr "泰法费基的 Hep B 产品与奥内萨接种计划中的任何条目都不匹配。Chanthasone 作出临床判断，系统计算出下一步到期的剂次。"
+msgid "The Taifafeki Hep B product doesn’t match anything on the Onesan schedule. Chanthason makes the clinical call, and the system works out what’s due next."
+msgstr "泰法费基的 Hep B 产品与奥内萨接种计划中的任何条目都不匹配。Chanthason 作出临床判断，系统计算出下一步到期的剂次。"
 
 #: scenarios/user-scenarios/j3-made-official.json:131
 #: scenarios/user-scenarios/j3-made-official.json:131
 msgctxt "step.illustration.alt"
-msgid "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsack"
-msgstr "在区卫生中心，Chanthasone 护士在平板电脑上核查卡片：签名已验证，已纳入奥内萨接种计划；Khamla 和 Bounmy 抱着 Somsack"
+msgid "At the district health centre, Nurse Chanthason checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsak"
+msgstr "在区卫生中心，Chanthason 护士在平板电脑上核查卡片：签名已验证，已纳入奥内萨接种计划；Khamla 和 Bounmy 抱着 Somsak"
 
 #: scenarios/user-scenarios/j3-made-official.json:35
 msgctxt "step.narrative"
 msgid ""
-"Nurse Chanthasone opens the referral and scans the QRs. The EHR\n"
+"Nurse Chanthason opens the referral and scans the QRs. The EHR\n"
 "**verifies** each DVC offline against that copy (STT-VER-001…009,\n"
 "STT-KID-002), without contacting Taifafeki. Both verify, so it imports them as\n"
 "FHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n"
@@ -203,7 +203,7 @@ msgid ""
 "the reason, the doses stay unverified, and the nurse decides by national\n"
 "catch-up policy.\n"
 msgstr ""
-"Chanthasone 护士打开转诊单并扫描 QR 码。EHR 针对该副本离线**验证**每个 DVC（STT-VER-001…009、STT-KID-002），无需联系泰法费基。两者都验证通过，因此它将其作为 FHIR `Immunization`（`TrustDemoJ3HepB`、`TrustDemoJ3Bcg`）连同来源记录（`TrustDemoJ3Verification`；STT-VER-007、STT-VER-008）一并导入，取代 J2 中已报告的剂次。如果某个 DVC 验证失败（例如卡片被篡改），EHR 会指明失败的步骤和原因，剂次保持未验证，由护士依据国家补种政策作出决定。\n"
+"Chanthason 护士打开转诊单并扫描 QR 码。EHR 针对该副本离线**验证**每个 DVC（STT-VER-001…009、STT-KID-002），无需联系泰法费基。两者都验证通过，因此它将其作为 FHIR `Immunization`（`TrustDemoJ3HepB`、`TrustDemoJ3Bcg`）连同来源记录（`TrustDemoJ3Verification`；STT-VER-007、STT-VER-008）一并导入，取代 J2 中已报告的剂次。如果某个 DVC 验证失败（例如卡片被篡改），EHR 会指明失败的步骤和原因，剂次保持未验证，由护士依据国家补种政策作出决定。\n"
 
 #: scenarios/user-scenarios/j3-made-official.json:192
 msgctxt "step.narrative"
@@ -211,15 +211,15 @@ msgid ""
 "The Taifafeki Hep B product matches nothing on the national schedule.\n"
 "The EHR keeps Taifafeki's product coding and adds the schedule coding beside\n"
 "it, from the national map (`TrustDemoProductToOnesaEpi`). For the Hep B product\n"
-"the map has no entry, so Nurse Chanthasone makes the clinical call that it is\n"
+"the map has no entry, so Nurse Chanthason makes the clinical call that it is\n"
 "the schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is\n"
 "added to the map for the next clinic. The schedule (`TrustDemoOnesaInfantSchedule`)\n"
 "then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\n"
 "at 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n"
-"(`TrustDemoJ3Reminder`). Over the year Somsack gets those doses and\n"
+"(`TrustDemoJ3Reminder`). Over the year Somsak gets those doses and\n"
 "measles-rubella at 9 months, in Onesa.\n"
 msgstr ""
-"泰法费基的 Hep B 产品与国家接种计划中的任何条目都不匹配。EHR 保留泰法费基的产品编码，并根据国家映射表（`TrustDemoProductToOnesaEpi`）在其旁边添加接种计划编码。对于该 Hep B 产品，映射表中没有条目，因此 Chanthasone 护士作出临床判断，认定它是接种计划中的出生剂次（`TrustDemoJ3Adjudication`），她的决定被加入映射表，供下一家诊所使用。随后接种计划（`TrustDemoOnesaInfantSchedule`）开始运行：出生剂次计入，五联疫苗第 1 剂、bOPV 第 1 剂和 PCV 第 1 剂在 6 周龄时到期（`TrustDemoJ3Recommendation`）。Khamla 带着日期离开（`TrustDemoJ3Reminder`）。在这一年里，Somsack 在奥内萨接种了这些剂次，并在 9 月龄时接种麻疹-风疹疫苗。\n"
+"泰法费基的 Hep B 产品与国家接种计划中的任何条目都不匹配。EHR 保留泰法费基的产品编码，并根据国家映射表（`TrustDemoProductToOnesaEpi`）在其旁边添加接种计划编码。对于该 Hep B 产品，映射表中没有条目，因此 Chanthason 护士作出临床判断，认定它是接种计划中的出生剂次（`TrustDemoJ3Adjudication`），她的决定被加入映射表，供下一家诊所使用。随后接种计划（`TrustDemoOnesaInfantSchedule`）开始运行：出生剂次计入，五联疫苗第 1 剂、bOPV 第 1 剂和 PCV 第 1 剂在 6 周龄时到期（`TrustDemoJ3Recommendation`）。Khamla 带着日期离开（`TrustDemoJ3Reminder`）。在这一年里，Somsak 在奥内萨接种了这些剂次，并在 9 月龄时接种麻疹-风疹疫苗。\n"
 
 #: scenarios/user-scenarios/j3-made-official.json:51
 msgctxt "step.painPoint"

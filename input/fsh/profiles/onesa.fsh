@@ -12,7 +12,7 @@ Parent: Patient
 Id: TrustDemoOnesaPatient
 Title: "Onesa: child registered by the community health worker"
 Description: """
-How it is used: J2 onwards. Vilay registers Somsack on a home visit, and the same patient carries every Onesan record that follows: the verified Taifafeki doses, the Onesan doses and the summary shared in J4.
+How it is used: J2 onwards. Vilay registers Somsak on a home visit, and the same patient carries every Onesan record that follows: the verified Taifafeki doses, the Onesan doses and the summary shared in J4.
 
 Why: a child born abroad is not in the Onesan civil registry yet. A temporary id lets the CHW, the district clinic and the national portal all refer to the same child until civil registration catches up. The parents are recorded as contacts, because they hold the paper cards and later the family's VHLs.
 """
@@ -32,7 +32,7 @@ Parent: Group
 Id: TrustDemoOnesaHousehold
 Title: "Onesa: household on the CHW's roster"
 Description: """
-How it is used: J2a. The CHW finds that a newborn is missing from the household roster and adds Somsack as a member.
+How it is used: J2a. The CHW finds that a newborn is missing from the household roster and adds Somsak as a member.
 
 Why: Onesan community health work is organized by household. The roster is how a CHW notices that a child is missing, and it is the unit the family phone shares under in J4 (one phone, three profiles).
 """
@@ -108,7 +108,7 @@ Parent: ServiceRequest
 Id: TrustDemoOnesaReferral
 Title: "Onesa: CHW referral to verify foreign cards"
 Description: """
-How it is used: J2b. The CHW refers Somsack to the district health center to have his foreign cards verified and his doses fitted to the Onesan schedule.
+How it is used: J2b. The CHW refers Somsak to the district health center to have his foreign cards verified and his doses fitted to the Onesan schedule.
 
 Why: the CHW cannot verify a DVC on the phone, but the clinic can. The referral points at the reported doses it is about, so the clinic knows exactly what to check, and the CHW can see when it is done.
 """

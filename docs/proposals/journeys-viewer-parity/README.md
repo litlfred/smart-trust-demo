@@ -26,7 +26,7 @@ The parity check is to put each `ref/NN-*.webp` beside the viewer's matching pag
 | Hero | A dark navy panel with the story in one sentence, a cast line, and two CTAs: **Start the walkthrough** and **See the whole journey map** (`ref/01`). | A plain heading and a list. | Required on a journey set's landing page. |
 | Moment cards | A numbered card per chapter, with a country chip and the illustration (`ref/01`). | Text list rows. | Cards with the step illustration, `illustration.src`. |
 | People | A coloured avatar with initials, an emotion badge (Distressed…Delighted) with a face, and a quote in italics (`ref/02`). | Present (avatars, faces, quotes), but plain. | The avatar colours from `meta.persona.color` and the badge style from VaxLink `shared.tsx`. |
-| Record trust | The "Follow the record" ladder, a six-stage segmented bar with the current stage filled, in a card headed "SOMSACK'S RECORD" (`ref/03`). | A thin bar. | A segmented bar with the stage names, as in VaxLink. |
+| Record trust | The "Follow the record" ladder, a six-stage segmented bar with the current stage filled, in a card headed "SOMSAK'S RECORD" (`ref/03`). | A thin bar. | A segmented bar with the stage names, as in VaxLink. |
 
 ## 2. Wireframes: the views
 

@@ -88,7 +88,7 @@ A platform glossary (cat-harness, bootstrap, folio-assistant-core) fixes the ter
 
 | term | platform fixed | layer | occurrences | example catalogue | example msgid |
 |---|---|---|---|---|---|
-| policy | 策略 | cat-harness | 36 | `translations/zh/journeys.po` | J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that c… |
+| policy | 策略 | cat-harness | 36 | `translations/zh/journeys.po` | J3a. Nurse Chanthason opens the referral and scans the QRs. The EHR verifies each DVC offline against that c… |
 | Reference | 引用 | cat-harness | 6 | `translations/zh/architecture.po` | The journeys and systems of this demonstrator, drawn as an ArchiMate overlay on the <a0>DPI-H Reference Archi… |
 | Actor | 行动者 | cat-harness | 4 | `translations/zh/journeys.po` | {code0} is J2, J3 and J4.1 too. It names the Issuer as its actor, which looks wrong: <a0>OI-01</a0>. |
 

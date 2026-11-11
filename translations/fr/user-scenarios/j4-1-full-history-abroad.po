@@ -23,8 +23,8 @@ msgstr "Transfrontalier"
 
 #: scenarios/user-scenarios/j4-1-full-history-abroad.json:5
 msgctxt "description"
-msgid "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Onesa is told who looked."
-msgstr "De retour là où tout a commencé, le Dr Anan scanne le lien, entend le code d’accès et voit toute la première année de Somsack — et Onesa est informée de qui a consulté le dossier."
+msgid "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsak’s whole first year — and Onesa is told who looked."
+msgstr "De retour là où tout a commencé, le Dr Anan scanne le lien, entend le code d’accès et voit toute la première année de Somsak — et Onesa est informée de qui a consulté le dossier."
 
 #: scenarios/user-scenarios/j4-1-full-history-abroad.json:214
 msgctxt "references.label"
@@ -118,18 +118,18 @@ msgstr "Parcours terminé — retour au point de départ à Taifafeki"
 
 #: scenarios/user-scenarios/j4-1-full-history-abroad.json:5
 msgctxt "step.headline"
-msgid "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Onesa is told who looked."
-msgstr "De retour là où tout a commencé, le Dr Anan scanne le lien, entend le code d’accès et voit toute la première année de Somsack — et Onesa est informée de qui a consulté le dossier."
+msgid "Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsak’s whole first year — and Onesa is told who looked."
+msgstr "De retour là où tout a commencé, le Dr Anan scanne le lien, entend le code d’accès et voit toute la première année de Somsak — et Onesa est informée de qui a consulté le dossier."
 
 #: scenarios/user-scenarios/j4-1-full-history-abroad.json:157
 msgctxt "step.illustration.alt"
-msgid "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
-msgstr "De retour à Taifafeki, Bounmy partage depuis son téléphone un lien vers le dossier de vaccination et le Dr Anan voit l’historique vaccinal de Somsack ; Khamla et le petit Somsack sont à leurs côtés"
+msgid "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsak’s vaccine history; Khamla and toddler Somsak are beside them"
+msgstr "De retour à Taifafeki, Bounmy partage depuis son téléphone un lien vers le dossier de vaccination et le Dr Anan voit l’historique vaccinal de Somsak ; Khamla et le petit Somsak sont à leurs côtés"
 
 #: scenarios/user-scenarios/j4-1-full-history-abroad.json:36
 msgctxt "step.narrative"
 msgid ""
-"Back where it began, Dr Anan sees Somsack at a primary care clinic in\n"
+"Back where it began, Dr Anan sees Somsak at a primary care clinic in\n"
 "Kesaro. Bounmy shows the QR on his phone and says the passcode. The\n"
 "clinic viewer and the Onesan gateway take five steps:\n"
 "\n"
@@ -145,7 +145,7 @@ msgid ""
 "verification. The clinic names the step and the reason (STT-VER-008), does not\n"
 "follow the VHL, and Dr Anan treats whatever the family can show as he\n"
 "would a paper record.\n"
-msgstr "De retour là où tout a commencé, le Dr Anan reçoit Somsack dans une clinique de soins primaires de\nKesaro. Bounmy montre le code QR sur son téléphone et prononce le code d’accès. Le\nvisualiseur de la clinique et la passerelle d’Onesa effectuent cinq étapes :\n\n1. Le visualiseur vérifie le HCERT par rapport au DSC du Pays B dans sa copie de la liste de confiance.\n2. Il demande le manifeste par ITI-YY5, signé avec HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).\n3. La passerelle d’Onesa vérifie le code d’accès, l’expiration et le consentement, renvoie le manifeste et journalise l’accès dans le pays de résidence (`TrustDemoJ41Access`).\n4. Le visualiseur déchiffre l’IPS et les DVC (STT-VHL-007) (`TrustDemoJ41Received`).\n5. Il les présente au Dr Anan : chaque dose depuis la naissance, consultée, jamais copiée.\n\nUn code d’accès erroné est refusé, et la tentative est tout de même journalisée à Onesa\n(`TrustDemoJ41WrongPasscode`). Si le HCERT n’est pas vérifié (par exemple, le\nDSC du Pays B est absent de la liste en cache), il n’y a pas de vérification\nnumérique. La clinique indique l’étape et le motif (STT-VER-008), ne suit pas\nle VHL, et le Dr Anan traite ce que la famille peut présenter comme il\ntraiterait un dossier papier.\n"
+msgstr "De retour là où tout a commencé, le Dr Anan reçoit Somsak dans une clinique de soins primaires de\nKesaro. Bounmy montre le code QR sur son téléphone et prononce le code d’accès. Le\nvisualiseur de la clinique et la passerelle d’Onesa effectuent cinq étapes :\n\n1. Le visualiseur vérifie le HCERT par rapport au DSC du Pays B dans sa copie de la liste de confiance.\n2. Il demande le manifeste par ITI-YY5, signé avec HTTP Message Signatures (STT-VHL-005, STT-VHL-006, STT-VHL-008).\n3. La passerelle d’Onesa vérifie le code d’accès, l’expiration et le consentement, renvoie le manifeste et journalise l’accès dans le pays de résidence (`TrustDemoJ41Access`).\n4. Le visualiseur déchiffre l’IPS et les DVC (STT-VHL-007) (`TrustDemoJ41Received`).\n5. Il les présente au Dr Anan : chaque dose depuis la naissance, consultée, jamais copiée.\n\nUn code d’accès erroné est refusé, et la tentative est tout de même journalisée à Onesa\n(`TrustDemoJ41WrongPasscode`). Si le HCERT n’est pas vérifié (par exemple, le\nDSC du Pays B est absent de la liste en cache), il n’y a pas de vérification\nnumérique. La clinique indique l’étape et le motif (STT-VER-008), ne suit pas\nle VHL, et le Dr Anan traite ce que la famille peut présenter comme il\ntraiterait un dossier papier.\n"
 
 #: scenarios/user-scenarios/j4-1-full-history-abroad.json:64
 msgctxt "step.painPoint"

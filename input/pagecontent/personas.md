@@ -9,10 +9,10 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
 | [Caregiver](ActorDefinition-TrustDemo.Role.Caregiver.html) | The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder. | Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) | VHL Holder (IHE ITI VHL); Holder (SMART Trust) |
-| [Subject of care](ActorDefinition-TrustDemo.Role.SubjectOfCare.html) | The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes. | Somsack SENGMANY (newborn) | Patient; Care recipient |
+| [Subject of care](ActorDefinition-TrustDemo.Role.SubjectOfCare.html) | The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes. | Somsak SENGMANY (newborn) | Patient; Care recipient |
 | [Birth clinic vaccinator](ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html) | The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1). | Dr Anan (clinician, Kesaro, Taifafeki) |  |
 | [Community health worker](ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html) | Finds unregistered children on home visits, registers them and refers them to the clinic (J2). | Vilay (community health worker, Village 04, Onesa) |  |
-| [Home clinic provider](ActorDefinition-TrustDemo.Role.HomeClinicProvider.html) | The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3). | Nurse Chanthasone (Lomaru District Health Center, Onesa) |  |
+| [Home clinic provider](ActorDefinition-TrustDemo.Role.HomeClinicProvider.html) | The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3). | Nurse Chanthason (Lomaru District Health Center, Onesa) |  |
 | [Point-of-care provider](ActorDefinition-TrustDemo.Role.PocProvider.html) | The clinician abroad who scans the family's QR and reads the child's records (J4.1). | Dr Anan (clinician, Kesaro, Taifafeki) |  |
 {: .grid }
 
@@ -43,7 +43,7 @@ Each is fictional. Their goals, needs and frustrations are kept in `scenarios/ac
 
 #### Dr. Anan (Taifafeki clinician · birth & follow-up, Taifafeki)
 
-Persona: a Taifafeki clinician in Kesaro who gives Somsack's Hep B and BCG birth doses and prints the two signed DVCs (J1), and who sees him again a year later at a primary care clinic, reading his record through the VHL (J4.1). Fictional.
+Persona: a Taifafeki clinician in Kesaro who gives Somsak's Hep B and BCG birth doses and prints the two signed DVCs (J1), and who sees him again a year later at a primary care clinic, reading his record through the VHL (J4.1). Fictional.
 
 - **Goal:** Give a non-Taifafeki baby proper care, at birth and when he returns.
 - **Needs:** A way to issue records that travel with the family; A child's full history at the point of care; Confidence the data is authentic
@@ -51,13 +51,13 @@ Persona: a Taifafeki clinician in Kesaro who gives Somsack's Hep B and BCG birth
 
 #### Bounmy (Father · holds the family phone, Onesa)
 
-Persona: Somsack's father, 29, head of the household in Onesa, who holds the family's one shared phone (J4). Creates Somsack's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.
+Persona: Somsak's father, 29, head of the household in Onesa, who holds the family's one shared phone (J4). Creates Somsak's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.
 
 - **Goal:** Keep the whole family's health records in one place he controls.
 - **Needs:** One app for three people on one phone; Share records abroad without paperwork; Decide who sees what, and for how long
 - **Frustrations:** Carrying folders of documents across the border; Not knowing who has seen his child’s data
 
-#### Chanthasone (Nurse · District Health Center, Onesa)
+#### Chanthason (Nurse · District Health Center, Onesa)
 
 Persona for J3: the nurse at Lomaru District Health Center in Onesa (Country B), on the clinic's tablet (OHS app, facility configuration). Makes the clinical call when a foreign product has no mapping. Fictional.
 
@@ -67,13 +67,13 @@ Persona for J3: the nurse at Lomaru District Health Center in Onesa (Country B),
 
 #### Khamla (Mother, Onesa)
 
-Persona: Somsack's mother, 26, an Onesan national living in Onesa (Country B) who gave birth in Taifafeki (Country A). Holds the two paper DVCs from J1 to J3. Fictional.
+Persona: Somsak's mother, 26, an Onesan national living in Onesa (Country B) who gave birth in Taifafeki (Country A). Holds the two paper DVCs from J1 to J3. Fictional.
 
-- **Goal:** Have Somsack's care recognized at home, without starting over.
+- **Goal:** Have Somsak's care recognized at home, without starting over.
 - **Needs:** Proof of the vaccines her baby got abroad; Clear guidance on when to come back; Not to be penalized for giving birth across the border
 - **Frustrations:** Paper cards are easy to lose; Extra trips to the clinic; The family's records live on her husband's phone
 
-#### Somsack (Baby · the record follows him, Onesa)
+#### Somsak (Baby · the record follows him, Onesa)
 
 The subject of every journey: an Onesan baby boy born 2025-10-28 at Kesaro Provincial Hospital, Taifafeki (Country A), while his family lives in Onesa (Country B). Has no Taifafeki identity number; registered in Onesa with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.
 

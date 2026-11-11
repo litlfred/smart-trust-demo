@@ -2,7 +2,7 @@
   "$schema": "user-scenario/0.3.0",
   "id": "j4-0-one-family-one-phone",
   "title": "J4.0 — Crossing back: one family, one phone",
-  "description": "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
+  "description": "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsak’s six verified doses.",
   "personas": [
     "bounmy-sengmany",
     "khamla-sengmany"
@@ -15,16 +15,16 @@
     {
       "id": "J4.0a",
       "title": "One phone holds the whole family’s records",
-      "headline": "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.",
+      "headline": "A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsak’s six verified doses.",
       "when": "T0 + 12 months",
       "where": "Lomaru, Onesa",
       "touchpoint": "Family wallet app on Dad’s phone",
-      "narrative": "The family plans a trip to Taifafeki. Bounmy's phone holds the\nfamily wallet, with a profile for each of them. Somsack's summary\n(`TrustDemoJ4Ips`) shows six doses: two from Taifafeki, four from Onesa.",
+      "narrative": "The family plans a trip to Taifafeki. Bounmy's phone holds the\nfamily wallet, with a profile for each of them. Somsak's summary\n(`TrustDemoJ4Ips`) shows six doses: two from Taifafeki, four from Onesa.",
       "lead": "bounmy-sengmany",
       "experiences": [
         {
           "actor": "bounmy-sengmany",
-          "doing": "Opens the family wallet: profiles for himself, Khamla and Somsack.",
+          "doing": "Opens the family wallet: profiles for himself, Khamla and Somsak.",
           "feeling": "“One phone, three people — I can manage all of us.”",
           "emotion": 1
         },
@@ -44,7 +44,7 @@
         "heldWhere": "Onesan national records + family wallet"
       },
       "handoff": {
-        "summary": "Somsack’s summary is ready to share",
+        "summary": "Somsak’s summary is ready to share",
         "carrier": "FHIR API (HTTPS) via Info Gateway",
         "payload": "IPS Bundle per family member",
         "offline": false,
@@ -53,7 +53,7 @@
       },
       "whatIf": [
         {
-          "scenario": "Khamla travels alone with Somsack.",
+          "scenario": "Khamla travels alone with Somsak.",
           "outcome": "Who can access the baby’s record without Bounmy’s phone? Delegated access within a household is still an open design question."
         }
       ],
@@ -76,7 +76,7 @@
         },
         {
           "block": "ips",
-          "role": "Somsack’s summary packaged as an IPS Bundle"
+          "role": "Somsak’s summary packaged as an IPS Bundle"
         },
         {
           "block": "provenance",
@@ -88,7 +88,7 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j4-crossing-back.jpg",
-        "alt": "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+        "alt": "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsak’s vaccine history; Khamla and toddler Somsak are beside them"
       },
       "fhirChanges": [
         {
@@ -117,7 +117,7 @@
     {
       "id": "J4.0b",
       "title": "Dad creates a link to share at the clinic",
-      "headline": "Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Onesa.",
+      "headline": "Before the trip, Bounmy creates a QR link for Somsak’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Onesa.",
       "when": "T0 + 12 months",
       "where": "Onesan–Taifafeki Friendship Bridge",
       "touchpoint": "Family wallet app (share link)",
@@ -128,12 +128,12 @@
           "requirements": []
         }
       ],
-      "narrative": "For Somsack, Bounmy shares his record with a 4-digit passcode he\ncan say aloud, valid for 14 days. The portal records his consent\n(`TrustDemoJ4Consent`), then does three things:\n\n1. It assembles the IPS and Somsack's DVCs.\n2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n\nThe QR holds only a pointer and a key: the record stays in Onesa.",
+      "narrative": "For Somsak, Bounmy shares his record with a 4-digit passcode he\ncan say aloud, valid for 14 days. The portal records his consent\n(`TrustDemoJ4Consent`), then does three things:\n\n1. It assembles the IPS and Somsak's DVCs.\n2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B's DSC.\n\nThe QR holds only a pointer and a key: the record stays in Onesa.",
       "lead": "bounmy-sengmany",
       "experiences": [
         {
           "actor": "bounmy-sengmany",
-          "doing": "Creates a passcode-protected QR link for Somsack, valid for 14 days.",
+          "doing": "Creates a passcode-protected QR link for Somsak, valid for 14 days.",
           "feeling": "“I decide who sees it, and for how long.”",
           "emotion": 2
         }
@@ -210,7 +210,7 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j4-crossing-back.jpg",
-        "alt": "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them"
+        "alt": "Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsak’s vaccine history; Khamla and toddler Somsak are beside them"
       },
       "fhirChanges": [
         {
