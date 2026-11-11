@@ -32,8 +32,8 @@ msgstr "实施指南（IG）中的用户场景"
 
 #: scenarios/user-scenarios/j1-born-abroad.json:179
 msgctxt "scene.label"
-msgid "Somsack is born"
-msgstr "Somsack 出生"
+msgid "Somsak is born"
+msgstr "Somsak 出生"
 
 #: scenarios/user-scenarios/j1-born-abroad.json:19
 msgctxt "scene.label"
@@ -117,18 +117,18 @@ msgstr "两张纸质卡片随 Khamla 回家"
 
 #: scenarios/user-scenarios/j1-born-abroad.json:19
 msgctxt "step.headline"
-msgid "Somsack gets his birth vaccines in a Taifafeki hospital — and the only thing that will cross the border with him is a pair of paper cards."
-msgstr "Somsack 在泰法费基医院接种了出生疫苗——而能随他跨越国境的，只有两张纸质卡片。"
+msgid "Somsak gets his birth vaccines in a Taifafeki hospital — and the only thing that will cross the border with him is a pair of paper cards."
+msgstr "Somsak 在泰法费基医院接种了出生疫苗——而能随他跨越国境的，只有两张纸质卡片。"
 
 #: scenarios/user-scenarios/j1-born-abroad.json:142
 msgctxt "step.illustration.alt"
-msgid "At Kesaro Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsack"
-msgstr "在凯萨罗医院，Anan 医生为 Khamla 和 Bounmy 举起两张已签名的 QR 码卡片，两人抱着新生儿 Somsack"
+msgid "At Kesaro Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsak"
+msgstr "在凯萨罗医院，Anan 医生为 Khamla 和 Bounmy 举起两张已签名的 QR 码卡片，两人抱着新生儿 Somsak"
 
 #: scenarios/user-scenarios/j1-born-abroad.json:32
 msgctxt "step.narrative"
 msgid ""
-"Khamla gives birth to Somsack on 2025-10-28 at Kesaro Provincial\n"
+"Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial\n"
 "Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the\n"
 "Hep B and BCG birth doses and records them with their WHO PreQual product\n"
 "codes. For each dose, the hospital system does three things:\n"
@@ -140,19 +140,19 @@ msgid ""
 "Khamla leaves with two paper DVCs.\n"
 "*In the demo:* the library tests use the WHO guide's own two signed HC1\n"
 "strings ([QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)),\n"
-"which verify against the live DEV trust list under the same XXR key. Somsack's\n"
+"which verify against the live DEV trust list under the same XXR key. Somsak's\n"
 "DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a\n"
 "TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs\n"
 "do not verify in J3.\n"
 msgstr ""
-"Khamla 于 2025-10-28 在凯萨罗府医院生下 Somsack，远离家乡。他没有泰法费基身份证号。Anan 医生为他接种乙肝（Hep B）和 BCG 出生剂次，并用其 WHO PreQual 产品代码进行记录。对每一剂次，医院系统做三件事：\n"
+"Khamla 于 2025-10-28 在凯萨罗府医院生下 Somsak，远离家乡。他没有泰法费基身份证号。Anan 医生为他接种乙肝（Hep B）和 BCG 出生剂次，并用其 WHO PreQual 产品代码进行记录。对每一剂次，医院系统做三件事：\n"
 "\n"
 "1. 构建 DVCMinPreQual 载荷：STT-PAY-001…005 和 STT-PAY-007，子声明为 −6（STT-SEL-003）。无需身份证件（STT-PAY-005）。\n"
 "2. 准备 CWT 和待签名字节：STT-CWT-001…005、STT-ISS-004。\n"
 "3. 由 XXR 的密钥对其签名（STT-COS-002、STT-COS-006），然后生成最终的 HC1 文本：STT-COS-001、STT-ZIP-001、STT-B45-001、STT-HC1-001、STT-QR-001。\n"
 "\n"
 "Khamla 带着两张纸质 DVC 离开。\n"
-"*在演示中：*库测试使用 WHO 指南自带的两个已签名 HC1 字符串（[QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)），它们在同一 XXR 密钥下可通过实时 DEV 信任列表验证。Somsack 的 DVC 载荷仅为示意，与 VaxLink 中一致。应用中的实时签发使用 TEST-ONLY 密钥（STT-ISS-003），其 DSC 不在 GDHCN 列表上，因此其 DVC 在 J3 中无法通过验证。\n"
+"*在演示中：*库测试使用 WHO 指南自带的两个已签名 HC1 字符串（[QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)），它们在同一 XXR 密钥下可通过实时 DEV 信任列表验证。Somsak 的 DVC 载荷仅为示意，与 VaxLink 中一致。应用中的实时签发使用 TEST-ONLY 密钥（STT-ISS-003），其 DSC 不在 GDHCN 列表上，因此其 DVC 在 J3 中无法通过验证。\n"
 
 #: scenarios/user-scenarios/j1-born-abroad.json:54
 msgctxt "step.painPoint"

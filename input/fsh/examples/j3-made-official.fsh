@@ -1,5 +1,5 @@
 // J3a and J3b, Lomaru District Health Center, Onesa, 2025-11-25 (T0 + 4
-// weeks). Nurse Chanthasone scans the DVCs; the EHR verifies each against its
+// weeks). Nurse Chanthason scans the DVCs; the EHR verifies each against its
 // cached GDHCN DEV trust list (XXR's DSC, kid 916ffa567c0f44a2), offline, and
 // imports the doses with provenance. The issuer's product coding is kept and
 // the national schedule coding is added beside it (ConceptMap; the nurse
@@ -16,7 +16,7 @@ Usage: #example
 * vaccineCode.coding[onesaEpi] = TrustDemoOnesaEpiSchedule#XXK-EPI-HEPB-BD "Hepatitis B birth dose"
 * vaccineCode.coding[cvx] = $cvx#08 "Hep B, adolescent or pediatric"
 * vaccineCode.text = "Hepatitis B paediatric birth dose"
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * occurrenceDateTime = "2025-10-28T09:15:00+07:00"
 * primarySource = true
 * performer.actor = Reference(TrustDemoAnan)
@@ -34,7 +34,7 @@ Usage: #example
 * vaccineCode.coding[onesaEpi] = TrustDemoOnesaEpiSchedule#XXK-EPI-BCG "BCG"
 * vaccineCode.coding[cvx] = $cvx#19 "BCG"
 * vaccineCode.text = "BCG"
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * occurrenceDateTime = "2025-10-28T09:20:00+07:00"
 * primarySource = true
 * performer.actor = Reference(TrustDemoAnan)
@@ -55,7 +55,7 @@ Usage: #example
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#verifier "Verifier"
 * agent[=].who = Reference(TrustDemoDhcEhr)
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#enterer "Enterer"
-* agent[=].who = Reference(TrustDemoChanthasone)
+* agent[=].who = Reference(TrustDemoChanthason)
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author "Author"
 * agent[=].who = Reference(TrustDemoKesaroHospital)
 * entity[+].role = #source
@@ -70,21 +70,21 @@ Usage: #example
 Instance: TrustDemoJ3Adjudication
 InstanceOf: Provenance
 Title: "J3b provenance: the nurse's vaccine-code adjudication"
-Description: "Records Nurse Chanthasone's clinical call that the Taifafeki Hep B product counts as the national Hep B birth dose, which the map did not yet cover. The decision is added to the national ConceptMap for the next clinic."
+Description: "Records Nurse Chanthason's clinical call that the Taifafeki Hep B product counts as the national Hep B birth dose, which the map did not yet cover. The decision is added to the national ConceptMap for the next clinic."
 Usage: #example
 * target[+] = Reference(TrustDemoJ3HepB)
 * target[+] = Reference(TrustDemoProductToOnesaEpi)
 * recorded = "2025-11-25T10:21:00+07:00"
 * activity.text = "Confirmed vp-hepb-peds-monovalent as equivalent to XXK-EPI-HEPB-BD; issuer coding kept, schedule coding added"
 * agent[+].type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#attester "Attester"
-* agent[=].who = Reference(TrustDemoChanthasone)
+* agent[=].who = Reference(TrustDemoChanthason)
 
 Instance: TrustDemoJ3Recommendation
 InstanceOf: ImmunizationRecommendation
 Title: "J3b schedule evaluation: the 6-week doses are due"
 Description: "The national schedule run over the verified doses read by their schedule codes: the Hep B and BCG birth doses count, and pentavalent 1, bOPV 1 and PCV 1 fall due at 6 weeks (2025-12-09)."
 Usage: #example
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * date = "2025-11-25T10:22:00+07:00"
 * authority = Reference(TrustDemoLomaruDhc)
 * recommendation[+].vaccineCode = TrustDemoOnesaEpiSchedule#XXK-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
@@ -103,20 +103,20 @@ Usage: #example
 
 Instance: TrustDemoJ3Reminder
 InstanceOf: Task
-Title: "J3b reminder: bring Somsack back for the 6-week doses"
+Title: "J3b reminder: bring Somsak back for the 6-week doses"
 Description: "The reminder the schedule evaluation creates, so Khamla leaves knowing exactly when to come back."
 Usage: #example
 * status = #requested
 * intent = #plan
 * code.text = "Immunization appointment reminder: 6-week doses"
 * focus = Reference(TrustDemoJ3Recommendation)
-* for = Reference(TrustDemoSomsack)
+* for = Reference(TrustDemoSomsak)
 * authoredOn = "2025-11-25T10:22:00+07:00"
 * requester = Reference(TrustDemoLomaruDhc)
 * restriction.period.start = "2025-12-09"
 * restriction.period.end = "2025-12-16"
 
-// The doses Somsack is given in Onesa over his first year, recorded at the
+// The doses Somsak is given in Onesa over his first year, recorded at the
 // district health center (primary source).
 
 Instance: TrustDemoOnesaPenta1
@@ -127,10 +127,10 @@ Usage: #example
 * status = #completed
 * vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-pentavalent-liquid "DTP-HepB-Hib (pentavalent), liquid"
 * vaccineCode.coding[onesaEpi] = TrustDemoOnesaEpiSchedule#XXK-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * occurrenceDateTime = "2025-12-10"
 * primarySource = true
-* performer.actor = Reference(TrustDemoChanthasone)
+* performer.actor = Reference(TrustDemoChanthason)
 * lotNumber = "XXK-2201"
 * location.display = "Lomaru District Health Center, Onesa"
 * protocolApplied.doseNumberPositiveInt = 1
@@ -143,10 +143,10 @@ Usage: #example
 * status = #completed
 * vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-bopv-drops "Bivalent oral polio vaccine (bOPV), drops"
 * vaccineCode.coding[onesaEpi] = TrustDemoOnesaEpiSchedule#XXK-EPI-OPV-1 "bOPV, dose 1"
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * occurrenceDateTime = "2025-12-10"
 * primarySource = true
-* performer.actor = Reference(TrustDemoChanthasone)
+* performer.actor = Reference(TrustDemoChanthason)
 * lotNumber = "XXK-5531"
 * location.display = "Lomaru District Health Center, Onesa"
 * protocolApplied.doseNumberPositiveInt = 1
@@ -159,10 +159,10 @@ Usage: #example
 * status = #completed
 * vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-pcv-13-dose "Pneumococcal conjugate vaccine (PCV)"
 * vaccineCode.coding[onesaEpi] = TrustDemoOnesaEpiSchedule#XXK-EPI-PCV-1 "PCV, dose 1"
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * occurrenceDateTime = "2025-12-10"
 * primarySource = true
-* performer.actor = Reference(TrustDemoChanthasone)
+* performer.actor = Reference(TrustDemoChanthason)
 * lotNumber = "XXK-8819"
 * location.display = "Lomaru District Health Center, Onesa"
 * protocolApplied.doseNumberPositiveInt = 1
@@ -175,10 +175,10 @@ Usage: #example
 * status = #completed
 * vaccineCode.coding[product] = TrustDemoVaccineProduct#vp-mr-freeze-dried "Measles-rubella vaccine, freeze-dried"
 * vaccineCode.coding[onesaEpi] = TrustDemoOnesaEpiSchedule#XXK-EPI-MR-1 "Measles-rubella, dose 1"
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * occurrenceDateTime = "2026-07-28"
 * primarySource = true
-* performer.actor = Reference(TrustDemoChanthasone)
+* performer.actor = Reference(TrustDemoChanthason)
 * lotNumber = "XXK-9923"
 * location.display = "Lomaru District Health Center, Onesa"
 * protocolApplied.doseNumberPositiveInt = 1

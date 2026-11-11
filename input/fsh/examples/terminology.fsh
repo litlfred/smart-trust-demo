@@ -48,7 +48,7 @@ Description: "Every code of TrustDemoOnesaEpiSchedule: the target of the nationa
 Instance: TrustDemoProductToOnesaEpi
 InstanceOf: ConceptMap
 Title: "J3 map: vaccine product to national schedule dose"
-Description: "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthasone confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again."
+Description: "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthason confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again."
 Usage: #definition
 * url = "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToOnesaEpi"
 * name = "TrustDemoProductToOnesaEpi"

@@ -17,7 +17,7 @@ The person the records are about: the child whose doses are given, signed, regis
 
 **Played in the journeys by** (fictional):
 
-- ![Somsack](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvbXNhY2siPjx0aXRsZT5Tb21zYWNrPC90aXRsZT48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzY1YTMwZCIvPjx0ZXh0IHg9IjIwIiB5PSIyMCIgZHk9IjAuMzVlbSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmZmZmYiPmJhYnk8L3RleHQ+PC9zdmc+) [Somsack](personas.html#somsack-baby--the-record-follows-him-onesa), Somsack SENGMANY (newborn)
+- ![Somsak](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvbXNhY2siPjx0aXRsZT5Tb21zYWNrPC90aXRsZT48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzY1YTMwZCIvPjx0ZXh0IHg9IjIwIiB5PSIyMCIgZHk9IjAuMzVlbSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmZmZmYiPmJhYnk8L3RleHQ+PC9zdmc+) [Somsak](personas.html#somsak-baby--the-record-follows-him-onesa), Somsak SENGMANY (newborn)
 
 **In the user scenarios**:
 

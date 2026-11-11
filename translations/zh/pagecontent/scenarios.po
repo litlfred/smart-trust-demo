@@ -73,8 +73,8 @@ msgid "A wrong passcode is refused, and the attempt is still logged in Onesa ({c
 msgstr "错误的通行码会被拒绝，但该尝试仍会在奥内萨（Onesa）被记录（{code0}）。如果 HCERT 未通过验证（例如，缓存列表中缺少 B 国的 DSC），则不进行数字验证。诊所指明失败的步骤和原因（<a0>STT-VER-008</a0>），不跟随该 VHL，Dr Anan 将家庭能出示的任何内容当作纸质记录来对待。"
 
 #: input/pagecontent/scenarios.md:144
-msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Kesaro. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Onesan gateway take five steps:"
-msgstr "回到故事开始的地方，Dr Anan 在 Kesaro 的一家初级卫生保健诊所为 Somsack 看诊。Bounmy 在手机上出示 QR 码并说出通行码。诊所查看器和奥内萨网关执行五个步骤："
+msgid "Back where it began, Dr Anan sees Somsak at a primary care clinic in Kesaro. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Onesan gateway take five steps:"
+msgstr "回到故事开始的地方，Dr Anan 在 Kesaro 的一家初级卫生保健诊所为 Somsak 看诊。Bounmy 在手机上出示 QR 码并说出通行码。诊所查看器和奥内萨网关执行五个步骤："
 
 #: input/pagecontent/scenarios.md:13
 msgid "Birth clinic vaccinator"
@@ -164,8 +164,8 @@ msgid "I want to"
 msgstr "我想要"
 
 #: input/pagecontent/scenarios.md:127
-msgid "It assembles the IPS and Somsack's DVCs."
-msgstr "它汇总 IPS 和 Somsack 的 DVC。"
+msgid "It assembles the IPS and Somsak's DVCs."
+msgstr "它汇总 IPS 和 Somsak 的 DVC。"
 
 #: input/pagecontent/scenarios.md:44
 msgid "It builds a DVCMinPreQual payload: <a0>STT-PAY-001</a0>…<a1>005</a1> and <a2>STT-PAY-007</a2>, with subclaim −6 (<a3>STT-SEL-003</a3>). No identity document is needed (<a4>STT-PAY-005</a4>)."
@@ -209,8 +209,8 @@ msgstr "J2a. 在一次对 Village 04 的例行走访中，Vilay 发现了一名�
 
 #: input/pagecontent/scenarios.md:68
 #, python-brace-format
-msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she adds Somsack to the Sengmany household ({code1}), with a temporary id. Bounmy confirms the details as head of household. The app saves the doses read from the cards as reported by the family, not verified ({code2}, {code3}: {code4} false). Vilay refers Somsack to the district health center ({code5}). Everything stays queued on the phone, for 28 days if need be, and syncs when it next reaches a signal."
-msgstr "J2b. 她在 CHW 应用的新生儿表单（结构化数据采集，{code0}）上，以临时 id 将 Somsack 添加到 Sengmany 家庭（{code1}）。Bounmy 作为户主确认这些信息。应用将从卡片读取的剂次保存为家庭报告、未经验证（{code2}、{code3}：{code4} 为 false）。Vilay 将 Somsack 转诊到区卫生中心（{code5}）。所有内容都在手机上排队，必要时可保留 28 天，并在下次有信号时同步。"
+msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she adds Somsak to the Sengmany household ({code1}), with a temporary id. Bounmy confirms the details as head of household. The app saves the doses read from the cards as reported by the family, not verified ({code2}, {code3}: {code4} false). Vilay refers Somsak to the district health center ({code5}). Everything stays queued on the phone, for 28 days if need be, and syncs when it next reaches a signal."
+msgstr "J2b. 她在 CHW 应用的新生儿表单（结构化数据采集，{code0}）上，以临时 id 将 Somsak 添加到 Sengmany 家庭（{code1}）。Bounmy 作为户主确认这些信息。应用将从卡片读取的剂次保存为家庭报告、未经验证（{code2}、{code3}：{code4} 为 false）。Vilay 将 Somsak 转诊到区卫生中心（{code5}）。所有内容都在手机上排队，必要时可保留 28 天，并在下次有信号时同步。"
 
 #: input/pagecontent/scenarios.md:84
 msgid "J3 — Made official (Lomaru District Health Center, 4 weeks later)"
@@ -218,13 +218,13 @@ msgstr "J3 — 正式入册（Lomaru 区卫生中心，4 周后）"
 
 #: input/pagecontent/scenarios.md:88
 #, python-brace-format
-msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), without contacting Taifafeki. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
-msgstr "J3a. 护士 Chanthasone 打开转诊并扫描 QR 码。EHR 对照该副本离线验证每份 DVC（<a0>STT-VER-001</a0>…<a1>009</a1>、<a2>STT-KID-002</a2>），无需联系泰法费基。两份均通过验证，因此它将其作为 FHIR {code0} 导入（{code1}、{code2}），并附来源记录（{code3}；<a3>STT-VER-007</a3>、<a4>STT-VER-008</a4>），取代 J2 中的已报告剂次。如果某份 DVC 验证失败（例如卡片被篡改），EHR 会指明失败的步骤和原因，剂次保持未验证状态，由护士根据国家补种政策作出决定。"
+msgid "J3a. Nurse Chanthason opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (<a0>STT-VER-001</a0>…<a1>009</a1>, <a2>STT-KID-002</a2>), without contacting Taifafeki. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; <a3>STT-VER-007</a3>, <a4>STT-VER-008</a4>), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
+msgstr "J3a. 护士 Chanthason 打开转诊并扫描 QR 码。EHR 对照该副本离线验证每份 DVC（<a0>STT-VER-001</a0>…<a1>009</a1>、<a2>STT-KID-002</a2>），无需联系泰法费基。两份均通过验证，因此它将其作为 FHIR {code0} 导入（{code1}、{code2}），并附来源记录（{code3}；<a3>STT-VER-007</a3>、<a4>STT-VER-008</a4>），取代 J2 中的已报告剂次。如果某份 DVC 验证失败（例如卡片被篡改），EHR 会指明失败的步骤和原因，剂次保持未验证状态，由护士根据国家补种政策作出决定。"
 
 #: input/pagecontent/scenarios.md:97
 #, python-brace-format
-msgid "J3b. The Taifafeki Hep B product matches nothing on the national schedule. The EHR keeps Taifafeki's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthasone makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsack gets those doses and measles-rubella at 9 months, in Onesa."
-msgstr "J3b. 泰法费基的 Hep B 产品与国家接种计划中的任何条目都不匹配。EHR 保留泰法费基的产品编码，并根据国家映射表（{code0}）在其旁添加接种计划编码。映射表中没有该 Hep B 产品的条目，因此护士 Chanthasone 作出临床判断，认定它是接种计划中的出生剂次（{code1}），她的决定被添加到映射表中，供下一家诊所使用。随后运行接种计划（{code2}）：出生剂次计入，五联疫苗第 1 剂、bOPV 第 1 剂和 PCV 第 1 剂在 6 周时到期（{code3}）。Khamla 带着日期离开（{code4}）。在这一年中，Somsack 在奥内萨（Onesa）接种了这些剂次，并在 9 个月时接种了麻疹-风疹疫苗。"
+msgid "J3b. The Taifafeki Hep B product matches nothing on the national schedule. The EHR keeps Taifafeki's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthason makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsak gets those doses and measles-rubella at 9 months, in Onesa."
+msgstr "J3b. 泰法费基的 Hep B 产品与国家接种计划中的任何条目都不匹配。EHR 保留泰法费基的产品编码，并根据国家映射表（{code0}）在其旁添加接种计划编码。映射表中没有该 Hep B 产品的条目，因此护士 Chanthason 作出临床判断，认定它是接种计划中的出生剂次（{code1}），她的决定被添加到映射表中，供下一家诊所使用。随后运行接种计划（{code2}）：出生剂次计入，五联疫苗第 1 剂、bOPV 第 1 剂和 PCV 第 1 剂在 6 周时到期（{code3}）。Khamla 带着日期离开（{code4}）。在这一年中，Somsak 在奥内萨（Onesa）接种了这些剂次，并在 9 个月时接种了麻疹-风疹疫苗。"
 
 #: input/pagecontent/scenarios.md:115
 msgid "J4.0 — Crossing back: one family, one phone (Onesa, 12 months later)"
@@ -232,13 +232,13 @@ msgstr "J4.0 — 再次跨境：一个家庭，一部手机（奥内萨（Onesa�
 
 #: input/pagecontent/scenarios.md:117
 #, python-brace-format
-msgid "J4.0a. The family plans a trip to Taifafeki. Bounmy's phone holds the family wallet, with a profile for each of them. Somsack's summary ({code0}) shows six doses: two from Taifafeki, four from Onesa."
-msgstr "J4.0a. 这家人计划去泰法费基旅行。Bounmy 的手机中有家庭钱包，每位家庭成员都有一个档案。Somsack 的摘要（{code0}）显示六个剂次：两个来自泰法费基，四个来自奥内萨（Onesa）。"
+msgid "J4.0a. The family plans a trip to Taifafeki. Bounmy's phone holds the family wallet, with a profile for each of them. Somsak's summary ({code0}) shows six doses: two from Taifafeki, four from Onesa."
+msgstr "J4.0a. 这家人计划去泰法费基旅行。Bounmy 的手机中有家庭钱包，每位家庭成员都有一个档案。Somsak 的摘要（{code0}）显示六个剂次：两个来自泰法费基，四个来自奥内萨（Onesa）。"
 
 #: input/pagecontent/scenarios.md:123
 #, python-brace-format
-msgid "J4.0b. For Somsack, Bounmy shares his record with a 4-digit passcode he can say aloud, valid for 14 days. The portal records his consent ({code0}), then does three things:"
-msgstr "J4.0b. Bounmy 为 Somsack 分享其记录，使用一个可以口头说出的 4 位通行码，有效期 14 天。门户记录他的同意（{code0}），然后执行三件事："
+msgid "J4.0b. For Somsak, Bounmy shares his record with a 4-digit passcode he can say aloud, valid for 14 days. The portal records his consent ({code0}), then does three things:"
+msgstr "J4.0b. Bounmy 为 Somsak 分享其记录，使用一个可以口头说出的 4 位通行码，有效期 14 天。门户记录他的同意（{code0}），然后执行三件事："
 
 #: input/pagecontent/scenarios.md:140
 msgid "J4.1 — Crossing back: a Taifafeki doctor sees the full history (Kesaro, 12 months later)"
@@ -249,12 +249,12 @@ msgid "Keep the foreign vaccine code and add our schedule code beside it, decidi
 msgstr "保留外国疫苗代码并在其旁添加我们的接种计划代码，在没有匹配项时由我自己决定"
 
 #: input/pagecontent/scenarios.md:39
-msgid "Khamla gives birth to Somsack on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
-msgstr "2025-10-28，Khamla 在离家在外的 Kesaro 府医院生下 Somsack。他没有泰法费基身份号码。Dr Anan 为他接种 Hep B 和 BCG 出生剂次，并以其 WHO PreQual 产品代码进行记录。对于每个剂次，医院系统执行三件事："
+msgid "Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
+msgstr "2025-10-28，Khamla 在离家在外的 Kesaro 府医院生下 Somsak。他没有泰法费基身份号码。Dr Anan 为他接种 Hep B 和 BCG 出生剂次，并以其 WHO PreQual 产品代码进行记录。对于每个剂次，医院系统执行三件事："
 
 #: input/pagecontent/scenarios.md:48
-msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsack's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
-msgstr "Khamla 带着两份纸质 DVC 离开。在演示中：库测试使用 WHO 指南自带的两个已签名 HC1 字符串（<a0>QR Code Generation §12</a0>），它们在同一 XXR 密钥下对照实时 DEV 信任列表通过验证。Somsack 的 DVC 载荷仅作示意，与 VaxLink 中相同。应用中的实时签发使用一个 TEST-ONLY 密钥（<a1>STT-ISS-003</a1>），其 DSC 不在 GDHCN 列表上，因此其签发的 DVC 在 J3 中无法通过验证。"
+msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+msgstr "Khamla 带着两份纸质 DVC 离开。在演示中：库测试使用 WHO 指南自带的两个已签名 HC1 字符串（<a0>QR Code Generation §12</a0>），它们在同一 XXR 密钥下对照实时 DEV 信任列表通过验证。Somsak 的 DVC 载荷仅作示意，与 VaxLink 中相同。应用中的实时签发使用一个 TEST-ONLY 密钥（<a1>STT-ISS-003</a1>），其 DSC 不在 GDHCN 列表上，因此其签发的 DVC 在 J3 中无法通过验证。"
 
 #: input/pagecontent/scenarios.md:21
 msgid "Know the record I read abroad came from the child's home country and was not altered"

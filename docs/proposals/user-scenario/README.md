@@ -73,7 +73,7 @@ what joins the two.
 ## What the conversion found
 
 - **J2 was told in the opposite order to its BPMN.** The walkthrough had
-  Vilay register Somsack (J2a) before reading the cards (J2b), while
+  Vilay register Somsak (J2a) before reading the cards (J2b), while
   `j2-chw-discovery-referral.bpmn` reads first and then registers. **Resolved
   2026-11-05 (owner): vaxlink was reordered** to match the BPMN. J2a now reads
   the cards (`Task_Show`, `Task_Scan`, `Task_Read`), and J2b registers, saves

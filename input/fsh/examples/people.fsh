@@ -1,5 +1,5 @@
 // The people, places and systems the journey examples share. The story is the
-// VaxLink workshop walkthrough's (fredhersch/vaxlink): Somsack SENGMANY, an Onesan
+// VaxLink workshop walkthrough's (fredhersch/vaxlink): Somsak SENGMANY, an Onesan
 // baby born in Taifafeki, followed over his first year. Every person here is
 // fictional (AGENTS.md). Country A, the birth country, is Taifafeki, played on
 // the GDHCN DEV network by test participant XXR; Country B, home, is Onesa,
@@ -12,9 +12,9 @@ Alias: $v3-RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 Alias: $OnesaTmpId = http://smart.who.int/trust-demo/sid/onesa-temporary-id
 Alias: $HouseholdId = http://smart.who.int/trust-demo/sid/onesa-household-id
 
-Instance: TrustDemoSomsack
+Instance: TrustDemoSomsak
 InstanceOf: TrustDemoOnesaPatient
-Title: "Somsack SENGMANY (newborn)"
+Title: "Somsak SENGMANY (newborn)"
 Description: "The subject of every journey, as the CHW registers him in Onesa (Country B) in J2: born 2025-10-28 at Kesaro Provincial Hospital, Taifafeki (Country A), with no Taifafeki identity number. Until civil registration catches up he has a temporary id. Fictional."
 Usage: #example
 * identifier[temporaryId].system = $OnesaTmpId
@@ -22,7 +22,7 @@ Usage: #example
 * active = true
 * name.use = #official
 * name.family = "SENGMANY"
-* name.given = "Somsack"
+* name.given = "Somsak"
 * gender = #male
 * birthDate = "2025-10-28"
 * contact[+].relationship = $v3-RoleCode#MTH "mother"
@@ -35,9 +35,9 @@ Usage: #example
 Instance: TrustDemoKhamla
 InstanceOf: RelatedPerson
 Title: "Khamla SENGMANY (mother)"
-Description: "Somsack's mother, 26: the Holder of the two paper DVCs from J1 to J3. Fictional."
+Description: "Somsak's mother, 26: the Holder of the two paper DVCs from J1 to J3. Fictional."
 Usage: #example
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * relationship = $v3-RoleCode#MTH "mother"
 * name.family = "SENGMANY"
 * name.given = "Khamla"
@@ -46,9 +46,9 @@ Usage: #example
 Instance: TrustDemoBounmy
 InstanceOf: RelatedPerson
 Title: "Bounmy SENGMANY (father, head of household)"
-Description: "Somsack's father, 29, head of the household: he holds the family's one shared phone and is the VHL Holder in J4. Fictional."
+Description: "Somsak's father, 29, head of the household: he holds the family's one shared phone and is the VHL Holder in J4. Fictional."
 Usage: #example
-* patient = Reference(TrustDemoSomsack)
+* patient = Reference(TrustDemoSomsak)
 * relationship = $v3-RoleCode#FTH "father"
 * name.family = "SENGMANY"
 * name.given = "Bounmy"
@@ -57,7 +57,7 @@ Usage: #example
 Instance: TrustDemoKhamlaPatient
 InstanceOf: Patient
 Title: "Khamla SENGMANY (household member)"
-Description: "Khamla as a member of the Sengmany household and a profile of her own on the family phone. In FHIR R4 a Group's members are Patients, so the household lists her as one; the RelatedPerson TrustDemoKhamla is her role as Somsack's mother. Fictional."
+Description: "Khamla as a member of the Sengmany household and a profile of her own on the family phone. In FHIR R4 a Group's members are Patients, so the household lists her as one; the RelatedPerson TrustDemoKhamla is her role as Somsak's mother. Fictional."
 Usage: #example
 * name.family = "SENGMANY"
 * name.given = "Khamla"
@@ -68,7 +68,7 @@ Usage: #example
 Instance: TrustDemoBounmyPatient
 InstanceOf: Patient
 Title: "Bounmy SENGMANY (household member)"
-Description: "Bounmy as a member of the Sengmany household and a profile of his own on the family phone. In FHIR R4 a Group's members are Patients, so the household lists him as one; the RelatedPerson TrustDemoBounmy is his role as Somsack's father. Fictional."
+Description: "Bounmy as a member of the Sengmany household and a profile of his own on the family phone. In FHIR R4 a Group's members are Patients, so the household lists him as one; the RelatedPerson TrustDemoBounmy is his role as Somsak's father. Fictional."
 Usage: #example
 * name.family = "SENGMANY"
 * name.given = "Bounmy"
@@ -79,7 +79,7 @@ Usage: #example
 Instance: TrustDemoAnan
 InstanceOf: Practitioner
 Title: "Dr Anan (clinician, Kesaro, Taifafeki)"
-Description: "Gives Somsack's birth doses and prints the DVCs (J1), and reads his record through the VHL a year later (J4.1). Fictional."
+Description: "Gives Somsak's birth doses and prints the DVCs (J1), and reads his record through the VHL a year later (J4.1). Fictional."
 Usage: #example
 * name.text = "Dr Anan"
 * name.given = "Anan"
@@ -88,18 +88,18 @@ Usage: #example
 Instance: TrustDemoVilay
 InstanceOf: Practitioner
 Title: "Vilay (community health worker, Village 04, Onesa)"
-Description: "The CHW who finds Somsack missing from the household roster in J2. Fictional."
+Description: "The CHW who finds Somsak missing from the household roster in J2. Fictional."
 Usage: #example
 * name.text = "Vilay"
 * name.given = "Vilay"
 
-Instance: TrustDemoChanthasone
+Instance: TrustDemoChanthason
 InstanceOf: Practitioner
-Title: "Nurse Chanthasone (Lomaru District Health Center)"
+Title: "Nurse Chanthason (Lomaru District Health Center)"
 Description: "The nurse who verifies the DVCs and fits the Taifafeki doses to the Onesan schedule in J3. Fictional."
 Usage: #example
-* name.text = "Nurse Chanthasone"
-* name.given = "Chanthasone"
+* name.text = "Nurse Chanthason"
+* name.given = "Chanthason"
 
 Instance: TrustDemoKesaroHospital
 InstanceOf: Organization
@@ -112,7 +112,7 @@ Usage: #example
 Instance: TrustDemoLomaruDhc
 InstanceOf: Organization
 Title: "Lomaru District Health Center, Onesa (Country B)"
-Description: "The district health center of J3 and of Somsack's later Onesan doses."
+Description: "The district health center of J3 and of Somsak's later Onesan doses."
 Usage: #example
 * name = "Lomaru District Health Center (demonstrator)"
 * contact.address.country = "XXK"
@@ -128,7 +128,7 @@ Usage: #example
 Instance: TrustDemoKesaroClinic
 InstanceOf: Organization
 Title: "Kesaro primary care clinic, Taifafeki (J4.1)"
-Description: "Where Dr Anan sees Somsack a year after his birth, back in Country A."
+Description: "Where Dr Anan sees Somsak a year after his birth, back in Country A."
 Usage: #example
 * name = "Kesaro primary care clinic (demonstrator)"
 * contact.address.country = "XXR"
@@ -162,7 +162,7 @@ Usage: #example
 Instance: TrustDemoFamilyPhone
 InstanceOf: Device
 Title: "The Sengmany family's shared phone"
-Description: "One phone, three profiles (Bounmy, Khamla, Somsack): the family wallet holding one VHL QR per member (J4)."
+Description: "One phone, three profiles (Bounmy, Khamla, Somsak): the family wallet holding one VHL QR per member (J4)."
 Usage: #example
 * deviceName[+].name = "Sengmany family phone (family wallet)"
 * deviceName[=].type = #user-friendly-name
