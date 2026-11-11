@@ -15,7 +15,7 @@ The nurse at the home clinic who receives the referral, has the foreign DVCs ver
 
 **Played in the journeys by** (fictional):
 
-- ![Chanthason](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkNoYW50aGFzb25lIj48dGl0bGU+Q2hhbnRoYXNvbmU8L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjMDI4NGM3Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+Q0g8L3RleHQ+PC9zdmc+) [Chanthason](personas.html#chanthason-nurse--district-health-center-onesa), Nurse Chanthason (Lomaru District Health Center, Onesa)
+- ![Chanthason](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkNoYW50aGFzb24iPjx0aXRsZT5DaGFudGhhc29uPC90aXRsZT48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzAyODRjNyIvPjx0ZXh0IHg9IjIwIiB5PSIyMCIgZHk9IjAuMzVlbSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiNmZmZmZmYiPkNIPC90ZXh0Pjwvc3ZnPg==) [Chanthason](personas.html#chanthason-nurse--district-health-center-onesa), Nurse Chanthason (Lomaru District Health Center, Onesa)
 
 **In the user scenarios**:
 
