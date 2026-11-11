@@ -2,7 +2,7 @@
   "$schema": "user-scenario/0.4.0",
   "id": "j4-family-records-abroad",
   "title": "J4 — One family, one phone, a history abroad",
-  "description": "The family's records go on one shared phone as Verifiable Health Links (J4.0), and a year later a doctor back in Thailand reads the whole history from Lao PDR (J4.1). One chapter of the walkthrough, two BPMN processes, so two sub-journeys.",
+  "description": "The family's records go on one shared phone as Verifiable Health Links (J4.0), and a year later a doctor back in Taifafeki reads the whole history from Onesa (J4.1). One chapter of the walkthrough, two BPMN processes, so two sub-journeys.",
   "parts": [
     {
       "scenario": "j4-0-one-family-one-phone"
@@ -13,7 +13,7 @@
   ],
   "follows": "j3-made-official",
   "when": "6 to 12 months later",
-  "where": "Lao PDR and Chiang Rai",
+  "where": "Onesa and Kesaro",
   "country": "Cross-Border",
   "scene": [
     {
@@ -22,17 +22,17 @@
     },
     {
       "icon": "transfer",
-      "label": "Lao PDR ⇄ Thailand"
+      "label": "Onesa ⇄ Taifafeki"
     },
     {
       "icon": "stethoscope",
-      "label": "Thai doctor sees it all"
+      "label": "Taifafeki doctor sees it all"
     }
   ],
   "references": [
     {
       "label": "User scenarios in the IG (J4.0 and J4.1)",
-      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j40--crossing-back-one-family-one-phone-lao-pdr-12-months-later",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j40--crossing-back-one-family-one-phone-onesa-12-months-later",
       "rel": "scenario"
     }
   ]

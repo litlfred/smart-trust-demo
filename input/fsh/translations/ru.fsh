@@ -30,33 +30,33 @@ Description: "Unofficial Russian designations for TrustDemoVaccineProduct: an ag
 * #vp-mr-freeze-dried ^designation[+].language = #ru
 * #vp-mr-freeze-dried ^designation[=].value = "Вакцина против кори и краснухи, лиофилизированная"
 
-CodeSystem: TrustDemoLaoEpiScheduleRu
-Id: TrustDemoLaoEpiSchedule-ru
-Title: "TrustDemoLaoEpiSchedule (ru designations, unofficial)"
-Description: "Unofficial Russian designations for TrustDemoLaoEpiSchedule: an agent translation that no person has signed off."
+CodeSystem: TrustDemoOnesaEpiScheduleRu
+Id: TrustDemoOnesaEpiSchedule-ru
+Title: "TrustDemoOnesaEpiSchedule (ru designations, unofficial)"
+Description: "Unofficial Russian designations for TrustDemoOnesaEpiSchedule: an agent translation that no person has signed off."
 * ^experimental = true
 * ^content = #supplement
-* ^supplements = Canonical(TrustDemoLaoEpiSchedule)
+* ^supplements = Canonical(TrustDemoOnesaEpiSchedule)
 * ^language = #ru
 * ^caseSensitive = true
-* #LAO-EPI-HEPB-BD "Hepatitis B birth dose"
-* #LAO-EPI-HEPB-BD ^designation[+].language = #ru
-* #LAO-EPI-HEPB-BD ^designation[=].value = "Доза вакцины против гепатита B при рождении"
-* #LAO-EPI-BCG "BCG"
-* #LAO-EPI-BCG ^designation[+].language = #ru
-* #LAO-EPI-BCG ^designation[=].value = "БЦЖ (BCG)"
-* #LAO-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
-* #LAO-EPI-PENTA-1 ^designation[+].language = #ru
-* #LAO-EPI-PENTA-1 ^designation[=].value = "Пентавалентная (АКДС-HepB-Hib), доза 1"
-* #LAO-EPI-OPV-1 "bOPV, dose 1"
-* #LAO-EPI-OPV-1 ^designation[+].language = #ru
-* #LAO-EPI-OPV-1 ^designation[=].value = "bOPV, доза 1"
-* #LAO-EPI-PCV-1 "PCV, dose 1"
-* #LAO-EPI-PCV-1 ^designation[+].language = #ru
-* #LAO-EPI-PCV-1 ^designation[=].value = "PCV, доза 1"
-* #LAO-EPI-MR-1 "Measles-rubella, dose 1"
-* #LAO-EPI-MR-1 ^designation[+].language = #ru
-* #LAO-EPI-MR-1 ^designation[=].value = "Корь-краснуха, доза 1"
+* #XXK-EPI-HEPB-BD "Hepatitis B birth dose"
+* #XXK-EPI-HEPB-BD ^designation[+].language = #ru
+* #XXK-EPI-HEPB-BD ^designation[=].value = "Доза вакцины против гепатита B при рождении"
+* #XXK-EPI-BCG "BCG"
+* #XXK-EPI-BCG ^designation[+].language = #ru
+* #XXK-EPI-BCG ^designation[=].value = "БЦЖ (BCG)"
+* #XXK-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
+* #XXK-EPI-PENTA-1 ^designation[+].language = #ru
+* #XXK-EPI-PENTA-1 ^designation[=].value = "Пентавалентная (АКДС-HepB-Hib), доза 1"
+* #XXK-EPI-OPV-1 "bOPV, dose 1"
+* #XXK-EPI-OPV-1 ^designation[+].language = #ru
+* #XXK-EPI-OPV-1 ^designation[=].value = "bOPV, доза 1"
+* #XXK-EPI-PCV-1 "PCV, dose 1"
+* #XXK-EPI-PCV-1 ^designation[+].language = #ru
+* #XXK-EPI-PCV-1 ^designation[=].value = "PCV, доза 1"
+* #XXK-EPI-MR-1 "Measles-rubella, dose 1"
+* #XXK-EPI-MR-1 ^designation[+].language = #ru
+* #XXK-EPI-MR-1 ^designation[=].value = "Корь-краснуха, доза 1"
 
 CodeSystem: TrustDemoDataElementsRu
 Id: TrustDemoDataElements-ru

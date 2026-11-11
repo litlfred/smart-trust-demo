@@ -2,7 +2,7 @@
   "$schema": "device-screen/0.1.0",
   "id": "S8",
   "title": "Foreign Clinic VHL Viewer & Audit Trace",
-  "description": "Dr. Anan, in Thailand, opens the link with the passcode: Somsack's whole history, read from Lao PDR and kept nowhere here.",
+  "description": "Dr. Anan, in Taifafeki, opens the link with the passcode: Somsack's whole history, read from Onesa and kept nowhere here.",
   "device": "tablet",
   "owner": "anan",
   "steps": [
@@ -14,8 +14,8 @@
   "blocks": [
     {
       "type": "header",
-      "app": "Thailand Clinic Point-of-Care VHL Viewer (Country A)",
-      "subtitle": "Practitioner: Dr. Anan • Chiang Rai Primary Care Clinic",
+      "app": "Taifafeki Clinic Point-of-Care VHL Viewer (Country A)",
+      "subtitle": "Practitioner: Dr. Anan • Kesaro Primary Care Clinic",
       "icon": "clinic",
       "chips": [
         {
@@ -28,7 +28,7 @@
       "type": "statusBadge",
       "status": "verified",
       "text": "Passcode Verified (✓) • Read-Only Zero-Retention Clinical Session",
-      "detail": "Live AuditEvent: Logged at Lao OHS Info Gateway"
+      "detail": "Live AuditEvent: Logged at Onesan OHS Info Gateway"
     },
     {
       "type": "personCard",
@@ -40,7 +40,7 @@
           "tone": "info"
         }
       ],
-      "subtitle": "Guardian Present: Father Bounmy Sengmany • Sovereign Home: Lao PDR",
+      "subtitle": "Guardian Present: Father Bounmy Sengmany • Sovereign Home: Onesa",
       "fields": [
         {
           "label": "Source FHIR Repository",
@@ -62,8 +62,8 @@
         {
           "icon": "globe",
           "label": "Hepatitis B Birth Dose",
-          "code": "PreQual: vp-hepb-peds • Lao: LAO-EPI-HEPB-BD",
-          "detail": "2025-10-28 • Hepatitis B • Lot: TH-4821 • Born in Thailand → Verified in Lao PDR",
+          "code": "PreQual: vp-hepb-peds • Onesan: XXK-EPI-HEPB-BD",
+          "detail": "2025-10-28 • Hepatitis B • Lot: XXR-4821 • Born in Taifafeki → Verified in Onesa",
           "status": {
             "text": "primarySource: true",
             "tone": "success",
@@ -73,8 +73,8 @@
         {
           "icon": "globe",
           "label": "BCG Vaccine (Freeze-Dried)",
-          "code": "PreQual: vp-bcg-freeze • Lao: LAO-EPI-BCG-BD",
-          "detail": "2025-10-28 • Tuberculosis • Lot: TH-9012 • Born in Thailand → Verified in Lao PDR",
+          "code": "PreQual: vp-bcg-freeze • Onesan: XXK-EPI-BCG-BD",
+          "detail": "2025-10-28 • Tuberculosis • Lot: XXR-9012 • Born in Taifafeki → Verified in Onesa",
           "status": {
             "text": "primarySource: true",
             "tone": "success",
@@ -84,45 +84,45 @@
         {
           "icon": "syringe",
           "label": "Pentavalent (DTP-HepB-Hib-1)",
-          "code": "LAO-EPI-PENTA-1",
-          "detail": "2025-12-10 • Diphtheria, Tetanus, Pertussis, Hep B, Hib • Lot: LA-2201 • Vientiane District Health Center (Lao PDR)",
+          "code": "XXK-EPI-PENTA-1",
+          "detail": "2025-12-10 • Diphtheria, Tetanus, Pertussis, Hep B, Hib • Lot: XXK-2201 • Lomaru District Health Center (Onesa)",
           "status": {
-            "text": "Verified Lao EPI",
+            "text": "Verified Onesan EPI",
             "tone": "info"
           }
         },
         {
           "icon": "syringe",
           "label": "Bivalent Oral Polio (bOPV-1)",
-          "code": "LAO-EPI-OPV-1",
-          "detail": "2025-12-10 • Poliomyelitis • Lot: LA-5531 • Vientiane District Health Center (Lao PDR)",
+          "code": "XXK-EPI-OPV-1",
+          "detail": "2025-12-10 • Poliomyelitis • Lot: XXK-5531 • Lomaru District Health Center (Onesa)",
           "status": {
-            "text": "Verified Lao EPI",
+            "text": "Verified Onesan EPI",
             "tone": "info"
           }
         },
         {
           "icon": "syringe",
           "label": "Pneumococcal Conjugate (PCV-1)",
-          "code": "LAO-EPI-PCV-1",
-          "detail": "2025-12-10 • Streptococcus pneumoniae • Lot: LA-8819 • Vientiane District Health Center (Lao PDR)",
+          "code": "XXK-EPI-PCV-1",
+          "detail": "2025-12-10 • Streptococcus pneumoniae • Lot: XXK-8819 • Lomaru District Health Center (Onesa)",
           "status": {
-            "text": "Verified Lao EPI",
+            "text": "Verified Onesan EPI",
             "tone": "info"
           }
         },
         {
           "icon": "syringe",
           "label": "Measles-Rubella Vaccine (MR-1)",
-          "code": "LAO-EPI-MR-1",
-          "detail": "2026-07-28 • Measles, Rubella • Lot: LA-9923 • Vientiane District Health Center (Lao PDR)",
+          "code": "XXK-EPI-MR-1",
+          "detail": "2026-07-28 • Measles, Rubella • Lot: XXK-9923 • Lomaru District Health Center (Onesa)",
           "status": {
-            "text": "Verified Lao EPI",
+            "text": "Verified Onesan EPI",
             "tone": "info"
           }
         }
       ],
-      "footnote": "Cross-border verified provenance linking Thailand birth doses and Lao national EPI"
+      "footnote": "Cross-border verified provenance linking Taifafeki birth doses and Onesan national EPI"
     },
     {
       "type": "fields",
@@ -142,7 +142,7 @@
       "type": "actions",
       "buttons": [
         {
-          "label": "Inspect Fetched VHL Manifest & Lao AuditEvent JSON",
+          "label": "Inspect Fetched VHL Manifest & Onesan AuditEvent JSON",
           "style": "secondary",
           "icon": "file"
         },
@@ -153,5 +153,5 @@
       ]
     }
   ],
-  "try": "Ask the room what happens on a wrong passcode: three tries, then the link is revoked, and Lao PDR sees each attempt"
+  "try": "Ask the room what happens on a wrong passcode: three tries, then the link is revoked, and Onesa sees each attempt"
 }

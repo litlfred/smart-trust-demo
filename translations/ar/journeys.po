@@ -11,7 +11,7 @@
 # English; the translator adjudicated against the msgids. Synonyms and
 # re-ordering were not counted as drift. Term-of-art drifts found and fixed
 # across the locale: home clinic (was "local clinic"), clinician (was
-# "doctor"), gateway vs portal, Chiang Rai Provincial Hospital, a dropped
+# "doctor"), gateway vs portal, Kesaro Provincial Hospital, a dropped
 # conditional, "the harness's interpreter". No other claim, quantifier,
 # negation or named entity was found moved.
 #
@@ -154,8 +154,8 @@ msgstr "بعد 4 أسابيع"
 
 #: docs/journeys.md:221
 #, python-brace-format
-msgid "A wrong passcode is refused, and the attempt is still logged in Lao PDR ({code0}). If the HCERT does not verify (for example, Country B's DSC is missing from the cached list), there is no digital verification. The clinic names the step and the reason (STT-VER-008), does not follow the VHL, and Dr Anan treats whatever the family can show as he would a paper record."
-msgstr "يُرفض رمز المرور الخاطئ، وتُسجَّل المحاولة مع ذلك في جمهورية لاو (Lao PDR) ({code0}). وإذا لم يجتز HCERT التحقق (مثلًا لغياب شهادة DSC الخاصة بالبلد B من القائمة المخزَّنة مؤقتًا)، فلا يوجد تحقق رقمي. فتسمّي العيادة الخطوة والسبب (STT-VER-008)، ولا تتبع رابط VHL، ويتعامل د. Anan مع كل ما تستطيع الأسرة إظهاره كما يتعامل مع سجل ورقي."
+msgid "A wrong passcode is refused, and the attempt is still logged in Onesa ({code0}). If the HCERT does not verify (for example, Country B's DSC is missing from the cached list), there is no digital verification. The clinic names the step and the reason (STT-VER-008), does not follow the VHL, and Dr Anan treats whatever the family can show as he would a paper record."
+msgstr "يُرفض رمز المرور الخاطئ، وتُسجَّل المحاولة مع ذلك في جمهورية أونيسا (Onesa) ({code0}). وإذا لم يجتز HCERT التحقق (مثلًا لغياب شهادة DSC الخاصة بالبلد B من القائمة المخزَّنة مؤقتًا)، فلا يوجد تحقق رقمي. فتسمّي العيادة الخطوة والسبب (STT-VER-008)، ولا تتبع رابط VHL، ويتعامل د. Anan مع كل ما تستطيع الأسرة إظهاره كما يتعامل مع سجل ورقي."
 
 #: docs/journeys.md:62
 msgid "abroad"
@@ -166,8 +166,8 @@ msgid "Actor here"
 msgstr "الجهة الفاعلة هنا"
 
 #: docs/journeys.md:211
-msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Chiang Rai. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Lao gateway take five steps:"
-msgstr "وفي المكان الذي بدأت فيه القصة، يفحص د. Anan الطفل Somsack في عيادة رعاية أولية في تشيانغ راي. يُظهر Bounmy رمز QR على هاتفه وينطق رمز المرور. ويتّخذ عارض العيادة وبوابة الربط اللاوية خمس خطوات:"
+msgid "Back where it began, Dr Anan sees Somsack at a primary care clinic in Kesaro. Bounmy shows the QR on his phone and says the passcode. The clinic viewer and the Onesan gateway take five steps:"
+msgstr "وفي المكان الذي بدأت فيه القصة، يفحص د. Anan الطفل Somsack في عيادة رعاية أولية في كيسارو. يُظهر Bounmy رمز QR على هاتفه وينطق رمز المرور. ويتّخذ عارض العيادة وبوابة الربط الأونيسية خمس خطوات:"
 
 #: docs/journeys.md:39
 msgid "birth day, 2025-10-28"
@@ -190,20 +190,20 @@ msgid "caregiver"
 msgstr "مقدِّم الرعاية"
 
 #: docs/journeys.md:82
-msgid "Chiang Rai primary care clinic viewer"
-msgstr "عارض عيادة الرعاية الأولية في تشيانغ راي"
+msgid "Kesaro primary care clinic viewer"
+msgstr "عارض عيادة الرعاية الأولية في كيسارو"
 
 #: docs/journeys.md:76
-msgid "Chiang Rai Provincial Hospital, Thailand"
-msgstr "مستشفى مقاطعة تشيانغ راي، تايلاند"
+msgid "Kesaro Provincial Hospital, Taifafeki"
+msgstr "مستشفى مقاطعة كيسارو، تايفافيكي"
 
 #: docs/journeys.md:39
-msgid "Chiang Rai, Thailand"
-msgstr "تشيانغ راي، تايلاند"
+msgid "Kesaro, Taifafeki"
+msgstr "كيسارو، تايفافيكي"
 
 #: docs/journeys.md:78
-msgid "CHW app, Lao PDR"
-msgstr "تطبيق CHW، جمهورية لاو (Lao PDR)"
+msgid "CHW app, Onesa"
+msgstr "تطبيق CHW، جمهورية أونيسا (Onesa)"
 
 #: docs/journeys.md:50
 msgid "CHW phone, then sync"
@@ -219,8 +219,8 @@ msgstr "البلد A"
 
 #: docs/journeys.md:20
 #, python-brace-format
-msgid "Country A (birth country) is Thailand. Somsack is born at Chiang Rai Provincial Hospital and gets his birth doses there (J1). On the GDHCN DEV network, Thailand is played by the test participant XXR, whose DSC (kid {code0}, hex {code1}) is on the live DEV trust list."
-msgstr "البلد A (بلد الولادة) هو تايلاند. يولد Somsack في مستشفى مقاطعة تشيانغ راي ويتلقى جرعات الولادة هناك (J1). وعلى شبكة GDHCN DEV، يؤدي دورَ تايلاند المشاركُ التجريبي XXR، الذي توجد شهادته DSC (kid {code0}، بالنظام الست عشري {code1}) على قائمة الثقة الحية لشبكة DEV."
+msgid "Country A (birth country) is Taifafeki. Somsack is born at Kesaro Provincial Hospital and gets his birth doses there (J1). On the GDHCN DEV network, Taifafeki is played by the test participant XXR, whose DSC (kid {code0}, hex {code1}) is on the live DEV trust list."
+msgstr "البلد A (بلد الولادة) هو تايفافيكي. يولد Somsack في مستشفى مقاطعة كيسارو ويتلقى جرعات الولادة هناك (J1). وعلى شبكة GDHCN DEV، يؤدي دورَ تايفافيكي المشاركُ التجريبي XXR، الذي توجد شهادته DSC (kid {code0}، بالنظام الست عشري {code1}) على قائمة الثقة الحية لشبكة DEV."
 
 #: docs/journeys.md:59
 #: docs/journeys.md:60
@@ -229,8 +229,8 @@ msgid "Country B"
 msgstr "البلد B"
 
 #: docs/journeys.md:24
-msgid "Country B (country of residence, \"home\") is Lao PDR. The family lives there (J2, J3, J4.0). On the DEV network it is played by a fictional participant, written XXH."
-msgstr "البلد B (بلد الإقامة، «الوطن») هو جمهورية لاو (Lao PDR). تعيش الأسرة هناك (J2، J3، J4.0). وعلى شبكة DEV يؤدي دوره مشارك وهمي يُكتب XXH."
+msgid "Country B (country of residence, \"home\") is Onesa. The family lives there (J2, J3, J4.0). On the DEV network it is played by a fictional participant, written XXK."
+msgstr "البلد B (بلد الإقامة، «الوطن») هو جمهورية أونيسا (Onesa). تعيش الأسرة هناك (J2، J3، J4.0). وعلى شبكة DEV يؤدي دوره مشارك وهمي يُكتب XXK."
 
 #: docs/journeys.md:241
 msgid "Cross-border access and audit (J4.0b, J4.1): what agreements do countries need so that a clinician viewing a record abroad triggers an audit entry in the patient's home country?"
@@ -245,8 +245,8 @@ msgid "district clinic"
 msgstr "عيادة المنطقة"
 
 #: docs/journeys.md:41
-msgid "District Health Center, Lao PDR"
-msgstr "المركز الصحي للمنطقة، جمهورية لاو (Lao PDR)"
+msgid "District Health Center, Onesa"
+msgstr "المركز الصحي للمنطقة، جمهورية أونيسا (Onesa)"
 
 #: docs/journeys.md:83
 msgid "Dr Anan, Vilay, Nurse Chanthasone, Dr Anan"
@@ -271,12 +271,12 @@ msgid "Enabler (J2b): An offline form links the baby to his household immediatel
 msgstr "عامل التمكين (J2b): نموذج يعمل دون اتصال يربط الطفل بأسرته المعيشية فورًا، ويُزامَن حالما يجد الهاتف إشارة."
 
 #: docs/journeys.md:177
-msgid "Enabler (J3a): Thailand’s signing key is on the shared WHO trust list, so any clinic can check it locally."
-msgstr "عامل التمكين (J3a): مفتاح التوقيع الخاص بتايلاند موجود على قائمة الثقة المشتركة لمنظمة الصحة العالمية (WHO)، لذا يمكن لأي عيادة التحقق منه محليًا."
+msgid "Enabler (J3a): Taifafeki’s signing key is on the shared WHO trust list, so any clinic can check it locally."
+msgstr "عامل التمكين (J3a): مفتاح التوقيع الخاص بتايفافيكي موجود على قائمة الثقة المشتركة لمنظمة الصحة العالمية (WHO)، لذا يمكن لأي عيادة التحقق منه محليًا."
 
 #: docs/journeys.md:178
-msgid "Enabler (J3b): Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due."
-msgstr "عامل التمكين (J3b): يُحتفظ برمز تايلاند الأصلي ويُضاف الرمز اللاوي بجانبه، ويحسب محرك الجدول ما هو مستحق."
+msgid "Enabler (J3b): Taifafeki’s original code is kept and the Onesan code is added alongside; the schedule engine calculates what’s due."
+msgstr "عامل التمكين (J3b): يُحتفظ برمز تايفافيكي الأصلي ويُضاف الرمز الأونيسي بجانبه، ويحسب محرك الجدول ما هو مستحق."
 
 #: docs/journeys.md:202
 msgid "Enabler (J4.0a): A household wallet on one phone, with a separate health summary for each person."
@@ -291,8 +291,8 @@ msgid "Enabler: A digitally signed QR card travels with the family — no ID num
 msgstr "عامل التمكين: بطاقة QR موقَّعة رقميًا تنتقل مع الأسرة — دون الحاجة إلى رقم هوية (ID) أو بحث في قاعدة بيانات."
 
 #: docs/journeys.md:229
-msgid "Enabler: The record is fetched live from Lao PDR, viewed without being copied, and an access log is sent home."
-msgstr "عامل التمكين: يُجلب السجل مباشرة من جمهورية لاو (Lao PDR)، ويُعرض دون نسخه، ويُرسَل سجل وصول إلى الوطن."
+msgid "Enabler: The record is fetched live from Onesa, viewed without being copied, and an access log is sent home."
+msgstr "عامل التمكين: يُجلب السجل مباشرة من جمهورية أونيسا (Onesa)، ويُعرض دون نسخه، ويُرسَل سجل وصول إلى الوطن."
 
 #: docs/journeys.md:75
 msgid "family-phone"
@@ -385,20 +385,20 @@ msgid "It shows them to Dr Anan: every dose since the birth, viewed, never copie
 msgstr "يعرضها على د. Anan: كل جرعة منذ الولادة، معروضة دون نسخها أبدًا."
 
 #: docs/journeys.md:102
-msgid "J1 — Born abroad (Thailand, birth day)"
-msgstr "J1 — وُلد في الخارج (تايلاند، يوم الولادة)"
+msgid "J1 — Born abroad (Taifafeki, birth day)"
+msgstr "J1 — وُلد في الخارج (تايفافيكي، يوم الولادة)"
 
 #: docs/journeys.md:127
-msgid "J2 — Found at home (Lao PDR, 3 weeks later)"
-msgstr "J2 — العثور عليه في الوطن (جمهورية لاو (Lao PDR)، بعد 3 أسابيع)"
+msgid "J2 — Found at home (Onesa, 3 weeks later)"
+msgstr "J2 — العثور عليه في الوطن (جمهورية أونيسا (Onesa)، بعد 3 أسابيع)"
 
 #: docs/journeys.md:40
 msgid "J2 (J2a read the cards, J2b register and refer)"
 msgstr "J2 (J2a قراءة البطاقات، J2b التسجيل والإحالة)"
 
 #: docs/journeys.md:129
-msgid "J2a. On a routine visit to Village 04, Vilay finds a newborn the Lao system does not know exists. Her phone has had no signal for weeks. Khamla shows the two cards. The CHW app reads them with read-unverified (STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), which needs no trust list. It shows the doses, but checks no signature and saves nothing yet."
-msgstr "J2a. في زيارة روتينية إلى القرية 04، تعثر Vilay على مولود لا يعلم النظام اللاوي بوجوده. لم يكن في هاتفها أي إشارة منذ أسابيع. تُظهر Khamla البطاقتين. يقرؤهما تطبيق CHW بوضع read-unverified (STT-VER-011؛ STT-B45-002، STT-ZIP-002، STT-CBR-003)، الذي لا يحتاج إلى قائمة ثقة. ويعرض الجرعات، لكنه لا يتحقق من أي توقيع ولا يحفظ شيئًا بعد."
+msgid "J2a. On a routine visit to Village 04, Vilay finds a newborn the Onesan system does not know exists. Her phone has had no signal for weeks. Khamla shows the two cards. The CHW app reads them with read-unverified (STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), which needs no trust list. It shows the doses, but checks no signature and saves nothing yet."
+msgstr "J2a. في زيارة روتينية إلى القرية 04، تعثر Vilay على مولود لا يعلم النظام الأونيسي بوجوده. لم يكن في هاتفها أي إشارة منذ أسابيع. تُظهر Khamla البطاقتين. يقرؤهما تطبيق CHW بوضع read-unverified (STT-VER-011؛ STT-B45-002، STT-ZIP-002، STT-CBR-003)، الذي لا يحتاج إلى قائمة ثقة. ويعرض الجرعات، لكنه لا يتحقق من أي توقيع ولا يحفظ شيئًا بعد."
 
 #: docs/journeys.md:50
 msgid "J2b"
@@ -410,7 +410,7 @@ msgid "J2b. On the CHW app's newborn form (structured data capture, {code0}) she
 msgstr "J2b. في نموذج المولود الجديد في تطبيق CHW (التقاط البيانات المنظَّم، {code0}) تضيف Somsack إلى الأسرة المعيشية Sengmany ({code1})، بمعرِّف مؤقت. ويؤكد Bounmy التفاصيل بصفته ربّ الأسرة. ويحفظ التطبيق الجرعات المقروءة من البطاقات على أنها مُبلَّغ عنها من الأسرة، غير متحقَّق منها ({code2}، {code3}: {code4} false). وتُحيل Vilay الطفل Somsack إلى المركز الصحي للمنطقة ({code5}). ويبقى كل شيء في قائمة الانتظار على الهاتف، لمدة 28 يومًا إن لزم الأمر، ويُزامَن عندما يصل إلى إشارة في المرة التالية."
 
 #: docs/journeys.md:151
-msgid "J3 — Made official (Vientiane District Health Center, 4 weeks later)"
+msgid "J3 — Made official (Lomaru District Health Center, 4 weeks later)"
 msgstr "J3 — إضفاء الصفة الرسمية (المركز الصحي لمنطقة فينتيان، بعد 4 أسابيع)"
 
 #: docs/journeys.md:41
@@ -423,8 +423,8 @@ msgstr "J3a"
 
 #: docs/journeys.md:155
 #, python-brace-format
-msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (STT-VER-001…009, STT-KID-002), without contacting Thailand. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; STT-VER-007, STT-VER-008), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
-msgstr "J3a. تفتح الممرضة Chanthasone الإحالة وتمسح رموز QR ضوئيًا. ويتحقق نظام EHR من كل شهادة DVC دون اتصال مقابل تلك النسخة (STT-VER-001…009، STT-KID-002)، دون الاتصال بتايلاند. وتجتاز كلتاهما التحقق، فيستوردهما بوصفهما {code0} في FHIR ({code1}، {code2}) مع بيانات المصدر ({code3}؛ STT-VER-007، STT-VER-008)، لتحلّا محل الجرعات المُبلَّغ عنها في J2. وإذا فشلت شهادة DVC (بطاقة عُبث بها مثلًا)، يسمّي نظام EHR الخطوة والسبب، وتبقى الجرعات غير متحقَّق منها، وتقرر الممرضة وفق سياسة التطعيم الاستدراكي الوطنية."
+msgid "J3a. Nurse Chanthasone opens the referral and scans the QRs. The EHR verifies each DVC offline against that copy (STT-VER-001…009, STT-KID-002), without contacting Taifafeki. Both verify, so it imports them as FHIR {code0}s ({code1}, {code2}) with provenance ({code3}; STT-VER-007, STT-VER-008), replacing the reported doses of J2. If a DVC fails (a tampered card, say), the EHR names the step and the reason, the doses stay unverified, and the nurse decides by national catch-up policy."
+msgstr "J3a. تفتح الممرضة Chanthasone الإحالة وتمسح رموز QR ضوئيًا. ويتحقق نظام EHR من كل شهادة DVC دون اتصال مقابل تلك النسخة (STT-VER-001…009، STT-KID-002)، دون الاتصال بتايفافيكي. وتجتاز كلتاهما التحقق، فيستوردهما بوصفهما {code0} في FHIR ({code1}، {code2}) مع بيانات المصدر ({code3}؛ STT-VER-007، STT-VER-008)، لتحلّا محل الجرعات المُبلَّغ عنها في J2. وإذا فشلت شهادة DVC (بطاقة عُبث بها مثلًا)، يسمّي نظام EHR الخطوة والسبب، وتبقى الجرعات غير متحقَّق منها، وتقرر الممرضة وفق سياسة التطعيم الاستدراكي الوطنية."
 
 #: docs/journeys.md:52
 msgid "J3b"
@@ -432,12 +432,12 @@ msgstr "J3b"
 
 #: docs/journeys.md:164
 #, python-brace-format
-msgid "J3b. The Thai Hep B product matches nothing on the national schedule. The EHR keeps Thailand's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthasone makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsack gets those doses and measles-rubella at 9 months, in Lao PDR."
-msgstr "J3b. لا يطابق منتج التهاب الكبد B التايلاندي أي شيء في الجدول الوطني. فيحتفظ نظام EHR بترميز المنتج الخاص بتايلاند ويضيف ترميز الجدول بجانبه، من الخريطة الوطنية ({code0}). ولا تحتوي الخريطة على قيد لمنتج التهاب الكبد B، لذا تتخذ الممرضة Chanthasone القرار السريري بأنه جرعة الولادة في الجدول ({code1})، ويُضاف قرارها إلى الخريطة للعيادة التالية. ثم يُشغَّل جدول التطعيم ({code2}): تُحتسب جرعات الولادة، وتستحق جرعات الخماسي 1 وbOPV 1 وPCV 1 عند 6 أسابيع ({code3}). وتغادر Khamla ومعها الموعد ({code4}). وعلى مدار السنة يتلقى Somsack تلك الجرعات، ولقاح الحصبة والحصبة الألمانية عند 9 أشهر، في جمهورية لاو (Lao PDR)."
+msgid "J3b. The Taifafeki Hep B product matches nothing on the national schedule. The EHR keeps Taifafeki's product coding and adds the schedule coding beside it, from the national map ({code0}). For the Hep B product the map has no entry, so Nurse Chanthasone makes the clinical call that it is the schedule's birth dose ({code1}), and her decision is added to the map for the next clinic. The schedule ({code2}) then runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due at 6 weeks ({code3}). Khamla leaves with the date ({code4}). Over the year Somsack gets those doses and measles-rubella at 9 months, in Onesa."
+msgstr "J3b. لا يطابق منتج التهاب الكبد B التايفافيكي أي شيء في الجدول الوطني. فيحتفظ نظام EHR بترميز المنتج الخاص بتايفافيكي ويضيف ترميز الجدول بجانبه، من الخريطة الوطنية ({code0}). ولا تحتوي الخريطة على قيد لمنتج التهاب الكبد B، لذا تتخذ الممرضة Chanthasone القرار السريري بأنه جرعة الولادة في الجدول ({code1})، ويُضاف قرارها إلى الخريطة للعيادة التالية. ثم يُشغَّل جدول التطعيم ({code2}): تُحتسب جرعات الولادة، وتستحق جرعات الخماسي 1 وbOPV 1 وPCV 1 عند 6 أسابيع ({code3}). وتغادر Khamla ومعها الموعد ({code4}). وعلى مدار السنة يتلقى Somsack تلك الجرعات، ولقاح الحصبة والحصبة الألمانية عند 9 أشهر، في جمهورية أونيسا (Onesa)."
 
 #: docs/journeys.md:182
-msgid "J4.0 — Crossing back: one family, one phone (Lao PDR, 12 months later)"
-msgstr "J4.0 — العودة عبر الحدود: أسرة واحدة، هاتف واحد (جمهورية لاو (Lao PDR)، بعد 12 شهرًا)"
+msgid "J4.0 — Crossing back: one family, one phone (Onesa, 12 months later)"
+msgstr "J4.0 — العودة عبر الحدود: أسرة واحدة، هاتف واحد (جمهورية أونيسا (Onesa)، بعد 12 شهرًا)"
 
 #: docs/journeys.md:42
 msgid "J4.0 (a wallet, b share link), J4.1"
@@ -445,8 +445,8 @@ msgstr "J4.0 (a المحفظة، b رابط المشاركة)، J4.1"
 
 #: docs/journeys.md:184
 #, python-brace-format
-msgid "J4.0a. The family plans a trip to Thailand. Bounmy's phone holds the family wallet, with a profile for each of them. Somsack's summary ({code0}) shows six doses: two from Thailand, four from Lao PDR."
-msgstr "J4.0a. تخطط الأسرة لرحلة إلى تايلاند. يحمل هاتف Bounmy محفظة الأسرة، مع ملف تعريف لكل فرد منهم. ويُظهر ملخص Somsack ({code0}) ست جرعات: اثنتان من تايلاند، وأربع من جمهورية لاو (Lao PDR)."
+msgid "J4.0a. The family plans a trip to Taifafeki. Bounmy's phone holds the family wallet, with a profile for each of them. Somsack's summary ({code0}) shows six doses: two from Taifafeki, four from Onesa."
+msgstr "J4.0a. تخطط الأسرة لرحلة إلى تايفافيكي. يحمل هاتف Bounmy محفظة الأسرة، مع ملف تعريف لكل فرد منهم. ويُظهر ملخص Somsack ({code0}) ست جرعات: اثنتان من تايفافيكي، وأربع من جمهورية أونيسا (Onesa)."
 
 #: docs/journeys.md:190
 #, python-brace-format
@@ -454,20 +454,20 @@ msgid "J4.0b. For Somsack, Bounmy shares his record with a 4-digit passcode he c
 msgstr "J4.0b. نيابةً عن Somsack، يشارك Bounmy سجله برمز مرور من 4 أرقام يمكنه نطقه بصوت عالٍ، صالح لمدة 14 يومًا. تسجّل البوابة الإلكترونية موافقته ({code0})، ثم تقوم بثلاثة أمور:"
 
 #: docs/journeys.md:207
-msgid "J4.1 — Crossing back: a Thai doctor sees the full history (Chiang Rai, 12 months later)"
-msgstr "J4.1 — العودة عبر الحدود: طبيب تايلاندي يرى التاريخ الكامل (تشيانغ راي، بعد 12 شهرًا)"
+msgid "J4.1 — Crossing back: a Taifafeki doctor sees the full history (Kesaro, 12 months later)"
+msgstr "J4.1 — العودة عبر الحدود: طبيب تايفافيكي يرى التاريخ الكامل (كيسارو، بعد 12 شهرًا)"
 
 #: docs/journeys.md:27
-msgid "J4.1 takes the family back to Thailand, a year later."
-msgstr "تعود J4.1 بالأسرة إلى تايلاند، بعد عام."
+msgid "J4.1 takes the family back to Taifafeki, a year later."
+msgstr "تعود J4.1 بالأسرة إلى تايفافيكي، بعد عام."
 
 #: docs/journeys.md:6
 msgid "Journeys J1–J4"
 msgstr "الرحلات J1–J4"
 
 #: docs/journeys.md:106
-msgid "Khamla gives birth to Somsack on 2025-10-28 at Chiang Rai Provincial Hospital, away from home. He has no Thai identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
-msgstr "تلد Khamla الطفل Somsack في 2025-10-28 في مستشفى مقاطعة تشيانغ راي، بعيدًا عن الوطن. ليس لديه رقم هوية تايلاندي. يعطي د. Anan جرعتي الولادة من لقاحَي التهاب الكبد B وBCG ويسجّلهما برموز منتجات WHO PreQual الخاصة بهما. ولكل جرعة، يقوم نظام المستشفى بثلاثة أمور:"
+msgid "Khamla gives birth to Somsack on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
+msgstr "تلد Khamla الطفل Somsack في 2025-10-28 في مستشفى مقاطعة كيسارو، بعيدًا عن الوطن. ليس لديه رقم هوية تايفافيكي. يعطي د. Anan جرعتي الولادة من لقاحَي التهاب الكبد B وBCG ويسجّلهما برموز منتجات WHO PreQual الخاصة بهما. ولكل جرعة، يقوم نظام المستشفى بثلاثة أمور:"
 
 #: docs/journeys.md:115
 msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsack's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
@@ -483,20 +483,20 @@ msgstr "حقيبة Khamla"
 
 #: docs/journeys.md:52
 #: docs/journeys.md:54
-msgid "Lao national records"
-msgstr "السجلات الوطنية اللاوية"
+msgid "Onesan national records"
+msgstr "السجلات الوطنية الأونيسية"
 
 #: docs/journeys.md:81
-msgid "Lao PDR national portal and gateway (XXH)"
-msgstr "البوابة الإلكترونية الوطنية وبوابة الربط الوطنية في جمهورية لاو (Lao PDR) (XXH)"
+msgid "Onesa national portal and gateway (XXK)"
+msgstr "البوابة الإلكترونية الوطنية وبوابة الربط الوطنية في جمهورية أونيسا (Onesa) (XXK)"
 
 #: docs/journeys.md:42
-msgid "Lao PDR to Thailand"
-msgstr "من جمهورية لاو (Lao PDR) إلى تايلاند"
+msgid "Onesa to Taifafeki"
+msgstr "من جمهورية أونيسا (Onesa) إلى تايفافيكي"
 
 #: docs/journeys.md:53
-msgid "Lao records, link on the phone"
-msgstr "السجلات اللاوية، والرابط على الهاتف"
+msgid "Onesan records, link on the phone"
+msgstr "السجلات الأونيسية، والرابط على الهاتف"
 
 #: docs/journeys.md:41
 msgid "Made official"
@@ -543,8 +543,8 @@ msgid "Pain point (J4.0b): Sending photos or PDFs of records leaks data and can�
 msgstr "نقطة الألم (J4.0b): إرسال صور السجلات أو ملفات PDF منها يسرّب البيانات ولا يمكن للجهة المُستقبِلة التحقق منه."
 
 #: docs/journeys.md:123
-msgid "Pain point: The baby has no Thai ID number, so his records would normally stay locked inside the Thai hospital’s system."
-msgstr "نقطة الألم: ليس لدى الطفل رقم هوية (ID) تايلاندي، لذا كانت سجلاته ستبقى عادةً مقفلة داخل نظام المستشفى التايلاندي."
+msgid "Pain point: The baby has no Taifafeki ID number, so his records would normally stay locked inside the Taifafeki hospital’s system."
+msgstr "نقطة الألم: ليس لدى الطفل رقم هوية (ID) تايفافيكي، لذا كانت سجلاته ستبقى عادةً مقفلة داخل نظام المستشفى التايفافيكي."
 
 #: docs/journeys.md:228
 msgid "Pain point: Without the history, the doctor would repeat vaccines or have to guess."
@@ -563,8 +563,8 @@ msgid "Policy (J2b): Newborns can be registered at home, offline, before civil r
 msgstr "السياسة (J2b): يمكن تسجيل المواليد في الوطن، دون اتصال، قبل وجود التسجيل المدني أو هوية وطنية (ID)."
 
 #: docs/journeys.md:179
-msgid "Policy (J3a): Trust is decentralized: a Lao clinic verifies a Thai signature itself, without contacting Thailand."
-msgstr "السياسة (J3a): الثقة لامركزية: تتحقق عيادة لاوية من توقيع تايلاندي بنفسها، دون الاتصال بتايلاند."
+msgid "Policy (J3a): Trust is decentralized: an Onesan clinic verifies a Taifafeki signature itself, without contacting Taifafeki."
+msgstr "السياسة (J3a): الثقة لامركزية: تتحقق عيادة أونيسية من توقيع تايفافيكي بنفسها، دون الاتصال بتايفافيكي."
 
 #: docs/journeys.md:180
 msgid "Policy (J3b): Never overwrite another country’s record: keep the original coding alongside the national one."
@@ -575,8 +575,8 @@ msgid "Policy (J4.0a): Design for shared devices (“One Family, One Phone”) s
 msgstr "السياسة (J4.0a): التصميم للأجهزة المشتركة («أسرة واحدة، هاتف واحد») كي لا تُستبعد الأسر التي لا تملك سوى هاتف واحد."
 
 #: docs/journeys.md:205
-msgid "Policy (J4.0b): Data sovereignty: the record stays in Lao PDR until the family authorizes someone to open it."
-msgstr "السياسة (J4.0b): سيادة البيانات: يبقى السجل في جمهورية لاو (Lao PDR) إلى أن تأذن الأسرة لشخص ما بفتحه."
+msgid "Policy (J4.0b): Data sovereignty: the record stays in Onesa until the family authorizes someone to open it."
+msgstr "السياسة (J4.0b): سيادة البيانات: يبقى السجل في جمهورية أونيسا (Onesa) إلى أن تأذن الأسرة لشخص ما بفتحه."
 
 #: docs/journeys.md:125
 msgid "Policy: Babies born abroad can get a verifiable vaccine record before they have the host country’s civil registration or a national ID — and registering the birth at home still matters."
@@ -591,8 +591,8 @@ msgid "Portable: a summary the family can share"
 msgstr "قابل للنقل: ملخص يمكن للأسرة مشاركته"
 
 #: docs/journeys.md:188
-msgid "Precondition, as in J1: Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Thailand verify the link in J4.1."
-msgstr "الشرط المسبق، كما في J1: شهادة DSC الخاصة بالبلد B، الصادرة تحت سلطة CSCA للبلد B، مُشارَكة بالفعل مع GDHCN، مرسى الثقة. وهذا ما يتيح للعيادة في تايلاند التحقق من الرابط في J4.1."
+msgid "Precondition, as in J1: Country B's DSC, under Country B's CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Taifafeki verify the link in J4.1."
+msgstr "الشرط المسبق، كما في J1: شهادة DSC الخاصة بالبلد B، الصادرة تحت سلطة CSCA للبلد B، مُشارَكة بالفعل مع GDHCN، مرسى الثقة. وهذا ما يتيح للعيادة في تايفافيكي التحقق من الرابط في J4.1."
 
 #: docs/journeys.md:209
 msgid "Precondition, as in J3: the DID documents are already loaded. The clinic viewer's trust store is a cached copy of the GDHCN trust list, including Country B's DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). The clinic refreshes it nightly or hourly, against about weekly at the offline J3 clinic. It does not need to be online to verify: verifying reads the cache and never fetches the list. A DSC published after the last refresh fails the trust-list check (STT-VER-006), naming that reason."
@@ -663,25 +663,25 @@ msgid "smart-trust-tools"
 msgstr "smart-trust-tools"
 
 #: docs/journeys.md:8
-msgid "Somsack is born in Thailand, grows up in Lao PDR, and one year later a Thai doctor can see every vaccine he has ever had, without a single record being copied across the border."
-msgstr "يولد Somsack في تايلاند، وينشأ في جمهورية لاو (Lao PDR)، وبعد عام واحد يستطيع طبيب تايلاندي رؤية كل لقاح تلقاه في حياته، دون نسخ أي سجل عبر الحدود."
+msgid "Somsack is born in Taifafeki, grows up in Onesa, and one year later a Taifafeki doctor can see every vaccine he has ever had, without a single record being copied across the border."
+msgstr "يولد Somsack في تايفافيكي، وينشأ في جمهورية أونيسا (Onesa)، وبعد عام واحد يستطيع طبيب تايفافيكي رؤية كل لقاح تلقاه في حياته، دون نسخ أي سجل عبر الحدود."
 
 #: docs/journeys.md:47
 msgid "Step"
 msgstr "الخطوة"
 
 #: docs/journeys.md:32
-msgid "The cast: Khamla SENGMANY (mother), Bounmy SENGMANY (father, holds the family phone), Vilay (community health worker, Village 04), Nurse Chanthasone (Vientiane District Health Center) and Dr Anan (Thai clinician, at the birth and a year later)."
-msgstr "الشخصيات: Khamla SENGMANY (الأم)، وBounmy SENGMANY (الأب، ويحمل هاتف الأسرة)، وVilay (عاملة صحة مجتمعية، القرية 04)، والممرضة Chanthasone (المركز الصحي لمنطقة فينتيان) ود. Anan (طبيب تايلاندي، عند الولادة وبعد عام)."
+msgid "The cast: Khamla SENGMANY (mother), Bounmy SENGMANY (father, holds the family phone), Vilay (community health worker, Village 04), Nurse Chanthasone (Lomaru District Health Center) and Dr Anan (Taifafeki clinician, at the birth and a year later)."
+msgstr "الشخصيات: Khamla SENGMANY (الأم)، وBounmy SENGMANY (الأب، ويحمل هاتف الأسرة)، وVilay (عاملة صحة مجتمعية، القرية 04)، والممرضة Chanthasone (المركز الصحي لمنطقة فينتيان) ود. Anan (طبيب تايفافيكي، عند الولادة وبعد عام)."
 
 #: docs/journeys.md:217
 #, python-brace-format
-msgid "The Lao gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
-msgstr "تتحقق بوابة الربط اللاوية من رمز المرور وتاريخ الانتهاء والموافقة، وتُعيد البيان، وتسجّل الوصول في الوطن ({code0})."
+msgid "The Onesan gateway checks the passcode, the expiry and the consent, returns the manifest, and logs the access at home ({code0})."
+msgstr "تتحقق بوابة الربط الأونيسية من رمز المرور وتاريخ الانتهاء والموافقة، وتُعيد البيان، وتسجّل الوصول في الوطن ({code0})."
 
 #: docs/journeys.md:198
-msgid "The QR holds only a pointer and a key: the record stays in Lao PDR."
-msgstr "لا يحمل رمز QR سوى مؤشر ومفتاح: يبقى السجل في جمهورية لاو (Lao PDR)."
+msgid "The QR holds only a pointer and a key: the record stays in Onesa."
+msgstr "لا يحمل رمز QR سوى مؤشر ومفتاح: يبقى السجل في جمهورية أونيسا (Onesa)."
 
 #: docs/journeys.md:75
 msgid "the Sengmany family's shared phone (Bounmy's)"
@@ -749,12 +749,12 @@ msgid "VHLReceiver"
 msgstr "VHLReceiver"
 
 #: docs/journeys.md:79
-msgid "Vientiane District Health Center EHR"
+msgid "Lomaru District Health Center EHR"
 msgstr "نظام EHR في المركز الصحي لمنطقة فينتيان"
 
 #: docs/journeys.md:40
-msgid "Village 04, Lao PDR"
-msgstr "القرية 04، جمهورية لاو (Lao PDR)"
+msgid "Village 04, Onesa"
+msgstr "القرية 04، جمهورية أونيسا (Onesa)"
 
 #: docs/journeys.md:37
 msgid "When"
@@ -778,9 +778,9 @@ msgid "WHO smart-trust-phw"
 msgstr "WHO smart-trust-phw"
 
 #: docs/journeys.md:29
-msgid "XXR and XXH are DEV test participants, not either country's production keys, and nothing here implies a real ministry. Every person is fictional."
-msgstr "XXR وXXH مشاركان تجريبيان في شبكة DEV، وليسا مفاتيح إنتاج لأيٍّ من البلدين، ولا شيء هنا يوحي بوزارة حقيقية. وكل شخص هنا وهمي."
+msgid "XXR and XXK are DEV test participants, not either country's production keys, and nothing here implies a real ministry. Every person is fictional."
+msgstr "XXR وXXK مشاركان تجريبيان في شبكة DEV، وليسا مفاتيح إنتاج لأيٍّ من البلدين، ولا شيء هنا يوحي بوزارة حقيقية. وكل شخص هنا وهمي."
 
 #: docs/journeys.md:77
-msgid "XXR's DSC key (plays Thailand)"
-msgstr "مفتاح DSC الخاص بـ XXR (يؤدي دور تايلاند)"
+msgid "XXR's DSC key (plays Taifafeki)"
+msgstr "مفتاح DSC الخاص بـ XXR (يؤدي دور تايفافيكي)"

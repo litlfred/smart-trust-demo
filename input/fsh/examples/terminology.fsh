@@ -1,7 +1,7 @@
 // The vaccine codings of the journeys. Both code systems are illustrative
 // stand-ins, as in the VaxLink walkthrough: TrustDemoVaccineProduct stands in
 // for WHO PreQual product ids (the issuer's coding, as signed in a DVC) and
-// TrustDemoLaoEpiSchedule for a national schedule's antigen-and-dose codes.
+// TrustDemoOnesaEpiSchedule for a national schedule's antigen-and-dose codes.
 // Neither is an official code system; real deployments use the WHO PreQual
 // ids and the country's own schedule codes.
 
@@ -18,18 +18,18 @@ Description: "Illustrative product codes in the style of WHO PreQual product ids
 * #vp-pcv-13-dose "Pneumococcal conjugate vaccine (PCV)"
 * #vp-mr-freeze-dried "Measles-rubella vaccine, freeze-dried"
 
-CodeSystem: TrustDemoLaoEpiSchedule
-Id: TrustDemoLaoEpiSchedule
-Title: "National schedule antigen-dose codes (illustrative, Lao PDR)"
-Description: "Illustrative antigen-and-dose codes of a national immunization schedule, as the VaxLink walkthrough names them for Lao PDR. Not the official Lao EPI coding."
+CodeSystem: TrustDemoOnesaEpiSchedule
+Id: TrustDemoOnesaEpiSchedule
+Title: "National schedule antigen-dose codes (illustrative, Onesa)"
+Description: "Illustrative antigen-and-dose codes of a national immunization schedule, as the VaxLink walkthrough names them for Onesa. Not the official Onesan EPI coding."
 * ^experimental = true
 * ^caseSensitive = true
-* #LAO-EPI-HEPB-BD "Hepatitis B birth dose"
-* #LAO-EPI-BCG "BCG"
-* #LAO-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
-* #LAO-EPI-OPV-1 "bOPV, dose 1"
-* #LAO-EPI-PCV-1 "PCV, dose 1"
-* #LAO-EPI-MR-1 "Measles-rubella, dose 1"
+* #XXK-EPI-HEPB-BD "Hepatitis B birth dose"
+* #XXK-EPI-BCG "BCG"
+* #XXK-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
+* #XXK-EPI-OPV-1 "bOPV, dose 1"
+* #XXK-EPI-PCV-1 "PCV, dose 1"
+* #XXK-EPI-MR-1 "Measles-rubella, dose 1"
 
 ValueSet: TrustDemoVaccineProducts
 Id: TrustDemoVaccineProducts
@@ -38,72 +38,72 @@ Description: "Every product code of TrustDemoVaccineProduct: the source of the n
 * ^experimental = true
 * include codes from system TrustDemoVaccineProduct
 
-ValueSet: TrustDemoLaoEpiScheduleCodes
-Id: TrustDemoLaoEpiScheduleCodes
+ValueSet: TrustDemoOnesaEpiScheduleCodes
+Id: TrustDemoOnesaEpiScheduleCodes
 Title: "National schedule codes of the journeys"
-Description: "Every code of TrustDemoLaoEpiSchedule: the target of the national ConceptMap."
+Description: "Every code of TrustDemoOnesaEpiSchedule: the target of the national ConceptMap."
 * ^experimental = true
-* include codes from system TrustDemoLaoEpiSchedule
+* include codes from system TrustDemoOnesaEpiSchedule
 
-Instance: TrustDemoProductToLaoEpi
+Instance: TrustDemoProductToOnesaEpi
 InstanceOf: ConceptMap
 Title: "J3 map: vaccine product to national schedule dose"
 Description: "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthasone confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again."
 Usage: #definition
-* url = "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToLaoEpi"
-* name = "TrustDemoProductToLaoEpi"
+* url = "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToOnesaEpi"
+* name = "TrustDemoProductToOnesaEpi"
 * status = #draft
 * experimental = true
 * sourceCanonical = Canonical(TrustDemoVaccineProducts)
-* targetCanonical = Canonical(TrustDemoLaoEpiScheduleCodes)
+* targetCanonical = Canonical(TrustDemoOnesaEpiScheduleCodes)
 * group[+].source = Canonical(TrustDemoVaccineProduct)
-* group[=].target = Canonical(TrustDemoLaoEpiSchedule)
+* group[=].target = Canonical(TrustDemoOnesaEpiSchedule)
 * group[=].element[+].code = #vp-hepb-peds-monovalent
-* group[=].element[=].target[+].code = #LAO-EPI-HEPB-BD
+* group[=].element[=].target[+].code = #XXK-EPI-HEPB-BD
 * group[=].element[=].target[=].equivalence = #equivalent
-* group[=].element[=].target[=].comment = "Added from the nurse's adjudication at Vientiane District Health Center, 2025-11-25: a monovalent paediatric Hep B dose given within 24 hours of birth counts as the schedule's birth dose."
+* group[=].element[=].target[=].comment = "Added from the nurse's adjudication at Lomaru District Health Center, 2025-11-25: a monovalent paediatric Hep B dose given within 24 hours of birth counts as the schedule's birth dose."
 * group[=].element[+].code = #vp-bcg-freeze-dried
-* group[=].element[=].target[+].code = #LAO-EPI-BCG
+* group[=].element[=].target[+].code = #XXK-EPI-BCG
 * group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-pentavalent-liquid
-* group[=].element[=].target[+].code = #LAO-EPI-PENTA-1
+* group[=].element[=].target[+].code = #XXK-EPI-PENTA-1
 * group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-bopv-drops
-* group[=].element[=].target[+].code = #LAO-EPI-OPV-1
+* group[=].element[=].target[+].code = #XXK-EPI-OPV-1
 * group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-pcv-13-dose
-* group[=].element[=].target[+].code = #LAO-EPI-PCV-1
+* group[=].element[=].target[+].code = #XXK-EPI-PCV-1
 * group[=].element[=].target[=].equivalence = #equivalent
 * group[=].element[+].code = #vp-mr-freeze-dried
-* group[=].element[=].target[+].code = #LAO-EPI-MR-1
+* group[=].element[=].target[+].code = #XXK-EPI-MR-1
 * group[=].element[=].target[=].equivalence = #equivalent
 
-Instance: TrustDemoLaoInfantSchedule
+Instance: TrustDemoOnesaInfantSchedule
 InstanceOf: PlanDefinition
 Title: "J3 national infant schedule (illustrative excerpt)"
 Description: "The part of the national schedule the J3 evaluation needs: birth doses, the 6-week doses and measles-rubella at 9 months. Illustrative; the schedule rules are not executable here."
 Usage: #definition
-* url = "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoLaoInfantSchedule"
-* name = "TrustDemoLaoInfantSchedule"
+* url = "http://smart.who.int/trust-demo/PlanDefinition/TrustDemoOnesaInfantSchedule"
+* name = "TrustDemoOnesaInfantSchedule"
 * title = "National infant immunization schedule (illustrative excerpt)"
 * status = #draft
 * experimental = true
 * type = http://terminology.hl7.org/CodeSystem/plan-definition-type#clinical-protocol
 * action[+].title = "Birth doses"
-* action[=].code = TrustDemoLaoEpiSchedule#LAO-EPI-HEPB-BD "Hepatitis B birth dose"
+* action[=].code = TrustDemoOnesaEpiSchedule#XXK-EPI-HEPB-BD "Hepatitis B birth dose"
 * action[=].timingAge = 0 'd' "days"
 * action[+].title = "BCG"
-* action[=].code = TrustDemoLaoEpiSchedule#LAO-EPI-BCG "BCG"
+* action[=].code = TrustDemoOnesaEpiSchedule#XXK-EPI-BCG "BCG"
 * action[=].timingAge = 0 'd' "days"
 * action[+].title = "6 weeks: pentavalent 1"
-* action[=].code = TrustDemoLaoEpiSchedule#LAO-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
+* action[=].code = TrustDemoOnesaEpiSchedule#XXK-EPI-PENTA-1 "Pentavalent (DTP-HepB-Hib), dose 1"
 * action[=].timingAge = 6 'wk' "weeks"
 * action[+].title = "6 weeks: bOPV 1"
-* action[=].code = TrustDemoLaoEpiSchedule#LAO-EPI-OPV-1 "bOPV, dose 1"
+* action[=].code = TrustDemoOnesaEpiSchedule#XXK-EPI-OPV-1 "bOPV, dose 1"
 * action[=].timingAge = 6 'wk' "weeks"
 * action[+].title = "6 weeks: PCV 1"
-* action[=].code = TrustDemoLaoEpiSchedule#LAO-EPI-PCV-1 "PCV, dose 1"
+* action[=].code = TrustDemoOnesaEpiSchedule#XXK-EPI-PCV-1 "PCV, dose 1"
 * action[=].timingAge = 6 'wk' "weeks"
 * action[+].title = "9 months: measles-rubella 1"
-* action[=].code = TrustDemoLaoEpiSchedule#LAO-EPI-MR-1 "Measles-rubella, dose 1"
+* action[=].code = TrustDemoOnesaEpiSchedule#XXK-EPI-MR-1 "Measles-rubella, dose 1"
 * action[=].timingAge = 9 'mo' "months"

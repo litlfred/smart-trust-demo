@@ -2,23 +2,23 @@
   "$schema": "user-scenario/0.3.0",
   "id": "j1-born-abroad",
   "title": "J1 — Born abroad",
-  "description": "A Lao baby gets his first vaccines in Thailand and leaves with signed paper cards.",
+  "description": "An Onesan baby gets his first vaccines in Taifafeki and leaves with signed paper cards.",
   "personas": [
     "anan",
     "somsack-sengmany",
     "khamla-sengmany"
   ],
   "when": "birth day",
-  "where": "Thailand",
-  "country": "Thailand",
+  "where": "Taifafeki",
+  "country": "Taifafeki",
   "trustLadder": "record-trust",
   "steps": [
     {
       "id": "J1",
-      "title": "A Lao baby is born in Thailand",
-      "headline": "Somsack gets his birth vaccines in a Thai hospital — and the only thing that will cross the border with him is a pair of paper cards.",
+      "title": "An Onesan baby is born in Taifafeki",
+      "headline": "Somsack gets his birth vaccines in a Taifafeki hospital — and the only thing that will cross the border with him is a pair of paper cards.",
       "when": "T0 · Birth day",
-      "where": "Chiang Rai Provincial Hospital",
+      "where": "Kesaro Provincial Hospital",
       "touchpoint": "Hospital records + printed QR cards",
       "preconditions": [
         {
@@ -29,13 +29,13 @@
           ]
         }
       ],
-      "narrative": "Khamla gives birth to Somsack on 2025-10-28 at Chiang Rai Provincial\nHospital, away from home. He has no Thai identity number. Dr Anan gives the\nHep B and BCG birth doses and records them with their WHO PreQual product\ncodes. For each dose, the hospital system does three things:\n\n1. It builds a DVCMinPreQual payload: STT-PAY-001…005 and STT-PAY-007, with subclaim −6 (STT-SEL-003). No identity document is needed (STT-PAY-005).\n2. It prepares the CWT and the bytes to sign: STT-CWT-001…005, STT-ISS-004.\n3. It has XXR's key sign them (STT-COS-002, STT-COS-006), then finishes the HC1 text: STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001, STT-QR-001.\n\nKhamla leaves with two paper DVCs.\n*In the demo:* the library tests use the WHO guide's own two signed HC1\nstrings ([QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)),\nwhich verify against the live DEV trust list under the same XXR key. Somsack's\nDVC payloads are illustrative. Live issuance in the app uses a\nTEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs\ndo not verify in J3.",
+      "narrative": "Khamla gives birth to Somsack on 2025-10-28 at Kesaro Provincial\nHospital, away from home. He has no Taifafeki identity number. Dr Anan gives the\nHep B and BCG birth doses and records them with their WHO PreQual product\ncodes. For each dose, the hospital system does three things:\n\n1. It builds a DVCMinPreQual payload: STT-PAY-001…005 and STT-PAY-007, with subclaim −6 (STT-SEL-003). No identity document is needed (STT-PAY-005).\n2. It prepares the CWT and the bytes to sign: STT-CWT-001…005, STT-ISS-004.\n3. It has XXR's key sign them (STT-COS-002, STT-COS-006), then finishes the HC1 text: STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001, STT-QR-001.\n\nKhamla leaves with two paper DVCs.\n*In the demo:* the library tests use the WHO guide's own two signed HC1\nstrings ([QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)),\nwhich verify against the live DEV trust list under the same XXR key. Somsack's\nDVC payloads are illustrative. Live issuance in the app uses a\nTEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs\ndo not verify in J3.",
       "lead": "anan",
       "experiences": [
         {
           "actor": "anan",
           "doing": "Gives Hep B and BCG birth doses and prints two signed QR vaccine cards.",
-          "feeling": "“He isn’t Thai, but he still needs a record he can take home.”",
+          "feeling": "“He isn’t Taifafeki, but he still needs a record he can take home.”",
           "emotion": 1
         },
         {
@@ -51,7 +51,7 @@
           "emotion": -1
         }
       ],
-      "painPoint": "The baby has no Thai ID number, so his records would normally stay locked inside the Thai hospital’s system.",
+      "painPoint": "The baby has no Taifafeki ID number, so his records would normally stay locked inside the Taifafeki hospital’s system.",
       "enabler": "A digitally signed QR card travels with the family — no ID number or database lookup needed.",
       "policy": "Babies born abroad can get a verifiable vaccine record before they have the host country’s civil registration or a national ID — and registering the birth at home still matters.",
       "record": {
@@ -64,13 +64,13 @@
         "carrier": "Printed QR code",
         "payload": "Signed DVC: HC1: prefix → CBOR + COSE_Sign1",
         "offline": true,
-        "from": "Thai hospital",
+        "from": "Taifafeki hospital",
         "to": "Family (paper)"
       },
       "whatIf": [
         {
           "scenario": "The cards are lost on the way home.",
-          "outcome": "The doses still happened, but no proof travels. Lao clinicians must re-vaccinate or rely on memory."
+          "outcome": "The doses still happened, but no proof travels. Onesan clinicians must re-vaccinate or rely on memory."
         }
       ],
       "stories": [
@@ -90,7 +90,7 @@
           ]
         }
       ],
-      "technicalSummary": "Thailand signs the record once. From then on, anyone on the WHO trust network can check it, with no database lookup and no national ID.",
+      "technicalSummary": "Taifafeki signs the record once. From then on, anyone on the WHO trust network can check it, with no database lookup and no national ID.",
       "uses": [
         {
           "block": "thai-his",
@@ -106,7 +106,7 @@
         },
         {
           "block": "gdhcn",
-          "role": "Thailand’s signing key (kid 916ffa…) is published on the trust list"
+          "role": "Taifafeki’s signing key (kid 916ffa…) is published on the trust list"
         }
       ],
       "requirements": [
@@ -133,21 +133,21 @@
         "STT-ISS-003"
       ],
       "examples": [
-        "Patient/TrustDemoThSomsack",
+        "Patient/TrustDemoTaifafekiSomsack",
         "Immunization/TrustDemoJ1HepB",
         "Immunization/TrustDemoJ1Bcg"
       ],
       "illustration": {
         "src": "docs/images/moment-j1-born-abroad.jpg",
-        "alt": "At Chiang Rai Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsack"
+        "alt": "At Kesaro Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsack"
       },
       "fhirChanges": [
         {
           "resource": "Immunization ×2",
-          "change": "Created in the Thai system (Hep B, BCG)",
+          "change": "Created in the Taifafeki system (Hep B, BCG)",
           "why": "The certificate can only carry what this record holds, so product, date, lot and dose number are required.",
-          "profile": "TrustDemoThImmunization",
-          "profileOf": "TH",
+          "profile": "TrustDemoTaifafekiImmunization",
+          "profileOf": "XXR",
           "examples": [
             "Immunization/TrustDemoJ1HepB",
             "Immunization/TrustDemoJ1Bcg"
@@ -157,7 +157,7 @@
         {
           "resource": "DVC payload",
           "change": "Signed CBOR/COSE certificate",
-          "why": "Not FHIR: the HCERT certificate that travels on paper, verifiable offline with Thailand’s key from GDHCN.",
+          "why": "Not FHIR: the HCERT certificate that travels on paper, verifiable offline with Taifafeki’s key from GDHCN.",
           "spec": "https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode"
         }
       ],
@@ -172,7 +172,7 @@
   "scene": [
     {
       "icon": "hospital",
-      "label": "Thai hospital"
+      "label": "Taifafeki hospital"
     },
     {
       "icon": "baby",
@@ -186,7 +186,7 @@
   "references": [
     {
       "label": "User scenario in the IG",
-      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j1--born-abroad-thailand-birth-day",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j1--born-abroad-taifafeki-birth-day",
       "rel": "scenario"
     }
   ],

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: smart-trust-demo\n"
-"POT-Creation-Date: 2026-11-11T08:52:48.305Z\n"
+"POT-Creation-Date: 2026-11-11T09:10:10.487Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language: ru\n"
@@ -41,7 +41,7 @@ msgid "<a0>Personas</a0>, <a1>system actors</a1>"
 msgstr ""
 
 #: docs/index.md:24
-msgid "1. Born abroad Birth day · Chiang Rai, Thailand · J1 A Lao baby gets his first vaccines in Thailand. The hospital signs each dose as a Digital Vaccination Certificate, and the family leaves with two paper QR cards. Walk through it · Scenario · Process · Thai profile    2. Found at home 3 weeks later · Village 04, Lao PDR · J2 A health worker registers him offline and reads the cards. She records them as \"reported, not yet verified\" and refers him to the clinic. Walk through it · Scenario · Process · Lao profile    3. Made official 4 weeks later · district health centre, Lao PDR · J3 A nurse checks the signatures against the GDHCN trust list, offline. She maps the Thai vaccine codes to the Lao schedule and books the 6-week doses. Walk through it · Scenario · Process · Lao profile    4. Crossing back 12 months later · Lao PDR → Thailand · J4.0, J4.1 The family shares his whole record with a Thai doctor through a Verifiable Health Link on Dad's phone. Every access is logged back home. Walk through it · Scenario · Process · Lao profile"
+msgid "1. Born abroad Birth day · Kesaro, Taifafeki · J1 An Onesan baby gets his first vaccines in Taifafeki. The hospital signs each dose as a Digital Vaccination Certificate, and the family leaves with two paper QR cards. Walk through it · Scenario · Process · Taifafeki profile    2. Found at home 3 weeks later · Village 04, Onesa · J2 A health worker registers him offline and reads the cards. She records them as \"reported, not yet verified\" and refers him to the clinic. Walk through it · Scenario · Process · Onesan profile    3. Made official 4 weeks later · district health centre, Onesa · J3 A nurse checks the signatures against the GDHCN trust list, offline. She maps the Taifafeki vaccine codes to the Onesan schedule and books the 6-week doses. Walk through it · Scenario · Process · Onesan profile    4. Crossing back 12 months later · Onesa → Taifafeki · J4.0, J4.1 The family shares his whole record with a Taifafeki doctor through a Verifiable Health Link on Dad's phone. Every access is logged back home. Walk through it · Scenario · Process · Onesan profile"
 msgstr ""
 
 #: docs/index.md:19
@@ -53,7 +53,7 @@ msgid "Every person and record here is fictional, and every key is a test key. T
 msgstr ""
 
 #: docs/index.md:66
-msgid "Every screen and payload of the journeys walkthrough as a FHIR example, Thai and Lao"
+msgid "Every screen and payload of the journeys walkthrough as a FHIR example, Taifafeki and Onesan"
 msgstr ""
 
 #: docs/index.md:66
@@ -76,16 +76,16 @@ msgstr ""
 msgid "Journeys"
 msgstr ""
 
-#: docs/index.md:64
-msgid "Lao profiles"
-msgstr ""
-
 #: docs/index.md:8
-msgid "One baby · two countries · one year Somsack is born in Thailand and grows up in Lao PDR. A year later, a Thai doctor sees every vaccine he has ever had, and no record is copied across the border. This guide is that story, told as the journeys J1 to J4 (first told in the VaxLink workshop), written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN. Walk through the journeys Read the journeys See the FHIR examples"
+msgid "One baby · two countries · one year Somsack is born in Taifafeki and grows up in Onesa. A year later, a Taifafeki doctor sees every vaccine he has ever had, and no record is copied across the border. This guide is that story, told as the journeys J1 to J4 (first told in the VaxLink workshop), written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN. Walk through the journeys Read the journeys See the FHIR examples"
 msgstr ""
 
 #: docs/index.md:61
 msgid "One BPMN process per journey: every lane a role, every task a skill"
+msgstr ""
+
+#: docs/index.md:64
+msgid "Onesan profiles"
 msgstr ""
 
 #: docs/index.md:59
@@ -100,16 +100,16 @@ msgstr ""
 msgid "SMART Trust demonstrator"
 msgstr ""
 
-#: docs/index.md:65
-msgid "Terminology and logic"
+#: docs/index.md:71
+msgid "Taifafeki and Onesa never connect to each other. Both build on WHO GDHCN. Taifafeki publishes the key it signs certificates with, and Onesa caches the trust list, so its clinics can verify a Taifafeki card with no signal. A year later the same trust list lets a Taifafeki clinic verify the Onesan VHL. Data crosses the border in only two ways: as a signed QR card the family carries, or as a link the family chooses to share. The <a0>journeys walkthrough's \"How it works\" view</a0> lays out both countries' components on the <a1>DPI-H reference architecture</a1>, with GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's own model is on the <a2>architecture page</a2>."
 msgstr ""
 
 #: docs/index.md:63
-msgid "Thai profiles"
+msgid "Taifafeki profiles"
 msgstr ""
 
-#: docs/index.md:71
-msgid "Thailand and Lao PDR never connect to each other. Both build on WHO GDHCN. Thailand publishes the key it signs certificates with, and Lao PDR caches the trust list, so its clinics can verify a Thai card with no signal. A year later the same trust list lets a Thai clinic verify the Lao VHL. Data crosses the border in only two ways: as a signed QR card the family carries, or as a link the family chooses to share. The <a0>journeys walkthrough's \"How it works\" view</a0> lays out both countries' components on the <a1>DPI-H reference architecture</a1>, with GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's own model is on the <a2>architecture page</a2>."
+#: docs/index.md:65
+msgid "Terminology and logic"
 msgstr ""
 
 #: docs/index.md:90
@@ -117,7 +117,7 @@ msgid "The <a0>plan</a0>, the <a1>app-platform proposal</a1> and the <a2>depende
 msgstr ""
 
 #: docs/index.md:63
-msgid "The birth hospital's patient and dose (the source of each DVC), and the record a Thai clinic keeps when it reads a VHL"
+msgid "The birth hospital's patient and dose (the source of each DVC), and the record a Taifafeki clinic keeps when it reads a VHL"
 msgstr ""
 
 #: docs/index.md:64
@@ -137,7 +137,7 @@ msgid "The story moment by moment, with the user scenarios and what each person 
 msgstr ""
 
 #: docs/index.md:65
-msgid "Vaccine products, the Lao schedule codes, the ConceptMap between them, and the infant schedule as a PlanDefinition"
+msgid "Vaccine products, the Onesan schedule codes, the ConceptMap between them, and the infant schedule as a PlanDefinition"
 msgstr ""
 
 #: docs/index.md:57

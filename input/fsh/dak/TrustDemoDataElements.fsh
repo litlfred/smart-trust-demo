@@ -55,7 +55,7 @@ Description: "Every data element of the data dictionary, by its code (TD.<data s
 * #TD.J3A.DE11 "Reported dose replaced" "The reported dose the verified one replaces."
 * #TD.J3A.DE12 "Trust policy" "The trust framework the DVC was verified under."
 * #TD.J3B.DE01 "Issuer's product code" "The vaccine code as the issuer signed it; kept, never replaced (STD-SEM-001)."
-* #TD.J3B.DE02 "National schedule code" "The national schedule's antigen-and-dose code, added beside the product code. Absent for an unmapped dose, which the TrustDemoLaoImmunization profile (laoEpi 1..1) does not yet represent."
+* #TD.J3B.DE02 "National schedule code" "The national schedule's antigen-and-dose code, added beside the product code. Absent for an unmapped dose, which the TrustDemoOnesaImmunization profile (onesaEpi 1..1) does not yet represent."
 * #TD.J3B.DE03 "Mapping basis" "How the schedule code was found (decision table TD.DT.02)."
 * #TD.J3B.DE04 "Confirmed by" "The clinician who confirmed an equivalent the map did not cover."
 * #TD.J3B.DE05 "Counts toward the schedule" "Whether the schedule counts the dose (decision table TD.DT.03): only doses from a primary source with a national schedule code."

@@ -2,7 +2,7 @@
 <!--
   TD.DT.02: how an imported dose gets the national schedule code beside the
   issuer's product code. J3 Task_Map (STD-SEM-001). The national map is
-  ConceptMap TrustDemoProductToLaoEpi; a clinician's confirmation is recorded
+  ConceptMap TrustDemoProductToOnesaEpi; a clinician's confirmation is recorded
   as a Provenance (TrustDemoJ3Adjudication) and added to the map.
 -->
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
@@ -16,7 +16,7 @@
       <trace:table code="TD.DT.02"/>
       <trace:serves process="j3-clinic-verification-schedule.bpmn" task="Task_Map"/>
       <trace:requirement ref="STD-SEM-001"/>
-      <trace:artifact ref="ConceptMap/TrustDemoProductToLaoEpi"/>
+      <trace:artifact ref="ConceptMap/TrustDemoProductToOnesaEpi"/>
       <trace:artifact ref="Provenance/TrustDemoJ3Adjudication"/>
       <trace:artifact ref="Immunization/TrustDemoJ3HepB"/>
       <trace:dataElement ref="TD.J3A.DE09"/>

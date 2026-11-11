@@ -31,32 +31,32 @@ Description: "Suplemento en español (es) de TrustDemoVaccineProduct: designacio
   * ^designation[0].language = #es
   * ^designation[0].value = "Vacuna contra el sarampión y la rubéola, liofilizada"
 
-CodeSystem: TrustDemoLaoEpiScheduleEs
-Id: TrustDemoLaoEpiSchedule-es
-Title: "Códigos de antígeno y dosis del calendario nacional (ilustrativos, RDP Lao)"
-Description: "Suplemento en español (es) de TrustDemoLaoEpiSchedule: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana."
+CodeSystem: TrustDemoOnesaEpiScheduleEs
+Id: TrustDemoOnesaEpiSchedule-es
+Title: "Códigos de antígeno y dosis del calendario nacional (ilustrativos, Onesa)"
+Description: "Suplemento en español (es) de TrustDemoOnesaEpiSchedule: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana."
 * ^status = #draft
 * ^experimental = true
 * ^content = #supplement
-* ^supplements = Canonical(TrustDemoLaoEpiSchedule)
+* ^supplements = Canonical(TrustDemoOnesaEpiSchedule)
 * ^language = #es
 * ^caseSensitive = true
-* #LAO-EPI-HEPB-BD "Hepatitis B, dosis al nacer"
+* #XXK-EPI-HEPB-BD "Hepatitis B, dosis al nacer"
   * ^designation[0].language = #es
   * ^designation[0].value = "Hepatitis B, dosis al nacer"
-* #LAO-EPI-BCG "BCG"
+* #XXK-EPI-BCG "BCG"
   * ^designation[0].language = #es
   * ^designation[0].value = "BCG"
-* #LAO-EPI-PENTA-1 "Pentavalente (DTP-HepB-Hib), dosis 1"
+* #XXK-EPI-PENTA-1 "Pentavalente (DTP-HepB-Hib), dosis 1"
   * ^designation[0].language = #es
   * ^designation[0].value = "Pentavalente (DTP-HepB-Hib), dosis 1"
-* #LAO-EPI-OPV-1 "bOPV, dosis 1"
+* #XXK-EPI-OPV-1 "bOPV, dosis 1"
   * ^designation[0].language = #es
   * ^designation[0].value = "bOPV, dosis 1"
-* #LAO-EPI-PCV-1 "PCV, dosis 1"
+* #XXK-EPI-PCV-1 "PCV, dosis 1"
   * ^designation[0].language = #es
   * ^designation[0].value = "PCV, dosis 1"
-* #LAO-EPI-MR-1 "Sarampión y rubéola, dosis 1"
+* #XXK-EPI-MR-1 "Sarampión y rubéola, dosis 1"
   * ^designation[0].language = #es
   * ^designation[0].value = "Sarampión y rubéola, dosis 1"
 
@@ -217,7 +217,7 @@ Description: "Suplemento en español (es) de TrustDemoDataElements: designacione
 * #TD.J3B.DE01 "Código de producto del emisor" "El código de la vacuna tal como lo firmó el emisor; se conserva y nunca se sustituye (STD-SEM-001)."
   * ^designation[0].language = #es
   * ^designation[0].value = "Código de producto del emisor"
-* #TD.J3B.DE02 "Código del calendario nacional" "El código de antígeno y dosis del calendario nacional, añadido junto al código de producto. Ausente en una dosis sin correspondencia, que el perfil TrustDemoLaoImmunization (laoEpi 1..1) todavía no representa."
+* #TD.J3B.DE02 "Código del calendario nacional" "El código de antígeno y dosis del calendario nacional, añadido junto al código de producto. Ausente en una dosis sin correspondencia, que el perfil TrustDemoOnesaImmunization (onesaEpi 1..1) todavía no representa."
   * ^designation[0].language = #es
   * ^designation[0].value = "Código del calendario nacional"
 * #TD.J3B.DE03 "Base de la correspondencia" "Cómo se encontró el código del calendario (tabla de decisión TD.DT.02)."

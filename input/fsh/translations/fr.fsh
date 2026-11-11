@@ -32,34 +32,34 @@ Description: "French (fr) supplement to TrustDemoVaccineProduct: displays and de
 * #vp-mr-freeze-dried ^designation[0].language = #fr
 * #vp-mr-freeze-dried ^designation[0].value = "Vaccin contre la rougeole et la rubéole, lyophilisé"
 
-CodeSystem: TrustDemoLaoEpiScheduleFr
-Id: TrustDemoLaoEpiSchedule-fr
-Title: "Codes antigène-dose du calendrier national (illustratifs, RDP lao)"
-Description: "French (fr) supplement to TrustDemoLaoEpiSchedule: displays and definitions in French. Unofficial agent translation."
+CodeSystem: TrustDemoOnesaEpiScheduleFr
+Id: TrustDemoOnesaEpiSchedule-fr
+Title: "Codes antigène-dose du calendrier national (illustratifs, Onesa)"
+Description: "French (fr) supplement to TrustDemoOnesaEpiSchedule: displays and definitions in French. Unofficial agent translation."
 * ^content = #supplement
-* ^supplements = Canonical(TrustDemoLaoEpiSchedule)
+* ^supplements = Canonical(TrustDemoOnesaEpiSchedule)
 * ^language = #fr
 * ^status = #draft
 * ^experimental = true
 * ^count = 6
-* #LAO-EPI-HEPB-BD "Dose à la naissance contre l'hépatite B"
-* #LAO-EPI-HEPB-BD ^designation[0].language = #fr
-* #LAO-EPI-HEPB-BD ^designation[0].value = "Dose à la naissance contre l'hépatite B"
-* #LAO-EPI-BCG "BCG"
-* #LAO-EPI-BCG ^designation[0].language = #fr
-* #LAO-EPI-BCG ^designation[0].value = "BCG"
-* #LAO-EPI-PENTA-1 "Pentavalent (DTC-HepB-Hib), dose 1"
-* #LAO-EPI-PENTA-1 ^designation[0].language = #fr
-* #LAO-EPI-PENTA-1 ^designation[0].value = "Pentavalent (DTC-HepB-Hib), dose 1"
-* #LAO-EPI-OPV-1 "VPOb, dose 1"
-* #LAO-EPI-OPV-1 ^designation[0].language = #fr
-* #LAO-EPI-OPV-1 ^designation[0].value = "VPOb, dose 1"
-* #LAO-EPI-PCV-1 "VPC, dose 1"
-* #LAO-EPI-PCV-1 ^designation[0].language = #fr
-* #LAO-EPI-PCV-1 ^designation[0].value = "VPC, dose 1"
-* #LAO-EPI-MR-1 "Rougeole-rubéole, dose 1"
-* #LAO-EPI-MR-1 ^designation[0].language = #fr
-* #LAO-EPI-MR-1 ^designation[0].value = "Rougeole-rubéole, dose 1"
+* #XXK-EPI-HEPB-BD "Dose à la naissance contre l'hépatite B"
+* #XXK-EPI-HEPB-BD ^designation[0].language = #fr
+* #XXK-EPI-HEPB-BD ^designation[0].value = "Dose à la naissance contre l'hépatite B"
+* #XXK-EPI-BCG "BCG"
+* #XXK-EPI-BCG ^designation[0].language = #fr
+* #XXK-EPI-BCG ^designation[0].value = "BCG"
+* #XXK-EPI-PENTA-1 "Pentavalent (DTC-HepB-Hib), dose 1"
+* #XXK-EPI-PENTA-1 ^designation[0].language = #fr
+* #XXK-EPI-PENTA-1 ^designation[0].value = "Pentavalent (DTC-HepB-Hib), dose 1"
+* #XXK-EPI-OPV-1 "VPOb, dose 1"
+* #XXK-EPI-OPV-1 ^designation[0].language = #fr
+* #XXK-EPI-OPV-1 ^designation[0].value = "VPOb, dose 1"
+* #XXK-EPI-PCV-1 "VPC, dose 1"
+* #XXK-EPI-PCV-1 ^designation[0].language = #fr
+* #XXK-EPI-PCV-1 ^designation[0].value = "VPC, dose 1"
+* #XXK-EPI-MR-1 "Rougeole-rubéole, dose 1"
+* #XXK-EPI-MR-1 ^designation[0].language = #fr
+* #XXK-EPI-MR-1 ^designation[0].value = "Rougeole-rubéole, dose 1"
 
 CodeSystem: TrustDemoDataElementsFr
 Id: TrustDemoDataElements-fr
@@ -218,7 +218,7 @@ Description: "French (fr) supplement to TrustDemoDataElements: displays and defi
 * #TD.J3B.DE01 "Code produit de l'émetteur" "Le code du vaccin tel que l'émetteur l'a signé ; conservé, jamais remplacé (STD-SEM-001)."
 * #TD.J3B.DE01 ^designation[0].language = #fr
 * #TD.J3B.DE01 ^designation[0].value = "Code produit de l'émetteur"
-* #TD.J3B.DE02 "Code du calendrier national" "Le code antigène et dose du calendrier national, ajouté à côté du code produit. Absent pour une dose sans correspondance, que le profil TrustDemoLaoImmunization (laoEpi 1..1) ne représente pas encore."
+* #TD.J3B.DE02 "Code du calendrier national" "Le code antigène et dose du calendrier national, ajouté à côté du code produit. Absent pour une dose sans correspondance, que le profil TrustDemoOnesaImmunization (onesaEpi 1..1) ne représente pas encore."
 * #TD.J3B.DE02 ^designation[0].language = #fr
 * #TD.J3B.DE02 ^designation[0].value = "Code du calendrier national"
 * #TD.J3B.DE03 "Base de la correspondance" "Comment le code du calendrier a été trouvé (table de décision TD.DT.02)."

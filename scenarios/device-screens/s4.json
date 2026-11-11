@@ -2,7 +2,7 @@
   "$schema": "device-screen/0.1.0",
   "id": "S4",
   "title": "Clinic Referral & GDHCN Verification",
-  "description": "Nurse Chanthasone scans a Thai card: the signature is checked against the GDHCN trust list, and the doses can be recorded as verified.",
+  "description": "Nurse Chanthasone scans a Taifafeki card: the signature is checked against the GDHCN trust list, and the doses can be recorded as verified.",
   "device": "tablet",
   "owner": "chanthasone",
   "steps": [
@@ -14,7 +14,7 @@
   "blocks": [
     {
       "type": "header",
-      "app": "Vientiane District Health Center — OHS Player Facility EMR",
+      "app": "Lomaru District Health Center — OHS Player Facility EMR",
       "subtitle": "Practitioner: Nurse Chanthasone",
       "icon": "building",
       "chips": [
@@ -52,7 +52,7 @@
         },
         {
           "label": "Reason",
-          "value": "Foreign vaccination cards presented at household in Village 04 — require cryptographic signature verification & Lao EPI schedule check."
+          "value": "Foreign vaccination cards presented at household in Village 04 — require cryptographic signature verification & Onesan EPI schedule check."
         }
       ]
     },
@@ -67,8 +67,8 @@
         {
           "icon": "syringe",
           "label": "Hepatitis B Pediatric Dose",
-          "code": "Code: vp-hepb-peds-monovalent • Lot: TH-4821",
-          "detail": "Origin: Chiang Rai Provincial Hospital (Thailand)",
+          "code": "Code: vp-hepb-peds-monovalent • Lot: XXR-4821",
+          "detail": "Origin: Kesaro Provincial Hospital (Taifafeki)",
           "status": {
             "text": "primarySource: false",
             "tone": "warning"
@@ -77,8 +77,8 @@
         {
           "icon": "syringe",
           "label": "BCG Vaccine (Freeze-Dried)",
-          "code": "Code: vp-bcg-freeze-dried • Lot: TH-9012",
-          "detail": "Origin: Chiang Rai Provincial Hospital (Thailand)",
+          "code": "Code: vp-bcg-freeze-dried • Lot: XXR-9012",
+          "detail": "Origin: Kesaro Provincial Hospital (Taifafeki)",
           "status": {
             "text": "primarySource: false",
             "tone": "warning"
@@ -106,7 +106,7 @@
       "fields": [
         {
           "label": "Trust Authority",
-          "value": "Thailand MOPH (DEV Participant XXR)"
+          "value": "Taifafeki MOPH (DEV Participant XXR)"
         },
         {
           "label": "Key ID (kid)",

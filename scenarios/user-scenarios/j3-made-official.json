@@ -2,23 +2,23 @@
   "$schema": "user-scenario/0.3.0",
   "id": "j3-made-official",
   "title": "J3 — Made official",
-  "description": "A nurse verifies the cards are genuine and fits the Thai doses into the Lao schedule.",
+  "description": "A nurse verifies the cards are genuine and fits the Taifafeki doses into the Onesan schedule.",
   "personas": [
     "chanthasone",
     "khamla-sengmany"
   ],
   "follows": "j2-found-at-home",
   "when": "4 weeks later",
-  "where": "Vientiane District Health Center",
-  "country": "Lao PDR",
+  "where": "Lomaru District Health Center",
+  "country": "Onesa",
   "trustLadder": "record-trust",
   "steps": [
     {
       "id": "J3a",
       "title": "The clinic confirms the cards are genuine",
-      "headline": "Nurse Chanthasone scans the card, and her tablet checks Thailand’s digital signature against the WHO trust list — without contacting Thailand.",
+      "headline": "Nurse Chanthasone scans the card, and her tablet checks Taifafeki’s digital signature against the WHO trust list — without contacting Taifafeki.",
       "when": "T0 + 4 weeks",
-      "where": "Vientiane District Health Center",
+      "where": "Lomaru District Health Center",
       "touchpoint": "Clinic tablet (verification)",
       "preconditions": [
         {
@@ -32,28 +32,28 @@
           ]
         }
       ],
-      "narrative": "Nurse Chanthasone opens the referral and scans the QRs. The EHR\n**verifies** each DVC offline against that copy (STT-VER-001…009,\nSTT-KID-002), without contacting Thailand. Both verify, so it imports them as\nFHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\ndoses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\nthe reason, the doses stay unverified, and the nurse decides by national\ncatch-up policy.",
+      "narrative": "Nurse Chanthasone opens the referral and scans the QRs. The EHR\n**verifies** each DVC offline against that copy (STT-VER-001…009,\nSTT-KID-002), without contacting Taifafeki. Both verify, so it imports them as\nFHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\ndoses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\nthe reason, the doses stay unverified, and the nurse decides by national\ncatch-up policy.",
       "lead": "chanthasone",
       "experiences": [
         {
           "actor": "chanthasone",
-          "doing": "Scans the card; the tablet confirms the Thai signature and marks the doses verified.",
+          "doing": "Scans the card; the tablet confirms the Taifafeki signature and marks the doses verified.",
           "feeling": "“A green tick — I can trust a hospital I’ve never heard of.”",
           "emotion": 2
         },
         {
           "actor": "khamla-sengmany",
           "doing": "Brings Somsack in for the referral visit.",
-          "feeling": "“They believe the Thai papers!”",
+          "feeling": "“They believe the Taifafeki papers!”",
           "emotion": 1
         }
       ],
       "painPoint": "Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly.",
-      "enabler": "Thailand’s signing key is on the shared WHO trust list, so any clinic can check it locally.",
-      "policy": "Trust is decentralized: a Lao clinic verifies a Thai signature itself, without contacting Thailand.",
+      "enabler": "Taifafeki’s signing key is on the shared WHO trust list, so any clinic can check it locally.",
+      "policy": "Trust is decentralized: an Onesan clinic verifies a Taifafeki signature itself, without contacting Taifafeki.",
       "record": {
         "state": "verified",
-        "description": "Doses verified; Thailand recorded as the source",
+        "description": "Doses verified; Taifafeki recorded as the source",
         "heldWhere": "District clinic records"
       },
       "handoff": {
@@ -86,7 +86,7 @@
           ]
         }
       ],
-      "technicalSummary": "The clinic checks Thailand’s signature against WHO’s trust list, stored locally. One check turns a foreign paper card into trusted clinical data, with no call to Thailand.",
+      "technicalSummary": "The clinic checks Taifafeki’s signature against WHO’s trust list, stored locally. One check turns a foreign paper card into trusted clinical data, with no call to Taifafeki.",
       "uses": [
         {
           "block": "ohs-fhir-sdk",
@@ -98,7 +98,7 @@
         },
         {
           "block": "gdhcn",
-          "role": "Supplies Thailand’s public key (downloaded in advance)"
+          "role": "Supplies Taifafeki’s public key (downloaded in advance)"
         },
         {
           "block": "dvc",
@@ -106,7 +106,7 @@
         },
         {
           "block": "provenance",
-          "role": "Records that Thailand authored and Lao PDR verified the doses"
+          "role": "Records that Taifafeki authored and Onesa verified the doses"
         }
       ],
       "requirements": [
@@ -128,15 +128,15 @@
       ],
       "illustration": {
         "src": "docs/images/moment-j3-made-official.jpg",
-        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Lao schedule; Khamla and Bounmy hold Somsack"
+        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsack"
       },
       "fhirChanges": [
         {
           "resource": "Immunization ×2",
           "change": "primarySource flipped to true",
-          "why": "A verified DVC is the signing hospital’s own record, so the dose now counts; the Thai record it came from is unchanged.",
-          "profile": "TrustDemoLaoImmunization",
-          "profileOf": "LA",
+          "why": "A verified DVC is the signing hospital’s own record, so the dose now counts; the Taifafeki record it came from is unchanged.",
+          "profile": "TrustDemoOnesaImmunization",
+          "profileOf": "XXK",
           "examples": [
             "Immunization/TrustDemoJ3HepB",
             "Immunization/TrustDemoJ1HepB"
@@ -145,10 +145,10 @@
         },
         {
           "resource": "Provenance",
-          "change": "Created: author = Thailand MOPH, verifier = nurse",
-          "why": "Anyone who later doubts a dose can follow it back to the signed certificate and Thailand’s key.",
-          "profile": "TrustDemoLaoDvcVerification",
-          "profileOf": "LA",
+          "change": "Created: author = Taifafeki MOPH, verifier = nurse",
+          "why": "Anyone who later doubts a dose can follow it back to the signed certificate and Taifafeki’s key.",
+          "profile": "TrustDemoOnesaDvcVerification",
+          "profileOf": "XXK",
           "examples": [
             "Provenance/TrustDemoJ3Verification"
           ],
@@ -184,17 +184,17 @@
     },
     {
       "id": "J3b",
-      "title": "Thai vaccines are fitted to the Lao schedule",
-      "headline": "The Thai Hep B product doesn’t match anything on the Lao schedule. Chanthasone makes the clinical call, and the system works out what’s due next.",
+      "title": "Taifafeki vaccines are fitted to the Onesan schedule",
+      "headline": "The Taifafeki Hep B product doesn’t match anything on the Onesan schedule. Chanthasone makes the clinical call, and the system works out what’s due next.",
       "when": "T0 + 4 weeks",
-      "where": "Vientiane District Health Center",
+      "where": "Lomaru District Health Center",
       "touchpoint": "Clinic tablet (vaccine matching + schedule)",
-      "narrative": "The Thai Hep B product matches nothing on the national schedule.\nThe EHR keeps Thailand's product coding and adds the schedule coding beside\nit, from the national map (`TrustDemoProductToLaoEpi`). For the Hep B product\nthe map has no entry, so Nurse Chanthasone makes the clinical call that it is\nthe schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is\nadded to the map for the next clinic. The schedule (`TrustDemoLaoInfantSchedule`)\nthen runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\nat 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n(`TrustDemoJ3Reminder`). Over the year Somsack gets those doses and\nmeasles-rubella at 9 months, in Lao PDR.",
+      "narrative": "The Taifafeki Hep B product matches nothing on the national schedule.\nThe EHR keeps Taifafeki's product coding and adds the schedule coding beside\nit, from the national map (`TrustDemoProductToOnesaEpi`). For the Hep B product\nthe map has no entry, so Nurse Chanthasone makes the clinical call that it is\nthe schedule's birth dose (`TrustDemoJ3Adjudication`), and her decision is\nadded to the map for the next clinic. The schedule (`TrustDemoOnesaInfantSchedule`)\nthen runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\nat 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n(`TrustDemoJ3Reminder`). Over the year Somsack gets those doses and\nmeasles-rubella at 9 months, in Onesa.",
       "lead": "chanthasone",
       "experiences": [
         {
           "actor": "chanthasone",
-          "doing": "Confirms the Thai product equals the Lao birth dose; the system books the 6-week vaccines.",
+          "doing": "Confirms the Taifafeki product equals the Onesan birth dose; the system books the 6-week vaccines.",
           "feeling": "“Different name, same vaccine — I can make that call.”",
           "emotion": 1
         },
@@ -206,20 +206,20 @@
         }
       ],
       "painPoint": "Countries name and package vaccines differently, so doses get missed or repeated.",
-      "enabler": "Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due.",
+      "enabler": "Taifafeki’s original code is kept and the Onesan code is added alongside; the schedule engine calculates what’s due.",
       "policy": "Never overwrite another country’s record: keep the original coding alongside the national one.",
       "record": {
         "state": "scheduled",
         "description": "Birth doses count; next appointment booked",
-        "heldWhere": "Lao national health records"
+        "heldWhere": "Onesan national health records"
       },
       "handoff": {
-        "summary": "Somsack continues on the Lao schedule for a year",
+        "summary": "Somsack continues on the Onesan schedule for a year",
         "carrier": "FHIR API via Info Gateway",
         "payload": "Dual-coded Immunization + next-dose Task",
         "offline": false,
         "from": "Clinic tablet",
-        "to": "Lao national FHIR server"
+        "to": "Onesan national FHIR server"
       },
       "whatIf": [
         {
@@ -242,7 +242,7 @@
           ]
         }
       ],
-      "technicalSummary": "Shared WHO codes and a FHIR ConceptMap translate Thai vaccines into the Lao schedule. Computable schedule logic then works out what’s due next.",
+      "technicalSummary": "Shared WHO codes and a FHIR ConceptMap translate Taifafeki vaccines into the Onesan schedule. Computable schedule logic then works out what’s due next.",
       "uses": [
         {
           "block": "smart-imm",
@@ -250,11 +250,11 @@
         },
         {
           "block": "conceptmap",
-          "role": "PreQual product → WHO vaccine type → Lao EPI code"
+          "role": "PreQual product → WHO vaccine type → Onesan EPI code"
         },
         {
           "block": "plandefinition",
-          "role": "Lao schedule logic calculates the 6-week doses"
+          "role": "Onesan schedule logic calculates the 6-week doses"
         },
         {
           "block": "ohs-fhir-sdk",
@@ -266,7 +266,7 @@
         },
         {
           "block": "ohs-data-pipes",
-          "role": "Verified Thai doses, with their Provenance, count toward Lao coverage reports"
+          "role": "Verified Taifafeki doses, with their Provenance, count toward Onesan coverage reports"
         },
         {
           "block": "national-fhir",
@@ -274,27 +274,27 @@
         }
       ],
       "examples": [
-        "Immunization/TrustDemoLaoPenta1",
-        "Immunization/TrustDemoLaoBopv1",
-        "Immunization/TrustDemoLaoPcv1",
-        "Immunization/TrustDemoLaoMr1",
-        "ConceptMap/TrustDemoProductToLaoEpi",
+        "Immunization/TrustDemoOnesaPenta1",
+        "Immunization/TrustDemoOnesaBopv1",
+        "Immunization/TrustDemoOnesaPcv1",
+        "Immunization/TrustDemoOnesaMr1",
+        "ConceptMap/TrustDemoProductToOnesaEpi",
         "Provenance/TrustDemoJ3Adjudication",
-        "PlanDefinition/TrustDemoLaoInfantSchedule",
+        "PlanDefinition/TrustDemoOnesaInfantSchedule",
         "ImmunizationRecommendation/TrustDemoJ3Recommendation",
         "Task/TrustDemoJ3Reminder"
       ],
       "illustration": {
         "src": "docs/images/moment-j3-made-official.jpg",
-        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Lao schedule; Khamla and Bounmy hold Somsack"
+        "alt": "At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsack"
       },
       "fhirChanges": [
         {
           "resource": "Immunization.vaccineCode",
-          "change": "Lao EPI code added; PreQual code kept",
-          "why": "The Lao schedule runs on Lao EPI codes, so one is required; the Thai product code stays beside it, never overwritten.",
-          "profile": "TrustDemoLaoImmunization",
-          "profileOf": "LA",
+          "change": "Onesan EPI code added; PreQual code kept",
+          "why": "The Onesan schedule runs on Onesan EPI codes, so one is required; the Taifafeki product code stays beside it, never overwritten.",
+          "profile": "TrustDemoOnesaImmunization",
+          "profileOf": "XXK",
           "examples": [
             "Immunization/TrustDemoJ3HepB",
             "Immunization/TrustDemoJ1HepB"
@@ -304,9 +304,9 @@
         {
           "resource": "ConceptMap",
           "change": "Nurse’s mapping decision recorded",
-          "why": "Lao PDR’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.",
+          "why": "Onesa’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.",
           "examples": [
-            "ConceptMap/TrustDemoProductToLaoEpi",
+            "ConceptMap/TrustDemoProductToOnesaEpi",
             "Provenance/TrustDemoJ3Adjudication"
           ],
           "spec": "https://hl7.org/fhir/conceptmap.html"
@@ -314,9 +314,9 @@
         {
           "resource": "Task / Appointment",
           "change": "6-week pentavalent booked",
-          "why": "The Lao schedule (PlanDefinition) finds the 6-week doses due; the reminder brings him back.",
+          "why": "The Onesan schedule (PlanDefinition) finds the 6-week doses due; the reminder brings him back.",
           "examples": [
-            "PlanDefinition/TrustDemoLaoInfantSchedule",
+            "PlanDefinition/TrustDemoOnesaInfantSchedule",
             "Task/TrustDemoJ3Reminder"
           ],
           "spec": "https://hl7.org/fhir/plandefinition.html"
@@ -365,13 +365,13 @@
     },
     {
       "icon": "calendar-check",
-      "label": "On the Lao schedule"
+      "label": "On the Onesan schedule"
     }
   ],
   "references": [
     {
       "label": "User scenario in the IG",
-      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j3--made-official-vientiane-district-health-center-4-weeks-later",
+      "href": "https://litlfred.github.io/smart-trust-demo/journeys.html#j3--made-official-lomaru-district-health-center-4-weeks-later",
       "rel": "scenario"
     }
   ],

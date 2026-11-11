@@ -31,32 +31,32 @@ Description: "ملحق باللغة العربية (ar) لنظام الرموز 
   * ^designation[0].language = #ar
   * ^designation[0].value = "لقاح الحصبة والحصبة الألمانية، مُجفَّد"
 
-CodeSystem: TrustDemoLaoEpiScheduleAr
-Id: TrustDemoLaoEpiSchedule-ar
-Title: "رموز المستضدات والجرعات في جدول التطعيم الوطني (توضيحية، جمهورية لاو الديمقراطية الشعبية (Lao PDR))"
-Description: "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoLaoEpiSchedule: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية."
+CodeSystem: TrustDemoOnesaEpiScheduleAr
+Id: TrustDemoOnesaEpiSchedule-ar
+Title: "رموز المستضدات والجرعات في جدول التطعيم الوطني (توضيحية، أونيسا (Onesa))"
+Description: "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoOnesaEpiSchedule: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية."
 * ^status = #draft
 * ^experimental = true
 * ^content = #supplement
-* ^supplements = Canonical(TrustDemoLaoEpiSchedule)
+* ^supplements = Canonical(TrustDemoOnesaEpiSchedule)
 * ^language = #ar
 * ^caseSensitive = true
-* #LAO-EPI-HEPB-BD "جرعة الولادة من لقاح التهاب الكبد B"
+* #XXK-EPI-HEPB-BD "جرعة الولادة من لقاح التهاب الكبد B"
   * ^designation[0].language = #ar
   * ^designation[0].value = "جرعة الولادة من لقاح التهاب الكبد B"
-* #LAO-EPI-BCG "BCG"
+* #XXK-EPI-BCG "BCG"
   * ^designation[0].language = #ar
   * ^designation[0].value = "BCG"
-* #LAO-EPI-PENTA-1 "خماسي التكافؤ (DTP-HepB-Hib)، الجرعة 1"
+* #XXK-EPI-PENTA-1 "خماسي التكافؤ (DTP-HepB-Hib)، الجرعة 1"
   * ^designation[0].language = #ar
   * ^designation[0].value = "خماسي التكافؤ (DTP-HepB-Hib)، الجرعة 1"
-* #LAO-EPI-OPV-1 "bOPV، الجرعة 1"
+* #XXK-EPI-OPV-1 "bOPV، الجرعة 1"
   * ^designation[0].language = #ar
   * ^designation[0].value = "bOPV، الجرعة 1"
-* #LAO-EPI-PCV-1 "PCV، الجرعة 1"
+* #XXK-EPI-PCV-1 "PCV، الجرعة 1"
   * ^designation[0].language = #ar
   * ^designation[0].value = "PCV، الجرعة 1"
-* #LAO-EPI-MR-1 "الحصبة والحصبة الألمانية، الجرعة 1"
+* #XXK-EPI-MR-1 "الحصبة والحصبة الألمانية، الجرعة 1"
   * ^designation[0].language = #ar
   * ^designation[0].value = "الحصبة والحصبة الألمانية، الجرعة 1"
 
@@ -217,7 +217,7 @@ Description: "ملحق باللغة العربية (ar) لنظام الرموز 
 * #TD.J3B.DE01 "رمز المنتج لدى الجهة المُصدِرة" "رمز اللقاح كما وقّعته الجهة المُصدِرة؛ يُحفَظ ولا يُستبدَل أبدًا (STD-SEM-001)."
   * ^designation[0].language = #ar
   * ^designation[0].value = "رمز المنتج لدى الجهة المُصدِرة"
-* #TD.J3B.DE02 "رمز جدول التطعيم الوطني" "رمز المستضد والجرعة في جدول التطعيم الوطني، يُضاف بجانب رمز المنتج. ويغيب في حالة الجرعة غير المربوطة، التي لا يمثّلها ملف التعريف TrustDemoLaoImmunization (laoEpi 1..1) بعد."
+* #TD.J3B.DE02 "رمز جدول التطعيم الوطني" "رمز المستضد والجرعة في جدول التطعيم الوطني، يُضاف بجانب رمز المنتج. ويغيب في حالة الجرعة غير المربوطة، التي لا يمثّلها ملف التعريف TrustDemoOnesaImmunization (onesaEpi 1..1) بعد."
   * ^designation[0].language = #ar
   * ^designation[0].value = "رمز جدول التطعيم الوطني"
 * #TD.J3B.DE03 "أساس الربط" "كيف وُجد رمز جدول التطعيم (جدول القرار TD.DT.02)."

@@ -1,16 +1,16 @@
-// J2a and J2b, Village 04, Lao PDR, 2025-11-18 (T0 + 3 weeks). Vilay adds
+// J2a and J2b, Village 04, Onesa, 2025-11-18 (T0 + 3 weeks). Vilay adds
 // Somsack to the Sengmany household offline, scans the two paper DVCs without
 // verifying them, saves the doses as reported by the family, and refers him
 // to the district health center. Everything is queued on her phone and syncs
 // when it next has a signal.
 
 Instance: TrustDemoHousehold
-InstanceOf: TrustDemoLaoHousehold
-Title: "J2a the Sengmany household (HH-LAO-204)"
+InstanceOf: TrustDemoOnesaHousehold
+Title: "J2a the Sengmany household (HH-XXK-204)"
 Description: "The household roster Vilay updates on her offline phone: Somsack is added beside his mother and father."
 Usage: #example
 * identifier[household].system = $HouseholdId
-* identifier[household].value = "HH-LAO-204"
+* identifier[household].value = "HH-XXK-204"
 * type = #person
 * actual = true
 * code = $v3-RoleCode#FAMMEMB "family member"
@@ -58,7 +58,7 @@ Usage: #definition
 * item[=].type = #boolean
 
 Instance: TrustDemoJ2Registration
-InstanceOf: TrustDemoLaoRegistration
+InstanceOf: TrustDemoOnesaRegistration
 Title: "J2a Somsack's registration, as captured offline"
 Description: "Vilay's answers on the newborn registration form, saved on the phone with no signal and synced later."
 Usage: #example
@@ -69,7 +69,7 @@ Usage: #example
 * author = Reference(TrustDemoVilay)
 * source = Reference(TrustDemoBounmy)
 * item[+].linkId = "household"
-* item[=].answer.valueString = "HH-LAO-204"
+* item[=].answer.valueString = "HH-XXK-204"
 * item[+].linkId = "given"
 * item[=].answer.valueString = "Somsack"
 * item[+].linkId = "family"
@@ -77,12 +77,12 @@ Usage: #example
 * item[+].linkId = "birthDate"
 * item[=].answer.valueDate = "2025-10-28"
 * item[+].linkId = "birthCountry"
-* item[=].answer.valueString = "Thailand"
+* item[=].answer.valueString = "Taifafeki"
 * item[+].linkId = "foreignCards"
 * item[=].answer.valueBoolean = true
 
 Instance: TrustDemoJ2HepBReported
-InstanceOf: TrustDemoLaoReportedImmunization
+InstanceOf: TrustDemoOnesaReportedImmunization
 Title: "J2b reported: Hep B birth dose (DVC read, not verified)"
 Description: "The Hep B birth dose as the CHW app saves it after reading the paper DVC offline without verifying it (STT-VER-011): reported by the family, primarySource false, only the issuer's product coding."
 Usage: #example
@@ -92,12 +92,12 @@ Usage: #example
 * occurrenceDateTime = "2025-10-28"
 * primarySource = false
 * reportOrigin = http://terminology.hl7.org/CodeSystem/immunization-origin#record "Written Record"
-* lotNumber = "TH-4821"
-* location.display = "Chiang Rai Provincial Hospital, Thailand"
+* lotNumber = "XXR-4821"
+* location.display = "Kesaro Provincial Hospital, Taifafeki"
 * note.text = "Read from a paper DVC that Khamla, Somsack's mother, showed, without verifying its signature (triage read): reported, not verified."
 
 Instance: TrustDemoJ2BcgReported
-InstanceOf: TrustDemoLaoReportedImmunization
+InstanceOf: TrustDemoOnesaReportedImmunization
 Title: "J2b reported: BCG birth dose (DVC read, not verified)"
 Description: "The BCG birth dose as the CHW app saves it after the unverified read: reported by the family, primarySource false."
 Usage: #example
@@ -107,14 +107,14 @@ Usage: #example
 * occurrenceDateTime = "2025-10-28"
 * primarySource = false
 * reportOrigin = http://terminology.hl7.org/CodeSystem/immunization-origin#record "Written Record"
-* lotNumber = "TH-9012"
-* location.display = "Chiang Rai Provincial Hospital, Thailand"
+* lotNumber = "XXR-9012"
+* location.display = "Kesaro Provincial Hospital, Taifafeki"
 * note.text = "Read from a paper DVC that Khamla, Somsack's mother, showed, without verifying its signature (triage read): reported, not verified."
 
 Instance: TrustDemoJ2Referral
-InstanceOf: TrustDemoLaoReferral
+InstanceOf: TrustDemoOnesaReferral
 Title: "J2b referral to the district health center"
-Description: "Vilay's referral of Somsack to Vientiane District Health Center: verify the two foreign DVCs and fit the doses to the national schedule."
+Description: "Vilay's referral of Somsack to Lomaru District Health Center: verify the two foreign DVCs and fit the doses to the national schedule."
 Usage: #example
 * status = #active
 * intent = #order
@@ -124,7 +124,7 @@ Usage: #example
 * subject = Reference(TrustDemoSomsack)
 * authoredOn = "2025-11-18T10:20:00+07:00"
 * requester = Reference(TrustDemoVilay)
-* performer = Reference(TrustDemoVientianeDhc)
+* performer = Reference(TrustDemoLomaruDhc)
 * reasonCode[+].text = "Unverified foreign vaccination cards presented on a home visit (primarySource false)"
 * supportingInfo[+] = Reference(TrustDemoJ2HepBReported)
 * supportingInfo[+] = Reference(TrustDemoJ2BcgReported)

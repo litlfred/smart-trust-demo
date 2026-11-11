@@ -15,11 +15,11 @@ Finds unregistered children on home visits, registers them and refers them to th
 
 **Played in the journeys by** (fictional):
 
-- ![Vilay](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlZpbGF5Ij48dGl0bGU+VmlsYXk8L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjMGQ5NDg4Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+Vkk8L3RleHQ+PC9zdmc+) [Vilay](personas.html#vilay-community-health-worker--village-04-lao-pdr), Vilay (community health worker, Village 04, Lao PDR)
+- ![Vilay](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlZpbGF5Ij48dGl0bGU+VmlsYXk8L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjMGQ5NDg4Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+Vkk8L3RleHQ+PC9zdmc+) [Vilay](personas.html#vilay-community-health-worker--village-04-onesa), Vilay (community health worker, Village 04, Onesa)
 
 **In the user scenarios**:
 
-- [J2 — Found at home](scenarios.html#j2--found-at-home-lao-pdr-3-weeks-later): J2a A health worker finds the baby — and reads his cards (told through Vilay); J2b Registered at home, and referred (told through Vilay)
+- [J2 — Found at home](scenarios.html#j2--found-at-home-onesa-3-weeks-later): J2a A health worker finds the baby — and reads his cards (told through Vilay); J2b Registered at home, and referred (told through Vilay)
 
 **On the device screens**: [S2 Offline QR Scan of the Foreign Cards (Vilay's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S2/); [S3 Newborn Registration & Clinic Referral (Vilay's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S3/)
 

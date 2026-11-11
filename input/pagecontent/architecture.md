@@ -16,22 +16,22 @@ The overlay adds:
   community health worker with *Health Workers* (a role and a stakeholder are
   different element types, so ArchiMate allows an association, not a
   specialization);
-- the Thai and Lao systems, serving the journeys they take part in, each
+- the Taifafeki and Onesan systems, serving the journeys they take part in, each
   holding its parts, each part named by what it does (*Patient record*,
   *Smart forms (SDC)*, *Health workforce registry (CHWs, nurses)*); the
   family's shared phone is a technology **device** that realizes the wallet
   app on it, not software;
 - for each country, its own **instance** of every RA building block its parts
-  play, such as *Provider Systems (Thailand)* and *Provider Systems (Lao
-  PDR)*: Thailand and Lao PDR are different jurisdictions, so a Thai part
-  **realizes** Thailand's instance, as the RA draws a concrete system
+  play, such as *Provider Systems (Taifafeki)* and *Provider Systems (Onesa)*:
+  Taifafeki and Onesa are different jurisdictions, so a Taifafeki part
+  **realizes** Taifafeki's instance, as the RA draws a concrete system
   realizing the component it plays (its Table 3.3), and that instance is a
   **specialization** of the RA's block;
 - **where the two countries meet**, as flow and triggering relationships
   between their parts, read from the BPMN: the paper DVC that J1 prints and
   the family carries to J2 and J3; in J4.1, the VHL QR the family's phone
-  shows the Thai clinic, the clinic's signed ITI-YY5 manifest request to the
-  Lao gateway, and the manifest it returns, the access logged in Lao PDR;
+  shows the Taifafeki clinic, the clinic's signed ITI-YY5 manifest request to the
+  Onesan gateway, and the manifest it returns, the access logged in Onesa;
 - **what they share**, and nothing else, between them: WHO GDHCN and the WHO
   SMART Trust specifications it realizes;
 - the RA's own building blocks, generic and no country's, in a band of their
@@ -51,12 +51,12 @@ Every box in a drawing links to its element's page.
 
 ### Systems on the Integrated View
 
-Two columns: Thailand on the left, Lao PDR on the right. In each, the
+Two columns: Taifafeki on the left, Onesa on the right. In each, the
 country's systems stack top to bottom in the order of the first journey they
 serve, each holding its parts, and each part says inside its own box which
 DPI-H RA building block it plays, as a tag such as «Provider Systems». A
 system's parts that meet the other country, or GDHCN, sit on the side facing
-the middle, and each Thai system stands level with the first Lao system it
+the middle, and each Taifafeki system stands level with the first Onesan system it
 meets, so the dashed lines where the countries meet run across. Between the
 columns, only what both share: WHO GDHCN and the SMART Trust specifications.
 The countries' instances of the RA blocks, the parts' realizations of them,

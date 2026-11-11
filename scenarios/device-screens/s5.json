@@ -2,7 +2,7 @@
   "$schema": "device-screen/0.1.0",
   "id": "S5",
   "title": "Terminology Adjudication & National Schedule",
-  "description": "The Thai product code is kept as issued; the nurse confirms its Lao equivalent, and the national schedule is worked out from there.",
+  "description": "The Taifafeki product code is kept as issued; the nurse confirms its Onesan equivalent, and the national schedule is worked out from there.",
   "device": "tablet",
   "owner": "chanthasone",
   "steps": [
@@ -15,7 +15,7 @@
     {
       "type": "header",
       "app": "Somsack Sengmany (4 Weeks Old)",
-      "subtitle": "#HH-LAO-204",
+      "subtitle": "#HH-XXK-204",
       "icon": "user",
       "chips": [
         {
@@ -35,7 +35,7 @@
       "icon": "layers",
       "rows": [
         {
-          "label": "Layer 1: Certificate product code (issued Thailand)",
+          "label": "Layer 1: Certificate product code (issued Taifafeki)",
           "code": "vp-hepb-peds-monovalent",
           "detail": "Stored exactly as issued in DVCMinPreQual logical model.",
           "status": {
@@ -53,8 +53,8 @@
           }
         },
         {
-          "label": "Layer 3: Lao PDR national schedule ValueSet",
-          "detail": "No automated ConceptMap match found in Lao national registry for Thai GPO lot TH-4821.",
+          "label": "Layer 3: Onesa national schedule ValueSet",
+          "detail": "No automated ConceptMap match found in Onesan national registry for Taifafeki GPO lot XXR-4821.",
           "status": {
             "text": "ConceptMap Gap",
             "tone": "warning"
@@ -70,12 +70,12 @@
       "verdict": "CONFIRMED",
       "fields": [
         {
-          "label": "Proposed Lao EPI Match",
-          "value": "Lao EPI: HepB-BD (Birth Dose Monovalent)"
+          "label": "Proposed Onesan EPI Match",
+          "value": "Onesan EPI: HepB-BD (Birth Dose Monovalent)"
         },
         {
           "label": "Code",
-          "value": "LAO-EPI-HEPB-BD",
+          "value": "XXK-EPI-HEPB-BD",
           "mono": true
         }
       ],
@@ -129,7 +129,7 @@
           }
         }
       ],
-      "footnote": "Evaluated via FHIRPath against Lao PDR Pediatric Immunization Plan"
+      "footnote": "Evaluated via FHIRPath against Onesa Pediatric Immunization Plan"
     },
     {
       "type": "fields",

@@ -804,7 +804,7 @@ def gen_dictionary(dd, procs):
     out.append("\n### Code lists\n")
     out.append("The code lists the data elements bind to, beside the vaccine code systems of the examples "
                "([TrustDemoVaccineProducts](ValueSet-TrustDemoVaccineProducts.html), "
-               "[TrustDemoLaoEpiScheduleCodes](ValueSet-TrustDemoLaoEpiScheduleCodes.html)) and FHIR's own.\n")
+               "[TrustDemoOnesaEpiScheduleCodes](ValueSet-TrustDemoOnesaEpiScheduleCodes.html)) and FHIR's own.\n")
     out.append("| Code list | Codes | Description |\n|---|---|---|")
     for cl in dd["codeLists"]:
         codes = ", ".join(f"`{c['code']}`" for c in cl["codes"])
@@ -1016,12 +1016,12 @@ def instance_term(country, ra_block):
 # the process's name), the prefLabel, and the short form is only another
 # label for it (SKOS altLabel). A term not listed has none.
 SHORT_LABEL = {
-    "actor-chiang-rai-provincial-hospital": "Chiang Rai Provincial Hospital system",
-    "actor-chiang-rai-clinic-viewer": "Chiang Rai primary care clinic system",
+    "actor-kesaro-provincial-hospital": "Kesaro Provincial Hospital system",
+    "actor-kesaro-clinic-viewer": "Kesaro primary care clinic system",
     "actor-chw-app": "CHW app (OHS)",
-    "actor-district-health-center-ehr": "Vientiane District Health Center EHR",
+    "actor-district-health-center-ehr": "Lomaru District Health Center EHR",
     "actor-family-phone": "The family’s shared phone",
-    "actor-lao-national-portal": "Lao national health portal",
+    "actor-onesa-national-portal": "Onesan national health portal",
     "actor-gdhcn-dev-trust-anchor": "WHO GDHCN trust network (DEV)",
     "journey-j1": "J1 Issue the birth-dose DVCs",
     "journey-j2": "J2 Discover and refer the infant",

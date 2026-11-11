@@ -15,11 +15,11 @@ The clinician abroad who scans the family's QR and reads the child's records (J4
 
 **Played in the journeys by** (fictional):
 
-- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjZDk3NzA2Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-thai-clinician--birth--follow-up-thailand), Dr Anan (clinician, Chiang Rai, Thailand)
+- ![Dr. Anan](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkRyLiBBbmFuIj48dGl0bGU+RHIuIEFuYW48L3RpdGxlPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjIwIiBmaWxsPSIjZDk3NzA2Ii8+PHRleHQgeD0iMjAiIHk9IjIwIiBkeT0iMC4zNWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI2ZmZmZmZiI+REE8L3RleHQ+PC9zdmc+) [Dr. Anan](personas.html#dr-anan-taifafeki-clinician--birth--follow-up-taifafeki), Dr Anan (clinician, Kesaro, Taifafeki)
 
 **In the user scenarios**:
 
-- [J4.1 — Crossing back: a Thai doctor sees the full history](scenarios.html#j41--crossing-back-a-thai-doctor-sees-the-full-history-chiang-rai-12-months-later): J4.1 A Thai doctor sees the full history (told through Dr. Anan)
+- [J4.1 — Crossing back: a Taifafeki doctor sees the full history](scenarios.html#j41--crossing-back-a-taifafeki-doctor-sees-the-full-history-kesaro-12-months-later): J4.1 A Taifafeki doctor sees the full history (told through Dr. Anan)
 
 **On the device screens**: [S1 Birth Abroad & Printed DVC QR Cards (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S1/); [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)
 

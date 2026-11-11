@@ -9,9 +9,9 @@ Description: "What the clinic records for each imported dose's vaccine code, and
 * productCode 1..1 Coding "Issuer's product code" "The vaccine code as the issuer signed it; kept, never replaced (STD-SEM-001)."
 * productCode ^code[+] = TrustDemoDataElements#TD.J3B.DE01 "Issuer's product code"
 * productCode from TrustDemoVaccineProducts (required)
-* scheduleCode 0..1 Coding "National schedule code" "The national schedule's antigen-and-dose code, added beside the product code. Absent for an unmapped dose, which the TrustDemoLaoImmunization profile (laoEpi 1..1) does not yet represent."
+* scheduleCode 0..1 Coding "National schedule code" "The national schedule's antigen-and-dose code, added beside the product code. Absent for an unmapped dose, which the TrustDemoOnesaImmunization profile (onesaEpi 1..1) does not yet represent."
 * scheduleCode ^code[+] = TrustDemoDataElements#TD.J3B.DE02 "National schedule code"
-* scheduleCode from TrustDemoLaoEpiScheduleCodes (required)
+* scheduleCode from TrustDemoOnesaEpiScheduleCodes (required)
 * mappingBasis 1..1 code "Mapping basis" "How the schedule code was found (decision table TD.DT.02)."
 * mappingBasis ^code[+] = TrustDemoDataElements#TD.J3B.DE03 "Mapping basis"
 * mappingBasis from TrustDemoCodeMappingBasisVS (required)
@@ -23,7 +23,7 @@ Description: "What the clinic records for each imported dose's vaccine code, and
 * dueDose ^code[+] = TrustDemoDataElements#TD.J3B.DE06 "Dose due"
 * dueDose.scheduleCode 1..1 Coding "Schedule dose" "The schedule's antigen-and-dose code of the dose due."
 * dueDose.scheduleCode ^code[+] = TrustDemoDataElements#TD.J3B.DE07 "Schedule dose"
-* dueDose.scheduleCode from TrustDemoLaoEpiScheduleCodes (required)
+* dueDose.scheduleCode from TrustDemoOnesaEpiScheduleCodes (required)
 * dueDose.forecast 1..1 code "Forecast status" "The forecast for the dose."
 * dueDose.forecast ^code[+] = TrustDemoDataElements#TD.J3B.DE08 "Forecast status"
 * dueDose.forecast from http://hl7.org/fhir/ValueSet/immunization-recommendation-status (example)
@@ -38,9 +38,9 @@ Target: "http://smart.who.int/trust-demo"
 Id: realisation
 Title: "Realised in this guide's profiles and examples"
 Description: "Where this guide realises each element: a profile or example path, a DVC payload element (smart.who.int.trust-phw), or a CWT or COSE field."
-* productCode -> "TrustDemoLaoImmunization: Immunization.vaccineCode.coding[product]"
-* scheduleCode -> "TrustDemoLaoImmunization: Immunization.vaccineCode.coding[laoEpi]"
-* mappingBasis -> "TrustDemoProductToLaoEpi: ConceptMap.group.element (concept-map); Provenance (clinician-confirmed), as TrustDemoJ3Adjudication"
+* productCode -> "TrustDemoOnesaImmunization: Immunization.vaccineCode.coding[product]"
+* scheduleCode -> "TrustDemoOnesaImmunization: Immunization.vaccineCode.coding[onesaEpi]"
+* mappingBasis -> "TrustDemoProductToOnesaEpi: ConceptMap.group.element (concept-map); Provenance (clinician-confirmed), as TrustDemoJ3Adjudication"
 * confirmedBy -> "Provenance.agent (attester), as TrustDemoJ3Adjudication"
 * countsTowardSchedule -> "ImmunizationRecommendation.recommendation.supportingImmunization"
 * dueDose -> "ImmunizationRecommendation.recommendation, as TrustDemoJ3Recommendation"

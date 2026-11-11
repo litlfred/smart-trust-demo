@@ -1,0 +1,22 @@
+{
+  "id": "onesa",
+  "name": "Onesa",
+  "fictional": true,
+  "adjective": "Onesan",
+  "code": {
+    "system": "http://smart.who.int/trust/CodeSystems/Participants-DEV",
+    "code": "XXK",
+    "display": "Onesa",
+    "note": "An ISO 3166-1 alpha-3 user-assigned code (range XAA to XZZ), so it can never name a real country. On the GDHCN DEV network XXK is an onboarded test participant (WorldHealthOrganization/tng-participants-dev XXK/); its keys are test keys, not any ministry's."
+  },
+  "role": "home",
+  "description": "A fictional country: the traveller's home. Its health system registers people, keeps their lifelong record, verifies certificates issued abroad, and shares the record back out as a Verifiable Health Link.",
+  "places": {
+    "Lomaru": "the capital; Lomaru District Health Center is the family's home clinic (J3)",
+    "Village 04": "where the community health worker finds the family (J2)"
+  },
+  "usedBy": {
+    "smart-trust-demo": "Country B: the family's home in journeys J2, J3 and J4.0, whose national portal serves their records abroad in J4.1.",
+    "pilgrimage": "the pilgrim's home country, which issues the pilgrim's health card before travel."
+  }
+}

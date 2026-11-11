@@ -460,30 +460,30 @@ Description: "Unofficial Simplified Chinese (zh) display designations for the Tr
 * #vp-mr-freeze-dried ^designation[+].language = #zh
 * #vp-mr-freeze-dried ^designation[=].value = "麻疹-风疹疫苗，冻干"
 
-CodeSystem: TrustDemoLaoEpiScheduleZh
-Id: TrustDemoLaoEpiSchedule-zh
-Title: "TrustDemoLaoEpiSchedule — Chinese (zh) supplement"
-Description: "Unofficial Simplified Chinese (zh) display designations for the TrustDemoLaoEpiSchedule code system, drafted by an agent and not signed off by a human."
+CodeSystem: TrustDemoOnesaEpiScheduleZh
+Id: TrustDemoOnesaEpiSchedule-zh
+Title: "TrustDemoOnesaEpiSchedule — Chinese (zh) supplement"
+Description: "Unofficial Simplified Chinese (zh) display designations for the TrustDemoOnesaEpiSchedule code system, drafted by an agent and not signed off by a human."
 * ^experimental = true
 * ^status = #draft
 * ^language = #zh
 * ^content = #supplement
-* ^supplements = Canonical(TrustDemoLaoEpiSchedule)
-* #LAO-EPI-HEPB-BD
-* #LAO-EPI-HEPB-BD ^designation[+].language = #zh
-* #LAO-EPI-HEPB-BD ^designation[=].value = "乙型肝炎出生剂次"
-* #LAO-EPI-BCG
-* #LAO-EPI-BCG ^designation[+].language = #zh
-* #LAO-EPI-BCG ^designation[=].value = "卡介苗（BCG）"
-* #LAO-EPI-PENTA-1
-* #LAO-EPI-PENTA-1 ^designation[+].language = #zh
-* #LAO-EPI-PENTA-1 ^designation[=].value = "五联疫苗（DTP-HepB-Hib），第 1 剂"
-* #LAO-EPI-OPV-1
-* #LAO-EPI-OPV-1 ^designation[+].language = #zh
-* #LAO-EPI-OPV-1 ^designation[=].value = "bOPV，第 1 剂"
-* #LAO-EPI-PCV-1
-* #LAO-EPI-PCV-1 ^designation[+].language = #zh
-* #LAO-EPI-PCV-1 ^designation[=].value = "PCV，第 1 剂"
-* #LAO-EPI-MR-1
-* #LAO-EPI-MR-1 ^designation[+].language = #zh
-* #LAO-EPI-MR-1 ^designation[=].value = "麻疹-风疹，第 1 剂"
+* ^supplements = Canonical(TrustDemoOnesaEpiSchedule)
+* #XXK-EPI-HEPB-BD
+* #XXK-EPI-HEPB-BD ^designation[+].language = #zh
+* #XXK-EPI-HEPB-BD ^designation[=].value = "乙型肝炎出生剂次"
+* #XXK-EPI-BCG
+* #XXK-EPI-BCG ^designation[+].language = #zh
+* #XXK-EPI-BCG ^designation[=].value = "卡介苗（BCG）"
+* #XXK-EPI-PENTA-1
+* #XXK-EPI-PENTA-1 ^designation[+].language = #zh
+* #XXK-EPI-PENTA-1 ^designation[=].value = "五联疫苗（DTP-HepB-Hib），第 1 剂"
+* #XXK-EPI-OPV-1
+* #XXK-EPI-OPV-1 ^designation[+].language = #zh
+* #XXK-EPI-OPV-1 ^designation[=].value = "bOPV，第 1 剂"
+* #XXK-EPI-PCV-1
+* #XXK-EPI-PCV-1 ^designation[+].language = #zh
+* #XXK-EPI-PCV-1 ^designation[=].value = "PCV，第 1 剂"
+* #XXK-EPI-MR-1
+* #XXK-EPI-MR-1 ^designation[+].language = #zh
+* #XXK-EPI-MR-1 ^designation[=].value = "麻疹-风疹，第 1 剂"

@@ -10,29 +10,29 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 |---|---|---|---|
 | [Caregiver](ActorDefinition-TrustDemo.Role.Caregiver.html) | The parent who holds the child's paper DVCs and the family phone, and presents them; IHE ITI VHL VHL Holder and smart-trust Holder. | Bounmy SENGMANY (father, holds the family phone); Khamla SENGMANY (mother) | VHL Holder (IHE ITI VHL); Holder (SMART Trust) |
 | [Subject of care](ActorDefinition-TrustDemo.Role.SubjectOfCare.html) | The person the records are about: the child whose doses are given, signed, registered, verified and shared. Acts through the caregiver, holds no device and plays no lane in the journeys' processes. | Somsack SENGMANY (newborn) | Patient; Care recipient |
-| [Birth clinic vaccinator](ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html) | The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1). | Dr Anan (clinician, Chiang Rai, Thailand) |  |
-| [Community health worker](ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html) | Finds unregistered children on home visits, registers them and refers them to the clinic (J2). | Vilay (community health worker, Village 04, Lao PDR) |  |
-| [Home clinic provider](ActorDefinition-TrustDemo.Role.HomeClinicProvider.html) | The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3). | Nurse Chanthasone (Vientiane District Health Center, Lao PDR) |  |
-| [Point-of-care provider](ActorDefinition-TrustDemo.Role.PocProvider.html) | The clinician abroad who scans the family's QR and reads the child's records (J4.1). | Dr Anan (clinician, Chiang Rai, Thailand) |  |
+| [Birth clinic vaccinator](ActorDefinition-TrustDemo.Role.BirthClinicVaccinator.html) | The clinician abroad who gives the birth doses and hands over the signed paper DVC (J1). | Dr Anan (clinician, Kesaro, Taifafeki) |  |
+| [Community health worker](ActorDefinition-TrustDemo.Role.CommunityHealthWorker.html) | Finds unregistered children on home visits, registers them and refers them to the clinic (J2). | Vilay (community health worker, Village 04, Onesa) |  |
+| [Home clinic provider](ActorDefinition-TrustDemo.Role.HomeClinicProvider.html) | The nurse at the home clinic who receives the referral, has the foreign DVCs verified and decides catch-up doses (J3). | Nurse Chanthasone (Lomaru District Health Center, Onesa) |  |
+| [Point-of-care provider](ActorDefinition-TrustDemo.Role.PocProvider.html) | The clinician abroad who scans the family's QR and reads the child's records (J4.1). | Dr Anan (clinician, Kesaro, Taifafeki) |  |
 {: .grid }
 
 ### System actors
 
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
-| [Birth clinic issuing system](ActorDefinition-TrustDemo.Role.BirthClinicSystem.html) | The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR). | Chiang Rai Provincial Hospital system, Thailand (Country A, XXR) | Issuer of the birth-dose DVCs (SMART Trust Issuer) |
-| [CHW app](ActorDefinition-TrustDemo.Role.ChwApp.html) | The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, [STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011)), registers the child and records a referral, all offline, syncing later. | CHW app, Lao PDR (Country B) | Triage reader (SMART Trust Receiver, read-unverified) |
-| [Home clinic EHR](ActorDefinition-TrustDemo.Role.HomeClinicEhr.html) | The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3). | Vientiane District Health Center EHR (Country B) | Verifier at the home clinic (SMART Trust Receiver) |
-| [National health portal](ActorDefinition-TrustDemo.Role.NationalPortal.html) | The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer. | Lao PDR national health portal and gateway (Country B, XXH) | VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer) |
+| [Birth clinic issuing system](ActorDefinition-TrustDemo.Role.BirthClinicSystem.html) | The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR). | Kesaro Provincial Hospital system, Taifafeki (Country A, XXR) | Issuer of the birth-dose DVCs (SMART Trust Issuer) |
+| [CHW app](ActorDefinition-TrustDemo.Role.ChwApp.html) | The OHS app on the CHW's phone: reads a foreign DVC without verifying it (triage read, [STT-VER-011](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011)), registers the child and records a referral, all offline, syncing later. | CHW app, Onesa (Country B) | Triage reader (SMART Trust Receiver, read-unverified) |
+| [Home clinic EHR](ActorDefinition-TrustDemo.Role.HomeClinicEhr.html) | The clinic's OHS-based record system: verifies DVCs against the GDHCN trust list, imports them as FHIR Immunization resources and evaluates the national schedule (J3). | Lomaru District Health Center EHR (Country B) | Verifier at the home clinic (SMART Trust Receiver) |
+| [National health portal](ActorDefinition-TrustDemo.Role.NationalPortal.html) | The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer. | Onesa national health portal and gateway (Country B, XXK) | VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer) |
 | [Family phone](ActorDefinition-TrustDemo.Role.FamilyPhone.html) | The one smartphone the family shares, holding one VHL QR per member (J4); holds links, not keys to anyone's records beyond what each link grants. | The family's shared phone | Personal health wallet |
-| [Point-of-care receiver](ActorDefinition-TrustDemo.Role.PocReceiver.html) | The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver. | Chiang Rai primary care clinic viewer, Thailand (J4.1) | VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver) |
+| [Point-of-care receiver](ActorDefinition-TrustDemo.Role.PocReceiver.html) | The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver. | Kesaro primary care clinic viewer, Taifafeki (J4.1) | VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver) |
 {: .grid }
 
 ### External actors
 
 | Role | Description | Played by (fictional) | Also known as |
 |---|---|---|---|
-| [Issuer signing key](ActorDefinition-TrustDemo.Role.IssuerKey.html) | The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, [STT-ISS-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004)). | XXR document signer key (Country A, Thailand) | Document signer (DSC) key |
+| [Issuer signing key](ActorDefinition-TrustDemo.Role.IssuerKey.html) | The DSC private key of the issuing participant, in an HSM, cloud KMS or Android Keystore; signs the bytes the issuing system prepares (two-phase signing, [STT-ISS-004](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004)). | XXR document signer key (Country A, Taifafeki) | Document signer (DSC) key |
 | [GDHCN trust anchor](ActorDefinition-TrustDemo.Role.GdhcnTrustAnchor.html) | WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL). | GDHCN DEV trust network (WHO) | Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL) |
 {: .grid }
 
@@ -41,49 +41,49 @@ These are the generic personas of the journeys J1 to J4: the roles that play the
 Each is fictional. Their goals, needs and frustrations are kept in `scenarios/actors/*.json` (`meta.persona`), and the journeys viewer shows the same text.
 
 
-#### Dr. Anan (Thai clinician · birth & follow-up, Thailand)
+#### Dr. Anan (Taifafeki clinician · birth & follow-up, Taifafeki)
 
-Persona: a Thai clinician in Chiang Rai who gives Somsack's Hep B and BCG birth doses and prints the two signed DVCs (J1), and who sees him again a year later at a primary care clinic, reading his record through the VHL (J4.1). Fictional.
+Persona: a Taifafeki clinician in Kesaro who gives Somsack's Hep B and BCG birth doses and prints the two signed DVCs (J1), and who sees him again a year later at a primary care clinic, reading his record through the VHL (J4.1). Fictional.
 
-- **Goal:** Give a non-Thai baby proper care, at birth and when he returns.
+- **Goal:** Give a non-Taifafeki baby proper care, at birth and when he returns.
 - **Needs:** A way to issue records that travel with the family; A child's full history at the point of care; Confidence the data is authentic
 - **Frustrations:** No national ID to attach records to; Records from abroad he cannot read or verify
 
-#### Bounmy (Father · holds the family phone, Lao PDR)
+#### Bounmy (Father · holds the family phone, Onesa)
 
-Persona: Somsack's father, 29, head of the household in Lao PDR, who holds the family's one shared phone (J4). Creates Somsack's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.
+Persona: Somsack's father, 29, head of the household in Onesa, who holds the family's one shared phone (J4). Creates Somsack's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.
 
 - **Goal:** Keep the whole family's health records in one place he controls.
 - **Needs:** One app for three people on one phone; Share records abroad without paperwork; Decide who sees what, and for how long
 - **Frustrations:** Carrying folders of documents across the border; Not knowing who has seen his child’s data
 
-#### Chanthasone (Nurse · District Health Center, Lao PDR)
+#### Chanthasone (Nurse · District Health Center, Onesa)
 
-Persona for J3: the nurse at Vientiane District Health Center in Lao PDR (Country B), on the clinic's tablet (OHS app, facility configuration). Makes the clinical call when a foreign product has no mapping. Fictional.
+Persona for J3: the nurse at Lomaru District Health Center in Onesa (Country B), on the clinic's tablet (OHS app, facility configuration). Makes the clinical call when a foreign product has no mapping. Fictional.
 
 - **Goal:** Trust foreign records enough to avoid repeating or missing vaccines.
-- **Needs:** A reliable yes/no on whether a card is genuine; Foreign vaccines translated to the Lao schedule; Automatic calculation of what is due next
+- **Needs:** A reliable yes/no on whether a card is genuine; Foreign vaccines translated to the Onesan schedule; Automatic calculation of what is due next
 - **Frustrations:** Unfamiliar product names from other countries; Choosing between re-vaccinating and trusting paper blindly
 
-#### Khamla (Mother, Lao PDR)
+#### Khamla (Mother, Onesa)
 
-Persona: Somsack's mother, 26, a Lao national living in Lao PDR (Country B) who gave birth in Thailand (Country A). Holds the two paper DVCs from J1 to J3. Fictional.
+Persona: Somsack's mother, 26, an Onesan national living in Onesa (Country B) who gave birth in Taifafeki (Country A). Holds the two paper DVCs from J1 to J3. Fictional.
 
 - **Goal:** Have Somsack's care recognized at home, without starting over.
 - **Needs:** Proof of the vaccines her baby got abroad; Clear guidance on when to come back; Not to be penalized for giving birth across the border
 - **Frustrations:** Paper cards are easy to lose; Extra trips to the clinic; The family's records live on her husband's phone
 
-#### Somsack (Baby · the record follows him, Lao PDR)
+#### Somsack (Baby · the record follows him, Onesa)
 
-The subject of every journey: a Lao baby boy born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), while his family lives in Lao PDR (Country B). Has no Thai identity number; registered in Lao PDR with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.
+The subject of every journey: an Onesan baby boy born 2025-10-28 at Kesaro Provincial Hospital, Taifafeki (Country A), while his family lives in Onesa (Country B). Has no Taifafeki identity number; registered in Onesa with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.
 
 - **Goal:** Get every vaccine he needs, once, wherever he is.
 - **Needs:** His birth doses to count at home; No repeated or missed vaccines; His history to be there when a doctor needs it
 - **Frustrations:** Born where he has no national ID; Invisible to the home system until someone registers him
 
-#### Vilay (Community health worker · Village 04, Lao PDR)
+#### Vilay (Community health worker · Village 04, Onesa)
 
-Persona for J2: the community health worker of catchment Village 04 in Lao PDR (Country B). Works offline for weeks at a time on an Android phone (OHS app, community configuration) and syncs when she reaches the health center. Can register a child and refer, but cannot decide whether a foreign record is genuine. Fictional.
+Persona for J2: the community health worker of catchment Village 04 in Onesa (Country B). Works offline for weeks at a time on an Android phone (OHS app, community configuration) and syncs when she reaches the health center. Can register a child and refer, but cannot decide whether a foreign record is genuine. Fictional.
 
 - **Goal:** Make sure no newborn in her village is missed, even with no signal.
 - **Needs:** Tools that work offline for weeks; A fast way to capture foreign cards; A clear next step to hand the family

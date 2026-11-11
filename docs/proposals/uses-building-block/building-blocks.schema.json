@@ -76,7 +76,7 @@
             "standard",
             "network"
           ],
-          "description": "tool: software anyone can deploy (OHS FHIR SDK). system: a country's deployed system (the Lao national FHIR server). standard: a specification (IPS, IHE VHL). network: a trust network (WHO GDHCN)."
+          "description": "tool: software anyone can deploy (OHS FHIR SDK). system: a country's deployed system (the Onesan national FHIR server). standard: a specification (IPS, IHE VHL). network: a trust network (WHO GDHCN)."
         },
         "layer": {
           "$ref": "#/$defs/id",
@@ -84,8 +84,8 @@
         },
         "jurisdiction": {
           "enum": [
-            "Thailand",
-            "Lao PDR",
+            "Taifafeki",
+            "Onesa",
             "International"
           ],
           "description": "Whose block it is. A country's deployed system belongs to that country; tools, standards and trust networks anyone can adopt are International. The ArchiMate views split the RA by jurisdiction on this field."

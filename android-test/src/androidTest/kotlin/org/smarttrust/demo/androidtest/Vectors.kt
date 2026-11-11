@@ -40,7 +40,7 @@ object GuideExample {
 
 /** A DVCMin for a newborn, as the clinic in J1 would issue. Fictional. */
 val NEWBORN = DvcMin(
-    n = "Test CHILD", dob = "2026-10-21", s = "female", nt = "LAO", gn = "Test MOTHER",
+    n = "Test CHILD", dob = "2026-10-21", s = "female", nt = "XXK", gn = "Test MOTHER",
     vx = DvcMinVaccineDetails(vp = "XM9V38", dv = "2026-10-21", `is` = "org-test", bo = "HEPB-TEST"),
     v = "1.0.0", extensions = emptyList(),
 )

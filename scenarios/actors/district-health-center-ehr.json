@@ -1,8 +1,8 @@
 {
   "id": "district-health-center-ehr",
-  "title": "Vientiane District Health Center EHR (Country B)",
+  "title": "Lomaru District Health Center EHR (Country B)",
   "kind": "system",
-  "description": "The district health center's OHS-based record system in Lao PDR (Country B), on a tablet (J3): verifies DVCs against its cached GDHCN trust list, imports them with provenance, adds the Lao schedule code beside each foreign vaccine code and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly); it fetches nothing during J3.",
+  "description": "The district health center's OHS-based record system in Onesa (Country B), on a tablet (J3): verifies DVCs against its cached GDHCN trust list, imports them with provenance, adds the Onesan schedule code beside each foreign vaccine code and evaluates the national schedule. A Receiver; Country B, as a Trust Network Participant, retrieves the PKI material it uses. Its trust store is loaded before the visit, from the copy of the trust list it refreshed when last connected (for an offline clinic, about weekly); it fetches nothing during J3.",
   "roles": [
     "home-clinic-ehr"
   ],
@@ -16,35 +16,35 @@
     "playsActor": [
       "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-receiver"
     ],
-    "country": "Lao PDR",
+    "country": "Onesa",
     "parts": [
       {
-        "id": "la-dhc-ehr",
+        "id": "xxk-dhc-ehr",
         "title": "Patient record",
         "raBlock": "Provider Systems",
         "description": "The health centre's record of each patient, where imported immunizations are kept with their provenance (J3).",
-        "ig": "StructureDefinition/TrustDemoLaoImmunization"
+        "ig": "StructureDefinition/TrustDemoOnesaImmunization"
       },
       {
-        "id": "la-conceptmap",
-        "title": "Code mapping service (product to Lao EPI)",
+        "id": "xxk-conceptmap",
+        "title": "Code mapping service (product to Onesan EPI)",
         "raBlock": "Terminology Service",
-        "description": "Maps a foreign vaccine product code to the Lao EPI schedule code, which is added beside the original code on import (J3).",
-        "ig": "ConceptMap/TrustDemoProductToLaoEpi"
+        "description": "Maps a foreign vaccine product code to the Onesan EPI schedule code, which is added beside the original code on import (J3).",
+        "ig": "ConceptMap/TrustDemoProductToOnesaEpi"
       },
       {
-        "id": "la-schedule",
-        "title": "Schedule evaluator (Lao infant schedule)",
+        "id": "xxk-schedule",
+        "title": "Schedule evaluator (Onesan infant schedule)",
         "raBlock": "Computable Decision Support Engine",
-        "description": "Evaluates the Lao infant immunization schedule against the child's doses, imported ones included, and says which are due (J3).",
-        "ig": "PlanDefinition/TrustDemoLaoInfantSchedule"
+        "description": "Evaluates the Onesan infant immunization schedule against the child's doses, imported ones included, and says which are due (J3).",
+        "ig": "PlanDefinition/TrustDemoOnesaInfantSchedule"
       },
       {
-        "id": "la-dvc-verifier",
+        "id": "xxk-dvc-verifier",
         "title": "DVC verifier",
         "raBlock": "National Trust Services",
         "description": "Verifies a DVC's HCERT signature against the GDHCN trust list cached on the device (J3).",
-        "ig": "StructureDefinition/TrustDemoLaoDvcVerification"
+        "ig": "StructureDefinition/TrustDemoOnesaDvcVerification"
       }
     ]
   }

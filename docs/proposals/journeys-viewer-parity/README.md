@@ -102,7 +102,7 @@ Today the viewer has breadcrumbs, follows / part-of links, and requirement and e
 |---|---|
 | Steps, people, feelings, pain points, enablers, policy, record, hand-off, what-ifs, stories, BPMN tasks, requirements, examples, blocks with roles | yes (`user-scenario`, `building-blocks`) |
 | Ask the room, facilitator cue, questions by module, sheets | yes (`workshop`) |
-| Illustrations | yes (`illustration`). Thai–Lao chapters: `public/moments/*.jpg` in VaxLink. Pilgrimage: `input/images/pilgrim/` |
+| Illustrations | yes (`illustration`). Taifafeki–Onesan chapters: `public/moments/*.jpg` in VaxLink. Pilgrimage: `input/images/pilgrim/` |
 | The four "big ideas" of How it works | **no.** Today they are in VaxLink `techData.ts` (`BIG_IDEAS`). They need a home (`building-blocks` groups?) |
 | FHIR change per step: profile, why, example | **no.** `STEP_TECH.fhir` in VaxLink. These are a step → `examples` edge with a reason |
 | Device screens S1–S8 | **no.** They are React components. *Open question:* static mock screens per step, or a link out to the instance's own app? |

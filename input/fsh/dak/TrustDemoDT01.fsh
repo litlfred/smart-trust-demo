@@ -17,9 +17,9 @@ Usage: #definition
 * relatedArtifact[=].document.url = "https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dvc-record-outcome.dmn"
 * relatedArtifact[=].document.title = "dvc-record-outcome.dmn"
 * relatedArtifact[+].type = #depends-on
-* relatedArtifact[=].resource = Canonical(TrustDemoLaoReportedImmunization)
+* relatedArtifact[=].resource = Canonical(TrustDemoOnesaReportedImmunization)
 * relatedArtifact[+].type = #depends-on
-* relatedArtifact[=].resource = Canonical(TrustDemoLaoDvcVerification)
+* relatedArtifact[=].resource = Canonical(TrustDemoOnesaDvcVerification)
 * action[+].title = "Rule 1"
 * action[=].description = "When result is unverified: outcome = reported-unverified; action = Save the dose as reported by the family (primarySource false, the caregiver as information source, a note that nothing is verified) and refer the child to the clinic for verification. The CHW's triage read in J2 (STT-VER-011): nothing is verified, so the dose is reported, never verified. Example Immunization TrustDemoJ2HepBReported."
 * action[+].title = "Rule 2"

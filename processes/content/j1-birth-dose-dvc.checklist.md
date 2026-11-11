@@ -23,7 +23,7 @@ J1, Cross-border birth and initial vaccination.
 
 - Who: the `Birth clinic issuing system` lane (role `birth-clinic-system`).
 - Skill: `hcert-select-payload`.
-- What: One immunization event per DVC (STT-PAY-003), typed DVCMin models (STT-PAY-001, STT-PAY-002), nationality alpha-3 LAO (STT-PAY-007), subject with no identity document (STT-PAY-005); subclaim -6 in the development range, opted into explicitly (STT-SEL-003).
+- What: One immunization event per DVC (STT-PAY-003), typed DVCMin models (STT-PAY-001, STT-PAY-002), nationality alpha-3 XXK (STT-PAY-007), subject with no identity document (STT-PAY-005); subclaim -6 in the development range, opted into explicitly (STT-SEL-003).
 - Record it: `workflow_complete` with `node: "Task_Payload"`.
 - next: → `Task_Prepare` (Prepare: CWT claims and the COSE Sig_structure)
 
