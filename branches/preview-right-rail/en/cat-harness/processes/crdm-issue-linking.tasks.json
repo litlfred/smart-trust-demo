@@ -1,0 +1,121 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_CRDM_Issue",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Call_RelatedWork",
+   "name": "Related work: find, sort, ask",
+   "left": 32.44,
+   "top": 16.18,
+   "box": {
+    "left": 23.95,
+    "top": 44.12,
+    "width": 2.81,
+    "height": 7.06
+   }
+  },
+  {
+   "id": "A_ScanIssues",
+   "name": "Scan open issues for match",
+   "left": 51.18,
+   "top": 16.18,
+   "box": {
+    "left": 42.69,
+    "top": 44.12,
+    "width": 2.81,
+    "height": 7.06
+   }
+  },
+  {
+   "id": "A_AskCreate",
+   "name": "Ask BA to create or link issue",
+   "left": 82.81,
+   "top": 16.18,
+   "box": {
+    "left": 74.32,
+    "top": 44.12,
+    "width": 2.81,
+    "height": 7.06
+   }
+  },
+  {
+   "id": "A_LinkIssue",
+   "name": "Link to existing issue",
+   "left": 82.81,
+   "top": 57.35,
+   "box": {
+    "left": 74.32,
+    "top": 85.29,
+    "width": 2.81,
+    "height": 7.06
+   }
+  }
+ ],
+ "processHref": "crdm-issue-linking.html",
+ "tasks": {
+  "Call_RelatedWork": {
+   "id": "Call_RelatedWork",
+   "name": "Related work: find, sort, ask",
+   "type": "bpmn:CallActivity",
+   "stepHref": "crdm-issue-linking.html#step-Call_RelatedWork",
+   "lane": "Agent",
+   "laneHref": "crdm-issue-linking.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Process_RelatedWork"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_ScanIssues": {
+   "id": "A_ScanIssues",
+   "name": "Scan open issues for match",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-issue-linking.html#step-A_ScanIssues",
+   "lane": "Agent",
+   "laneHref": "crdm-issue-linking.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_AskCreate": {
+   "id": "A_AskCreate",
+   "name": "Ask BA to create or link issue",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-issue-linking.html#step-A_AskCreate",
+   "lane": "Agent",
+   "laneHref": "crdm-issue-linking.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_LinkIssue": {
+   "id": "A_LinkIssue",
+   "name": "Link to existing issue",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-issue-linking.html#step-A_LinkIssue",
+   "lane": "Agent",
+   "laneHref": "crdm-issue-linking.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

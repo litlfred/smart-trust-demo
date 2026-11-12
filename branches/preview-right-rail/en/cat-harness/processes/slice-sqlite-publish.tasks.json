@@ -1,0 +1,199 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_SliceSqlitePublish",
+ "skills": false,
+ "markers": [
+  {
+   "id": "A_Define",
+   "name": "Write the slice definition",
+   "left": 37.38,
+   "top": 38.24,
+   "box": {
+    "left": 32.23,
+    "top": 56.86,
+    "width": 1.7,
+    "height": 4.71
+   }
+  },
+  {
+   "id": "A_Measure",
+   "name": "Build it locally and measure the file",
+   "left": 48.01,
+   "top": 38.24,
+   "box": {
+    "left": 42.87,
+    "top": 56.86,
+    "width": 1.7,
+    "height": 4.71
+   }
+  },
+  {
+   "id": "A_Report",
+   "name": "Report the measurement; ship nothing",
+   "left": 56.17,
+   "top": 67.65,
+   "box": {
+    "left": 51.03,
+    "top": 86.27,
+    "width": 1.7,
+    "height": 4.71
+   }
+  },
+  {
+   "id": "A_Wire",
+   "name": "Wire it: gate, deploy line, search, tests",
+   "left": 69.29,
+   "top": 38.24,
+   "box": {
+    "left": 64.15,
+    "top": 56.86,
+    "width": 1.7,
+    "height": 4.71
+   }
+  },
+  {
+   "id": "A_Check",
+   "name": "Gate every slice: slice:sqlite:check",
+   "left": 69.29,
+   "top": 4.9,
+   "box": {
+    "left": 64.15,
+    "top": 23.53,
+    "width": 1.7,
+    "height": 4.71
+   }
+  },
+  {
+   "id": "A_Deploy",
+   "name": "Build each slice into _site at deploy",
+   "left": 90.57,
+   "top": 4.9,
+   "box": {
+    "left": 85.43,
+    "top": 23.53,
+    "width": 1.7,
+    "height": 4.71
+   }
+  },
+  {
+   "id": "A_Verify",
+   "name": "Search the published slice in a browser",
+   "left": 90.57,
+   "top": 38.24,
+   "box": {
+    "left": 85.43,
+    "top": 56.86,
+    "width": 1.7,
+    "height": 4.71
+   }
+  }
+ ],
+ "processHref": "slice-sqlite-publish.html",
+ "tasks": {
+  "A_Define": {
+   "id": "A_Define",
+   "name": "Write the slice definition",
+   "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Define",
+   "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "platform-authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-platform-authoring-agent",
+    "title": "Platform authoring agent",
+    "skills": []
+   }
+  },
+  "A_Measure": {
+   "id": "A_Measure",
+   "name": "Build it locally and measure the file",
+   "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Measure",
+   "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "platform-authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-platform-authoring-agent",
+    "title": "Platform authoring agent",
+    "skills": []
+   }
+  },
+  "A_Report": {
+   "id": "A_Report",
+   "name": "Report the measurement; ship nothing",
+   "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Report",
+   "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "platform-authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-platform-authoring-agent",
+    "title": "Platform authoring agent",
+    "skills": []
+   }
+  },
+  "A_Wire": {
+   "id": "A_Wire",
+   "name": "Wire it: gate, deploy line, search, tests",
+   "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Wire",
+   "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "platform-authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-platform-authoring-agent",
+    "title": "Platform authoring agent",
+    "skills": []
+   }
+  },
+  "A_Check": {
+   "id": "A_Check",
+   "name": "Gate every slice: slice:sqlite:check",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "slice-sqlite-publish.html#step-A_Check",
+   "lane": "CI/CD Pipeline",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Ci",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "A_Deploy": {
+   "id": "A_Deploy",
+   "name": "Build each slice into _site at deploy",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "slice-sqlite-publish.html#step-A_Deploy",
+   "lane": "CI/CD Pipeline",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Ci",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "A_Verify": {
+   "id": "A_Verify",
+   "name": "Search the published slice in a browser",
+   "type": "bpmn:Task",
+   "stepHref": "slice-sqlite-publish.html#step-A_Verify",
+   "lane": "Platform authoring agent",
+   "laneHref": "slice-sqlite-publish.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "platform-authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-platform-authoring-agent",
+    "title": "Platform authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

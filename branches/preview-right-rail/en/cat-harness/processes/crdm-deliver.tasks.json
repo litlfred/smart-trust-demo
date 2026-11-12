@@ -1,0 +1,261 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_CRDM_Deliver",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Call_OptionsAnalysis",
+   "name": "Options analysis how to implement",
+   "left": 18.71,
+   "top": 4.55,
+   "box": {
+    "left": 13.49,
+    "top": 18.94,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "A_Implement",
+   "name": "Phase 6: Implement (feature branch + PR)",
+   "left": 29.14,
+   "top": 4.55,
+   "box": {
+    "left": 23.92,
+    "top": 18.94,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "A_CodeAudit",
+   "name": "Audit the code nodes the increment adds",
+   "left": 39.57,
+   "top": 4.55,
+   "box": {
+    "left": 34.35,
+    "top": 18.94,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "A_DeployStaging",
+   "name": "Deploy the MVP to staging",
+   "left": 66.55,
+   "top": 4.55,
+   "box": {
+    "left": 61.33,
+    "top": 18.94,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "A_Summary",
+   "name": "Post summary to issue",
+   "left": 50,
+   "top": 4.55,
+   "box": {
+    "left": 44.78,
+    "top": 18.94,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "BA_ReviewIncrement",
+   "name": "Review increment (test behaviour)",
+   "left": 50,
+   "top": 30.3,
+   "box": {
+    "left": 44.78,
+    "top": 44.7,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "BA_ShareMVP",
+   "name": "Share MVP with stakeholders",
+   "left": 80.58,
+   "top": 30.3,
+   "box": {
+    "left": 75.36,
+    "top": 44.7,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "S_TestMVP",
+   "name": "Test MVP in own context",
+   "left": 80.58,
+   "top": 57.58,
+   "box": {
+    "left": 75.36,
+    "top": 71.97,
+    "width": 1.73,
+    "height": 3.64
+   }
+  },
+  {
+   "id": "BA_TranslateFeedback",
+   "name": "Translate feedback into agent direction",
+   "left": 97.48,
+   "top": 30.3,
+   "box": {
+    "left": 92.27,
+    "top": 44.7,
+    "width": 1.73,
+    "height": 3.64
+   }
+  }
+ ],
+ "processHref": "crdm-deliver.html",
+ "tasks": {
+  "Call_OptionsAnalysis": {
+   "id": "Call_OptionsAnalysis",
+   "name": "Options analysis how to implement",
+   "type": "bpmn:CallActivity",
+   "stepHref": "crdm-deliver.html#step-Call_OptionsAnalysis",
+   "lane": "Agent",
+   "laneHref": "crdm-deliver.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Process_OptionsAnalysis"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_Implement": {
+   "id": "A_Implement",
+   "name": "Phase 6: Implement (feature branch + PR)",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-deliver.html#step-A_Implement",
+   "lane": "Agent",
+   "laneHref": "crdm-deliver.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_CodeAudit": {
+   "id": "A_CodeAudit",
+   "name": "Audit the code nodes the increment adds",
+   "type": "bpmn:CallActivity",
+   "stepHref": "crdm-deliver.html#step-A_CodeAudit",
+   "lane": "Agent",
+   "laneHref": "crdm-deliver.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Review task",
+    "href": "review-task.html",
+    "diagram": "review-task.html"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_DeployStaging": {
+   "id": "A_DeployStaging",
+   "name": "Deploy the MVP to staging",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-deliver.html#step-A_DeployStaging",
+   "lane": "Agent",
+   "laneHref": "crdm-deliver.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_Summary": {
+   "id": "A_Summary",
+   "name": "Post summary to issue",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-deliver.html#step-A_Summary",
+   "lane": "Agent",
+   "laneHref": "crdm-deliver.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "BA_ReviewIncrement": {
+   "id": "BA_ReviewIncrement",
+   "name": "Review increment (test behaviour)",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-deliver.html#step-BA_ReviewIncrement",
+   "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-deliver.html#lane-Lane_BA",
+   "skills": [],
+   "role": {
+    "name": "business-analyst",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-business-analyst",
+    "title": "Business analyst",
+    "skills": []
+   }
+  },
+  "BA_ShareMVP": {
+   "id": "BA_ShareMVP",
+   "name": "Share MVP with stakeholders",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-deliver.html#step-BA_ShareMVP",
+   "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-deliver.html#lane-Lane_BA",
+   "skills": [],
+   "role": {
+    "name": "business-analyst",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-business-analyst",
+    "title": "Business analyst",
+    "skills": []
+   }
+  },
+  "S_TestMVP": {
+   "id": "S_TestMVP",
+   "name": "Test MVP in own context",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-deliver.html#step-S_TestMVP",
+   "lane": "Stakeholders",
+   "laneHref": "crdm-deliver.html#lane-Lane_Stakeholders",
+   "skills": [],
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "BA_TranslateFeedback": {
+   "id": "BA_TranslateFeedback",
+   "name": "Translate feedback into agent direction",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-deliver.html#step-BA_TranslateFeedback",
+   "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-deliver.html#lane-Lane_BA",
+   "skills": [],
+   "role": {
+    "name": "business-analyst",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-business-analyst",
+    "title": "Business analyst",
+    "skills": []
+   }
+  }
+ }
+}

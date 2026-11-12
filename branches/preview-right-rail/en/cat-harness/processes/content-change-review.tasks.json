@@ -1,0 +1,333 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_ContentChangeReview",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_DescribeChange",
+   "name": "Describe the desired change",
+   "left": 21.58,
+   "top": 5.17,
+   "box": {
+    "left": 16.37,
+    "top": 16.09,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Call_BeanOpen",
+   "name": "Open the bean",
+   "left": 21.58,
+   "top": 37.93,
+   "box": {
+    "left": 16.37,
+    "top": 48.85,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Call_MakeChange",
+   "name": "Make the change",
+   "left": 41.37,
+   "top": 37.93,
+   "box": {
+    "left": 36.15,
+    "top": 48.85,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Call_StageChange",
+   "name": "Stage the change",
+   "left": 41.37,
+   "top": 62.07,
+   "box": {
+    "left": 36.15,
+    "top": 72.99,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Task_ReviewStaging",
+   "name": "Review staged rendering",
+   "left": 52.88,
+   "top": 5.17,
+   "box": {
+    "left": 47.66,
+    "top": 16.09,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Task_RequestRevision",
+   "name": "Request further revisions",
+   "left": 62.23,
+   "top": 20.11,
+   "box": {
+    "left": 57.01,
+    "top": 31.03,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Task_Iterate",
+   "name": "Iterate on author feedback",
+   "left": 62.23,
+   "top": 37.93,
+   "box": {
+    "left": 57.01,
+    "top": 48.85,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Task_SubmitForReview",
+   "name": "Submit to review committee",
+   "left": 72.66,
+   "top": 5.17,
+   "box": {
+    "left": 67.45,
+    "top": 16.09,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Call_CommitteeReview",
+   "name": "Review the change",
+   "left": 72.66,
+   "top": 79.31,
+   "box": {
+    "left": 67.45,
+    "top": 90.23,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Call_Publish",
+   "name": "Merge and publish",
+   "left": 91.73,
+   "top": 62.07,
+   "box": {
+    "left": 86.51,
+    "top": 72.99,
+    "width": 1.73,
+    "height": 2.76
+   }
+  },
+  {
+   "id": "Call_BeanClose",
+   "name": "Close the bean",
+   "left": 91.73,
+   "top": 37.93,
+   "box": {
+    "left": 86.51,
+    "top": 48.85,
+    "width": 1.73,
+    "height": 2.76
+   }
+  }
+ ],
+ "processHref": "content-change-review.html",
+ "tasks": {
+  "Task_DescribeChange": {
+   "id": "Task_DescribeChange",
+   "name": "Describe the desired change",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_DescribeChange",
+   "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Call_BeanOpen": {
+   "id": "Call_BeanOpen",
+   "name": "Open the bean",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_BeanOpen",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Process_BeanOpen"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Call_MakeChange": {
+   "id": "Call_MakeChange",
+   "name": "Make the change",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_MakeChange",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Make the content change",
+    "href": "content-change-review-make.html",
+    "diagram": "content-change-review-make.html"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Call_StageChange": {
+   "id": "Call_StageChange",
+   "name": "Stage the change",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_StageChange",
+   "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review.html#lane-Lane_Pipeline",
+   "skills": [],
+   "calls": {
+    "name": "Stage the content change",
+    "href": "content-change-review-stage.html",
+    "diagram": "content-change-review-stage.html"
+   },
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_ReviewStaging": {
+   "id": "Task_ReviewStaging",
+   "name": "Review staged rendering",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_ReviewStaging",
+   "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_RequestRevision": {
+   "id": "Task_RequestRevision",
+   "name": "Request further revisions",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_RequestRevision",
+   "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_Iterate": {
+   "id": "Task_Iterate",
+   "name": "Iterate on author feedback",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_Iterate",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_SubmitForReview": {
+   "id": "Task_SubmitForReview",
+   "name": "Submit to review committee",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review.html#step-Task_SubmitForReview",
+   "lane": "Content Author",
+   "laneHref": "content-change-review.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Call_CommitteeReview": {
+   "id": "Call_CommitteeReview",
+   "name": "Review the change",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_CommitteeReview",
+   "lane": "Review Committee",
+   "laneHref": "content-change-review.html#lane-Lane_Reviewer",
+   "skills": [],
+   "calls": {
+    "name": "Committee review of a content change",
+    "href": "content-change-review-committee.html",
+    "diagram": "content-change-review-committee.html"
+   },
+   "role": {
+    "name": "reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-reviewer",
+    "title": "Reviewer / SME",
+    "skills": []
+   }
+  },
+  "Call_Publish": {
+   "id": "Call_Publish",
+   "name": "Merge and publish",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_Publish",
+   "lane": "CI/CD Pipeline",
+   "laneHref": "content-change-review.html#lane-Lane_Pipeline",
+   "skills": [],
+   "calls": {
+    "name": "Merge and publish a content change",
+    "href": "content-change-review-publish.html",
+    "diagram": "content-change-review-publish.html"
+   },
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Call_BeanClose": {
+   "id": "Call_BeanClose",
+   "name": "Close the bean",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review.html#step-Call_BeanClose",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Process_BeanClose"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

@@ -1,0 +1,155 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_CRDM_DataModel",
+ "skills": false,
+ "markers": [
+  {
+   "id": "A_Entities",
+   "name": "Identify entities from the BPA and requirements",
+   "left": 25.61,
+   "top": 37.04,
+   "box": {
+    "left": 19.72,
+    "top": 54.63,
+    "width": 1.95,
+    "height": 4.44
+   }
+  },
+  {
+   "id": "A_Relations",
+   "name": "Relations and cardinalities, both ways",
+   "left": 37.8,
+   "top": 37.04,
+   "box": {
+    "left": 31.91,
+    "top": 54.63,
+    "width": 1.95,
+    "height": 4.44
+   }
+  },
+  {
+   "id": "BA_ConfirmEntities",
+   "name": "Confirm the entities are the ones meant",
+   "left": 50,
+   "top": 5.56,
+   "box": {
+    "left": 44.11,
+    "top": 23.15,
+    "width": 1.95,
+    "height": 4.44
+   }
+  },
+  {
+   "id": "S_ConfirmCardinality",
+   "name": "Confirm the cardinalities",
+   "left": 62.2,
+   "top": 68.52,
+   "box": {
+    "left": 56.3,
+    "top": 86.11,
+    "width": 1.95,
+    "height": 4.44
+   }
+  },
+  {
+   "id": "A_Declare",
+   "name": "Declare the model where a tool can read it",
+   "left": 85.77,
+   "top": 37.04,
+   "box": {
+    "left": 79.88,
+    "top": 54.63,
+    "width": 1.95,
+    "height": 4.44
+   }
+  }
+ ],
+ "processHref": "crdm-data-model.html",
+ "tasks": {
+  "A_Entities": {
+   "id": "A_Entities",
+   "name": "Identify entities from the BPA and requirements",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-data-model.html#step-A_Entities",
+   "lane": "Agent",
+   "laneHref": "crdm-data-model.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_Relations": {
+   "id": "A_Relations",
+   "name": "Relations and cardinalities, both ways",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-data-model.html#step-A_Relations",
+   "lane": "Agent",
+   "laneHref": "crdm-data-model.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "BA_ConfirmEntities": {
+   "id": "BA_ConfirmEntities",
+   "name": "Confirm the entities are the ones meant",
+   "type": "bpmn:CallActivity",
+   "stepHref": "crdm-data-model.html#step-BA_ConfirmEntities",
+   "lane": "BA / Feature Requestor",
+   "laneHref": "crdm-data-model.html#lane-Lane_BA",
+   "skills": [],
+   "calls": {
+    "name": "Ask the person",
+    "href": "ask-the-person.html",
+    "diagram": "ask-the-person.html"
+   },
+   "role": {
+    "name": "business-analyst",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-business-analyst",
+    "title": "Business analyst",
+    "skills": []
+   }
+  },
+  "S_ConfirmCardinality": {
+   "id": "S_ConfirmCardinality",
+   "name": "Confirm the cardinalities",
+   "type": "bpmn:CallActivity",
+   "stepHref": "crdm-data-model.html#step-S_ConfirmCardinality",
+   "lane": "Stakeholders",
+   "laneHref": "crdm-data-model.html#lane-Lane_Stakeholders",
+   "skills": [],
+   "calls": {
+    "name": "Ask the person",
+    "href": "ask-the-person.html",
+    "diagram": "ask-the-person.html"
+   },
+   "role": {
+    "name": "stakeholder",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-stakeholder",
+    "title": "Stakeholder",
+    "skills": []
+   }
+  },
+  "A_Declare": {
+   "id": "A_Declare",
+   "name": "Declare the model where a tool can read it",
+   "type": "bpmn:Task",
+   "stepHref": "crdm-data-model.html#step-A_Declare",
+   "lane": "Agent",
+   "laneHref": "crdm-data-model.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

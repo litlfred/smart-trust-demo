@@ -1,0 +1,123 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_PublicCommentChange",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_AuthorEdits",
+   "name": "Edit the document as decided, on a feature branch",
+   "left": 33.33,
+   "top": 4.55,
+   "box": {
+    "left": 26.54,
+    "top": 21.59,
+    "width": 2.11,
+    "height": 5.45
+   }
+  },
+  {
+   "id": "CallActivity_ChangeSet",
+   "name": "Review the change set on its staging preview",
+   "left": 42.54,
+   "top": 34.09,
+   "box": {
+    "left": 36.18,
+    "top": 55.68,
+    "width": 2.11,
+    "height": 5.45
+   }
+  },
+  {
+   "id": "Task_QaGate",
+   "name": "QA gate: check dispositions against the people and the pull request",
+   "left": 57.46,
+   "top": 68.18,
+   "box": {
+    "left": 51.1,
+    "top": 89.77,
+    "width": 2.11,
+    "height": 5.45
+   }
+  },
+  {
+   "id": "Task_Incorporate",
+   "name": "Mark incorporated when the change set merges",
+   "left": 84.65,
+   "top": 34.09,
+   "box": {
+    "left": 78.29,
+    "top": 55.68,
+    "width": 2.11,
+    "height": 5.45
+   }
+  }
+ ],
+ "processHref": "public-comment-change.html",
+ "tasks": {
+  "Task_AuthorEdits": {
+   "id": "Task_AuthorEdits",
+   "name": "Edit the document as decided, on a feature branch",
+   "type": "bpmn:Task",
+   "stepHref": "public-comment-change.html#step-Task_AuthorEdits",
+   "lane": "Author (human or agentic)",
+   "laneHref": "public-comment-change.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "CallActivity_ChangeSet": {
+   "id": "CallActivity_ChangeSet",
+   "name": "Review the change set on its staging preview",
+   "type": "bpmn:CallActivity",
+   "stepHref": "public-comment-change.html#step-CallActivity_ChangeSet",
+   "lane": "Change set — feature branch and staging",
+   "laneHref": "public-comment-change.html#lane-Lane_Pipeline",
+   "skills": [],
+   "calls": {
+    "name": "Content Change and Review",
+    "href": "content-change-review.html",
+    "diagram": "content-change-review.html"
+   },
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_QaGate": {
+   "id": "Task_QaGate",
+   "name": "QA gate: check dispositions against the people and the pull request",
+   "type": "bpmn:Task",
+   "stepHref": "public-comment-change.html#step-Task_QaGate",
+   "lane": "QA reviewer (independent)",
+   "laneHref": "public-comment-change.html#lane-Lane_QaReviewer",
+   "skills": [],
+   "role": {
+    "name": "qc-reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-qc-reviewer",
+    "title": "QC reviewer",
+    "skills": []
+   }
+  },
+  "Task_Incorporate": {
+   "id": "Task_Incorporate",
+   "name": "Mark incorporated when the change set merges",
+   "type": "bpmn:Task",
+   "stepHref": "public-comment-change.html#step-Task_Incorporate",
+   "lane": "Change set — feature branch and staging",
+   "laneHref": "public-comment-change.html#lane-Lane_Pipeline",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  }
+ }
+}

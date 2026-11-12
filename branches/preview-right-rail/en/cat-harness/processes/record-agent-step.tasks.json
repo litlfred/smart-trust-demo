@@ -1,0 +1,91 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_RecordAgentStep",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_WriteAgentRow",
+   "name": "Write the change set's Agent row",
+   "left": 27.52,
+   "top": 17.74,
+   "box": {
+    "left": 20.43,
+    "top": 38.71,
+    "width": 2.35,
+    "height": 7.74
+   }
+  },
+  {
+   "id": "Task_WriteFeedback",
+   "name": "Write Feedback (agent) from that row",
+   "left": 45.13,
+   "top": 17.74,
+   "box": {
+    "left": 38.04,
+    "top": 38.71,
+    "width": 2.35,
+    "height": 7.74
+   }
+  },
+  {
+   "id": "Task_ReadBack",
+   "name": "Read back Agentic status and Staging review",
+   "left": 62.74,
+   "top": 17.74,
+   "box": {
+    "left": 55.64,
+    "top": 38.71,
+    "width": 2.35,
+    "height": 7.74
+   }
+  }
+ ],
+ "processHref": "record-agent-step.html",
+ "tasks": {
+  "Task_WriteAgentRow": {
+   "id": "Task_WriteAgentRow",
+   "name": "Write the change set's Agent row",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "record-agent-step.html#step-Task_WriteAgentRow",
+   "lane": "Authoring agent",
+   "laneHref": "record-agent-step.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_WriteFeedback": {
+   "id": "Task_WriteFeedback",
+   "name": "Write Feedback (agent) from that row",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "record-agent-step.html#step-Task_WriteFeedback",
+   "lane": "Authoring agent",
+   "laneHref": "record-agent-step.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_ReadBack": {
+   "id": "Task_ReadBack",
+   "name": "Read back Agentic status and Staging review",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "record-agent-step.html#step-Task_ReadBack",
+   "lane": "Authoring agent",
+   "laneHref": "record-agent-step.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

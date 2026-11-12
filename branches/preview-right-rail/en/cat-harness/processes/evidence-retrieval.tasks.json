@@ -1,0 +1,280 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_EvidenceRetrieval",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_ReviewExisting",
+   "name": "Review the existing guidance",
+   "left": 14.77,
+   "top": 44.43,
+   "box": {
+    "left": 12.16,
+    "top": 55.12,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_FramePico",
+   "name": "Frame the question as PICO",
+   "left": 22.7,
+   "top": 44.43,
+   "box": {
+    "left": 20.09,
+    "top": 55.12,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_L1Sources",
+   "name": "Search trusted L1 sources",
+   "left": 36.04,
+   "top": 53.99,
+   "box": {
+    "left": 33.42,
+    "top": 64.68,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_L2L3Content",
+   "name": "Search trusted L2 and L3 content",
+   "left": 36.04,
+   "top": 24.18,
+   "box": {
+    "left": 33.42,
+    "top": 34.87,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_DataRepos",
+   "name": "Query data repositories and statistical datasets",
+   "left": 36.04,
+   "top": 1.91,
+   "box": {
+    "left": 33.42,
+    "top": 12.6,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_VerifyAuthority",
+   "name": "Verify authority against the registry",
+   "left": 50.09,
+   "top": 3.94,
+   "box": {
+    "left": 47.48,
+    "top": 14.62,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_RecordUnverified",
+   "name": "Open a bean for the unverified citation",
+   "left": 64.14,
+   "top": 71.03,
+   "box": {
+    "left": 60.45,
+    "top": 79.58,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_AppraiseGrade",
+   "name": "Appraise and grade the body of evidence",
+   "left": 68.11,
+   "top": 44.43,
+   "box": {
+    "left": 65.5,
+    "top": 55.12,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_RecordGap",
+   "name": "Record the evidence gap",
+   "left": 82.16,
+   "top": 71.03,
+   "box": {
+    "left": 78.47,
+    "top": 79.58,
+    "width": 0.86,
+    "height": 2.7
+   }
+  },
+  {
+   "id": "Task_AttachEvidence",
+   "name": "Attach the evidence",
+   "left": 86.13,
+   "top": 44.43,
+   "box": {
+    "left": 83.51,
+    "top": 55.12,
+    "width": 0.86,
+    "height": 2.7
+   }
+  }
+ ],
+ "processHref": "evidence-retrieval.html",
+ "tasks": {
+  "Task_ReviewExisting": {
+   "id": "Task_ReviewExisting",
+   "name": "Review the existing guidance",
+   "type": "bpmn:UserTask",
+   "stepHref": "evidence-retrieval.html#step-Task_ReviewExisting",
+   "lane": "Author / guideline developer (person)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_FramePico": {
+   "id": "Task_FramePico",
+   "name": "Frame the question as PICO",
+   "type": "bpmn:UserTask",
+   "stepHref": "evidence-retrieval.html#step-Task_FramePico",
+   "lane": "Author / guideline developer (person)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_L1Sources": {
+   "id": "Task_L1Sources",
+   "name": "Search trusted L1 sources",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "evidence-retrieval.html#step-Task_L1Sources",
+   "lane": "Evidence agent (system)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "evidence-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-folio-assistant-core-scenarios-roles-json-evidence-agent",
+    "title": "Evidence agent",
+    "skills": []
+   }
+  },
+  "Task_L2L3Content": {
+   "id": "Task_L2L3Content",
+   "name": "Search trusted L2 and L3 content",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "evidence-retrieval.html#step-Task_L2L3Content",
+   "lane": "Evidence agent (system)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "evidence-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-folio-assistant-core-scenarios-roles-json-evidence-agent",
+    "title": "Evidence agent",
+    "skills": []
+   }
+  },
+  "Task_DataRepos": {
+   "id": "Task_DataRepos",
+   "name": "Query data repositories and statistical datasets",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "evidence-retrieval.html#step-Task_DataRepos",
+   "lane": "Evidence agent (system)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "evidence-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-folio-assistant-core-scenarios-roles-json-evidence-agent",
+    "title": "Evidence agent",
+    "skills": []
+   }
+  },
+  "Task_VerifyAuthority": {
+   "id": "Task_VerifyAuthority",
+   "name": "Verify authority against the registry",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "evidence-retrieval.html#step-Task_VerifyAuthority",
+   "lane": "Trusted registries and observatories (external)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Trusted",
+   "skills": [],
+   "role": {
+    "name": "external-registry",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-external-registry",
+    "title": "External registry",
+    "skills": []
+   }
+  },
+  "Task_RecordUnverified": {
+   "id": "Task_RecordUnverified",
+   "name": "Open a bean for the unverified citation",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "evidence-retrieval.html#step-Task_RecordUnverified",
+   "lane": "Author / guideline developer (person)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_AppraiseGrade": {
+   "id": "Task_AppraiseGrade",
+   "name": "Appraise and grade the body of evidence",
+   "type": "bpmn:UserTask",
+   "stepHref": "evidence-retrieval.html#step-Task_AppraiseGrade",
+   "lane": "Author / guideline developer (person)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_RecordGap": {
+   "id": "Task_RecordGap",
+   "name": "Record the evidence gap",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "evidence-retrieval.html#step-Task_RecordGap",
+   "lane": "Author / guideline developer (person)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  },
+  "Task_AttachEvidence": {
+   "id": "Task_AttachEvidence",
+   "name": "Attach the evidence",
+   "type": "bpmn:UserTask",
+   "stepHref": "evidence-retrieval.html#step-Task_AttachEvidence",
+   "lane": "Author / guideline developer (person)",
+   "laneHref": "evidence-retrieval.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "author",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-author",
+    "title": "Author",
+    "skills": []
+   }
+  }
+ }
+}

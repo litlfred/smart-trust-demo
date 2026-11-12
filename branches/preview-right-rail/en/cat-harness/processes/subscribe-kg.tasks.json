@@ -1,0 +1,317 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_SubscribeKg",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Pin",
+   "name": "Name the substrate, pin a full commit SHA",
+   "left": 10.28,
+   "top": 7.58,
+   "box": {
+    "left": 7.47,
+    "top": 17.91,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_Validate",
+   "name": "Fetch and validate the pinned declaration",
+   "left": 16.82,
+   "top": 35.12,
+   "box": {
+    "left": 14.01,
+    "top": 45.45,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_Refuse",
+   "name": "Record why it is not a substrate; write no entry",
+   "left": 21.53,
+   "top": 62.67,
+   "box": {
+    "left": 18.72,
+    "top": 73,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_Record",
+   "name": "Write the entry and cache the declaration",
+   "left": 33.57,
+   "top": 62.67,
+   "box": {
+    "left": 30.76,
+    "top": 73,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Call_Refresh",
+   "name": "Refresh the held part",
+   "left": 46.91,
+   "top": 35.12,
+   "box": {
+    "left": 44.1,
+    "top": 45.45,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_RePin",
+   "name": "Move the entry's ref and re-cache the declaration",
+   "left": 46.91,
+   "top": 62.67,
+   "box": {
+    "left": 44.1,
+    "top": 73,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_Review",
+   "name": "Review what the substrate offers",
+   "left": 55.29,
+   "top": 7.58,
+   "box": {
+    "left": 52.47,
+    "top": 17.91,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_Choose",
+   "name": "Choose subgraphs, the asset policy, harnesses",
+   "left": 61.83,
+   "top": 7.58,
+   "box": {
+    "left": 59.01,
+    "top": 17.91,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Call_Materialize",
+   "name": "Materialise the part",
+   "left": 79.09,
+   "top": 35.12,
+   "box": {
+    "left": 76.28,
+    "top": 45.45,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_Instantiate",
+   "name": "Instantiate the harness: write its config",
+   "left": 92.7,
+   "top": 35.12,
+   "box": {
+    "left": 89.89,
+    "top": 45.45,
+    "width": 0.63,
+    "height": 3.31
+   }
+  },
+  {
+   "id": "Task_Summarise",
+   "name": "Record how each part of the walk ended",
+   "left": 92.7,
+   "top": 62.67,
+   "box": {
+    "left": 89.89,
+    "top": 73,
+    "width": 0.63,
+    "height": 3.31
+   }
+  }
+ ],
+ "processHref": "subscribe-kg.html",
+ "tasks": {
+  "Task_Pin": {
+   "id": "Task_Pin",
+   "name": "Name the substrate, pin a full commit SHA",
+   "type": "bpmn:UserTask",
+   "stepHref": "subscribe-kg.html#step-Task_Pin",
+   "lane": "Subscriber (the folio's owner)",
+   "laneHref": "subscribe-kg.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "user",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-user",
+    "title": "User",
+    "skills": []
+   }
+  },
+  "Task_Validate": {
+   "id": "Task_Validate",
+   "name": "Fetch and validate the pinned declaration",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "subscribe-kg.html#step-Task_Validate",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Refuse": {
+   "id": "Task_Refuse",
+   "name": "Record why it is not a substrate; write no entry",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "subscribe-kg.html#step-Task_Refuse",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Record": {
+   "id": "Task_Record",
+   "name": "Write the entry and cache the declaration",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "subscribe-kg.html#step-Task_Record",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Call_Refresh": {
+   "id": "Call_Refresh",
+   "name": "Refresh the held part",
+   "type": "bpmn:CallActivity",
+   "stepHref": "subscribe-kg.html#step-Call_Refresh",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "calls": {
+    "name": "Refresh materialized remote content",
+    "href": "refresh-materialized.html",
+    "diagram": "refresh-materialized.html"
+   },
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_RePin": {
+   "id": "Task_RePin",
+   "name": "Move the entry's ref and re-cache the declaration",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "subscribe-kg.html#step-Task_RePin",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Review": {
+   "id": "Task_Review",
+   "name": "Review what the substrate offers",
+   "type": "bpmn:UserTask",
+   "stepHref": "subscribe-kg.html#step-Task_Review",
+   "lane": "Subscriber (the folio's owner)",
+   "laneHref": "subscribe-kg.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "user",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-user",
+    "title": "User",
+    "skills": []
+   }
+  },
+  "Task_Choose": {
+   "id": "Task_Choose",
+   "name": "Choose subgraphs, the asset policy, harnesses",
+   "type": "bpmn:UserTask",
+   "stepHref": "subscribe-kg.html#step-Task_Choose",
+   "lane": "Subscriber (the folio's owner)",
+   "laneHref": "subscribe-kg.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "user",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-user",
+    "title": "User",
+    "skills": []
+   }
+  },
+  "Call_Materialize": {
+   "id": "Call_Materialize",
+   "name": "Materialise the part",
+   "type": "bpmn:CallActivity",
+   "stepHref": "subscribe-kg.html#step-Call_Materialize",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "calls": {
+    "name": "Materialize remote content: the shared subprocess",
+    "href": "materialize-remote.html",
+    "diagram": "materialize-remote.html"
+   },
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Instantiate": {
+   "id": "Task_Instantiate",
+   "name": "Instantiate the harness: write its config",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "subscribe-kg.html#step-Task_Instantiate",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Summarise": {
+   "id": "Task_Summarise",
+   "name": "Record how each part of the walk ended",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "subscribe-kg.html#step-Task_Summarise",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "subscribe-kg.html#lane-Lane_1",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  }
+ }
+}

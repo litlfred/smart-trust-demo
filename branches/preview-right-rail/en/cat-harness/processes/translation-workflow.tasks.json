@@ -1,0 +1,363 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_Translation",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_PotExtract",
+   "name": "Extract translatable strings (POT)",
+   "left": 15.13,
+   "top": 16.06,
+   "box": {
+    "left": 10.07,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_TermBase",
+   "name": "Build and review the locale term base",
+   "left": 25.26,
+   "top": 16.06,
+   "box": {
+    "left": 20.19,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_Translate",
+   "name": "Produce translation (PO file)",
+   "left": 35.39,
+   "top": 16.06,
+   "box": {
+    "left": 30.32,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_PoInject",
+   "name": "Inject translations (PO → Markdown)",
+   "left": 45.52,
+   "top": 16.06,
+   "box": {
+    "left": 40.45,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_RoundTripQA",
+   "name": "Round-trip translation QA (back-translate)",
+   "left": 55.64,
+   "top": 16.06,
+   "box": {
+    "left": 50.58,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_GlossaryCheck",
+   "name": "Check glossary terms (translation:glossary:check)",
+   "left": 65.77,
+   "top": 16.06,
+   "box": {
+    "left": 60.71,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_Adjudicate",
+   "name": "Adjudicate the flagged passage (human)",
+   "left": 73.81,
+   "top": 51.75,
+   "box": {
+    "left": 68.74,
+    "top": 66.49,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_EditTranslation",
+   "name": "Edit the flagged passage and re-inject",
+   "left": 45.52,
+   "top": 51.75,
+   "box": {
+    "left": 40.45,
+    "top": 66.49,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_WriteUnofficial",
+   "name": "Write status.json (unofficial)",
+   "left": 83.93,
+   "top": 16.06,
+   "box": {
+    "left": 78.87,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_Signoff",
+   "name": "Sign off translation (human adjudicator)",
+   "left": 99.65,
+   "top": 16.06,
+   "box": {
+    "left": 94.59,
+    "top": 30.8,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_WriteOfficial",
+   "name": "Write status.json (official)",
+   "left": 99.65,
+   "top": 51.75,
+   "box": {
+    "left": 94.59,
+    "top": 66.49,
+    "width": 1.68,
+    "height": 3.72
+   }
+  },
+  {
+   "id": "Task_StalenessCheck",
+   "name": "Check staleness (source hash)",
+   "left": 99.65,
+   "top": 78.12,
+   "box": {
+    "left": 94.59,
+    "top": 92.86,
+    "width": 1.68,
+    "height": 3.72
+   }
+  }
+ ],
+ "processHref": "translation-workflow.html",
+ "tasks": {
+  "Task_PotExtract": {
+   "id": "Task_PotExtract",
+   "name": "Extract translatable strings (POT)",
+   "type": "bpmn:Task",
+   "stepHref": "translation-workflow.html#step-Task_PotExtract",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "shared": {
+    "id": "GT_ExtractPot",
+    "type": "bpmn:GlobalTask"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_TermBase": {
+   "id": "Task_TermBase",
+   "name": "Build and review the locale term base",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "translation-workflow.html#step-Task_TermBase",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_Translate": {
+   "id": "Task_Translate",
+   "name": "Produce translation (PO file)",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "translation-workflow.html#step-Task_Translate",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_PoInject": {
+   "id": "Task_PoInject",
+   "name": "Inject translations (PO → Markdown)",
+   "type": "bpmn:Task",
+   "stepHref": "translation-workflow.html#step-Task_PoInject",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "shared": {
+    "id": "GT_InjectPo",
+    "type": "bpmn:GlobalTask"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_RoundTripQA": {
+   "id": "Task_RoundTripQA",
+   "name": "Round-trip translation QA (back-translate)",
+   "type": "bpmn:Task",
+   "stepHref": "translation-workflow.html#step-Task_RoundTripQA",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "shared": {
+    "id": "GT_RoundTripQa",
+    "type": "bpmn:GlobalTask"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_GlossaryCheck": {
+   "id": "Task_GlossaryCheck",
+   "name": "Check glossary terms (translation:glossary:check)",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "translation-workflow.html#step-Task_GlossaryCheck",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_Adjudicate": {
+   "id": "Task_Adjudicate",
+   "name": "Adjudicate the flagged passage (human)",
+   "type": "bpmn:CallActivity",
+   "stepHref": "translation-workflow.html#step-Task_Adjudicate",
+   "lane": "Human reviewer / adjudicator",
+   "laneHref": "translation-workflow.html#lane-Lane_Reviewer",
+   "skills": [],
+   "calls": {
+    "name": "Process_Adjudication"
+   },
+   "role": {
+    "name": "translation-adjudicator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-translation-adjudicator",
+    "title": "Translation adjudicator",
+    "skills": []
+   }
+  },
+  "Task_EditTranslation": {
+   "id": "Task_EditTranslation",
+   "name": "Edit the flagged passage and re-inject",
+   "type": "bpmn:UserTask",
+   "stepHref": "translation-workflow.html#step-Task_EditTranslation",
+   "lane": "Human reviewer / adjudicator",
+   "laneHref": "translation-workflow.html#lane-Lane_Reviewer",
+   "skills": [],
+   "role": {
+    "name": "translation-adjudicator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-translation-adjudicator",
+    "title": "Translation adjudicator",
+    "skills": []
+   }
+  },
+  "Task_WriteUnofficial": {
+   "id": "Task_WriteUnofficial",
+   "name": "Write status.json (unofficial)",
+   "type": "bpmn:Task",
+   "stepHref": "translation-workflow.html#step-Task_WriteUnofficial",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "shared": {
+    "id": "GT_WriteTranslationStatus",
+    "type": "bpmn:GlobalTask",
+    "inputs": {
+     "official": "false"
+    }
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_Signoff": {
+   "id": "Task_Signoff",
+   "name": "Sign off translation (human adjudicator)",
+   "type": "bpmn:UserTask",
+   "stepHref": "translation-workflow.html#step-Task_Signoff",
+   "lane": "Human reviewer / adjudicator",
+   "laneHref": "translation-workflow.html#lane-Lane_Reviewer",
+   "skills": [],
+   "role": {
+    "name": "translation-adjudicator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-translation-adjudicator",
+    "title": "Translation adjudicator",
+    "skills": []
+   }
+  },
+  "Task_WriteOfficial": {
+   "id": "Task_WriteOfficial",
+   "name": "Write status.json (official)",
+   "type": "bpmn:Task",
+   "stepHref": "translation-workflow.html#step-Task_WriteOfficial",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "shared": {
+    "id": "GT_WriteTranslationStatus",
+    "type": "bpmn:GlobalTask",
+    "inputs": {
+     "official": "true"
+    }
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_StalenessCheck": {
+   "id": "Task_StalenessCheck",
+   "name": "Check staleness (source hash)",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "translation-workflow.html#step-Task_StalenessCheck",
+   "lane": "Agent / platform (automated)",
+   "laneHref": "translation-workflow.html#lane-Lane_Platform",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

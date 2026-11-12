@@ -1,0 +1,523 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_IgIncremental",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Restore",
+   "name": "Restore derived state",
+   "left": 11.08,
+   "top": 31.31,
+   "box": {
+    "left": 8.75,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_LogEnvError",
+   "name": "Log the environment error on the bean",
+   "left": 16.37,
+   "top": 18.1,
+   "box": {
+    "left": 13.88,
+    "top": 24.46,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_FullBuild",
+   "name": "Full publisher build",
+   "left": 21.35,
+   "top": 45.99,
+   "box": {
+    "left": 19.02,
+    "top": 55.28,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Cone",
+   "name": "Compute the cone of the change",
+   "left": 21.35,
+   "top": 31.31,
+   "box": {
+    "left": 19.02,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_ConeReport",
+   "name": "Post the cone report on the PR",
+   "left": 26.48,
+   "top": 60.67,
+   "box": {
+    "left": 24.16,
+    "top": 69.96,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Checkout",
+   "name": "Restricted checkout of the backward cone",
+   "left": 26.48,
+   "top": 31.31,
+   "box": {
+    "left": 24.16,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Sushi",
+   "name": "SUSHI on the restricted tank",
+   "left": 31.62,
+   "top": 31.31,
+   "box": {
+    "left": 29.29,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_ContextLoad",
+   "name": "Load or reuse the warm context",
+   "left": 36.76,
+   "top": 45.99,
+   "box": {
+    "left": 34.43,
+    "top": 55.28,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Validate",
+   "name": "Validate the cone (fhir_validate)",
+   "left": 41.89,
+   "top": 45.99,
+   "box": {
+    "left": 39.57,
+    "top": 55.28,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_LogFindings",
+   "name": "Log findings on the bean",
+   "left": 47.19,
+   "top": 18.1,
+   "box": {
+    "left": 44.7,
+    "top": 24.46,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Render",
+   "name": "Re-render the cone's records (fhir_narrative · skip lists)",
+   "left": 52.17,
+   "top": 31.31,
+   "box": {
+    "left": 49.84,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Merge",
+   "name": "Merge restored and rebuilt records",
+   "left": 57.3,
+   "top": 31.31,
+   "box": {
+    "left": 54.98,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Index",
+   "name": "Rebuild the meta-index (ig_metaindex_rebuild)",
+   "left": 62.44,
+   "top": 31.31,
+   "box": {
+    "left": 60.11,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Site",
+   "name": "Assemble the site",
+   "left": 67.58,
+   "top": 31.31,
+   "box": {
+    "left": 65.25,
+    "top": 40.61,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Qa",
+   "name": "Run QC gates on the aggregate QA",
+   "left": 72.71,
+   "top": 60.67,
+   "box": {
+    "left": 70.39,
+    "top": 69.96,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_QcBeans",
+   "name": "File QC findings as beans",
+   "left": 78.01,
+   "top": 18.1,
+   "box": {
+    "left": 75.52,
+    "top": 24.46,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_DeployPreview",
+   "name": "Deploy the preview site",
+   "left": 88.12,
+   "top": 60.67,
+   "box": {
+    "left": 85.79,
+    "top": 69.96,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Deploy",
+   "name": "Deploy the site",
+   "left": 88.12,
+   "top": 75.34,
+   "box": {
+    "left": 85.79,
+    "top": 84.64,
+    "width": 0.77,
+    "height": 2.35
+   }
+  },
+  {
+   "id": "Task_Seed",
+   "name": "Seed the cache from the green build",
+   "left": 93.26,
+   "top": 75.34,
+   "box": {
+    "left": 90.93,
+    "top": 84.64,
+    "width": 0.77,
+    "height": 2.35
+   }
+  }
+ ],
+ "processHref": "ig-incremental-build.html",
+ "tasks": {
+  "Task_Restore": {
+   "id": "Task_Restore",
+   "name": "Restore derived state",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Restore",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_LogEnvError": {
+   "id": "Task_LogEnvError",
+   "name": "Log the environment error on the bean",
+   "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_LogEnvError",
+   "lane": "FHIR modeller / PR author (person + authoring agent)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "fhir-modeller",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-fhir-modeller",
+    "title": "FHIR modeller",
+    "skills": []
+   }
+  },
+  "Task_FullBuild": {
+   "id": "Task_FullBuild",
+   "name": "Full publisher build",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_FullBuild",
+   "lane": "Publisher + validator services (JVM)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Services",
+   "skills": [],
+   "role": {
+    "name": "ig-publisher-service",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-ig-publisher-service",
+    "title": "IG publisher + validator",
+    "skills": []
+   }
+  },
+  "Task_Cone": {
+   "id": "Task_Cone",
+   "name": "Compute the cone of the change",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Cone",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_ConeReport": {
+   "id": "Task_ConeReport",
+   "name": "Post the cone report on the PR",
+   "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_ConeReport",
+   "lane": "PR reviewer / QC reviewer",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Review",
+   "skills": [],
+   "role": {
+    "name": "qc-reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-qc-reviewer",
+    "title": "QC reviewer",
+    "skills": []
+   }
+  },
+  "Task_Checkout": {
+   "id": "Task_Checkout",
+   "name": "Restricted checkout of the backward cone",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Checkout",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Sushi": {
+   "id": "Task_Sushi",
+   "name": "SUSHI on the restricted tank",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Sushi",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_ContextLoad": {
+   "id": "Task_ContextLoad",
+   "name": "Load or reuse the warm context",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_ContextLoad",
+   "lane": "Publisher + validator services (JVM)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Services",
+   "skills": [],
+   "role": {
+    "name": "ig-publisher-service",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-ig-publisher-service",
+    "title": "IG publisher + validator",
+    "skills": []
+   }
+  },
+  "Task_Validate": {
+   "id": "Task_Validate",
+   "name": "Validate the cone (fhir_validate)",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Validate",
+   "lane": "Publisher + validator services (JVM)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Services",
+   "skills": [],
+   "role": {
+    "name": "ig-publisher-service",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-ig-publisher-service",
+    "title": "IG publisher + validator",
+    "skills": []
+   }
+  },
+  "Task_LogFindings": {
+   "id": "Task_LogFindings",
+   "name": "Log findings on the bean",
+   "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_LogFindings",
+   "lane": "FHIR modeller / PR author (person + authoring agent)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "fhir-modeller",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-fhir-modeller",
+    "title": "FHIR modeller",
+    "skills": []
+   }
+  },
+  "Task_Render": {
+   "id": "Task_Render",
+   "name": "Re-render the cone's records (fhir_narrative · skip lists)",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Render",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Merge": {
+   "id": "Task_Merge",
+   "name": "Merge restored and rebuilt records",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Merge",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Index": {
+   "id": "Task_Index",
+   "name": "Rebuild the meta-index (ig_metaindex_rebuild)",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Index",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Site": {
+   "id": "Task_Site",
+   "name": "Assemble the site",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Site",
+   "lane": "Incremental build (system)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Build",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Qa": {
+   "id": "Task_Qa",
+   "name": "Run QC gates on the aggregate QA",
+   "type": "bpmn:UserTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Qa",
+   "lane": "PR reviewer / QC reviewer",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Review",
+   "skills": [],
+   "role": {
+    "name": "qc-reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-qc-reviewer",
+    "title": "QC reviewer",
+    "skills": []
+   }
+  },
+  "Task_QcBeans": {
+   "id": "Task_QcBeans",
+   "name": "File QC findings as beans",
+   "type": "bpmn:Task",
+   "stepHref": "ig-incremental-build.html#step-Task_QcBeans",
+   "lane": "FHIR modeller / PR author (person + authoring agent)",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Author",
+   "skills": [],
+   "role": {
+    "name": "fhir-modeller",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-fhir-modeller",
+    "title": "FHIR modeller",
+    "skills": []
+   }
+  },
+  "Task_DeployPreview": {
+   "id": "Task_DeployPreview",
+   "name": "Deploy the preview site",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_DeployPreview",
+   "lane": "PR reviewer / QC reviewer",
+   "laneHref": "ig-incremental-build.html#lane-Lane_Review",
+   "skills": [],
+   "role": {
+    "name": "qc-reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-qc-reviewer",
+    "title": "QC reviewer",
+    "skills": []
+   }
+  },
+  "Task_Deploy": {
+   "id": "Task_Deploy",
+   "name": "Deploy the site",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Deploy",
+   "lane": "Publication manager — deploy and seed",
+   "laneHref": "ig-incremental-build.html#lane-Lane_PubMgr",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_Seed": {
+   "id": "Task_Seed",
+   "name": "Seed the cache from the green build",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ig-incremental-build.html#step-Task_Seed",
+   "lane": "Publication manager — deploy and seed",
+   "laneHref": "ig-incremental-build.html#lane-Lane_PubMgr",
+   "skills": [],
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  }
+ }
+}

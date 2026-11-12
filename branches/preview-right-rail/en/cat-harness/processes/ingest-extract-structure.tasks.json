@@ -1,0 +1,172 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_ExtractStructure",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_ExtractText",
+   "name": "Extract the text layer",
+   "left": 34.4,
+   "top": 8.06,
+   "box": {
+    "left": 29.26,
+    "top": 38.71,
+    "width": 1.7,
+    "height": 7.74
+   }
+  },
+  {
+   "id": "Task_PageCheck",
+   "name": "Check each page; OCR pages that fail",
+   "left": 48.58,
+   "top": 8.06,
+   "box": {
+    "left": 43.44,
+    "top": 38.71,
+    "width": 1.7,
+    "height": 7.74
+   }
+  },
+  {
+   "id": "Task_Ocr",
+   "name": "OCR to ocr/page-*.txt",
+   "left": 34.4,
+   "top": 53.23,
+   "box": {
+    "left": 29.26,
+    "top": 83.87,
+    "width": 1.7,
+    "height": 7.74
+   }
+  },
+  {
+   "id": "Task_Sections",
+   "name": "Split into sections/*.md with doc_brief front-matter",
+   "left": 64.18,
+   "top": 30.65,
+   "box": {
+    "left": 59.04,
+    "top": 61.29,
+    "width": 1.7,
+    "height": 7.74
+   }
+  },
+  {
+   "id": "Task_Structure",
+   "name": "Write structure.json",
+   "left": 76.95,
+   "top": 30.65,
+   "box": {
+    "left": 71.81,
+    "top": 61.29,
+    "width": 1.7,
+    "height": 7.74
+   }
+  },
+  {
+   "id": "Task_Candidates",
+   "name": "Extract claim candidates",
+   "left": 89.72,
+   "top": 30.65,
+   "box": {
+    "left": 84.57,
+    "top": 61.29,
+    "width": 1.7,
+    "height": 7.74
+   }
+  }
+ ],
+ "processHref": "ingest-extract-structure.html",
+ "tasks": {
+  "Task_ExtractText": {
+   "id": "Task_ExtractText",
+   "name": "Extract the text layer",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_ExtractText",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_PageCheck": {
+   "id": "Task_PageCheck",
+   "name": "Check each page; OCR pages that fail",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_PageCheck",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Ocr": {
+   "id": "Task_Ocr",
+   "name": "OCR to ocr/page-*.txt",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Ocr",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Sections": {
+   "id": "Task_Sections",
+   "name": "Split into sections/*.md with doc_brief front-matter",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Sections",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Structure": {
+   "id": "Task_Structure",
+   "name": "Write structure.json",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Structure",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Candidates": {
+   "id": "Task_Candidates",
+   "name": "Extract claim candidates",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "ingest-extract-structure.html#step-Task_Candidates",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "ingest-extract-structure.html#lane-Lane_0",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  }
+ }
+}

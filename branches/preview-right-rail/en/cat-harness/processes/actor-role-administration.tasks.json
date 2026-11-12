@@ -1,0 +1,175 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_ActorRoleAdministration",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_AddActor",
+   "name": "Add an actor, and declare its kind",
+   "left": 43.61,
+   "top": 6.1,
+   "box": {
+    "left": 35.9,
+    "top": 13.94,
+    "width": 1.8,
+    "height": 4.18
+   }
+  },
+  {
+   "id": "Task_AssignRoles",
+   "name": "Open or close a role to an actor",
+   "left": 43.61,
+   "top": 20.82,
+   "box": {
+    "left": 35.9,
+    "top": 30.57,
+    "width": 1.8,
+    "height": 4.18
+   }
+  },
+  {
+   "id": "Task_GrantOrRevoke",
+   "name": "Grant or revoke a permission",
+   "left": 43.61,
+   "top": 37.46,
+   "box": {
+    "left": 35.9,
+    "top": 45.3,
+    "width": 1.8,
+    "height": 4.18
+   }
+  },
+  {
+   "id": "Task_RetireActor",
+   "name": "Retire an actor — never delete one",
+   "left": 43.61,
+   "top": 53.14,
+   "box": {
+    "left": 35.9,
+    "top": 60.98,
+    "width": 1.8,
+    "height": 4.18
+   }
+  },
+  {
+   "id": "CallActivity_CodeChangeReview",
+   "name": "Branch, gates, PR and review",
+   "left": 68.05,
+   "top": 24.91,
+   "box": {
+    "left": 62.59,
+    "top": 41.46,
+    "width": 1.8,
+    "height": 4.18
+   }
+  },
+  {
+   "id": "Task_RunKgAudit",
+   "name": "Audit the graph",
+   "left": 68.05,
+   "top": 76.13,
+   "box": {
+    "left": 62.59,
+    "top": 92.68,
+    "width": 1.8,
+    "height": 4.18
+   }
+  }
+ ],
+ "processHref": "actor-role-administration.html",
+ "tasks": {
+  "Task_AddActor": {
+   "id": "Task_AddActor",
+   "name": "Add an actor, and declare its kind",
+   "type": "bpmn:UserTask",
+   "stepHref": "actor-role-administration.html#step-Task_AddActor",
+   "lane": "Administrator",
+   "laneHref": "actor-role-administration.html#lane-Lane_Administrator",
+   "skills": [],
+   "role": {
+    "name": "administrator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-administrator",
+    "title": "Administrator",
+    "skills": []
+   }
+  },
+  "Task_AssignRoles": {
+   "id": "Task_AssignRoles",
+   "name": "Open or close a role to an actor",
+   "type": "bpmn:UserTask",
+   "stepHref": "actor-role-administration.html#step-Task_AssignRoles",
+   "lane": "Administrator",
+   "laneHref": "actor-role-administration.html#lane-Lane_Administrator",
+   "skills": [],
+   "role": {
+    "name": "administrator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-administrator",
+    "title": "Administrator",
+    "skills": []
+   }
+  },
+  "Task_GrantOrRevoke": {
+   "id": "Task_GrantOrRevoke",
+   "name": "Grant or revoke a permission",
+   "type": "bpmn:UserTask",
+   "stepHref": "actor-role-administration.html#step-Task_GrantOrRevoke",
+   "lane": "Administrator",
+   "laneHref": "actor-role-administration.html#lane-Lane_Administrator",
+   "skills": [],
+   "role": {
+    "name": "administrator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-administrator",
+    "title": "Administrator",
+    "skills": []
+   }
+  },
+  "Task_RetireActor": {
+   "id": "Task_RetireActor",
+   "name": "Retire an actor — never delete one",
+   "type": "bpmn:UserTask",
+   "stepHref": "actor-role-administration.html#step-Task_RetireActor",
+   "lane": "Administrator",
+   "laneHref": "actor-role-administration.html#lane-Lane_Administrator",
+   "skills": [],
+   "role": {
+    "name": "administrator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-administrator",
+    "title": "Administrator",
+    "skills": []
+   }
+  },
+  "CallActivity_CodeChangeReview": {
+   "id": "CallActivity_CodeChangeReview",
+   "name": "Branch, gates, PR and review",
+   "type": "bpmn:CallActivity",
+   "stepHref": "actor-role-administration.html#step-CallActivity_CodeChangeReview",
+   "lane": "Administrator",
+   "laneHref": "actor-role-administration.html#lane-Lane_Administrator",
+   "skills": [],
+   "calls": {
+    "name": "Process_CodeChangeReview"
+   },
+   "role": {
+    "name": "administrator",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-administrator",
+    "title": "Administrator",
+    "skills": []
+   }
+  },
+  "Task_RunKgAudit": {
+   "id": "Task_RunKgAudit",
+   "name": "Audit the graph",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "actor-role-administration.html#step-Task_RunKgAudit",
+   "lane": "Graph audit (system)",
+   "laneHref": "actor-role-administration.html#lane-Lane_Audit",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  }
+ }
+}

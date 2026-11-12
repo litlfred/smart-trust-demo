@@ -1,0 +1,207 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_IrisCdnReconcile",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_ListAll",
+   "name": "List every item id IRIS reports",
+   "left": 22.3,
+   "top": 5.7,
+   "box": {
+    "left": 18.36,
+    "top": 37.58,
+    "width": 1.3,
+    "height": 8.05
+   }
+  },
+  {
+   "id": "Task_Compare",
+   "name": "Compare with the ids the library holds",
+   "left": 32.62,
+   "top": 5.7,
+   "box": {
+    "left": 28.68,
+    "top": 37.58,
+    "width": 1.3,
+    "height": 8.05
+   }
+  },
+  {
+   "id": "Task_Escalate",
+   "name": "Treat the listing as faulty; escalate",
+   "left": 53.27,
+   "top": 54.03,
+   "box": {
+    "left": 49.33,
+    "top": 85.91,
+    "width": 1.3,
+    "height": 8.05
+   }
+  },
+  {
+   "id": "Task_Recheck",
+   "name": "Re-check each missing item by id",
+   "left": 53.27,
+   "top": 5.7,
+   "box": {
+    "left": 49.33,
+    "top": 37.58,
+    "width": 1.3,
+    "height": 8.05
+   }
+  },
+  {
+   "id": "Task_MarkWithdrawn",
+   "name": "Mark confirmed items withdrawn (keep bytes)",
+   "left": 63.6,
+   "top": 5.7,
+   "box": {
+    "left": 59.66,
+    "top": 37.58,
+    "width": 1.3,
+    "height": 8.05
+   }
+  },
+  {
+   "id": "Call_Rebuild",
+   "name": "Rebuild the whole graph (sorted output)",
+   "left": 73.92,
+   "top": 5.7,
+   "box": {
+    "left": 69.98,
+    "top": 37.58,
+    "width": 1.3,
+    "height": 8.05
+   }
+  },
+  {
+   "id": "Call_SignPublish",
+   "name": "Sign and publish the release",
+   "left": 84.24,
+   "top": 5.7,
+   "box": {
+    "left": 80.3,
+    "top": 37.58,
+    "width": 1.3,
+    "height": 8.05
+   }
+  }
+ ],
+ "processHref": "iris-cdn-reconcile.html",
+ "tasks": {
+  "Task_ListAll": {
+   "id": "Task_ListAll",
+   "name": "List every item id IRIS reports",
+   "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_ListAll",
+   "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Compare": {
+   "id": "Task_Compare",
+   "name": "Compare with the ids the library holds",
+   "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_Compare",
+   "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_Escalate": {
+   "id": "Task_Escalate",
+   "name": "Treat the listing as faulty; escalate",
+   "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_Escalate",
+   "lane": "IRIS CDN Exporter (agent)",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Exporter",
+   "skills": [],
+   "role": {
+    "name": "iris-cdn-exporter",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-who-iris-scenarios-roles-json-iris-cdn-exporter",
+    "title": "IRIS CDN Exporter",
+    "skills": []
+   }
+  },
+  "Task_Recheck": {
+   "id": "Task_Recheck",
+   "name": "Re-check each missing item by id",
+   "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_Recheck",
+   "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_MarkWithdrawn": {
+   "id": "Task_MarkWithdrawn",
+   "name": "Mark confirmed items withdrawn (keep bytes)",
+   "type": "bpmn:Task",
+   "stepHref": "iris-cdn-reconcile.html#step-Task_MarkWithdrawn",
+   "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Call_Rebuild": {
+   "id": "Call_Rebuild",
+   "name": "Rebuild the whole graph (sorted output)",
+   "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-reconcile.html#step-Call_Rebuild",
+   "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
+   "skills": [],
+   "calls": {
+    "name": "Process_NQuadsDistribution"
+   },
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Call_SignPublish": {
+   "id": "Call_SignPublish",
+   "name": "Sign and publish the release",
+   "type": "bpmn:CallActivity",
+   "stepHref": "iris-cdn-reconcile.html#step-Call_SignPublish",
+   "lane": "Build pipeline",
+   "laneHref": "iris-cdn-reconcile.html#lane-Lane_Pipeline",
+   "skills": [],
+   "calls": {
+    "name": "Sign and publish an IRIS CDN release",
+    "href": "iris-cdn-sign-publish.html",
+    "diagram": "iris-cdn-sign-publish.html"
+   },
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  }
+ }
+}

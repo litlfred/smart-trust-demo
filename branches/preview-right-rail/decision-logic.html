@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en" dir="/">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision-support Logic — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="./decision-logic.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="./assets/page-layout.css" data-fa-page-layout>
+<script src="./assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="./assets/ig-artifact.css">
+<link rel="stylesheet" href="./assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="./assets/navbar/row-2acuhncsmbg.js" defer></script><script src="./assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="./assets/css/navbar.css"><script src="./assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="./assets/js/navbar.js" defer></script><link rel="stylesheet" href="./assets/css/navbar-row.css"><script src="./assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content="."></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+var b=document.querySelector('[data-fa-staging-banner]'),d=document.querySelector('[data-fa-staging-detail]');
+if(b)document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');
+var m=location.pathname.match(/^(.*\/(?:branches|STAGING)\/[^/]+\/)/);
+if(!m){if(d)d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+var s=document.createElement('script');s.src=m[1]+'staging-banner.js';
+s.onerror=function(){if(d)d.textContent='\u2014 build details unavailable';};
+(document.head||document.documentElement).appendChild(s);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root="." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root=".">{"data":"rail-23mbhbo4s6d","here":"/decision-logic.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="./">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="./index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="./index.html">Summary</a></li><li><a href="./changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="./journeys.html">Journeys J1 to J4</a></li><li><a href="./countries.html">Fictional Countries</a></li><li><a href="./journey-examples.html">Journey Examples</a></li><li><a href="./architecture.html">Architecture (ArchiMate)</a></li><li><a href="./plan.html">Plan</a></li><li><a href="./proposal-app-platform.html">App Platform Proposal</a></li><li><a href="./dependencies.html">Dependency Register</a></li><li><a href="./upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="./personas.html">Generic Personas</a></li><li><a href="./scenarios.html">User Scenarios</a></li><li><a href="./business-processes.html">Business Processes</a></li><li><a href="./dictionary.html">Data Dictionary</a></li><li><a href="./decision-logic.html">Decision-support Logic</a></li><li><a href="./indicators.html">Indicators and Performance Metrics</a></li><li><a href="./functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="./system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="./artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="./assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="./assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from processes/content/decisions/*.dmn. Do not edit; edit the source and rerun. -->
+
+<p>The decision-support logic is the DAK’s component 6: the decisions the journeys make, as decision tables in the <a href="https://www.omg.org/dmn/">OMG Decision Model and Notation</a> (DMN 1.3), as the <a href="https://smart.who.int/ig-starter-kit/l2_dak.html">WHO SMART Guidelines DAK</a> writes them. Each table names the business-process tasks it serves, the requirements it applies, the <a href="dictionary.html">data elements</a> it reads and the FHIR artifacts that show it in the examples. Each is also a <code class="language-plaintext highlighter-rouge">PlanDefinition</code> (type <code class="language-plaintext highlighter-rouge">eca-rule</code>) with one action per rule, so it is listed in the <a href="artifacts.html">artifact index</a>.</p>
+
+<p>The sources are <code class="language-plaintext highlighter-rouge">processes/content/decisions/*.dmn</code>; this page and the PlanDefinitions are generated from them. The entries use the FEEL subset the harness’s decision-table interpreter accepts: <code class="language-plaintext highlighter-rouge">-</code> (any), literals, comparisons and one-of. Every table’s hit policy is FIRST: the rules are tried in order and the first that matches applies, so the order is part of the logic. Where a rule says “by national policy”, the policy is the home country’s; the tables illustrate the decisions, they are not a country’s rules.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Decision table</th>
+      <th>Serves</th>
+      <th>Requirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01 What does a scanned DVC become in the child’s record?</a></td>
+      <td><a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 Discover and refer an unregistered infant in Country B</a>: Read each DVC unverified (triage) (<code class="language-plaintext highlighter-rouge">Task_Read</code>); Add the infant; save doses as reported (<code class="language-plaintext highlighter-rouge">Task_Register</code>)<br /><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Verify each HCERT against the trust list (<code class="language-plaintext highlighter-rouge">Task_Verify</code>); Every DVC verified? (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>); Note the failure; decide doses by policy (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>); Import the doses as FHIR Immunization resources (<code class="language-plaintext highlighter-rouge">Task_Import</code>)</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt02-which-national-schedule-code-does-an-imported-dose-carry">TD.DT.02 Which national schedule code does an imported dose carry?</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Add national codes beside foreign ones (<code class="language-plaintext highlighter-rouge">Task_Map</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt03-does-the-national-schedule-count-this-dose">TD.DT.03 Does the national schedule count this dose?</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Evaluate the national schedule (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>, <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt04-is-this-dose-of-the-national-schedule-due">TD.DT.04 Is this dose of the national schedule due?</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Evaluate the national schedule (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>); Give due doses and book the next visit (<code class="language-plaintext highlighter-rouge">Task_Plan</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt05-does-the-portal-release-the-manifest-for-this-request">TD.DT.05 Does the portal release the manifest for this request?</a></td>
+      <td><a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 Read a family member’s records at the point of care abroad</a>: Check passcode, log access, return manifest (<code class="language-plaintext highlighter-rouge">Task_Release</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt06-does-the-receiver-follow-the-vhl">TD.DT.06 Does the receiver follow the VHL?</a></td>
+      <td><a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 Read a family member’s records at the point of care abroad</a>: Verify the HCERT and read the VHL at key 5 (<code class="language-plaintext highlighter-rouge">Task_Verify</code>); HCERT verified? (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>); Not verified: treat records as paper (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>); Request the manifest (ITI-YY5), signed (<code class="language-plaintext highlighter-rouge">Task_Fetch</code>)</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01 What does a scanned DVC become in the child’s record?</h3>
+
+<p>From the result of reading one foreign DVC, decide whether its dose is recorded as verified, kept as reported and not verified, or not recorded from it at all.</p>
+
+<ul>
+  <li><strong>Serves:</strong> <a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 Discover and refer an unregistered infant in Country B</a>: Read each DVC unverified (triage) (<code class="language-plaintext highlighter-rouge">Task_Read</code>); Add the infant; save doses as reported (<code class="language-plaintext highlighter-rouge">Task_Register</code>); <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Verify each HCERT against the trust list (<code class="language-plaintext highlighter-rouge">Task_Verify</code>); Every DVC verified? (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>); Note the failure; decide doses by policy (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>); Import the doses as FHIR Immunization resources (<code class="language-plaintext highlighter-rouge">Task_Import</code>)</li>
+  <li><strong>Requirements:</strong> <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></li>
+  <li><strong>Data elements:</strong> <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE05</a> Verification result, <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE07</a> Failure reason, <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> Record outcome</li>
+  <li><strong>In the examples:</strong> <a href="artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a>, <a href="artifact/StructureDefinition-TrustDemoOnesaDvcVerification.html">StructureDefinition TrustDemoOnesaDvcVerification</a>, <a href="artifact/Provenance-TrustDemoJ3Verification.html">Provenance TrustDemoJ3Verification</a></li>
+  <li><strong>Computable form:</strong> <a href="artifact/PlanDefinition-TrustDemoDT01.html">PlanDefinition TrustDemoDT01</a>; source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dvc-record-outcome.dmn">dvc-record-outcome.dmn</a>, hit policy FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Verification result (<code class="language-plaintext highlighter-rouge">result</code>)</th>
+      <th>Failure reason (<code class="language-plaintext highlighter-rouge">failureReason</code>)</th>
+      <th><strong>Record outcome</strong> (<code class="language-plaintext highlighter-rouge">outcome</code>)</th>
+      <th><strong>Action</strong> (<code class="language-plaintext highlighter-rouge">action</code>)</th>
+      <th>Annotation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">unverified</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>Save the dose as reported by the family (primarySource false, the caregiver as information source, a note that nothing is verified) and refer the child to the clinic for verification.</td>
+      <td>The CHW’s triage read in J2 (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>): nothing is verified, so the dose is reported, never verified. Example Immunization TrustDemoJ2HepBReported.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td>Import the dose with primarySource true and a verification Provenance that names the signer’s key and removes the reported dose it replaces; then map its vaccine code (TD.DT.02).</td>
+      <td>J3’s yes path (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>): the dose is recorded from its primary source. Examples Immunization TrustDemoJ3HepB and Provenance TrustDemoJ3Verification.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">KidNotFound</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>Keep the dose as reported; record the step and reason (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>); verify the DVC again after the next trust-list refresh.</td>
+      <td>The signer’s certificate is not in the clinic’s cached trust list (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>), for example a signer added after the last refresh: J3’s no path “until the next refresh”.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>one of <code class="language-plaintext highlighter-rouge">Expired</code>, <code class="language-plaintext highlighter-rouge">NotYetValid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>Keep the dose as reported; record the step and reason; the clinician decides by national policy whether to give or repeat the dose.</td>
+      <td>The signature verified, but the certificate is outside its validity period. The dose is not verified; the clinician decides by national policy.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>one of <code class="language-plaintext highlighter-rouge">BadPrefix</code>, <code class="language-plaintext highlighter-rouge">UnsupportedContextVersion</code>, <code class="language-plaintext highlighter-rouge">Base45Invalid</code>, <code class="language-plaintext highlighter-rouge">InflateFailed</code>, <code class="language-plaintext highlighter-rouge">LimitExceeded</code>, <code class="language-plaintext highlighter-rouge">CoseMalformed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not-read</code></td>
+      <td>Scan again; if it still fails, treat the card as paper and record why it was not verified.</td>
+      <td>Decoding failed before any signature check (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a> order), so nothing was read: three states, not two, since a bad scan is not evidence either way.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">rejected</code></td>
+      <td>Do not record a dose from this certificate; record the step and reason; the clinician decides by national policy, as for an undocumented dose.</td>
+      <td>Any other failure (signature, key usage, header, algorithm, hcert claim or payload): the certificate is not evidence of a dose.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt02-which-national-schedule-code-does-an-imported-dose-carry">TD.DT.02 Which national schedule code does an imported dose carry?</h3>
+
+<p>For one dose, decide whether and how the national schedule code is added beside the issuer’s product code, which is always kept.</p>
+
+<ul>
+  <li><strong>Serves:</strong> <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Add national codes beside foreign ones (<code class="language-plaintext highlighter-rouge">Task_Map</code>)</li>
+  <li><strong>Requirements:</strong> <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></li>
+  <li><strong>Data elements:</strong> <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> Record outcome, <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE01</a> Issuer’s product code, <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> National schedule code, <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE03</a> Mapping basis</li>
+  <li><strong>In the examples:</strong> <a href="artifact/ConceptMap-TrustDemoProductToOnesaEpi.html">ConceptMap TrustDemoProductToOnesaEpi</a>, <a href="artifact/Provenance-TrustDemoJ3Adjudication.html">Provenance TrustDemoJ3Adjudication</a>, <a href="artifact/Immunization-TrustDemoJ3HepB.html">Immunization TrustDemoJ3HepB</a></li>
+  <li><strong>Computable form:</strong> <a href="artifact/PlanDefinition-TrustDemoDT02.html">PlanDefinition TrustDemoDT02</a>; source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vaccine-code-mapping.dmn">vaccine-code-mapping.dmn</a>, hit policy FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Record outcome (TD.DT.01) (<code class="language-plaintext highlighter-rouge">outcome</code>)</th>
+      <th>Entry in the national map (<code class="language-plaintext highlighter-rouge">mapEntry</code>)</th>
+      <th>Clinician confirms an equivalent (<code class="language-plaintext highlighter-rouge">clinicianConfirms</code>)</th>
+      <th><strong>Mapping basis</strong> (<code class="language-plaintext highlighter-rouge">mappingBasis</code>)</th>
+      <th><strong>Action</strong> (<code class="language-plaintext highlighter-rouge">action</code>)</th>
+      <th>Annotation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>one of <code class="language-plaintext highlighter-rouge">reported-unverified</code>, <code class="language-plaintext highlighter-rouge">rejected</code>, <code class="language-plaintext highlighter-rouge">not-read</code></td>
+      <td>any</td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">not-imported</code></td>
+      <td>No schedule code is added.</td>
+      <td>Only a verified dose is imported and mapped (J3’s yes path); a reported dose keeps the issuer’s code alone.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">equivalent</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">concept-map</code></td>
+      <td>Add the mapped schedule code beside the product code.</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a> (map): the published national map has an equivalent; both codings are kept, as in TrustDemoJ3Bcg.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td><code class="language-plaintext highlighter-rouge">yes</code></td>
+      <td><code class="language-plaintext highlighter-rouge">clinician-confirmed</code></td>
+      <td>Add the confirmed schedule code beside the product code; record the clinician’s attestation as a Provenance; add the pair to the national map.</td>
+      <td>The map has no entry and the clinician confirms the equivalent (J3: the Hep B product). Her decision is recorded and added to the map so the next clinic need not repeat it.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td><code class="language-plaintext highlighter-rouge">no</code></td>
+      <td><code class="language-plaintext highlighter-rouge">unmapped</code></td>
+      <td>Keep the product code as it is and show the dose to the clinician as unmapped; the schedule does not count it (TD.DT.03).</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a> (unmapped): no equivalent is known, and none is guessed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt03-does-the-national-schedule-count-this-dose">TD.DT.03 Does the national schedule count this dose?</h3>
+
+<p>For one Immunization in the child’s record, decide whether the schedule evaluation counts it as given.</p>
+
+<ul>
+  <li><strong>Serves:</strong> <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Evaluate the national schedule (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>)</li>
+  <li><strong>Requirements:</strong> <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>, <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></li>
+  <li><strong>Data elements:</strong> <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> National schedule code, <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> Counts toward the schedule</li>
+  <li><strong>In the examples:</strong> <a href="artifact/StructureDefinition-TrustDemoOnesaImmunization.html">StructureDefinition TrustDemoOnesaImmunization</a>, <a href="artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a></li>
+  <li><strong>Computable form:</strong> <a href="artifact/PlanDefinition-TrustDemoDT03.html">PlanDefinition TrustDemoDT03</a>; source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-counts.dmn">dose-counts.dmn</a>, hit policy FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Recorded from its primary source (<code class="language-plaintext highlighter-rouge">primarySource</code>)</th>
+      <th>Has a national schedule code (<code class="language-plaintext highlighter-rouge">hasScheduleCode</code>)</th>
+      <th><strong>Counts</strong> (<code class="language-plaintext highlighter-rouge">counts</code>)</th>
+      <th><strong>Why</strong> (<code class="language-plaintext highlighter-rouge">why</code>)</th>
+      <th>Annotation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Reported, not verified.</td>
+      <td>A reported dose (J2: TrustDemoJ2HepBReported) is shown but not counted.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Unmapped: shown to the clinician.</td>
+      <td>A verified dose with no schedule code (TD.DT.02 unmapped) cannot be read by the schedule, which works on schedule codes.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Counted as given.</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>: counted by its schedule code and date, wherever it was given (J3: TrustDemoJ3HepB, TrustDemoJ3Bcg).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt04-is-this-dose-of-the-national-schedule-due">TD.DT.04 Is this dose of the national schedule due?</h3>
+
+<p>For one action of the national schedule, decide whether the evaluation recommends it now, and from which date.</p>
+
+<ul>
+  <li><strong>Serves:</strong> <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verify, import and schedule at the home clinic</a>: Evaluate the national schedule (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>); Give due doses and book the next visit (<code class="language-plaintext highlighter-rouge">Task_Plan</code>)</li>
+  <li><strong>Requirements:</strong> <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></li>
+  <li><strong>Data elements:</strong> <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> Counts toward the schedule, <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE07</a> Schedule dose, <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE08</a> Forecast status, <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE09</a> Due date</li>
+  <li><strong>In the examples:</strong> <a href="artifact/PlanDefinition-TrustDemoOnesaInfantSchedule.html">PlanDefinition TrustDemoOnesaInfantSchedule</a>, <a href="artifact/ImmunizationRecommendation-TrustDemoJ3Recommendation.html">ImmunizationRecommendation TrustDemoJ3Recommendation</a>, <a href="artifact/Task-TrustDemoJ3Reminder.html">Task TrustDemoJ3Reminder</a></li>
+  <li><strong>Computable form:</strong> <a href="artifact/PlanDefinition-TrustDemoDT04.html">PlanDefinition TrustDemoDT04</a>; source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-due.dmn">dose-due.dmn</a>, hit policy FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>A counted dose has this action’s code (TD.DT.03) (<code class="language-plaintext highlighter-rouge">counted</code>)</th>
+      <th>This action’s timing age is the earliest among the actions with no counted dose (<code class="language-plaintext highlighter-rouge">isNextVisit</code>)</th>
+      <th><strong>Forecast</strong> (<code class="language-plaintext highlighter-rouge">forecast</code>)</th>
+      <th><strong>Due date</strong> (<code class="language-plaintext highlighter-rouge">dueDate</code>)</th>
+      <th>Annotation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">complete</code></td>
+      <td>—</td>
+      <td>J3: the Hep B and BCG birth doses count once imported, so they are not recommended again (<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>).</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">due</code></td>
+      <td>birthDate + timingAge</td>
+      <td>J3: pentavalent 1, bOPV 1 and PCV 1 at 6 weeks, due 2025-12-09 (ImmunizationRecommendation TrustDemoJ3Recommendation), with a reminder Task for that date.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not-yet</code></td>
+      <td>—</td>
+      <td>J3: measles-rubella 1 at 9 months belongs to a later visit and is not in this recommendation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt05-does-the-portal-release-the-manifest-for-this-request">TD.DT.05 Does the portal release the manifest for this request?</h3>
+
+<p>For one manifest request (ITI-YY5), decide whether the portal releases the manifest, and what the access log records.</p>
+
+<ul>
+  <li><strong>Serves:</strong> <a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 Read a family member’s records at the point of care abroad</a>: Check passcode, log access, return manifest (<code class="language-plaintext highlighter-rouge">Task_Release</code>)</li>
+  <li><strong>Requirements:</strong> <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></li>
+  <li><strong>Data elements:</strong> <a href="dictionary.html#tdj40-shared-link-and-consent">TD.J40.DE06</a> Valid until, <a href="dictionary.html#tdj40-shared-link-and-consent">TD.J40.DE09</a> Withdrawn at, <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE06</a> Released, <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE07</a> Audit outcome, <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE08</a> Refusal reason</li>
+  <li><strong>In the examples:</strong> <a href="artifact/Consent-TrustDemoJ4Consent.html">Consent TrustDemoJ4Consent</a>, <a href="artifact/AuditEvent-TrustDemoJ41Access.html">AuditEvent TrustDemoJ41Access</a>, <a href="artifact/AuditEvent-TrustDemoJ41WrongPasscode.html">AuditEvent TrustDemoJ41WrongPasscode</a></li>
+  <li><strong>Computable form:</strong> <a href="artifact/PlanDefinition-TrustDemoDT05.html">PlanDefinition TrustDemoDT05</a>; source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vhl-release.dmn">vhl-release.dmn</a>, hit policy FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>The holder withdrew the link (<code class="language-plaintext highlighter-rouge">withdrawn</code>)</th>
+      <th>The request is within the period the holder chose (<code class="language-plaintext highlighter-rouge">withinPeriod</code>)</th>
+      <th>The passcode matches (<code class="language-plaintext highlighter-rouge">passcodeMatches</code>)</th>
+      <th><strong>Release</strong> (<code class="language-plaintext highlighter-rouge">release</code>)</th>
+      <th><strong>Audit outcome</strong> (<code class="language-plaintext highlighter-rouge">auditOutcome</code>)</th>
+      <th><strong>Refusal reason</strong> (<code class="language-plaintext highlighter-rouge">refusalReason</code>)</th>
+      <th>Annotation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>any</td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">withdrawn</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a> (revoke): a withdrawn link releases nothing; the attempt is logged.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">expired</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a> (expiry): a link opened outside the holder’s period (J4: 2026-10-26 to 2026-11-09, Consent TrustDemoJ4Consent) releases nothing.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">wrong-passcode</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a> (passcode): a wrong passcode releases nothing and is logged at home (AuditEvent TrustDemoJ41WrongPasscode).</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td>—</td>
+      <td>The manifest is released and the access logged (AuditEvent TrustDemoJ41Access).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt06-does-the-receiver-follow-the-vhl">TD.DT.06 Does the receiver follow the VHL?</h3>
+
+<p>For one scanned VHL, decide whether the receiver requests the manifest or treats the family’s records like paper.</p>
+
+<ul>
+  <li><strong>Serves:</strong> <a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 Read a family member’s records at the point of care abroad</a>: Verify the HCERT and read the VHL at key 5 (<code class="language-plaintext highlighter-rouge">Task_Verify</code>); HCERT verified? (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>); Not verified: treat records as paper (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>); Request the manifest (ITI-YY5), signed (<code class="language-plaintext highlighter-rouge">Task_Fetch</code>)</li>
+  <li><strong>Requirements:</strong> <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a></li>
+  <li><strong>Data elements:</strong> <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE01</a> Requested at</li>
+  <li><strong>In the examples:</strong> <a href="artifact/Provenance-TrustDemoJ41Received.html">Provenance TrustDemoJ41Received</a></li>
+  <li><strong>Computable form:</strong> <a href="artifact/PlanDefinition-TrustDemoDT06.html">PlanDefinition TrustDemoDT06</a>; source <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vhl-follow.dmn">vhl-follow.dmn</a>, hit policy FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>HCERT verification result (<code class="language-plaintext highlighter-rouge">result</code>)</th>
+      <th>The VHL has expired (<code class="language-plaintext highlighter-rouge">vhlExpired</code>)</th>
+      <th><strong>Next step</strong> (<code class="language-plaintext highlighter-rouge">next</code>)</th>
+      <th>Annotation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>any</td>
+      <td><code class="language-plaintext highlighter-rouge">treat-as-paper</code></td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>: the typed result names the step and reason, for example a DSC missing from the cached trust list (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>). The clinician records why it was not verified.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">treat-as-paper</code></td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>: an expired link is not followed.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">fetch</code></td>
+      <td>Request the manifest by ITI-YY5 with an HTTP Message Signature (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>); the portal then applies TD.DT.05. Provenance TrustDemoJ41Received.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/decision-logic.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/decision-logic.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/decision-logic.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/decision-logic.md", "lines": [{"t":"TD.DT.01 What does a scanned DVC become in the child's record?","l":18},{"t":"TD.DT.02 Which national schedule code does an imported dose carry?","l":38},{"t":"TD.DT.03 Does the national schedule count this dose?","l":56},{"t":"TD.DT.04 Is this dose of the national schedule due?","l":73},{"t":"TD.DT.05 Does the portal release the manifest for this request?","l":90},{"t":"TD.DT.06 Does the receiver follow the VHL?","l":108}]}</script>
+
+<script src="./assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+<link rel="stylesheet" href="assets/ig-pages.css">
+<footer id="ig-footer">
+<p class="ig-footer-nav"><a href="dictionary.html">&lt;prev</a> | <a href="#">top</a> | <a href="indicators.html">next&gt;</a></p>
+<p class="ig-footer-band">IG © 2026+ <a href="https://github.com/litlfred/smart-trust-demo" rel="external">litlfred</a>. Package <code>smart.who.int.trust-demo#0.1.0</code> based on <a href="http://hl7.org/fhir/R4/" rel="external">FHIR 4.0.1</a>. Generated 2026-11-12</p>
+<p class="ig-footer-links">Links: <a href="toc.html">Table of Contents</a> | <a href="qa.html">QA Report</a> | <a href="https://spdx.org/licenses/CC0-1.0.html" rel="external">License</a></p>
+</footer>
+
+</body>
+</html>
