@@ -7,84 +7,96 @@
    "id": "Task_AuthorFsh",
    "name": "Author FSH profiles",
    "left": 25.63,
-   "top": 2.35,
+   "top": 2.29,
    "box": {
     "left": 21.95,
-    "top": 13.53,
+    "top": 13.19,
     "width": 1.22,
-    "height": 2.82
+    "height": 2.75
    }
   },
   {
    "id": "Task_Sushi",
    "name": "Compile FSH to FHIR JSON",
    "left": 33.76,
-   "top": 37.65,
+   "top": 36.7,
    "box": {
     "left": 30.08,
-    "top": 48.82,
+    "top": 47.59,
     "width": 1.22,
-    "height": 2.82
+    "height": 2.75
    }
   },
   {
    "id": "Task_Validate",
    "name": "Validate against profiles",
    "left": 41.88,
-   "top": 37.65,
+   "top": 36.7,
    "box": {
     "left": 38.2,
-    "top": 48.82,
+    "top": 47.59,
     "width": 1.22,
-    "height": 2.82
+    "height": 2.75
    }
   },
   {
    "id": "Task_QcGates",
    "name": "QC gates",
    "left": 58.12,
-   "top": 55.29,
+   "top": 53.9,
    "box": {
     "left": 54.44,
-    "top": 66.47,
+    "top": 64.79,
     "width": 1.22,
-    "height": 2.82
+    "height": 2.75
    }
   },
   {
    "id": "Task_QcBeans",
    "name": "File QC findings as beans",
    "left": 74.62,
-   "top": 21.76,
+   "top": 21.22,
    "box": {
     "left": 70.69,
-    "top": 29.41,
+    "top": 28.67,
     "width": 1.22,
-    "height": 2.82
+    "height": 2.75
+   }
+  },
+  {
+   "id": "Call_PublishStatements",
+   "name": "Publish extracted statements",
+   "left": 70.3,
+   "top": 36.7,
+   "box": {
+    "left": 66.62,
+    "top": 47.59,
+    "width": 1.22,
+    "height": 2.75
    }
   },
   {
    "id": "Task_IgPublisher",
    "name": "IG Publisher build",
    "left": 82.49,
-   "top": 37.65,
+   "top": 36.7,
    "box": {
     "left": 78.81,
-    "top": 48.82,
+    "top": 47.59,
     "width": 1.22,
-    "height": 2.82
+    "height": 2.75
    }
   },
   {
    "id": "Task_PublishIg",
    "name": "Publish the IG site",
    "left": 90.61,
-   "top": 72.94,
+   "top": 71.1,
    "box": {
     "left": 86.93,
-    "top": 84.12,
+    "top": 82,
     "width": 1.22,
-    "height": 2.82
+    "height": 2.75
    }
   }
  ],
@@ -162,6 +174,26 @@
     "name": "fhir-modeller",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-fhir-harness-scenarios-roles-json-fhir-modeller",
     "title": "FHIR modeller",
+    "skills": []
+   }
+  },
+  "Call_PublishStatements": {
+   "id": "Call_PublishStatements",
+   "name": "Publish extracted statements",
+   "type": "bpmn:CallActivity",
+   "stepHref": "l3-fhir-pipeline.html#step-Call_PublishStatements",
+   "lane": "Build pipeline — SUSHI · validator · IG Publisher",
+   "laneHref": "l3-fhir-pipeline.html#lane-Lane_Build",
+   "skills": [],
+   "calls": {
+    "name": "Publish extracted statements with source links",
+    "href": "publish-extracted-statements.html",
+    "diagram": "publish-extracted-statements.html"
+   },
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
     "skills": []
    }
   },

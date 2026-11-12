@@ -6,7 +6,7 @@
     "prov": "http://www.w3.org/ns/prov#"
   },
   "$schema": "folio-ig-artifact-jsonld/v1",
-  "@id": "CodeSystem-TrustDemoVaccineProduct-fr.jsonld",
+  "@id": "CodeSystem-TrustDemoVaccineProduct-fr",
   "@type": "fhir:CodeSystem",
   "dcterms:identifier": "CodeSystem/TrustDemoVaccineProduct-fr",
   "schema:name": "TrustDemoVaccineProductFr",
@@ -22,16 +22,24 @@
     {
       "@type": "schema:MediaObject",
       "schema:contentUrl": {
-        "@id": "../ast-data/resources/CodeSystem/TrustDemoVaccineProduct-fr--6c426d7f.json"
+        "@id": "../CodeSystem-TrustDemoVaccineProduct-fr.json"
       },
       "schema:encodingFormat": "application/fhir+json",
       "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/de5aa6ce86239585e518ca0d7e192b01f5b3164d/resources/CodeSystem/TrustDemoVaccineProduct-fr.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
     }
   ],
   "prov:wasGeneratedBy": {
     "@type": "prov:Activity",
     "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
-    "prov:used": "fa6c6fea23d4127bf74ef075dddfc67c04a6d63d"
+    "prov:used": "e6fde6b4d37b2fb0903f5562c0d68abc9b5e18aa"
   },
   "dcterms:isPartOf": {
     "@type": "fhir:ImplementationGuide",

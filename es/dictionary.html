@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="es" dir="/es/">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"es","translationStatus":"unverified","translationSource":"dictionary.html","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Dictionary — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="../es/dictionary.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout>
+<script src="../assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="../assets/ig-artifact.css">
+<link rel="stylesheet" href="../assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="../assets/navbar/row-2acuhncsmbg.js" defer></script><script src="../assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/css/navbar-row.css"><script src="../assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content=".."></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root=".." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-23mbhbo4s6d","here":"/es/dictionary.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="../index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="../index.html">Summary</a></li><li><a href="../changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="../journeys.html">Journeys J1 to J4</a></li><li><a href="../countries.html">Fictional Countries</a></li><li><a href="../journey-examples.html">Journey Examples</a></li><li><a href="../architecture.html">Architecture (ArchiMate)</a></li><li><a href="../plan.html">Plan</a></li><li><a href="../proposal-app-platform.html">App Platform Proposal</a></li><li><a href="../dependencies.html">Dependency Register</a></li><li><a href="../upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="../personas.html">Generic Personas</a></li><li><a href="../scenarios.html">User Scenarios</a></li><li><a href="../business-processes.html">Business Processes</a></li><li><a href="../dictionary.html">Data Dictionary</a></li><li><a href="../decision-logic.html">Decision-support Logic</a></li><li><a href="../indicators.html">Indicators and Performance Metrics</a></li><li><a href="../functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="../system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="../artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="../assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from dak/data-dictionary.json. Do not edit; edit the source and rerun. -->
+
+<p>El diccionario de datos enumera los datos que cada recorrido registra o intercambia, como hace el <a href="https://smart.who.int/ig-starter-kit/l2_dak.html">DAK de las SMART Guidelines de la OMS</a> en su componente 5: un conjunto de datos por cada paso que los escribe o los lee, cada uno un modelo lógico FHIR cuyos elementos llevan un código (<code class="language-plaintext highlighter-rouge">TD.&lt;data set&gt;.DE&lt;nn&gt;</code>, CodeSystem <a href="../artifact/CodeSystem-TrustDemoDataElements.html">TrustDemoDataElements</a>), una definición, una cardinalidad y, cuando la guía tiene una lista de códigos, una vinculación. La correspondencia <code class="language-plaintext highlighter-rouge">realisation</code> de cada modelo indica dónde realiza esta guía el elemento: en un perfil o ejemplo, en la carga útil del DVC de SMART Trust PHW de la OMS (<code class="language-plaintext highlighter-rouge">DVCMinPreQual</code>), o en un campo CWT o COSE. Los elementos de datos los leen la <a href="decision-logic.html">lógica de apoyo a la decisión</a> y los cuentan los <a href="indicators.html">indicadores</a>.</p>
+
+<p>La fuente es <code class="language-plaintext highlighter-rouge">dak/data-dictionary.json</code>; a partir de ella se generan los modelos lógicos de la guía, las listas de códigos y esta página. Todas las personas y valores de los ejemplos son ficticios.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Conjunto de datos</th>
+      <th>Pasos del recorrido</th>
+      <th>Modelo lógico</th>
+      <th>Implementado por</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#tdj1-birth-dose-dvc">TD.J1 DVC de la dosis al nacer</a></td>
+      <td><a href="business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a">J1 Emitir los DVC de las dosis al nacer del recién nacido en el País A</a>: Construir una carga útil DVCMinPreQual por dosis (<code class="language-plaintext highlighter-rouge">Task_Payload</code>); Preparar: claims CWT y la Sig_structure de COSE (<code class="language-plaintext highlighter-rouge">Task_Prepare</code>); Firmar los bytes con la clave DSC de XXR (<code class="language-plaintext highlighter-rouge">Task_Sign</code>)</td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoDdBirthDoseDvc.html">TrustDemoDdBirthDoseDvc</a></td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoTaifafekiPatient.html">StructureDefinition TrustDemoTaifafekiPatient</a>, <a href="../artifact/StructureDefinition-TrustDemoTaifafekiImmunization.html">StructureDefinition TrustDemoTaifafekiImmunization</a>, <a href="../artifact/Patient-TrustDemoTaifafekiSomsak.html">Patient TrustDemoTaifafekiSomsak</a>, <a href="../artifact/Immunization-TrustDemoJ1HepB.html">Immunization TrustDemoJ1HepB</a>, <a href="../artifact/Immunization-TrustDemoJ1Bcg.html">Immunization TrustDemoJ1Bcg</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdj2a-newborn-registration-on-a-home-visit">TD.J2A Registro del recién nacido en una visita domiciliaria</a></td>
+      <td><a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 Detectar y derivar a un lactante no registrado en el País B</a>: Leer cada DVC sin verificarlo (triaje) (<code class="language-plaintext highlighter-rouge">Task_Read</code>); Añadir al lactante; guardar las dosis como notificadas (<code class="language-plaintext highlighter-rouge">Task_Register</code>)</td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoDdChwRegistration.html">TrustDemoDdChwRegistration</a></td>
+      <td><a href="../artifact/Questionnaire-TrustDemoHouseholdRegistration.html">Questionnaire TrustDemoHouseholdRegistration</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaRegistration.html">StructureDefinition TrustDemoOnesaRegistration</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaHousehold.html">StructureDefinition TrustDemoOnesaHousehold</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaPatient.html">StructureDefinition TrustDemoOnesaPatient</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a>, <a href="../artifact/QuestionnaireResponse-TrustDemoJ2Registration.html">QuestionnaireResponse TrustDemoJ2Registration</a>, <a href="../artifact/Group-TrustDemoHousehold.html">Group TrustDemoHousehold</a>, <a href="../artifact/Immunization-TrustDemoJ2HepBReported.html">Immunization TrustDemoJ2HepBReported</a>, <a href="../artifact/Immunization-TrustDemoJ2BcgReported.html">Immunization TrustDemoJ2BcgReported</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdj2b-referral-for-verification">TD.J2B Derivación para verificación</a></td>
+      <td><a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 Detectar y derivar a un lactante no registrado en el País B</a>: Crear una derivación a la clínica del país de residencia para su verificación (<code class="language-plaintext highlighter-rouge">Task_Refer</code>)<a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verificar, importar y programar en la clínica del país de residencia</a>: Escanear los códigos QR y abrir la derivación (<code class="language-plaintext highlighter-rouge">Task_Scan</code>)</td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoDdChwReferral.html">TrustDemoDdChwReferral</a></td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoOnesaReferral.html">StructureDefinition TrustDemoOnesaReferral</a>, <a href="../artifact/ServiceRequest-TrustDemoJ2Referral.html">ServiceRequest TrustDemoJ2Referral</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdj3a-dvc-verification-and-import">TD.J3A Verificación e importación del DVC</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verificar, importar y programar en la clínica del país de residencia</a>: Verificar cada HCERT con la lista de confianza (<code class="language-plaintext highlighter-rouge">Task_Verify</code>); ¿Se verificaron todos los DVC? (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>); Anotar el fallo; decidir las dosis según la política (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>); Importar las dosis como recursos FHIR Immunization (<code class="language-plaintext highlighter-rouge">Task_Import</code>)</td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoDdDvcVerification.html">TrustDemoDdDvcVerification</a></td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoOnesaDvcVerification.html">StructureDefinition TrustDemoOnesaDvcVerification</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaImmunization.html">StructureDefinition TrustDemoOnesaImmunization</a>, <a href="../artifact/Provenance-TrustDemoJ3Verification.html">Provenance TrustDemoJ3Verification</a>, <a href="../artifact/Immunization-TrustDemoJ3HepB.html">Immunization TrustDemoJ3HepB</a>, <a href="../artifact/Immunization-TrustDemoJ3Bcg.html">Immunization TrustDemoJ3Bcg</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdj3b-imported-dose-and-schedule">TD.J3B Dosis importada y calendario</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verificar, importar y programar en la clínica del país de residencia</a>: Añadir los códigos nacionales junto a los extranjeros (<code class="language-plaintext highlighter-rouge">Task_Map</code>); Evaluar el calendario nacional (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>); Administrar las dosis pendientes y programar la próxima visita (<code class="language-plaintext highlighter-rouge">Task_Plan</code>)</td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoDdImportedDose.html">TrustDemoDdImportedDose</a></td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoOnesaImmunization.html">StructureDefinition TrustDemoOnesaImmunization</a>, <a href="../artifact/ConceptMap-TrustDemoProductToOnesaEpi.html">ConceptMap TrustDemoProductToOnesaEpi</a>, <a href="../artifact/Provenance-TrustDemoJ3Adjudication.html">Provenance TrustDemoJ3Adjudication</a>, <a href="../artifact/PlanDefinition-TrustDemoOnesaInfantSchedule.html">PlanDefinition TrustDemoOnesaInfantSchedule</a>, <a href="../artifact/ImmunizationRecommendation-TrustDemoJ3Recommendation.html">ImmunizationRecommendation TrustDemoJ3Recommendation</a>, <a href="../artifact/Task-TrustDemoJ3Reminder.html">Task TrustDemoJ3Reminder</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdj40-shared-link-and-consent">TD.J40 Enlace compartido y consentimiento</a></td>
+      <td><a href="business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls">J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a>: Reunir el IPS y los DVC de cada miembro (<code class="language-plaintext highlighter-rouge">Task_Assemble</code>); Cifrar y publicar un manifiesto con código de acceso (<code class="language-plaintext highlighter-rouge">Task_Share</code>)</td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoDdVhlShare.html">TrustDemoDdVhlShare</a></td>
+      <td><a href="../artifact/Consent-TrustDemoJ4Consent.html">Consent TrustDemoJ4Consent</a>, <a href="../artifact/Bundle-TrustDemoJ4Ips.html">Bundle TrustDemoJ4Ips</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdj41-access-to-a-shared-link">TD.J41 Acceso a un enlace compartido</a></td>
+      <td><a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a>: Solicitar el manifiesto (ITI-YY5), firmado (<code class="language-plaintext highlighter-rouge">Task_Fetch</code>); Comprobar el código de acceso, registrar el acceso, devolver el manifiesto (<code class="language-plaintext highlighter-rouge">Task_Release</code>)</td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoDdVhlAccess.html">TrustDemoDdVhlAccess</a></td>
+      <td><a href="../artifact/StructureDefinition-TrustDemoOnesaVhlAccess.html">StructureDefinition TrustDemoOnesaVhlAccess</a>, <a href="../artifact/AuditEvent-TrustDemoJ41Access.html">AuditEvent TrustDemoJ41Access</a>, <a href="../artifact/AuditEvent-TrustDemoJ41WrongPasscode.html">AuditEvent TrustDemoJ41WrongPasscode</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdj1-dvc-de-la-dosis-al-nacer">TD.J1 DVC de la dosis al nacer</h3>
+
+<p>Lo que el hospital de nacimiento registra para cada dosis al nacer y firma en un certificado digital de vacunación (DVC, un HCERT) por dosis: la carga útil, los claims CWT y la clave que lo firma.</p>
+
+<ul>
+  <li>Modelo lógico: <a href="../artifact/StructureDefinition-TrustDemoDdBirthDoseDvc.html">TrustDemoDdBirthDoseDvc</a></li>
+  <li>Registrado o leído en: <a href="business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a">J1 Emitir los DVC de las dosis al nacer del recién nacido en el País A</a>: Construir una carga útil DVCMinPreQual por dosis (<code class="language-plaintext highlighter-rouge">Task_Payload</code>); Preparar: claims CWT y la Sig_structure de COSE (<code class="language-plaintext highlighter-rouge">Task_Prepare</code>); Firmar los bytes con la clave DSC de XXR (<code class="language-plaintext highlighter-rouge">Task_Sign</code>)</li>
+  <li>Requisitos: <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-001">STT-PAY-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-002">STT-PAY-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-003">STT-PAY-003</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cwt-001">STT-CWT-001</a></li>
+  <li>Implementado por: <a href="../artifact/StructureDefinition-TrustDemoTaifafekiPatient.html">StructureDefinition TrustDemoTaifafekiPatient</a>, <a href="../artifact/StructureDefinition-TrustDemoTaifafekiImmunization.html">StructureDefinition TrustDemoTaifafekiImmunization</a>, <a href="../artifact/Patient-TrustDemoTaifafekiSomsak.html">Patient TrustDemoTaifafekiSomsak</a>, <a href="../artifact/Immunization-TrustDemoJ1HepB.html">Immunization TrustDemoJ1HepB</a>, <a href="../artifact/Immunization-TrustDemoJ1Bcg.html">Immunization TrustDemoJ1Bcg</a></li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Elemento</th>
+      <th>Etiqueta</th>
+      <th>Card.</th>
+      <th>Tipo</th>
+      <th>Definición</th>
+      <th>Vinculación</th>
+      <th>Implementado en</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TD.J1.DE01</td>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>Nombre</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>El nombre del niño/a tal como lo registra el hospital de nacimiento.</td>
+      <td> </td>
+      <td>TrustDemoTaifafekiPatient: Patient.name; DVCMinPreQual.n</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE02</td>
+      <td><code class="language-plaintext highlighter-rouge">dateOfBirth</code></td>
+      <td>Fecha de nacimiento</td>
+      <td>1..1</td>
+      <td>date</td>
+      <td>La fecha de nacimiento del niño/a.</td>
+      <td> </td>
+      <td>TrustDemoTaifafekiPatient: Patient.birthDate; DVCMinPreQual.dob</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE03</td>
+      <td><code class="language-plaintext highlighter-rouge">guardianName</code></td>
+      <td>Nombre del progenitor o tutor</td>
+      <td>0..1</td>
+      <td>string</td>
+      <td>El progenitor o tutor, para un sujeto sin documento de identidad, como un recién nacido (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a>).</td>
+      <td> </td>
+      <td>DVCMinPreQual.gn</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE04</td>
+      <td><code class="language-plaintext highlighter-rouge">hospitalNumber</code></td>
+      <td>Número de historia hospitalaria</td>
+      <td>1..1</td>
+      <td>Identifier</td>
+      <td>El identificador propio que el hospital de nacimiento asigna al niño/a. No se incluye en el DVC.</td>
+      <td> </td>
+      <td>TrustDemoTaifafekiPatient: Patient.identifier[hn]</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE05</td>
+      <td><code class="language-plaintext highlighter-rouge">vaccineProduct</code></td>
+      <td>Producto vacunal</td>
+      <td>1..1</td>
+      <td>Coding</td>
+      <td>El producto administrado, en la codificación de productos del emisor (códigos ilustrativos al estilo PreQual).</td>
+      <td><a href="../artifact/ValueSet-TrustDemoVaccineProducts.html">TrustDemoVaccineProducts</a> (obligatorio)</td>
+      <td>TrustDemoTaifafekiImmunization: Immunization.vaccineCode.coding[product]; DVCMinPreQual.v.vp</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE06</td>
+      <td><code class="language-plaintext highlighter-rouge">dateOfVaccination</code></td>
+      <td>Fecha de vacunación</td>
+      <td>1..1</td>
+      <td>date</td>
+      <td>La fecha en que se administró la dosis. El registro hospitalario guarda también la hora; el DVC lleva la fecha.</td>
+      <td> </td>
+      <td>TrustDemoTaifafekiImmunization: Immunization.occurrenceDateTime; DVCMinPreQual.v.dt</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE07</td>
+      <td><code class="language-plaintext highlighter-rouge">batchNumber</code></td>
+      <td>Número de lote</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>El lote de la vacuna administrada.</td>
+      <td> </td>
+      <td>TrustDemoTaifafekiImmunization: Immunization.lotNumber; DVCMinPreQual.v.bo</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE08</td>
+      <td><code class="language-plaintext highlighter-rouge">doseNumber</code></td>
+      <td>Número de dosis</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>El número de la dosis en su serie. Lo registra el hospital; la carga útil mínima del DVC no lo incluye.</td>
+      <td> </td>
+      <td>TrustDemoTaifafekiImmunization: Immunization.protocolApplied.doseNumber</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE09</td>
+      <td><code class="language-plaintext highlighter-rouge">clinician</code></td>
+      <td>Clínico supervisor</td>
+      <td>0..1</td>
+      <td>string</td>
+      <td>El clínico que administró o supervisó la dosis.</td>
+      <td> </td>
+      <td>TrustDemoTaifafekiImmunization: Immunization.performer.actor; DVCMinPreQual.v.cn</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE10</td>
+      <td><code class="language-plaintext highlighter-rouge">issuerCountry</code></td>
+      <td>País emisor</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>El participante de la red de confianza cuya clave firma el DVC (J1: XXR).</td>
+      <td> </td>
+      <td>Claim CWT 1 (iss)</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE11</td>
+      <td><code class="language-plaintext highlighter-rouge">issuedAt</code></td>
+      <td>Emitido el</td>
+      <td>1..1</td>
+      <td>dateTime</td>
+      <td>Cuándo se firmó el DVC.</td>
+      <td> </td>
+      <td>Claim CWT 6 (iat)</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE12</td>
+      <td><code class="language-plaintext highlighter-rouge">expiresAt</code></td>
+      <td>Caduca el</td>
+      <td>0..1</td>
+      <td>dateTime</td>
+      <td>Cuándo deja de verificarse el DVC, si el emisor fija una caducidad.</td>
+      <td> </td>
+      <td>Claim CWT 4 (exp)</td>
+    </tr>
+    <tr>
+      <td>TD.J1.DE13</td>
+      <td><code class="language-plaintext highlighter-rouge">keyId</code></td>
+      <td>Identificador de clave (kid)</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>Identifica el certificado del firmante de documentos de la lista de confianza que verifica el DVC (J1: 916ffa567c0f44a2).</td>
+      <td> </td>
+      <td>kid de la cabecera COSE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdj2a-registro-del-recién-nacido-en-una-visita-domiciliaria">TD.J2A Registro del recién nacido en una visita domiciliaria</h3>
+
+<p>Lo que la agente comunitaria de salud registra sin conexión cuando detecta un recién nacido que falta en el padrón del hogar: las respuestas del formulario de registro y cada dosis leída de una tarjeta extranjera sin verificarla.</p>
+
+<ul>
+  <li>Modelo lógico: <a href="../artifact/StructureDefinition-TrustDemoDdChwRegistration.html">TrustDemoDdChwRegistration</a></li>
+  <li>Registrado o leído en: <a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 Detectar y derivar a un lactante no registrado en el País B</a>: Leer cada DVC sin verificarlo (triaje) (<code class="language-plaintext highlighter-rouge">Task_Read</code>); Añadir al lactante; guardar las dosis como notificadas (<code class="language-plaintext highlighter-rouge">Task_Register</code>)</li>
+  <li>Requisitos: <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a></li>
+  <li>Implementado por: <a href="../artifact/Questionnaire-TrustDemoHouseholdRegistration.html">Questionnaire TrustDemoHouseholdRegistration</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaRegistration.html">StructureDefinition TrustDemoOnesaRegistration</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaHousehold.html">StructureDefinition TrustDemoOnesaHousehold</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaPatient.html">StructureDefinition TrustDemoOnesaPatient</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a>, <a href="../artifact/QuestionnaireResponse-TrustDemoJ2Registration.html">QuestionnaireResponse TrustDemoJ2Registration</a>, <a href="../artifact/Group-TrustDemoHousehold.html">Group TrustDemoHousehold</a>, <a href="../artifact/Immunization-TrustDemoJ2HepBReported.html">Immunization TrustDemoJ2HepBReported</a>, <a href="../artifact/Immunization-TrustDemoJ2BcgReported.html">Immunization TrustDemoJ2BcgReported</a></li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Elemento</th>
+      <th>Etiqueta</th>
+      <th>Card.</th>
+      <th>Tipo</th>
+      <th>Definición</th>
+      <th>Vinculación</th>
+      <th>Implementado en</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TD.J2A.DE01</td>
+      <td><code class="language-plaintext highlighter-rouge">householdId</code></td>
+      <td>Identificador del hogar</td>
+      <td>1..1</td>
+      <td>Identifier</td>
+      <td>El hogar del padrón del CHW al que se incorpora el niño/a.</td>
+      <td> </td>
+      <td>TrustDemoHouseholdRegistration item household; TrustDemoOnesaHousehold: Group.identifier[household]</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE02</td>
+      <td><code class="language-plaintext highlighter-rouge">givenName</code></td>
+      <td>Nombre del niño/a</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>El nombre del niño/a.</td>
+      <td> </td>
+      <td>TrustDemoHouseholdRegistration item given; TrustDemoOnesaPatient: Patient.name.given</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE03</td>
+      <td><code class="language-plaintext highlighter-rouge">familyName</code></td>
+      <td>Apellido del niño/a</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>El apellido del niño/a.</td>
+      <td> </td>
+      <td>TrustDemoHouseholdRegistration item family; TrustDemoOnesaPatient: Patient.name.family</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE04</td>
+      <td><code class="language-plaintext highlighter-rouge">birthDate</code></td>
+      <td>Fecha de nacimiento</td>
+      <td>1..1</td>
+      <td>date</td>
+      <td>La fecha de nacimiento del niño/a.</td>
+      <td> </td>
+      <td>TrustDemoHouseholdRegistration item birthDate; TrustDemoOnesaPatient: Patient.birthDate</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE05</td>
+      <td><code class="language-plaintext highlighter-rouge">birthCountry</code></td>
+      <td>País de nacimiento</td>
+      <td>0..1</td>
+      <td>string</td>
+      <td>El país en que nació el niño/a, cuando nació en el extranjero.</td>
+      <td> </td>
+      <td>TrustDemoHouseholdRegistration item birthCountry</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE06</td>
+      <td><code class="language-plaintext highlighter-rouge">foreignCardsHeld</code></td>
+      <td>Tarjetas de vacunación extranjeras en posesión</td>
+      <td>0..1</td>
+      <td>boolean</td>
+      <td>Si la familia tiene tarjetas de vacunación del extranjero.</td>
+      <td> </td>
+      <td>TrustDemoHouseholdRegistration item foreignCards</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE07</td>
+      <td><code class="language-plaintext highlighter-rouge">temporaryId</code></td>
+      <td>Identificador temporal</td>
+      <td>0..1</td>
+      <td>Identifier</td>
+      <td>El identificador que lleva el niño/a hasta que el registro civil se pone al día.</td>
+      <td> </td>
+      <td>TrustDemoOnesaPatient: Patient.identifier[temporaryId]</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE08</td>
+      <td><code class="language-plaintext highlighter-rouge">registeredBy</code></td>
+      <td>Registrado por</td>
+      <td>1..1</td>
+      <td>Reference(Practitioner)</td>
+      <td>El agente comunitario de salud que registró al niño/a.</td>
+      <td> </td>
+      <td>TrustDemoOnesaRegistration: QuestionnaireResponse.author</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE09</td>
+      <td><code class="language-plaintext highlighter-rouge">registeredAt</code></td>
+      <td>Registrado el</td>
+      <td>1..1</td>
+      <td>dateTime</td>
+      <td>Cuándo se capturó el registro, en el teléfono, posiblemente sin conexión.</td>
+      <td> </td>
+      <td>TrustDemoOnesaRegistration: QuestionnaireResponse.authored</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE10</td>
+      <td><code class="language-plaintext highlighter-rouge">informant</code></td>
+      <td>Informante</td>
+      <td>0..1</td>
+      <td>Reference(RelatedPerson)</td>
+      <td>El miembro de la familia que dio las respuestas.</td>
+      <td> </td>
+      <td>TrustDemoOnesaRegistration: QuestionnaireResponse.source</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE11</td>
+      <td><code class="language-plaintext highlighter-rouge">reportedDose</code></td>
+      <td>Dosis leída de una tarjeta extranjera</td>
+      <td>0..*</td>
+      <td>BackboneElement</td>
+      <td>Una dosis leída de un DVC extranjero mediante la lectura de triaje sin verificar (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>), guardada como notificada por la familia.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReportedImmunization: Immunization</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE12</td>
+      <td><code class="language-plaintext highlighter-rouge">reportedDose.vaccineProduct</code></td>
+      <td>Producto vacunal (según la lectura)</td>
+      <td>1..1</td>
+      <td>Coding</td>
+      <td>El código de producto del emisor tal como se leyó de la tarjeta; todavía no se añade ningún código nacional.</td>
+      <td><a href="../artifact/ValueSet-TrustDemoVaccineProducts.html">TrustDemoVaccineProducts</a> (obligatorio)</td>
+      <td>TrustDemoOnesaReportedImmunization: Immunization.vaccineCode</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE13</td>
+      <td><code class="language-plaintext highlighter-rouge">reportedDose.dateOfVaccination</code></td>
+      <td>Fecha de vacunación (según la lectura)</td>
+      <td>1..1</td>
+      <td>date</td>
+      <td>La fecha de vacunación tal como se leyó de la tarjeta.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReportedImmunization: Immunization.occurrenceDateTime</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE14</td>
+      <td><code class="language-plaintext highlighter-rouge">reportedDose.batchNumber</code></td>
+      <td>Número de lote (según la lectura)</td>
+      <td>0..1</td>
+      <td>string</td>
+      <td>El número de lote tal como se leyó de la tarjeta.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReportedImmunization: Immunization.lotNumber</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE15</td>
+      <td><code class="language-plaintext highlighter-rouge">reportedDose.reportedBy</code></td>
+      <td>Notificado por</td>
+      <td>1..1</td>
+      <td>Reference(RelatedPerson)</td>
+      <td>El miembro de la familia que mostró la tarjeta: la fuente de información de la dosis.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReportedImmunization: Immunization.informationSource</td>
+    </tr>
+    <tr>
+      <td>TD.J2A.DE16</td>
+      <td><code class="language-plaintext highlighter-rouge">reportedDose.outcome</code></td>
+      <td>Resultado en el registro</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>Siempre notificada sin verificar en una lectura de triaje (tabla de decisión TD.DT.01); se registra como primarySource false con una nota.</td>
+      <td><a href="../artifact/ValueSet-TrustDemoDvcOutcomeVS.html">TrustDemoDvcOutcomeVS</a> (obligatorio)</td>
+      <td>TrustDemoOnesaReportedImmunization: Immunization.primarySource = false; TrustDemoOnesaReportedImmunization: Immunization.note</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdj2b-derivación-para-verificación">TD.J2B Derivación para verificación</h3>
+
+<p>La derivación del niño/a por parte del agente comunitario de salud a la clínica del país de residencia, para verificar las tarjetas extranjeras y ajustar las dosis al calendario nacional.</p>
+
+<ul>
+  <li>Modelo lógico: <a href="../artifact/StructureDefinition-TrustDemoDdChwReferral.html">TrustDemoDdChwReferral</a></li>
+  <li>Registrado o leído en: <a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 Detectar y derivar a un lactante no registrado en el País B</a>: Crear una derivación a la clínica del país de residencia para su verificación (<code class="language-plaintext highlighter-rouge">Task_Refer</code>); <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verificar, importar y programar en la clínica del país de residencia</a>: Escanear los códigos QR y abrir la derivación (<code class="language-plaintext highlighter-rouge">Task_Scan</code>)</li>
+  <li>Requisitos: <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></li>
+  <li>Implementado por: <a href="../artifact/StructureDefinition-TrustDemoOnesaReferral.html">StructureDefinition TrustDemoOnesaReferral</a>, <a href="../artifact/ServiceRequest-TrustDemoJ2Referral.html">ServiceRequest TrustDemoJ2Referral</a></li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Elemento</th>
+      <th>Etiqueta</th>
+      <th>Card.</th>
+      <th>Tipo</th>
+      <th>Definición</th>
+      <th>Vinculación</th>
+      <th>Implementado en</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TD.J2B.DE01</td>
+      <td><code class="language-plaintext highlighter-rouge">child</code></td>
+      <td>Niño/a</td>
+      <td>1..1</td>
+      <td>Reference(Patient)</td>
+      <td>El niño/a derivado.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReferral: ServiceRequest.subject</td>
+    </tr>
+    <tr>
+      <td>TD.J2B.DE02</td>
+      <td><code class="language-plaintext highlighter-rouge">referredBy</code></td>
+      <td>Derivado por</td>
+      <td>1..1</td>
+      <td>Reference(Practitioner)</td>
+      <td>El agente comunitario de salud que hizo la derivación.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReferral: ServiceRequest.requester</td>
+    </tr>
+    <tr>
+      <td>TD.J2B.DE03</td>
+      <td><code class="language-plaintext highlighter-rouge">referredTo</code></td>
+      <td>Derivado a</td>
+      <td>1..1</td>
+      <td>Reference(Organization)</td>
+      <td>La clínica que verificará las tarjetas.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReferral: ServiceRequest.performer</td>
+    </tr>
+    <tr>
+      <td>TD.J2B.DE04</td>
+      <td><code class="language-plaintext highlighter-rouge">referredAt</code></td>
+      <td>Derivado el</td>
+      <td>1..1</td>
+      <td>dateTime</td>
+      <td>Cuándo se hizo la derivación.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReferral: ServiceRequest.authoredOn</td>
+    </tr>
+    <tr>
+      <td>TD.J2B.DE05</td>
+      <td><code class="language-plaintext highlighter-rouge">reason</code></td>
+      <td>Motivo</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>Por qué se deriva al niño/a: tarjetas de vacunación extranjeras sin verificar.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReferral: ServiceRequest.reason.concept.text</td>
+    </tr>
+    <tr>
+      <td>TD.J2B.DE06</td>
+      <td><code class="language-plaintext highlighter-rouge">dosesToVerify</code></td>
+      <td>Dosis por verificar</td>
+      <td>1..*</td>
+      <td>Reference(Immunization)</td>
+      <td>Las dosis notificadas que se pide a la clínica verificar.</td>
+      <td> </td>
+      <td>TrustDemoOnesaReferral: ServiceRequest.supportingInfo</td>
+    </tr>
+    <tr>
+      <td>TD.J2B.DE07</td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Estado de la derivación</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>Activa hasta que la clínica registra un resultado para cada dosis que enumera; después, completada (indicador TD.IND.03).</td>
+      <td>(obligatorio)</td>
+      <td>TrustDemoOnesaReferral: ServiceRequest.status</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdj3a-verificación-e-importación-del-dvc">TD.J3A Verificación e importación del DVC</h3>
+
+<p>Lo que la clínica registra cuando verifica un DVC extranjero con su copia en caché de la lista de confianza y, cuando el DVC se verifica, importa la dosis en lugar de la notificada.</p>
+
+<ul>
+  <li>Modelo lógico: <a href="../artifact/StructureDefinition-TrustDemoDdDvcVerification.html">TrustDemoDdDvcVerification</a></li>
+  <li>Registrado o leído en: <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verificar, importar y programar en la clínica del país de residencia</a>: Verificar cada HCERT con la lista de confianza (<code class="language-plaintext highlighter-rouge">Task_Verify</code>); ¿Se verificaron todos los DVC? (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>); Anotar el fallo; decidir las dosis según la política (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>); Importar las dosis como recursos FHIR Immunization (<code class="language-plaintext highlighter-rouge">Task_Import</code>)</li>
+  <li>Requisitos: <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a></li>
+  <li>Implementado por: <a href="../artifact/StructureDefinition-TrustDemoOnesaDvcVerification.html">StructureDefinition TrustDemoOnesaDvcVerification</a>, <a href="../artifact/StructureDefinition-TrustDemoOnesaImmunization.html">StructureDefinition TrustDemoOnesaImmunization</a>, <a href="../artifact/Provenance-TrustDemoJ3Verification.html">Provenance TrustDemoJ3Verification</a>, <a href="../artifact/Immunization-TrustDemoJ3HepB.html">Immunization TrustDemoJ3HepB</a>, <a href="../artifact/Immunization-TrustDemoJ3Bcg.html">Immunization TrustDemoJ3Bcg</a></li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Elemento</th>
+      <th>Etiqueta</th>
+      <th>Card.</th>
+      <th>Tipo</th>
+      <th>Definición</th>
+      <th>Vinculación</th>
+      <th>Implementado en</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TD.J3A.DE01</td>
+      <td><code class="language-plaintext highlighter-rouge">keyId</code></td>
+      <td>Identificador de clave (kid)</td>
+      <td>1..1</td>
+      <td>string</td>
+      <td>El kid del DVC verificado, que identifica el certificado del firmante.</td>
+      <td> </td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.entity.what.display</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE02</td>
+      <td><code class="language-plaintext highlighter-rouge">issuerCountry</code></td>
+      <td>País emisor</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>El participante que firmó el DVC (CWT iss).</td>
+      <td> </td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.entity.what.display</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE03</td>
+      <td><code class="language-plaintext highlighter-rouge">verifiedAt</code></td>
+      <td>Verificado el</td>
+      <td>1..1</td>
+      <td>dateTime</td>
+      <td>Cuándo se realizó la verificación.</td>
+      <td> </td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.recorded</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE04</td>
+      <td><code class="language-plaintext highlighter-rouge">verifier</code></td>
+      <td>Verificador</td>
+      <td>1..1</td>
+      <td>Reference(Device)</td>
+      <td>El sistema que verificó el DVC.</td>
+      <td> </td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.agent (verifier)</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE05</td>
+      <td><code class="language-plaintext highlighter-rouge">result</code></td>
+      <td>Resultado de la verificación</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>El resultado tipado de la biblioteca (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>).</td>
+      <td><a href="../artifact/ValueSet-TrustDemoVerificationResultVS.html">TrustDemoVerificationResultVS</a> (obligatorio)</td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.activity.text</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE06</td>
+      <td><code class="language-plaintext highlighter-rouge">failedStep</code></td>
+      <td>Paso fallido</td>
+      <td>0..1</td>
+      <td>code</td>
+      <td>El paso en el que se detuvo la verificación, cuando falló.</td>
+      <td><a href="../artifact/ValueSet-TrustDemoVerificationStepVS.html">TrustDemoVerificationStepVS</a> (obligatorio)</td>
+      <td>aún no implementado en los ejemplos (los DVC de J3 se verifican)</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE07</td>
+      <td><code class="language-plaintext highlighter-rouge">failureReason</code></td>
+      <td>Motivo del fallo</td>
+      <td>0..1</td>
+      <td>code</td>
+      <td>Por qué se detuvo la verificación, cuando falló: la entrada de la tabla de decisión TD.DT.01.</td>
+      <td><a href="../artifact/ValueSet-TrustDemoVerificationFailureReasonVS.html">TrustDemoVerificationFailureReasonVS</a> (obligatorio)</td>
+      <td>aún no implementado en los ejemplos (los DVC de J3 se verifican)</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE08</td>
+      <td><code class="language-plaintext highlighter-rouge">trustListRefreshedAt</code></td>
+      <td>Lista de confianza actualizada el</td>
+      <td>0..1</td>
+      <td>dateTime</td>
+      <td>Cuándo actualizó el verificador por última vez su copia en caché de la lista de confianza; un firmante añadido desde entonces falla con KidNotFound (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>).</td>
+      <td> </td>
+      <td>aún no implementado en los ejemplos</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE09</td>
+      <td><code class="language-plaintext highlighter-rouge">outcome</code></td>
+      <td>Resultado en el registro</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>En qué se convierte el DVC en el registro (tabla de decisión TD.DT.01).</td>
+      <td><a href="../artifact/ValueSet-TrustDemoDvcOutcomeVS.html">TrustDemoDvcOutcomeVS</a> (obligatorio)</td>
+      <td>TrustDemoOnesaImmunization: Immunization.primarySource = true (verificada); TrustDemoOnesaDvcVerification: Provenance</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE10</td>
+      <td><code class="language-plaintext highlighter-rouge">importedDose</code></td>
+      <td>Dosis importada</td>
+      <td>0..1</td>
+      <td>Reference(Immunization)</td>
+      <td>La dosis registrada a partir del DVC verificado.</td>
+      <td> </td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.target</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE11</td>
+      <td><code class="language-plaintext highlighter-rouge">replacesReportedDose</code></td>
+      <td>Dosis notificada sustituida</td>
+      <td>0..*</td>
+      <td>Reference(Immunization)</td>
+      <td>La dosis notificada que sustituye la verificada.</td>
+      <td> </td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.entity (rol removal)</td>
+    </tr>
+    <tr>
+      <td>TD.J3A.DE12</td>
+      <td><code class="language-plaintext highlighter-rouge">policy</code></td>
+      <td>Política de confianza</td>
+      <td>1..1</td>
+      <td>uri</td>
+      <td>El marco de confianza conforme al cual se verificó el DVC.</td>
+      <td> </td>
+      <td>TrustDemoOnesaDvcVerification: Provenance.policy</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdj3b-dosis-importada-y-calendario">TD.J3B Dosis importada y calendario</h3>
+
+<p>Lo que la clínica registra para el código de vacuna de cada dosis importada y lo que el calendario nacional determina como pendiente una vez contadas las dosis.</p>
+
+<ul>
+  <li>Modelo lógico: <a href="../artifact/StructureDefinition-TrustDemoDdImportedDose.html">TrustDemoDdImportedDose</a></li>
+  <li>Registrado o leído en: <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 Verificar, importar y programar en la clínica del país de residencia</a>: Añadir los códigos nacionales junto a los extranjeros (<code class="language-plaintext highlighter-rouge">Task_Map</code>); Evaluar el calendario nacional (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>); Administrar las dosis pendientes y programar la próxima visita (<code class="language-plaintext highlighter-rouge">Task_Plan</code>)</li>
+  <li>Requisitos: <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>, <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></li>
+  <li>Implementado por: <a href="../artifact/StructureDefinition-TrustDemoOnesaImmunization.html">StructureDefinition TrustDemoOnesaImmunization</a>, <a href="../artifact/ConceptMap-TrustDemoProductToOnesaEpi.html">ConceptMap TrustDemoProductToOnesaEpi</a>, <a href="../artifact/Provenance-TrustDemoJ3Adjudication.html">Provenance TrustDemoJ3Adjudication</a>, <a href="../artifact/PlanDefinition-TrustDemoOnesaInfantSchedule.html">PlanDefinition TrustDemoOnesaInfantSchedule</a>, <a href="../artifact/ImmunizationRecommendation-TrustDemoJ3Recommendation.html">ImmunizationRecommendation TrustDemoJ3Recommendation</a>, <a href="../artifact/Task-TrustDemoJ3Reminder.html">Task TrustDemoJ3Reminder</a></li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Elemento</th>
+      <th>Etiqueta</th>
+      <th>Card.</th>
+      <th>Tipo</th>
+      <th>Definición</th>
+      <th>Vinculación</th>
+      <th>Implementado en</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TD.J3B.DE01</td>
+      <td><code class="language-plaintext highlighter-rouge">productCode</code></td>
+      <td>Código de producto del emisor</td>
+      <td>1..1</td>
+      <td>Coding</td>
+      <td>El código de vacuna tal como lo firmó el emisor; se conserva y nunca se sustituye (<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>).</td>
+      <td><a href="../artifact/ValueSet-TrustDemoVaccineProducts.html">TrustDemoVaccineProducts</a> (obligatorio)</td>
+      <td>TrustDemoOnesaImmunization: Immunization.vaccineCode.coding[product]</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE02</td>
+      <td><code class="language-plaintext highlighter-rouge">scheduleCode</code></td>
+      <td>Código del calendario nacional</td>
+      <td>0..1</td>
+      <td>Coding</td>
+      <td>El código de antígeno y dosis del calendario nacional, añadido junto al código de producto. Ausente en una dosis sin correspondencia, que el perfil TrustDemoOnesaImmunization (onesaEpi 1..1) todavía no representa.</td>
+      <td><a href="../artifact/ValueSet-TrustDemoOnesaEpiScheduleCodes.html">TrustDemoOnesaEpiScheduleCodes</a> (obligatorio)</td>
+      <td>TrustDemoOnesaImmunization: Immunization.vaccineCode.coding[onesaEpi]</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE03</td>
+      <td><code class="language-plaintext highlighter-rouge">mappingBasis</code></td>
+      <td>Base de la correspondencia</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>Cómo se encontró el código del calendario (tabla de decisión TD.DT.02).</td>
+      <td><a href="../artifact/ValueSet-TrustDemoCodeMappingBasisVS.html">TrustDemoCodeMappingBasisVS</a> (obligatorio)</td>
+      <td>TrustDemoProductToOnesaEpi: ConceptMap.group.element (concept-map); Provenance (clinician-confirmed), como TrustDemoJ3Adjudication</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE04</td>
+      <td><code class="language-plaintext highlighter-rouge">confirmedBy</code></td>
+      <td>Confirmado por</td>
+      <td>0..1</td>
+      <td>Reference(Practitioner)</td>
+      <td>El clínico que confirmó un equivalente que la correspondencia no cubría.</td>
+      <td> </td>
+      <td>Provenance.agent (attester), como TrustDemoJ3Adjudication</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE05</td>
+      <td><code class="language-plaintext highlighter-rouge">countsTowardSchedule</code></td>
+      <td>Cuenta para el calendario</td>
+      <td>1..1</td>
+      <td>boolean</td>
+      <td>Si el calendario cuenta la dosis (tabla de decisión TD.DT.03): solo las dosis de una fuente primaria con un código del calendario nacional.</td>
+      <td> </td>
+      <td>ImmunizationRecommendation.recommendation.supportingImmunization</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE06</td>
+      <td><code class="language-plaintext highlighter-rouge">dueDose</code></td>
+      <td>Dosis pendiente</td>
+      <td>0..*</td>
+      <td>BackboneElement</td>
+      <td>Una dosis del calendario nacional que la evaluación determina como pendiente (tabla de decisión TD.DT.04).</td>
+      <td> </td>
+      <td>ImmunizationRecommendation.recommendation, como TrustDemoJ3Recommendation</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE07</td>
+      <td><code class="language-plaintext highlighter-rouge">dueDose.scheduleCode</code></td>
+      <td>Dosis del calendario</td>
+      <td>1..1</td>
+      <td>Coding</td>
+      <td>El código de antígeno y dosis del calendario para la dosis pendiente.</td>
+      <td><a href="../artifact/ValueSet-TrustDemoOnesaEpiScheduleCodes.html">TrustDemoOnesaEpiScheduleCodes</a> (obligatorio)</td>
+      <td>ImmunizationRecommendation.recommendation.vaccineCode</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE08</td>
+      <td><code class="language-plaintext highlighter-rouge">dueDose.forecast</code></td>
+      <td>Estado de la previsión</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>La previsión para la dosis.</td>
+      <td>(ejemplo)</td>
+      <td>ImmunizationRecommendation.recommendation.forecastStatus</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE09</td>
+      <td><code class="language-plaintext highlighter-rouge">dueDose.dueDate</code></td>
+      <td>Fecha prevista</td>
+      <td>1..1</td>
+      <td>date</td>
+      <td>La fecha de nacimiento del niño/a más la edad de aplicación de la acción del calendario.</td>
+      <td> </td>
+      <td>ImmunizationRecommendation.recommendation.dateCriterion (LOINC 30980-7)</td>
+    </tr>
+    <tr>
+      <td>TD.J3B.DE10</td>
+      <td><code class="language-plaintext highlighter-rouge">reminder</code></td>
+      <td>Recordatorio</td>
+      <td>0..1</td>
+      <td>Reference(Task)</td>
+      <td>El recordatorio creado para la próxima visita.</td>
+      <td> </td>
+      <td>Task, como TrustDemoJ3Reminder</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdj40-enlace-compartido-y-consentimiento">TD.J40 Enlace compartido y consentimiento</h3>
+
+<p>Lo que el país de residencia registra cuando el titular comparte el resumen de un miembro de la familia como enlace sanitario verificable (VHL): quién puede leer qué, durante cuánto tiempo y que un código de acceso lo protege.</p>
+
+<ul>
+  <li>Modelo lógico: <a href="../artifact/StructureDefinition-TrustDemoDdVhlShare.html">TrustDemoDdVhlShare</a></li>
+  <li>Registrado o leído en: <a href="business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls">J4.0 Emitir los registros de la familia a un solo teléfono como VHL</a>: Reunir el IPS y los DVC de cada miembro (<code class="language-plaintext highlighter-rouge">Task_Assemble</code>); Cifrar y publicar un manifiesto con código de acceso (<code class="language-plaintext highlighter-rouge">Task_Share</code>)</li>
+  <li>Requisitos: <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></li>
+  <li>Implementado por: <a href="../artifact/Consent-TrustDemoJ4Consent.html">Consent TrustDemoJ4Consent</a>, <a href="../artifact/Bundle-TrustDemoJ4Ips.html">Bundle TrustDemoJ4Ips</a></li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Elemento</th>
+      <th>Etiqueta</th>
+      <th>Card.</th>
+      <th>Tipo</th>
+      <th>Definición</th>
+      <th>Vinculación</th>
+      <th>Implementado en</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TD.J40.DE01</td>
+      <td><code class="language-plaintext highlighter-rouge">subject</code></td>
+      <td>Sujeto</td>
+      <td>1..1</td>
+      <td>Reference(Patient)</td>
+      <td>El miembro de la familia cuyo resumen se comparte.</td>
+      <td> </td>
+      <td>Consent.subject</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE02</td>
+      <td><code class="language-plaintext highlighter-rouge">holder</code></td>
+      <td>Titular</td>
+      <td>1..1</td>
+      <td>Reference(RelatedPerson)</td>
+      <td>La persona que comparte el enlace y decide quién puede abrirlo.</td>
+      <td> </td>
+      <td>Consent.grantor</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE03</td>
+      <td><code class="language-plaintext highlighter-rouge">custodian</code></td>
+      <td>Custodio</td>
+      <td>1..1</td>
+      <td>Reference(Organization)</td>
+      <td>El servicio del país de residencia que aloja el registro y comprueba cada solicitud.</td>
+      <td> </td>
+      <td>Consent.controller</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE04</td>
+      <td><code class="language-plaintext highlighter-rouge">sharedDocument</code></td>
+      <td>Documento compartido</td>
+      <td>1..1</td>
+      <td>Reference(Bundle)</td>
+      <td>El resumen del paciente que libera el enlace.</td>
+      <td> </td>
+      <td>Consent.provision.data.reference</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE05</td>
+      <td><code class="language-plaintext highlighter-rouge">validFrom</code></td>
+      <td>Válido desde</td>
+      <td>1..1</td>
+      <td>date</td>
+      <td>El primer día en que se puede abrir el enlace.</td>
+      <td> </td>
+      <td>Consent.provision.period.start</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE06</td>
+      <td><code class="language-plaintext highlighter-rouge">validUntil</code></td>
+      <td>Válido hasta</td>
+      <td>1..1</td>
+      <td>date</td>
+      <td>La caducidad que eligió el titular; después de ella, el enlace no libera nada (<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>).</td>
+      <td> </td>
+      <td>Consent.provision.period.end</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE07</td>
+      <td><code class="language-plaintext highlighter-rouge">purpose</code></td>
+      <td>Finalidad</td>
+      <td>1..1</td>
+      <td>Coding</td>
+      <td>La finalidad de uso que permite el titular (J4: tratamiento).</td>
+      <td> </td>
+      <td>Consent.provision.purpose</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE08</td>
+      <td><code class="language-plaintext highlighter-rouge">passcodeSet</code></td>
+      <td>Código de acceso establecido</td>
+      <td>1..1</td>
+      <td>boolean</td>
+      <td>Si el titular protegió el enlace con un código de acceso. El código de acceso en sí nunca se almacena en el registro.</td>
+      <td> </td>
+      <td>el indicador de código de acceso del enlace (IHE ITI VHL); no está en Consent</td>
+    </tr>
+    <tr>
+      <td>TD.J40.DE09</td>
+      <td><code class="language-plaintext highlighter-rouge">withdrawnAt</code></td>
+      <td>Retirado el</td>
+      <td>0..1</td>
+      <td>dateTime</td>
+      <td>Cuándo retiró el enlace el titular, si lo hizo.</td>
+      <td> </td>
+      <td>Consent.status = inactive; aún no implementado en los ejemplos</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdj41-acceso-a-un-enlace-compartido">TD.J41 Acceso a un enlace compartido</h3>
+
+<p>Lo que el país de residencia registra por cada solicitud de abrir un enlace compartido, liberada o rechazada.</p>
+
+<ul>
+  <li>Modelo lógico: <a href="../artifact/StructureDefinition-TrustDemoDdVhlAccess.html">TrustDemoDdVhlAccess</a></li>
+  <li>Registrado o leído en: <a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 Leer los registros de un miembro de la familia en el punto de atención en el extranjero</a>: Solicitar el manifiesto (ITI-YY5), firmado (<code class="language-plaintext highlighter-rouge">Task_Fetch</code>); Comprobar el código de acceso, registrar el acceso, devolver el manifiesto (<code class="language-plaintext highlighter-rouge">Task_Release</code>)</li>
+  <li>Requisitos: <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a></li>
+  <li>Implementado por: <a href="../artifact/StructureDefinition-TrustDemoOnesaVhlAccess.html">StructureDefinition TrustDemoOnesaVhlAccess</a>, <a href="../artifact/AuditEvent-TrustDemoJ41Access.html">AuditEvent TrustDemoJ41Access</a>, <a href="../artifact/AuditEvent-TrustDemoJ41WrongPasscode.html">AuditEvent TrustDemoJ41WrongPasscode</a></li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Elemento</th>
+      <th>Etiqueta</th>
+      <th>Card.</th>
+      <th>Tipo</th>
+      <th>Definición</th>
+      <th>Vinculación</th>
+      <th>Implementado en</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TD.J41.DE01</td>
+      <td><code class="language-plaintext highlighter-rouge">requestedAt</code></td>
+      <td>Solicitado el</td>
+      <td>1..1</td>
+      <td>dateTime</td>
+      <td>Cuándo llegó la solicitud.</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.recorded</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE02</td>
+      <td><code class="language-plaintext highlighter-rouge">requester</code></td>
+      <td>Solicitante</td>
+      <td>1..1</td>
+      <td>Reference(Device)</td>
+      <td>El sistema receptor en el extranjero que solicitó el manifiesto.</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.agent (IRCP).who</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE03</td>
+      <td><code class="language-plaintext highlighter-rouge">requesterAddress</code></td>
+      <td>Dirección de red del solicitante</td>
+      <td>0..1</td>
+      <td>string</td>
+      <td>De dónde procedía la solicitud.</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.agent.networkString</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE04</td>
+      <td><code class="language-plaintext highlighter-rouge">custodian</code></td>
+      <td>Custodio</td>
+      <td>1..1</td>
+      <td>Reference(Device)</td>
+      <td>La puerta de enlace del país de residencia que respondió a la solicitud y la registró.</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.agent (CST).who; TrustDemoOnesaVhlAccess: AuditEvent.source.observer</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE05</td>
+      <td><code class="language-plaintext highlighter-rouge">patient</code></td>
+      <td>Paciente</td>
+      <td>1..1</td>
+      <td>Reference(Patient)</td>
+      <td>De quién es el registro solicitado.</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.entity (rol Patient)</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE06</td>
+      <td><code class="language-plaintext highlighter-rouge">released</code></td>
+      <td>Liberado</td>
+      <td>1..1</td>
+      <td>boolean</td>
+      <td>Si se liberó el manifiesto (tabla de decisión TD.DT.05).</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.outcome.code</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE07</td>
+      <td><code class="language-plaintext highlighter-rouge">outcome</code></td>
+      <td>Resultado de auditoría</td>
+      <td>1..1</td>
+      <td>code</td>
+      <td>0 cuando se libera; 4 (fallo menor) cuando se rechaza.</td>
+      <td>(preferido)</td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.outcome.code</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE08</td>
+      <td><code class="language-plaintext highlighter-rouge">refusalReason</code></td>
+      <td>Motivo del rechazo</td>
+      <td>0..1</td>
+      <td>code</td>
+      <td>Por qué no se liberó nada, cuando se rechazó.</td>
+      <td><a href="../artifact/ValueSet-TrustDemoVhlRefusalReasonVS.html">TrustDemoVhlRefusalReasonVS</a> (obligatorio)</td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.outcome.detail</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE09</td>
+      <td><code class="language-plaintext highlighter-rouge">consent</code></td>
+      <td>Consentimiento</td>
+      <td>0..1</td>
+      <td>Reference(Consent)</td>
+      <td>El consentimiento del titular con el que se contrastó la solicitud.</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.entity</td>
+    </tr>
+    <tr>
+      <td>TD.J41.DE10</td>
+      <td><code class="language-plaintext highlighter-rouge">document</code></td>
+      <td>Documento liberado</td>
+      <td>0..1</td>
+      <td>Reference(Bundle)</td>
+      <td>El resumen liberado, cuando se libera.</td>
+      <td> </td>
+      <td>TrustDemoOnesaVhlAccess: AuditEvent.entity</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="listas-de-códigos">Listas de códigos</h3>
+
+<p>Las listas de códigos a las que se vinculan los elementos de datos, además de los sistemas de códigos de vacunas de los ejemplos (<a href="../artifact/ValueSet-TrustDemoVaccineProducts.html">TrustDemoVaccineProducts</a>, <a href="../artifact/ValueSet-TrustDemoOnesaEpiScheduleCodes.html">TrustDemoOnesaEpiScheduleCodes</a>) y los propios de FHIR.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Lista de códigos</th>
+      <th>Códigos</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../artifact/CodeSystem-TrustDemoVerificationResult.html">Resultado de la lectura de un DVC</a></td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code>, <code class="language-plaintext highlighter-rouge">failed</code>, <code class="language-plaintext highlighter-rouge">unverified</code></td>
+      <td>Lo que devuelve la biblioteca HCERT para un DVC escaneado: un resultado verificado, un resultado fallido que indica el paso y el motivo (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>), o el resultado diferenciado de la lectura de triaje sin verificar (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>).</td>
+    </tr>
+    <tr>
+      <td><a href="../artifact/CodeSystem-TrustDemoVerificationStep.html">Pasos de la verificación</a></td>
+      <td><code class="language-plaintext highlighter-rouge">prefix</code>, <code class="language-plaintext highlighter-rouge">base45</code>, <code class="language-plaintext highlighter-rouge">inflate</code>, <code class="language-plaintext highlighter-rouge">cose</code>, <code class="language-plaintext highlighter-rouge">header</code>, <code class="language-plaintext highlighter-rouge">trust-lookup</code>, <code class="language-plaintext highlighter-rouge">signature</code>, <code class="language-plaintext highlighter-rouge">key-usage</code>, <code class="language-plaintext highlighter-rouge">cwt</code>, <code class="language-plaintext highlighter-rouge">time</code>, <code class="language-plaintext highlighter-rouge">hcert</code>, <code class="language-plaintext highlighter-rouge">payload</code></td>
+      <td>Los pasos de la verificación de un DVC en el orden en que se ejecutan (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>), con los nombres que les da la biblioteca HCERT en su resultado tipado (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>).</td>
+    </tr>
+    <tr>
+      <td><a href="../artifact/CodeSystem-TrustDemoVerificationFailureReason.html">Motivos de fallo de la verificación</a></td>
+      <td><code class="language-plaintext highlighter-rouge">BadPrefix</code>, <code class="language-plaintext highlighter-rouge">UnsupportedContextVersion</code>, <code class="language-plaintext highlighter-rouge">Base45Invalid</code>, <code class="language-plaintext highlighter-rouge">InflateFailed</code>, <code class="language-plaintext highlighter-rouge">LimitExceeded</code>, <code class="language-plaintext highlighter-rouge">CoseMalformed</code>, <code class="language-plaintext highlighter-rouge">HeaderInvalid</code>, <code class="language-plaintext highlighter-rouge">UnsupportedAlgorithm</code>, <code class="language-plaintext highlighter-rouge">KidNotFound</code>, <code class="language-plaintext highlighter-rouge">SignatureInvalid</code>, <code class="language-plaintext highlighter-rouge">KeyUsageMismatch</code>, <code class="language-plaintext highlighter-rouge">Expired</code>, <code class="language-plaintext highlighter-rouge">NotYetValid</code>, <code class="language-plaintext highlighter-rouge">HcertMissing</code>, <code class="language-plaintext highlighter-rouge">MultipleSubclaims</code>, <code class="language-plaintext highlighter-rouge">PayloadInvalid</code></td>
+      <td>El conjunto cerrado de motivos por los que un DVC no supera la verificación, compartido por las bibliotecas HCERT de Kotlin y Rust (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>).</td>
+    </tr>
+    <tr>
+      <td><a href="../artifact/CodeSystem-TrustDemoDvcOutcome.html">En qué se convierte un DVC escaneado en el registro</a></td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code>, <code class="language-plaintext highlighter-rouge">reported-unverified</code>, <code class="language-plaintext highlighter-rouge">rejected</code>, <code class="language-plaintext highlighter-rouge">not-read</code></td>
+      <td>El resultado de la tabla de decisión TD.DT.01 para un DVC escaneado.</td>
+    </tr>
+    <tr>
+      <td><a href="../artifact/CodeSystem-TrustDemoCodeMappingBasis.html">Cómo obtuvo una dosis importada su código del calendario nacional</a></td>
+      <td><code class="language-plaintext highlighter-rouge">concept-map</code>, <code class="language-plaintext highlighter-rouge">clinician-confirmed</code>, <code class="language-plaintext highlighter-rouge">unmapped</code>, <code class="language-plaintext highlighter-rouge">not-imported</code></td>
+      <td>El resultado de la tabla de decisión TD.DT.02 (<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>).</td>
+    </tr>
+    <tr>
+      <td><a href="../artifact/CodeSystem-TrustDemoVhlRefusalReason.html">Por qué un enlace compartido no liberó nada</a></td>
+      <td><code class="language-plaintext highlighter-rouge">withdrawn</code>, <code class="language-plaintext highlighter-rouge">expired</code>, <code class="language-plaintext highlighter-rouge">wrong-passcode</code></td>
+      <td>Los motivos de rechazo de la tabla de decisión TD.DT.05 (<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/dictionary.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/dictionary.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/dictionary.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/dictionary.md", "lines": [{"t":"TD.J1 Birth-dose DVC","l":19},{"t":"TD.J2A Newborn registration on a home visit","l":45},{"t":"TD.J2B Referral for verification","l":74},{"t":"TD.J3A DVC verification and import","l":94},{"t":"TD.J3B Imported dose and schedule","l":119},{"t":"TD.J40 Shared link and consent","l":142},{"t":"TD.J41 Access to a shared link","l":164},{"t":"Code lists","l":187}]}</script>
+
+<script src="../assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+
+</body>
+</html>

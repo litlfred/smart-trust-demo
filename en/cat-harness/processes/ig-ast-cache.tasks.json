@@ -7,60 +7,72 @@
    "id": "Task_Restore",
    "name": "Restore and judge the cached AST",
    "left": 25.65,
-   "top": 34.24,
+   "top": 39.09,
    "box": {
     "left": 19.35,
-    "top": 49.36,
+    "top": 56.36,
     "width": 2.09,
-    "height": 3.82
+    "height": 4.36
    }
   },
   {
    "id": "Task_BuildSite",
    "name": "Build and publish the site from the AST",
    "left": 56.09,
-   "top": 34.24,
+   "top": 39.09,
    "box": {
     "left": 49.78,
-    "top": 49.36,
+    "top": 56.36,
     "width": 2.09,
-    "height": 3.82
+    "height": 4.36
+   }
+  },
+  {
+   "id": "Task_SizeReview",
+   "name": "Review the site's size",
+   "left": 72.61,
+   "top": 39.09,
+   "box": {
+    "left": 66.3,
+    "top": 56.36,
+    "width": 2.09,
+    "height": 4.36
    }
   },
   {
    "id": "Task_Dispatch",
    "name": "Dispatch AST refresh",
    "left": 41.74,
-   "top": 8.76,
+   "top": 10,
    "box": {
     "left": 33.7,
-    "top": 17.52,
+    "top": 20,
     "width": 2.09,
-    "height": 3.82
+    "height": 4.36
    }
   },
   {
    "id": "Task_Export",
    "name": "Build the IG with the AST exporter",
    "left": 25.65,
-   "top": 62.9,
+   "top": 71.82,
    "box": {
     "left": 19.35,
-    "top": 78.03,
+    "top": 89.09,
     "width": 2.09,
-    "height": 3.82
+    "height": 4.36
    }
   },
   {
    "id": "Task_Seed",
    "name": "Seed the cache branch",
    "left": 57.83,
-   "top": 66.08,
+   "top": 75.45,
    "box": {
     "left": 49.78,
-    "top": 74.84,
+    "top": 85.45,
     "width": 2.09,
-    "height": 3.82
+    "height": 4.36
    }
   }
  ],
@@ -86,6 +98,21 @@
    "name": "Build and publish the site from the AST",
    "type": "bpmn:ServiceTask",
    "stepHref": "ig-ast-cache.html#step-Task_BuildSite",
+   "lane": "Site build (agent, stage-local)",
+   "laneHref": "ig-ast-cache.html#lane-Lane_Site",
+   "skills": [],
+   "role": {
+    "name": "build-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",
+    "title": "Build pipeline",
+    "skills": []
+   }
+  },
+  "Task_SizeReview": {
+   "id": "Task_SizeReview",
+   "name": "Review the site's size",
+   "type": "bpmn:Task",
+   "stepHref": "ig-ast-cache.html#step-Task_SizeReview",
    "lane": "Site build (agent, stage-local)",
    "laneHref": "ig-ast-cache.html#lane-Lane_Site",
    "skills": [],

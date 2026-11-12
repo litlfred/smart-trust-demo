@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="fr" dir="/fr/">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"fr","translationStatus":"unverified","translationSource":"indicators.html","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicators and Performance Metrics — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="../fr/indicators.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout>
+<script src="../assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="../assets/ig-artifact.css">
+<link rel="stylesheet" href="../assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="../assets/navbar/row-2acuhncsmbg.js" defer></script><script src="../assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/css/navbar-row.css"><script src="../assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content=".."></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root=".." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-23mbhbo4s6d","here":"/fr/indicators.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="../index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="../index.html">Summary</a></li><li><a href="../changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="../journeys.html">Journeys J1 to J4</a></li><li><a href="../countries.html">Fictional Countries</a></li><li><a href="../journey-examples.html">Journey Examples</a></li><li><a href="../architecture.html">Architecture (ArchiMate)</a></li><li><a href="../plan.html">Plan</a></li><li><a href="../proposal-app-platform.html">App Platform Proposal</a></li><li><a href="../dependencies.html">Dependency Register</a></li><li><a href="../upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="../personas.html">Generic Personas</a></li><li><a href="../scenarios.html">User Scenarios</a></li><li><a href="../business-processes.html">Business Processes</a></li><li><a href="../dictionary.html">Data Dictionary</a></li><li><a href="../decision-logic.html">Decision-support Logic</a></li><li><a href="../indicators.html">Indicators and Performance Metrics</a></li><li><a href="../functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="../system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="../artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="../assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from dak/indicators.json. Do not edit; edit the source and rerun. -->
+
+<p>Les indicateurs constituent la composante 7 du DAK : ce qu’un programme compterait à partir des données enregistrées au cours des parcours, tels que les définit le <a href="https://smart.who.int/ig-starter-kit/l2_dak.html">DAK des lignes directrices SMART de l’OMS</a>. Chacun donne son numérateur et son dénominateur en toutes lettres et sous forme de calcul portant sur les <a href="dictionary.html">éléments de données</a>, ainsi que les ventilations selon lesquelles il est rapporté. Chacun est également une ressource FHIR <code class="language-plaintext highlighter-rouge">Measure</code> (score de proportion) dont les populations sont décrites, et non calculables : ce guide ne contient pas de CQL.</p>
+
+<p>Il s’agit uniquement de définitions. Elles n’énoncent aucune cible, aucun seuil et aucune valeur : les parcours sont une démonstration avec des personnes fictives, et rien ici n’a été mesuré.</p>
+
+<p>La source est <code class="language-plaintext highlighter-rouge">dak/indicators.json</code> ; cette page et les ressources Measure sont générées à partir de celle-ci.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Indicateur</th>
+      <th>Définition</th>
+      <th>Parcours</th>
+      <th>Mesure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#tdind01-foreign-doses-imported-as-verified">TD.IND.01 Doses étrangères importées comme vérifiées</a></td>
+      <td>Parmi les DVC étrangers qu’une clinique scanne pour vérification, la proportion dont la dose est enregistrée comme vérifiée.</td>
+      <td>J3</td>
+      <td><a href="../artifact/Measure-TrustDemoIND01.html">TrustDemoIND01</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind02-shared-link-openings-that-were-authorised">TD.IND.02 Ouvertures de liens partagés autorisées</a></td>
+      <td>Parmi les demandes d’ouverture du lien partagé d’un membre de la famille, la proportion que le pays de résidence a satisfaites.</td>
+      <td>J4.1</td>
+      <td><a href="../artifact/Measure-TrustDemoIND02.html">TrustDemoIND02</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind03-chw-referrals-for-verification-completed-at-the-clinic">TD.IND.03 Orientations CHW pour vérification menées à terme à la clinique</a></td>
+      <td>Parmi les orientations que les agents de santé communautaires effectuent pour faire vérifier les cartes étrangères d’un enfant, la proportion menée à terme à la clinique.</td>
+      <td>J2, J3</td>
+      <td><a href="../artifact/Measure-TrustDemoIND03.html">TrustDemoIND03</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind04-imported-doses-carrying-a-national-schedule-code">TD.IND.04 Doses importées portant un code du calendrier national</a></td>
+      <td>Parmi les doses étrangères importées comme vérifiées, la proportion qui porte un code du calendrier national à côté du code de l’émetteur, et qui compte donc pour le calendrier.</td>
+      <td>J3</td>
+      <td><a href="../artifact/Measure-TrustDemoIND04.html">TrustDemoIND04</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind01-doses-étrangères-importées-comme-vérifiées">TD.IND.01 Doses étrangères importées comme vérifiées</h3>
+
+<p>Parmi les DVC étrangers qu’une clinique scanne pour vérification, la proportion dont la dose est enregistrée comme vérifiée.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numérateur</td>
+      <td>DVC étrangers scannés pour vérification au cours de la période de référence dont la dose a été enregistrée comme vérifiée.</td>
+    </tr>
+    <tr>
+      <td>Calcul du numérateur</td>
+      <td>COUNT d’enregistrements de vérification (TD.J3A) WHERE « Vérifié le » se situe dans la période de référence AND « Résultat consigné » = verified</td>
+    </tr>
+    <tr>
+      <td>Dénominateur</td>
+      <td>DVC étrangers scannés pour vérification au cours de la période de référence.</td>
+    </tr>
+    <tr>
+      <td>Calcul du dénominateur</td>
+      <td>COUNT d’enregistrements de vérification (TD.J3A) WHERE « Vérifié le » se situe dans la période de référence</td>
+    </tr>
+    <tr>
+      <td>Ventilations</td>
+      <td>Résultat consigné : verified, reported-unverified, rejected, not-read (TD.DT.01)Motif de l’échec : le motif <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, pour les DVC non vérifiésPays émetteur : le participant qui a signé le DVCÉtablissement : la clinique qui a effectué la vérification</td>
+    </tr>
+    <tr>
+      <td>Éléments de données</td>
+      <td><a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE02</a> Pays émetteur<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE03</a> Vérifié le<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE05</a> Résultat de la vérification<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE07</a> Motif de l’échec<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> Résultat consigné</td>
+    </tr>
+    <tr>
+      <td>Tables de décision</td>
+      <td><a href="decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01</a></td>
+    </tr>
+    <tr>
+      <td>Exigences</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a></td>
+    </tr>
+    <tr>
+      <td>Parcours</td>
+      <td>J3</td>
+    </tr>
+    <tr>
+      <td>Mesure</td>
+      <td><a href="../artifact/Measure-TrustDemoIND01.html">TrustDemoIND01</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind02-ouvertures-de-liens-partagés-autorisées">TD.IND.02 Ouvertures de liens partagés autorisées</h3>
+
+<p>Parmi les demandes d’ouverture du lien partagé d’un membre de la famille, la proportion que le pays de résidence a satisfaites.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numérateur</td>
+      <td>Demandes de manifeste au cours de la période de référence qui ont été satisfaites.</td>
+    </tr>
+    <tr>
+      <td>Calcul du numérateur</td>
+      <td>COUNT d’enregistrements d’accès (TD.J41) WHERE « Demandé le » se situe dans la période de référence AND « Communiqué » = true</td>
+    </tr>
+    <tr>
+      <td>Dénominateur</td>
+      <td>Demandes de manifeste au cours de la période de référence, satisfaites ou refusées.</td>
+    </tr>
+    <tr>
+      <td>Calcul du dénominateur</td>
+      <td>COUNT d’enregistrements d’accès (TD.J41) WHERE « Demandé le » se situe dans la période de référence</td>
+    </tr>
+    <tr>
+      <td>Ventilations</td>
+      <td>Motif du refus : wrong-passcode, expired, withdrawn (TD.DT.05)Système demandeur : le destinataire à l’étranger, et son pays</td>
+    </tr>
+    <tr>
+      <td>Éléments de données</td>
+      <td><a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE01</a> Demandé le<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE02</a> Demandeur<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE06</a> Communiqué<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE08</a> Motif du refus</td>
+    </tr>
+    <tr>
+      <td>Tables de décision</td>
+      <td><a href="decision-logic.html#tddt05-does-the-portal-release-the-manifest-for-this-request">TD.DT.05</a></td>
+    </tr>
+    <tr>
+      <td>Exigences</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></td>
+    </tr>
+    <tr>
+      <td>Parcours</td>
+      <td>J4.1</td>
+    </tr>
+    <tr>
+      <td>Mesure</td>
+      <td><a href="../artifact/Measure-TrustDemoIND02.html">TrustDemoIND02</a> (base <code class="language-plaintext highlighter-rouge">AuditEvent</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind03-orientations-chw-pour-vérification-menées-à-terme-à-la-clinique">TD.IND.03 Orientations CHW pour vérification menées à terme à la clinique</h3>
+
+<p>Parmi les orientations que les agents de santé communautaires effectuent pour faire vérifier les cartes étrangères d’un enfant, la proportion menée à terme à la clinique.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numérateur</td>
+      <td>Orientations effectuées au cours de la période de référence pour lesquelles la clinique a enregistré un résultat pour chaque dose que l’orientation énumère.</td>
+    </tr>
+    <tr>
+      <td>Calcul du numérateur</td>
+      <td>COUNT d’orientations (TD.J2B) WHERE « Orienté le » se situe dans la période de référence AND « Statut de l’orientation » = completed</td>
+    </tr>
+    <tr>
+      <td>Dénominateur</td>
+      <td>Orientations pour vérification effectuées par les agents de santé communautaires au cours de la période de référence.</td>
+    </tr>
+    <tr>
+      <td>Calcul du dénominateur</td>
+      <td>COUNT d’orientations (TD.J2B) WHERE « Orienté le » se situe dans la période de référence</td>
+    </tr>
+    <tr>
+      <td>Ventilations</td>
+      <td>Orienté vers : la clinique vers laquelle l’enfant est orientéOrienté par : l’agent de santé communautaire</td>
+    </tr>
+    <tr>
+      <td>Éléments de données</td>
+      <td><a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE02</a> Orienté par<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE03</a> Orienté vers<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE04</a> Orienté le<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE06</a> Doses à vérifier<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE07</a> Statut de l’orientation</td>
+    </tr>
+    <tr>
+      <td>Tables de décision</td>
+      <td><a href="decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01</a></td>
+    </tr>
+    <tr>
+      <td>Exigences</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td>Parcours</td>
+      <td>J2, J3</td>
+    </tr>
+    <tr>
+      <td>Mesure</td>
+      <td><a href="../artifact/Measure-TrustDemoIND03.html">TrustDemoIND03</a> (base <code class="language-plaintext highlighter-rouge">ServiceRequest</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind04-doses-importées-portant-un-code-du-calendrier-national">TD.IND.04 Doses importées portant un code du calendrier national</h3>
+
+<p>Parmi les doses étrangères importées comme vérifiées, la proportion qui porte un code du calendrier national à côté du code de l’émetteur, et qui compte donc pour le calendrier.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Numérateur</td>
+      <td>Doses importées comme vérifiées au cours de la période de référence qui portent un code du calendrier national.</td>
+    </tr>
+    <tr>
+      <td>Calcul du numérateur</td>
+      <td>COUNT de doses importées (TD.J3B) WHERE importée dans la période de référence AND « Base de la correspondance » in (concept-map, clinician-confirmed)</td>
+    </tr>
+    <tr>
+      <td>Dénominateur</td>
+      <td>Doses importées comme vérifiées au cours de la période de référence.</td>
+    </tr>
+    <tr>
+      <td>Calcul du dénominateur</td>
+      <td>COUNT de doses importées (TD.J3B) WHERE importée dans la période de référence AND « Base de la correspondance » != not-imported</td>
+    </tr>
+    <tr>
+      <td>Ventilations</td>
+      <td>Base de la correspondance : concept-map, clinician-confirmed, unmapped (TD.DT.02)Code produit de l’émetteur : le produit tel que signé</td>
+    </tr>
+    <tr>
+      <td>Éléments de données</td>
+      <td><a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE01</a> Code produit de l’émetteur<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> Code du calendrier national<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE03</a> Base de la correspondance<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> Compte pour le calendrier</td>
+    </tr>
+    <tr>
+      <td>Tables de décision</td>
+      <td><a href="decision-logic.html#tddt02-which-national-schedule-code-does-an-imported-dose-carry">TD.DT.02</a>, <a href="decision-logic.html#tddt03-does-the-national-schedule-count-this-dose">TD.DT.03</a></td>
+    </tr>
+    <tr>
+      <td>Exigences</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>, <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td>Parcours</td>
+      <td>J3</td>
+    </tr>
+    <tr>
+      <td>Mesure</td>
+      <td><a href="../artifact/Measure-TrustDemoIND04.html">TrustDemoIND04</a> (base <code class="language-plaintext highlighter-rouge">Immunization</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/indicators.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/indicators.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/indicators.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/indicators.md", "lines": [{"t":"TD.IND.01 Foreign doses imported as verified","l":18},{"t":"TD.IND.02 Shared-link openings that were authorised","l":36},{"t":"TD.IND.03 CHW referrals for verification completed at the clinic","l":54},{"t":"TD.IND.04 Imported doses carrying a national schedule code","l":72}]}</script>
+
+<script src="../assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+
+</body>
+</html>

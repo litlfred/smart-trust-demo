@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="zh" dir="/zh/">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"zh","translationStatus":"unverified","translationSource":"scenarios.html","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Scenarios — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="../zh/scenarios.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout>
+<script src="../assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="../assets/ig-artifact.css">
+<link rel="stylesheet" href="../assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="../assets/navbar/row-2acuhncsmbg.js" defer></script><script src="../assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/css/navbar-row.css"><script src="../assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content=".."></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root=".." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-23mbhbo4s6d","here":"/zh/scenarios.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="../index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="../index.html">Summary</a></li><li><a href="../changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="../journeys.html">Journeys J1 to J4</a></li><li><a href="../countries.html">Fictional Countries</a></li><li><a href="../journey-examples.html">Journey Examples</a></li><li><a href="../architecture.html">Architecture (ArchiMate)</a></li><li><a href="../plan.html">Plan</a></li><li><a href="../proposal-app-platform.html">App Platform Proposal</a></li><li><a href="../dependencies.html">Dependency Register</a></li><li><a href="../upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="../personas.html">Generic Personas</a></li><li><a href="../scenarios.html">User Scenarios</a></li><li><a href="../business-processes.html">Business Processes</a></li><li><a href="../dictionary.html">Data Dictionary</a></li><li><a href="../decision-logic.html">Decision-support Logic</a></li><li><a href="../indicators.html">Indicators and Performance Metrics</a></li><li><a href="../functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="../system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="../artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="../assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from scenarios/stories.json, scenarios/story-requirements.json and scenarios/user-scenarios/*.json. Do not edit; edit the source and rerun. -->
+
+<h3 id="用户故事">用户故事</h3>
+
+<p>每个用户故事都可追溯到服务于它的 smart-trust-tools 需求（scenarios/story-requirements.json）；当 HCERT 库不服务于某个故事时，注释会说明由什么来服务。</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>角色</th>
+      <th>我想要</th>
+      <th>以便</th>
+      <th>需求</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>照护者</td>
+      <td>让我儿子在国外接种的出生剂次在本国得到认可</td>
+      <td>他的医疗照护不必从头开始，也不会重复接种</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-009">STT-VER-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a></td>
+    </tr>
+    <tr>
+      <td>照护者</td>
+      <td>在国外用我们共用的一部手机出示每位家庭成员的记录，并使用一个我可以口头说出的通行码</td>
+      <td>国外的医生无需纸质记录或应用即可为我们诊治</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-001">STT-VHL-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-002">STT-VHL-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-004">STT-VHL-004</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a></td>
+    </tr>
+    <tr>
+      <td>照护者</td>
+      <td>决定谁可以查看我孩子的记录，以及可以查看多久</td>
+      <td>记录留在本国，并且我知道谁查看过</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a></td>
+    </tr>
+    <tr>
+      <td>出生诊所疫苗接种员</td>
+      <td>为每个出生剂次打印一份已签名的记录，让家庭可以随身携带到任何地方</td>
+      <td> </td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-001">STT-PAY-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-003">STT-PAY-003</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004">STT-ISS-004</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-001">STT-COS-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-hc1-001">STT-HC1-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-qr-001">STT-QR-001</a></td>
+    </tr>
+    <tr>
+      <td>社区卫生工作者</td>
+      <td>离线读取外国疫苗接种 QR 码，并据此登记儿童</td>
+      <td>诊所在家庭到达之前就能看到已接种的内容</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002">STT-B45-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003">STT-CBR-003</a></td>
+    </tr>
+    <tr>
+      <td>社区卫生工作者</td>
+      <td>转诊外国记录需要核验的儿童</td>
+      <td>由有能力的人进行验证</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td>社区卫生工作者</td>
+      <td>在民事登记之前，离线将新生儿登记到家庭中</td>
+      <td>即使没有信号，我村里也不会遗漏任何新生儿</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a></td>
+    </tr>
+    <tr>
+      <td>所属诊所医务人员</td>
+      <td>知道一份外国证书是否真实，以及不真实时的原因</td>
+      <td> </td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-002">STT-VER-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001">STT-TRU-001</a></td>
+    </tr>
+    <tr>
+      <td>所属诊所医务人员</td>
+      <td>在导入外国剂次后查看哪些剂次应接种</td>
+      <td>我只补种缺少的剂次</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td>所属诊所医务人员</td>
+      <td>保留外国疫苗代码并在其旁添加我们的接种计划代码，在没有匹配项时由我自己决定</td>
+      <td>另一国家的记录永远不会被覆盖，下一位护士也无需再次决定</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td>医疗服务点医务人员</td>
+      <td>从家长出示的 QR 码读取来访儿童的摘要和疫苗接种记录</td>
+      <td>无需安装任何东西，也无需联系另一个国家</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-006">STT-VHL-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a></td>
+    </tr>
+    <tr>
+      <td>医疗服务点医务人员</td>
+      <td>确认我在国外读取的记录来自孩子的本国且未被篡改</td>
+      <td>我可以像信赖本诊所的记录一样信赖它</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-kid-002">STT-KID-002</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="用户场景">用户场景</h3>
+
+<p>Each step names the requirements of
+<a href="https://github.com/litlfred/smart-trust-tools/tree/main/skills/requirements">smart-trust-tools</a>
+it exercises, and the FHIR examples of this guide it produces. The stories are
+in <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/stories.json"><code class="language-plaintext highlighter-rouge">scenarios/stories.json</code></a>.
+Each moment ends with its pain point, what enables it, and the policy point it
+makes, as the journeys walkthrough presents them.</p>
+
+<!-- BEGIN user scenarios: generated by tools/ig-gen/ig_gen.py from scenarios/user-scenarios/*.json; do not edit -->
+
+<h4 id="j1--出生在国外泰法费基出生当天">J1 — 出生在国外（泰法费基，出生当天）</h4>
+
+<p>前提条件：签发方的 DSC 位于信任列表上。XXR 的文档签名证书（DSC）由 XXR 的国家签名证书颁发机构（CSCA）签发，在签署任何 DVC 之前已与作为信任锚的 GDHCN 共享；GDHCN 将其作为 DID 文档发布。共享它不是签发的步骤。用 DSC 从未被共享的密钥签名的 DVC，在每个接收方的信任列表核验中都会失败（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>）。</p>
+
+<p>2025-10-28，Khamla 在离家在外的 Kesaro 府医院生下 Somsak。他没有泰法费基身份号码。Dr Anan 为他接种 Hep B 和 BCG 出生剂次，并以其 WHO PreQual 产品代码进行记录。对于每个剂次，医院系统执行三件事：</p>
+
+<ol>
+  <li>它构建一个 DVCMinPreQual 载荷：<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-001">STT-PAY-001</a>…<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">005</a> 和 <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-007">STT-PAY-007</a>，子声明为 −6（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-sel-003">STT-SEL-003</a>）。无需身份证件（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a>）。</li>
+  <li>它准备 CWT 和待签名的字节：<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cwt-001">STT-CWT-001</a>…<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cwt-005">005</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004">STT-ISS-004</a>。</li>
+  <li>它用 XXR 的密钥对其签名（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-002">STT-COS-002</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-006">STT-COS-006</a>），然后完成 HC1 文本：<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-001">STT-COS-001</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-001">STT-ZIP-001</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-001">STT-B45-001</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-hc1-001">STT-HC1-001</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-qr-001">STT-QR-001</a>。</li>
+</ol>
+
+<p>Khamla leaves with two paper DVCs.
+<em>In the demo:</em> the library tests use the WHO guide’s own two signed HC1
+strings (<a href="https://smart.who.int/trust/qr_code_generation.html">QR Code Generation §12</a>),
+which verify against the live DEV trust list under the same XXR key. Somsak’s
+DVC payloads are illustrative. Live issuance in the app uses a
+TEST-ONLY key (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-003">STT-ISS-003</a>), whose DSC is not on the GDHCN list, so its DVCs
+do not verify in J3.</p>
+
+<ul>
+  <li>痛点：婴儿没有泰法费基 ID 号码，因此他的记录通常会被锁在泰法费基医院的系统内。</li>
+  <li>促成因素：经数字签名的 QR 卡片随家庭携带——无需 ID 号码或数据库查询。</li>
+  <li>政策：在国外出生的婴儿可以在取得所在国民事登记或国民 ID之前获得可验证的疫苗接种记录——而在本国登记出生仍然很重要。</li>
+</ul>
+
+<h4 id="j2--在本国被发现奥内萨onesa3-周后">J2 — 在本国被发现（奥内萨（Onesa），3 周后）</h4>
+
+<p>J2a. 在一次对 Village 04 的例行走访中，Vilay 发现了一名奥内萨系统并不知道其存在的新生儿。她的手机已经好几周没有信号了。Khamla 出示两张卡片。CHW 应用以“未验证读取”（read-unverified）方式读取它们（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>；<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002">STT-B45-002</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-002">STT-ZIP-002</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003">STT-CBR-003</a>），这不需要信任列表。它显示剂次，但不核验任何签名，也暂不保存任何内容。</p>
+
+<p>J2b. 她在 CHW 应用的新生儿表单（结构化数据采集，<code class="language-plaintext highlighter-rouge">TrustDemoHouseholdRegistration</code>）上，以临时 id 将 Somsak 添加到 Sengmany 家庭（<code class="language-plaintext highlighter-rouge">TrustDemoHousehold</code>）。Bounmy 作为户主确认这些信息。应用将从卡片读取的剂次保存为家庭报告、未经验证（<code class="language-plaintext highlighter-rouge">TrustDemoJ2HepBReported</code>、<code class="language-plaintext highlighter-rouge">TrustDemoJ2BcgReported</code>：<code class="language-plaintext highlighter-rouge">primarySource</code> 为 false）。Vilay 将 Somsak 转诊到区卫生中心（<code class="language-plaintext highlighter-rouge">TrustDemoJ2Referral</code>）。所有内容都在手机上排队，必要时可保留 28 天，并在下次有信号时同步。</p>
+
+<ul>
+  <li>痛点（J2a）：如果不加核验，一张伪造或录入错误的卡片可能会悄无声息地变成官方记录。</li>
+  <li>痛点（J2b）：在国外出生的婴儿在民事登记跟进之前（有时要几个月之后），对本国卫生系统而言是不可见的。</li>
+  <li>促成因素（J2a）：手机离线读取卡片，并将“家庭告诉我们的内容”与“我们已验证的内容”明确区分开。</li>
+  <li>促成因素（J2b）：离线表单立即将婴儿关联到其家庭；手机一旦有信号便会同步。</li>
+  <li>政策（J2a）：在家庭报告的内容与已验证的内容之间划清界限，不要过早给予信任。</li>
+  <li>政策（J2b）：新生儿可以在本国离线登记，无需等待民事登记或国民 ID。</li>
+</ul>
+
+<h4 id="j3--正式入册lomaru-区卫生中心4-周后">J3 — 正式入册（Lomaru 区卫生中心，4 周后）</h4>
+
+<p>前提条件：DID 文档已经加载。加载它们不是本次就诊的步骤。诊所可能整天离线，因此 EHR 在此期间不获取任何内容：其信任存储保存的是最近一次刷新时的 GDHCN DEV 信任列表，其中包括 XXR 的 DSC DID 文档（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001">STT-TRU-001</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-005">STT-TRU-005</a>）。自身没有网络连接的诊所大约每周刷新一次，即在 CHW 前往基地诊所或区卫生办公室时进行，B 国在那里获取 GDHCN 信任锚分发的列表。在该次刷新之后发布的 DSC 不在诊所的副本中，因此在下次刷新之前，其 DVC 无法通过信任列表核验（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>）。</p>
+
+<p>J3a. 护士 Chanthason 打开转诊并扫描 QR 码。EHR 对照该副本离线验证每份 DVC（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>…<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-009">009</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-kid-002">STT-KID-002</a>），无需联系泰法费基。两份均通过验证，因此它将其作为 FHIR <code class="language-plaintext highlighter-rouge">Immunization</code> 导入（<code class="language-plaintext highlighter-rouge">TrustDemoJ3HepB</code>、<code class="language-plaintext highlighter-rouge">TrustDemoJ3Bcg</code>），并附来源记录（<code class="language-plaintext highlighter-rouge">TrustDemoJ3Verification</code>；<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-007">STT-VER-007</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>），取代 J2 中的已报告剂次。如果某份 DVC 验证失败（例如卡片被篡改），EHR 会指明失败的步骤和原因，剂次保持未验证状态，由护士根据国家补种政策作出决定。</p>
+
+<p>J3b. 泰法费基的 Hep B 产品与国家接种计划中的任何条目都不匹配。EHR 保留泰法费基的产品编码，并根据国家映射表（<code class="language-plaintext highlighter-rouge">TrustDemoProductToOnesaEpi</code>）在其旁添加接种计划编码。映射表中没有该 Hep B 产品的条目，因此护士 Chanthason 作出临床判断，认定它是接种计划中的出生剂次（<code class="language-plaintext highlighter-rouge">TrustDemoJ3Adjudication</code>），她的决定被添加到映射表中，供下一家诊所使用。随后运行接种计划（<code class="language-plaintext highlighter-rouge">TrustDemoOnesaInfantSchedule</code>）：出生剂次计入，五联疫苗第 1 剂、bOPV 第 1 剂和 PCV 第 1 剂在 6 周时到期（<code class="language-plaintext highlighter-rouge">TrustDemoJ3Recommendation</code>）。Khamla 带着日期离开（<code class="language-plaintext highlighter-rouge">TrustDemoJ3Reminder</code>）。在这一年中，Somsak 在奥内萨（Onesa）接种了这些剂次，并在 9 个月时接种了麻疹-风疹疫苗。</p>
+
+<ul>
+  <li>痛点（J3a）：临床医生要么不信任外国纸质记录而重新接种，要么盲目信任它。</li>
+  <li>痛点（J3b）：各国对疫苗的命名和包装方式不同，因此剂次会被遗漏或重复。</li>
+  <li>促成因素（J3a）：泰法费基的签名密钥位于共享的 WHO 信任列表上，因此任何诊所都可以在本地进行核验。</li>
+  <li>促成因素（J3b）：保留泰法费基的原始代码，并在其旁添加奥内萨代码；接种计划引擎计算应接种的剂次。</li>
+  <li>政策（J3a）：信任是去中心化的：奥内萨诊所自行验证泰法费基的签名，无需联系泰法费基。</li>
+  <li>政策（J3b）：绝不覆盖另一国家的记录：在本国编码旁保留原始编码。</li>
+</ul>
+
+<h4 id="j40--再次跨境一个家庭一部手机奥内萨onesa12-个月后">J4.0 — 再次跨境：一个家庭，一部手机（奥内萨（Onesa），12 个月后）</h4>
+
+<p>J4.0a. 这家人计划去泰法费基旅行。Bounmy 的手机中有家庭钱包，每位家庭成员都有一个档案。Somsak 的摘要（<code class="language-plaintext highlighter-rouge">TrustDemoJ4Ips</code>）显示六个剂次：两个来自泰法费基，四个来自奥内萨（Onesa）。</p>
+
+<p>前提条件，与 J1 中相同：B 国的 DSC（隶属 B 国的 CSCA）已与作为信任锚的 GDHCN 共享。正是这一点使泰法费基的诊所能够在 J4.1 中验证该链接。</p>
+
+<p>J4.0b. Bounmy 为 Somsak 分享其记录，使用一个可以口头说出的 4 位通行码，有效期 14 天。门户记录他的同意（<code class="language-plaintext highlighter-rouge">TrustDemoJ4Consent</code>），然后执行三件事：</p>
+
+<ol>
+  <li>它汇总 IPS 和 Somsak 的 DVC。</li>
+  <li>它将其加密（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-004">STT-VHL-004</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a>），置于一个受通行码保护且有有效期的清单之后（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>）。</li>
+  <li>它将该链接签发为一个 HCERT，VHL 位于键 5（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-001">STT-VHL-001</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-002">STT-VHL-002</a>），并用 B 国的 DSC 签名。</li>
+</ol>
+
+<p>QR 码只包含一个指针和一个密钥：记录留在奥内萨（Onesa）。</p>
+
+<ul>
+  <li>痛点（J4.0a）：许多家庭共用一部智能手机；一人一个应用的设计将他们排除在外。</li>
+  <li>痛点（J4.0b）：发送记录的照片或 PDF 会泄露数据，且接收方无法验证。</li>
+  <li>促成因素（J4.0a）：一部手机上的家庭钱包，每人有一份单独的健康摘要。</li>
+  <li>促成因素（J4.0b）：可验证健康链接（Verifiable Health Link）：QR 码只包含一个加锁的指针；在提供通行码之前，数据始终留在本国。</li>
+  <li>政策（J4.0a）：为共享设备而设计（“一个家庭，一部手机”），使只有一部手机的家庭不被排除在外。</li>
+  <li>政策（J4.0b）：数据主权：在家庭授权某人打开之前，记录始终留在奥内萨（Onesa）。</li>
+</ul>
+
+<h4 id="j41--再次跨境泰法费基医生看到完整的接种史kesaro12-个月后">J4.1 — 再次跨境：泰法费基医生看到完整的接种史（Kesaro，12 个月后）</h4>
+
+<p>前提条件，与 J3 中相同：DID 文档已经加载。诊所查看器的信任存储是 GDHCN 信任列表的缓存副本，其中包括 B 国 DSC 的 DID 文档（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001">STT-TRU-001</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-005">STT-TRU-005</a>）。该诊所每晚或每小时刷新一次，而离线的 J3 诊所大约每周刷新一次。验证时无需在线：验证读取缓存，从不获取列表。在最近一次刷新之后发布的 DSC 无法通过信任列表核验（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>），并会指明该原因。</p>
+
+<p>回到故事开始的地方，Dr Anan 在 Kesaro 的一家初级卫生保健诊所为 Somsak 看诊。Bounmy 在手机上出示 QR 码并说出通行码。诊所查看器和奥内萨网关执行五个步骤：</p>
+
+<ol>
+  <li>查看器对照其信任列表副本中 B 国的 DSC 验证该 HCERT。</li>
+  <li>它通过 ITI-YY5 请求清单，请求使用 HTTP Message Signatures（HTTP 消息签名）签名（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-006">STT-VHL-006</a>、<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a>）。</li>
+  <li>奥内萨网关检查通行码、有效期和同意，返回清单，并在本国记录此次访问（<code class="language-plaintext highlighter-rouge">TrustDemoJ41Access</code>）。</li>
+  <li>查看器解密 IPS 和 DVC（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a>）（<code class="language-plaintext highlighter-rouge">TrustDemoJ41Received</code>）。</li>
+  <li>它将其展示给 Dr Anan：出生以来的每一个剂次，仅查看，从不复制。</li>
+</ol>
+
+<p>错误的通行码会被拒绝，但该尝试仍会在奥内萨（Onesa）被记录（<code class="language-plaintext highlighter-rouge">TrustDemoJ41WrongPasscode</code>）。如果 HCERT 未通过验证（例如，缓存列表中缺少 B 国的 DSC），则不进行数字验证。诊所指明失败的步骤和原因（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>），不跟随该 VHL，Dr Anan 将家庭能出示的任何内容当作纸质记录来对待。</p>
+
+<ul>
+  <li>痛点：没有接种史，医生就会重复接种疫苗，或者只能猜测。</li>
+  <li>促成因素：记录从奥内萨（Onesa）实时获取，仅查看而不复制，并将访问日志发回本国。</li>
+  <li>政策：跨境照护的连续性：各国保留各自的记录，没有国际患者登记系统，也没有供应商锁定。在区域层面达成一致的是数据模型和信任列表，而不是共享的数据副本。</li>
+</ul>
+
+<!-- END user scenarios -->
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/scenarios.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/scenarios.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/scenarios.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/scenarios.md", "lines": [{"t":"User stories","l":4},{"t":"User scenarios","l":24},{"t":"J1 — Born abroad (Taifafeki, birth day)","l":35},{"t":"J2 — Found at home (Onesa, 3 weeks later)","l":60},{"t":"J3 — Made official (Lomaru District Health Center, 4 weeks later)","l":84},{"t":"J4.0 — Crossing back: one family, one phone (Onesa, 12 months later)","l":115},{"t":"J4.1 — Crossing back: a Taifafeki doctor sees the full history (Kesaro, 12 months later)","l":140}]}</script>
+
+<script src="../assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+
+</body>
+</html>

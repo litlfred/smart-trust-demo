@@ -6,96 +6,108 @@
   {
    "id": "Task_StartRow",
    "name": "Start a change-set row",
-   "left": 15.56,
+   "left": 14.18,
    "top": 6.72,
    "box": {
-    "left": 11.88,
+    "left": 10.82,
     "top": 20.9,
-    "width": 1.22,
+    "width": 1.11,
     "height": 3.58
    }
   },
   {
    "id": "Task_Propose",
    "name": "Propose a direction",
-   "left": 25.74,
+   "left": 23.45,
    "top": 30.6,
    "box": {
-    "left": 22.05,
+    "left": 20.09,
     "top": 44.78,
-    "width": 1.22,
+    "width": 1.11,
     "height": 3.58
    }
   },
   {
    "id": "Task_ReadyForAgent",
    "name": "Set Ready for agent to Yes",
-   "left": 34.89,
+   "left": 31.79,
    "top": 54.48,
    "box": {
-    "left": 31.21,
+    "left": 28.43,
     "top": 68.66,
-    "width": 1.22,
+    "width": 1.11,
     "height": 3.58
    }
   },
   {
    "id": "Task_EditInPullRequest",
    "name": "Edit the document in the row's pull request",
-   "left": 45.07,
+   "left": 41.06,
    "top": 30.6,
    "box": {
-    "left": 41.38,
+    "left": 37.7,
     "top": 44.78,
-    "width": 1.22,
+    "width": 1.11,
     "height": 3.58
    }
   },
   {
    "id": "Task_AnswerPreview",
    "name": "Review the preview and answer",
-   "left": 55.75,
+   "left": 50.79,
    "top": 6.72,
    "box": {
-    "left": 52.06,
+    "left": 47.43,
     "top": 20.9,
-    "width": 1.22,
+    "width": 1.11,
     "height": 3.58
    }
   },
   {
    "id": "Task_QaGate",
-   "name": "QA-review the dispositions",
-   "left": 71.26,
+   "name": "QA gate: review dispositions against the people and the pull request",
+   "left": 64.93,
    "top": 78.36,
    "box": {
-    "left": 67.57,
+    "left": 61.57,
     "top": 92.54,
-    "width": 1.22,
+    "width": 1.11,
     "height": 3.58
    }
   },
   {
    "id": "Task_ReadyForMerge",
    "name": "Set Ready for merge to Yes",
-   "left": 85.76,
+   "left": 78.14,
    "top": 54.48,
    "box": {
-    "left": 82.07,
+    "left": 74.78,
     "top": 68.66,
-    "width": 1.22,
+    "width": 1.11,
     "height": 3.58
    }
   },
   {
    "id": "Task_Merge",
    "name": "Merge the pull request",
-   "left": 92.88,
+   "left": 84.62,
    "top": 30.6,
    "box": {
-    "left": 89.19,
+    "left": 81.26,
     "top": 44.78,
-    "width": 1.22,
+    "width": 1.11,
+    "height": 3.58
+   }
+  },
+  {
+   "id": "Task_CloseChangeSet",
+   "name": "Close the change set: the issue, then the sheet row",
+   "left": 93.2,
+   "top": 32.84,
+   "box": {
+    "left": 89.61,
+    "top": 42.54,
+    "width": 1.11,
     "height": 3.58
    }
   }
@@ -179,7 +191,7 @@
   },
   "Task_QaGate": {
    "id": "Task_QaGate",
-   "name": "QA-review the dispositions",
+   "name": "QA gate: review dispositions against the people and the pull request",
    "type": "bpmn:ServiceTask",
    "stepHref": "contributor-feedback.html#step-Task_QaGate",
    "lane": "QA reviewer (independent)",
@@ -212,6 +224,21 @@
    "name": "Merge the pull request",
    "type": "bpmn:ServiceTask",
    "stepHref": "contributor-feedback.html#step-Task_Merge",
+   "lane": "Authoring agent",
+   "laneHref": "contributor-feedback.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_CloseChangeSet": {
+   "id": "Task_CloseChangeSet",
+   "name": "Close the change set: the issue, then the sheet row",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "contributor-feedback.html#step-Task_CloseChangeSet",
    "lane": "Authoring agent",
    "laneHref": "contributor-feedback.html#lane-Lane_Agent",
    "skills": [],

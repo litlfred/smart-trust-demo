@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="fr" dir="/fr/">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"fr","translationStatus":"unverified","translationSource":"scenarios.html","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Scenarios — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="../fr/scenarios.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout>
+<script src="../assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="../assets/ig-artifact.css">
+<link rel="stylesheet" href="../assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="../assets/navbar/row-2acuhncsmbg.js" defer></script><script src="../assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/css/navbar-row.css"><script src="../assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content=".."></head>
+<body><script type="application/json" id="fa-navbar-row" data-fa-root=".." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-23mbhbo4s6d","here":"/fr/scenarios.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="../index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="../index.html">Summary</a></li><li><a href="../changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="../journeys.html">Journeys J1 to J4</a></li><li><a href="../countries.html">Fictional Countries</a></li><li><a href="../journey-examples.html">Journey Examples</a></li><li><a href="../architecture.html">Architecture (ArchiMate)</a></li><li><a href="../plan.html">Plan</a></li><li><a href="../proposal-app-platform.html">App Platform Proposal</a></li><li><a href="../dependencies.html">Dependency Register</a></li><li><a href="../upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="../personas.html">Generic Personas</a></li><li><a href="../scenarios.html">User Scenarios</a></li><li><a href="../business-processes.html">Business Processes</a></li><li><a href="../dictionary.html">Data Dictionary</a></li><li><a href="../decision-logic.html">Decision-support Logic</a></li><li><a href="../indicators.html">Indicators and Performance Metrics</a></li><li><a href="../functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="../system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="../artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="../assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from scenarios/stories.json, scenarios/story-requirements.json and scenarios/user-scenarios/*.json. Do not edit; edit the source and rerun. -->
+
+<h3 id="récits-dutilisateur">Récits d’utilisateur</h3>
+
+<p>Chaque récit renvoie aux exigences de smart-trust-tools qui y répondent (scenarios/story-requirements.json) ; lorsque la bibliothèque HCERT ne répond pas à un récit, la note indique ce qui y répond.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Rôle</th>
+      <th>Je veux</th>
+      <th>Afin que</th>
+      <th>Exigences</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aidant</td>
+      <td>Faire reconnaître dans notre pays les doses à la naissance que mon fils a reçues à l’étranger</td>
+      <td>ses soins ne repartent pas de zéro et rien n’est répété</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-009">STT-VER-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a></td>
+    </tr>
+    <tr>
+      <td>Aidant</td>
+      <td>Présenter à l’étranger les dossiers de chaque membre de la famille depuis notre unique téléphone partagé, avec un code d’accès que je peux prononcer à voix haute</td>
+      <td>un médecin à l’étranger peut nous soigner sans papier ni application</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-001">STT-VHL-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-002">STT-VHL-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-004">STT-VHL-004</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a></td>
+    </tr>
+    <tr>
+      <td>Aidant</td>
+      <td>Décider qui voit le dossier de mon enfant, et pour combien de temps</td>
+      <td>le dossier reste dans le pays et je sais qui l’a consulté</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a></td>
+    </tr>
+    <tr>
+      <td>Vaccinateur de la clinique de naissance</td>
+      <td>Imprimer un dossier signé de chaque dose à la naissance que la famille peut emporter partout</td>
+      <td> </td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-001">STT-PAY-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-003">STT-PAY-003</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004">STT-ISS-004</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-001">STT-COS-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-hc1-001">STT-HC1-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-qr-001">STT-QR-001</a></td>
+    </tr>
+    <tr>
+      <td>Agent de santé communautaire</td>
+      <td>Lire hors ligne un code QR de vaccination étranger et enregistrer l’enfant à partir de celui-ci</td>
+      <td>la clinique voit ce qui a été administré avant l’arrivée de la famille</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002">STT-B45-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003">STT-CBR-003</a></td>
+    </tr>
+    <tr>
+      <td>Agent de santé communautaire</td>
+      <td>Orienter un enfant dont le dossier étranger doit être vérifié</td>
+      <td>la vérification est effectuée par quelqu’un qui en est capable</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td>Agent de santé communautaire</td>
+      <td>Enregistrer hors ligne un nouveau-né dans le ménage, avant l’enregistrement à l’état civil</td>
+      <td>aucun nouveau-né de mon village n’est oublié, même sans signal</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a></td>
+    </tr>
+    <tr>
+      <td>Prestataire de la clinique de rattachement</td>
+      <td>Savoir si un certificat étranger est authentique, et pourquoi il ne l’est pas lorsqu’il ne l’est pas</td>
+      <td> </td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-002">STT-VER-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001">STT-TRU-001</a></td>
+    </tr>
+    <tr>
+      <td>Prestataire de la clinique de rattachement</td>
+      <td>Voir quelles doses sont dues une fois les doses étrangères importées</td>
+      <td>je ne donne que ce qui manque</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td>Prestataire de la clinique de rattachement</td>
+      <td>Conserver le code étranger du vaccin et ajouter à côté notre code de calendrier, en décidant moi-même en l’absence de correspondance</td>
+      <td>le dossier de l’autre pays n’est jamais écrasé et l’infirmière suivante n’a pas à décider de nouveau</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td>Prestataire du point de soins</td>
+      <td>Lire le résumé et les vaccinations d’un enfant de passage à partir d’un code QR présenté par le parent</td>
+      <td>sans rien installer ni appeler un autre pays</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-006">STT-VHL-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a></td>
+    </tr>
+    <tr>
+      <td>Prestataire du point de soins</td>
+      <td>Savoir que le dossier que je lis à l’étranger provient du pays de résidence de l’enfant et n’a pas été modifié</td>
+      <td>je peux m’y fier comme au dossier de ma propre clinique</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-kid-002">STT-KID-002</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="scénarios-dutilisateur">Scénarios d’utilisateur</h3>
+
+<p>Each step names the requirements of
+<a href="https://github.com/litlfred/smart-trust-tools/tree/main/skills/requirements">smart-trust-tools</a>
+it exercises, and the FHIR examples of this guide it produces. The stories are
+in <a href="https://github.com/litlfred/smart-trust-demo/blob/main/scenarios/stories.json"><code class="language-plaintext highlighter-rouge">scenarios/stories.json</code></a>.
+Each moment ends with its pain point, what enables it, and the policy point it
+makes, as the journeys walkthrough presents them.</p>
+
+<!-- BEGIN user scenarios: generated by tools/ig-gen/ig_gen.py from scenarios/user-scenarios/*.json; do not edit -->
+
+<h4 id="j1--né-à-létranger-taifafeki-jour-de-la-naissance">J1 — Né à l’étranger (Taifafeki, jour de la naissance)</h4>
+
+<p>Condition préalable : le DSC de l’émetteur figure sur la liste de confiance. Le certificat de signataire de documents (DSC) de XXR, émis sous l’autorité de certification de signature du pays (CSCA) de XXR, a été partagé avec le GDHCN, l’ancre de confiance, avant la signature de tout DVC ; le GDHCN le publie sous forme de document DID. Ce partage n’est pas une étape de l’émission. Un DVC signé avec une clé dont le DSC n’a jamais été partagé échoue au contrôle de la liste de confiance de tout destinataire (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>).</p>
+
+<p>Khamla donne naissance à Somsak le 2025-10-28 à l’hôpital provincial de Kesaro, loin de chez elle. Il n’a pas de numéro d’identité thaï. Le Dr Anan administre les doses à la naissance contre l’hépatite B et le BCG et les enregistre avec leurs codes de produit de préqualification de l’OMS. Pour chaque dose, le système de l’hôpital effectue trois opérations :</p>
+
+<ol>
+  <li>Il construit une charge utile DVCMinPreQual : <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-001">STT-PAY-001</a>…<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">005</a> et <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-007">STT-PAY-007</a>, avec la sous-revendication −6 (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-sel-003">STT-SEL-003</a>). Aucun document d’identité n’est nécessaire (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-pay-005">STT-PAY-005</a>).</li>
+  <li>Il prépare le CWT et les octets à signer : <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cwt-001">STT-CWT-001</a>…<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cwt-005">005</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-004">STT-ISS-004</a>.</li>
+  <li>Il les fait signer par la clé de XXR (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-002">STT-COS-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-006">STT-COS-006</a>), puis finalise le texte HC1 : <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cos-001">STT-COS-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-001">STT-ZIP-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-001">STT-B45-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-hc1-001">STT-HC1-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-qr-001">STT-QR-001</a>.</li>
+</ol>
+
+<p>Khamla leaves with two paper DVCs.
+<em>In the demo:</em> the library tests use the WHO guide’s own two signed HC1
+strings (<a href="https://smart.who.int/trust/qr_code_generation.html">QR Code Generation §12</a>),
+which verify against the live DEV trust list under the same XXR key. Somsak’s
+DVC payloads are illustrative. Live issuance in the app uses a
+TEST-ONLY key (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-iss-003">STT-ISS-003</a>), whose DSC is not on the GDHCN list, so its DVCs
+do not verify in J3.</p>
+
+<ul>
+  <li>Point de friction : le bébé n’a pas de numéro d’identité thaï, de sorte que ses dossiers resteraient normalement enfermés dans le système de l’hôpital thaï.</li>
+  <li>Facilitateur : une carte QR signée numériquement voyage avec la famille — aucun numéro d’identification ni consultation de base de données n’est nécessaire.</li>
+  <li>Politique : les bébés nés à l’étranger peuvent obtenir un dossier de vaccination vérifiable avant d’avoir l’enregistrement à l’état civil du pays d’accueil ou une pièce d’identité nationale — et l’enregistrement de la naissance dans le pays de résidence reste important.</li>
+</ul>
+
+<h4 id="j2--retrouvé-au-domicile-onesa-3-semaines-plus-tard">J2 — Retrouvé au domicile (Onesa, 3 semaines plus tard)</h4>
+
+<p>J2a. Lors d’une visite de routine au Village 04, Vilay trouve un nouveau-né dont le système d’Onesa ignore l’existence. Son téléphone n’a pas eu de signal depuis des semaines. Khamla montre les deux cartes. L’application CHW les lit en mode read-unverified (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a> ; <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-b45-002">STT-B45-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-zip-002">STT-ZIP-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-cbr-003">STT-CBR-003</a>), qui ne nécessite aucune liste de confiance. Elle affiche les doses, mais ne vérifie aucune signature et n’enregistre encore rien.</p>
+
+<p>J2b. Dans le formulaire de nouveau-né de l’application CHW (saisie de données structurées, <code class="language-plaintext highlighter-rouge">TrustDemoHouseholdRegistration</code>), elle ajoute Somsak au ménage Sengmany (<code class="language-plaintext highlighter-rouge">TrustDemoHousehold</code>), avec un identifiant temporaire. Bounmy confirme les informations en tant que chef de ménage. L’application enregistre les doses lues sur les cartes comme déclarées par la famille, non vérifiées (<code class="language-plaintext highlighter-rouge">TrustDemoJ2HepBReported</code>, <code class="language-plaintext highlighter-rouge">TrustDemoJ2BcgReported</code> : <code class="language-plaintext highlighter-rouge">primarySource</code> false). Vilay oriente Somsak vers le centre de santé de district (<code class="language-plaintext highlighter-rouge">TrustDemoJ2Referral</code>). Tout reste en file d’attente sur le téléphone, pendant 28 jours si nécessaire, et se synchronise dès qu’un signal est de nouveau disponible.</p>
+
+<ul>
+  <li>Point de friction (J2a) : sans vérification, une carte falsifiée ou mal saisie pourrait discrètement devenir un dossier officiel.</li>
+  <li>Point de friction (J2b) : les bébés nés à l’étranger sont invisibles pour le système de santé du pays de résidence jusqu’à ce que l’enregistrement à l’état civil soit effectué — parfois des mois plus tard.</li>
+  <li>Facilitateur (J2a) : le téléphone lit la carte hors ligne et distingue clairement « ce que la famille nous a dit » de « ce que nous avons vérifié ».</li>
+  <li>Facilitateur (J2b) : un formulaire hors ligne rattache immédiatement le bébé à son ménage ; il se synchronise dès que le téléphone capte un signal.</li>
+  <li>Politique (J2a) : maintenir une distinction claire entre ce que les familles déclarent et ce qui a été vérifié, et ne pas accorder la confiance trop tôt.</li>
+  <li>Politique (J2b) : les nouveau-nés peuvent être enregistrés au domicile, hors ligne, avant l’enregistrement à l’état civil ou l’existence d’une pièce d’identité nationale.</li>
+</ul>
+
+<h4 id="j3--rendu-officiel-centre-de-santé-du-district-de-lomaru-4-semaines-plus-tard">J3 — Rendu officiel (centre de santé du district de Lomaru, 4 semaines plus tard)</h4>
+
+<p>Condition préalable : les documents DID sont déjà chargés. Leur chargement n’est pas une étape de cette visite. La clinique peut être hors ligne toute la journée ; le DSE ne récupère donc rien pendant la visite : son magasin de confiance contient la liste de confiance DEV du GDHCN telle qu’elle était lors de sa dernière actualisation, comprenant le document DID du DSC de XXR (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001">STT-TRU-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-005">STT-TRU-005</a>). Une clinique sans connexion propre l’actualise environ une fois par semaine, lorsque le CHW se rend à la clinique de base ou au bureau de santé de district, où le Pays B récupère la liste que distribue l’ancre de confiance du GDHCN. Un DSC publié après cette actualisation ne figure pas dans la copie de la clinique ; son DVC échoue donc au contrôle de la liste de confiance (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>) jusqu’à la prochaine actualisation.</p>
+
+<p>J3a. L’infirmière Chanthason ouvre l’orientation et scanne les codes QR. Le DSE vérifie chaque DVC hors ligne par rapport à cette copie (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>…<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-009">009</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-kid-002">STT-KID-002</a>), sans contacter Taifafeki. Les deux sont vérifiés ; il les importe donc en tant que ressources FHIR <code class="language-plaintext highlighter-rouge">Immunization</code> (<code class="language-plaintext highlighter-rouge">TrustDemoJ3HepB</code>, <code class="language-plaintext highlighter-rouge">TrustDemoJ3Bcg</code>) avec leur provenance (<code class="language-plaintext highlighter-rouge">TrustDemoJ3Verification</code> ; <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-007">STT-VER-007</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>), en remplacement des doses déclarées de J2. Si un DVC échoue (une carte altérée, par exemple), le DSE indique l’étape et le motif, les doses restent non vérifiées, et l’infirmière décide selon la politique nationale de rattrapage.</p>
+
+<p>J3b. Le produit thaï contre l’hépatite B ne correspond à rien dans le calendrier national. Le DSE conserve le codage de produit de Taifafeki et ajoute à côté le codage du calendrier, à partir de la table de correspondance nationale (<code class="language-plaintext highlighter-rouge">TrustDemoProductToOnesaEpi</code>). Pour le produit contre l’hépatite B, la table ne contient aucune entrée ; l’infirmière Chanthason prend donc la décision clinique qu’il s’agit de la dose à la naissance du calendrier (<code class="language-plaintext highlighter-rouge">TrustDemoJ3Adjudication</code>), et sa décision est ajoutée à la table pour la clinique suivante. Le calendrier (<code class="language-plaintext highlighter-rouge">TrustDemoOnesaInfantSchedule</code>) s’exécute alors : les doses à la naissance sont comptabilisées, et le pentavalent 1, le VPOb 1 et le PCV 1 sont dus à 6 semaines (<code class="language-plaintext highlighter-rouge">TrustDemoJ3Recommendation</code>). Khamla repart avec la date (<code class="language-plaintext highlighter-rouge">TrustDemoJ3Reminder</code>). Au cours de l’année, Somsak reçoit ces doses ainsi que le vaccin rougeole-rubéole à 9 mois, à Onesa.</p>
+
+<ul>
+  <li>Point de friction (J3a) : les cliniciens se méfient des documents papier étrangers et revaccinent, ou leur font aveuglément confiance.</li>
+  <li>Point de friction (J3b) : les pays nomment et conditionnent les vaccins différemment, si bien que des doses sont omises ou répétées.</li>
+  <li>Facilitateur (J3a) : la clé de signature de Taifafeki figure sur la liste de confiance partagée de l’OMS, de sorte que toute clinique peut la vérifier localement.</li>
+  <li>Facilitateur (J3b) : le code d’origine de Taifafeki est conservé et le code d’Onesa est ajouté à côté ; le moteur de calendrier calcule ce qui est dû.</li>
+  <li>Politique (J3a) : la confiance est décentralisée : une clinique d’Onesa vérifie elle-même une signature thaïe, sans contacter Taifafeki.</li>
+  <li>Politique (J3b) : ne jamais écraser le dossier d’un autre pays : conserver le codage d’origine à côté du codage national.</li>
+</ul>
+
+<h4 id="j40--le-retour--une-famille-un-téléphone-onesa-12-mois-plus-tard">J4.0 — Le retour : une famille, un téléphone (Onesa, 12 mois plus tard)</h4>
+
+<p>J4.0a. La famille prévoit un voyage à Taifafeki. Le téléphone de Bounmy contient le portefeuille familial, avec un profil pour chacun d’eux. Le résumé de Somsak (<code class="language-plaintext highlighter-rouge">TrustDemoJ4Ips</code>) indique six doses : deux de Taifafeki, quatre de Onesa.</p>
+
+<p>Condition préalable, comme dans J1 : le DSC du Pays B, émis sous la CSCA du Pays B, est déjà partagé avec le GDHCN, l’ancre de confiance. C’est ce qui permet à la clinique à Taifafeki de vérifier le lien dans J4.1.</p>
+
+<p>J4.0b. Pour Somsak, Bounmy partage son dossier avec un code d’accès à 4 chiffres qu’il peut prononcer à voix haute, valable 14 jours. Le portail enregistre son consentement (<code class="language-plaintext highlighter-rouge">TrustDemoJ4Consent</code>), puis effectue trois opérations :</p>
+
+<ol>
+  <li>Il assemble l’IPS et les DVC de Somsak.</li>
+  <li>Il les chiffre (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-004">STT-VHL-004</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a>) derrière un manifeste protégé par code d’accès et assorti d’une date d’expiration (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>).</li>
+  <li>Il émet le lien sous forme de HCERT, avec le VHL à la clé 5 (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-001">STT-VHL-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-002">STT-VHL-002</a>), signé avec le DSC du Pays B.</li>
+</ol>
+
+<p>Le code QR ne contient qu’un pointeur et une clé : le dossier reste à Onesa.</p>
+
+<ul>
+  <li>Point de friction (J4.0a) : de nombreuses familles partagent un seul smartphone ; les conceptions « une application par personne » les excluent.</li>
+  <li>Point de friction (J4.0b) : l’envoi de photos ou de PDF des dossiers expose des données et ne peut pas être vérifié par le destinataire.</li>
+  <li>Facilitateur (J4.0a) : un portefeuille du ménage sur un seul téléphone, avec un résumé de santé distinct pour chaque personne.</li>
+  <li>Facilitateur (J4.0b) : un lien de santé vérifiable : le code QR ne contient qu’un pointeur verrouillé ; les données restent dans le pays de résidence jusqu’à ce que le code d’accès soit donné.</li>
+  <li>Politique (J4.0a) : concevoir pour des appareils partagés (« Une famille, un téléphone ») afin que les familles qui n’ont qu’un seul téléphone ne soient pas exclues.</li>
+  <li>Politique (J4.0b) : souveraineté des données : le dossier reste à Onesa jusqu’à ce que la famille autorise quelqu’un à l’ouvrir.</li>
+</ul>
+
+<h4 id="j41--le-retour--un-médecin-thaï-voit-lhistorique-complet-kesaro-12-mois-plus-tard">J4.1 — Le retour : un médecin thaï voit l’historique complet (Kesaro, 12 mois plus tard)</h4>
+
+<p>Condition préalable, comme dans J3 : les documents DID sont déjà chargés. Le magasin de confiance du visualiseur de la clinique est une copie en cache de la liste de confiance du GDHCN, comprenant le document DID du DSC du Pays B (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-001">STT-TRU-001</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-002">STT-TRU-002</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-tru-005">STT-TRU-005</a>). La clinique l’actualise chaque nuit ou chaque heure, contre environ une fois par semaine pour la clinique hors ligne de J3. Elle n’a pas besoin d’être en ligne pour vérifier : la vérification lit le cache et ne récupère jamais la liste. Un DSC publié après la dernière actualisation échoue au contrôle de la liste de confiance (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>), avec ce motif.</p>
+
+<p>De retour là où tout a commencé, le Dr Anan reçoit Somsak dans une clinique de soins primaires de Kesaro. Bounmy montre le code QR sur son téléphone et prononce le code d’accès. Le visualiseur de la clinique et la passerelle d’Onesa effectuent cinq étapes :</p>
+
+<ol>
+  <li>Le visualiseur vérifie le HCERT par rapport au DSC du Pays B dans sa copie de la liste de confiance.</li>
+  <li>Il demande le manifeste par ITI-YY5, signé au moyen des signatures de messages HTTP (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-006">STT-VHL-006</a>, <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-008">STT-VHL-008</a>).</li>
+  <li>La passerelle d’Onesa vérifie le code d’accès, l’expiration et le consentement, renvoie le manifeste et journalise l’accès dans le pays de résidence (<code class="language-plaintext highlighter-rouge">TrustDemoJ41Access</code>).</li>
+  <li>Le visualiseur déchiffre l’IPS et les DVC (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-007">STT-VHL-007</a>) (<code class="language-plaintext highlighter-rouge">TrustDemoJ41Received</code>).</li>
+  <li>Il les présente au Dr Anan : chaque dose depuis la naissance, consultée, jamais copiée.</li>
+</ol>
+
+<p>Un code d’accès erroné est refusé, et la tentative est tout de même journalisée à Onesa (<code class="language-plaintext highlighter-rouge">TrustDemoJ41WrongPasscode</code>). Si le HCERT n’est pas vérifié (par exemple, le DSC du Pays B est absent de la liste en cache), il n’y a pas de vérification numérique. La clinique indique l’étape et le motif (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>), ne suit pas le VHL, et le Dr Anan traite ce que la famille peut présenter comme il traiterait un dossier papier.</p>
+
+<ul>
+  <li>Point de friction : sans l’historique, le médecin répéterait les vaccins ou devrait deviner.</li>
+  <li>Facilitateur : le dossier est récupéré en direct depuis Onesa, consulté sans être copié, et un journal d’accès est envoyé dans le pays de résidence.</li>
+  <li>Politique : continuité des soins par-delà les frontières : chaque pays conserve ses propres dossiers, sans registre international de patients ni dépendance à un fournisseur. Ce qui est convenu au niveau régional, c’est le modèle de données et la liste de confiance, et non une copie partagée des données.</li>
+</ul>
+
+<!-- END user scenarios -->
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/scenarios.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/scenarios.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/scenarios.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/scenarios.md", "lines": [{"t":"User stories","l":4},{"t":"User scenarios","l":24},{"t":"J1 — Born abroad (Taifafeki, birth day)","l":35},{"t":"J2 — Found at home (Onesa, 3 weeks later)","l":60},{"t":"J3 — Made official (Lomaru District Health Center, 4 weeks later)","l":84},{"t":"J4.0 — Crossing back: one family, one phone (Onesa, 12 months later)","l":115},{"t":"J4.1 — Crossing back: a Taifafeki doctor sees the full history (Kesaro, 12 months later)","l":140}]}</script>
+
+<script src="../assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+
+</body>
+</html>

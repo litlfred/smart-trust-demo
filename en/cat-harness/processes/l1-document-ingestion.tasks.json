@@ -7,168 +7,192 @@
    "id": "CallActivity_Basic",
    "name": "Basic ingestion (harness)",
    "left": 15.64,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 13.44,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "Task_Detect",
    "name": "Detect media type, mint a doc id",
    "left": 20.79,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 18.59,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "Task_Licence",
    "name": "Establish the licence from the upload",
    "left": 27.47,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 25.27,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "CallActivity_Extract",
    "name": "Extract structure",
    "left": 33.69,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 31.49,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "CallActivity_Derive",
    "name": "Derive content from the assets",
    "left": 39.91,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 37.71,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "CallActivity_IngestTheme",
    "name": "Ingest the theme",
    "left": 49.17,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 46.97,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "Call_BeanOpen",
    "name": "Open the bean",
    "left": 7.07,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 4.87,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "Call_BeanClose",
    "name": "Close the bean",
    "left": 95.51,
-   "top": 61.72,
+   "top": 59.67,
    "box": {
     "left": 93.31,
-    "top": 76.56,
+    "top": 74.02,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "CallActivity_BuildKg",
    "name": "Build the L1 knowledge graph",
    "left": 56.45,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 54.25,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "CallActivity_Gate",
    "name": "L1 completeness gate",
    "left": 62.67,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 60.47,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "Task_OpenBean",
    "name": "Record the gap as a bean",
    "left": 69.8,
-   "top": 36.72,
+   "top": 35.5,
    "box": {
     "left": 66.69,
-    "top": 45.31,
+    "top": 43.81,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   },
   {
    "id": "Task_Promote",
    "name": "Move into library/<bib-slug>/",
    "left": 75.57,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 73.37,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
+   }
+  },
+  {
+   "id": "CallActivity_PublishStatements",
+   "name": "Publish the extracted statements with source links",
+   "left": 75.57,
+   "top": 35.5,
+   "box": {
+    "left": 73.37,
+    "top": 49.85,
+    "width": 0.73,
+    "height": 3.63
    }
   },
   {
    "id": "Task_SummaryQueue",
-   "name": "Queue prose blocks for summary",
+   "name": "Summarise prose blocks, in every language",
    "left": 82.25,
-   "top": 5.47,
+   "top": 5.29,
    "box": {
     "left": 80.05,
-    "top": 20.31,
+    "top": 19.64,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
+   }
+  },
+  {
+   "id": "Task_Errata",
+   "name": "Record errata in the source's own text",
+   "left": 82.25,
+   "top": 32.48,
+   "box": {
+    "left": 80.05,
+    "top": 46.83,
+    "width": 0.73,
+    "height": 3.63
    }
   },
   {
    "id": "Task_Citeable",
    "name": "Available to cite as an L1 source",
    "left": 88.92,
-   "top": 64.84,
+   "top": 62.69,
    "box": {
     "left": 86.27,
-    "top": 73.44,
+    "top": 71,
     "width": 0.73,
-    "height": 3.75
+    "height": 3.63
    }
   }
  ],
@@ -390,11 +414,46 @@
     "skills": []
    }
   },
+  "CallActivity_PublishStatements": {
+   "id": "CallActivity_PublishStatements",
+   "name": "Publish the extracted statements with source links",
+   "type": "bpmn:CallActivity",
+   "stepHref": "l1-document-ingestion.html#step-CallActivity_PublishStatements",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
+   "skills": [],
+   "calls": {
+    "name": "Publish extracted statements with source links",
+    "href": "publish-extracted-statements.html",
+    "diagram": "publish-extracted-statements.html"
+   },
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
   "Task_SummaryQueue": {
    "id": "Task_SummaryQueue",
-   "name": "Queue prose blocks for summary",
+   "name": "Summarise prose blocks, in every language",
    "type": "bpmn:ServiceTask",
    "stepHref": "l1-document-ingestion.html#step-Task_SummaryQueue",
+   "lane": "Ingestion Engine (agent, runs unattended)",
+   "laneHref": "l1-document-ingestion.html#lane-Lane_1",
+   "skills": [],
+   "role": {
+    "name": "ingestion-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-ingestion-agent",
+    "title": "Ingestion engine",
+    "skills": []
+   }
+  },
+  "Task_Errata": {
+   "id": "Task_Errata",
+   "name": "Record errata in the source's own text",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "l1-document-ingestion.html#step-Task_Errata",
    "lane": "Ingestion Engine (agent, runs unattended)",
    "laneHref": "l1-document-ingestion.html#lane-Lane_1",
    "skills": [],

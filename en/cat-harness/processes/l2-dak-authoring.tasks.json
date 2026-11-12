@@ -28,6 +28,18 @@
    }
   },
   {
+   "id": "Call_PublishStatements",
+   "name": "Publish extracted statements",
+   "left": 15.42,
+   "top": 38.11,
+   "box": {
+    "left": 12,
+    "top": 45.9,
+    "width": 1.06,
+    "height": 1.97
+   }
+  },
+  {
    "id": "Task_SeedBeans",
    "name": "Seed the work plan",
    "left": 34.8,
@@ -197,6 +209,26 @@
    "lane": "Business analyst",
    "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
    "skills": [],
+   "role": {
+    "name": "business-analyst",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-business-analyst",
+    "title": "Business analyst",
+    "skills": []
+   }
+  },
+  "Call_PublishStatements": {
+   "id": "Call_PublishStatements",
+   "name": "Publish extracted statements",
+   "type": "bpmn:CallActivity",
+   "stepHref": "l2-dak-authoring.html#step-Call_PublishStatements",
+   "lane": "Business analyst",
+   "laneHref": "l2-dak-authoring.html#lane-Lane_Analyst",
+   "skills": [],
+   "calls": {
+    "name": "Publish extracted statements with source links",
+    "href": "publish-extracted-statements.html",
+    "diagram": "publish-extracted-statements.html"
+   },
    "role": {
     "name": "business-analyst",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-business-analyst",
