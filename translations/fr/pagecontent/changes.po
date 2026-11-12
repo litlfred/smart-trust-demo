@@ -28,10 +28,6 @@ msgstr "Premier contenu L2 et L3 : personas génériques et acteurs système sou
 msgid "New examples: household {code0}, registration {code1} and response, reported and verified {code2}s, verification and adjudication {code3}, {code4} from product to schedule code, an illustrative schedule {code5}, {code6} and reminder {code7}, the four Onesan doses, a six-dose IPS, {code8}, and two {code9}s (access granted, wrong passcode). Two illustrative code systems stand in for PreQual product ids and national schedule codes."
 msgstr "Nouveaux exemples : {code0} du ménage, {code1} d'enregistrement et réponse, {code2} déclarés et vérifiés, {code3} de vérification et d'arbitrage, {code4} du produit au code du calendrier, un {code5} de calendrier à titre d'illustration, {code6} et {code7} de rappel, les quatre doses d’Onesa, un IPS à six doses, {code8}, et deux {code9} (accès accordé, code d'accès erroné). Deux systèmes de codes illustratifs remplacent les identifiants de produits PreQual et les codes des calendriers nationaux."
 
-#: input/pagecontent/changes.md:7
-msgid "New page: <a0>VaxLink examples</a0>, mapping each walkthrough screen and payload to its example here."
-msgstr "Nouvelle page : <a0>exemples VaxLink</a0>, mettant en correspondance chaque écran et chaque charge utile de la présentation guidée avec son exemple ici."
-
 #: input/pagecontent/changes.md:5
 msgid "New process steps: J2 adds the newborn to the household and saves the doses as reported, not verified; J3 adds the national schedule code beside the foreign vaccine code (the nurse decides unmapped products); J4.0 records the holder's consent with a passcode and an expiry; J4.1 adds the home portal's lane, which checks the passcode, returns the manifest and logs every access."
 msgstr "Nouvelles étapes de processus : J2 ajoute le nouveau-né au ménage et enregistre les doses comme déclarées, non vérifiées ; J3 ajoute le code du calendrier national à côté du code du vaccin étranger (l'infirmière tranche pour les produits sans correspondance) ; J4.0 enregistre le consentement du titulaire avec un code d'accès et une date d'expiration ; J4.1 ajoute le couloir du portail de rattachement, qui vérifie le code d'accès, renvoie le manifeste et journalise chaque accès."
@@ -39,3 +35,20 @@ msgstr "Nouvelles étapes de processus : J2 ajoute le nouveau-né au ménage et 
 #: input/pagecontent/changes.md:4
 msgid "The journeys tell the <a0>VaxLink</a0> story (issue <a1>#21</a1>): Somsak SENGMANY, born in Taifafeki (XXR), living in Onesa (XXK), seen again in Taifafeki a year later. Personas, system actors and stories recast; the business processes made generic (no person names in them)."
 msgstr "Les parcours racontent l'histoire de <a0>VaxLink</a0> (issue <a1>#21</a1>) : Somsak SENGMANY, né à Taifafeki (XXR), vivant à Onesa (XXK), revu à Taifafeki un an plus tard. Personas, acteurs système et récits refondus ; processus métier rendus génériques (aucun nom de personne)."
+
+#: input/pagecontent/changes.md:9
+msgid "New page: <a0>Journey examples</a0>, mapping each walkthrough screen and payload to its example here."
+msgstr "Nouvelle page : <a0>exemples des parcours</a0>, mettant en correspondance chaque écran et chaque charge utile de la présentation guidée avec son exemple ici."
+
+#: input/pagecontent/changes.md:7
+#, python-brace-format
+msgid "New terminology: {code0} and the {code1} ValueSet, the demo's own illustrative trust domains (DVC for J1 and J3, VHL for J4.0 and J4.1), in the style of the GDHCN Trust Domains of SMART Trust but not GDHCN codes."
+msgstr "Nouvelle terminologie : {code0} et le ValueSet {code1}, les domaines de confiance illustratifs propres à la démonstration (DVC pour J1 et J3, VHL pour J4.0 et J4.1), dans le style des domaines de confiance (Trust Domains) du GDHCN de SMART Trust, mais qui ne sont pas des codes du GDHCN."
+
+#: input/pagecontent/changes.md:8
+#, python-brace-format
+msgid "The DEMO-VHL trust domain's terms of use: {code0} and the {code1} ValueSet. The J4.0 consent is now a Personal Health Wallet explicit consent ({code2}) that names {code3} in {code4}."
+msgstr "Les conditions d'utilisation du domaine de confiance DEMO-VHL : {code0} et le ValueSet {code1}. Le consentement de J4.0 est désormais un consentement explicite du Personal Health Wallet ({code2}) qui nomme {code3} dans {code4}."
+
+#~ msgid "New page: <a0>VaxLink examples</a0>, mapping each walkthrough screen and payload to its example here."
+#~ msgstr "Nouvelle page : <a0>exemples VaxLink</a0>, mettant en correspondance chaque écran et chaque charge utile de la présentation guidée avec son exemple ici."

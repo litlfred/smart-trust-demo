@@ -243,11 +243,6 @@ msgstr "Dr Anan, Vilay, infirmière Chanthason, Dr Anan"
 msgid "Each lane is a role in <a0>{code0}</a0>. Each actor in <a1>{code1}</a1> names the role it plays. Its {code2} gives the ActorDefinitions it is an instance of, and its {code3} gives the smart-trust-tools actor. On the role, the guides' names appear as {code4} (also known as)."
 msgstr "Chaque couloir est un rôle dans <a0>{code0}</a0>. Chaque acteur dans <a1>{code1}</a1> nomme le rôle qu’il joue. Son {code2} indique les ActorDefinitions dont il est une instance, et son {code3} indique l’acteur de smart-trust-tools. Sur le rôle, les noms des guides apparaissent sous {code4} (également appelé)."
 
-#: docs/journeys.md:93
-#, python-brace-format
-msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
-msgstr "Chaque étape nomme les exigences de <a0>smart-trust-tools</a0> qu’elle sollicite, ainsi que les exemples FHIR de ce guide qu’elle produit. Les récits se trouvent dans <a1>{code0}</a1>. Chaque moment se termine par son point de friction, ce qui le rend possible et le point de politique qu’il illustre, tels que les présente la présentation guidée VaxLink."
-
 #: docs/journeys.md:146
 msgid "Enabler (J2a): The phone reads the card offline, and keeps “what the family told us” clearly separate from “what we have verified”."
 msgstr "Facilitateur (J2a) : le téléphone lit la carte hors ligne et distingue clairement « ce que la famille nous a dit » de « ce que nous avons vérifié »."
@@ -311,10 +306,6 @@ msgstr "Conservé où"
 #: docs/journeys.md:79
 msgid "home-clinic-ehr"
 msgstr "home-clinic-ehr"
-
-#: docs/journeys.md:44
-msgid "How far a clinician can rely on Somsak's record, step by step (the VaxLink \"follow the record\" ladder):"
-msgstr "Dans quelle mesure un clinicien peut se fier au dossier de Somsak, étape par étape (l’échelle « suivre le dossier » de VaxLink) :"
 
 #: docs/journeys.md:238
 msgid "Identity for babies born abroad (J1, J2b): how should national immunization systems handle temporary ids for cross-border infants before civil registration is complete?"
@@ -454,10 +445,6 @@ msgstr "Parcours J1–J4"
 #: docs/journeys.md:106
 msgid "Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
 msgstr "Khamla donne naissance à Somsak le 2025-10-28 à l’hôpital provincial de Kesaro, loin de chez elle. Il n’a pas de numéro d’identité thaï. Le Dr Anan administre les doses à la naissance contre l’hépatite B et le BCG et les enregistre avec leurs codes de produit de préqualification de l’OMS. Pour chaque dose, le système de l’hôpital effectue trois opérations :"
-
-#: docs/journeys.md:115
-msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
-msgstr "Khamla repart avec deux DVC papier. Dans la démonstration : les tests de la bibliothèque utilisent les deux chaînes HC1 signées du guide de l’OMS lui-même (<a0>QR Code Generation §12</a0>), qui sont vérifiées par rapport à la liste de confiance DEV en service sous la même clé XXR. Les charges utiles des DVC de Somsak sont illustratives, comme dans VaxLink. L’émission en direct dans l’application utilise une clé TEST-ONLY (STT-ISS-003), dont le DSC ne figure pas sur la liste du GDHCN ; ses DVC ne sont donc pas vérifiés dans J3."
 
 #: docs/journeys.md:74
 msgid "Khamla SENGMANY (J1–J3), Bounmy SENGMANY (J4)"
@@ -673,15 +660,6 @@ msgstr "Le code QR ne contient qu’un pointeur et une clé : le dossier reste �
 msgid "the Sengmany family's shared phone (Bounmy's)"
 msgstr "le téléphone partagé de la famille Sengmany (celui de Bounmy)"
 
-#: docs/journeys.md:12
-#, python-brace-format
-msgid "The story is the one the <a0>VaxLink walkthrough</a0> tells, moment by moment, with the people, the technical layer and the policy questions (interactive; its source is {code0} in this repository), documented here as a WHO SMART Guidelines L2 DAK and L3 implementation guide. Its FHIR examples are materialized in this guide; the <a1>VaxLink examples</a1> page maps each moment and device screen to them."
-msgstr "Le récit est celui que raconte la <a0>présentation guidée VaxLink</a0>, moment par moment, avec les personnes, la couche technique et les questions de politique (interactive ; sa source est {code0} dans ce dépôt), documenté ici sous forme de DAK L2 et de guide d’implémentation L3 des lignes directrices SMART de l’OMS. Ses exemples FHIR sont matérialisés dans ce guide ; la page <a1>Exemples VaxLink</a1> met en correspondance chaque moment et chaque écran d’appareil avec ces exemples."
-
-#: docs/journeys.md:236
-msgid "The VaxLink walkthrough closes with four policy questions:"
-msgstr "La présentation guidée VaxLink se termine par quatre questions de politique :"
-
 #: docs/journeys.md:218
 #, python-brace-format
 msgid "The viewer decrypts the IPS and DVCs (STT-VHL-007) ({code0})."
@@ -770,3 +748,42 @@ msgstr "XXR et XXK sont des participants de test DEV, et non les clés de produc
 #: docs/journeys.md:77
 msgid "XXR's DSC key (plays Taifafeki)"
 msgstr "Clé du DSC de XXR (représente Taifafeki)"
+
+#: docs/journeys.md:93
+#, python-brace-format
+msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the journeys walkthrough presents them."
+msgstr "Chaque étape nomme les exigences de <a0>smart-trust-tools</a0> qu’elle sollicite, ainsi que les exemples FHIR de ce guide qu’elle produit. Les récits se trouvent dans <a1>{code0}</a1>. Chaque moment se termine par son point de friction, ce qui le rend possible et le point de politique qu’il illustre, tels que les présente la présentation guidée des parcours."
+
+#: docs/journeys.md:44
+msgid "How far a clinician can rely on Somsak's record, step by step (the journeys walkthrough's \"follow the record\" ladder):"
+msgstr "Dans quelle mesure un clinicien peut se fier au dossier de Somsak, étape par étape (l’échelle « suivre le dossier » de la présentation guidée des parcours) :"
+
+#: docs/journeys.md:115
+msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+msgstr "Khamla repart avec deux DVC papier. Dans la démonstration : les tests de la bibliothèque utilisent les deux chaînes HC1 signées du guide de l’OMS lui-même (<a0>QR Code Generation §12</a0>), qui sont vérifiées par rapport à la liste de confiance DEV en service sous la même clé XXR. Les charges utiles des DVC de Somsak sont illustratives. L’émission en direct dans l’application utilise une clé TEST-ONLY (STT-ISS-003), dont le DSC ne figure pas sur la liste du GDHCN ; ses DVC ne sont donc pas vérifiés dans J3."
+
+#: docs/journeys.md:236
+msgid "The journeys walkthrough closes with four policy questions:"
+msgstr "La présentation guidée des parcours se termine par quatre questions de politique :"
+
+#: docs/journeys.md:12
+#, python-brace-format
+msgid "The story is the one the <a0>journeys walkthrough</a0> tells, moment by moment, with the people, the technical layer and the policy questions (interactive; its source is {code0} in this repository), documented here as a WHO SMART Guidelines L2 DAK and L3 implementation guide. Its FHIR examples are materialized in this guide; the <a1>Journey examples</a1> page maps each moment and device screen to them."
+msgstr "Le récit est celui que raconte la <a0>présentation guidée des parcours</a0>, moment par moment, avec les personnes, la couche technique et les questions de politique (interactive ; sa source est {code0} dans ce dépôt), documenté ici sous forme de DAK L2 et de guide d’implémentation L3 des lignes directrices SMART de l’OMS. Ses exemples FHIR sont matérialisés dans ce guide ; la page <a1>Exemples des parcours</a1> met en correspondance chaque moment et chaque écran d’appareil avec ces exemples."
+
+#~ #, python-brace-format
+#~ msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
+#~ msgstr "Chaque étape nomme les exigences de <a0>smart-trust-tools</a0> qu’elle sollicite, ainsi que les exemples FHIR de ce guide qu’elle produit. Les récits se trouvent dans <a1>{code0}</a1>. Chaque moment se termine par son point de friction, ce qui le rend possible et le point de politique qu’il illustre, tels que les présente la présentation guidée VaxLink."
+
+#~ msgid "How far a clinician can rely on Somsak's record, step by step (the VaxLink \"follow the record\" ladder):"
+#~ msgstr "Dans quelle mesure un clinicien peut se fier au dossier de Somsak, étape par étape (l’échelle « suivre le dossier » de VaxLink) :"
+
+#~ msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+#~ msgstr "Khamla repart avec deux DVC papier. Dans la démonstration : les tests de la bibliothèque utilisent les deux chaînes HC1 signées du guide de l’OMS lui-même (<a0>QR Code Generation §12</a0>), qui sont vérifiées par rapport à la liste de confiance DEV en service sous la même clé XXR. Les charges utiles des DVC de Somsak sont illustratives, comme dans VaxLink. L’émission en direct dans l’application utilise une clé TEST-ONLY (STT-ISS-003), dont le DSC ne figure pas sur la liste du GDHCN ; ses DVC ne sont donc pas vérifiés dans J3."
+
+#~ #, python-brace-format
+#~ msgid "The story is the one the <a0>VaxLink walkthrough</a0> tells, moment by moment, with the people, the technical layer and the policy questions (interactive; its source is {code0} in this repository), documented here as a WHO SMART Guidelines L2 DAK and L3 implementation guide. Its FHIR examples are materialized in this guide; the <a1>VaxLink examples</a1> page maps each moment and device screen to them."
+#~ msgstr "Le récit est celui que raconte la <a0>présentation guidée VaxLink</a0>, moment par moment, avec les personnes, la couche technique et les questions de politique (interactive ; sa source est {code0} dans ce dépôt), documenté ici sous forme de DAK L2 et de guide d’implémentation L3 des lignes directrices SMART de l’OMS. Ses exemples FHIR sont matérialisés dans ce guide ; la page <a1>Exemples VaxLink</a1> met en correspondance chaque moment et chaque écran d’appareil avec ces exemples."
+
+#~ msgid "The VaxLink walkthrough closes with four policy questions:"
+#~ msgstr "La présentation guidée VaxLink se termine par quatre questions de politique :"
