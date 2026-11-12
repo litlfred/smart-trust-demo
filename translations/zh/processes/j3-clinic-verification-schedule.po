@@ -65,11 +65,6 @@ msgstr "将剂次导入为 FHIR Immunization 资源"
 msgid "J3 Verify, import and schedule at the home clinic"
 msgstr "J3 在所属诊所验证、导入并制定接种计划"
 
-#: processes/content/j3-clinic-verification-schedule.bpmn:11
-#. Diagram element documentation
-msgid "J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them."
-msgstr "J3，在 B 国进行诊所验证并生成接种计划。诊所 EHR（在 SMART Trust 和 smart-trust-phw 中为接收方，在 IHE ITI VHL 中为 VHL 接收方一侧）保存一份 GDHCN 信任列表副本，该列表由信任锚（Trust Network Anchor；IHE Trust Anchor）分发，并由信任网络参与方 B 国获取（smart-trust-phw retrieve-pki-material）。加载 DID 文档是本次就诊的前提条件（PRECONDITION），而非其中的一个步骤：诊所可能全程离线，因此其验证所依据的列表是上次刷新的版本，大约每周一次，在 CHW 前往基地诊所或县卫生办公室时刷新。它按照 STT-VER-001 的顺序，依据 XXR 的 DSC DID 文档验证每份境外 DVC，连同来源信息导入经验证的剂次，在每个境外疫苗代码旁添加国家接种计划代码（ConceptMap；没有映射的产品由护士判定），并评估国家接种计划，从而发现 6 周龄剂次已到期并进行预约。"
-
 #: processes/content/j3-clinic-verification-schedule.bpmn:51
 #. Diagram label
 msgid "no"
@@ -125,6 +120,11 @@ msgstr "记录失败原因；按国家政策决定剂次。"
 msgid "The nurse acts on the schedule evaluation's guidance (TD.DT.04, which doses are due and from when) the way smart-base's act-on-decision-support process does it: accept or decline each proposed dose, one tap each. Saying why is optional (record-decision-rationale) and never holds up the visit."
 msgstr "护士按照 smart-base 的 act-on-decision-support 流程的做法，依据接种计划评估的指导（TD.DT.04：哪些剂次到期以及自何时起）采取行动：对每个建议的剂次接受或拒绝，每项轻点一次。说明理由是可选的（record-decision-rationale），且绝不耽误就诊。"
 
+#: processes/content/j3-clinic-verification-schedule.bpmn:11
+#. Diagram element documentation
+msgid "J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, [retrieves (smart-trust-phw retrieve-pki-material)](https://litlfred.github.io/smart-trust-phw/artifact/Requirements-retrieve-pki-material.html). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them."
+msgstr "J3，在 B 国进行诊所验证并生成接种计划。诊所 EHR（在 SMART Trust 和 smart-trust-phw 中为接收方，在 IHE ITI VHL 中为 VHL 接收方一侧）保存一份 GDHCN 信任列表副本，该列表由信任锚（Trust Network Anchor；IHE Trust Anchor）分发，并由信任网络参与方 B 国[获取（smart-trust-phw retrieve-pki-material）](https://litlfred.github.io/smart-trust-phw/artifact/Requirements-retrieve-pki-material.html)。加载 DID 文档是本次就诊的前提条件（PRECONDITION），而非其中的一个步骤：诊所可能全程离线，因此其验证所依据的列表是上次刷新的版本，大约每周一次，在 CHW 前往基地诊所或县卫生办公室时刷新。它按照 STT-VER-001 的顺序，依据 XXR 的 DSC DID 文档验证每份境外 DVC，连同来源信息导入经验证的剂次，在每个境外疫苗代码旁添加国家接种计划代码（ConceptMap；没有映射的产品由护士判定），并评估国家接种计划，从而发现 6 周龄剂次已到期并进行预约。"
+
 #. Diagram label
 #~ msgid "Add the national schedule code beside the foreign vaccine code"
 #~ msgstr "在境外疫苗代码旁添加国家接种计划代码"
@@ -136,3 +136,7 @@ msgstr "护士按照 smart-base 的 act-on-decision-support 流程的做法，�
 #. Diagram element documentation
 #~ msgid "The imported doses keep the issuer&#x27;s vaccine coding (WHO PreQual product, as signed in the DVC) and gain the national schedule coding beside it, never in its place. The EHR translates with the national ConceptMap; a product with no mapping goes to the nurse, who confirms the equivalent schedule antigen and dose, and that decision is recorded so the next clinic need not repeat it."
 #~ msgstr "导入的剂次保留签发方的疫苗编码（WHO PreQual 产品，与 DVC 中签名的一致），并在其旁边增加国家接种计划编码，而绝不取而代之。EHR 使用国家 ConceptMap 进行转换；没有映射的产品交由护士处理，护士确认对应的接种计划抗原和剂次，该决定会被记录，下一家诊所无需重复。"
+
+#. Diagram element documentation
+#~ msgid "J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the STT-VER-001 order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them."
+#~ msgstr "J3，在 B 国进行诊所验证并生成接种计划。诊所 EHR（在 SMART Trust 和 smart-trust-phw 中为接收方，在 IHE ITI VHL 中为 VHL 接收方一侧）保存一份 GDHCN 信任列表副本，该列表由信任锚（Trust Network Anchor；IHE Trust Anchor）分发，并由信任网络参与方 B 国获取（smart-trust-phw retrieve-pki-material）。加载 DID 文档是本次就诊的前提条件（PRECONDITION），而非其中的一个步骤：诊所可能全程离线，因此其验证所依据的列表是上次刷新的版本，大约每周一次，在 CHW 前往基地诊所或县卫生办公室时刷新。它按照 STT-VER-001 的顺序，依据 XXR 的 DSC DID 文档验证每份境外 DVC，连同来源信息导入经验证的剂次，在每个境外疫苗代码旁添加国家接种计划代码（ConceptMap；没有映射的产品由护士判定），并评估国家接种计划，从而发现 6 周龄剂次已到期并进行预约。"

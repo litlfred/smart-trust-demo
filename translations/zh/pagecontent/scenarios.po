@@ -96,11 +96,6 @@ msgstr "社区卫生工作者"
 msgid "Decide who sees my child's record, and for how long"
 msgstr "决定谁可以查看我孩子的记录，以及可以查看多久"
 
-#: input/pagecontent/scenarios.md:26
-#, python-brace-format
-msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
-msgstr "每个步骤都列出它所运用的 <a0>smart-trust-tools</a0> 需求，以及它所产生的本指南 FHIR 示例。用户故事位于 <a1>{code0}</a1> 中。每个时刻都以其痛点、促成因素及其所体现的政策要点结尾，与 VaxLink 演练中的呈现方式一致。"
-
 #: input/pagecontent/scenarios.md:6
 msgid "Each story traces to the smart-trust-tools requirements that serve it (scenarios/story-requirements.json); where the HCERT library does not serve a story, the note says what does."
 msgstr "每个用户故事都可追溯到服务于它的 smart-trust-tools 需求（scenarios/story-requirements.json）；当 HCERT 库不服务于某个故事时，注释会说明由什么来服务。"
@@ -251,10 +246,6 @@ msgstr "保留外国疫苗代码并在其旁添加我们的接种计划代码，
 #: input/pagecontent/scenarios.md:39
 msgid "Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
 msgstr "2025-10-28，Khamla 在离家在外的 Kesaro 府医院生下 Somsak。他没有泰法费基身份号码。Dr Anan 为他接种 Hep B 和 BCG 出生剂次，并以其 WHO PreQual 产品代码进行记录。对于每个剂次，医院系统执行三件事："
-
-#: input/pagecontent/scenarios.md:48
-msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
-msgstr "Khamla 带着两份纸质 DVC 离开。在演示中：库测试使用 WHO 指南自带的两个已签名 HC1 字符串（<a0>QR Code Generation §12</a0>），它们在同一 XXR 密钥下对照实时 DEV 信任列表通过验证。Somsak 的 DVC 载荷仅作示意，与 VaxLink 中相同。应用中的实时签发使用一个 TEST-ONLY 密钥（<a1>STT-ISS-003</a1>），其 DSC 不在 GDHCN 列表上，因此其签发的 DVC 在 J3 中无法通过验证。"
 
 #: input/pagecontent/scenarios.md:21
 msgid "Know the record I read abroad came from the child's home country and was not altered"
@@ -438,3 +429,19 @@ msgstr "由有能力的人进行验证"
 #: input/pagecontent/scenarios.md:20
 msgid "without installing anything or calling another country"
 msgstr "无需安装任何东西，也无需联系另一个国家"
+
+#: input/pagecontent/scenarios.md:26
+#, python-brace-format
+msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the journeys walkthrough presents them."
+msgstr "每个步骤都列出它所运用的 <a0>smart-trust-tools</a0> 需求，以及它所产生的本指南 FHIR 示例。用户故事位于 <a1>{code0}</a1> 中。每个时刻都以其痛点、促成因素及其所体现的政策要点结尾，与旅程演练中的呈现方式一致。"
+
+#: input/pagecontent/scenarios.md:48
+msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+msgstr "Khamla 带着两份纸质 DVC 离开。在演示中：库测试使用 WHO 指南自带的两个已签名 HC1 字符串（<a0>QR Code Generation §12</a0>），它们在同一 XXR 密钥下对照实时 DEV 信任列表通过验证。Somsak 的 DVC 载荷仅作示意。应用中的实时签发使用一个 TEST-ONLY 密钥（<a1>STT-ISS-003</a1>），其 DSC 不在 GDHCN 列表上，因此其签发的 DVC 在 J3 中无法通过验证。"
+
+#~ #, python-brace-format
+#~ msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
+#~ msgstr "每个步骤都列出它所运用的 <a0>smart-trust-tools</a0> 需求，以及它所产生的本指南 FHIR 示例。用户故事位于 <a1>{code0}</a1> 中。每个时刻都以其痛点、促成因素及其所体现的政策要点结尾，与 VaxLink 演练中的呈现方式一致。"
+
+#~ msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+#~ msgstr "Khamla 带着两份纸质 DVC 离开。在演示中：库测试使用 WHO 指南自带的两个已签名 HC1 字符串（<a0>QR Code Generation §12</a0>），它们在同一 XXR 密钥下对照实时 DEV 信任列表通过验证。Somsak 的 DVC 载荷仅作示意，与 VaxLink 中相同。应用中的实时签发使用一个 TEST-ONLY 密钥（<a1>STT-ISS-003</a1>），其 DSC 不在 GDHCN 列表上，因此其签发的 DVC 在 J3 中无法通过验证。"

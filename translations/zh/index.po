@@ -36,26 +36,13 @@ msgstr "<a0>旅程 J1–J4</a0>、<a1>用户场景</a1>"
 msgid "<a0>Personas</a0>, <a1>system actors</a1>"
 msgstr "<a0>人物画像</a0>、<a1>系统参与者</a1>"
 
-#: docs/index.md:65
-#: docs/index.md:66
-msgid "<a0>VaxLink examples</a0>"
-msgstr "<a0>VaxLink 示例</a0>"
-
 #: docs/index.md:24
 msgid "1. Born abroad Birth day · Kesaro, Taifafeki · J1 An Onesan baby gets his first vaccines in Taifafeki. The hospital signs each dose as a Digital Vaccination Certificate, and the family leaves with two paper QR cards. Walk through it · Scenario · Process · Taifafeki profile    2. Found at home 3 weeks later · Village 04, Onesa · J2 A health worker registers him offline and reads the cards. She records them as \"reported, not yet verified\" and refers him to the clinic. Walk through it · Scenario · Process · Onesan profile    3. Made official 4 weeks later · district health centre, Onesa · J3 A nurse checks the signatures against the GDHCN trust list, offline. She maps the Taifafeki vaccine codes to the Onesan schedule and books the 6-week doses. Walk through it · Scenario · Process · Onesan profile    4. Crossing back 12 months later · Onesa → Taifafeki · J4.0, J4.1 The family shares his whole record with a Taifafeki doctor through a Verifiable Health Link on Dad's phone. Every access is logged back home. Walk through it · Scenario · Process · Onesan profile"
 msgstr "1. 出生在异国 出生当天 · Kesaro，泰法费基 · J1 一名奥内萨婴儿在泰法费基接种了他的第一批疫苗。医院将每一剂次签名为数字疫苗接种证书（DVC），一家人带着两张纸质 QR 卡离开。演练 · 场景 · 流程 · 泰法费基 Profile    2. 在家中被发现 3 周后 · Village 04，奥内萨（Onesa） · J2 一名卫生工作者在离线状态下为他登记并读取卡片。她将其记录为“已报告，尚未验证”，并将他转诊至诊所。演练 · 场景 · 流程 · 奥内萨 Profile    3. 正式入档 4 周后 · 县卫生中心，Onesa · J3 一名护士在离线状态下依据 GDHCN 信任列表核验签名。她将泰法费基疫苗代码映射到奥内萨接种计划，并预约 6 周龄剂次。演练 · 场景 · 流程 · 奥内萨 Profile    4. 再次跨境 12 个月后 · Onesa → 泰法费基 · J4.0, J4.1 一家人通过爸爸手机上的可验证健康链接（VHL），与一位泰法费基医生分享他的完整记录。每一次访问都会记录回本国。演练 · 场景 · 流程 · 奥内萨 Profile"
 
-#: docs/index.md:19
-msgid "Each moment is one business process (BPMN), played by fictional people. Each one is linked to the user scenario, the process and the FHIR records it creates. Click a picture to walk through that moment in the <a0>VaxLink walkthrough</a0>."
-msgstr "每个时刻都是一个业务流程（BPMN），由虚构人物演绎。每个时刻都链接到其用户场景、流程以及它所创建的 FHIR 记录。点击图片，即可在 <a0>VaxLink 演练</a0>中逐步体验该时刻。"
-
 #: docs/index.md:94
 msgid "Every person and record here is fictional, and every key is a test key. This guide is a demonstrator, not WHO guidance."
 msgstr "此处的所有人物和记录均为虚构，所有密钥均为测试密钥。本指南是一个演示项目，并非世卫组织（WHO）指导意见。"
-
-#: docs/index.md:66
-msgid "Every screen and payload of the VaxLink walkthrough as a FHIR example, Taifafeki and Onesan"
-msgstr "VaxLink 演练的每个界面和载荷，均以 FHIR 示例呈现，涵盖泰法费基和奥内萨"
 
 #: docs/index.md:66
 msgid "Examples"
@@ -81,10 +68,6 @@ msgstr "旅程"
 msgid "Onesan profiles"
 msgstr "奥内萨 Profile"
 
-#: docs/index.md:8
-msgid "One baby · two countries · one year Somsak is born in Taifafeki and grows up in Onesa. A year later, a Taifafeki doctor sees every vaccine he has ever had, and no record is copied across the border. This guide is that story, the VaxLink walkthrough, written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN. Open the VaxLink walkthrough Read the journeys See the FHIR examples"
-msgstr "一个婴儿 · 两个国家 · 一年 Somsak 出生在泰法费基，在奥内萨（Onesa）长大。一年后，一位泰法费基医生能看到他接种过的每一剂疫苗，而没有任何记录被复制到境外。本指南讲述的就是这个故事——VaxLink 演练，并将其写成世卫组织（WHO）SMART 指南数字适配工具包（L2）和 FHIR 实施指南（L3）。它基于 SMART Trust HCERT 库和 WHO GDHCN 构建。打开 VaxLink 演练 阅读旅程 查看 FHIR 示例"
-
 #: docs/index.md:61
 msgid "One BPMN process per journey: every lane a role, every task a skill"
 msgstr "每个旅程一个 BPMN 流程：每条泳道是一个角色，每个任务是一项技能"
@@ -108,10 +91,6 @@ msgstr "术语与逻辑"
 #: docs/index.md:63
 msgid "Taifafeki profiles"
 msgstr "泰法费基 Profile"
-
-#: docs/index.md:71
-msgid "Taifafeki and Onesa never connect to each other. Both build on WHO GDHCN. Taifafeki publishes the key it signs certificates with, and Onesa caches the trust list, so its clinics can verify a Taifafeki card with no signal. A year later the same trust list lets a Taifafeki clinic verify the Onesan VHL. Data crosses the border in only two ways: as a signed QR card the family carries, or as a link the family chooses to share. The <a0>VaxLink walkthrough's \"How it works\" view</a0> lays out both countries' components on the <a1>DPI-H reference architecture</a1>, with GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's own model is on the <a2>architecture page</a2>."
-msgstr "泰法费基和奥内萨（Onesa）之间从不直接连接。两国都基于 WHO GDHCN 构建。泰法费基发布其签名证书所用的密钥，Onesa 缓存信任列表，因此其诊所在没有信号的情况下也能验证泰法费基的卡片。一年后，同一份信任列表让泰法费基诊所能够验证奥内萨的 VHL。数据跨境只有两种方式：作为一家人随身携带的已签名 QR 卡，或作为一家人选择分享的链接。<a0>VaxLink 演练的“运作原理”视图</a0>在 <a1>DPI-H 参考架构</a1>上展示了两国的组件，并以 GDHCN 为基础；以 ArchiMate 叠加图形式绘制在该参考架构（RA）自身模型上的同一图景，见<a2>架构页面</a2>。"
 
 #: docs/index.md:90
 msgid "The <a0>plan</a0>, the <a1>app-platform proposal</a1> and the <a2>dependency register</a2>. Source: <a3>litlfred/smart-trust-demo</a3>."
@@ -160,3 +139,39 @@ msgstr "旅程需求的定义位置，位于 smart-trust-tools 中"
 #: docs/index.md:61
 msgid "Workflows"
 msgstr "工作流"
+
+#: docs/index.md:65
+#: docs/index.md:66
+msgid "<a0>Journey examples</a0>"
+msgstr "<a0>旅程示例</a0>"
+
+#: docs/index.md:19
+msgid "Each moment is one business process (BPMN), played by fictional people. Each one is linked to the user scenario, the process and the FHIR records it creates. Click a picture to walk through that moment in the <a0>journeys walkthrough</a0>."
+msgstr "每个时刻都是一个业务流程（BPMN），由虚构人物演绎。每个时刻都链接到其用户场景、流程以及它所创建的 FHIR 记录。点击图片，即可在<a0>旅程演练</a0>中逐步体验该时刻。"
+
+#: docs/index.md:66
+msgid "Every screen and payload of the journeys walkthrough as a FHIR example, Taifafeki and Onesan"
+msgstr "旅程演练的每个界面和载荷，均以 FHIR 示例呈现，涵盖泰法费基和奥内萨"
+
+#: docs/index.md:8
+msgid "One baby · two countries · one year Somsak is born in Taifafeki and grows up in Onesa. A year later, a Taifafeki doctor sees every vaccine he has ever had, and no record is copied across the border. This guide is that story, told as the journeys J1 to J4, written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN. Walk through the journeys Read the journeys See the FHIR examples"
+msgstr "一个婴儿 · 两个国家 · 一年 Somsak 出生在泰法费基，在奥内萨（Onesa）长大。一年后，一位泰法费基医生能看到他接种过的每一剂疫苗，而没有任何记录被复制到境外。本指南讲述的就是这个故事，以旅程 J1 至 J4 的形式呈现，并将其写成世卫组织（WHO）SMART 指南数字适配工具包（L2）和 FHIR 实施指南（L3）。它基于 SMART Trust HCERT 库和 WHO GDHCN 构建。演练旅程 阅读旅程 查看 FHIR 示例"
+
+#: docs/index.md:71
+msgid "Taifafeki and Onesa never connect to each other. Both build on WHO GDHCN. Taifafeki publishes the key it signs certificates with, and Onesa caches the trust list, so its clinics can verify a Taifafeki card with no signal. A year later the same trust list lets a Taifafeki clinic verify the Onesan VHL. Data crosses the border in only two ways: as a signed QR card the family carries, or as a link the family chooses to share. The <a0>journeys walkthrough's \"How it works\" view</a0> lays out both countries' components on the <a1>DPI-H reference architecture</a1>, with GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's own model is on the <a2>architecture page</a2>."
+msgstr "泰法费基和奥内萨（Onesa）之间从不直接连接。两国都基于 WHO GDHCN 构建。泰法费基发布其签名证书所用的密钥，Onesa 缓存信任列表，因此其诊所在没有信号的情况下也能验证泰法费基的卡片。一年后，同一份信任列表让泰法费基诊所能够验证奥内萨的 VHL。数据跨境只有两种方式：作为一家人随身携带的已签名 QR 卡，或作为一家人选择分享的链接。<a0>旅程演练的“运作原理”视图</a0>在 <a1>DPI-H 参考架构</a1>上展示了两国的组件，并以 GDHCN 为基础；以 ArchiMate 叠加图形式绘制在该参考架构（RA）自身模型上的同一图景，见<a2>架构页面</a2>。"
+
+#~ msgid "<a0>VaxLink examples</a0>"
+#~ msgstr "<a0>VaxLink 示例</a0>"
+
+#~ msgid "Each moment is one business process (BPMN), played by fictional people. Each one is linked to the user scenario, the process and the FHIR records it creates. Click a picture to walk through that moment in the <a0>VaxLink walkthrough</a0>."
+#~ msgstr "每个时刻都是一个业务流程（BPMN），由虚构人物演绎。每个时刻都链接到其用户场景、流程以及它所创建的 FHIR 记录。点击图片，即可在 <a0>VaxLink 演练</a0>中逐步体验该时刻。"
+
+#~ msgid "Every screen and payload of the VaxLink walkthrough as a FHIR example, Taifafeki and Onesan"
+#~ msgstr "VaxLink 演练的每个界面和载荷，均以 FHIR 示例呈现，涵盖泰法费基和奥内萨"
+
+#~ msgid "One baby · two countries · one year Somsak is born in Taifafeki and grows up in Onesa. A year later, a Taifafeki doctor sees every vaccine he has ever had, and no record is copied across the border. This guide is that story, the VaxLink walkthrough, written down as a WHO SMART Guidelines digital adaptation kit (L2) and a FHIR implementation guide (L3). It is built on the SMART Trust HCERT libraries and WHO GDHCN. Open the VaxLink walkthrough Read the journeys See the FHIR examples"
+#~ msgstr "一个婴儿 · 两个国家 · 一年 Somsak 出生在泰法费基，在奥内萨（Onesa）长大。一年后，一位泰法费基医生能看到他接种过的每一剂疫苗，而没有任何记录被复制到境外。本指南讲述的就是这个故事——VaxLink 演练，并将其写成世卫组织（WHO）SMART 指南数字适配工具包（L2）和 FHIR 实施指南（L3）。它基于 SMART Trust HCERT 库和 WHO GDHCN 构建。打开 VaxLink 演练 阅读旅程 查看 FHIR 示例"
+
+#~ msgid "Taifafeki and Onesa never connect to each other. Both build on WHO GDHCN. Taifafeki publishes the key it signs certificates with, and Onesa caches the trust list, so its clinics can verify a Taifafeki card with no signal. A year later the same trust list lets a Taifafeki clinic verify the Onesan VHL. Data crosses the border in only two ways: as a signed QR card the family carries, or as a link the family chooses to share. The <a0>VaxLink walkthrough's \"How it works\" view</a0> lays out both countries' components on the <a1>DPI-H reference architecture</a1>, with GDHCN as the foundation; the same picture as an ArchiMate overlay on the RA's own model is on the <a2>architecture page</a2>."
+#~ msgstr "泰法费基和奥内萨（Onesa）之间从不直接连接。两国都基于 WHO GDHCN 构建。泰法费基发布其签名证书所用的密钥，Onesa 缓存信任列表，因此其诊所在没有信号的情况下也能验证泰法费基的卡片。一年后，同一份信任列表让泰法费基诊所能够验证奥内萨的 VHL。数据跨境只有两种方式：作为一家人随身携带的已签名 QR 卡，或作为一家人选择分享的链接。<a0>VaxLink 演练的“运作原理”视图</a0>在 <a1>DPI-H 参考架构</a1>上展示了两国的组件，并以 GDHCN 为基础；以 ArchiMate 叠加图形式绘制在该参考架构（RA）自身模型上的同一图景，见<a2>架构页面</a2>。"
