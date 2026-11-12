@@ -9,7 +9,9 @@ Usage:
    (into tools/archimate/.cache/, gitignored) and refuse any whose sha256
    differs from the lock.
 2. Give the base model a view folder for the overlay and the demonstrator's
-   model name; nothing else in it changes.
+   model name, and tag each of its elements and relationships overlay:base
+   with the IRI smart-ra publishes it at (the lock's `iri`), so its page here
+   links back to smart-ra's (cat-harness-tools#1949); nothing else changes.
 3. Apply overlay.py with smart-ra's own add_views.py.
 4. Lay the overlay's views out again with room between the boxes, move the
    boxes VIEW_BOUNDS names, route every line orthogonally (layout.py), and
@@ -85,7 +87,34 @@ def prepare_base(src, dst):
         m = re.search(r'\n  <folder [^>]*type="diagrams"[^>]*>', xml)
         close = xml.index("\n  </folder>", m.end())
         xml = xml[:close] + f'\n    <folder name="{VIEW_FOLDER}" id="{FOLDER_ID}">\n    </folder>' + xml[close:]
-    write_zip(dst, xml.encode("utf-8"), others)
+    write_zip(dst, tag_base(xml).encode("utf-8"), others)
+
+
+def tag_base(xml):
+    """Tag every element and relationship of smart-ra's model overlay:base, with the IRI smart-ra publishes it at.
+
+    The property goes after the item's documentation, where Archi writes
+    properties; views and folders are left alone.
+    """
+    iri = LOCK["iri"].rstrip("/")
+    pat = re.compile(r'(?P<ind>\r?\n *)<element xsi:type="archimate:(?P<type>\w+)"(?P<attrs>[^>]*?) id="(?P<id>[^"]+)"(?P<rest>[^>]*?)(?P<end>/?)>')
+
+    def tag(m):
+        t = m.group("type")
+        if t.endswith("DiagramModel") or t == "SketchModel" or t.startswith("Canvas"):
+            return m.group(0)
+        kind = "relationship" if t.endswith("Relationship") else "element"
+        prop = f'<property key="overlay:base" value="{iri}/{kind}/{m.group("id")}"/>'
+        ind = m.group("ind")
+        head = m.group(0)[: -len(m.group("end") + ">")] + ">"
+        if m.group("end"):
+            return f"{head}{ind}  {prop}{ind}</element>"
+        return f"{head}\x00{ind}  {prop}"
+
+    xml = pat.sub(tag, xml)
+    # An open element: put the property after its documentation, if it has one.
+    xml = re.sub(r'\x00((\r?\n *)  <property key="overlay:base"[^>]*/>)((?:\r?\n *)<documentation>.*?</documentation>)', r"\3\1", xml, flags=re.S)
+    return xml.replace("\x00", "")
 
 
 def write_zip(dst, model, others):
