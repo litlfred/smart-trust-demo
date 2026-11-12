@@ -1,0 +1,55 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "requirement",
+    "id": "req:std-acc-001",
+    "path": "skills/requirements/std-acc-001.json"
+  },
+  "source_hash": "sha256:18489612e61ff90b63a97c29d09de85ccb72137e83a3af127140f88e6c3769ae",
+  "criteria": {
+    "requirement-statement-satisfied": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "req:std-acc-001/passcode",
+          "detail": "no skill or capability declares `satisfies: req:std-acc-001#passcode` — nothing is recorded as discharging this statement."
+        },
+        {
+          "where": "req:std-acc-001/expiry",
+          "detail": "no skill or capability declares `satisfies: req:std-acc-001#expiry` — nothing is recorded as discharging this statement."
+        },
+        {
+          "where": "req:std-acc-001/revoke",
+          "detail": "no skill or capability declares `satisfies: req:std-acc-001#revoke` — nothing is recorded as discharging this statement."
+        }
+      ]
+    },
+    "requirement-actors-resolve": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "req:std-acc-001",
+          "detail": "binds actor \"caregiver\", which the registry does not declare."
+        },
+        {
+          "where": "req:std-acc-001",
+          "detail": "binds actor \"national-portal\", which the registry does not declare."
+        }
+      ]
+    },
+    "requirement-derived-from-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "requirement-statements-graded": {
+      "result": "pass",
+      "findings": []
+    }
+  },
+  "totals": {
+    "pass": 1,
+    "fail": 2,
+    "n/a": 1,
+    "unknown": 0
+  }
+}
