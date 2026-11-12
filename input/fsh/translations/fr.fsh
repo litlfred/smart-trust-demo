@@ -494,3 +494,34 @@ Description: "French (fr) supplement to TrustDemoVhlRefusalReason: displays and 
 * #wrong-passcode "Code d'accès erroné" "Le code d'accès fourni ne correspond pas à celui défini par le titulaire."
 * #wrong-passcode ^designation[0].language = #fr
 * #wrong-passcode ^designation[0].value = "Code d'accès erroné"
+
+CodeSystem: TrustDemoTrustDomainFr
+Id: TrustDemoTrustDomain-fr
+Title: "Domaines de confiance des parcours (illustratifs)"
+Description: "French (fr) supplement to TrustDemoTrustDomain: displays and definitions in French. Unofficial agent translation."
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoTrustDomain)
+* ^language = #fr
+* ^status = #draft
+* ^experimental = true
+* ^count = 2
+* #DEMO-DVC "Démo : certificat de vaccination numérique" "DVC de vaccination de routine (HCERT) signés dose par dose par le système d'un centre de naissance et vérifiés par le DSE d'un centre de santé du pays de résidence (J1, J3)."
+* #DEMO-DVC ^designation[0].language = #fr
+* #DEMO-DVC ^designation[0].value = "Démo : certificat de vaccination numérique"
+* #DEMO-VHL "Démo : lien de santé vérifiable" "Liens de santé vérifiables (HCERT) vers un résumé du patient, créés sur le portail national et résolus à un point de soins à l'étranger (J4.0, J4.1). Ses conditions d'utilisation sont TrustDemoVhlTermsOfUse."
+* #DEMO-VHL ^designation[0].language = #fr
+* #DEMO-VHL ^designation[0].value = "Démo : lien de santé vérifiable"
+
+CodeSystem: TrustDemoVhlConsentFr
+Id: TrustDemoVhlConsent-fr
+Title: "Consentements du domaine de confiance VHL de la démo (illustratifs)"
+Description: "French (fr) supplement to TrustDemoVhlConsent: displays and definitions in French. Unofficial agent translation."
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoVhlConsent)
+* ^language = #fr
+* ^status = #draft
+* ^experimental = true
+* ^count = 1
+* #CONSENT-VHL-TREATMENT "Consentement à la lecture du résumé à des fins de traitement" "Toute personne à qui le titulaire remet le code QR et le code d'accès du VHL peut lire le résumé du patient auquel il donne accès, à des fins de traitement, jusqu'à l'expiration du lien. Chaque accès est journalisé par le portail émetteur."
+* #CONSENT-VHL-TREATMENT ^designation[0].language = #fr
+* #CONSENT-VHL-TREATMENT ^designation[0].value = "Consentement à la lecture du résumé à des fins de traitement"
