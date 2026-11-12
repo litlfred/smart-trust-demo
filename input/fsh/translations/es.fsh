@@ -493,3 +493,34 @@ Description: "Suplemento en español (es) de TrustDemoVhlRefusalReason: designac
 * #wrong-passcode "Código de acceso incorrecto" "El código de acceso indicado no coincide con el que fijó el titular."
   * ^designation[0].language = #es
   * ^designation[0].value = "Código de acceso incorrecto"
+
+CodeSystem: TrustDemoTrustDomainEs
+Id: TrustDemoTrustDomain-es
+Title: "Ámbitos de confianza de los recorridos (ilustrativos)"
+Description: "Suplemento en español (es) de TrustDemoTrustDomain: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana."
+* ^status = #draft
+* ^experimental = true
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoTrustDomain)
+* ^language = #es
+* ^caseSensitive = true
+* #DEMO-DVC "Demo: certificado digital de vacunación" "Certificados digitales de vacunación (HCERT) de inmunización sistemática, firmados dosis a dosis por el sistema de una clínica de nacimiento y verificados por la historia clínica electrónica de una clínica del país de residencia (J1, J3)."
+  * ^designation[0].language = #es
+  * ^designation[0].value = "Demo: certificado digital de vacunación"
+* #DEMO-VHL "Demo: enlace sanitario verificable" "Enlaces sanitarios verificables (HCERT) a un resumen del paciente, creados en el portal nacional y resueltos en un punto de atención en el extranjero (J4.0, J4.1). Sus condiciones de uso son TrustDemoVhlTermsOfUse."
+  * ^designation[0].language = #es
+  * ^designation[0].value = "Demo: enlace sanitario verificable"
+
+CodeSystem: TrustDemoVhlConsentEs
+Id: TrustDemoVhlConsent-es
+Title: "Consentimientos del ámbito de confianza VHL de la demostración (ilustrativos)"
+Description: "Suplemento en español (es) de TrustDemoVhlConsent: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana."
+* ^status = #draft
+* ^experimental = true
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoVhlConsent)
+* ^language = #es
+* ^caseSensitive = true
+* #CONSENT-VHL-TREATMENT "Consentimiento para leer el resumen con fines de tratamiento" "Cualquier persona a quien el titular entregue el código QR y el código de acceso del VHL puede leer el resumen del paciente al que remite, con fines de tratamiento, hasta que caduque el enlace. El portal emisor registra cada acceso."
+  * ^designation[0].language = #es
+  * ^designation[0].value = "Consentimiento para leer el resumen con fines de tratamiento"
