@@ -123,7 +123,7 @@ Description: "Illustrative GDHCN-style trust domains for the demo's journeys: th
 * ^experimental = true
 * ^caseSensitive = true
 * #DEMO-DVC "Demo: Digital Vaccination Certificate" "Routine-immunization DVCs (HCERT) signed per dose by a birth clinic system and verified by a home clinic EHR (J1, J3)."
-* #DEMO-VHL "Demo: Verifiable Health Link" "Verifiable Health Links (HCERT) to a patient summary, created on the national portal and resolved at a point of care abroad (J4.0, J4.1)."
+* #DEMO-VHL "Demo: Verifiable Health Link" "Verifiable Health Links (HCERT) to a patient summary, created on the national portal and resolved at a point of care abroad (J4.0, J4.1). Its terms of use are TrustDemoVhlTermsOfUse."
 
 ValueSet: TrustDemoTrustDomains
 Id: TrustDemoTrustDomains
@@ -131,3 +131,24 @@ Title: "Trust domains of the journeys"
 Description: "Every code of TrustDemoTrustDomain: the trust domains a verifier in the journeys accepts."
 * ^experimental = true
 * include codes from system TrustDemoTrustDomain
+
+// DEMO-VHL's terms of use: the consent codes a holder may agree to when a VHL
+// is created. As in the Personal Health Wallet guide (PHWExplicitConsent), an
+// explicit consent names the code, with the code system version whose text the
+// holder was shown, in Consent.policyRule. Used by the J4.0 business process
+// (the family creates the VHL and consents).
+
+CodeSystem: TrustDemoVhlConsent
+Id: TrustDemoVhlConsent
+Title: "Consents of the demo VHL trust domain (illustrative)"
+Description: "The consent codes of the illustrative DEMO-VHL trust domain: what a holder agrees to when the family wallet creates a Verifiable Health Link (J4.0). Invented for the demo, in the style of the IPS for Pilgrimage consents (IPS.HAJJ.CONSENT); not a GDHCN trust domain's terms of use."
+* ^experimental = true
+* ^caseSensitive = true
+* #CONSENT-VHL-TREATMENT "Consent to read the summary for treatment" "Anyone the holder gives the VHL's QR code and passcode to may read the patient summary behind it, for treatment, until the link expires. Each access is logged by the issuing portal."
+
+ValueSet: TrustDemoVhlTermsOfUse
+Id: TrustDemoVhlTermsOfUse
+Title: "Terms of use of the demo VHL trust domain"
+Description: "The terms of use of the DEMO-VHL trust domain (TrustDemoTrustDomain): every code of TrustDemoVhlConsent. An explicit consent to share a VHL names one of them in Consent.policyRule (J4.0)."
+* ^experimental = true
+* include codes from system TrustDemoVhlConsent
