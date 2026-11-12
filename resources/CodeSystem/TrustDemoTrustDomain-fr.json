@@ -1,0 +1,46 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoTrustDomain-fr",
+  "language" : "fr",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoTrustDomain-fr</b></p><a name=\"TrustDemoTrustDomain-fr\"> </a><a name=\"hcTrustDemoTrustDomain-fr\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: fr</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-fr</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoTrustDomain.html#TrustDemoTrustDomain-DEMO-DVC\">DEMO-DVC</a><a name=\"TrustDemoTrustDomain-fr-DEMO-DVC\"> </a></td><td>Démo : certificat de vaccination numérique</td><td>DVC de vaccination de routine (HCERT) signés dose par dose par le système d'un centre de naissance et vérifiés par le DSE d'un centre de santé du pays de résidence (J1, J3).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoTrustDomain.html#TrustDemoTrustDomain-DEMO-VHL\">DEMO-VHL</a><a name=\"TrustDemoTrustDomain-fr-DEMO-VHL\"> </a></td><td>Démo : lien de santé vérifiable</td><td>Liens de santé vérifiables (HCERT) vers un résumé du patient, créés sur le portail national et résolus à un point de soins à l'étranger (J4.0, J4.1). Ses conditions d'utilisation sont TrustDemoVhlTermsOfUse.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-fr",
+  "version" : "0.1.0",
+  "name" : "TrustDemoTrustDomainFr",
+  "title" : "Domaines de confiance des parcours (illustratifs)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T12:19:56+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "French (fr) supplement to TrustDemoTrustDomain: displays and definitions in French. Unofficial agent translation.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+  "count" : 2,
+  "concept" : [{
+    "code" : "DEMO-DVC",
+    "display" : "Démo : certificat de vaccination numérique",
+    "definition" : "DVC de vaccination de routine (HCERT) signés dose par dose par le système d'un centre de naissance et vérifiés par le DSE d'un centre de santé du pays de résidence (J1, J3).",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Démo : certificat de vaccination numérique"
+    }]
+  },
+  {
+    "code" : "DEMO-VHL",
+    "display" : "Démo : lien de santé vérifiable",
+    "definition" : "Liens de santé vérifiables (HCERT) vers un résumé du patient, créés sur le portail national et résolus à un point de soins à l'étranger (J4.0, J4.1). Ses conditions d'utilisation sont TrustDemoVhlTermsOfUse.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Démo : lien de santé vérifiable"
+    }]
+  }]
+}
