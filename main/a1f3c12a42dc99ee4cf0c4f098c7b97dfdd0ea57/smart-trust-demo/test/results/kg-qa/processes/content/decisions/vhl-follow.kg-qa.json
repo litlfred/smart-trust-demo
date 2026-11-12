@@ -1,0 +1,26 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "decision",
+    "id": "vhl-follow",
+    "path": "processes/content/decisions/vhl-follow.dmn"
+  },
+  "source_hash": "sha256:0ea3c1d1949d1b5605efc70d8707e48400098ae7e0a82692aa8b27abc3814219",
+  "criteria": {
+    "decision-outcomes-used": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Decision_VhlFollow",
+          "detail": "decision \"vhl-follow.dmn#Decision_VhlFollow\" is referenced by no gateway in processes/. Either wire it with <cat-harness.processes:decision ref=\"decisions/vhl-follow.dmn#Decision_VhlFollow\"/> or delete it."
+        }
+      ]
+    }
+  },
+  "totals": {
+    "pass": 0,
+    "fail": 1,
+    "n/a": 0,
+    "unknown": 0
+  }
+}
