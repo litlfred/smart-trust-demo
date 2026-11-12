@@ -25,11 +25,6 @@ msgstr "{code0} 1.0.0-rc03（2026-09-07；2026-10-12 的 rc04 发布不足 14 �
 msgid "<a0>{code0}</a0> integrity, installed with {code1}, resolved with {code2} 14 days back"
 msgstr "<a0>{code0}</a0> 完整性校验，使用 {code1} 安装，使用 {code2} 按 14 天前的状态解析"
 
-#: docs/dependencies.md:36
-#, python-brace-format
-msgid "<a0>{code0}</a0> integrity, installed with {code1}, resolved with {code2} 14 days back (2026-10-21 when the walkthrough moved here)"
-msgstr "<a0>{code0}</a0> 完整性校验，使用 {code1} 安装，使用 {code2} 按 14 天前的状态解析（演练迁移到此处时为 2026-10-21）"
-
 #: docs/dependencies.md:15
 msgid "Action"
 msgstr "Action"
@@ -176,15 +171,6 @@ msgstr "本演示项目所要检验的库。由 <a0>{code0}</a0> 使用 smart-tr
 msgid "The model the <a0>ArchiMate overlay</a0> is drawn on, and smart-ra's own script for adding to it without rewriting it. Source files, not a package; the generated model is committed, so the site build does not fetch."
 msgstr "绘制 <a0>ArchiMate 叠加图</a0>所基于的模型，以及 smart-ra 自带的、可在不重写模型的情况下向其添加内容的脚本。这些是源文件而非软件包；生成的模型已提交，因此站点构建时不会获取。"
 
-#: docs/dependencies.md:36
-msgid "The workshop walkthrough of the journeys, moved from litlfred/vaxlink with its dependencies unchanged except that the lock was re-resolved to the 14-day cutoff. A static site: nothing here runs on a server."
-msgstr "用于研讨会的旅程演练，从 litlfred/vaxlink 迁移而来，依赖保持不变，只是锁文件按 14 天截止期重新解析。这是一个静态站点：此处没有任何内容在服务器上运行。"
-
-#: docs/dependencies.md:36
-#, python-brace-format
-msgid "VaxLink walkthrough ({code0}): React 18.3.1, {code1} 18.3.1, {code2} 0.453.0, {code3} 1.5.4, {code4} 2.1.1, {code5} 2.6.1; build-only Vite 5.4.21, {code6} 4.7.0, TypeScript 5.9.3, Tailwind CSS 3.4.19, PostCSS 8.5.31, Autoprefixer 10.6.1, and the type packages; 216 packages in all"
-msgstr "VaxLink 演练（{code0}）：React 18.3.1、{code1} 18.3.1、{code2} 0.453.0、{code3} 1.5.4、{code4} 2.1.1、{code5} 2.6.1；仅构建时使用的 Vite 5.4.21、{code6} 4.7.0、TypeScript 5.9.3、Tailwind CSS 3.4.19、PostCSS 8.5.31、Autoprefixer 10.6.1，以及类型包；共 216 个包"
-
 #: docs/dependencies.md:15
 #: docs/dependencies.md:27
 msgid "Why"
@@ -214,3 +200,14 @@ msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、sma
 #~ #, python-brace-format
 #~ msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
 #~ msgstr "解析 IG 的 FSH 所依据的包：FHIR R4 4.0.1（与 smart-base、smart-trust 和 smart-trust-phw 相同）、SUSHI 为 R4 指南提供的三个包，以及该 IG 所依赖的 WHO SMART 指南。这些包取自 FHIR 包注册中心在 registry.npmjs.org 上的镜像，因为 SUSHI 不得在运行时下载；{code0}（npm 上只有占位包）和 {code1} 5.3.0（npm 上只有投票版）取自固定提交的 <a0>litlfred/fhir-package-mirror</a0>，并以同一 sha512 校验。"
+
+#~ #, python-brace-format
+#~ msgid "<a0>{code0}</a0> integrity, installed with {code1}, resolved with {code2} 14 days back (2026-10-21 when the walkthrough moved here)"
+#~ msgstr "<a0>{code0}</a0> 完整性校验，使用 {code1} 安装，使用 {code2} 按 14 天前的状态解析（演练迁移到此处时为 2026-10-21）"
+
+#~ msgid "The workshop walkthrough of the journeys, moved from litlfred/vaxlink with its dependencies unchanged except that the lock was re-resolved to the 14-day cutoff. A static site: nothing here runs on a server."
+#~ msgstr "用于研讨会的旅程演练，从 litlfred/vaxlink 迁移而来，依赖保持不变，只是锁文件按 14 天截止期重新解析。这是一个静态站点：此处没有任何内容在服务器上运行。"
+
+#~ #, python-brace-format
+#~ msgid "VaxLink walkthrough ({code0}): React 18.3.1, {code1} 18.3.1, {code2} 0.453.0, {code3} 1.5.4, {code4} 2.1.1, {code5} 2.6.1; build-only Vite 5.4.21, {code6} 4.7.0, TypeScript 5.9.3, Tailwind CSS 3.4.19, PostCSS 8.5.31, Autoprefixer 10.6.1, and the type packages; 216 packages in all"
+#~ msgstr "VaxLink 演练（{code0}）：React 18.3.1、{code1} 18.3.1、{code2} 0.453.0、{code3} 1.5.4、{code4} 2.1.1、{code5} 2.6.1；仅构建时使用的 Vite 5.4.21、{code6} 4.7.0、TypeScript 5.9.3、Tailwind CSS 3.4.19、PostCSS 8.5.31、Autoprefixer 10.6.1，以及类型包；共 216 个包"

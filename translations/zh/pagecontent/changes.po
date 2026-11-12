@@ -29,10 +29,6 @@ msgstr "首批 L2 和 L3 内容：作为 {code0} 的通用人物画像和系统�
 msgid "New examples: household {code0}, registration {code1} and response, reported and verified {code2}s, verification and adjudication {code3}, {code4} from product to schedule code, an illustrative schedule {code5}, {code6} and reminder {code7}, the four Onesan doses, a six-dose IPS, {code8}, and two {code9}s (access granted, wrong passcode). Two illustrative code systems stand in for PreQual product ids and national schedule codes."
 msgstr "新增示例：家庭 {code0}、登记 {code1} 及其应答、已报告和已验证的 {code2}、验证与裁定 {code3}、从产品代码到接种计划代码的 {code4}、示意性接种计划 {code5}、{code6} 和提醒 {code7}、四个奥内萨剂次、一份包含六个剂次的 IPS、{code8}，以及两个 {code9}（访问已允许、通行码错误）。两个示意性代码系统分别代替 PreQual 产品 id 和国家接种计划代码。"
 
-#: input/pagecontent/changes.md:7
-msgid "New page: <a0>VaxLink examples</a0>, mapping each walkthrough screen and payload to its example here."
-msgstr "新页面：<a0>VaxLink 示例</a0>，将演练的每个界面和载荷映射到此处对应的示例。"
-
 #: input/pagecontent/changes.md:5
 msgid "New process steps: J2 adds the newborn to the household and saves the doses as reported, not verified; J3 adds the national schedule code beside the foreign vaccine code (the nurse decides unmapped products); J4.0 records the holder's consent with a passcode and an expiry; J4.1 adds the home portal's lane, which checks the passcode, returns the manifest and logs every access."
 msgstr "新增流程步骤：J2 将新生儿加入家庭，并将剂次保存为已报告、未验证；J3 在境外疫苗代码旁添加国家接种计划代码（未映射的产品由护士判定）；J4.0 记录持有人的同意，并附通行码和有效期；J4.1 新增本国门户的泳道，负责核验通行码、返回清单并记录每一次访问。"
@@ -40,3 +36,20 @@ msgstr "新增流程步骤：J2 将新生儿加入家庭，并将剂次保存为
 #: input/pagecontent/changes.md:4
 msgid "The journeys tell the <a0>VaxLink</a0> story (issue <a1>#21</a1>): Somsak SENGMANY, born in Taifafeki (XXR), living in Onesa (XXK), seen again in Taifafeki a year later. Personas, system actors and stories recast; the business processes made generic (no person names in them)."
 msgstr "这些旅程讲述 <a0>VaxLink</a0> 的故事（问题 <a1>#21</a1>）：Somsak SENGMANY 出生于泰法费基（XXR），生活在奥内萨（Onesa，XXK），一年后再次在泰法费基就诊。人物画像、系统参与者和故事已重新编写；业务流程已通用化（其中不含人名）。"
+
+#: input/pagecontent/changes.md:9
+msgid "New page: <a0>Journey examples</a0>, mapping each walkthrough screen and payload to its example here."
+msgstr "新页面：<a0>旅程示例</a0>，将演练的每个界面和载荷映射到此处对应的示例。"
+
+#: input/pagecontent/changes.md:7
+#, python-brace-format
+msgid "New terminology: {code0} and the {code1} ValueSet, the demo's own illustrative trust domains (DVC for J1 and J3, VHL for J4.0 and J4.1), in the style of the GDHCN Trust Domains of SMART Trust but not GDHCN codes."
+msgstr "新术语：{code0} 和 {code1} ValueSet，即本演示自有的示意性信任域（DVC 用于 J1 和 J3，VHL 用于 J4.0 和 J4.1），仿照 SMART Trust 的 GDHCN 信任域（Trust Domains）风格，但并非 GDHCN 代码。"
+
+#: input/pagecontent/changes.md:8
+#, python-brace-format
+msgid "The DEMO-VHL trust domain's terms of use: {code0} and the {code1} ValueSet. The J4.0 consent is now a Personal Health Wallet explicit consent ({code2}) that names {code3} in {code4}."
+msgstr "DEMO-VHL 信任域的使用条款：{code0} 和 {code1} ValueSet。J4.0 的同意现在是一项 Personal Health Wallet（个人健康钱包）明示同意（{code2}），在 {code4} 中指明 {code3}。"
+
+#~ msgid "New page: <a0>VaxLink examples</a0>, mapping each walkthrough screen and payload to its example here."
+#~ msgstr "新页面：<a0>VaxLink 示例</a0>，将演练的每个界面和载荷映射到此处对应的示例。"

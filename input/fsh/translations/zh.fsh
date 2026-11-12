@@ -487,3 +487,37 @@ Description: "Unofficial Simplified Chinese (zh) display designations for the Tr
 * #XXK-EPI-MR-1
 * #XXK-EPI-MR-1 ^designation[+].language = #zh
 * #XXK-EPI-MR-1 ^designation[=].value = "麻疹-风疹，第 1 剂"
+
+CodeSystem: TrustDemoTrustDomainZh
+Id: TrustDemoTrustDomain-zh
+Title: "TrustDemoTrustDomain — Chinese (zh) supplement"
+Description: "Unofficial Simplified Chinese (zh) display designations and definitions for the TrustDemoTrustDomain code system. Unofficial agent translation, not signed off by a human."
+* ^experimental = true
+* ^status = #draft
+* ^language = #zh
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoTrustDomain)
+* ^count = 2
+* #DEMO-DVC
+* #DEMO-DVC ^definition = "常规免疫的 DVC（HCERT），由出生诊所系统按剂次签名，并由本国诊所 EHR 验证（J1、J3）。"
+* #DEMO-DVC ^designation[+].language = #zh
+* #DEMO-DVC ^designation[=].value = "演示：数字疫苗接种证书"
+* #DEMO-VHL
+* #DEMO-VHL ^definition = "指向患者摘要的可验证健康链接（HCERT），在国家门户上创建，并在境外的服务点解析（J4.0、J4.1）。其使用条款为 TrustDemoVhlTermsOfUse。"
+* #DEMO-VHL ^designation[+].language = #zh
+* #DEMO-VHL ^designation[=].value = "演示：可验证健康链接"
+
+CodeSystem: TrustDemoVhlConsentZh
+Id: TrustDemoVhlConsent-zh
+Title: "TrustDemoVhlConsent — Chinese (zh) supplement"
+Description: "Unofficial Simplified Chinese (zh) display designations and definitions for the TrustDemoVhlConsent code system. Unofficial agent translation, not signed off by a human."
+* ^experimental = true
+* ^status = #draft
+* ^language = #zh
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoVhlConsent)
+* ^count = 1
+* #CONSENT-VHL-TREATMENT
+* #CONSENT-VHL-TREATMENT ^definition = "持有人将 VHL 的 QR 码和通行码交给的任何人，都可以为治疗目的读取其背后的患者摘要，直至链接到期。每次访问都由签发门户记录。"
+* #CONSENT-VHL-TREATMENT ^designation[+].language = #zh
+* #CONSENT-VHL-TREATMENT ^designation[=].value = "同意为治疗目的读取摘要"
