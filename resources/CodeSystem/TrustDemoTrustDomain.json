@@ -1,0 +1,37 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoTrustDomain",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoTrustDomain</b></p><a name=\"TrustDemoTrustDomain\"> </a><a name=\"hcTrustDemoTrustDomain\"> </a><p>This case-sensitive code system <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">DEMO-DVC<a name=\"TrustDemoTrustDomain-DEMO-DVC\"> </a></td><td>Demo: Digital Vaccination Certificate</td><td>Routine-immunization DVCs (HCERT) signed per dose by a birth clinic system and verified by a home clinic EHR (J1, J3).</td></tr><tr><td style=\"white-space:nowrap\">DEMO-VHL<a name=\"TrustDemoTrustDomain-DEMO-VHL\"> </a></td><td>Demo: Verifiable Health Link</td><td>Verifiable Health Links (HCERT) to a patient summary, created on the national portal and resolved at a point of care abroad (J4.0, J4.1).</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+  "version" : "0.1.0",
+  "name" : "TrustDemoTrustDomain",
+  "title" : "Trust domains of the journeys (illustrative)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T10:48:39+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Illustrative GDHCN-style trust domains for the demo's journeys: the scope under which each certificate in J1 to J4.1 is signed and verified. Invented for the demo, modelled on the GDHCN Trust Domains of SMART Trust; not GDHCN trust domains.",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 2,
+  "concept" : [{
+    "code" : "DEMO-DVC",
+    "display" : "Demo: Digital Vaccination Certificate",
+    "definition" : "Routine-immunization DVCs (HCERT) signed per dose by a birth clinic system and verified by a home clinic EHR (J1, J3)."
+  },
+  {
+    "code" : "DEMO-VHL",
+    "display" : "Demo: Verifiable Health Link",
+    "definition" : "Verifiable Health Links (HCERT) to a patient summary, created on the national portal and resolved at a point of care abroad (J4.0, J4.1)."
+  }]
+}

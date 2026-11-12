@@ -1630,6 +1630,30 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoTrustDomains"
+      },
+      "name" : "Trust domains of the journeys",
+      "description" : "Every code of TrustDemoTrustDomain: the trust domains a verifier in the journeys accepts.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoTrustDomain"
+      },
+      "name" : "Trust domains of the journeys (illustrative)",
+      "description" : "Illustrative GDHCN-style trust domains for the demo's journeys: the scope under which each certificate in J1 to J4.1 is signed and verified. Invented for the demo, modelled on the GDHCN Trust Domains of SMART Trust; not GDHCN trust domains.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
       }],
       "reference" : {

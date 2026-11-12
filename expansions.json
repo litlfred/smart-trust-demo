@@ -1,8 +1,8 @@
 {
   "resourceType" : "Bundle",
-  "id" : "7d820ff1-9f31-4f77-9349-27ab662e9c79",
+  "id" : "60b6e15e-c1c3-4014-aee3-63fecb8a41e1",
   "meta" : {
-    "lastUpdated" : "2026-11-12T10:19:08.172+00:00"
+    "lastUpdated" : "2026-11-12T10:48:39.848+00:00"
   },
   "type" : "collection",
   "entry" : [{
@@ -19,10 +19,10 @@
       "title" : "How an imported dose got its national schedule code",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:10d7ba22-67f7-446c-8242-9acc04c62a78",
-        "timestamp" : "2026-11-12T10:19:51+00:00",
+        "identifier" : "urn:uuid:e3e82e1f-ee0a-46fd-ada7-90363d5042b1",
+        "timestamp" : "2026-11-12T10:49:14+00:00",
         "total" : 4,
         "offset" : 0,
         "parameter" : [{
@@ -82,10 +82,10 @@
       "title" : "What a scanned DVC becomes in the record",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:77356dff-c100-494d-80bf-4c9a8eb092f9",
-        "timestamp" : "2026-11-12T10:19:51+00:00",
+        "identifier" : "urn:uuid:f12bb487-772a-4243-a9b6-26fb76c20ebe",
+        "timestamp" : "2026-11-12T10:49:14+00:00",
         "total" : 4,
         "offset" : 0,
         "parameter" : [{
@@ -145,10 +145,10 @@
       "title" : "National schedule codes of the journeys",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:99981a10-2642-4ca6-a674-74bbce7432d8",
-        "timestamp" : "2026-11-12T10:19:51+00:00",
+        "identifier" : "urn:uuid:1554085b-e224-438d-9dfd-e881780d2055",
+        "timestamp" : "2026-11-12T10:49:14+00:00",
         "total" : 6,
         "offset" : 0,
         "parameter" : [{
@@ -205,6 +205,59 @@
     }
   },
   {
+    "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoTrustDomains",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-TrustDemoTrustDomain.html\">codesystem Trust domains of the journeys (illustrative) v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></p><p>This value set contains 2 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-DEMO-DVC\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoTrustDomain.html#TrustDemoTrustDomain-DEMO-DVC\">DEMO-DVC</a></td><td>Demo: Digital Vaccination Certificate</td><td>Routine-immunization DVCs (HCERT) signed per dose by a birth clinic system and verified by a home clinic EHR (J1, J3).</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;DEMO-DVC&quot;, &quot;display&quot;: &quot;Demo: Digital Vaccination Certificate&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;DEMO-DVC&quot;/&gt;&lt;display value=&quot;Demo: Digital Vaccination Certificate&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr><tr><td><a name=\"x-http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-DEMO-VHL\"> </a><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-TrustDemoTrustDomain.html#TrustDemoTrustDomain-DEMO-VHL\">DEMO-VHL</a></td><td>Demo: Verifiable Health Link</td><td>Verifiable Health Links (HCERT) to a patient summary, created on the national portal and resolved at a point of care abroad (J4.0, J4.1).</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;DEMO-VHL&quot;, &quot;display&quot;: &quot;Demo: Verifiable Health Link&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;DEMO-VHL&quot;/&gt;&lt;display value=&quot;Demo: Verifiable Health Link&quot;/&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\" aria-label=\"copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoTrustDomains",
+      "version" : "0.1.0",
+      "name" : "TrustDemoTrustDomains",
+      "title" : "Trust domains of the journeys",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-11-12T10:48:39+00:00",
+      "expansion" : {
+        "identifier" : "urn:uuid:e83d53c3-383b-427d-a8f8-50f8448778b1",
+        "timestamp" : "2026-11-12T10:49:15+00:00",
+        "total" : 2,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+          "code" : "DEMO-DVC",
+          "display" : "Demo: Digital Vaccination Certificate"
+        },
+        {
+          "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+          "code" : "DEMO-VHL",
+          "display" : "Demo: Verifiable Health Link"
+        }]
+      }
+    }
+  },
+  {
     "fullUrl" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
     "resource" : {
       "resourceType" : "ValueSet",
@@ -218,10 +271,10 @@
       "title" : "Vaccine products of the journeys",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:c51dd489-c25f-4997-a58f-5477fcbdd294",
-        "timestamp" : "2026-11-12T10:19:51+00:00",
+        "identifier" : "urn:uuid:4aba1b40-4ede-4dd7-8149-94accf74936f",
+        "timestamp" : "2026-11-12T10:49:15+00:00",
         "total" : 6,
         "offset" : 0,
         "parameter" : [{
@@ -291,10 +344,10 @@
       "title" : "Verification failure reasons",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:38745604-5b2b-4b44-a254-5ac09d9b26f2",
-        "timestamp" : "2026-11-12T10:19:51+00:00",
+        "identifier" : "urn:uuid:ec5a7f92-0615-46c8-91cd-dfc5d59a99b7",
+        "timestamp" : "2026-11-12T10:49:15+00:00",
         "total" : 16,
         "offset" : 0,
         "parameter" : [{
@@ -414,10 +467,10 @@
       "title" : "Result of reading a DVC",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:acd8af34-fa2f-4782-b1fa-4a0e175448bd",
-        "timestamp" : "2026-11-12T10:19:52+00:00",
+        "identifier" : "urn:uuid:12825713-7647-466e-9419-fc45948346bf",
+        "timestamp" : "2026-11-12T10:49:15+00:00",
         "total" : 3,
         "offset" : 0,
         "parameter" : [{
@@ -472,10 +525,10 @@
       "title" : "Verification steps",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:97ffd85d-295d-457e-ac51-ffc05d143f2e",
-        "timestamp" : "2026-11-12T10:19:52+00:00",
+        "identifier" : "urn:uuid:f180a030-534c-47d7-9358-842bdaba81ad",
+        "timestamp" : "2026-11-12T10:49:15+00:00",
         "total" : 12,
         "offset" : 0,
         "parameter" : [{
@@ -575,10 +628,10 @@
       "title" : "Why a shared link released nothing",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-11-12T10:19:08+00:00",
+      "date" : "2026-11-12T10:48:39+00:00",
       "expansion" : {
-        "identifier" : "urn:uuid:4edca689-1238-4914-b5b3-408eef84c40a",
-        "timestamp" : "2026-11-12T10:19:52+00:00",
+        "identifier" : "urn:uuid:06bcadcf-e1d1-4954-bf2a-5500c1a01bc4",
+        "timestamp" : "2026-11-12T10:49:15+00:00",
         "total" : 3,
         "offset" : 0,
         "parameter" : [{

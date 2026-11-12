@@ -1,8 +1,8 @@
 {
   "$schema" : "ig-ast-dependencies/v1",
   "authority" : "cache",
-  "edges" : 143,
-  "resolvedInIg" : 102,
+  "edges" : 144,
+  "resolvedInIg" : 103,
   "dependencies" : [{
     "source" : "AuditEvent/TrustDemoJ41Access",
     "kind" : "meta.profile",
@@ -1242,6 +1242,15 @@
     "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
     "targetVersion" : "0.1.0",
     "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
+    "source" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoTrustDomains|0.1.0",
+    "kind" : "includes from",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0",
     "path" : null,
     "origin" : "publisher"
   },

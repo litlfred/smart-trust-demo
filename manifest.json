@@ -7,7 +7,7 @@
     "versions"
   ],
   "provisionalUntil": "a full IG Publisher run",
-  "generatedAt": "2026-11-12T10:20:23.938441572Z",
+  "generatedAt": "2026-11-12T10:49:42.418455284Z",
   "ig": {
     "root": ".",
     "version": "4.0.1"
@@ -17,8 +17,8 @@
   },
   "inputs": {
     "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-    "sourceRevision": "ce54317f9767681752633c3052174b5f24da3c0c",
-    "inputDigest": "95a980d74c08a523e7e8f24ce0ba47fecb426bfb5bb7d052af96a9d31b660c06"
+    "sourceRevision": "70a5b678924dc8e0f597427f368546b702db9a22",
+    "inputDigest": "c3073be701b3193eb5830d89fa608cf2908c95e01571a5a425b0a860c710cee9"
   },
   "packages": [
     {
@@ -198,6 +198,17 @@
         },
         "codeSystems": [
           "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule"
+        ]
+      },
+      {
+        "valueSet": "http://smart.who.int/trust-demo/ValueSet/TrustDemoTrustDomains|0.1.0",
+        "builtFrom": {
+          "used-codesystem": [
+            "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0"
+          ]
+        },
+        "codeSystems": [
+          "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain"
         ]
       },
       {
@@ -1055,6 +1066,16 @@
       "source": "fsh-generated/resources/CodeSystem-TrustDemoOnesaEpiSchedule.json"
     },
     {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoTrustDomain",
+      "name": "TrustDemoTrustDomain",
+      "file": "resources/CodeSystem/TrustDemoTrustDomain.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoTrustDomain.json"
+    },
+    {
       "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-ar|0.1.0",
       "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-ar",
       "version": "0.1.0",
@@ -1703,6 +1724,16 @@
       "name": "TrustDemoOnesaEpiScheduleCodes",
       "file": "resources/ValueSet/TrustDemoOnesaEpiScheduleCodes.json",
       "source": "fsh-generated/resources/ValueSet-TrustDemoOnesaEpiScheduleCodes.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/ValueSet/TrustDemoTrustDomains|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoTrustDomains",
+      "version": "0.1.0",
+      "resourceType": "ValueSet",
+      "id": "TrustDemoTrustDomains",
+      "name": "TrustDemoTrustDomains",
+      "file": "resources/ValueSet/TrustDemoTrustDomains.json",
+      "source": "fsh-generated/resources/ValueSet-TrustDemoTrustDomains.json"
     },
     {
       "key": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts|0.1.0",
