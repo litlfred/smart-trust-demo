@@ -25,11 +25,6 @@ msgstr "{code0} 1.0.0-rc03 (2026-09-07; rc04 от 2026-10-12 моложе 14 д�
 msgid "<a0>{code0}</a0> integrity, installed with {code1}, resolved with {code2} 14 days back"
 msgstr "Целостность по <a0>{code0}</a0>, установка с {code1}, разрешение с {code2} на 14 дней назад"
 
-#: docs/dependencies.md:36
-#, python-brace-format
-msgid "<a0>{code0}</a0> integrity, installed with {code1}, resolved with {code2} 14 days back (2026-10-21 when the walkthrough moved here)"
-msgstr "Целостность по <a0>{code0}</a0>, установка с {code1}, разрешение с {code2} на 14 дней назад (2026-10-21, когда пошаговый обзор был перенесён сюда)"
-
 #: docs/dependencies.md:15
 msgid "Action"
 msgstr "Действие"
@@ -176,15 +171,6 @@ msgstr "Библиотека, для проверки которой сущес�
 msgid "The model the <a0>ArchiMate overlay</a0> is drawn on, and smart-ra's own script for adding to it without rewriting it. Source files, not a package; the generated model is committed, so the site build does not fetch."
 msgstr "Модель, на которой нарисовано <a0>наложение ArchiMate</a0>, и собственный скрипт smart-ra для её дополнения без переписывания. Исходные файлы, а не пакет; сгенерированная модель закоммичена, поэтому сборка сайта ничего не загружает."
 
-#: docs/dependencies.md:36
-msgid "The workshop walkthrough of the journeys, moved from litlfred/vaxlink with its dependencies unchanged except that the lock was re-resolved to the 14-day cutoff. A static site: nothing here runs on a server."
-msgstr "Пошаговый обзор путей для практического семинара, перенесённый из litlfred/vaxlink с неизменными зависимостями, за исключением того, что lock-файл был заново разрешён на границу в 14 дней. Статический сайт: ничего отсюда не выполняется на сервере."
-
-#: docs/dependencies.md:36
-#, python-brace-format
-msgid "VaxLink walkthrough ({code0}): React 18.3.1, {code1} 18.3.1, {code2} 0.453.0, {code3} 1.5.4, {code4} 2.1.1, {code5} 2.6.1; build-only Vite 5.4.21, {code6} 4.7.0, TypeScript 5.9.3, Tailwind CSS 3.4.19, PostCSS 8.5.31, Autoprefixer 10.6.1, and the type packages; 216 packages in all"
-msgstr "Пошаговый обзор VaxLink ({code0}): React 18.3.1, {code1} 18.3.1, {code2} 0.453.0, {code3} 1.5.4, {code4} 2.1.1, {code5} 2.6.1; только для сборки — Vite 5.4.21, {code6} 4.7.0, TypeScript 5.9.3, Tailwind CSS 3.4.19, PostCSS 8.5.31, Autoprefixer 10.6.1 и пакеты типов; всего 216 пакетов"
-
 #: docs/dependencies.md:15
 #: docs/dependencies.md:27
 msgid "Why"
@@ -214,3 +200,14 @@ msgstr "Пакеты, относительно которых разрешает
 #~ #, python-brace-format
 #~ msgid "The packages the IG's FSH is resolved against: FHIR R4 4.0.1 (as smart-base, smart-trust and smart-trust-phw use), the three SUSHI provides for an R4 guide, and the WHO SMART guides the IG depends on. Taken from the registry.npmjs.org mirrors of the FHIR package registry, because SUSHI must not download at run time; {code0} (npm holds only a placeholder) and {code1} 5.3.0 (npm holds only the ballot) from <a0>litlfred/fhir-package-mirror</a0> at a pinned commit, checked against the same sha512."
 #~ msgstr "Пакеты, относительно которых разрешается FSH руководства по внедрению (IG): FHIR R4 4.0.1 (как в smart-base, smart-trust и smart-trust-phw), три пакета, которые SUSHI предоставляет для руководства R4, и руководства SMART ВОЗ, от которых зависит IG. Взяты из зеркал реестра пакетов FHIR на registry.npmjs.org, поскольку SUSHI не должен ничего загружать во время выполнения; {code0} (в npm есть только заглушка) и {code1} 5.3.0 (в npm есть только версия для голосования) — из <a0>litlfred/fhir-package-mirror</a0> на закреплённом коммите, с проверкой по тому же sha512."
+
+#~ #, python-brace-format
+#~ msgid "<a0>{code0}</a0> integrity, installed with {code1}, resolved with {code2} 14 days back (2026-10-21 when the walkthrough moved here)"
+#~ msgstr "Целостность по <a0>{code0}</a0>, установка с {code1}, разрешение с {code2} на 14 дней назад (2026-10-21, когда пошаговый обзор был перенесён сюда)"
+
+#~ msgid "The workshop walkthrough of the journeys, moved from litlfred/vaxlink with its dependencies unchanged except that the lock was re-resolved to the 14-day cutoff. A static site: nothing here runs on a server."
+#~ msgstr "Пошаговый обзор путей для практического семинара, перенесённый из litlfred/vaxlink с неизменными зависимостями, за исключением того, что lock-файл был заново разрешён на границу в 14 дней. Статический сайт: ничего отсюда не выполняется на сервере."
+
+#~ #, python-brace-format
+#~ msgid "VaxLink walkthrough ({code0}): React 18.3.1, {code1} 18.3.1, {code2} 0.453.0, {code3} 1.5.4, {code4} 2.1.1, {code5} 2.6.1; build-only Vite 5.4.21, {code6} 4.7.0, TypeScript 5.9.3, Tailwind CSS 3.4.19, PostCSS 8.5.31, Autoprefixer 10.6.1, and the type packages; 216 packages in all"
+#~ msgstr "Пошаговый обзор VaxLink ({code0}): React 18.3.1, {code1} 18.3.1, {code2} 0.453.0, {code3} 1.5.4, {code4} 2.1.1, {code5} 2.6.1; только для сборки — Vite 5.4.21, {code6} 4.7.0, TypeScript 5.9.3, Tailwind CSS 3.4.19, PostCSS 8.5.31, Autoprefixer 10.6.1 и пакеты типов; всего 216 пакетов"
