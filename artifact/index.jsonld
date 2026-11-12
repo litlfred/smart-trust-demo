@@ -14,7 +14,7 @@
     "@id": "http://smart.who.int/trust-demo"
   },
   "dcterms:title": "SMART Trust demonstrator: journeys J1 to J4",
-  "schema:numberOfItems": 149,
+  "schema:numberOfItems": 163,
   "schema:hasPart": [
     {
       "@id": "ActorDefinition-TrustDemo.Role.BirthClinicSystem",
@@ -281,6 +281,11 @@
       "dcterms:identifier": "Consent/TrustDemoJ4Consent",
       "dcterms:title": "TrustDemoJ4Consent",
       "dcterms:type": "Other",
+      "dcterms:conformsTo": [
+        {
+          "@id": "http://smart.who.int/trust-phw/StructureDefinition/PHWExplicitConsent"
+        }
+      ],
       "schema:contentUrl": {
         "@id": "../Consent-TrustDemoJ4Consent.json"
       }
@@ -1294,6 +1299,95 @@
       }
     },
     {
+      "@id": "CodeSystem-TrustDemoTrustDomain",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoTrustDomain",
+      "dcterms:title": "Trust domains of the journeys (illustrative)",
+      "dcterms:description": "Illustrative GDHCN-style trust domains for the demo's journeys: the scope under which each certificate in J1 to J4.1 is signed and verified. Invented for the demo, modelled on the GDHCN Trust Domains of SMART Trust; not GDHCN trust domains.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoTrustDomain.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoTrustDomain-ar",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoTrustDomain-ar",
+      "dcterms:title": "نطاقات الثقة في الرحلات (توضيحية)",
+      "schema:name": "TrustDemoTrustDomainAr",
+      "dcterms:description": "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoTrustDomain: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية. Unofficial agent translation.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ar"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoTrustDomain-ar.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoTrustDomain-es",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoTrustDomain-es",
+      "dcterms:title": "Ámbitos de confianza de los recorridos (ilustrativos)",
+      "schema:name": "TrustDemoTrustDomainEs",
+      "dcterms:description": "Suplemento en español (es) de TrustDemoTrustDomain: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-es"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoTrustDomain-es.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoTrustDomain-fr",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoTrustDomain-fr",
+      "dcterms:title": "Domaines de confiance des parcours (illustratifs)",
+      "schema:name": "TrustDemoTrustDomainFr",
+      "dcterms:description": "French (fr) supplement to TrustDemoTrustDomain: displays and definitions in French. Unofficial agent translation.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-fr"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoTrustDomain-fr.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoTrustDomain-ru",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoTrustDomain-ru",
+      "dcterms:title": "TrustDemoTrustDomain (ru designations, unofficial)",
+      "schema:name": "TrustDemoTrustDomainRu",
+      "dcterms:description": "Unofficial Russian designations for TrustDemoTrustDomain: an agent translation that no person has signed off. Each code has a display designation and a definition designation; the codes themselves are not translated.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ru"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoTrustDomain-ru.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoTrustDomain-zh",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoTrustDomain-zh",
+      "dcterms:title": "TrustDemoTrustDomain — Chinese (zh) supplement",
+      "schema:name": "TrustDemoTrustDomainZh",
+      "dcterms:description": "Unofficial Simplified Chinese (zh) display designations and definitions for the TrustDemoTrustDomain code system. Unofficial agent translation, not signed off by a human.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-zh"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoTrustDomain-zh.json"
+      }
+    },
+    {
       "@id": "CodeSystem-TrustDemoVaccineProduct",
       "@type": "fhir:CodeSystem",
       "dcterms:identifier": "CodeSystem/TrustDemoVaccineProduct",
@@ -1647,6 +1741,95 @@
       },
       "schema:contentUrl": {
         "@id": "../CodeSystem-TrustDemoVerificationStep-zh.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVhlConsent",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVhlConsent",
+      "dcterms:title": "Consents of the demo VHL trust domain (illustrative)",
+      "dcterms:description": "The consent codes of the illustrative DEMO-VHL trust domain: what a holder agrees to when the family wallet creates a Verifiable Health Link (J4.0). Invented for the demo, in the style of the IPS for Pilgrimage consents (IPS.HAJJ.CONSENT); not a GDHCN trust domain's terms of use.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoVhlConsent.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVhlConsent-ar",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVhlConsent-ar",
+      "dcterms:title": "موافقات نطاق الثقة VHL في العرض التوضيحي (توضيحية)",
+      "schema:name": "TrustDemoVhlConsentAr",
+      "dcterms:description": "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoVhlConsent: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية. Unofficial agent translation.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ar"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoVhlConsent-ar.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVhlConsent-es",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVhlConsent-es",
+      "dcterms:title": "Consentimientos del ámbito de confianza VHL de la demostración (ilustrativos)",
+      "schema:name": "TrustDemoVhlConsentEs",
+      "dcterms:description": "Suplemento en español (es) de TrustDemoVhlConsent: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-es"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoVhlConsent-es.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVhlConsent-fr",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVhlConsent-fr",
+      "dcterms:title": "Consentements du domaine de confiance VHL de la démo (illustratifs)",
+      "schema:name": "TrustDemoVhlConsentFr",
+      "dcterms:description": "French (fr) supplement to TrustDemoVhlConsent: displays and definitions in French. Unofficial agent translation.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-fr"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoVhlConsent-fr.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVhlConsent-ru",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVhlConsent-ru",
+      "dcterms:title": "TrustDemoVhlConsent (ru designations, unofficial)",
+      "schema:name": "TrustDemoVhlConsentRu",
+      "dcterms:description": "Unofficial Russian designations for TrustDemoVhlConsent: an agent translation that no person has signed off. Each code has a display designation and a definition designation; the codes themselves are not translated.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ru"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoVhlConsent-ru.json"
+      }
+    },
+    {
+      "@id": "CodeSystem-TrustDemoVhlConsent-zh",
+      "@type": "fhir:CodeSystem",
+      "dcterms:identifier": "CodeSystem/TrustDemoVhlConsent-zh",
+      "dcterms:title": "TrustDemoVhlConsent — Chinese (zh) supplement",
+      "schema:name": "TrustDemoVhlConsentZh",
+      "dcterms:description": "Unofficial Simplified Chinese (zh) display designations and definitions for the TrustDemoVhlConsent code system. Unofficial agent translation, not signed off by a human.",
+      "dcterms:type": "Terminology: Code Systems",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-zh"
+      },
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoVhlConsent-zh.json"
       }
     },
     {
@@ -2047,6 +2230,20 @@
       }
     },
     {
+      "@id": "ValueSet-TrustDemoTrustDomains",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoTrustDomains",
+      "dcterms:title": "Trust domains of the journeys",
+      "dcterms:description": "Every code of TrustDemoTrustDomain: the trust domains a verifier in the journeys accepts.",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoTrustDomains"
+      },
+      "schema:contentUrl": {
+        "@id": "../ValueSet-TrustDemoTrustDomains.json"
+      }
+    },
+    {
       "@id": "ValueSet-TrustDemoVaccineProducts",
       "@type": "fhir:ValueSet",
       "dcterms:identifier": "ValueSet/TrustDemoVaccineProducts",
@@ -2114,6 +2311,20 @@
       },
       "schema:contentUrl": {
         "@id": "../ValueSet-TrustDemoVhlRefusalReasonVS.json"
+      }
+    },
+    {
+      "@id": "ValueSet-TrustDemoVhlTermsOfUse",
+      "@type": "fhir:ValueSet",
+      "dcterms:identifier": "ValueSet/TrustDemoVhlTermsOfUse",
+      "dcterms:title": "Terms of use of the demo VHL trust domain",
+      "dcterms:description": "The terms of use of the DEMO-VHL trust domain (TrustDemoTrustDomain): every code of TrustDemoVhlConsent. An explicit consent to share a VHL names one of them in Consent.policyRule (J4.0).",
+      "dcterms:type": "Terminology: Value Sets",
+      "schema:sameAs": {
+        "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlTermsOfUse"
+      },
+      "schema:contentUrl": {
+        "@id": "../ValueSet-TrustDemoVhlTermsOfUse.json"
       }
     },
     {

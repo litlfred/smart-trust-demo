@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "CodeSystem-TrustDemoTrustDomain-fr",
+  "@type": "fhir:CodeSystem",
+  "dcterms:identifier": "CodeSystem/TrustDemoTrustDomain-fr",
+  "schema:name": "TrustDemoTrustDomainFr",
+  "dcterms:title": "Domaines de confiance des parcours (illustratifs)",
+  "dcterms:description": "French (fr) supplement to TrustDemoTrustDomain: displays and definitions in French. Unofficial agent translation.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Code Systems",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-fr"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../CodeSystem-TrustDemoTrustDomain-fr.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/resources/CodeSystem/TrustDemoTrustDomain-fr.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "a1f3c12a42dc99ee4cf0c4f098c7b97dfdd0ea57"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}
