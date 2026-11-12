@@ -484,3 +484,41 @@ Description: "Unofficial Russian designations for TrustDemoVhlRefusalReason: an 
 * #wrong-passcode "Wrong passcode"
 * #wrong-passcode ^designation[+].language = #ru
 * #wrong-passcode ^designation[=].value = "Неверный код доступа"
+
+CodeSystem: TrustDemoTrustDomainRu
+Id: TrustDemoTrustDomain-ru
+Title: "TrustDemoTrustDomain (ru designations, unofficial)"
+Description: "Unofficial Russian designations for TrustDemoTrustDomain: an agent translation that no person has signed off. Each code has a display designation and a definition designation; the codes themselves are not translated."
+* ^experimental = true
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoTrustDomain)
+* ^language = #ru
+* ^caseSensitive = true
+* #DEMO-DVC "Demo: Digital Vaccination Certificate"
+* #DEMO-DVC ^designation[+].language = #ru
+* #DEMO-DVC ^designation[=].value = "Демо: цифровой сертификат о вакцинации"
+* #DEMO-DVC ^designation[+].language = #ru
+* #DEMO-DVC ^designation[=].use = http://snomed.info/sct#900000000000550004 "Definition"
+* #DEMO-DVC ^designation[=].value = "DVC (HCERT) плановой иммунизации, подписываемые для каждой дозы системой родильной клиники и проверяемые EHR клиники по месту жительства (J1, J3)."
+* #DEMO-VHL "Demo: Verifiable Health Link"
+* #DEMO-VHL ^designation[+].language = #ru
+* #DEMO-VHL ^designation[=].value = "Демо: проверяемая ссылка на медицинские данные"
+* #DEMO-VHL ^designation[+].language = #ru
+* #DEMO-VHL ^designation[=].use = http://snomed.info/sct#900000000000550004 "Definition"
+* #DEMO-VHL ^designation[=].value = "Проверяемые ссылки на медицинские данные (VHL, HCERT) на сводку о пациенте, создаваемые на национальном портале и разрешаемые в месте оказания помощи за границей (J4.0, J4.1). Условия их использования — TrustDemoVhlTermsOfUse."
+
+CodeSystem: TrustDemoVhlConsentRu
+Id: TrustDemoVhlConsent-ru
+Title: "TrustDemoVhlConsent (ru designations, unofficial)"
+Description: "Unofficial Russian designations for TrustDemoVhlConsent: an agent translation that no person has signed off. Each code has a display designation and a definition designation; the codes themselves are not translated."
+* ^experimental = true
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoVhlConsent)
+* ^language = #ru
+* ^caseSensitive = true
+* #CONSENT-VHL-TREATMENT "Consent to read the summary for treatment"
+* #CONSENT-VHL-TREATMENT ^designation[+].language = #ru
+* #CONSENT-VHL-TREATMENT ^designation[=].value = "Согласие на чтение сводки для лечения"
+* #CONSENT-VHL-TREATMENT ^designation[+].language = #ru
+* #CONSENT-VHL-TREATMENT ^designation[=].use = http://snomed.info/sct#900000000000550004 "Definition"
+* #CONSENT-VHL-TREATMENT ^designation[=].value = "Любой, кому владелец передаёт QR-код и код доступа VHL, может читать стоящую за ней сводку о пациенте в целях лечения до истечения срока действия ссылки. Каждый доступ регистрируется выдавшим порталом."
