@@ -503,9 +503,10 @@ def gen_processes(procs, roles):
                "`processes/content/`, copied into the guide as `input/business-processes/`. "
                "Select a step's title to open it, or open a process in the [process viewer](cat-harness/processes/), "
                "which lists each task and the skill that performs it.\n")
-    # The harness's task panel: the same client and styles the process pages use.
-    out.append(f'<link rel="stylesheet" href="{PROCESS_VIEWER}task-panel.css" />\n'
-               f'<script src="{PROCESS_VIEWER}task-panel.js" defer></script>\n')
+    # No <script>/<link> here: fhir-harness#332's injection QA refuses a script
+    # element in IG page text (owner Q-RAIL-2 = C, 2026-11-12). The task panel
+    # comes back when the harness loads it for pages whose figures carry
+    # data-panel; until then the figures and step links still work.
     out.append("| Process | Lanes | BPMN |\n|---|---|---|")
     for p in procs:
         lanes = ", ".join(titles[l] for l in p["lanes"])  # an unknown role is an error (repo_checks names it)

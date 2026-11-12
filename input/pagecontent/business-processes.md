@@ -3,9 +3,6 @@
 
 One business process per journey. Each lane is a role on the [personas](personas.html) page; each task names the skill that performs it. The BPMN source of each process is in `processes/content/`, copied into the guide as `input/business-processes/`. Select a step's title to open it, or open a process in the [process viewer](cat-harness/processes/), which lists each task and the skill that performs it.
 
-<link rel="stylesheet" href="en/cat-harness/processes/task-panel.css" />
-<script src="en/cat-harness/processes/task-panel.js" defer></script>
-
 | Process | Lanes | BPMN |
 |---|---|---|
 | [J1 Issue the newborn's birth-dose DVCs in Country A](#j1-issue-the-newborns-birth-dose-dvcs-in-country-a) | Caregiver, Birth clinic vaccinator, Birth clinic issuing system, Issuer signing key | [j1-birth-dose-dvc.bpmn](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j1-birth-dose-dvc.bpmn) |
