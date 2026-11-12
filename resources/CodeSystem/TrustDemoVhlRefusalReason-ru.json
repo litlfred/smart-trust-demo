@@ -1,0 +1,52 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVhlRefusalReason-ru",
+  "language" : "ru",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ru\" lang=\"ru\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVhlRefusalReason-ru</b></p><a name=\"TrustDemoVhlRefusalReason-ru\"> </a><a name=\"hcTrustDemoVhlRefusalReason-ru\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ru</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-ru</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-withdrawn\">withdrawn</a><a name=\"TrustDemoVhlRefusalReason-ru-withdrawn\"> </a></td><td>Withdrawn</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-expired\">expired</a><a name=\"TrustDemoVhlRefusalReason-ru-expired\"> </a></td><td>Expired</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlRefusalReason.html#TrustDemoVhlRefusalReason-wrong-passcode\">wrong-passcode</a><a name=\"TrustDemoVhlRefusalReason-ru-wrong-passcode\"> </a></td><td>Wrong passcode</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-ru",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlRefusalReasonRu",
+  "title" : "TrustDemoVhlRefusalReason (ru designations, unofficial)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T08:31:09+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Russian designations for TrustDemoVhlRefusalReason: an agent translation that no person has signed off.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason",
+  "concept" : [{
+    "code" : "withdrawn",
+    "display" : "Withdrawn",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Отозвано"
+    }]
+  },
+  {
+    "code" : "expired",
+    "display" : "Expired",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Срок действия истёк"
+    }]
+  },
+  {
+    "code" : "wrong-passcode",
+    "display" : "Wrong passcode",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Неверный код доступа"
+    }]
+  }]
+}

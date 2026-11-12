@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/LogicalModels.schema.json",
+  "title": "Logical Model Enumeration Schema",
+  "description": "JSON Schema defining the structure of the Logical Model enumeration endpoint response",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "logical_model",
+      "description": "The type of schemas enumerated (logical_model)"
+    },
+    "count": {
+      "type": "integer",
+      "description": "Total number of schemas available"
+    },
+    "schemas": {
+      "type": "array",
+      "description": "Array of available schemas",
+      "items": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string",
+            "description": "Schema filename"
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema $id"
+          },
+          "title": {
+            "type": "string",
+            "description": "Schema title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Schema description"
+          },
+          "url": {
+            "type": "string",
+            "description": "Relative URL to the schema file"
+          },
+          "logicalModelUrl": {
+            "type": "string",
+            "description": "FHIR canonical URL of the Logical Model"
+          },
+          "propertyCount": {
+            "type": "integer",
+            "description": "Number of properties in the Logical Model"
+          }
+        },
+        "required": [
+          "filename",
+          "title",
+          "url"
+        ]
+      }
+    }
+  },
+  "required": [
+    "type",
+    "count",
+    "schemas"
+  ],
+  "example": {
+    "type": "logical_model",
+    "count": 7,
+    "schemas": [
+      {
+        "filename": "StructureDefinition-TrustDemoDdBirthDoseDvc.schema.json",
+        "id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdBirthDoseDvc.schema.json",
+        "title": "TD.J1 Birth-dose DVC",
+        "description": "What the birth hospital records for each birth dose and signs into one Digital Vaccination Certificate (DVC, an HCERT) per dose: the payload, the CWT claims and the key that signs it.",
+        "url": "./StructureDefinition-TrustDemoDdBirthDoseDvc.schema.json",
+        "propertyCount": 16
+      },
+      {
+        "filename": "StructureDefinition-TrustDemoDdChwReferral.schema.json",
+        "id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdChwReferral.schema.json",
+        "title": "TD.J2B Referral for verification",
+        "description": "The community health worker's referral of the child to the home clinic, to verify the foreign cards and fit the doses to the national schedule.",
+        "url": "./StructureDefinition-TrustDemoDdChwReferral.schema.json",
+        "propertyCount": 10
+      },
+      {
+        "filename": "StructureDefinition-TrustDemoDdChwRegistration.schema.json",
+        "id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdChwRegistration.schema.json",
+        "title": "TD.J2A Newborn registration on a home visit",
+        "description": "What the community health worker records offline when she finds a newborn missing from the household roster: the registration form's answers and each dose read from a foreign card without verifying it.",
+        "url": "./StructureDefinition-TrustDemoDdChwRegistration.schema.json",
+        "propertyCount": 21
+      },
+      {
+        "filename": "StructureDefinition-TrustDemoDdDvcVerification.schema.json",
+        "id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdDvcVerification.schema.json",
+        "title": "TD.J3A DVC verification and import",
+        "description": "What the clinic records when it verifies a foreign DVC against its cached copy of the trust list, and, when the DVC verifies, imports the dose in place of the reported one.",
+        "url": "./StructureDefinition-TrustDemoDdDvcVerification.schema.json",
+        "propertyCount": 15
+      },
+      {
+        "filename": "StructureDefinition-TrustDemoDdImportedDose.schema.json",
+        "id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdImportedDose.schema.json",
+        "title": "TD.J3B Imported dose and schedule",
+        "description": "What the clinic records for each imported dose's vaccine code, and what the national schedule finds due once the doses are counted.",
+        "url": "./StructureDefinition-TrustDemoDdImportedDose.schema.json",
+        "propertyCount": 14
+      },
+      {
+        "filename": "StructureDefinition-TrustDemoDdVhlAccess.schema.json",
+        "id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdVhlAccess.schema.json",
+        "title": "TD.J41 Access to a shared link",
+        "description": "What the home country logs for every request to open a shared link, released or refused.",
+        "url": "./StructureDefinition-TrustDemoDdVhlAccess.schema.json",
+        "propertyCount": 13
+      },
+      {
+        "filename": "StructureDefinition-TrustDemoDdVhlShare.schema.json",
+        "id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdVhlShare.schema.json",
+        "title": "TD.J40 Shared link and consent",
+        "description": "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+        "url": "./StructureDefinition-TrustDemoDdVhlShare.schema.json",
+        "propertyCount": 10
+      }
+    ]
+  }
+}

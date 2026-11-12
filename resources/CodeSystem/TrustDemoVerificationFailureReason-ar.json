@@ -1,0 +1,172 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationFailureReason-ar",
+  "language" : "ar",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ar\" lang=\"ar\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationFailureReason-ar</b></p><a name=\"TrustDemoVerificationFailureReason-ar\"> </a><a name=\"hcTrustDemoVerificationFailureReason-ar\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ar</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-ar</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-BadPrefix\">BadPrefix</a><a name=\"TrustDemoVerificationFailureReason-ar-BadPrefix\"> </a></td><td>بادئة غير صالحة</td><td>لا يبدأ النص بالبادئة HC1:.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-UnsupportedContextVersion\">UnsupportedContextVersion</a><a name=\"TrustDemoVerificationFailureReason-ar-UnsupportedContextVersion\"> </a></td><td>إصدار سياق غير مدعوم</td><td>يشير معرِّف السياق إلى إصدار لا تدعمه الجهة المُتحقِّقة.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-Base45Invalid\">Base45Invalid</a><a name=\"TrustDemoVerificationFailureReason-ar-Base45Invalid\"> </a></td><td>Base45 غير صالح</td><td>النص ليس Base45 صالحًا.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-InflateFailed\">InflateFailed</a><a name=\"TrustDemoVerificationFailureReason-ar-InflateFailed\"> </a></td><td>فشل فك الضغط</td><td>تعذّر فك ضغط البايتات المضغوطة.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-LimitExceeded\">LimitExceeded</a><a name=\"TrustDemoVerificationFailureReason-ar-LimitExceeded\"> </a></td><td>تم تجاوز الحد</td><td>تم تجاوز أحد حدود فك الترميز (الحجم أو العمق).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-CoseMalformed\">CoseMalformed</a><a name=\"TrustDemoVerificationFailureReason-ar-CoseMalformed\"> </a></td><td>COSE مشوَّه</td><td>البايتات ليست بنية COSE_Sign1 سليمة التكوين.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-HeaderInvalid\">HeaderInvalid</a><a name=\"TrustDemoVerificationFailureReason-ar-HeaderInvalid\"> </a></td><td>ترويسة غير صالحة</td><td>ترويسة COSE مفقودة أو غير مطابقة للمطلوب.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-UnsupportedAlgorithm\">UnsupportedAlgorithm</a><a name=\"TrustDemoVerificationFailureReason-ar-UnsupportedAlgorithm\"> </a></td><td>خوارزمية غير مدعومة</td><td>خوارزمية التوقيع ليست من الخوارزميات التي تقبلها الجهة المُتحقِّقة.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-KidNotFound\">KidNotFound</a><a name=\"TrustDemoVerificationFailureReason-ar-KidNotFound\"> </a></td><td>المفتاح غير موجود</td><td>لا توجد في نسخة الجهة المُتحقِّقة من قائمة الثقة أي شهادة تحمل هذا الـ kid (STT-VER-006).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-SignatureInvalid\">SignatureInvalid</a><a name=\"TrustDemoVerificationFailureReason-ar-SignatureInvalid\"> </a></td><td>توقيع غير صالح</td><td>لا يمكن التحقق من التوقيع باستخدام أي شهادة تحمل هذا الـ kid.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-KeyUsageMismatch\">KeyUsageMismatch</a><a name=\"TrustDemoVerificationFailureReason-ar-KeyUsageMismatch\"> </a></td><td>عدم تطابق استخدام المفتاح</td><td>شهادة الموقِّع غير مخوَّلة بتوقيع هذا النوع من الشهادات.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-Expired\">Expired</a><a name=\"TrustDemoVerificationFailureReason-ar-Expired\"> </a></td><td>منتهية الصلاحية</td><td>انقضى تاريخ انتهاء صلاحية الشهادة.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-NotYetValid\">NotYetValid</a><a name=\"TrustDemoVerificationFailureReason-ar-NotYetValid\"> </a></td><td>لم تصبح صالحة بعد</td><td>وقت إصدار الشهادة يقع في المستقبل.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-HcertMissing\">HcertMissing</a><a name=\"TrustDemoVerificationFailureReason-ar-HcertMissing\"> </a></td><td>HCERT مفقودة</td><td>لا تحتوي مجموعة المطالبات على مطالبة hcert.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-MultipleSubclaims\">MultipleSubclaims</a><a name=\"TrustDemoVerificationFailureReason-ar-MultipleSubclaims\"> </a></td><td>مطالبات فرعية متعددة</td><td>تحتوي مطالبة hcert على مطالبات فرعية أكثر مما تقبله الجهة المُتحقِّقة.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-PayloadInvalid\">PayloadInvalid</a><a name=\"TrustDemoVerificationFailureReason-ar-PayloadInvalid\"> </a></td><td>حمولة غير صالحة</td><td>الحمولة لا تتوافق مع نموذجها المنطقي.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-ar",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationFailureReasonAr",
+  "title" : "أسباب فشل التحقق",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T08:31:09+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoVerificationFailureReason: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+  "concept" : [{
+    "code" : "BadPrefix",
+    "display" : "بادئة غير صالحة",
+    "definition" : "لا يبدأ النص بالبادئة HC1:.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "بادئة غير صالحة"
+    }]
+  },
+  {
+    "code" : "UnsupportedContextVersion",
+    "display" : "إصدار سياق غير مدعوم",
+    "definition" : "يشير معرِّف السياق إلى إصدار لا تدعمه الجهة المُتحقِّقة.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "إصدار سياق غير مدعوم"
+    }]
+  },
+  {
+    "code" : "Base45Invalid",
+    "display" : "Base45 غير صالح",
+    "definition" : "النص ليس Base45 صالحًا.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "Base45 غير صالح"
+    }]
+  },
+  {
+    "code" : "InflateFailed",
+    "display" : "فشل فك الضغط",
+    "definition" : "تعذّر فك ضغط البايتات المضغوطة.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "فشل فك الضغط"
+    }]
+  },
+  {
+    "code" : "LimitExceeded",
+    "display" : "تم تجاوز الحد",
+    "definition" : "تم تجاوز أحد حدود فك الترميز (الحجم أو العمق).",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "تم تجاوز الحد"
+    }]
+  },
+  {
+    "code" : "CoseMalformed",
+    "display" : "COSE مشوَّه",
+    "definition" : "البايتات ليست بنية COSE_Sign1 سليمة التكوين.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "COSE مشوَّه"
+    }]
+  },
+  {
+    "code" : "HeaderInvalid",
+    "display" : "ترويسة غير صالحة",
+    "definition" : "ترويسة COSE مفقودة أو غير مطابقة للمطلوب.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "ترويسة غير صالحة"
+    }]
+  },
+  {
+    "code" : "UnsupportedAlgorithm",
+    "display" : "خوارزمية غير مدعومة",
+    "definition" : "خوارزمية التوقيع ليست من الخوارزميات التي تقبلها الجهة المُتحقِّقة.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "خوارزمية غير مدعومة"
+    }]
+  },
+  {
+    "code" : "KidNotFound",
+    "display" : "المفتاح غير موجود",
+    "definition" : "لا توجد في نسخة الجهة المُتحقِّقة من قائمة الثقة أي شهادة تحمل هذا الـ kid (STT-VER-006).",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "المفتاح غير موجود"
+    }]
+  },
+  {
+    "code" : "SignatureInvalid",
+    "display" : "توقيع غير صالح",
+    "definition" : "لا يمكن التحقق من التوقيع باستخدام أي شهادة تحمل هذا الـ kid.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "توقيع غير صالح"
+    }]
+  },
+  {
+    "code" : "KeyUsageMismatch",
+    "display" : "عدم تطابق استخدام المفتاح",
+    "definition" : "شهادة الموقِّع غير مخوَّلة بتوقيع هذا النوع من الشهادات.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "عدم تطابق استخدام المفتاح"
+    }]
+  },
+  {
+    "code" : "Expired",
+    "display" : "منتهية الصلاحية",
+    "definition" : "انقضى تاريخ انتهاء صلاحية الشهادة.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "منتهية الصلاحية"
+    }]
+  },
+  {
+    "code" : "NotYetValid",
+    "display" : "لم تصبح صالحة بعد",
+    "definition" : "وقت إصدار الشهادة يقع في المستقبل.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "لم تصبح صالحة بعد"
+    }]
+  },
+  {
+    "code" : "HcertMissing",
+    "display" : "HCERT مفقودة",
+    "definition" : "لا تحتوي مجموعة المطالبات على مطالبة hcert.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "HCERT مفقودة"
+    }]
+  },
+  {
+    "code" : "MultipleSubclaims",
+    "display" : "مطالبات فرعية متعددة",
+    "definition" : "تحتوي مطالبة hcert على مطالبات فرعية أكثر مما تقبله الجهة المُتحقِّقة.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "مطالبات فرعية متعددة"
+    }]
+  },
+  {
+    "code" : "PayloadInvalid",
+    "display" : "حمولة غير صالحة",
+    "definition" : "الحمولة لا تتوافق مع نموذجها المنطقي.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "حمولة غير صالحة"
+    }]
+  }]
+}

@@ -1,0 +1,172 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationFailureReason-es",
+  "language" : "es",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"es\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationFailureReason-es</b></p><a name=\"TrustDemoVerificationFailureReason-es\"> </a><a name=\"hcTrustDemoVerificationFailureReason-es\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-es</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-BadPrefix\">BadPrefix</a><a name=\"TrustDemoVerificationFailureReason-es-BadPrefix\"> </a></td><td>Prefijo incorrecto</td><td>El texto no empieza con el prefijo HC1:.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-UnsupportedContextVersion\">UnsupportedContextVersion</a><a name=\"TrustDemoVerificationFailureReason-es-UnsupportedContextVersion\"> </a></td><td>Versión de contexto no admitida</td><td>El identificador de contexto indica una versión que el verificador no admite.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-Base45Invalid\">Base45Invalid</a><a name=\"TrustDemoVerificationFailureReason-es-Base45Invalid\"> </a></td><td>Base45 no válido</td><td>El texto no es Base45 válido.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-InflateFailed\">InflateFailed</a><a name=\"TrustDemoVerificationFailureReason-es-InflateFailed\"> </a></td><td>Descompresión fallida</td><td>Los bytes comprimidos no se descomprimen.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-LimitExceeded\">LimitExceeded</a><a name=\"TrustDemoVerificationFailureReason-es-LimitExceeded\"> </a></td><td>Límite superado</td><td>Se superó un límite de decodificación (tamaño o profundidad).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-CoseMalformed\">CoseMalformed</a><a name=\"TrustDemoVerificationFailureReason-es-CoseMalformed\"> </a></td><td>COSE mal formado</td><td>Los bytes no son un COSE_Sign1 bien formado.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-HeaderInvalid\">HeaderInvalid</a><a name=\"TrustDemoVerificationFailureReason-es-HeaderInvalid\"> </a></td><td>Encabezado no válido</td><td>Falta un encabezado COSE o no es como se requiere.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-UnsupportedAlgorithm\">UnsupportedAlgorithm</a><a name=\"TrustDemoVerificationFailureReason-es-UnsupportedAlgorithm\"> </a></td><td>Algoritmo no admitido</td><td>El algoritmo de firma no es uno que el verificador acepte.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-KidNotFound\">KidNotFound</a><a name=\"TrustDemoVerificationFailureReason-es-KidNotFound\"> </a></td><td>Clave no encontrada</td><td>Ningún certificado de la copia de la lista de confianza del verificador tiene el kid (STT-VER-006).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-SignatureInvalid\">SignatureInvalid</a><a name=\"TrustDemoVerificationFailureReason-es-SignatureInvalid\"> </a></td><td>Firma no válida</td><td>La firma no se verifica con ningún certificado que tenga el kid.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-KeyUsageMismatch\">KeyUsageMismatch</a><a name=\"TrustDemoVerificationFailureReason-es-KeyUsageMismatch\"> </a></td><td>Uso de la clave no coincidente</td><td>El certificado del firmante no puede firmar este tipo de certificado.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-Expired\">Expired</a><a name=\"TrustDemoVerificationFailureReason-es-Expired\"> </a></td><td>Caducado</td><td>La fecha de caducidad del certificado ya pasó.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-NotYetValid\">NotYetValid</a><a name=\"TrustDemoVerificationFailureReason-es-NotYetValid\"> </a></td><td>Aún no válido</td><td>La hora de emisión del certificado está en el futuro.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-HcertMissing\">HcertMissing</a><a name=\"TrustDemoVerificationFailureReason-es-HcertMissing\"> </a></td><td>Falta HCERT</td><td>El conjunto de declaraciones no tiene declaración hcert.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-MultipleSubclaims\">MultipleSubclaims</a><a name=\"TrustDemoVerificationFailureReason-es-MultipleSubclaims\"> </a></td><td>Varias subdeclaraciones</td><td>La declaración hcert tiene más subdeclaraciones de las que el verificador acepta.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationFailureReason.html#TrustDemoVerificationFailureReason-PayloadInvalid\">PayloadInvalid</a><a name=\"TrustDemoVerificationFailureReason-es-PayloadInvalid\"> </a></td><td>Carga útil no válida</td><td>La carga útil no se ajusta a su modelo lógico.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason-es",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationFailureReasonEs",
+  "title" : "Motivos de fallo de la verificación",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T08:31:09+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Suplemento en español (es) de TrustDemoVerificationFailureReason: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationFailureReason",
+  "concept" : [{
+    "code" : "BadPrefix",
+    "display" : "Prefijo incorrecto",
+    "definition" : "El texto no empieza con el prefijo HC1:.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Prefijo incorrecto"
+    }]
+  },
+  {
+    "code" : "UnsupportedContextVersion",
+    "display" : "Versión de contexto no admitida",
+    "definition" : "El identificador de contexto indica una versión que el verificador no admite.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Versión de contexto no admitida"
+    }]
+  },
+  {
+    "code" : "Base45Invalid",
+    "display" : "Base45 no válido",
+    "definition" : "El texto no es Base45 válido.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Base45 no válido"
+    }]
+  },
+  {
+    "code" : "InflateFailed",
+    "display" : "Descompresión fallida",
+    "definition" : "Los bytes comprimidos no se descomprimen.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Descompresión fallida"
+    }]
+  },
+  {
+    "code" : "LimitExceeded",
+    "display" : "Límite superado",
+    "definition" : "Se superó un límite de decodificación (tamaño o profundidad).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Límite superado"
+    }]
+  },
+  {
+    "code" : "CoseMalformed",
+    "display" : "COSE mal formado",
+    "definition" : "Los bytes no son un COSE_Sign1 bien formado.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "COSE mal formado"
+    }]
+  },
+  {
+    "code" : "HeaderInvalid",
+    "display" : "Encabezado no válido",
+    "definition" : "Falta un encabezado COSE o no es como se requiere.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Encabezado no válido"
+    }]
+  },
+  {
+    "code" : "UnsupportedAlgorithm",
+    "display" : "Algoritmo no admitido",
+    "definition" : "El algoritmo de firma no es uno que el verificador acepte.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Algoritmo no admitido"
+    }]
+  },
+  {
+    "code" : "KidNotFound",
+    "display" : "Clave no encontrada",
+    "definition" : "Ningún certificado de la copia de la lista de confianza del verificador tiene el kid (STT-VER-006).",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Clave no encontrada"
+    }]
+  },
+  {
+    "code" : "SignatureInvalid",
+    "display" : "Firma no válida",
+    "definition" : "La firma no se verifica con ningún certificado que tenga el kid.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Firma no válida"
+    }]
+  },
+  {
+    "code" : "KeyUsageMismatch",
+    "display" : "Uso de la clave no coincidente",
+    "definition" : "El certificado del firmante no puede firmar este tipo de certificado.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Uso de la clave no coincidente"
+    }]
+  },
+  {
+    "code" : "Expired",
+    "display" : "Caducado",
+    "definition" : "La fecha de caducidad del certificado ya pasó.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Caducado"
+    }]
+  },
+  {
+    "code" : "NotYetValid",
+    "display" : "Aún no válido",
+    "definition" : "La hora de emisión del certificado está en el futuro.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Aún no válido"
+    }]
+  },
+  {
+    "code" : "HcertMissing",
+    "display" : "Falta HCERT",
+    "definition" : "El conjunto de declaraciones no tiene declaración hcert.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Falta HCERT"
+    }]
+  },
+  {
+    "code" : "MultipleSubclaims",
+    "display" : "Varias subdeclaraciones",
+    "definition" : "La declaración hcert tiene más subdeclaraciones de las que el verificador acepta.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Varias subdeclaraciones"
+    }]
+  },
+  {
+    "code" : "PayloadInvalid",
+    "display" : "Carga útil no válida",
+    "definition" : "La carga útil no se ajusta a su modelo lógico.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Carga útil no válida"
+    }]
+  }]
+}

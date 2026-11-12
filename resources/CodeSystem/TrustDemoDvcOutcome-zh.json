@@ -1,0 +1,55 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoDvcOutcome-zh",
+  "language" : "zh",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"zh\" lang=\"zh\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoDvcOutcome-zh</b></p><a name=\"TrustDemoDvcOutcome-zh\"> </a><a name=\"hcTrustDemoDvcOutcome-zh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: zh</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-zh</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-verified\">verified</a><a name=\"TrustDemoDvcOutcome-zh-verified\"> </a></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-reported-unverified\">reported-unverified</a><a name=\"TrustDemoDvcOutcome-zh-reported-unverified\"> </a></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-rejected\">rejected</a><a name=\"TrustDemoDvcOutcome-zh-rejected\"> </a></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoDvcOutcome.html#TrustDemoDvcOutcome-not-read\">not-read</a><a name=\"TrustDemoDvcOutcome-zh-not-read\"> </a></td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome-zh",
+  "version" : "0.1.0",
+  "name" : "TrustDemoDvcOutcomeZh",
+  "title" : "TrustDemoDvcOutcome — Chinese (zh) supplement",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T08:31:09+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Simplified Chinese (zh) display designations for the TrustDemoDvcOutcome code system, drafted by an agent and not signed off by a human.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome",
+  "concept" : [{
+    "code" : "verified",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "已验证"
+    }]
+  },
+  {
+    "code" : "reported-unverified",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "已报告，未验证"
+    }]
+  },
+  {
+    "code" : "rejected",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "已拒绝"
+    }]
+  },
+  {
+    "code" : "not-read",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "未读取"
+    }]
+  }]
+}

@@ -1,0 +1,47 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoDvcOutcome",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoDvcOutcome</b></p><a name=\"TrustDemoDvcOutcome\"> </a><a name=\"hcTrustDemoDvcOutcome\"> </a><p>This case-sensitive code system <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">verified<a name=\"TrustDemoDvcOutcome-verified\"> </a></td><td>Verified</td><td>Recorded from its primary source, with provenance of the verification.</td></tr><tr><td style=\"white-space:nowrap\">reported-unverified<a name=\"TrustDemoDvcOutcome-reported-unverified\"> </a></td><td>Reported, not verified</td><td>Kept as reported by the family (primarySource false); not counted by the schedule.</td></tr><tr><td style=\"white-space:nowrap\">rejected<a name=\"TrustDemoDvcOutcome-rejected\"> </a></td><td>Rejected</td><td>The certificate is not evidence of a dose; the step and reason are recorded.</td></tr><tr><td style=\"white-space:nowrap\">not-read<a name=\"TrustDemoDvcOutcome-not-read\"> </a></td><td>Not read</td><td>Nothing could be read from the QR; the card is treated as paper.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoDvcOutcome",
+  "version" : "0.1.0",
+  "name" : "TrustDemoDvcOutcome",
+  "title" : "What a scanned DVC becomes in the record",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T08:31:09+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The outcome of decision table TD.DT.01 for one scanned DVC.",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 4,
+  "concept" : [{
+    "code" : "verified",
+    "display" : "Verified",
+    "definition" : "Recorded from its primary source, with provenance of the verification."
+  },
+  {
+    "code" : "reported-unverified",
+    "display" : "Reported, not verified",
+    "definition" : "Kept as reported by the family (primarySource false); not counted by the schedule."
+  },
+  {
+    "code" : "rejected",
+    "display" : "Rejected",
+    "definition" : "The certificate is not evidence of a dose; the step and reason are recorded."
+  },
+  {
+    "code" : "not-read",
+    "display" : "Not read",
+    "definition" : "Nothing could be read from the QR; the card is treated as paper."
+  }]
+}

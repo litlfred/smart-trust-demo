@@ -1,0 +1,200 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TD.J3B Imported dose and schedule API",
+    "description": "What the clinic records for each imported dose's vaccine code, and what the national schedule finds due once the doses are counted.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/StructureDefinition-TrustDemoDdImportedDose.schema.json": {
+      "get": {
+        "summary": "JSON Schema definition for the Logical Model StructureDefinition-TrustDemoDdImportedDose",
+        "description": "This endpoint serves the JSON Schema definition for the Logical Model StructureDefinition-TrustDemoDdImportedDose.",
+        "responses": {
+          "200": {
+            "description": "The JSON Schema for StructureDefinition-TrustDemoDdImportedDose",
+            "content": {
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "./StructureDefinition-TrustDemoDdImportedDose.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StructureDefinition-TrustDemoDdImportedDose": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdImportedDose.schema.json",
+        "title": "TD.J3B Imported dose and schedule",
+        "description": "What the clinic records for each imported dose's vaccine code, and what the national schedule finds due once the doses are counted.",
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "const": "TrustDemoDdImportedDose",
+            "description": "Resource type identifier for TrustDemoDdImportedDose logical model"
+          },
+          "@context": {
+            "description": "JSON-LD context for this logical model with ValueSet vocabularies",
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "URI reference to external JSON-LD context"
+              },
+              {
+                "type": "object",
+                "description": "Inline JSON-LD context",
+                "properties": {
+                  "@version": {
+                    "type": "number",
+                    "const": 1.1
+                  },
+                  "fhir": {
+                    "type": "string",
+                    "const": "http://hl7.org/fhir/"
+                  }
+                },
+                "additionalProperties": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              {
+                "type": "array",
+                "description": "Array of JSON-LD context objects/URIs",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "@type": {
+            "type": "string",
+            "description": "JSON-LD type identifier for TrustDemoDdImportedDose logical model",
+            "examples": [
+              "LogicalModel-TrustDemoDdImportedDose"
+            ]
+          },
+          "productCode": {
+            "$ref": "./ValueSet-TrustDemoVaccineProducts.schema.json",
+            "description": "The vaccine code as the issuer signed it; kept, never replaced (STD-SEM-001)."
+          },
+          "scheduleCode": {
+            "$ref": "./ValueSet-TrustDemoOnesaEpiScheduleCodes.schema.json",
+            "description": "The schedule's antigen-and-dose code of the dose due."
+          },
+          "mappingBasis": {
+            "$ref": "./ValueSet-TrustDemoCodeMappingBasisVS.schema.json",
+            "description": "How the schedule code was found (decision table TD.DT.02)."
+          },
+          "confirmedBy": {
+            "type": "object",
+            "description": "The clinician who confirmed an equivalent the map did not cover."
+          },
+          "countsTowardSchedule": {
+            "type": "boolean",
+            "description": "Whether the schedule counts the dose (decision table TD.DT.03): only doses from a primary source with a national schedule code."
+          },
+          "dueDose": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "FHIR BackboneElement"
+            },
+            "description": "A dose of the national schedule the evaluation finds due (decision table TD.DT.04)."
+          },
+          "id": {
+            "type": "object",
+            "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
+          },
+          "modifierExtension": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "FHIR Extension"
+            },
+            "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."
+          },
+          "forecast": {
+            "$ref": "./ValueSet-immunization-recommendation-status.schema.json",
+            "description": "The forecast for the dose."
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The child's date of birth plus the schedule action's timing age."
+          },
+          "reminder": {
+            "type": "object",
+            "description": "The reminder created for the next visit."
+          }
+        },
+        "required": [
+          "resourceType",
+          "productCode",
+          "mappingBasis",
+          "countsTowardSchedule",
+          "scheduleCode",
+          "forecast",
+          "dueDate"
+        ],
+        "allOf": [
+          {
+            "$ref": "./StructureDefinition-FHIRSchemaBase.schema.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "resourceDefinition": {
+                "type": "string",
+                "format": "uri",
+                "const": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdImportedDose"
+              },
+              "fhir:parent": {
+                "type": "string",
+                "const": "http://hl7.org/fhir/StructureDefinition/Base"
+              },
+              "jsonld:valuesets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "const": [
+                  "TrustDemoCodeMappingBasisVS",
+                  "TrustDemoOnesaEpiScheduleCodes",
+                  "TrustDemoVaccineProducts",
+                  "immunization-recommendation-status"
+                ]
+              },
+              "jsonld:contextTemplate": {
+                "type": "object",
+                "const": {
+                  "@version": 1.1,
+                  "fhir": "http://hl7.org/fhir/",
+                  "TrustDemoCodeMappingBasisVS": "http://smart.who.int/trust-demo/ValueSet-TrustDemoCodeMappingBasisVS.jsonld",
+                  "TrustDemoOnesaEpiScheduleCodes": "http://smart.who.int/trust-demo/ValueSet-TrustDemoOnesaEpiScheduleCodes.jsonld",
+                  "TrustDemoVaccineProducts": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVaccineProducts.jsonld",
+                  "immunization-recommendation-status": "http://smart.who.int/trust-demo/ValueSet-immunization-recommendation-status.jsonld"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

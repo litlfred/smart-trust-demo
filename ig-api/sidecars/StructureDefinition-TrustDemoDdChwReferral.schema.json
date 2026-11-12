@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdChwReferral.schema.json",
+  "title": "TD.J2B Referral for verification",
+  "description": "The community health worker's referral of the child to the home clinic, to verify the foreign cards and fit the doses to the national schedule.",
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "type": "string",
+      "const": "TrustDemoDdChwReferral",
+      "description": "Resource type identifier for TrustDemoDdChwReferral logical model"
+    },
+    "@context": {
+      "description": "JSON-LD context for this logical model with ValueSet vocabularies",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to external JSON-LD context"
+        },
+        {
+          "type": "object",
+          "description": "Inline JSON-LD context",
+          "properties": {
+            "@version": {
+              "type": "number",
+              "const": 1.1
+            },
+            "fhir": {
+              "type": "string",
+              "const": "http://hl7.org/fhir/"
+            }
+          },
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        {
+          "type": "array",
+          "description": "Array of JSON-LD context objects/URIs",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "@type": {
+      "type": "string",
+      "description": "JSON-LD type identifier for TrustDemoDdChwReferral logical model",
+      "examples": [
+        "LogicalModel-TrustDemoDdChwReferral"
+      ]
+    },
+    "child": {
+      "type": "object",
+      "description": "The child referred."
+    },
+    "referredBy": {
+      "type": "object",
+      "description": "The community health worker who made the referral."
+    },
+    "referredTo": {
+      "type": "object",
+      "description": "The clinic that will verify the cards."
+    },
+    "referredAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the referral was made."
+    },
+    "reason": {
+      "type": "string",
+      "description": "Why the child is referred: unverified foreign vaccination cards."
+    },
+    "dosesToVerify": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "FHIR Reference"
+      },
+      "minItems": 1,
+      "description": "The reported doses the clinic is asked to verify."
+    },
+    "status": {
+      "$ref": "./ValueSet-request-status.schema.json",
+      "description": "Active until the clinic records an outcome for every dose it lists, then completed (indicator TD.IND.03)."
+    }
+  },
+  "required": [
+    "resourceType",
+    "child",
+    "referredBy",
+    "referredTo",
+    "referredAt",
+    "reason",
+    "dosesToVerify",
+    "status"
+  ],
+  "allOf": [
+    {
+      "$ref": "./StructureDefinition-FHIRSchemaBase.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "resourceDefinition": {
+          "type": "string",
+          "format": "uri",
+          "const": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdChwReferral"
+        },
+        "fhir:parent": {
+          "type": "string",
+          "const": "http://hl7.org/fhir/StructureDefinition/Base"
+        },
+        "jsonld:valuesets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "const": [
+            "request-status"
+          ]
+        },
+        "jsonld:contextTemplate": {
+          "type": "object",
+          "const": {
+            "@version": 1.1,
+            "fhir": "http://hl7.org/fhir/",
+            "request-status": "http://smart.who.int/trust-demo/ValueSet-request-status.jsonld"
+          }
+        }
+      }
+    }
+  ]
+}

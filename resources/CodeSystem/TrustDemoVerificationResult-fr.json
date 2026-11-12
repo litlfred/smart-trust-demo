@@ -1,0 +1,55 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVerificationResult-fr",
+  "language" : "fr",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVerificationResult-fr</b></p><a name=\"TrustDemoVerificationResult-fr\"> </a><a name=\"hcTrustDemoVerificationResult-fr\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: fr</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult-fr</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-verified\">verified</a><a name=\"TrustDemoVerificationResult-fr-verified\"> </a></td><td>Vérifié</td><td>Toutes les étapes de la vérification ont réussi (STT-VER-001).</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-failed\">failed</a><a name=\"TrustDemoVerificationResult-fr-failed\"> </a></td><td>Échec</td><td>La vérification s'est arrêtée à une étape, pour un motif tiré de l'ensemble fermé de STT-VER-008.</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVerificationResult.html#TrustDemoVerificationResult-unverified\">unverified</a><a name=\"TrustDemoVerificationResult-fr-unverified\"> </a></td><td>Lu, non vérifié</td><td>La charge utile a été lue par read-unverified, sans consultation de la liste de confiance ni contrôle de la signature (STT-VER-011).</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult-fr",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVerificationResultFr",
+  "title" : "Résultat de la lecture d'un DVC",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T08:31:09+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "French (fr) supplement to TrustDemoVerificationResult: displays and definitions in French. Unofficial agent translation.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult",
+  "count" : 3,
+  "concept" : [{
+    "code" : "verified",
+    "display" : "Vérifié",
+    "definition" : "Toutes les étapes de la vérification ont réussi (STT-VER-001).",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Vérifié"
+    }]
+  },
+  {
+    "code" : "failed",
+    "display" : "Échec",
+    "definition" : "La vérification s'est arrêtée à une étape, pour un motif tiré de l'ensemble fermé de STT-VER-008.",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Échec"
+    }]
+  },
+  {
+    "code" : "unverified",
+    "display" : "Lu, non vérifié",
+    "definition" : "La charge utile a été lue par read-unverified, sans consultation de la liste de confiance ni contrôle de la signature (STT-VER-011).",
+    "designation" : [{
+      "language" : "fr",
+      "value" : "Lu, non vérifié"
+    }]
+  }]
+}

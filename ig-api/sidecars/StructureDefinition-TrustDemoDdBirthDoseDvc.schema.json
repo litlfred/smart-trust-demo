@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdBirthDoseDvc.schema.json",
+  "title": "TD.J1 Birth-dose DVC",
+  "description": "What the birth hospital records for each birth dose and signs into one Digital Vaccination Certificate (DVC, an HCERT) per dose: the payload, the CWT claims and the key that signs it.",
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "type": "string",
+      "const": "TrustDemoDdBirthDoseDvc",
+      "description": "Resource type identifier for TrustDemoDdBirthDoseDvc logical model"
+    },
+    "@context": {
+      "description": "JSON-LD context for this logical model with ValueSet vocabularies",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to external JSON-LD context"
+        },
+        {
+          "type": "object",
+          "description": "Inline JSON-LD context",
+          "properties": {
+            "@version": {
+              "type": "number",
+              "const": 1.1
+            },
+            "fhir": {
+              "type": "string",
+              "const": "http://hl7.org/fhir/"
+            }
+          },
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        {
+          "type": "array",
+          "description": "Array of JSON-LD context objects/URIs",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "@type": {
+      "type": "string",
+      "description": "JSON-LD type identifier for TrustDemoDdBirthDoseDvc logical model",
+      "examples": [
+        "LogicalModel-TrustDemoDdBirthDoseDvc"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The child's name as the birth hospital records it."
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "format": "date",
+      "description": "The child's date of birth."
+    },
+    "guardianName": {
+      "type": "string",
+      "description": "The parent or guardian, for a subject with no identity document such as a newborn (STT-PAY-005)."
+    },
+    "hospitalNumber": {
+      "type": "object",
+      "description": "The birth hospital's own identifier for the child. It is not carried in the DVC."
+    },
+    "vaccineProduct": {
+      "$ref": "./ValueSet-TrustDemoVaccineProducts.schema.json",
+      "description": "The product given, in the issuer's product coding (illustrative PreQual-style codes)."
+    },
+    "dateOfVaccination": {
+      "type": "string",
+      "format": "date",
+      "description": "The date the dose was given. The hospital record holds the time as well; the DVC carries the date."
+    },
+    "batchNumber": {
+      "type": "string",
+      "description": "The batch (lot) of the vaccine given."
+    },
+    "doseNumber": {
+      "type": "string",
+      "description": "The dose's number in its series. Recorded by the hospital; the minimal DVC payload does not carry it."
+    },
+    "clinician": {
+      "type": "string",
+      "description": "The clinician who gave or supervised the dose."
+    },
+    "issuerCountry": {
+      "type": "string",
+      "description": "The trust-network participant whose key signs the DVC (J1: XXR)."
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the DVC was signed."
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the DVC stops verifying, where the issuer sets an expiry."
+    },
+    "keyId": {
+      "type": "string",
+      "description": "Identifies the document signer certificate on the trust list that verifies the DVC (J1: 916ffa567c0f44a2)."
+    }
+  },
+  "required": [
+    "resourceType",
+    "name",
+    "dateOfBirth",
+    "hospitalNumber",
+    "vaccineProduct",
+    "dateOfVaccination",
+    "batchNumber",
+    "doseNumber",
+    "issuerCountry",
+    "issuedAt",
+    "keyId"
+  ],
+  "allOf": [
+    {
+      "$ref": "./StructureDefinition-FHIRSchemaBase.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "resourceDefinition": {
+          "type": "string",
+          "format": "uri",
+          "const": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdBirthDoseDvc"
+        },
+        "fhir:parent": {
+          "type": "string",
+          "const": "http://hl7.org/fhir/StructureDefinition/Base"
+        },
+        "jsonld:valuesets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "const": [
+            "TrustDemoVaccineProducts"
+          ]
+        },
+        "jsonld:contextTemplate": {
+          "type": "object",
+          "const": {
+            "@version": 1.1,
+            "fhir": "http://hl7.org/fhir/",
+            "TrustDemoVaccineProducts": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVaccineProducts.jsonld"
+          }
+        }
+      }
+    }
+  ]
+}

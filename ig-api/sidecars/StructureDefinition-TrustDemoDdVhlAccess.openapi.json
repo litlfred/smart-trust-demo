@@ -1,0 +1,184 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TD.J41 Access to a shared link API",
+    "description": "What the home country logs for every request to open a shared link, released or refused.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/StructureDefinition-TrustDemoDdVhlAccess.schema.json": {
+      "get": {
+        "summary": "JSON Schema definition for the Logical Model StructureDefinition-TrustDemoDdVhlAccess",
+        "description": "This endpoint serves the JSON Schema definition for the Logical Model StructureDefinition-TrustDemoDdVhlAccess.",
+        "responses": {
+          "200": {
+            "description": "The JSON Schema for StructureDefinition-TrustDemoDdVhlAccess",
+            "content": {
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "./StructureDefinition-TrustDemoDdVhlAccess.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StructureDefinition-TrustDemoDdVhlAccess": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdVhlAccess.schema.json",
+        "title": "TD.J41 Access to a shared link",
+        "description": "What the home country logs for every request to open a shared link, released or refused.",
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "const": "TrustDemoDdVhlAccess",
+            "description": "Resource type identifier for TrustDemoDdVhlAccess logical model"
+          },
+          "@context": {
+            "description": "JSON-LD context for this logical model with ValueSet vocabularies",
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "URI reference to external JSON-LD context"
+              },
+              {
+                "type": "object",
+                "description": "Inline JSON-LD context",
+                "properties": {
+                  "@version": {
+                    "type": "number",
+                    "const": 1.1
+                  },
+                  "fhir": {
+                    "type": "string",
+                    "const": "http://hl7.org/fhir/"
+                  }
+                },
+                "additionalProperties": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              {
+                "type": "array",
+                "description": "Array of JSON-LD context objects/URIs",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "@type": {
+            "type": "string",
+            "description": "JSON-LD type identifier for TrustDemoDdVhlAccess logical model",
+            "examples": [
+              "LogicalModel-TrustDemoDdVhlAccess"
+            ]
+          },
+          "requestedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the request arrived."
+          },
+          "requester": {
+            "type": "object",
+            "description": "The receiving system abroad that asked for the manifest."
+          },
+          "requesterAddress": {
+            "type": "string",
+            "description": "Where the request came from."
+          },
+          "custodian": {
+            "type": "object",
+            "description": "The home-country gateway that answered and logged the request."
+          },
+          "patient": {
+            "type": "object",
+            "description": "Whose record was asked for."
+          },
+          "released": {
+            "type": "boolean",
+            "description": "Whether the manifest was released (decision table TD.DT.05)."
+          },
+          "outcome": {
+            "$ref": "./ValueSet-audit-event-outcome.schema.json",
+            "description": "0 when released; 4 (minor failure) when refused."
+          },
+          "refusalReason": {
+            "$ref": "./ValueSet-TrustDemoVhlRefusalReasonVS.schema.json",
+            "description": "Why nothing was released, when refused."
+          },
+          "consent": {
+            "type": "object",
+            "description": "The holder's consent the request was checked against."
+          },
+          "document": {
+            "type": "object",
+            "description": "The summary released, when released."
+          }
+        },
+        "required": [
+          "resourceType",
+          "requestedAt",
+          "requester",
+          "custodian",
+          "patient",
+          "released",
+          "outcome"
+        ],
+        "allOf": [
+          {
+            "$ref": "./StructureDefinition-FHIRSchemaBase.schema.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "resourceDefinition": {
+                "type": "string",
+                "format": "uri",
+                "const": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdVhlAccess"
+              },
+              "fhir:parent": {
+                "type": "string",
+                "const": "http://hl7.org/fhir/StructureDefinition/Base"
+              },
+              "jsonld:valuesets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "const": [
+                  "TrustDemoVhlRefusalReasonVS",
+                  "audit-event-outcome"
+                ]
+              },
+              "jsonld:contextTemplate": {
+                "type": "object",
+                "const": {
+                  "@version": 1.1,
+                  "fhir": "http://hl7.org/fhir/",
+                  "TrustDemoVhlRefusalReasonVS": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVhlRefusalReasonVS.jsonld",
+                  "audit-event-outcome": "http://smart.who.int/trust-demo/ValueSet-audit-event-outcome.jsonld"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TD.J40 Shared link and consent API",
+    "description": "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/StructureDefinition-TrustDemoDdVhlShare.schema.json": {
+      "get": {
+        "summary": "JSON Schema definition for the Logical Model StructureDefinition-TrustDemoDdVhlShare",
+        "description": "This endpoint serves the JSON Schema definition for the Logical Model StructureDefinition-TrustDemoDdVhlShare.",
+        "responses": {
+          "200": {
+            "description": "The JSON Schema for StructureDefinition-TrustDemoDdVhlShare",
+            "content": {
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "./StructureDefinition-TrustDemoDdVhlShare.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StructureDefinition-TrustDemoDdVhlShare": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdVhlShare.schema.json",
+        "title": "TD.J40 Shared link and consent",
+        "description": "What the home country records when the holder shares a family member's summary as a Verifiable Health Link (VHL): who may read what, for how long, and that a passcode protects it.",
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "const": "TrustDemoDdVhlShare",
+            "description": "Resource type identifier for TrustDemoDdVhlShare logical model"
+          },
+          "subject": {
+            "type": "object",
+            "description": "The family member whose summary is shared."
+          },
+          "holder": {
+            "type": "object",
+            "description": "The person who shares the link and decides who may open it."
+          },
+          "custodian": {
+            "type": "object",
+            "description": "The home-country service that hosts the record and checks every request."
+          },
+          "sharedDocument": {
+            "type": "object",
+            "description": "The patient summary the link releases."
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date",
+            "description": "The first day the link may be opened."
+          },
+          "validUntil": {
+            "type": "string",
+            "format": "date",
+            "description": "The expiry the holder chose; after it the link releases nothing (STD-ACC-001)."
+          },
+          "purpose": {
+            "type": "object",
+            "description": "The purpose of use the holder allows (J4: treatment)."
+          },
+          "passcodeSet": {
+            "type": "boolean",
+            "description": "Whether the holder protected the link with a passcode. The passcode itself is never stored in the record."
+          },
+          "withdrawnAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the holder withdrew the link, if they did."
+          }
+        },
+        "required": [
+          "resourceType",
+          "subject",
+          "holder",
+          "custodian",
+          "sharedDocument",
+          "validFrom",
+          "validUntil",
+          "purpose",
+          "passcodeSet"
+        ],
+        "allOf": [
+          {
+            "$ref": "./StructureDefinition-FHIRSchemaBase.schema.json"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "resourceDefinition": {
+                "type": "string",
+                "format": "uri",
+                "const": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdVhlShare"
+              },
+              "fhir:parent": {
+                "type": "string",
+                "const": "http://hl7.org/fhir/StructureDefinition/Base"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

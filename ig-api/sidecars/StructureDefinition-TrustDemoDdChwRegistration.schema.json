@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdChwRegistration.schema.json",
+  "title": "TD.J2A Newborn registration on a home visit",
+  "description": "What the community health worker records offline when she finds a newborn missing from the household roster: the registration form's answers and each dose read from a foreign card without verifying it.",
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "type": "string",
+      "const": "TrustDemoDdChwRegistration",
+      "description": "Resource type identifier for TrustDemoDdChwRegistration logical model"
+    },
+    "@context": {
+      "description": "JSON-LD context for this logical model with ValueSet vocabularies",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to external JSON-LD context"
+        },
+        {
+          "type": "object",
+          "description": "Inline JSON-LD context",
+          "properties": {
+            "@version": {
+              "type": "number",
+              "const": 1.1
+            },
+            "fhir": {
+              "type": "string",
+              "const": "http://hl7.org/fhir/"
+            }
+          },
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        {
+          "type": "array",
+          "description": "Array of JSON-LD context objects/URIs",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "@type": {
+      "type": "string",
+      "description": "JSON-LD type identifier for TrustDemoDdChwRegistration logical model",
+      "examples": [
+        "LogicalModel-TrustDemoDdChwRegistration"
+      ]
+    },
+    "householdId": {
+      "type": "object",
+      "description": "The household on the CHW's roster that the child joins."
+    },
+    "givenName": {
+      "type": "string",
+      "description": "The child's given name."
+    },
+    "familyName": {
+      "type": "string",
+      "description": "The child's family name."
+    },
+    "birthDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The child's date of birth."
+    },
+    "birthCountry": {
+      "type": "string",
+      "description": "The country the child was born in, when abroad."
+    },
+    "foreignCardsHeld": {
+      "type": "boolean",
+      "description": "Whether the family holds vaccination cards from abroad."
+    },
+    "temporaryId": {
+      "type": "object",
+      "description": "The id the child carries until civil registration catches up."
+    },
+    "registeredBy": {
+      "type": "object",
+      "description": "The community health worker who registered the child."
+    },
+    "registeredAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the registration was captured, on the phone, possibly offline."
+    },
+    "informant": {
+      "type": "object",
+      "description": "The family member who gave the answers."
+    },
+    "reportedDose": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "FHIR BackboneElement"
+      },
+      "description": "One dose read from a foreign DVC with the unverified triage read (STT-VER-011), saved as reported by the family."
+    },
+    "id": {
+      "type": "object",
+      "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
+    },
+    "modifierExtension": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "FHIR Extension"
+      },
+      "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."
+    },
+    "vaccineProduct": {
+      "$ref": "./ValueSet-TrustDemoVaccineProducts.schema.json",
+      "description": "The issuer's product code as read from the card; no national code is added yet."
+    },
+    "dateOfVaccination": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of vaccination as read from the card."
+    },
+    "batchNumber": {
+      "type": "string",
+      "description": "The batch number as read from the card."
+    },
+    "reportedBy": {
+      "type": "object",
+      "description": "The family member who showed the card: the dose's information source."
+    },
+    "outcome": {
+      "$ref": "./ValueSet-TrustDemoDvcOutcomeVS.schema.json",
+      "description": "Always reported-unverified for a triage read (decision table TD.DT.01); recorded as primarySource false with a note."
+    }
+  },
+  "required": [
+    "resourceType",
+    "householdId",
+    "givenName",
+    "familyName",
+    "birthDate",
+    "registeredBy",
+    "registeredAt",
+    "vaccineProduct",
+    "dateOfVaccination",
+    "reportedBy",
+    "outcome"
+  ],
+  "allOf": [
+    {
+      "$ref": "./StructureDefinition-FHIRSchemaBase.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "resourceDefinition": {
+          "type": "string",
+          "format": "uri",
+          "const": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdChwRegistration"
+        },
+        "fhir:parent": {
+          "type": "string",
+          "const": "http://hl7.org/fhir/StructureDefinition/Base"
+        },
+        "jsonld:valuesets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "const": [
+            "TrustDemoDvcOutcomeVS",
+            "TrustDemoVaccineProducts"
+          ]
+        },
+        "jsonld:contextTemplate": {
+          "type": "object",
+          "const": {
+            "@version": 1.1,
+            "fhir": "http://hl7.org/fhir/",
+            "TrustDemoDvcOutcomeVS": "http://smart.who.int/trust-demo/ValueSet-TrustDemoDvcOutcomeVS.jsonld",
+            "TrustDemoVaccineProducts": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVaccineProducts.jsonld"
+          }
+        }
+      }
+    }
+  ]
+}

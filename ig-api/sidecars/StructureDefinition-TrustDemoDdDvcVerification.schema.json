@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://smart.who.int/trust-demo/StructureDefinition-TrustDemoDdDvcVerification.schema.json",
+  "title": "TD.J3A DVC verification and import",
+  "description": "What the clinic records when it verifies a foreign DVC against its cached copy of the trust list, and, when the DVC verifies, imports the dose in place of the reported one.",
+  "type": "object",
+  "properties": {
+    "resourceType": {
+      "type": "string",
+      "const": "TrustDemoDdDvcVerification",
+      "description": "Resource type identifier for TrustDemoDdDvcVerification logical model"
+    },
+    "@context": {
+      "description": "JSON-LD context for this logical model with ValueSet vocabularies",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "description": "URI reference to external JSON-LD context"
+        },
+        {
+          "type": "object",
+          "description": "Inline JSON-LD context",
+          "properties": {
+            "@version": {
+              "type": "number",
+              "const": 1.1
+            },
+            "fhir": {
+              "type": "string",
+              "const": "http://hl7.org/fhir/"
+            }
+          },
+          "additionalProperties": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        {
+          "type": "array",
+          "description": "Array of JSON-LD context objects/URIs",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "@type": {
+      "type": "string",
+      "description": "JSON-LD type identifier for TrustDemoDdDvcVerification logical model",
+      "examples": [
+        "LogicalModel-TrustDemoDdDvcVerification"
+      ]
+    },
+    "keyId": {
+      "type": "string",
+      "description": "The kid of the DVC verified, which names the signer's certificate."
+    },
+    "issuerCountry": {
+      "type": "string",
+      "description": "The participant that signed the DVC (CWT iss)."
+    },
+    "verifiedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the verification ran."
+    },
+    "verifier": {
+      "type": "object",
+      "description": "The system that verified the DVC."
+    },
+    "result": {
+      "$ref": "./ValueSet-TrustDemoVerificationResultVS.schema.json",
+      "description": "The library's typed result (STT-VER-008)."
+    },
+    "failedStep": {
+      "$ref": "./ValueSet-TrustDemoVerificationStepVS.schema.json",
+      "description": "The step at which verification stopped, when it failed."
+    },
+    "failureReason": {
+      "$ref": "./ValueSet-TrustDemoVerificationFailureReasonVS.schema.json",
+      "description": "Why verification stopped, when it failed: the input of decision table TD.DT.01."
+    },
+    "trustListRefreshedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the verifier last refreshed its cached copy of the trust list; a signer added since then fails with KidNotFound (STT-VER-006)."
+    },
+    "outcome": {
+      "$ref": "./ValueSet-TrustDemoDvcOutcomeVS.schema.json",
+      "description": "What the DVC becomes in the record (decision table TD.DT.01)."
+    },
+    "importedDose": {
+      "type": "object",
+      "description": "The dose recorded from the verified DVC."
+    },
+    "replacesReportedDose": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "FHIR Reference"
+      },
+      "description": "The reported dose the verified one replaces."
+    },
+    "policy": {
+      "type": "string",
+      "format": "uri",
+      "description": "The trust framework the DVC was verified under."
+    }
+  },
+  "required": [
+    "resourceType",
+    "keyId",
+    "issuerCountry",
+    "verifiedAt",
+    "verifier",
+    "result",
+    "outcome",
+    "policy"
+  ],
+  "allOf": [
+    {
+      "$ref": "./StructureDefinition-FHIRSchemaBase.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "resourceDefinition": {
+          "type": "string",
+          "format": "uri",
+          "const": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoDdDvcVerification"
+        },
+        "fhir:parent": {
+          "type": "string",
+          "const": "http://hl7.org/fhir/StructureDefinition/Base"
+        },
+        "jsonld:valuesets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "const": [
+            "TrustDemoDvcOutcomeVS",
+            "TrustDemoVerificationFailureReasonVS",
+            "TrustDemoVerificationResultVS",
+            "TrustDemoVerificationStepVS"
+          ]
+        },
+        "jsonld:contextTemplate": {
+          "type": "object",
+          "const": {
+            "@version": 1.1,
+            "fhir": "http://hl7.org/fhir/",
+            "TrustDemoDvcOutcomeVS": "http://smart.who.int/trust-demo/ValueSet-TrustDemoDvcOutcomeVS.jsonld",
+            "TrustDemoVerificationFailureReasonVS": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVerificationFailureReasonVS.jsonld",
+            "TrustDemoVerificationResultVS": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVerificationResultVS.jsonld",
+            "TrustDemoVerificationStepVS": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVerificationStepVS.jsonld"
+          }
+        }
+      }
+    }
+  ]
+}
