@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "TrustDemoVhlTermsOfUse",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet TrustDemoVhlTermsOfUse</b></p><a name=\"TrustDemoVhlTermsOfUse\"> </a><a name=\"hcTrustDemoVhlTermsOfUse\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-TrustDemoVhlConsent.html\"><code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version &#x1F4E6;0.1.0</span></li></ul></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlTermsOfUse",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlTermsOfUse",
+  "title" : "Terms of use of the demo VHL trust domain",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T11:37:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The terms of use of the DEMO-VHL trust domain (TrustDemoTrustDomain): every code of TrustDemoVhlConsent. An explicit consent to share a VHL names one of them in Consent.policyRule (J4.0).",
+  "compose" : {
+    "include" : [{
+      "system" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent"
+    }]
+  }
+}

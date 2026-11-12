@@ -1,8 +1,8 @@
 {
   "$schema" : "ig-ast-dependencies/v1",
   "authority" : "cache",
-  "edges" : 144,
-  "resolvedInIg" : 103,
+  "edges" : 152,
+  "resolvedInIg" : 110,
   "dependencies" : [{
     "source" : "AuditEvent/TrustDemoJ41Access",
     "kind" : "meta.profile",
@@ -19,6 +19,15 @@
     "targetVersion" : null,
     "resolved" : "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoOnesaVhlAccess|0.1.0",
     "path" : "AuditEvent.meta.profile",
+    "origin" : "ast-export"
+  },
+  {
+    "source" : "Consent/TrustDemoJ4Consent",
+    "kind" : "meta.profile",
+    "target" : "http://smart.who.int/trust-phw/StructureDefinition/PHWExplicitConsent",
+    "targetVersion" : null,
+    "resolved" : null,
+    "path" : "Consent.meta.profile",
     "origin" : "ast-export"
   },
   {
@@ -355,6 +364,33 @@
     "origin" : "publisher"
   },
   {
+    "source" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ar|0.1.0",
+    "kind" : "supplements",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
+    "source" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ru|0.1.0",
+    "kind" : "supplements",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
+    "source" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-zh|0.1.0",
+    "kind" : "supplements",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
     "source" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct-ar|0.1.0",
     "kind" : "supplements",
     "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
@@ -531,6 +567,33 @@
     "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep",
     "targetVersion" : "0.1.0",
     "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationStep|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
+    "source" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ar|0.1.0",
+    "kind" : "supplements",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
+    "source" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ru|0.1.0",
+    "kind" : "supplements",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
+    "source" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-zh|0.1.0",
+    "kind" : "supplements",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent|0.1.0",
     "path" : null,
     "origin" : "publisher"
   },
@@ -1296,6 +1359,15 @@
     "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason",
     "targetVersion" : "0.1.0",
     "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason|0.1.0",
+    "path" : null,
+    "origin" : "publisher"
+  },
+  {
+    "source" : "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlTermsOfUse|0.1.0",
+    "kind" : "includes from",
+    "target" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+    "targetVersion" : "0.1.0",
+    "resolved" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent|0.1.0",
     "path" : null,
     "origin" : "publisher"
   }]

@@ -1,0 +1,45 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVhlConsent-ru",
+  "language" : "ru",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ru\" lang=\"ru\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVhlConsent-ru</b></p><a name=\"TrustDemoVhlConsent-ru\"> </a><a name=\"hcTrustDemoVhlConsent-ru\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ru</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ru</code> defines displays on the following code:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlConsent.html#TrustDemoVhlConsent-CONSENT-VHL-TREATMENT\">CONSENT-VHL-TREATMENT</a><a name=\"TrustDemoVhlConsent-ru-CONSENT-VHL-TREATMENT\"> </a></td><td>Consent to read the summary for treatment</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ru",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlConsentRu",
+  "title" : "TrustDemoVhlConsent (ru designations, unofficial)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T11:37:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Russian designations for TrustDemoVhlConsent: an agent translation that no person has signed off. Each code has a display designation and a definition designation; the codes themselves are not translated.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+  "concept" : [{
+    "code" : "CONSENT-VHL-TREATMENT",
+    "display" : "Consent to read the summary for treatment",
+    "designation" : [{
+      "language" : "ru",
+      "value" : "Согласие на чтение сводки для лечения"
+    },
+    {
+      "language" : "ru",
+      "use" : {
+        "system" : "http://snomed.info/sct",
+        "code" : "900000000000550004",
+        "display" : "Definition"
+      },
+      "value" : "Любой, кому владелец передаёт QR-код и код доступа VHL, может читать стоящую за ней сводку о пациенте в целях лечения до истечения срока действия ссылки. Каждый доступ регистрируется выдавшим порталом."
+    }]
+  }]
+}

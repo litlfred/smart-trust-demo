@@ -1651,3 +1651,33 @@ v: {
 
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://loinc.org",
+    "code" : "59284-0",
+    "display" : "Consent Document"
+  }]
+}, "url": "http://hl7.org/fhir/ValueSet/consent-category", "version": "4.0.1", "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "externalSource":"StructureDefinition[http://smart.who.int/trust-phw/StructureDefinition/PHWExplicitConsent|0.2.0-litlfred]", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Consent Document",
+  "code" : "59284-0",
+  "system" : "http://loinc.org",
+  "version" : "2.83",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n13ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Analysing http://hl7.org/fhir/ValueSet/consent-category|4.0.1 for validation purposes\n13ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Parameters: disp-lang=en-US, generate-narrative, default-to-latest\n13ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Prepare include[0]: \"(http://terminology.hl7.org/CodeSystem/consentcategorycodes)\"\n14ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: CodeSystem found: \"http://terminology.hl7.org/CodeSystem/consentcategorycodes|1.0.1\"\n14ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Prepare include[1]: \"(^http://terminology.hl7.org/ValueSet/v3-ActConsentType)\"\n14ms http://terminology.hl7.org/ValueSet/v3-ActConsentType|3.0.0: Analysing http://terminology.hl7.org/ValueSet/v3-ActConsentType|3.0.0 for validation purposes\n14ms http://terminology.hl7.org/ValueSet/v3-ActConsentType|3.0.0: Prepare include[0]: \"(http://terminology.hl7.org/CodeSystem/v3-ActCode)(conceptis-a_ActConsentType)\"\n14ms http://terminology.hl7.org/ValueSet/v3-ActConsentType|3.0.0: CodeSystem found: \"http://terminology.hl7.org/CodeSystem/v3-ActCode|10.0.0\"\n14ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Prepare include[2]: \"(http://loinc.org)(59284-0,57016-8,57017-6,64292-6)\"\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: CodeSystem found: \"http://loinc.org|2.83\"\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Validate \"[http://loinc.org#59284-0 (\"Consent Document\")]\"\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Check \"http://loinc.org#59284-0\"\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Include for http://terminology.hl7.org/CodeSystem/consentcategorycodes not considered for \"http://loinc.org\"\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Check included value set http://terminology.hl7.org/ValueSet/v3-ActConsentType\n18ms http://terminology.hl7.org/ValueSet/v3-ActConsentType|3.0.0: Check \"http://loinc.org#59284-0\"\n18ms http://terminology.hl7.org/ValueSet/v3-ActConsentType|3.0.0: Include for http://terminology.hl7.org/CodeSystem/v3-ActCode not considered for \"http://loinc.org\"\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: CodeSystem found: http://loinc.org|2.83 for http://loinc.org\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: check code in (http://loinc.org)(59284-0,57016-8,57017-6,64292-6) at CodeableConcept.coding[0]\n18ms http://hl7.org/fhir/ValueSet/consent-category|4.0.1: Code \"59284-0\" found in http://loinc.org|2.83",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------

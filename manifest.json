@@ -7,7 +7,7 @@
     "versions"
   ],
   "provisionalUntil": "a full IG Publisher run",
-  "generatedAt": "2026-11-12T10:49:42.418455284Z",
+  "generatedAt": "2026-11-12T11:39:37.726243637Z",
   "ig": {
     "root": ".",
     "version": "4.0.1"
@@ -17,8 +17,8 @@
   },
   "inputs": {
     "toolchain": "ig-publisher 3.0.0 / core 7.0.1",
-    "sourceRevision": "70a5b678924dc8e0f597427f368546b702db9a22",
-    "inputDigest": "c3073be701b3193eb5830d89fa608cf2908c95e01571a5a425b0a860c710cee9"
+    "sourceRevision": "9c6cad67f3bb1d109097c43593cff43989267baa",
+    "inputDigest": "2ccabb371893b2d3aab74a0301df0a3b57b6ed67fa87d5d55189254ef6425399"
   },
   "packages": [
     {
@@ -264,6 +264,17 @@
         },
         "codeSystems": [
           "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason"
+        ]
+      },
+      {
+        "valueSet": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlTermsOfUse|0.1.0",
+        "builtFrom": {
+          "used-codesystem": [
+            "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent|0.1.0"
+          ]
+        },
+        "codeSystems": [
+          "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent"
         ]
       }
     ]
@@ -1066,6 +1077,36 @@
       "source": "fsh-generated/resources/CodeSystem-TrustDemoOnesaEpiSchedule.json"
     },
     {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ar|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ar",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoTrustDomain-ar",
+      "name": "TrustDemoTrustDomainAr",
+      "file": "resources/CodeSystem/TrustDemoTrustDomain-ar.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoTrustDomain-ar.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ru|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-ru",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoTrustDomain-ru",
+      "name": "TrustDemoTrustDomainRu",
+      "file": "resources/CodeSystem/TrustDemoTrustDomain-ru.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoTrustDomain-ru.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-zh|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-zh",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoTrustDomain-zh",
+      "name": "TrustDemoTrustDomainZh",
+      "file": "resources/CodeSystem/TrustDemoTrustDomain-zh.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoTrustDomain-zh.json"
+    },
+    {
       "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain|0.1.0",
       "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
       "version": "0.1.0",
@@ -1314,6 +1355,46 @@
       "name": "TrustDemoVerificationStep",
       "file": "resources/CodeSystem/TrustDemoVerificationStep.json",
       "source": "fsh-generated/resources/CodeSystem-TrustDemoVerificationStep.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ar|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ar",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoVhlConsent-ar",
+      "name": "TrustDemoVhlConsentAr",
+      "file": "resources/CodeSystem/TrustDemoVhlConsent-ar.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoVhlConsent-ar.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ru|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ru",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoVhlConsent-ru",
+      "name": "TrustDemoVhlConsentRu",
+      "file": "resources/CodeSystem/TrustDemoVhlConsent-ru.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoVhlConsent-ru.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-zh|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-zh",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoVhlConsent-zh",
+      "name": "TrustDemoVhlConsentZh",
+      "file": "resources/CodeSystem/TrustDemoVhlConsent-zh.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoVhlConsent-zh.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+      "version": "0.1.0",
+      "resourceType": "CodeSystem",
+      "id": "TrustDemoVhlConsent",
+      "name": "TrustDemoVhlConsent",
+      "file": "resources/CodeSystem/TrustDemoVhlConsent.json",
+      "source": "fsh-generated/resources/CodeSystem-TrustDemoVhlConsent.json"
     },
     {
       "key": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason-ar|0.1.0",
@@ -1784,6 +1865,16 @@
       "name": "TrustDemoVhlRefusalReasonVS",
       "file": "resources/ValueSet/TrustDemoVhlRefusalReasonVS.json",
       "source": "fsh-generated/resources/ValueSet-TrustDemoVhlRefusalReasonVS.json"
+    },
+    {
+      "key": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlTermsOfUse|0.1.0",
+      "canonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlTermsOfUse",
+      "version": "0.1.0",
+      "resourceType": "ValueSet",
+      "id": "TrustDemoVhlTermsOfUse",
+      "name": "TrustDemoVhlTermsOfUse",
+      "file": "resources/ValueSet/TrustDemoVhlTermsOfUse.json",
+      "source": "fsh-generated/resources/ValueSet-TrustDemoVhlTermsOfUse.json"
     }
   ]
 }

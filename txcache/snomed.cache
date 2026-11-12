@@ -60,3 +60,54 @@ v: {
 
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "900000000000550004",
+  "display" : "Definition"
+}, "url": "http://hl7.org/fhir/ValueSet/designation-use", "version": "4.0.1", "langs":"ru", "useServer":"true", "useClient":"false", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "externalSource":"StructureDefinition[http://hl7.org/fhir/StructureDefinition/CodeSystem|4.0.1]", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Definition",
+  "code" : "900000000000550004",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/900000000000207008/version/20250201",
+  "severity" : "error",
+  "error" : "The provided code 'http://snomed.info/sct#900000000000550004 ('Definition')' was not found in the value set 'http://hl7.org/fhir/ValueSet/designation-use|4.0.1'",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: Analysing http://hl7.org/fhir/ValueSet/designation-use|4.0.1 for validation purposes\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: Parameters: disp-lang=ru, generate-narrative, default-to-latest\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: Prepare include[0]: \"(http://snomed.info/sct)(900000000000003001,900000000000013009)\"\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: CodeSystem found: \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\"\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: Validate \"[http://snomed.info/sct#900000000000550004 (\"Definition\")]\"\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: Check \"http://snomed.info/sct#900000000000550004\"\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct\n1ms http://hl7.org/fhir/ValueSet/designation-use|4.0.1: check code in (http://snomed.info/sct)(900000000000003001,900000000000013009) at Coding",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "None_of_the_provided_codes_are_in_the_value_set_one"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://snomed.info/sct#900000000000550004 ('Definition')' was not found in the value set 'http://hl7.org/fhir/ValueSet/designation-use|4.0.1'"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------

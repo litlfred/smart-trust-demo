@@ -481,6 +481,18 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
+        "reference" : "CodeSystem/TrustDemoVhlConsent"
+      },
+      "name" : "Consents of the demo VHL trust domain (illustrative)",
+      "description" : "The consent codes of the illustrative DEMO-VHL trust domain: what a holder agrees to when the family wallet creates a Verifiable Health Link (J4.0). Invented for the demo, in the style of the IPS for Pilgrimage consents (IPS.HAJJ.CONSENT); not a GDHCN trust domain's terms of use.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
         "reference" : "CodeSystem/TrustDemoOnesaEpiSchedule-es"
       },
       "name" : "Códigos de antígeno y dosis del calendario nacional (ilustrativos, Onesa)",
@@ -844,7 +856,7 @@
         "reference" : "Consent/TrustDemoJ4Consent"
       },
       "name" : "J4.0b Bounmy's consent to share Somsak's summary for 14 days",
-      "description" : "Recorded when Bounmy creates Somsak's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN) that adds this permission to the opt-in default, the IHE PCF implicit policy Policy-deny, with Bounmy's own act on the family wallet as the evidence. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Onesan portal enforces the copy in its own record.",
+      "description" : "Recorded when Bounmy creates Somsak's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN) that adds this permission to the opt-in default, the IHE PCF implicit policy Policy-deny, with Bounmy's own act on the family wallet as the evidence. Consent.policyRule names the consent he agreed to, CONSENT-VHL-TREATMENT of the DEMO-VHL trust domain's terms of use (TrustDemoVhlTermsOfUse), with the version of its text he was shown. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Onesan portal enforces the copy in its own record.",
       "exampleBoolean" : true
     },
     {
@@ -1618,6 +1630,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/TrustDemoVhlTermsOfUse"
+      },
+      "name" : "Terms of use of the demo VHL trust domain",
+      "description" : "The terms of use of the DEMO-VHL trust domain (TrustDemoTrustDomain): every code of TrustDemoVhlConsent. An explicit consent to share a VHL names one of them in Consent.policyRule (J4.0).",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Device"
       }],
       "reference" : {
@@ -1753,6 +1777,30 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
+        "reference" : "CodeSystem/TrustDemoTrustDomain-ru"
+      },
+      "name" : "TrustDemoTrustDomain (ru designations, unofficial)",
+      "description" : "Unofficial Russian designations for TrustDemoTrustDomain: an agent translation that no person has signed off. Each code has a display designation and a definition designation; the codes themselves are not translated.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoTrustDomain-zh"
+      },
+      "name" : "TrustDemoTrustDomain — Chinese (zh) supplement",
+      "description" : "Unofficial Simplified Chinese (zh) display designations and definitions for the TrustDemoTrustDomain code system. Unofficial agent translation, not signed off by a human.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
         "reference" : "CodeSystem/TrustDemoVaccineProduct-ru"
       },
       "name" : "TrustDemoVaccineProduct (ru designations, unofficial)",
@@ -1841,6 +1889,30 @@
       },
       "name" : "TrustDemoVerificationStep — Chinese (zh) supplement",
       "description" : "Unofficial Simplified Chinese (zh) display designations for the TrustDemoVerificationStep code system, drafted by an agent and not signed off by a human.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVhlConsent-ru"
+      },
+      "name" : "TrustDemoVhlConsent (ru designations, unofficial)",
+      "description" : "Unofficial Russian designations for TrustDemoVhlConsent: an agent translation that no person has signed off. Each code has a display designation and a definition designation; the codes themselves are not translated.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoVhlConsent-zh"
+      },
+      "name" : "TrustDemoVhlConsent — Chinese (zh) supplement",
+      "description" : "Unofficial Simplified Chinese (zh) display designations and definitions for the TrustDemoVhlConsent code system. Unofficial agent translation, not signed off by a human.",
       "exampleBoolean" : false
     },
     {
@@ -2137,10 +2209,34 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
+        "reference" : "CodeSystem/TrustDemoVhlConsent-ar"
+      },
+      "name" : "موافقات نطاق الثقة VHL في العرض التوضيحي (توضيحية)",
+      "description" : "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoVhlConsent: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية. Unofficial agent translation.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
         "reference" : "CodeSystem/TrustDemoVerificationResult-ar"
       },
       "name" : "نتيجة قراءة DVC",
       "description" : "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoVerificationResult: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/TrustDemoTrustDomain-ar"
+      },
+      "name" : "نطاقات الثقة في الرحلات (توضيحية)",
+      "description" : "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoTrustDomain: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية. Unofficial agent translation.",
       "exampleBoolean" : false
     }],
     "page" : {

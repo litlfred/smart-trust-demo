@@ -1,0 +1,38 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVhlConsent-ar",
+  "language" : "ar",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"ar\" lang=\"ar\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVhlConsent-ar</b></p><a name=\"TrustDemoVhlConsent-ar\"> </a><a name=\"hcTrustDemoVhlConsent-ar\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: ar</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ar</code> defines displays on the following code:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlConsent.html#TrustDemoVhlConsent-CONSENT-VHL-TREATMENT\">CONSENT-VHL-TREATMENT</a><a name=\"TrustDemoVhlConsent-ar-CONSENT-VHL-TREATMENT\"> </a></td><td>الموافقة على قراءة الملخص لأغراض العلاج</td><td>يجوز لأي شخص يعطيه الحامل رمز QR الخاص بالرابط VHL ورمز المرور الخاص به أن يقرأ ملخص المريض الذي يقف خلفه، لأغراض العلاج، حتى انتهاء صلاحية الرابط. وتسجّل البوابة المُصدِرة كل وصول.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-ar",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlConsentAr",
+  "title" : "موافقات نطاق الثقة VHL في العرض التوضيحي (توضيحية)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T11:37:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoVhlConsent: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية. Unofficial agent translation.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+  "count" : 1,
+  "concept" : [{
+    "code" : "CONSENT-VHL-TREATMENT",
+    "display" : "الموافقة على قراءة الملخص لأغراض العلاج",
+    "definition" : "يجوز لأي شخص يعطيه الحامل رمز QR الخاص بالرابط VHL ورمز المرور الخاص به أن يقرأ ملخص المريض الذي يقف خلفه، لأغراض العلاج، حتى انتهاء صلاحية الرابط. وتسجّل البوابة المُصدِرة كل وصول.",
+    "designation" : [{
+      "language" : "ar",
+      "value" : "الموافقة على قراءة الملخص لأغراض العلاج"
+    }]
+  }]
+}

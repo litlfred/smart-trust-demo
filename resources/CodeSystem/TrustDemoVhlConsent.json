@@ -1,0 +1,32 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVhlConsent",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVhlConsent</b></p><a name=\"TrustDemoVhlConsent\"> </a><a name=\"hcTrustDemoVhlConsent\"> </a><p>This case-sensitive code system <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent</code> defines the following code:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">CONSENT-VHL-TREATMENT<a name=\"TrustDemoVhlConsent-CONSENT-VHL-TREATMENT\"> </a></td><td>Consent to read the summary for treatment</td><td>Anyone the holder gives the VHL's QR code and passcode to may read the patient summary behind it, for treatment, until the link expires. Each access is logged by the issuing portal.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlConsent",
+  "title" : "Consents of the demo VHL trust domain (illustrative)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T11:37:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "The consent codes of the illustrative DEMO-VHL trust domain: what a holder agrees to when the family wallet creates a Verifiable Health Link (J4.0). Invented for the demo, in the style of the IPS for Pilgrimage consents (IPS.HAJJ.CONSENT); not a GDHCN trust domain's terms of use.",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 1,
+  "concept" : [{
+    "code" : "CONSENT-VHL-TREATMENT",
+    "display" : "Consent to read the summary for treatment",
+    "definition" : "Anyone the holder gives the VHL's QR code and passcode to may read the patient summary behind it, for treatment, until the link expires. Each access is logged by the issuing portal."
+  }]
+}

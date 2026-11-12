@@ -1,0 +1,44 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoTrustDomain-zh",
+  "language" : "zh",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"zh\" lang=\"zh\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoTrustDomain-zh</b></p><a name=\"TrustDemoTrustDomain-zh\"> </a><a name=\"hcTrustDemoTrustDomain-zh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: zh</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-zh</code> defines displays on the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoTrustDomain.html#TrustDemoTrustDomain-DEMO-DVC\">DEMO-DVC</a><a name=\"TrustDemoTrustDomain-zh-DEMO-DVC\"> </a></td><td>常规免疫的 DVC（HCERT），由出生诊所系统按剂次签名，并由本国诊所 EHR 验证（J1、J3）。</td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoTrustDomain.html#TrustDemoTrustDomain-DEMO-VHL\">DEMO-VHL</a><a name=\"TrustDemoTrustDomain-zh-DEMO-VHL\"> </a></td><td>指向患者摘要的可验证健康链接（HCERT），在国家门户上创建，并在境外的服务点解析（J4.0、J4.1）。其使用条款为 TrustDemoVhlTermsOfUse。</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain-zh",
+  "version" : "0.1.0",
+  "name" : "TrustDemoTrustDomainZh",
+  "title" : "TrustDemoTrustDomain — Chinese (zh) supplement",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T11:37:53+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Unofficial Simplified Chinese (zh) display designations and definitions for the TrustDemoTrustDomain code system. Unofficial agent translation, not signed off by a human.",
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoTrustDomain",
+  "count" : 2,
+  "concept" : [{
+    "code" : "DEMO-DVC",
+    "definition" : "常规免疫的 DVC（HCERT），由出生诊所系统按剂次签名，并由本国诊所 EHR 验证（J1、J3）。",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "演示：数字疫苗接种证书"
+    }]
+  },
+  {
+    "code" : "DEMO-VHL",
+    "definition" : "指向患者摘要的可验证健康链接（HCERT），在国家门户上创建，并在境外的服务点解析（J4.0、J4.1）。其使用条款为 TrustDemoVhlTermsOfUse。",
+    "designation" : [{
+      "language" : "zh",
+      "value" : "演示：可验证健康链接"
+    }]
+  }]
+}
