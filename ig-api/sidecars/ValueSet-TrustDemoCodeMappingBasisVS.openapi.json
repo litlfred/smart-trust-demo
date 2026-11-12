@@ -1,0 +1,64 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "How an imported dose got its national schedule code Schema API",
+    "description": "JSON Schema for How an imported dose got its national schedule code ValueSet codes. Values are represented as Coding objects with 'system' and 'code' properties.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/ValueSet-TrustDemoCodeMappingBasisVS.schema.json": {
+      "get": {
+        "summary": "JSON Schema definition for the enumeration ValueSet-TrustDemoCodeMappingBasisVS",
+        "description": "This endpoint serves the JSON Schema definition for the enumeration ValueSet-TrustDemoCodeMappingBasisVS.",
+        "responses": {
+          "200": {
+            "description": "The JSON Schema for ValueSet-TrustDemoCodeMappingBasisVS",
+            "content": {
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "./ValueSet-TrustDemoCodeMappingBasisVS.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ValueSet-TrustDemoCodeMappingBasisVS": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "http://smart.who.int/trust-demo/ValueSet-TrustDemoCodeMappingBasisVS.schema.json",
+        "title": "How an imported dose got its national schedule code Schema",
+        "description": "JSON Schema for How an imported dose got its national schedule code ValueSet codes. Values are represented as Coding objects with 'system' and 'code' properties.",
+        "type": "object",
+        "required": [
+          "system",
+          "code"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "system": {
+            "type": "string",
+            "const": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoCodeMappingBasis"
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "concept-map",
+              "clinician-confirmed",
+              "unmapped",
+              "not-imported"
+            ]
+          }
+        },
+        "narrative": "This schema validates Coding-shaped objects for the How an imported dose got its national schedule code ValueSet. Each value must be an object with 'system' (CodeSystem URI) and 'code' (fragment after '#') properties. Display values are available at http://smart.who.int/trust-demo/ValueSet-TrustDemoCodeMappingBasisVS.displays.json. The canonical IRI for a code can be reconstructed as system + '#' + code. For a complete listing of all ValueSets, see artifacts.html#terminology-value-sets.",
+        "fhir:displays": "http://smart.who.int/trust-demo/ValueSet-TrustDemoCodeMappingBasisVS.displays.json",
+        "fhir:valueSet": "http://smart.who.int/trust-demo/ValueSet/TrustDemoCodeMappingBasisVS",
+        "fhir:version": "0.1.0",
+        "fhir:expansionTimestamp": "2026-11-12T11:47:34+00:00"
+      }
+    }
+  }
+}

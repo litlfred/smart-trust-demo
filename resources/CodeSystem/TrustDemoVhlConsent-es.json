@@ -1,0 +1,37 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "TrustDemoVhlConsent-es",
+  "language" : "es",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"es\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem TrustDemoVhlConsent-es</b></p><a name=\"TrustDemoVhlConsent-es\"> </a><a name=\"hcTrustDemoVhlConsent-es\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><p>This code system supplement <code>http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-es</code> defines displays on the following code:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a style=\"white-space:nowrap\" href=\"CodeSystem-TrustDemoVhlConsent.html#TrustDemoVhlConsent-CONSENT-VHL-TREATMENT\">CONSENT-VHL-TREATMENT</a><a name=\"TrustDemoVhlConsent-es-CONSENT-VHL-TREATMENT\"> </a></td><td>Consentimiento para leer el resumen con fines de tratamiento</td><td>Cualquier persona a quien el titular entregue el código QR y el código de acceso del VHL puede leer el resumen del paciente al que remite, con fines de tratamiento, hasta que caduque el enlace. El portal emisor registra cada acceso.</td></tr></table></div>"
+  },
+  "url" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent-es",
+  "version" : "0.1.0",
+  "name" : "TrustDemoVhlConsentEs",
+  "title" : "Consentimientos del ámbito de confianza VHL de la demostración (ilustrativos)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-12T11:46:21+00:00",
+  "publisher" : "litlfred",
+  "contact" : [{
+    "name" : "litlfred",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://github.com/litlfred/smart-trust-demo"
+    }]
+  }],
+  "description" : "Suplemento en español (es) de TrustDemoVhlConsent: designaciones de cada concepto. Traducción no oficial generada por un agente, sin revisión humana.",
+  "caseSensitive" : true,
+  "content" : "supplement",
+  "supplements" : "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlConsent",
+  "concept" : [{
+    "code" : "CONSENT-VHL-TREATMENT",
+    "display" : "Consentimiento para leer el resumen con fines de tratamiento",
+    "definition" : "Cualquier persona a quien el titular entregue el código QR y el código de acceso del VHL puede leer el resumen del paciente al que remite, con fines de tratamiento, hasta que caduque el enlace. El portal emisor registra cada acceso.",
+    "designation" : [{
+      "language" : "es",
+      "value" : "Consentimiento para leer el resumen con fines de tratamiento"
+    }]
+  }]
+}

@@ -1,0 +1,63 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Result of reading a DVC Schema API",
+    "description": "JSON Schema for Result of reading a DVC ValueSet codes. Values are represented as Coding objects with 'system' and 'code' properties.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/ValueSet-TrustDemoVerificationResultVS.schema.json": {
+      "get": {
+        "summary": "JSON Schema definition for the enumeration ValueSet-TrustDemoVerificationResultVS",
+        "description": "This endpoint serves the JSON Schema definition for the enumeration ValueSet-TrustDemoVerificationResultVS.",
+        "responses": {
+          "200": {
+            "description": "The JSON Schema for ValueSet-TrustDemoVerificationResultVS",
+            "content": {
+              "application/schema+json": {
+                "schema": {
+                  "$ref": "./ValueSet-TrustDemoVerificationResultVS.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ValueSet-TrustDemoVerificationResultVS": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVerificationResultVS.schema.json",
+        "title": "Result of reading a DVC Schema",
+        "description": "JSON Schema for Result of reading a DVC ValueSet codes. Values are represented as Coding objects with 'system' and 'code' properties.",
+        "type": "object",
+        "required": [
+          "system",
+          "code"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "system": {
+            "type": "string",
+            "const": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVerificationResult"
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "verified",
+              "failed",
+              "unverified"
+            ]
+          }
+        },
+        "narrative": "This schema validates Coding-shaped objects for the Result of reading a DVC ValueSet. Each value must be an object with 'system' (CodeSystem URI) and 'code' (fragment after '#') properties. Display values are available at http://smart.who.int/trust-demo/ValueSet-TrustDemoVerificationResultVS.displays.json. The canonical IRI for a code can be reconstructed as system + '#' + code. For a complete listing of all ValueSets, see artifacts.html#terminology-value-sets.",
+        "fhir:displays": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVerificationResultVS.displays.json",
+        "fhir:valueSet": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVerificationResultVS",
+        "fhir:version": "0.1.0",
+        "fhir:expansionTimestamp": "2026-11-12T11:47:35+00:00"
+      }
+    }
+  }
+}

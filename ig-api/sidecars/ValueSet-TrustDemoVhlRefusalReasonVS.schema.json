@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVhlRefusalReasonVS.schema.json",
+  "title": "Why a shared link released nothing Schema",
+  "description": "JSON Schema for Why a shared link released nothing ValueSet codes. Values are represented as Coding objects with 'system' and 'code' properties.",
+  "type": "object",
+  "required": [
+    "system",
+    "code"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "system": {
+      "type": "string",
+      "const": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVhlRefusalReason"
+    },
+    "code": {
+      "type": "string",
+      "enum": [
+        "withdrawn",
+        "expired",
+        "wrong-passcode"
+      ]
+    }
+  },
+  "narrative": "This schema validates Coding-shaped objects for the Why a shared link released nothing ValueSet. Each value must be an object with 'system' (CodeSystem URI) and 'code' (fragment after '#') properties. Display values are available at http://smart.who.int/trust-demo/ValueSet-TrustDemoVhlRefusalReasonVS.displays.json. The canonical IRI for a code can be reconstructed as system + '#' + code. For a complete listing of all ValueSets, see artifacts.html#terminology-value-sets.",
+  "fhir:displays": "http://smart.who.int/trust-demo/ValueSet-TrustDemoVhlRefusalReasonVS.displays.json",
+  "fhir:valueSet": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVhlRefusalReasonVS",
+  "fhir:version": "0.1.0",
+  "fhir:expansionTimestamp": "2026-11-12T11:47:35+00:00"
+}

@@ -53,6 +53,46 @@
   <script>
   var swaggerUrls = [
   {
+    "url": "../ValueSet-TrustDemoCodeMappingBasisVS.openapi.json",
+    "name": "How an imported dose got its national schedule code Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoDvcOutcomeVS.openapi.json",
+    "name": "What a scanned DVC becomes in the record Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoOnesaEpiScheduleCodes.openapi.json",
+    "name": "National schedule codes of the journeys Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoTrustDomains.openapi.json",
+    "name": "Trust domains of the journeys Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoVaccineProducts.openapi.json",
+    "name": "Vaccine products of the journeys Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoVerificationFailureReasonVS.openapi.json",
+    "name": "Verification failure reasons Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoVerificationResultVS.openapi.json",
+    "name": "Result of reading a DVC Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoVerificationStepVS.openapi.json",
+    "name": "Verification steps Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoVhlRefusalReasonVS.openapi.json",
+    "name": "Why a shared link released nothing Schema"
+  },
+  {
+    "url": "../ValueSet-TrustDemoVhlTermsOfUse.openapi.json",
+    "name": "Terms of use of the demo VHL trust domain Schema"
+  },
+  {
     "url": "../StructureDefinition-TrustDemoDdBirthDoseDvc.openapi.json",
     "name": "TD.J1 Birth-dose DVC"
   },
@@ -91,7 +131,7 @@
       select.appendChild(opt);
     });
     ui = SwaggerUIBundle({
-      url: "../StructureDefinition-TrustDemoDdBirthDoseDvc.openapi.json",
+      url: "../ValueSet-TrustDemoCodeMappingBasisVS.openapi.json",
       dom_id: '#swagger-ui',
       presets: [SwaggerUIBundle.presets.apis],
       layout: "BaseLayout"
