@@ -1,0 +1,26 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "decision",
+    "id": "vhl-release",
+    "path": "processes/content/decisions/vhl-release.dmn"
+  },
+  "source_hash": "sha256:61fd44ec6baef1eef81ded514ebafa9fb97afc220fcc3351fd755bba7aef3ecd",
+  "criteria": {
+    "decision-outcomes-used": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Decision_VhlRelease",
+          "detail": "decision \"vhl-release.dmn#Decision_VhlRelease\" is referenced by no gateway in processes/. Either wire it with <cat-harness.processes:decision ref=\"decisions/vhl-release.dmn#Decision_VhlRelease\"/> or delete it."
+        }
+      ]
+    }
+  },
+  "totals": {
+    "pass": 0,
+    "fail": 1,
+    "n/a": 0,
+    "unknown": 0
+  }
+}
