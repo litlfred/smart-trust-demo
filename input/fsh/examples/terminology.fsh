@@ -107,3 +107,27 @@ Usage: #definition
 * action[+].title = "9 months: measles-rubella 1"
 * action[=].code = TrustDemoOnesaEpiSchedule#XXK-EPI-MR-1 "Measles-rubella, dose 1"
 * action[=].timingAge = 9 'mo' "months"
+
+// The trust domains of the journeys. A GDHCN trust domain scopes what a
+// participant's keys may sign; the DID trust list names it for each key, and a
+// verifier accepts a certificate only under a domain it knows. These codes are
+// the demo's own, invented for the Onesa and Taifafeki journeys, in the style
+// of the GDHCN Trust Domains CodeSystem of smart-trust
+// (http://smart.who.int/trust/CodeSystem/Domains-DEV). They are not GDHCN
+// trust domains.
+
+CodeSystem: TrustDemoTrustDomain
+Id: TrustDemoTrustDomain
+Title: "Trust domains of the journeys (illustrative)"
+Description: "Illustrative GDHCN-style trust domains for the demo's journeys: the scope under which each certificate in J1 to J4.1 is signed and verified. Invented for the demo, modelled on the GDHCN Trust Domains of SMART Trust; not GDHCN trust domains."
+* ^experimental = true
+* ^caseSensitive = true
+* #DEMO-DVC "Demo: Digital Vaccination Certificate" "Routine-immunization DVCs (HCERT) signed per dose by a birth clinic system and verified by a home clinic EHR (J1, J3)."
+* #DEMO-VHL "Demo: Verifiable Health Link" "Verifiable Health Links (HCERT) to a patient summary, created on the national portal and resolved at a point of care abroad (J4.0, J4.1)."
+
+ValueSet: TrustDemoTrustDomains
+Id: TrustDemoTrustDomains
+Title: "Trust domains of the journeys"
+Description: "Every code of TrustDemoTrustDomain: the trust domains a verifier in the journeys accepts."
+* ^experimental = true
+* include codes from system TrustDemoTrustDomain
