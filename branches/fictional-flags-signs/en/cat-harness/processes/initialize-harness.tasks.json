@@ -1,0 +1,246 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_InitializeHarness",
+ "skills": false,
+ "markers": [
+  {
+   "id": "A_DetermineHarness",
+   "name": "Determine which harness, and where",
+   "left": 15.4,
+   "top": 15.27,
+   "box": {
+    "left": 12.34,
+    "top": 30.55,
+    "width": 1.01,
+    "height": 3.86
+   }
+  },
+  {
+   "id": "A_ReadLocation",
+   "name": "Read what each location already is",
+   "left": 32.07,
+   "top": 58.68,
+   "box": {
+    "left": 28.38,
+    "top": 67.52,
+    "width": 1.01,
+    "height": 3.86
+   }
+  },
+  {
+   "id": "A_ReadDeclaration",
+   "name": "Read the harness's declaration and instructions",
+   "left": 48.1,
+   "top": 58.68,
+   "box": {
+    "left": 44.41,
+    "top": 67.52,
+    "width": 1.01,
+    "height": 3.86
+   }
+  },
+  {
+   "id": "A_LogInstallStart",
+   "name": "Log the start of the install",
+   "left": 63.5,
+   "top": 15.27,
+   "box": {
+    "left": 60.44,
+    "top": 30.55,
+    "width": 1.01,
+    "height": 3.86
+   }
+  },
+  {
+   "id": "A_Install",
+   "name": "Follow them, at each location",
+   "left": 71.52,
+   "top": 15.27,
+   "box": {
+    "left": 68.46,
+    "top": 30.55,
+    "width": 1.01,
+    "height": 3.86
+   }
+  },
+  {
+   "id": "A_WriteRootReadme",
+   "name": "Write the root README, if it is not there",
+   "left": 79.54,
+   "top": 15.27,
+   "box": {
+    "left": 76.48,
+    "top": 30.55,
+    "width": 1.01,
+    "height": 3.86
+   }
+  },
+  {
+   "id": "A_CompleteInitialization",
+   "name": "Make sure every step is done",
+   "left": 87.55,
+   "top": 15.27,
+   "box": {
+    "left": 84.49,
+    "top": 30.55,
+    "width": 1.01,
+    "height": 3.86
+   }
+  },
+  {
+   "id": "A_LogFailure",
+   "name": "Log the failure",
+   "left": 88.19,
+   "top": 2.73,
+   "box": {
+    "left": 84.49,
+    "top": 11.58,
+    "width": 1.01,
+    "height": 3.86
+   }
+  }
+ ],
+ "processHref": "initialize-harness.html",
+ "tasks": {
+  "A_DetermineHarness": {
+   "id": "A_DetermineHarness",
+   "name": "Determine which harness, and where",
+   "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_DetermineHarness",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "calls": {
+    "name": "Determine the harness and repositories",
+    "href": "discussion.html",
+    "diagram": "discussion.html"
+   },
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  },
+  "A_ReadLocation": {
+   "id": "A_ReadLocation",
+   "name": "Read what each location already is",
+   "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_ReadLocation",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  },
+  "A_ReadDeclaration": {
+   "id": "A_ReadDeclaration",
+   "name": "Read the harness's declaration and instructions",
+   "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_ReadDeclaration",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  },
+  "A_LogInstallStart": {
+   "id": "A_LogInstallStart",
+   "name": "Log the start of the install",
+   "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_LogInstallStart",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "calls": {
+    "name": "Log a message",
+    "href": "log-message.html",
+    "diagram": "log-message.html"
+   },
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  },
+  "A_Install": {
+   "id": "A_Install",
+   "name": "Follow them, at each location",
+   "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_Install",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  },
+  "A_WriteRootReadme": {
+   "id": "A_WriteRootReadme",
+   "name": "Write the root README, if it is not there",
+   "type": "bpmn:Task",
+   "stepHref": "initialize-harness.html#step-A_WriteRootReadme",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  },
+  "A_CompleteInitialization": {
+   "id": "A_CompleteInitialization",
+   "name": "Make sure every step is done",
+   "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_CompleteInitialization",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "calls": {
+    "name": "Complete initialization",
+    "href": "complete-initialization.html",
+    "diagram": "complete-initialization.html"
+   },
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  },
+  "A_LogFailure": {
+   "id": "A_LogFailure",
+   "name": "Log the failure",
+   "type": "bpmn:CallActivity",
+   "stepHref": "initialize-harness.html#step-A_LogFailure",
+   "lane": "Bootstrapping Agent",
+   "laneHref": "initialize-harness.html#lane-Lane_BootstrappingAgent",
+   "skills": [],
+   "calls": {
+    "name": "Log a message",
+    "href": "log-message.html",
+    "diagram": "log-message.html"
+   },
+   "role": {
+    "name": "bootstrapping-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-bootstrap-scenarios-roles-json-bootstrapping-agent",
+    "title": "Bootstrapping Agent",
+    "skills": []
+   }
+  }
+ }
+}

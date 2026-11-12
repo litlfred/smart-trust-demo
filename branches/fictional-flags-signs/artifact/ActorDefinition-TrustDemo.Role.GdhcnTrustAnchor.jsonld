@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.GdhcnTrustAnchor",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor",
+  "schema:name": "GdhcnTrustAnchor",
+  "dcterms:title": "GDHCN trust anchor",
+  "dcterms:description": "WHO's GDHCN, which receives participants' PKI material and distributes it as DID trust lists; Trust Network Anchor (SMART Trust), Trust Anchor (IHE ITI VHL).\n\n**Persona**: A WHO service publishing DID documents over did:web; verifiers fetch it when online and keep a copy.\n\n**Also known as**: Trust Network Anchor (SMART Trust); Trust Anchor (IHE ITI VHL)\n\n**Played in the journeys by** (fictional):\n\n- GDHCN DEV trust network (WHO)",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ActorDefinition-TrustDemo.Role.GdhcnTrustAnchor.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/de5aa6ce86239585e518ca0d7e192b01f5b3164d/resources/ActorDefinition/TrustDemo.Role.GdhcnTrustAnchor.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "e6fde6b4d37b2fb0903f5562c0d68abc9b5e18aa"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

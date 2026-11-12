@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ValueSet-TrustDemoVaccineProducts",
+  "@type": "fhir:ValueSet",
+  "dcterms:identifier": "ValueSet/TrustDemoVaccineProducts",
+  "schema:name": "TrustDemoVaccineProducts",
+  "dcterms:title": "Vaccine products of the journeys",
+  "dcterms:description": "Every product code of TrustDemoVaccineProduct: the source of the national ConceptMap.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Value Sets",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ValueSet-TrustDemoVaccineProducts.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/de5aa6ce86239585e518ca0d7e192b01f5b3164d/resources/ValueSet/TrustDemoVaccineProducts.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "e6fde6b4d37b2fb0903f5562c0d68abc9b5e18aa"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

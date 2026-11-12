@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ConceptMap-TrustDemoProductToOnesaEpi",
+  "@type": "fhir:ConceptMap",
+  "dcterms:identifier": "ConceptMap/TrustDemoProductToOnesaEpi",
+  "schema:name": "TrustDemoProductToOnesaEpi",
+  "dcterms:title": "J3 map: vaccine product to national schedule dose",
+  "dcterms:description": "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthason confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again.",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Terminology: Concept Maps",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToOnesaEpi"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ConceptMap-TrustDemoProductToOnesaEpi.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/de5aa6ce86239585e518ca0d7e192b01f5b3164d/resources/ConceptMap/TrustDemoProductToOnesaEpi.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "e6fde6b4d37b2fb0903f5562c0d68abc9b5e18aa"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

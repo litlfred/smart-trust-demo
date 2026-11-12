@@ -1,0 +1,96 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_AskThePerson",
+ "skills": false,
+ "markers": [
+  {
+   "id": "A_Compose",
+   "name": "Compose the full question",
+   "left": 40.12,
+   "top": 18.09,
+   "box": {
+    "left": 30.89,
+    "top": 38.3,
+    "width": 3.06,
+    "height": 5.11
+   }
+  },
+  {
+   "id": "Call_Discuss",
+   "name": "Discuss it with the person",
+   "left": 77.06,
+   "top": 18.09,
+   "box": {
+    "left": 67.83,
+    "top": 38.3,
+    "width": 3.06,
+    "height": 5.11
+   }
+  },
+  {
+   "id": "A_HandBack",
+   "name": "Hand back to the discussion",
+   "left": 77.06,
+   "top": 52.13,
+   "box": {
+    "left": 67.83,
+    "top": 72.34,
+    "width": 3.06,
+    "height": 5.11
+   }
+  }
+ ],
+ "processHref": "ask-the-person.html",
+ "tasks": {
+  "A_Compose": {
+   "id": "A_Compose",
+   "name": "Compose the full question",
+   "type": "bpmn:Task",
+   "stepHref": "ask-the-person.html#step-A_Compose",
+   "lane": "Agent",
+   "laneHref": "ask-the-person.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Call_Discuss": {
+   "id": "Call_Discuss",
+   "name": "Discuss it with the person",
+   "type": "bpmn:CallActivity",
+   "stepHref": "ask-the-person.html#step-Call_Discuss",
+   "lane": "Agent",
+   "laneHref": "ask-the-person.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Human–agent discussion",
+    "href": "human-agent-discussion.html",
+    "diagram": "human-agent-discussion.html"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_HandBack": {
+   "id": "A_HandBack",
+   "name": "Hand back to the discussion",
+   "type": "bpmn:Task",
+   "stepHref": "ask-the-person.html#step-A_HandBack",
+   "lane": "Agent",
+   "laneHref": "ask-the-person.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

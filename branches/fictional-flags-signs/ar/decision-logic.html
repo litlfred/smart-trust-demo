@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"ar","translationStatus":"unverified","translationSource":"decision-logic.html","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision-support Logic — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="../ar/decision-logic.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout>
+<script src="../assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="../assets/ig-artifact.css">
+<link rel="stylesheet" href="../assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="../assets/navbar/row-2acuhncsmbg.js" defer></script><script src="../assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/css/navbar-row.css"><script src="../assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content=".."></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+var b=document.querySelector('[data-fa-staging-banner]'),d=document.querySelector('[data-fa-staging-detail]');
+if(b)document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');
+var m=location.pathname.match(/^(.*\/(?:branches|STAGING)\/[^/]+\/)/);
+if(!m){if(d)d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+var s=document.createElement('script');s.src=m[1]+'staging-banner.js';
+s.onerror=function(){if(d)d.textContent='\u2014 build details unavailable';};
+(document.head||document.documentElement).appendChild(s);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root=".." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-23mbhbo4s6d","here":"/ar/decision-logic.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="../index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="../index.html">Summary</a></li><li><a href="../changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="../journeys.html">Journeys J1 to J4</a></li><li><a href="../countries.html">Fictional Countries</a></li><li><a href="../journey-examples.html">Journey Examples</a></li><li><a href="../architecture.html">Architecture (ArchiMate)</a></li><li><a href="../plan.html">Plan</a></li><li><a href="../proposal-app-platform.html">App Platform Proposal</a></li><li><a href="../dependencies.html">Dependency Register</a></li><li><a href="../upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="../personas.html">Generic Personas</a></li><li><a href="../scenarios.html">User Scenarios</a></li><li><a href="../business-processes.html">Business Processes</a></li><li><a href="../dictionary.html">Data Dictionary</a></li><li><a href="../decision-logic.html">Decision-support Logic</a></li><li><a href="../indicators.html">Indicators and Performance Metrics</a></li><li><a href="../functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="../system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="../artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="../assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from processes/content/decisions/*.dmn. Do not edit; edit the source and rerun. -->
+
+<p>منطق دعم القرار هو المكوِّن 6 من مجموعة أدوات التكيُّف الرقمي (DAK): القرارات التي تتخذها الرحلات، في صورة جداول قرار وفق <a href="https://www.omg.org/dmn/">نموذج القرار والترميز الصادر عن OMG</a> (DMN 1.3)، كما تكتبها <a href="https://smart.who.int/ig-starter-kit/l2_dak.html">مجموعة DAK ضمن إرشادات WHO SMART</a>. ويسمّي كل جدول مهام عملية العمل التي يخدمها، والمتطلبات التي يطبّقها، و<a href="dictionary.html">عناصر البيانات</a> التي يقرؤها، ومصنوعات FHIR التي تُظهره في الأمثلة. وكل جدول هو أيضًا <code class="language-plaintext highlighter-rouge">PlanDefinition</code> (من النوع <code class="language-plaintext highlighter-rouge">eca-rule</code>) بإجراء واحد لكل قاعدة، لذا يُدرج في <a href="../artifacts.html">فهرس المصنوعات</a>.</p>
+
+<p>المصادر هي <code class="language-plaintext highlighter-rouge">processes/content/decisions/*.dmn</code>؛ وتُولَّد هذه الصفحة وتعريفات PlanDefinition منها. وتستخدم المُدخلات المجموعة الفرعية من لغة FEEL التي يقبلها مفسِّر جداول القرار في الإطار (harness): <code class="language-plaintext highlighter-rouge">-</code> (أي قيمة)، والقيم الحرفية، والمقارنات، وأحد القيم. وسياسة المطابقة في كل جدول هي FIRST: تُجرَّب القواعد بالترتيب وتُطبَّق أول قاعدة تتطابق، لذا يكون الترتيب جزءًا من المنطق. وحيثما تقول قاعدة «وفق السياسة الوطنية»، فالسياسة هي سياسة البلد الأم؛ والجداول توضّح القرارات، وليست قواعد بلد ما.</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>جدول القرار</th>
+      <th>يخدم</th>
+      <th>المتطلبات</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01 إلامَ تتحول شهادة DVC الممسوحة ضوئيًا في سجل الطفل؟</a></td>
+      <td><a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a>: قراءة كل شهادة DVC دون تحقق (الفرز) (<code class="language-plaintext highlighter-rouge">Task_Read</code>)؛ إضافة الرضيع؛ حفظ الجرعات على أنها مُبلَّغ عنها (<code class="language-plaintext highlighter-rouge">Task_Register</code>)<a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: التحقق من كل HCERT مقابل قائمة الثقة (<code class="language-plaintext highlighter-rouge">Task_Verify</code>)؛ هل تم التحقق من كل شهادة DVC؟ (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>)؛ تدوين الإخفاق؛ البتّ في الجرعات وفق السياسة (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>)؛ استيراد الجرعات بوصفها موارد Immunization في FHIR (<code class="language-plaintext highlighter-rouge">Task_Import</code>)</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt02-which-national-schedule-code-does-an-imported-dose-carry">TD.DT.02 ما رمز الجدول الوطني الذي تحمله الجرعة المستوردة؟</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: إضافة الرموز الوطنية بجانب الرموز الأجنبية (<code class="language-plaintext highlighter-rouge">Task_Map</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt03-does-the-national-schedule-count-this-dose">TD.DT.03 هل يحتسب الجدول الوطني هذه الجرعة؟</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: تقييم الجدول الوطني (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>، <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt04-is-this-dose-of-the-national-schedule-due">TD.DT.04 هل هذه الجرعة من الجدول الوطني مستحقة؟</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: تقييم الجدول الوطني (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>)؛ إعطاء الجرعات المستحقة وحجز الزيارة التالية (<code class="language-plaintext highlighter-rouge">Task_Plan</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt05-does-the-portal-release-the-manifest-for-this-request">TD.DT.05 هل تُفرج البوابة الإلكترونية عن البيان لهذا الطلب؟</a></td>
+      <td><a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a>: التحقق من رمز المرور، وتسجيل الوصول، وإعادة البيان (<code class="language-plaintext highlighter-rouge">Task_Release</code>)</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt06-does-the-receiver-follow-the-vhl">TD.DT.06 هل تتبع الجهة المُستقبِلة رابط VHL؟</a></td>
+      <td><a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 (<code class="language-plaintext highlighter-rouge">Task_Verify</code>)؛ هل تم التحقق من HCERT؟ (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>)؛ لم يُتحقَّق منها: التعامل مع السجلات كالورق (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>)؛ طلب البيان (ITI-YY5)، موقَّعًا (<code class="language-plaintext highlighter-rouge">Task_Fetch</code>)</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt01-إلامَ-تتحول-شهادة-dvc-الممسوحة-ضوئيًا-في-سجل-الطفل">TD.DT.01 إلامَ تتحول شهادة DVC الممسوحة ضوئيًا في سجل الطفل؟</h3>
+
+<p>انطلاقًا من نتيجة قراءة شهادة DVC أجنبية واحدة، يُقرَّر ما إذا كانت جرعتها تُسجَّل على أنها متحقَّق منها، أو يُحتفظ بها على أنها مُبلَّغ عنها وغير متحقَّق منها، أو لا تُسجَّل منها على الإطلاق.</p>
+
+<ul>
+  <li>يخدم: <a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 اكتشاف رضيع غير مسجَّل في البلد B وإحالته</a>: قراءة كل شهادة DVC دون تحقق (الفرز) (<code class="language-plaintext highlighter-rouge">Task_Read</code>)؛ إضافة الرضيع؛ حفظ الجرعات على أنها مُبلَّغ عنها (<code class="language-plaintext highlighter-rouge">Task_Register</code>)؛ <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: التحقق من كل HCERT مقابل قائمة الثقة (<code class="language-plaintext highlighter-rouge">Task_Verify</code>)؛ هل تم التحقق من كل شهادة DVC؟ (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>)؛ تدوين الإخفاق؛ البتّ في الجرعات وفق السياسة (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>)؛ استيراد الجرعات بوصفها موارد Immunization في FHIR (<code class="language-plaintext highlighter-rouge">Task_Import</code>)</li>
+  <li>المتطلبات: <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></li>
+  <li>عناصر البيانات: <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE05</a> نتيجة التحقق، <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE07</a> سبب الفشل، <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> نتيجة السجل</li>
+  <li>في الأمثلة: <a href="../artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a>، <a href="../artifact/StructureDefinition-TrustDemoOnesaDvcVerification.html">StructureDefinition TrustDemoOnesaDvcVerification</a>، <a href="../artifact/Provenance-TrustDemoJ3Verification.html">Provenance TrustDemoJ3Verification</a></li>
+  <li>الصيغة القابلة للحوسبة: <a href="../artifact/PlanDefinition-TrustDemoDT01.html">PlanDefinition TrustDemoDT01</a>؛ المصدر <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dvc-record-outcome.dmn">dvc-record-outcome.dmn</a>، سياسة المطابقة FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>نتيجة التحقق (<code class="language-plaintext highlighter-rouge">result</code>)</th>
+      <th>سبب الفشل (<code class="language-plaintext highlighter-rouge">failureReason</code>)</th>
+      <th>نتيجة السجل (<code class="language-plaintext highlighter-rouge">outcome</code>)</th>
+      <th>الإجراء (<code class="language-plaintext highlighter-rouge">action</code>)</th>
+      <th>ملاحظة توضيحية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">unverified</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>حفظ الجرعة على أنها مُبلَّغ عنها من الأسرة (primarySource false، ومقدِّم الرعاية بوصفه مصدر المعلومات، وملاحظة بأنه لم يُتحقق من أي شيء) وإحالة الطفل إلى العيادة للتحقق.</td>
+      <td>قراءة الفرز التي يجريها عامل CHW في J2 (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>): لا يُتحقق من أي شيء، لذا تكون الجرعة مُبلَّغًا عنها، ولا تكون متحقَّقًا منها أبدًا. المثال Immunization TrustDemoJ2HepBReported.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td>استيراد الجرعة مع primarySource true وProvenance للتحقق يسمّي مفتاح الموقِّع ويزيل الجرعة المُبلَّغ عنها التي يحل محلها؛ ثم ربط رمز اللقاح الخاص بها (TD.DT.02).</td>
+      <td>مسار «نعم» في J3 (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>): تُسجَّل الجرعة من مصدرها الأولي. المثالان Immunization TrustDemoJ3HepB وProvenance TrustDemoJ3Verification.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">KidNotFound</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>الاحتفاظ بالجرعة على أنها مُبلَّغ عنها؛ وتسجيل الخطوة والسبب (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>)؛ والتحقق من شهادة DVC مجددًا بعد التحديث التالي لقائمة الثقة.</td>
+      <td>شهادة الموقِّع ليست في قائمة الثقة المخزَّنة مؤقتًا لدى العيادة (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>)، مثل موقِّع أُضيف بعد آخر تحديث: مسار «لا» في J3 «حتى التحديث التالي».</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>أحد <code class="language-plaintext highlighter-rouge">Expired</code>، <code class="language-plaintext highlighter-rouge">NotYetValid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>الاحتفاظ بالجرعة على أنها مُبلَّغ عنها؛ وتسجيل الخطوة والسبب؛ ويقرر الممارس السريري وفق السياسة الوطنية ما إذا كان سيعطي الجرعة أو يكررها.</td>
+      <td>اجتاز التوقيع التحقق، لكن الشهادة خارج فترة صلاحيتها. لا يُتحقق من الجرعة؛ ويقرر الممارس السريري وفق السياسة الوطنية.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>أحد <code class="language-plaintext highlighter-rouge">BadPrefix</code>، <code class="language-plaintext highlighter-rouge">UnsupportedContextVersion</code>، <code class="language-plaintext highlighter-rouge">Base45Invalid</code>، <code class="language-plaintext highlighter-rouge">InflateFailed</code>، <code class="language-plaintext highlighter-rouge">LimitExceeded</code>، <code class="language-plaintext highlighter-rouge">CoseMalformed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not-read</code></td>
+      <td>إعادة المسح الضوئي؛ وإذا استمر الفشل، التعامل مع البطاقة كالورق وتسجيل سبب عدم التحقق.</td>
+      <td>فشل فك الترميز قبل أي فحص للتوقيع (ترتيب <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>)، لذا لم يُقرأ أي شيء: ثلاث حالات لا اثنتان، إذ إن المسح الضوئي السيئ ليس دليلًا في أي من الاتجاهين.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">rejected</code></td>
+      <td>لا تُسجَّل جرعة من هذه الشهادة؛ تُسجَّل الخطوة والسبب؛ ويقرر الممارس السريري وفق السياسة الوطنية، كما في حالة جرعة غير موثَّقة.</td>
+      <td>أي فشل آخر (التوقيع، أو استخدام المفتاح، أو الترويسة، أو الخوارزمية، أو مطالبة hcert، أو الحمولة): الشهادة ليست دليلًا على جرعة.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt02-ما-رمز-الجدول-الوطني-الذي-تحمله-الجرعة-المستوردة">TD.DT.02 ما رمز الجدول الوطني الذي تحمله الجرعة المستوردة؟</h3>
+
+<p>لجرعة واحدة، يُقرَّر ما إذا كان رمز الجدول الوطني يُضاف بجانب رمز منتج الجهة المُصدِرة، الذي يُحتفظ به دائمًا، وكيف يُضاف.</p>
+
+<ul>
+  <li>يخدم: <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: إضافة الرموز الوطنية بجانب الرموز الأجنبية (<code class="language-plaintext highlighter-rouge">Task_Map</code>)</li>
+  <li>المتطلبات: <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></li>
+  <li>عناصر البيانات: <a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> نتيجة السجل، <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE01</a> رمز منتج الجهة المُصدِرة، <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> رمز الجدول الوطني، <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE03</a> أساس الربط</li>
+  <li>في الأمثلة: <a href="../artifact/ConceptMap-TrustDemoProductToOnesaEpi.html">ConceptMap TrustDemoProductToOnesaEpi</a>، <a href="../artifact/Provenance-TrustDemoJ3Adjudication.html">Provenance TrustDemoJ3Adjudication</a>، <a href="../artifact/Immunization-TrustDemoJ3HepB.html">Immunization TrustDemoJ3HepB</a></li>
+  <li>الصيغة القابلة للحوسبة: <a href="../artifact/PlanDefinition-TrustDemoDT02.html">PlanDefinition TrustDemoDT02</a>؛ المصدر <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vaccine-code-mapping.dmn">vaccine-code-mapping.dmn</a>، سياسة المطابقة FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>نتيجة السجل (TD.DT.01) (<code class="language-plaintext highlighter-rouge">outcome</code>)</th>
+      <th>قيد في الخريطة الوطنية (<code class="language-plaintext highlighter-rouge">mapEntry</code>)</th>
+      <th>يؤكد الممارس السريري وجود مكافئ (<code class="language-plaintext highlighter-rouge">clinicianConfirms</code>)</th>
+      <th>أساس الربط (<code class="language-plaintext highlighter-rouge">mappingBasis</code>)</th>
+      <th>الإجراء (<code class="language-plaintext highlighter-rouge">action</code>)</th>
+      <th>ملاحظة توضيحية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>أحد <code class="language-plaintext highlighter-rouge">reported-unverified</code>، <code class="language-plaintext highlighter-rouge">rejected</code>، <code class="language-plaintext highlighter-rouge">not-read</code></td>
+      <td>أي قيمة</td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">not-imported</code></td>
+      <td>لا يُضاف أي رمز جدول.</td>
+      <td>لا تُستورد وتُربط إلا الجرعة المتحقَّق منها (مسار «نعم» في J3)؛ أما الجرعة المُبلَّغ عنها فتحتفظ برمز الجهة المُصدِرة وحده.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">equivalent</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">concept-map</code></td>
+      <td>إضافة رمز الجدول المربوط بجانب رمز المنتج.</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a> (الخريطة): الخريطة الوطنية المنشورة فيها مكافئ؛ ويُحتفظ بالترميزين كليهما، كما في TrustDemoJ3Bcg.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td><code class="language-plaintext highlighter-rouge">yes</code></td>
+      <td><code class="language-plaintext highlighter-rouge">clinician-confirmed</code></td>
+      <td>إضافة رمز الجدول المؤكَّد بجانب رمز المنتج؛ وتسجيل إقرار الممارس السريري بوصفه Provenance؛ وإضافة الزوج إلى الخريطة الوطنية.</td>
+      <td>ليس في الخريطة قيد ويؤكد الممارس السريري المكافئ (J3: منتج التهاب الكبد B). ويُسجَّل قرارها ويُضاف إلى الخريطة حتى لا تحتاج العيادة التالية إلى تكراره.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td><code class="language-plaintext highlighter-rouge">no</code></td>
+      <td><code class="language-plaintext highlighter-rouge">unmapped</code></td>
+      <td>الإبقاء على رمز المنتج كما هو وعرض الجرعة على الممارس السريري على أنها غير مربوطة؛ ولا يحتسبها الجدول (TD.DT.03).</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a> (غير مربوط): لا يُعرف أي مكافئ، ولا يُخمَّن أي مكافئ.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt03-هل-يحتسب-الجدول-الوطني-هذه-الجرعة">TD.DT.03 هل يحتسب الجدول الوطني هذه الجرعة؟</h3>
+
+<p>لسجل Immunization واحد في سجل الطفل، يُقرَّر ما إذا كان تقييم الجدول يحتسبه على أنه أُعطي.</p>
+
+<ul>
+  <li>يخدم: <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: تقييم الجدول الوطني (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>)</li>
+  <li>المتطلبات: <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>، <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></li>
+  <li>عناصر البيانات: <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> رمز الجدول الوطني، <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> تُحتسب ضمن الجدول</li>
+  <li>في الأمثلة: <a href="../artifact/StructureDefinition-TrustDemoOnesaImmunization.html">StructureDefinition TrustDemoOnesaImmunization</a>، <a href="../artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a></li>
+  <li>الصيغة القابلة للحوسبة: <a href="../artifact/PlanDefinition-TrustDemoDT03.html">PlanDefinition TrustDemoDT03</a>؛ المصدر <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-counts.dmn">dose-counts.dmn</a>، سياسة المطابقة FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>مُسجَّلة من مصدرها الأولي (<code class="language-plaintext highlighter-rouge">primarySource</code>)</th>
+      <th>لديها رمز جدول وطني (<code class="language-plaintext highlighter-rouge">hasScheduleCode</code>)</th>
+      <th>تُحتسب (<code class="language-plaintext highlighter-rouge">counts</code>)</th>
+      <th>السبب (<code class="language-plaintext highlighter-rouge">why</code>)</th>
+      <th>ملاحظة توضيحية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>مُبلَّغ عنها، غير متحقَّق منها.</td>
+      <td>الجرعة المُبلَّغ عنها (J2: TrustDemoJ2HepBReported) تُعرض لكنها لا تُحتسب.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>غير مربوطة: تُعرض على الممارس السريري.</td>
+      <td>الجرعة المتحقَّق منها التي لا رمز جدول لها (TD.DT.02 غير مربوطة) لا يمكن للجدول قراءتها، لأنه يعمل على رموز الجدول.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>تُحتسب على أنها أُعطيت.</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>: تُحتسب وفق رمز الجدول والتاريخ، أينما أُعطيت (J3: TrustDemoJ3HepB، TrustDemoJ3Bcg).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt04-هل-هذه-الجرعة-من-الجدول-الوطني-مستحقة">TD.DT.04 هل هذه الجرعة من الجدول الوطني مستحقة؟</h3>
+
+<p>لإجراء واحد من الجدول الوطني، يُقرَّر ما إذا كان التقييم يوصي به الآن، وابتداءً من أي تاريخ.</p>
+
+<ul>
+  <li>يخدم: <a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 التحقق والاستيراد والجدولة في عيادة البلد الأم</a>: تقييم الجدول الوطني (<code class="language-plaintext highlighter-rouge">Task_Schedule</code>)؛ إعطاء الجرعات المستحقة وحجز الزيارة التالية (<code class="language-plaintext highlighter-rouge">Task_Plan</code>)</li>
+  <li>المتطلبات: <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></li>
+  <li>عناصر البيانات: <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> تُحتسب ضمن الجدول، <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE07</a> جرعة الجدول، <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE08</a> حالة التوقّع، <a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE09</a> تاريخ الاستحقاق</li>
+  <li>في الأمثلة: <a href="../artifact/PlanDefinition-TrustDemoOnesaInfantSchedule.html">PlanDefinition TrustDemoOnesaInfantSchedule</a>، <a href="../artifact/ImmunizationRecommendation-TrustDemoJ3Recommendation.html">ImmunizationRecommendation TrustDemoJ3Recommendation</a>، <a href="../artifact/Task-TrustDemoJ3Reminder.html">Task TrustDemoJ3Reminder</a></li>
+  <li>الصيغة القابلة للحوسبة: <a href="../artifact/PlanDefinition-TrustDemoDT04.html">PlanDefinition TrustDemoDT04</a>؛ المصدر <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-due.dmn">dose-due.dmn</a>، سياسة المطابقة FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>للجرعة المحتسبة رمز هذا الإجراء (TD.DT.03) (<code class="language-plaintext highlighter-rouge">counted</code>)</th>
+      <th>عمر توقيت هذا الإجراء هو الأبكر بين الإجراءات التي ليس لها جرعة محتسبة (<code class="language-plaintext highlighter-rouge">isNextVisit</code>)</th>
+      <th>التوقّع (<code class="language-plaintext highlighter-rouge">forecast</code>)</th>
+      <th>تاريخ الاستحقاق (<code class="language-plaintext highlighter-rouge">dueDate</code>)</th>
+      <th>ملاحظة توضيحية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">complete</code></td>
+      <td>—</td>
+      <td>J3: تُحتسب جرعتا الولادة من لقاحَي التهاب الكبد B وBCG بمجرد استيرادهما، لذا لا يُوصى بهما مجددًا (<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>).</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">due</code></td>
+      <td>birthDate + timingAge</td>
+      <td>J3: الخماسي 1 وbOPV 1 وPCV 1 عند 6 أسابيع، مستحقة في 2025-12-09 (ImmunizationRecommendation TrustDemoJ3Recommendation)، مع Task للتذكير في ذلك التاريخ.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not-yet</code></td>
+      <td>—</td>
+      <td>J3: الجرعة 1 من لقاح الحصبة والحصبة الألمانية عند 9 أشهر تخص زيارة لاحقة وليست ضمن هذه التوصية.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt05-هل-تُفرج-البوابة-الإلكترونية-عن-البيان-لهذا-الطلب">TD.DT.05 هل تُفرج البوابة الإلكترونية عن البيان لهذا الطلب؟</h3>
+
+<p>لطلب بيان واحد (ITI-YY5)، يُقرَّر ما إذا كانت البوابة الإلكترونية تُفرج عن البيان، وما الذي يسجّله سجل الوصول.</p>
+
+<ul>
+  <li>يخدم: <a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a>: التحقق من رمز المرور، وتسجيل الوصول، وإعادة البيان (<code class="language-plaintext highlighter-rouge">Task_Release</code>)</li>
+  <li>المتطلبات: <a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></li>
+  <li>عناصر البيانات: <a href="dictionary.html#tdj40-shared-link-and-consent">TD.J40.DE06</a> صالح حتى، <a href="dictionary.html#tdj40-shared-link-and-consent">TD.J40.DE09</a> وقت السحب، <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE06</a> مُفرَج عنه، <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE07</a> نتيجة التدقيق، <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE08</a> سبب الرفض</li>
+  <li>في الأمثلة: <a href="../artifact/Consent-TrustDemoJ4Consent.html">Consent TrustDemoJ4Consent</a>، <a href="../artifact/AuditEvent-TrustDemoJ41Access.html">AuditEvent TrustDemoJ41Access</a>، <a href="../artifact/AuditEvent-TrustDemoJ41WrongPasscode.html">AuditEvent TrustDemoJ41WrongPasscode</a></li>
+  <li>الصيغة القابلة للحوسبة: <a href="../artifact/PlanDefinition-TrustDemoDT05.html">PlanDefinition TrustDemoDT05</a>؛ المصدر <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vhl-release.dmn">vhl-release.dmn</a>، سياسة المطابقة FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>سحب الحامل الرابط (<code class="language-plaintext highlighter-rouge">withdrawn</code>)</th>
+      <th>الطلب ضمن الفترة التي اختارها الحامل (<code class="language-plaintext highlighter-rouge">withinPeriod</code>)</th>
+      <th>رمز المرور مطابق (<code class="language-plaintext highlighter-rouge">passcodeMatches</code>)</th>
+      <th>الإفراج (<code class="language-plaintext highlighter-rouge">release</code>)</th>
+      <th>نتيجة التدقيق (<code class="language-plaintext highlighter-rouge">auditOutcome</code>)</th>
+      <th>سبب الرفض (<code class="language-plaintext highlighter-rouge">refusalReason</code>)</th>
+      <th>ملاحظة توضيحية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>أي قيمة</td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">withdrawn</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a> (الإلغاء): الرابط المسحوب لا يُفرج عن أي شيء؛ وتُسجَّل المحاولة.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">expired</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a> (الانتهاء): الرابط الذي يُفتح خارج الفترة التي حددها الحامل (J4: من 2026-10-26 إلى 2026-11-09، Consent TrustDemoJ4Consent) لا يُفرج عن أي شيء.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">wrong-passcode</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a> (رمز المرور): رمز المرور الخاطئ لا يُفرج عن أي شيء ويُسجَّل في الوطن (AuditEvent TrustDemoJ41WrongPasscode).</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td>—</td>
+      <td>يُفرج عن البيان ويُسجَّل الوصول (AuditEvent TrustDemoJ41Access).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt06-هل-تتبع-الجهة-المُستقبِلة-رابط-vhl">TD.DT.06 هل تتبع الجهة المُستقبِلة رابط VHL؟</h3>
+
+<p>لرابط VHL واحد ممسوح ضوئيًا، يُقرَّر ما إذا كانت الجهة المُستقبِلة تطلب البيان أم تتعامل مع سجلات الأسرة كالورق.</p>
+
+<ul>
+  <li>يخدم: <a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 قراءة سجلات أحد أفراد الأسرة في نقطة تقديم الرعاية بالخارج</a>: التحقق من HCERT وقراءة رابط VHL في المفتاح 5 (<code class="language-plaintext highlighter-rouge">Task_Verify</code>)؛ هل تم التحقق من HCERT؟ (<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>)؛ لم يُتحقَّق منها: التعامل مع السجلات كالورق (<code class="language-plaintext highlighter-rouge">Task_Unverified</code>)؛ طلب البيان (ITI-YY5)، موقَّعًا (<code class="language-plaintext highlighter-rouge">Task_Fetch</code>)</li>
+  <li>المتطلبات: <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>، <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a></li>
+  <li>عناصر البيانات: <a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE01</a> وقت الطلب</li>
+  <li>في الأمثلة: <a href="../artifact/Provenance-TrustDemoJ41Received.html">Provenance TrustDemoJ41Received</a></li>
+  <li>الصيغة القابلة للحوسبة: <a href="../artifact/PlanDefinition-TrustDemoDT06.html">PlanDefinition TrustDemoDT06</a>؛ المصدر <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vhl-follow.dmn">vhl-follow.dmn</a>، سياسة المطابقة FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>نتيجة التحقق من HCERT (<code class="language-plaintext highlighter-rouge">result</code>)</th>
+      <th>انتهت صلاحية رابط VHL (<code class="language-plaintext highlighter-rouge">vhlExpired</code>)</th>
+      <th>الخطوة التالية (<code class="language-plaintext highlighter-rouge">next</code>)</th>
+      <th>ملاحظة توضيحية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>أي قيمة</td>
+      <td><code class="language-plaintext highlighter-rouge">treat-as-paper</code></td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>: تسمّي النتيجة المصنَّفة الخطوة والسبب، مثل غياب شهادة DSC من قائمة الثقة المخزَّنة مؤقتًا (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>). ويسجّل الممارس السريري سبب عدم التحقق.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">treat-as-paper</code></td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>: لا يُتبع الرابط المنتهية صلاحيته.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">fetch</code></td>
+      <td>طلب البيان عبر ITI-YY5 مع توقيع رسالة HTTP (<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>)؛ ثم تطبّق البوابة الإلكترونية TD.DT.05. Provenance TrustDemoJ41Received.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/decision-logic.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/decision-logic.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/decision-logic.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/decision-logic.md", "lines": [{"t":"TD.DT.01 What does a scanned DVC become in the child's record?","l":18},{"t":"TD.DT.02 Which national schedule code does an imported dose carry?","l":38},{"t":"TD.DT.03 Does the national schedule count this dose?","l":56},{"t":"TD.DT.04 Is this dose of the national schedule due?","l":73},{"t":"TD.DT.05 Does the portal release the manifest for this request?","l":90},{"t":"TD.DT.06 Does the receiver follow the VHL?","l":108}]}</script>
+
+<script src="../assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+
+</body>
+</html>

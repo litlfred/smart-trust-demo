@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh" dir="/zh/">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"zh","translationStatus":"unverified","translationSource":"indicators.html","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicators and Performance Metrics — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="../zh/indicators.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout>
+<script src="../assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="../assets/ig-artifact.css">
+<link rel="stylesheet" href="../assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="../assets/navbar/row-2acuhncsmbg.js" defer></script><script src="../assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/css/navbar-row.css"><script src="../assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content=".."></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+var b=document.querySelector('[data-fa-staging-banner]'),d=document.querySelector('[data-fa-staging-detail]');
+if(b)document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');
+var m=location.pathname.match(/^(.*\/(?:branches|STAGING)\/[^/]+\/)/);
+if(!m){if(d)d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+var s=document.createElement('script');s.src=m[1]+'staging-banner.js';
+s.onerror=function(){if(d)d.textContent='\u2014 build details unavailable';};
+(document.head||document.documentElement).appendChild(s);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root=".." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-23mbhbo4s6d","here":"/zh/indicators.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="../index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="../index.html">Summary</a></li><li><a href="../changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="../journeys.html">Journeys J1 to J4</a></li><li><a href="../countries.html">Fictional Countries</a></li><li><a href="../journey-examples.html">Journey Examples</a></li><li><a href="../architecture.html">Architecture (ArchiMate)</a></li><li><a href="../plan.html">Plan</a></li><li><a href="../proposal-app-platform.html">App Platform Proposal</a></li><li><a href="../dependencies.html">Dependency Register</a></li><li><a href="../upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="../personas.html">Generic Personas</a></li><li><a href="../scenarios.html">User Scenarios</a></li><li><a href="../business-processes.html">Business Processes</a></li><li><a href="../dictionary.html">Data Dictionary</a></li><li><a href="../decision-logic.html">Decision-support Logic</a></li><li><a href="../indicators.html">Indicators and Performance Metrics</a></li><li><a href="../functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="../system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="../artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="../assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from dak/indicators.json. Do not edit; edit the source and rerun. -->
+
+<p>这些指标是 DAK 的第 7 个组成部分：按照 <a href="https://smart.who.int/ig-starter-kit/l2_dak.html">WHO SMART 指南 DAK</a> 的定义，一个项目可以从旅程所记录的数据中统计什么。每个指标都以文字形式并以基于<a href="dictionary.html">数据元素</a>的计算形式给出其分子和分母，以及报告时所用的分类汇总。每个指标同时也是一个 FHIR <code class="language-plaintext highlighter-rouge">Measure</code>（比例评分），其人群是描述性的，而非可计算的：本指南不包含 CQL。</p>
+
+<p>这些仅为定义。它们不规定任何目标、阈值或数值：这些旅程是使用虚构人物的演示，此处没有任何内容经过实际测量。</p>
+
+<p>来源是 <code class="language-plaintext highlighter-rouge">dak/indicators.json</code>；本页及各 Measure 均由其生成。</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>指标</th>
+      <th>定义</th>
+      <th>旅程</th>
+      <th>度量（Measure）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#tdind01-foreign-doses-imported-as-verified">TD.IND.01 作为已验证剂次导入的外国剂次</a></td>
+      <td>在诊所为验证而扫描的外国 DVC 中，其剂次被记录为已验证的比例。</td>
+      <td>J3</td>
+      <td><a href="../artifact/Measure-TrustDemoIND01.html">TrustDemoIND01</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind02-shared-link-openings-that-were-authorised">TD.IND.02 经授权的共享链接打开次数</a></td>
+      <td>在打开某位家庭成员共享链接的请求中，本国予以放行的比例。</td>
+      <td>J4.1</td>
+      <td><a href="../artifact/Measure-TrustDemoIND02.html">TrustDemoIND02</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind03-chw-referrals-for-verification-completed-at-the-clinic">TD.IND.03 在诊所完成的 CHW 验证转诊</a></td>
+      <td>在社区卫生工作者为验证儿童外国接种卡而发起的转诊中，在诊所完成的比例。</td>
+      <td>J2，J3</td>
+      <td><a href="../artifact/Measure-TrustDemoIND03.html">TrustDemoIND03</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tdind04-imported-doses-carrying-a-national-schedule-code">TD.IND.04 带有国家接种计划代码的导入剂次</a></td>
+      <td>在作为已验证剂次导入的外国剂次中，除签发方代码外还带有国家接种计划代码、因而计入接种计划的比例。</td>
+      <td>J3</td>
+      <td><a href="../artifact/Measure-TrustDemoIND04.html">TrustDemoIND04</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind01-作为已验证剂次导入的外国剂次">TD.IND.01 作为已验证剂次导入的外国剂次</h3>
+
+<p>在诊所为验证而扫描的外国 DVC 中，其剂次被记录为已验证的比例。</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>分子</td>
+      <td>报告期内为验证而扫描、且其剂次被记录为已验证的外国 DVC。</td>
+    </tr>
+    <tr>
+      <td>分子计算</td>
+      <td>COUNT 验证记录（TD.J3A）WHERE “验证时间”在报告期内 AND “记录结果” = verified</td>
+    </tr>
+    <tr>
+      <td>分母</td>
+      <td>报告期内为验证而扫描的外国 DVC。</td>
+    </tr>
+    <tr>
+      <td>分母计算</td>
+      <td>COUNT 验证记录（TD.J3A）WHERE “验证时间”在报告期内</td>
+    </tr>
+    <tr>
+      <td>分类汇总</td>
+      <td>记录结果：verified、reported-unverified、rejected、not-read（TD.DT.01）失败原因：<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a> 规定的原因，针对未通过验证的 DVC签发国家：签署该 DVC 的参与方机构：进行验证的诊所</td>
+    </tr>
+    <tr>
+      <td>数据元素</td>
+      <td><a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE02</a> 签发国家<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE03</a> 验证时间<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE05</a> 验证结果<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE07</a> 失败原因<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> 记录结果</td>
+    </tr>
+    <tr>
+      <td>决策表</td>
+      <td><a href="decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01</a></td>
+    </tr>
+    <tr>
+      <td>需求</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a></td>
+    </tr>
+    <tr>
+      <td>旅程</td>
+      <td>J3</td>
+    </tr>
+    <tr>
+      <td>度量（Measure）</td>
+      <td><a href="../artifact/Measure-TrustDemoIND01.html">TrustDemoIND01</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind02-经授权的共享链接打开次数">TD.IND.02 经授权的共享链接打开次数</h3>
+
+<p>在打开某位家庭成员共享链接的请求中，本国予以放行的比例。</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>分子</td>
+      <td>报告期内获得放行的清单请求。</td>
+    </tr>
+    <tr>
+      <td>分子计算</td>
+      <td>COUNT 访问记录（TD.J41）WHERE “请求时间”在报告期内 AND “已放行” = true</td>
+    </tr>
+    <tr>
+      <td>分母</td>
+      <td>报告期内的清单请求，无论放行或拒绝。</td>
+    </tr>
+    <tr>
+      <td>分母计算</td>
+      <td>COUNT 访问记录（TD.J41）WHERE “请求时间”在报告期内</td>
+    </tr>
+    <tr>
+      <td>分类汇总</td>
+      <td>拒绝原因：wrong-passcode、expired、withdrawn（TD.DT.05）请求系统：国外的接收方及其所在国家</td>
+    </tr>
+    <tr>
+      <td>数据元素</td>
+      <td><a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE01</a> 请求时间<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE02</a> 请求方<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE06</a> 已放行<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE08</a> 拒绝原因</td>
+    </tr>
+    <tr>
+      <td>决策表</td>
+      <td><a href="decision-logic.html#tddt05-does-the-portal-release-the-manifest-for-this-request">TD.DT.05</a></td>
+    </tr>
+    <tr>
+      <td>需求</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></td>
+    </tr>
+    <tr>
+      <td>旅程</td>
+      <td>J4.1</td>
+    </tr>
+    <tr>
+      <td>度量（Measure）</td>
+      <td><a href="../artifact/Measure-TrustDemoIND02.html">TrustDemoIND02</a>（依据 <code class="language-plaintext highlighter-rouge">AuditEvent</code>）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind03-在诊所完成的-chw-验证转诊">TD.IND.03 在诊所完成的 CHW 验证转诊</h3>
+
+<p>在社区卫生工作者为验证儿童外国接种卡而发起的转诊中，在诊所完成的比例。</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>分子</td>
+      <td>报告期内发起、且诊所已为转诊所列每一剂次记录了结果的转诊。</td>
+    </tr>
+    <tr>
+      <td>分子计算</td>
+      <td>COUNT 转诊（TD.J2B）WHERE “转诊时间”在报告期内 AND “转诊状态” = completed</td>
+    </tr>
+    <tr>
+      <td>分母</td>
+      <td>报告期内社区卫生工作者发起的验证转诊。</td>
+    </tr>
+    <tr>
+      <td>分母计算</td>
+      <td>COUNT 转诊（TD.J2B）WHERE “转诊时间”在报告期内</td>
+    </tr>
+    <tr>
+      <td>分类汇总</td>
+      <td>转诊至：被转诊的诊所转诊人：社区卫生工作者</td>
+    </tr>
+    <tr>
+      <td>数据元素</td>
+      <td><a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE02</a> 转诊人<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE03</a> 转诊至<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE04</a> 转诊时间<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE06</a> 待验证剂次<a href="dictionary.html#tdj2b-referral-for-verification">TD.J2B.DE07</a> 转诊状态</td>
+    </tr>
+    <tr>
+      <td>决策表</td>
+      <td><a href="decision-logic.html#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01</a></td>
+    </tr>
+    <tr>
+      <td>需求</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td>旅程</td>
+      <td>J2，J3</td>
+    </tr>
+    <tr>
+      <td>度量（Measure）</td>
+      <td><a href="../artifact/Measure-TrustDemoIND03.html">TrustDemoIND03</a>（依据 <code class="language-plaintext highlighter-rouge">ServiceRequest</code>）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tdind04-带有国家接种计划代码的导入剂次">TD.IND.04 带有国家接种计划代码的导入剂次</h3>
+
+<p>在作为已验证剂次导入的外国剂次中，除签发方代码外还带有国家接种计划代码、因而计入接种计划的比例。</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>分子</td>
+      <td>报告期内作为已验证剂次导入、且带有国家接种计划代码的剂次。</td>
+    </tr>
+    <tr>
+      <td>分子计算</td>
+      <td>COUNT 导入剂次（TD.J3B）WHERE 在报告期内导入 AND “映射依据” in (concept-map, clinician-confirmed)</td>
+    </tr>
+    <tr>
+      <td>分母</td>
+      <td>报告期内作为已验证剂次导入的剂次。</td>
+    </tr>
+    <tr>
+      <td>分母计算</td>
+      <td>COUNT 导入剂次（TD.J3B）WHERE 在报告期内导入 AND “映射依据” != not-imported</td>
+    </tr>
+    <tr>
+      <td>分类汇总</td>
+      <td>映射依据：concept-map、clinician-confirmed、unmapped（TD.DT.02）签发方产品代码：签名时的产品</td>
+    </tr>
+    <tr>
+      <td>数据元素</td>
+      <td><a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE01</a> 签发方产品代码<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> 国家接种计划代码<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE03</a> 映射依据<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> 计入接种计划</td>
+    </tr>
+    <tr>
+      <td>决策表</td>
+      <td><a href="decision-logic.html#tddt02-which-national-schedule-code-does-an-imported-dose-carry">TD.DT.02</a>，<a href="decision-logic.html#tddt03-does-the-national-schedule-count-this-dose">TD.DT.03</a></td>
+    </tr>
+    <tr>
+      <td>需求</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>，<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td>旅程</td>
+      <td>J3</td>
+    </tr>
+    <tr>
+      <td>度量（Measure）</td>
+      <td><a href="../artifact/Measure-TrustDemoIND04.html">TrustDemoIND04</a>（依据 <code class="language-plaintext highlighter-rouge">Immunization</code>）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/indicators.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/indicators.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/indicators.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/indicators.md", "lines": [{"t":"TD.IND.01 Foreign doses imported as verified","l":18},{"t":"TD.IND.02 Shared-link openings that were authorised","l":36},{"t":"TD.IND.03 CHW referrals for verification completed at the clinic","l":54},{"t":"TD.IND.04 Imported doses carrying a national schedule code","l":72}]}</script>
+
+<script src="../assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+
+</body>
+</html>

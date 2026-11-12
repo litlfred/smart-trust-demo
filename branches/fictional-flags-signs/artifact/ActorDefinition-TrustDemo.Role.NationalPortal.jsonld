@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.NationalPortal",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.NationalPortal",
+  "schema:name": "NationalPortal",
+  "dcterms:title": "National health portal",
+  "dcterms:description": "The home country's portal that issues each family member's records (IPS, DVCs) as a passcode-protected Verifiable Health Link and hosts the manifests (J4.0), checking the passcode, expiry and consent on each request and logging every access at home (J4.1): the VHL Sharer.\n\n**Persona**: A government service signing with the national DSC, issued under the national CSCA and already shared with the GDHCN; hosts manifests and encrypted documents for a limited time.\n\n**Also known as**: VHL Sharer (IHE ITI VHL); Issuer of the family's VHLs (SMART Trust Issuer)\n\n**Played in the journeys by** (fictional):\n\n- Onesa national health portal and gateway (Country B, XXK)\n\n**In the user scenarios**:\n\n- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-onesa-12-months-later): J4.0b Dad creates a link to share at the clinic\n- [J4.1 — Crossing back: a Taifafeki doctor sees the full history](scenarios.html#j41--crossing-back-a-taifafeki-doctor-sees-the-full-history-kesaro-12-months-later): J4.1 A Taifafeki doctor sees the full history\n\n**On the device screens**: [S7 VHL QR Display & Passcode Protection (Bounmy's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S7/); [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)\n\n**Discussed in the workshop modules**: [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/); [M6 Doing it once, together](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m6/); [M7 Our first move, what it costs, and what we ask for](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m7/)\n\n**Lanes and tasks in the business processes**:\n\n- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Assemble each member's IPS and DVCs; Encrypt, publish a passcode manifest; Prepare the HCERT carrying the VHL at key 5; Finish the HC1 QR text\n- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Check passcode, log access, return manifest\n\n**Decisions it makes**:\n\n- Decision table [TD.DT.05 Does the portal release the manifest for this request?](decision-logic.html#tddt05-does-the-portal-release-the-manifest-for-this-request), in: Check passcode, log access, return manifest\n\n**Data sets its tasks record or read**: [TD.J40 Shared link and consent](dictionary.html#tdj40-shared-link-and-consent); [TD.J41 Access to a shared link](dictionary.html#tdj41-access-to-a-shared-link)\n\n**Indicators that count its decisions**: [TD.IND.02 Shared-link openings that were authorised](indicators.html#tdind02-shared-link-openings-that-were-authorised)",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.NationalPortal"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ActorDefinition-TrustDemo.Role.NationalPortal.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/de5aa6ce86239585e518ca0d7e192b01f5b3164d/resources/ActorDefinition/TrustDemo.Role.NationalPortal.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "e6fde6b4d37b2fb0903f5562c0d68abc9b5e18aa"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

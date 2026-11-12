@@ -1,0 +1,202 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_ContentChangeReviewMake",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_DetectScope",
+   "name": "Detect change scope & impact",
+   "left": 21.9,
+   "top": 11.11,
+   "box": {
+    "left": 16.61,
+    "top": 63.89,
+    "width": 1.75,
+    "height": 13.33
+   }
+  },
+  {
+   "id": "Task_CreateBranch",
+   "name": "Create feature branch",
+   "left": 32.48,
+   "top": 11.11,
+   "box": {
+    "left": 27.19,
+    "top": 63.89,
+    "width": 1.75,
+    "height": 13.33
+   }
+  },
+  {
+   "id": "Task_EditContent",
+   "name": "Edit narrative content blocks",
+   "left": 43.07,
+   "top": 11.11,
+   "box": {
+    "left": 37.77,
+    "top": 63.89,
+    "width": 1.75,
+    "height": 13.33
+   }
+  },
+  {
+   "id": "Task_EditLogic",
+   "name": "Edit deterministic logic (if needed)",
+   "left": 53.65,
+   "top": 11.11,
+   "box": {
+    "left": 48.36,
+    "top": 63.89,
+    "width": 1.75,
+    "height": 13.33
+   }
+  },
+  {
+   "id": "Task_AssessImpact",
+   "name": "Assess downstream impact",
+   "left": 64.23,
+   "top": 11.11,
+   "box": {
+    "left": 58.94,
+    "top": 63.89,
+    "width": 1.75,
+    "height": 13.33
+   }
+  },
+  {
+   "id": "Call_OptionsAnalysis",
+   "name": "Options analysis how to absorb the impact",
+   "left": 74.82,
+   "top": 11.11,
+   "box": {
+    "left": 69.53,
+    "top": 63.89,
+    "width": 1.75,
+    "height": 13.33
+   }
+  },
+  {
+   "id": "Task_CommitPush",
+   "name": "Commit, push, update PR",
+   "left": 85.4,
+   "top": 11.11,
+   "box": {
+    "left": 80.11,
+    "top": 63.89,
+    "width": 1.75,
+    "height": 13.33
+   }
+  }
+ ],
+ "processHref": "content-change-review-make.html",
+ "tasks": {
+  "Task_DetectScope": {
+   "id": "Task_DetectScope",
+   "name": "Detect change scope & impact",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_DetectScope",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_CreateBranch": {
+   "id": "Task_CreateBranch",
+   "name": "Create feature branch",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_CreateBranch",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_EditContent": {
+   "id": "Task_EditContent",
+   "name": "Edit narrative content blocks",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_EditContent",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_EditLogic": {
+   "id": "Task_EditLogic",
+   "name": "Edit deterministic logic (if needed)",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_EditLogic",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_AssessImpact": {
+   "id": "Task_AssessImpact",
+   "name": "Assess downstream impact",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_AssessImpact",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Call_OptionsAnalysis": {
+   "id": "Call_OptionsAnalysis",
+   "name": "Options analysis how to absorb the impact",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-change-review-make.html#step-Call_OptionsAnalysis",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
+   "skills": [],
+   "calls": {
+    "name": "Process_OptionsAnalysis"
+   },
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "Task_CommitPush": {
+   "id": "Task_CommitPush",
+   "name": "Commit, push, update PR",
+   "type": "bpmn:Task",
+   "stepHref": "content-change-review-make.html#step-Task_CommitPush",
+   "lane": "Folio-Assistant Agent",
+   "laneHref": "content-change-review-make.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

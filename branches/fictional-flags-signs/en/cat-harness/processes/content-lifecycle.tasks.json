@@ -1,0 +1,300 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_Lifecycle",
+ "skills": false,
+ "markers": [
+  {
+   "id": "Task_Plan",
+   "name": "Plan scope, team, artifacts",
+   "left": 15.25,
+   "top": 1.54,
+   "box": {
+    "left": 12.04,
+    "top": 8.83,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "Task_SeedBeans",
+   "name": "Seed the work plan",
+   "left": 25.19,
+   "top": 35.71,
+   "box": {
+    "left": 20.88,
+    "top": 40.71,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "CallActivity_Editing",
+   "name": "Editing and HCI validation",
+   "left": 32.92,
+   "top": 46.08,
+   "box": {
+    "left": 29.72,
+    "top": 53.38,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "Task_Test",
+   "name": "Integration test and QA sweep",
+   "left": 41.76,
+   "top": 57.6,
+   "box": {
+    "left": 38.56,
+    "top": 64.9,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "CallActivity_Publication",
+   "name": "Draft, review and publish",
+   "left": 50.6,
+   "top": 80.65,
+   "box": {
+    "left": 47.39,
+    "top": 87.94,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "Task_Feedback",
+   "name": "Triage published feedback",
+   "left": 59.66,
+   "top": 69.12,
+   "box": {
+    "left": 56.45,
+    "top": 76.42,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "Task_FeedbackBeans",
+   "name": "File feedback as beans",
+   "left": 68.05,
+   "top": 35.71,
+   "box": {
+    "left": 64.63,
+    "top": 40.71,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "Task_Retire",
+   "name": "Retire or archive",
+   "left": 81.97,
+   "top": 1.54,
+   "box": {
+    "left": 78.77,
+    "top": 8.83,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "Call_BeanOpen",
+   "name": "Open the bean",
+   "left": 24.08,
+   "top": 12.83,
+   "box": {
+    "left": 20.88,
+    "top": 20.12,
+    "width": 1.06,
+    "height": 1.84
+   }
+  },
+  {
+   "id": "Call_BeanClose",
+   "name": "Close the bean",
+   "left": 91.03,
+   "top": 1.54,
+   "box": {
+    "left": 87.83,
+    "top": 8.83,
+    "width": 1.06,
+    "height": 1.84
+   }
+  }
+ ],
+ "processHref": "content-lifecycle.html",
+ "tasks": {
+  "Task_Plan": {
+   "id": "Task_Plan",
+   "name": "Plan scope, team, artifacts",
+   "type": "bpmn:UserTask",
+   "stepHref": "content-lifecycle.html#step-Task_Plan",
+   "lane": "Programme manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_ProgMgr",
+   "skills": [],
+   "role": {
+    "name": "programme-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-programme-manager",
+    "title": "Programme manager",
+    "skills": []
+   }
+  },
+  "Task_SeedBeans": {
+   "id": "Task_SeedBeans",
+   "name": "Seed the work plan",
+   "type": "bpmn:Task",
+   "stepHref": "content-lifecycle.html#step-Task_SeedBeans",
+   "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
+   "skills": [],
+   "shared": {
+    "id": "GT_SeedWorkPlan",
+    "type": "bpmn:GlobalTask"
+   },
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "CallActivity_Editing": {
+   "id": "CallActivity_Editing",
+   "name": "Editing and HCI validation",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-CallActivity_Editing",
+   "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
+   "skills": [],
+   "calls": {
+    "name": "Editing and HCI validation",
+    "href": "editing-hci-validation.html",
+    "diagram": "editing-hci-validation.html"
+   },
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_Test": {
+   "id": "Task_Test",
+   "name": "Integration test and QA sweep",
+   "type": "bpmn:ServiceTask",
+   "stepHref": "content-lifecycle.html#step-Task_Test",
+   "lane": "Validation and QA (mechanical + agents)",
+   "laneHref": "content-lifecycle.html#lane-Lane_Qa",
+   "skills": [],
+   "role": {
+    "name": "validation-pipeline",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-validation-pipeline",
+    "title": "Validation pipeline",
+    "skills": []
+   }
+  },
+  "CallActivity_Publication": {
+   "id": "CallActivity_Publication",
+   "name": "Draft, review and publish",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-CallActivity_Publication",
+   "lane": "Publication manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_PubMgr",
+   "skills": [],
+   "calls": {
+    "name": "Draft, review and publish",
+    "href": "draft-to-publication.html",
+    "diagram": "draft-to-publication.html"
+   },
+   "role": {
+    "name": "publication-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-publication-manager",
+    "title": "Publication manager",
+    "skills": []
+   }
+  },
+  "Task_Feedback": {
+   "id": "Task_Feedback",
+   "name": "Triage published feedback",
+   "type": "bpmn:UserTask",
+   "stepHref": "content-lifecycle.html#step-Task_Feedback",
+   "lane": "Review team and SMEs",
+   "laneHref": "content-lifecycle.html#lane-Lane_Review",
+   "skills": [],
+   "role": {
+    "name": "reviewer",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-reviewer",
+    "title": "Reviewer / SME",
+    "skills": []
+   }
+  },
+  "Task_FeedbackBeans": {
+   "id": "Task_FeedbackBeans",
+   "name": "File feedback as beans",
+   "type": "bpmn:Task",
+   "stepHref": "content-lifecycle.html#step-Task_FeedbackBeans",
+   "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
+   "skills": [],
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Task_Retire": {
+   "id": "Task_Retire",
+   "name": "Retire or archive",
+   "type": "bpmn:UserTask",
+   "stepHref": "content-lifecycle.html#step-Task_Retire",
+   "lane": "Programme manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_ProgMgr",
+   "skills": [],
+   "role": {
+    "name": "programme-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-programme-manager",
+    "title": "Programme manager",
+    "skills": []
+   }
+  },
+  "Call_BeanOpen": {
+   "id": "Call_BeanOpen",
+   "name": "Open the bean",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-Call_BeanOpen",
+   "lane": "Editors + authoring agents",
+   "laneHref": "content-lifecycle.html#lane-Lane_Editors",
+   "skills": [],
+   "calls": {
+    "name": "Process_BeanOpen"
+   },
+   "role": {
+    "name": "editor",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-editor",
+    "title": "Editor",
+    "skills": []
+   }
+  },
+  "Call_BeanClose": {
+   "id": "Call_BeanClose",
+   "name": "Close the bean",
+   "type": "bpmn:CallActivity",
+   "stepHref": "content-lifecycle.html#step-Call_BeanClose",
+   "lane": "Programme manager",
+   "laneHref": "content-lifecycle.html#lane-Lane_ProgMgr",
+   "skills": [],
+   "calls": {
+    "name": "Process_BeanClose"
+   },
+   "role": {
+    "name": "programme-manager",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-programme-manager",
+    "title": "Programme manager",
+    "skills": []
+   }
+  }
+ }
+}

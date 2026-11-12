@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="zh" dir="/zh/">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<script type="application/json" id="fa-translation-meta">{"lang":"zh","translationStatus":"unverified","translationSource":"decision-logic.html","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":["en","ar","es","fr","ru","zh"]}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision-support Logic — SMART Trust demonstrator: journeys J1 to J4</title>
+<link rel="canonical" href="../zh/decision-logic.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23276749'/%3E%3C/svg%3E">
+<meta name="folio-navbar" content="linked">
+<meta name="fa-visualiser-label" content="SMART Trust demonstrator: journeys J1 to J4">
+<link rel="stylesheet" href="../assets/page-layout.css" data-fa-page-layout>
+<script src="../assets/page-layout.js" defer data-fa-page-layout></script>
+<link rel="stylesheet" href="../assets/ig-artifact.css">
+<link rel="stylesheet" href="../assets/css/docs-ui.css" data-fa-folio-mount>
+<script src="../assets/navbar/row-2acuhncsmbg.js" defer></script><script src="../assets/js/docs-ui.js" defer data-fa-folio-mount></script>
+<link rel="stylesheet" href="../assets/css/navbar.css"><script src="../assets/navbar/rail-23mbhbo4s6d.js" defer></script><script src="../assets/js/navbar.js" defer></script><link rel="stylesheet" href="../assets/css/navbar-row.css"><script src="../assets/js/navbar-row.js" defer></script><meta name="fa-pinned-data" content=".."></head>
+<body><div data-fa-staging-banner lang="en" dir="ltr" style="background:#4F6F52;color:#fff;padding:8px 16px;font-size:14px;text-align:center;position:fixed;top:0;left:0;right:0;box-sizing:border-box;z-index:2147483001;font-family:system-ui">🔀 <b>FEATURE BRANCH</b> <span data-fa-staging-detail>— loading build details…</span></div><style>:root{--fa-staging-offset:0px}body{margin:0}.side-bar,.fa-nav{top:var(--fa-staging-offset,0px)!important}html{padding-top:var(--fa-staging-offset,0px)}</style><script>(function(){
+var b=document.querySelector('[data-fa-staging-banner]'),d=document.querySelector('[data-fa-staging-detail]');
+if(b)document.documentElement.style.setProperty('--fa-staging-offset',b.getBoundingClientRect().height+'px');
+var m=location.pathname.match(/^(.*\/(?:branches|STAGING)\/[^/]+\/)/);
+if(!m){if(d)d.textContent='\u2014 build details unavailable (not served from a preview path)';return;}
+var s=document.createElement('script');s.src=m[1]+'staging-banner.js';
+s.onerror=function(){if(d)d.textContent='\u2014 build details unavailable';};
+(document.head||document.documentElement).appendChild(s);
+})();</script><script type="application/json" id="fa-navbar-row" data-fa-root=".." data-fa-row-src="row-2acuhncsmbg"></script><script type="application/json" id="fa-rail" data-fa-root="https://litlfred.github.io/folio-assistant" data-fa-to-root="..">{"data":"rail-23mbhbo4s6d","here":"/zh/decision-logic.html"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../">SMART Trust demonstrator: journeys J1 to J4</a></nav>
+
+<div class="ig-topbar fa-page-bar" role="navigation" aria-label="SMART Trust demonstrator: journeys J1 to J4 menu"><a class="ig-topbar-home" href="../index.html">SMART Trust demonstrator: journeys J1 to J4</a><details class="ig-topbar-group"><summary>Home</summary><ul><li><a href="../index.html">Summary</a></li><li><a href="../changes.html">Changes</a></li></ul></details><details class="ig-topbar-group"><summary>Project</summary><ul><li><a href="../journeys.html">Journeys J1 to J4</a></li><li><a href="../countries.html">Fictional Countries</a></li><li><a href="../journey-examples.html">Journey Examples</a></li><li><a href="../architecture.html">Architecture (ArchiMate)</a></li><li><a href="../plan.html">Plan</a></li><li><a href="../proposal-app-platform.html">App Platform Proposal</a></li><li><a href="../dependencies.html">Dependency Register</a></li><li><a href="../upstream-who-smart-trust-phw-receive-a-vhl.html">Upstream Issue (smart-trust-phw)</a></li></ul></details><details class="ig-topbar-group"><summary>Business Requirements</summary><ul><li><a href="../personas.html">Generic Personas</a></li><li><a href="../scenarios.html">User Scenarios</a></li><li><a href="../business-processes.html">Business Processes</a></li><li><a href="../dictionary.html">Data Dictionary</a></li><li><a href="../decision-logic.html">Decision-support Logic</a></li><li><a href="../indicators.html">Indicators and Performance Metrics</a></li><li><a href="../functional-requirements.html">Functional Requirements</a></li></ul></details><details class="ig-topbar-group"><summary>Data Models and Exchange</summary><ul><li><a href="../system-actors.html">System Actors</a></li></ul></details><details class="ig-topbar-group"><summary>Indices</summary><ul><li><a href="../artifacts.html">Artifact Index</a></li></ul></details><form class="ig-search" role="search" data-ig-search-index="../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span><script src="../assets/ig-search.js" defer></script></div>
+<main class="ig-main main-content fa-page-main" id="main-content">
+<p><span hidden="" data-fa-figure-images="ig"></span></p>
+
+<!-- Generated by tools/ig-gen/ig_gen.py from processes/content/decisions/*.dmn. Do not edit; edit the source and rerun. -->
+
+<p>决策支持逻辑是 DAK 的第 6 个组成部分：各旅程所作出的决策，按照 <a href="https://smart.who.int/ig-starter-kit/l2_dak.html">世卫组织 SMART 指南（WHO SMART Guidelines）DAK</a> 的写法，以 <a href="https://www.omg.org/dmn/">OMG 决策模型和表示法（Decision Model and Notation）</a>（DMN 1.3）中的决策表表示。每个表都指明它所服务的业务流程任务、它所应用的需求、它所读取的<a href="dictionary.html">数据元素</a>，以及在示例中展示它的 FHIR 工件。每个表也是一个 <code class="language-plaintext highlighter-rouge">PlanDefinition</code>（类型 <code class="language-plaintext highlighter-rouge">eca-rule</code>），每条规则对应一个动作，因此它列在<a href="../artifacts.html">工件索引</a>中。</p>
+
+<p>源文件为 <code class="language-plaintext highlighter-rouge">processes/content/decisions/*.dmn</code>；本页面和各 PlanDefinition 均由其生成。各条目使用工具框架决策表解释器所接受的 FEEL 子集：<code class="language-plaintext highlighter-rouge">-</code>（任意）、字面量、比较以及 one-of。每个表的命中策略都是 FIRST：按顺序尝试各规则，第一条匹配的规则生效，因此顺序是逻辑的一部分。凡规则写明“根据国家政策”之处，该政策指本国的政策；这些表用于说明决策，并非某个国家的规则。</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>决策表</th>
+      <th>服务于</th>
+      <th>需求</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#tddt01-what-does-a-scanned-dvc-become-in-the-childs-record">TD.DT.01 扫描的 DVC 在儿童记录中成为什么？</a></td>
+      <td><a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 在 B 国发现并转诊未登记的婴儿</a>：以未验证方式读取每个 DVC（分诊）（<code class="language-plaintext highlighter-rouge">Task_Read</code>）；添加婴儿；将剂次保存为已报告（<code class="language-plaintext highlighter-rouge">Task_Register</code>）<a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：针对信任列表验证每个 HCERT（<code class="language-plaintext highlighter-rouge">Task_Verify</code>）；每个 DVC 都已验证？（<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>）；记录失败；按政策决定剂次（<code class="language-plaintext highlighter-rouge">Task_Unverified</code>）；将剂次作为 FHIR Immunization 资源导入（<code class="language-plaintext highlighter-rouge">Task_Import</code>）</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt02-which-national-schedule-code-does-an-imported-dose-carry">TD.DT.02 导入的剂次带有哪个国家接种计划编码？</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：在外国编码旁添加国家编码（<code class="language-plaintext highlighter-rouge">Task_Map</code>）</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt03-does-the-national-schedule-count-this-dose">TD.DT.03 国家接种计划是否计入该剂次？</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：评估国家接种计划（<code class="language-plaintext highlighter-rouge">Task_Schedule</code>）</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>，<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt04-is-this-dose-of-the-national-schedule-due">TD.DT.04 国家接种计划的该剂次是否到期？</a></td>
+      <td><a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：评估国家接种计划（<code class="language-plaintext highlighter-rouge">Task_Schedule</code>）；接种到期剂次并预约下次就诊（<code class="language-plaintext highlighter-rouge">Task_Plan</code>）</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt05-does-the-portal-release-the-manifest-for-this-request">TD.DT.05 门户是否针对该请求释放清单？</a></td>
+      <td><a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 在国外的医疗服务点读取家庭成员的记录</a>：核验通行码、记录访问、返回清单（<code class="language-plaintext highlighter-rouge">Task_Release</code>）</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></td>
+    </tr>
+    <tr>
+      <td><a href="#tddt06-does-the-receiver-follow-the-vhl">TD.DT.06 接收方是否跟随该 VHL？</a></td>
+      <td><a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 在国外的医疗服务点读取家庭成员的记录</a>：验证 HCERT 并读取键 5 处的 VHL（<code class="language-plaintext highlighter-rouge">Task_Verify</code>）；HCERT 已验证？（<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>）；未验证：按纸质记录对待（<code class="language-plaintext highlighter-rouge">Task_Unverified</code>）；请求清单（ITI-YY5），已签名（<code class="language-plaintext highlighter-rouge">Task_Fetch</code>）</td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt01-扫描的-dvc-在儿童记录中成为什么">TD.DT.01 扫描的 DVC 在儿童记录中成为什么？</h3>
+
+<p>根据读取某个外国 DVC 的结果，决定其剂次是记录为已验证、保留为已报告且未验证，还是根本不据此记录。</p>
+
+<ul>
+  <li>服务于：<a href="business-processes.html#j2-discover-and-refer-an-unregistered-infant-in-country-b">J2 在 B 国发现并转诊未登记的婴儿</a>：以未验证方式读取每个 DVC（分诊）（<code class="language-plaintext highlighter-rouge">Task_Read</code>）；添加婴儿；将剂次保存为已报告（<code class="language-plaintext highlighter-rouge">Task_Register</code>）；<a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：针对信任列表验证每个 HCERT（<code class="language-plaintext highlighter-rouge">Task_Verify</code>）；每个 DVC 都已验证？（<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>）；记录失败；按政策决定剂次（<code class="language-plaintext highlighter-rouge">Task_Unverified</code>）；将剂次作为 FHIR Immunization 资源导入（<code class="language-plaintext highlighter-rouge">Task_Import</code>）</li>
+  <li>需求：<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a></li>
+  <li>数据元素：<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE05</a> 验证结果，<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE07</a> 失败原因，<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> 记录结果</li>
+  <li>示例中：<a href="../artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a>、<a href="../artifact/StructureDefinition-TrustDemoOnesaDvcVerification.html">StructureDefinition TrustDemoOnesaDvcVerification</a>、<a href="../artifact/Provenance-TrustDemoJ3Verification.html">Provenance TrustDemoJ3Verification</a></li>
+  <li>可计算形式：<a href="../artifact/PlanDefinition-TrustDemoDT01.html">PlanDefinition TrustDemoDT01</a>；源文件 <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dvc-record-outcome.dmn">dvc-record-outcome.dmn</a>，命中策略 FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>验证结果（<code class="language-plaintext highlighter-rouge">result</code>）</th>
+      <th>失败原因（<code class="language-plaintext highlighter-rouge">failureReason</code>）</th>
+      <th>记录结果（<code class="language-plaintext highlighter-rouge">outcome</code>）</th>
+      <th>动作（<code class="language-plaintext highlighter-rouge">action</code>）</th>
+      <th>注释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">unverified</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>将该剂次保存为由家庭报告的剂次（primarySource false，照护者作为信息来源，并注明未经任何验证），并将儿童转诊到诊所进行验证。</td>
+      <td>J2 中 CHW 的分诊读取（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-011">STT-VER-011</a>）：未验证任何内容，因此该剂次是已报告的，绝不是已验证的。示例 Immunization TrustDemoJ2HepBReported。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td>以 primarySource true 导入该剂次，并附带一个验证 Provenance，其中指明签名者的密钥，并移除被其替换的已报告剂次；然后映射其疫苗编码（TD.DT.02）。</td>
+      <td>J3 的“是”路径（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>）：该剂次根据其原始来源记录。示例 Immunization TrustDemoJ3HepB 和 Provenance TrustDemoJ3Verification。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">KidNotFound</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>将该剂次保留为已报告；记录步骤和原因（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>）；在下次信任列表刷新后再次验证该 DVC。</td>
+      <td>签名者的证书不在诊所缓存的信任列表中（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>），例如在上次刷新之后添加的签名者：即 J3 的“否”路径“直到下次刷新”。</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Expired</code>、<code class="language-plaintext highlighter-rouge">NotYetValid</code> 之一</td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code></td>
+      <td>将该剂次保留为已报告；记录步骤和原因；由临床医生根据国家政策决定是否接种或重复接种该剂次。</td>
+      <td>签名已验证，但证书超出其有效期。该剂次未被验证；由临床医生根据国家政策决定。</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BadPrefix</code>、<code class="language-plaintext highlighter-rouge">UnsupportedContextVersion</code>、<code class="language-plaintext highlighter-rouge">Base45Invalid</code>、<code class="language-plaintext highlighter-rouge">InflateFailed</code>、<code class="language-plaintext highlighter-rouge">LimitExceeded</code>、<code class="language-plaintext highlighter-rouge">CoseMalformed</code> 之一</td>
+      <td><code class="language-plaintext highlighter-rouge">not-read</code></td>
+      <td>重新扫描；如果仍然失败，则将该卡片当作纸质记录对待，并记录其未被验证的原因。</td>
+      <td>解码在任何签名检查之前就已失败（按 <a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a> 的顺序），因此未读取任何内容：这是三种状态而不是两种，因为扫描失败不能证明任何一方面。</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">rejected</code></td>
+      <td>不要根据该证书记录剂次；记录步骤和原因；由临床医生根据国家政策决定，与无记录剂次的处理方式相同。</td>
+      <td>任何其他失败（签名、密钥用途、头部、算法、hcert 声明或载荷）：该证书不构成剂次的证据。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt02-导入的剂次带有哪个国家接种计划编码">TD.DT.02 导入的剂次带有哪个国家接种计划编码？</h3>
+
+<p>对于某一剂次，决定是否以及如何在签发方的产品编码（始终保留）旁添加国家接种计划编码。</p>
+
+<ul>
+  <li>服务于：<a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：在外国编码旁添加国家编码（<code class="language-plaintext highlighter-rouge">Task_Map</code>）</li>
+  <li>需求：<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></li>
+  <li>数据元素：<a href="dictionary.html#tdj3a-dvc-verification-and-import">TD.J3A.DE09</a> 记录结果，<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE01</a> 签发方的产品编码，<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> 国家接种计划编码，<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE03</a> 映射依据</li>
+  <li>示例中：<a href="../artifact/ConceptMap-TrustDemoProductToOnesaEpi.html">ConceptMap TrustDemoProductToOnesaEpi</a>、<a href="../artifact/Provenance-TrustDemoJ3Adjudication.html">Provenance TrustDemoJ3Adjudication</a>、<a href="../artifact/Immunization-TrustDemoJ3HepB.html">Immunization TrustDemoJ3HepB</a></li>
+  <li>可计算形式：<a href="../artifact/PlanDefinition-TrustDemoDT02.html">PlanDefinition TrustDemoDT02</a>；源文件 <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vaccine-code-mapping.dmn">vaccine-code-mapping.dmn</a>，命中策略 FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>记录结果（TD.DT.01）（<code class="language-plaintext highlighter-rouge">outcome</code>）</th>
+      <th>国家映射表中的条目（<code class="language-plaintext highlighter-rouge">mapEntry</code>）</th>
+      <th>临床医生确认对应项（<code class="language-plaintext highlighter-rouge">clinicianConfirms</code>）</th>
+      <th>映射依据（<code class="language-plaintext highlighter-rouge">mappingBasis</code>）</th>
+      <th>动作（<code class="language-plaintext highlighter-rouge">action</code>）</th>
+      <th>注释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">reported-unverified</code>、<code class="language-plaintext highlighter-rouge">rejected</code>、<code class="language-plaintext highlighter-rouge">not-read</code> 之一</td>
+      <td>任意</td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">not-imported</code></td>
+      <td>不添加接种计划编码。</td>
+      <td>只有已验证的剂次才会被导入和映射（J3 的“是”路径）；已报告的剂次仅保留签发方的编码。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">equivalent</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">concept-map</code></td>
+      <td>在产品编码旁添加映射得到的接种计划编码。</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>（映射）：已发布的国家映射表中有对应项；两种编码都保留，如 TrustDemoJ3Bcg 所示。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td><code class="language-plaintext highlighter-rouge">yes</code></td>
+      <td><code class="language-plaintext highlighter-rouge">clinician-confirmed</code></td>
+      <td>在产品编码旁添加经确认的接种计划编码；将临床医生的认定记录为 Provenance；将该编码对添加到国家映射表中。</td>
+      <td>映射表中没有条目，由临床医生确认对应项（J3：Hep B 产品）。她的决定被记录并添加到映射表中，这样下一家诊所就无需重复。</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td><code class="language-plaintext highlighter-rouge">no</code></td>
+      <td><code class="language-plaintext highlighter-rouge">unmapped</code></td>
+      <td>保持产品编码不变，并将该剂次以未映射状态展示给临床医生；接种计划不计入该剂次（TD.DT.03）。</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a>（未映射）：没有已知的对应项，也不作任何猜测。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt03-国家接种计划是否计入该剂次">TD.DT.03 国家接种计划是否计入该剂次？</h3>
+
+<p>对于儿童记录中的某一个 Immunization，决定接种计划评估是否将其计为已接种。</p>
+
+<ul>
+  <li>服务于：<a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：评估国家接种计划（<code class="language-plaintext highlighter-rouge">Task_Schedule</code>）</li>
+  <li>需求：<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>，<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sem-001.json">STD-SEM-001</a></li>
+  <li>数据元素：<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE02</a> 国家接种计划编码，<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> 计入接种计划</li>
+  <li>示例中：<a href="../artifact/StructureDefinition-TrustDemoOnesaImmunization.html">StructureDefinition TrustDemoOnesaImmunization</a>、<a href="../artifact/StructureDefinition-TrustDemoOnesaReportedImmunization.html">StructureDefinition TrustDemoOnesaReportedImmunization</a></li>
+  <li>可计算形式：<a href="../artifact/PlanDefinition-TrustDemoDT03.html">PlanDefinition TrustDemoDT03</a>；源文件 <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-counts.dmn">dose-counts.dmn</a>，命中策略 FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>根据其原始来源记录（<code class="language-plaintext highlighter-rouge">primarySource</code>）</th>
+      <th>具有国家接种计划编码（<code class="language-plaintext highlighter-rouge">hasScheduleCode</code>）</th>
+      <th>计入（<code class="language-plaintext highlighter-rouge">counts</code>）</th>
+      <th>原因（<code class="language-plaintext highlighter-rouge">why</code>）</th>
+      <th>注释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>已报告，未验证。</td>
+      <td>已报告的剂次（J2：TrustDemoJ2HepBReported）会显示，但不计入。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>未映射：展示给临床医生。</td>
+      <td>没有接种计划编码的已验证剂次（TD.DT.02 未映射）无法被接种计划读取，因为接种计划基于接种计划编码运行。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>按已接种计入。</td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>：无论在何处接种，均按其接种计划编码和日期计数（J3：TrustDemoJ3HepB、TrustDemoJ3Bcg）。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt04-国家接种计划的该剂次是否到期">TD.DT.04 国家接种计划的该剂次是否到期？</h3>
+
+<p>对于国家接种计划的某一个动作，决定评估是否建议现在执行，以及从哪个日期开始。</p>
+
+<ul>
+  <li>服务于：<a href="business-processes.html#j3-verify-import-and-schedule-at-the-home-clinic">J3 在所属诊所验证、导入并安排接种计划</a>：评估国家接种计划（<code class="language-plaintext highlighter-rouge">Task_Schedule</code>）；接种到期剂次并预约下次就诊（<code class="language-plaintext highlighter-rouge">Task_Plan</code>）</li>
+  <li>需求：<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a></li>
+  <li>数据元素：<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE05</a> 计入接种计划，<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE07</a> 接种计划剂次，<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE08</a> 预测状态，<a href="dictionary.html#tdj3b-imported-dose-and-schedule">TD.J3B.DE09</a> 到期日期</li>
+  <li>示例中：<a href="../artifact/PlanDefinition-TrustDemoOnesaInfantSchedule.html">PlanDefinition TrustDemoOnesaInfantSchedule</a>、<a href="../artifact/ImmunizationRecommendation-TrustDemoJ3Recommendation.html">ImmunizationRecommendation TrustDemoJ3Recommendation</a>、<a href="../artifact/Task-TrustDemoJ3Reminder.html">Task TrustDemoJ3Reminder</a></li>
+  <li>可计算形式：<a href="../artifact/PlanDefinition-TrustDemoDT04.html">PlanDefinition TrustDemoDT04</a>；源文件 <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/dose-due.dmn">dose-due.dmn</a>，命中策略 FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>已计入的剂次带有该动作的编码（TD.DT.03）（<code class="language-plaintext highlighter-rouge">counted</code>）</th>
+      <th>该动作的接种时间年龄是所有没有已计入剂次的动作中最早的（<code class="language-plaintext highlighter-rouge">isNextVisit</code>）</th>
+      <th>预测（<code class="language-plaintext highlighter-rouge">forecast</code>）</th>
+      <th>到期日期（<code class="language-plaintext highlighter-rouge">dueDate</code>）</th>
+      <th>注释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">complete</code></td>
+      <td>—</td>
+      <td>J3：Hep B 和 BCG 出生剂次一经导入即计入，因此不会再次建议接种（<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-sch-001.json">STD-SCH-001</a>）。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">due</code></td>
+      <td>birthDate + timingAge</td>
+      <td>J3：6 周时的五联疫苗第 1 剂、bOPV 第 1 剂和 PCV 第 1 剂，到期日 2025-12-09（ImmunizationRecommendation TrustDemoJ3Recommendation），并附带该日期的提醒 Task。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not-yet</code></td>
+      <td>—</td>
+      <td>J3：9 个月时的麻疹-风疹第 1 剂属于之后的就诊，不在本次建议中。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt05-门户是否针对该请求释放清单">TD.DT.05 门户是否针对该请求释放清单？</h3>
+
+<p>对于某一个清单请求（ITI-YY5），决定门户是否释放清单，以及访问日志记录什么。</p>
+
+<ul>
+  <li>服务于：<a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 在国外的医疗服务点读取家庭成员的记录</a>：核验通行码、记录访问、返回清单（<code class="language-plaintext highlighter-rouge">Task_Release</code>）</li>
+  <li>需求：<a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a></li>
+  <li>数据元素：<a href="dictionary.html#tdj40-shared-link-and-consent">TD.J40.DE06</a> 有效期至，<a href="dictionary.html#tdj40-shared-link-and-consent">TD.J40.DE09</a> 撤回时间，<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE06</a> 已释放，<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE07</a> 审计结果，<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE08</a> 拒绝原因</li>
+  <li>示例中：<a href="../artifact/Consent-TrustDemoJ4Consent.html">Consent TrustDemoJ4Consent</a>、<a href="../artifact/AuditEvent-TrustDemoJ41Access.html">AuditEvent TrustDemoJ41Access</a>、<a href="../artifact/AuditEvent-TrustDemoJ41WrongPasscode.html">AuditEvent TrustDemoJ41WrongPasscode</a></li>
+  <li>可计算形式：<a href="../artifact/PlanDefinition-TrustDemoDT05.html">PlanDefinition TrustDemoDT05</a>；源文件 <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vhl-release.dmn">vhl-release.dmn</a>，命中策略 FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>持有人撤回了链接（<code class="language-plaintext highlighter-rouge">withdrawn</code>）</th>
+      <th>请求在持有人选择的期限内（<code class="language-plaintext highlighter-rouge">withinPeriod</code>）</th>
+      <th>通行码匹配（<code class="language-plaintext highlighter-rouge">passcodeMatches</code>）</th>
+      <th>释放（<code class="language-plaintext highlighter-rouge">release</code>）</th>
+      <th>审计结果（<code class="language-plaintext highlighter-rouge">auditOutcome</code>）</th>
+      <th>拒绝原因（<code class="language-plaintext highlighter-rouge">refusalReason</code>）</th>
+      <th>注释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>任意</td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">withdrawn</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>（撤销）：已撤回的链接不释放任何内容；该尝试会被记录日志。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">expired</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>（有效期）：在持有人设定的期限之外打开的链接不释放任何内容（J4：2026-10-26 至 2026-11-09，Consent TrustDemoJ4Consent）。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">wrong-passcode</code></td>
+      <td><a href="https://github.com/litlfred/smart-trust-demo/blob/main/skills/requirements/std-acc-001.json">STD-ACC-001</a>（通行码）：错误的通行码不释放任何内容，并在本国记录日志（AuditEvent TrustDemoJ41WrongPasscode）。</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td>—</td>
+      <td>清单被释放，访问被记录日志（AuditEvent TrustDemoJ41Access）。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tddt06-接收方是否跟随该-vhl">TD.DT.06 接收方是否跟随该 VHL？</h3>
+
+<p>对于某一个扫描的 VHL，决定接收方是请求清单，还是将该家庭的记录当作纸质记录对待。</p>
+
+<ul>
+  <li>服务于：<a href="business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad">J4.1 在国外的医疗服务点读取家庭成员的记录</a>：验证 HCERT 并读取键 5 处的 VHL（<code class="language-plaintext highlighter-rouge">Task_Verify</code>）；HCERT 已验证？（<code class="language-plaintext highlighter-rouge">Gateway_Verified</code>）；未验证：按纸质记录对待（<code class="language-plaintext highlighter-rouge">Task_Unverified</code>）；请求清单（ITI-YY5），已签名（<code class="language-plaintext highlighter-rouge">Task_Fetch</code>）</li>
+  <li>需求：<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001">STT-VER-001</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>，<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a></li>
+  <li>数据元素：<a href="dictionary.html#tdj41-access-to-a-shared-link">TD.J41.DE01</a> 请求时间</li>
+  <li>示例中：<a href="../artifact/Provenance-TrustDemoJ41Received.html">Provenance TrustDemoJ41Received</a></li>
+  <li>可计算形式：<a href="../artifact/PlanDefinition-TrustDemoDT06.html">PlanDefinition TrustDemoDT06</a>；源文件 <a href="https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/decisions/vhl-follow.dmn">vhl-follow.dmn</a>，命中策略 FIRST</li>
+</ul>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>HCERT 验证结果（<code class="language-plaintext highlighter-rouge">result</code>）</th>
+      <th>VHL 已过期（<code class="language-plaintext highlighter-rouge">vhlExpired</code>）</th>
+      <th>下一步（<code class="language-plaintext highlighter-rouge">next</code>）</th>
+      <th>注释</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge">treat-as-paper</code></td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-008">STT-VER-008</a>：类型化的结果会指明步骤和原因，例如缓存的信任列表中缺少某个 DSC（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-006">STT-VER-006</a>）。临床医生记录其未被验证的原因。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">treat-as-paper</code></td>
+      <td><a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-009">STT-VHL-009</a>：不跟随已过期的链接。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">verified</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td><code class="language-plaintext highlighter-rouge">fetch</code></td>
+      <td>通过 ITI-YY5 并使用 HTTP 消息签名（HTTP Message Signature）请求清单（<a href="https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-vhl-005">STT-VHL-005</a>）；随后门户应用 TD.DT.05。Provenance TrustDemoJ41Received。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="ig-edit"><a data-fa-link="edit" data-src="input/pagecontent/decision-logic.md" data-repo="litlfred/smart-trust-demo" href="https://github.com/litlfred/smart-trust-demo/edit/main/input/pagecontent/decision-logic.md">Edit this page on GitHub</a></p>
+<script type="application/json" id="ig-source-lines">{"blob": "https://github.com/litlfred/smart-trust-demo/blob/main/input/pagecontent/decision-logic.md", "repo": "litlfred/smart-trust-demo", "branch": "main", "path": "input/pagecontent/decision-logic.md", "lines": [{"t":"TD.DT.01 What does a scanned DVC become in the child's record?","l":18},{"t":"TD.DT.02 Which national schedule code does an imported dose carry?","l":38},{"t":"TD.DT.03 Does the national schedule count this dose?","l":56},{"t":"TD.DT.04 Is this dose of the national schedule due?","l":73},{"t":"TD.DT.05 Does the portal release the manifest for this request?","l":90},{"t":"TD.DT.06 Does the receiver follow the VHL?","l":108}]}</script>
+
+<script src="../assets/ig-source-links.js"></script>
+
+
+<script>(function(){
+var f=document.querySelector("#main-content .pt-diagram[data-panel]");
+if(!f||window.__igTaskPanel)return;
+var p=f.getAttribute("data-panel")||"";
+if(!/^[A-Za-z0-9._-][A-Za-z0-9._/-]*[.]tasks[.]json$/.test(p)||p.indexOf("//")>=0)return;
+window.__igTaskPanel=1;
+var dir=p.replace(/[^/]*$/,"");
+var l=document.createElement("link");l.rel="stylesheet";l.href=dir+"task-panel.css";document.head.appendChild(l);
+var s=document.createElement("script");s.src=dir+"task-panel.js";document.body.appendChild(s);
+})();</script>
+<script>(function(){
+var main=document.getElementById("main-content");
+if(!main||main.querySelector(".igi-contents"))return;
+var hs=Array.prototype.filter.call(main.querySelectorAll("h2"),function(h){return !h.closest(".igi-contents,#ig-footer,.ig-edit")&&h.textContent.trim();});
+if(hs.length<2)return;
+var used={};
+function slug(t){var b=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"section",s=b,i=1;while(used[s]||document.getElementById(s))s=b+"-"+(++i);used[s]=1;return s;}
+var nav=document.createElement("nav");nav.className="igi-contents";nav.setAttribute("aria-label","Contents");
+var t=document.createElement("p");t.className="igi-contents-title";t.textContent="Contents";nav.appendChild(t);
+var ul=document.createElement("ul");
+hs.forEach(function(h){if(!h.id)h.id=slug(h.textContent);var li=document.createElement("li"),a=document.createElement("a");a.href="#"+h.id;
+var c=h.cloneNode(true);Array.prototype.forEach.call(c.querySelectorAll(".anchor-heading,.fa-sec-box,svg,button"),function(n){n.remove();});
+a.textContent=c.textContent.replace(/\s+/g," ").trim();li.appendChild(a);ul.appendChild(li);});
+nav.appendChild(ul);
+var h1=main.querySelector("h1");
+if(h1&&h1.parentNode===main)h1.insertAdjacentElement("afterend",nav);else main.insertBefore(nav,main.firstChild);
+})();</script>
+</main>
+
+</body>
+</html>

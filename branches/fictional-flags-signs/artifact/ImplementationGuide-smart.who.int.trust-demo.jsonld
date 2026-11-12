@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ImplementationGuide-smart.who.int.trust-demo",
+  "@type": "fhir:ImplementationGuide",
+  "dcterms:identifier": "ImplementationGuide/smart.who.int.trust-demo",
+  "schema:name": "TrustDemo",
+  "dcterms:title": "SMART Trust demonstrator: journeys J1 to J4",
+  "dcterms:description": "The user journeys of one cross-border family, told as journeys (birth-dose DVCs in Taifafeki, CHW registration and triage read in Onesa, clinic verification, vaccine-code mapping and schedule, family VHLs on one phone, viewed and audited back in Taifafeki) as a WHO SMART Guidelines L2 DAK and L3 implementation guide, built on the SMART Trust HCERT libraries.",
+  "schema:version": "0.1.0",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ImplementationGuide/smart.who.int.trust-demo"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ImplementationGuide-smart.who.int.trust-demo.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/de5aa6ce86239585e518ca0d7e192b01f5b3164d/resources/ImplementationGuide/smart.who.int.trust-demo.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "e6fde6b4d37b2fb0903f5562c0d68abc9b5e18aa"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}
