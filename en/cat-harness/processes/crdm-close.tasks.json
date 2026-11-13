@@ -90,7 +90,9 @@
    "laneHref": "crdm-close.html#lane-Lane_BA",
    "skills": [],
    "calls": {
-    "name": "Process_Adjudication"
+    "name": "Adjudication",
+    "href": "adjudication.html",
+    "diagram": "adjudication.html"
    },
    "role": {
     "name": "business-analyst",
@@ -121,14 +123,11 @@
   "Call_MergeToMain": {
    "id": "Call_MergeToMain",
    "name": "Land the feature's PRs",
-   "type": "bpmn:CallActivity",
+   "type": "bpmn:Task",
    "stepHref": "crdm-close.html#step-Call_MergeToMain",
    "lane": "Agent",
    "laneHref": "crdm-close.html#lane-Lane_Agent",
    "skills": [],
-   "calls": {
-    "name": "Process_MergeToMain"
-   },
    "role": {
     "name": "authoring-agent",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",

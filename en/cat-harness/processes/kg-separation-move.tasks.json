@@ -184,14 +184,11 @@
   "Task_Consume": {
    "id": "Task_Consume",
    "name": "Parent consumes, additively",
-   "type": "bpmn:CallActivity",
+   "type": "bpmn:Task",
    "stepHref": "kg-separation-move.html#step-Task_Consume",
    "lane": "Platform authoring agent",
    "laneHref": "kg-separation-move.html#lane-Lane_Platform",
    "skills": [],
-   "calls": {
-    "name": "Process_UpstreamAdoption"
-   },
    "role": {
     "name": "platform-authoring-agent",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-platform-authoring-agent",
@@ -217,14 +214,11 @@
   "Task_Verify": {
    "id": "Task_Verify",
    "name": "Every identifier dereferences",
-   "type": "bpmn:CallActivity",
+   "type": "bpmn:Task",
    "stepHref": "kg-separation-move.html#step-Task_Verify",
    "lane": "Build pipeline",
    "laneHref": "kg-separation-move.html#lane-Lane_Pipeline",
    "skills": [],
-   "calls": {
-    "name": "Process_PublishVerification"
-   },
    "role": {
     "name": "build-pipeline",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-build-pipeline",

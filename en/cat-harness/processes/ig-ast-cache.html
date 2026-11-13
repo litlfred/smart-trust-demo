@@ -92,10 +92,10 @@
 <meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
 <meta name="fa-beans-src" content="../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../build.json"><link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
-<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=5386a6134c28"><link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../assets/css/work-plan.css?v=bd8c73337b01"><link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919"><script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script><script src="../../../assets/js/harness-data.js" defer></script>
+<link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=1eebbbe844d9"><link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../assets/css/work-plan.css?v=63b259829c69"><link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919"><script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script><script src="../../../assets/js/harness-data.js" defer></script>
 <script src="../../../assets/js/vendor/qrcode.js" defer></script>
 <script src="../../../assets/js/vendor/qrcode_UTF8.js" defer></script><script src="../../../assets/js/kg-render.js" defer></script><script src="../../../assets/js/navbar-row.js?v=cc1885e41c70" defer></script>
-<script src="../../../assets/js/docs-ui.js?v=0f40f53123fe" defer></script><script src="../../../assets/js/edit-links.js?v=b4f948dbab24" defer></script><script src="../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../assets/js/work-plan.js" defer></script><script src="../../../assets/js/process-index.js" defer></script><style>
+<script src="../../../assets/js/docs-ui.js?v=829c614a8b9d" defer></script><script src="../../../assets/js/edit-links.js?v=ee68944d6d0b" defer></script><script src="../../../assets/js/code-highlight.js?v=0f94772226c3" defer></script><script src="../../../assets/js/work-plan.js" defer></script><script src="../../../assets/js/process-index.js" defer></script><style>
   .folio-landing { position: relative; margin: 0 0 2rem; }
 
   /* WHAT IS LEFT HERE, AND WHY IT IS SO LITTLE.
@@ -290,9 +290,9 @@
 <button type="button" class="pt-mark" data-task="Task_Restore" style="left:25.65%;top:39.09%" aria-expanded="false" aria-label="About step: Restore and judge the cached AST" title="About: Restore and judge the cached AST">i</button>
 <button type="button" class="pt-mark" data-task="Task_BuildSite" style="left:56.09%;top:39.09%" aria-expanded="false" aria-label="About step: Build and publish the site from the AST" title="About: Build and publish the site from the AST">i</button>
 <button type="button" class="pt-mark" data-task="Task_SizeReview" style="left:72.61%;top:39.09%" aria-expanded="false" aria-label="About step: Review the site's size" title="About: Review the site's size">i</button>
-<button type="button" class="pt-mark" data-task="Task_Dispatch" style="left:41.74%;top:10%" aria-expanded="false" aria-label="About step: Dispatch AST refresh" title="About: Dispatch AST refresh">i</button>
+<button type="button" class="pt-mark" data-task="Task_Dispatch" style="left:40%;top:6.36%" aria-expanded="false" aria-label="About step: Dispatch AST refresh" title="About: Dispatch AST refresh">i</button>
 <button type="button" class="pt-mark" data-task="Task_Export" style="left:25.65%;top:71.82%" aria-expanded="false" aria-label="About step: Build the IG with the AST exporter" title="About: Build the IG with the AST exporter">i</button>
-<button type="button" class="pt-mark" data-task="Task_Seed" style="left:57.83%;top:75.45%" aria-expanded="false" aria-label="About step: Seed the cache branch" title="About: Seed the cache branch">i</button>
+<button type="button" class="pt-mark" data-task="Task_Seed" style="left:56.09%;top:71.82%" aria-expanded="false" aria-label="About step: Seed the cache branch" title="About: Seed the cache branch">i</button>
 </div>
 <div class="pt-panel" role="dialog" aria-label="Task details" hidden=""></div>
 </div>
@@ -537,7 +537,7 @@
     <tr>
       <td><a id="lane-Lane_PubMgr"></a>Publication manager (owner, or the agent the owner delegates to)</td>
       <td><code class="language-plaintext highlighter-rouge">publication-manager</code></td>
-      <td>Starts the AST refresh; an agent never dispatches it on its own (<code class="language-plaintext highlighter-rouge">feature-staging</code> §”Agent-run repositories”). When the publish refuses, asks for the refresh rather than publishing around it.</td>
+      <td>Starts the AST refresh; an agent never dispatches it on its own (<a href="../../../en/cat-harness/processes/skills/feature-staging.html"><code class="language-plaintext highlighter-rouge">feature-staging</code></a> §”Agent-run repositories”). When the publish refuses, asks for the refresh rather than publishing around it.</td>
     </tr>
     <tr>
       <td><a id="lane-Lane_Site"></a>Site build (agent, stage-local)</td>

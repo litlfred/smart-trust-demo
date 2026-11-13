@@ -1,0 +1,150 @@
+{
+ "$schema": "process-task-panel/v1",
+ "process": "Process_RelatedWork",
+ "skills": false,
+ "markers": [
+  {
+   "id": "A_SearchBeans",
+   "name": "Search beans for relevance",
+   "left": 26.92,
+   "top": 8.57,
+   "box": {
+    "left": 20.73,
+    "top": 35.71,
+    "width": 2.05,
+    "height": 6.86
+   }
+  },
+  {
+   "id": "A_SearchIssues",
+   "name": "Search issues and open PRs",
+   "left": 41.45,
+   "top": 8.57,
+   "box": {
+    "left": 35.26,
+    "top": 35.71,
+    "width": 2.05,
+    "height": 6.86
+   }
+  },
+  {
+   "id": "A_Categorize",
+   "name": "Categorize and summarize",
+   "left": 55.98,
+   "top": 8.57,
+   "box": {
+    "left": 49.79,
+    "top": 35.71,
+    "width": 2.05,
+    "height": 6.86
+   }
+  },
+  {
+   "id": "U_Coordinate",
+   "name": "Coordinate? How?",
+   "left": 70.51,
+   "top": 57.14,
+   "box": {
+    "left": 64.32,
+    "top": 84.29,
+    "width": 2.05,
+    "height": 6.86
+   }
+  },
+  {
+   "id": "A_Record",
+   "name": "Record and act on the answer",
+   "left": 85.04,
+   "top": 8.57,
+   "box": {
+    "left": 78.85,
+    "top": 35.71,
+    "width": 2.05,
+    "height": 6.86
+   }
+  }
+ ],
+ "processHref": "related-work.html",
+ "tasks": {
+  "A_SearchBeans": {
+   "id": "A_SearchBeans",
+   "name": "Search beans for relevance",
+   "type": "bpmn:Task",
+   "stepHref": "related-work.html#step-A_SearchBeans",
+   "lane": "Agent",
+   "laneHref": "related-work.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_SearchIssues": {
+   "id": "A_SearchIssues",
+   "name": "Search issues and open PRs",
+   "type": "bpmn:Task",
+   "stepHref": "related-work.html#step-A_SearchIssues",
+   "lane": "Agent",
+   "laneHref": "related-work.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "A_Categorize": {
+   "id": "A_Categorize",
+   "name": "Categorize and summarize",
+   "type": "bpmn:Task",
+   "stepHref": "related-work.html#step-A_Categorize",
+   "lane": "Agent",
+   "laneHref": "related-work.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  },
+  "U_Coordinate": {
+   "id": "U_Coordinate",
+   "name": "Coordinate? How?",
+   "type": "bpmn:CallActivity",
+   "stepHref": "related-work.html#step-U_Coordinate",
+   "lane": "User",
+   "laneHref": "related-work.html#lane-Lane_User",
+   "skills": [],
+   "calls": {
+    "name": "Ask the person",
+    "href": "ask-the-person.html",
+    "diagram": "ask-the-person.html"
+   },
+   "role": {
+    "name": "user",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-user",
+    "title": "User",
+    "skills": []
+   }
+  },
+  "A_Record": {
+   "id": "A_Record",
+   "name": "Record and act on the answer",
+   "type": "bpmn:Task",
+   "stepHref": "related-work.html#step-A_Record",
+   "lane": "Agent",
+   "laneHref": "related-work.html#lane-Lane_Agent",
+   "skills": [],
+   "role": {
+    "name": "authoring-agent",
+    "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-authoring-agent",
+    "title": "Authoring agent",
+    "skills": []
+   }
+  }
+ }
+}

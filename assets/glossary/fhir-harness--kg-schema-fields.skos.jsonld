@@ -1287,6 +1287,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/fhir-harness/v0/ns/glossary/kg-schema-fields/ig-content-type.igsection.trustedsvgs",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/fhir-harness/v0/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "IgSection.trustedSvgs"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Same-site SVG drawings the IG's own pages embed with `<object>`, as each element's `data` writes them, so the drawing's links work (owner, 2026-11-12: the onboarding diagrams' drill-down). The injection gate accepts, on a page and only there, an `<object>` opening tag whose `data` is on this list, whose `type` (if any) is `image/svg+xml`, and whose other attributes are presentational (`style`, `width`, `height`, `class`, `id`, `title`, `role`, `aria-*`). The element's body is still scanned. Absent means none."
+        }
+      ],
+      "dcterms:source": "fhir-harness/schemas/ig-content-type.ts#IgSection.trustedSvgs",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/fhir-harness/v0/ns/glossary/kg-schema-fields/ig-identity.igidentityschema.id",
       "@type": "skos:Concept",
       "skos:inScheme": {

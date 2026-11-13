@@ -434,6 +434,26 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/fhir-harness/v0/ns/glossary/kg-tools/ig-page-render-qa",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/fhir-harness/v0/ns/glossary/kg-tools"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "Scan every page of a built IG site in a headless browser for markup shown as text"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "The checkout script `ig-site:page-render-qa`, the IG site build's last final step: it serves the built site locally, opens the root pages and the artefact pages (not the JSON views, mappings views or redirect stubs) in headless Chromium, waits for each to draw, and lists every text block that shows markdown as text (bold, list markers, links, images, code, headings, tables, HTML tags), code and preformatted text left out. It writes `assets/fhir-qa/page-render.json` and the script the QA report's \"Page scan\" panel draws it with. It reports and never fails the build: without a browser it writes why."
+        }
+      ],
+      "skos:notation": "ig-page-render-qa",
+      "dcterms:source": "fhir-harness/tools/ig-page-render-qa/ig-page-render-qa.ts#ig-page-render-qa",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/fhir-harness/v0/ns/glossary/kg-tools/ig-pages",
       "@type": "skos:Concept",
       "skos:inScheme": {

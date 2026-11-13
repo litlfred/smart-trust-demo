@@ -35,7 +35,7 @@
 
 <p>Every message the Publisher reported, laid out as its own <code class="language-plaintext highlighter-rouge">qa.html</code> lays them out. <a href="assets/fhir-qa/qa-messages.json">Messages (JSON)</a></p>
 
-<div class="ig-qa-publisher" data-summary="assets/fhir-qa/qa.json" data-messages="assets/fhir-qa/qa-messages.json" data-pages="assets/ast-pages.json" data-artifacts="artifact/" data-source="https://github.com/litlfred/smart-trust-demo/blob/971efa3956499087e315c356af81b646f2f3f444/"><p>Loading the Publisher's messages…</p><noscript><p>The messages are drawn in the browser; without JavaScript, read the JSON above.</p></noscript></div>
+<div class="ig-qa-publisher" data-summary="assets/fhir-qa/qa.json" data-messages="assets/fhir-qa/qa-messages.json" data-pages="assets/ast-pages.json" data-artifacts="artifact/" data-source="https://github.com/litlfred/smart-trust-demo/blob/7f0ed7862d3305bf29f3abc777bf801b285a0420/"><p>Loading the Publisher's messages…</p><noscript><p>The messages are drawn in the browser; without JavaScript, read the JSON above.</p></noscript></div>
 <script src="assets/fhir-qa/qa-messages.js"></script>
 
 <h3 id="the-igs-ast">The IG’s AST</h3>
@@ -111,6 +111,19 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="markdown-rendering">Markdown rendering</h3>
+
+<p>Each markdown field the artefact pages draw (<code class="language-plaintext highlighter-rouge">description</code>, <code class="language-plaintext highlighter-rouge">definition</code>, <code class="language-plaintext highlighter-rouge">comment</code>, <code class="language-plaintext highlighter-rouge">requirements</code>, <code class="language-plaintext highlighter-rouge">valueMarkdown</code>), drawn by the pages’ own renderer, checked for markup left as plain text. 164 resource(s) scanned.</p>
+
+<p><strong>Findings:</strong> none.</p>
+
+<h3 id="page-scan">Page scan</h3>
+
+<p>Every page of this site opened in a headless browser after the build, and its text checked for markup shown as text. <a href="assets/fhir-qa/page-render.json">Results (JSON)</a></p>
+
+<div class="ig-qa-render" data-src="assets/fhir-qa/page-render.json" data-root=""><p>Loading the page scan…</p><noscript><p>The results are drawn in the browser; without JavaScript, read the JSON above.</p></noscript></div>
+<script src="assets/fhir-qa/page-render.js" defer=""></script>
 
 <h3 id="injection-scan">Injection scan</h3>
 

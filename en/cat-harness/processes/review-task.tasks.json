@@ -136,14 +136,11 @@
   "Call_NarrativeCodeReview": {
    "id": "Call_NarrativeCodeReview",
    "name": "Prose and the code it describes",
-   "type": "bpmn:CallActivity",
+   "type": "bpmn:Task",
    "stepHref": "review-task.html#step-Call_NarrativeCodeReview",
    "lane": "Reviewer / SME",
    "laneHref": "review-task.html#lane-Lane_Reviewer",
    "skills": [],
-   "calls": {
-    "name": "Process_NarrativeCodeReview"
-   },
    "role": {
     "name": "reviewer",
     "href": "../../../cat-harness/auto-docs/index/roles/index.html#a-cat-harness-scenarios-roles-json-reviewer",
