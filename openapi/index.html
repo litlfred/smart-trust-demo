@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css"
           href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css">
     <style>
-      body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+      body { margin: 0; padding: 0; font-family: var(--fa-font-sans,system-ui,sans-serif); }
       /* Definition selector bar below the header */
       #definition-selector-bar {
         background-color: #0070a1;
@@ -56,31 +56,31 @@
   <script>
   var swaggerUrls = [
   {
-    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdBirthDoseDvc.openapi.json",
+    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdBirthDoseDvc.openapi.json",
     "name": "TD.J1 Birth-dose DVC"
   },
   {
-    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdChwReferral.openapi.json",
+    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdChwReferral.openapi.json",
     "name": "TD.J2B Referral for verification"
   },
   {
-    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdChwRegistration.openapi.json",
+    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdChwRegistration.openapi.json",
     "name": "TD.J2A Newborn registration on a home visit"
   },
   {
-    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdDvcVerification.openapi.json",
+    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdDvcVerification.openapi.json",
     "name": "TD.J3A DVC verification and import"
   },
   {
-    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdImportedDose.openapi.json",
+    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdImportedDose.openapi.json",
     "name": "TD.J3B Imported dose and schedule"
   },
   {
-    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdVhlAccess.openapi.json",
+    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdVhlAccess.openapi.json",
     "name": "TD.J41 Access to a shared link"
   },
   {
-    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdVhlShare.openapi.json",
+    "url": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdVhlShare.openapi.json",
     "name": "TD.J40 Shared link and consent"
   }
 ];
@@ -94,7 +94,7 @@
       select.appendChild(opt);
     });
     ui = SwaggerUIBundle({
-      url: "https://raw.githubusercontent.com/litlfred/smart-trust-demo/cb3ecf3ef899a615c3a0751f0af4a18474f8c54d/ig-api/sidecars/StructureDefinition-TrustDemoDdBirthDoseDvc.openapi.json",
+      url: "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/ig-api/sidecars/StructureDefinition-TrustDemoDdBirthDoseDvc.openapi.json",
       dom_id: '#swagger-ui',
       presets: [SwaggerUIBundle.presets.apis],
       layout: "BaseLayout"
