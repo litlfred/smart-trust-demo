@@ -1,0 +1,63 @@
+{
+  "ar": {
+    "verdict": "PASS",
+    "sha": "7e00752 (sample), fixes verified at 680c4e75",
+    "sample": "315 strings: every Arabic-bearing entry of the 5 BPMN catalogues, index, personas, scenarios",
+    "tools_used": "Read of a msgstr-only JSON (no source), Write of its output",
+    "adjudicator": "EN source session (session_01VQDpPfeH29k3n4iKC2D5wg), against the .pot msgids",
+    "summary": "0 claim drift; 4 minor drifts, fixed",
+    "drifts": [
+      "the provincial hospital read back as 'regional': fixed (مستشفى المقاطعة)",
+      "'registry abroad' read back as 'record': fixed (سجلّ مركزي)",
+      "'clinician' read back as 'doctor' in 3 persona strings: fixed (ممارس سريري)",
+      "a counterfactual ('would normally stay locked') read back as fact: fixed"
+    ]
+  },
+  "ru": {
+    "verdict": "PASS",
+    "sha": "5dc4ce7",
+    "sample": "406 strings: all 5 BPMN catalogues, personas, scenarios, a seeded random 1/8 of the other pages (62 flagged pairs read in full)",
+    "tools_used": "Read of a msgstr-only JSON (no source), Write of its output",
+    "adjudicator": "EN source session (session_01VQDpPfeH29k3n4iKC2D5wg), against the .pot msgids",
+    "summary": "0 claim drift",
+    "drifts": [
+      "optional: 'block' read back as 'box' in the journeys-viewer-parity README",
+      "not drift: tense/modal in purpose clauses (Russian чтобы), uninflected acronyms"
+    ]
+  },
+  "es": {
+    "verdict": "PASS",
+    "sha": "2df406a, fixes verified at a81c109e",
+    "sample": "404 strings: all 5 BPMN catalogues, personas, scenarios, a seeded random 1/8 of the other pages (47 flagged pairs read in full)",
+    "tools_used": "Read of a msgstr-only JSON (no source), Write of its output",
+    "adjudicator": "EN source session (session_01VQDpPfeH29k3n4iKC2D5wg), against the .pot msgids",
+    "summary": "0 claim drift; 2 minor terms, fixed",
+    "drifts": [
+      "'registry abroad' read back as 'record': fixed",
+      "'base clinic' read back as 'referral clinic': fixed (clínica de base)"
+    ]
+  },
+  "fr": {
+    "verdict": "PASS",
+    "sha": "84a25a1, fixes verified at f5cdaa91",
+    "sample": "405 strings: all 5 BPMN catalogues, personas, scenarios, a seeded random 1/8 of the other pages (38 flagged pairs read in full)",
+    "tools_used": "Read of a msgstr-only JSON (no source), Write of its output",
+    "adjudicator": "EN source session (session_01VQDpPfeH29k3n4iKC2D5wg), against the .pot msgids",
+    "summary": "0 claim drift; 1 term of art, fixed",
+    "drifts": [
+      "'skill' (the harness node) read back as 'competency': now « skill (compétence d'agent) », consistent with bootstrap's fixed term Compétence",
+      "indicator operators COUNT/WHERE/AND restored verbatim"
+    ]
+  },
+  "zh": {
+    "verdict": "PASS",
+    "sha": "3c6e703, fix verified at 9e0eda46",
+    "sample": "408 strings: all 5 BPMN catalogues, personas, scenarios, a seeded random 1/8 of the other pages (53 flagged pairs read in full)",
+    "tools_used": "Read of a msgstr-only JSON (no source), Write of its output",
+    "adjudicator": "EN source session (session_01VQDpPfeH29k3n4iKC2D5wg), against the .pot msgids",
+    "summary": "0 claim drift; 1 minor term, fixed",
+    "drifts": [
+      "'workforce' read back as 'persons': fixed (卫生人力)"
+    ]
+  }
+}
