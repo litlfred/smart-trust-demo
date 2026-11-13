@@ -26386,6 +26386,13 @@
           "doc": "A named sub-graph that is OFF in every layer, its own included, unless that layer enables it. See the schema field and `opt-in-subgraphs.ts`."
         },
         {
+          "name": "requires",
+          "type": "string[]",
+          "optional": true,
+          "array": true,
+          "doc": "Opt-in only: the other opt-in sub-graphs this one requires, qualified; switching it on switches them on. See the schema field and `opt-in-subgraphs.ts`."
+        },
+        {
           "name": "derivedFrom",
           "type": "string[]",
           "optional": true,
@@ -26448,6 +26455,13 @@
           "optional": true,
           "array": false,
           "doc": "A named sub-graph that is OFF in every layer — including the one that"
+        },
+        {
+          "name": "requires",
+          "type": "z.array(z.string().min(1)).min(1).optional()",
+          "optional": true,
+          "array": true,
+          "doc": "Opt-in entries only: the other opt-in sub-graphs this one cannot work"
         },
         {
           "name": "tile",
@@ -35440,6 +35454,20 @@
           "doc": "Set by `resolveDirectories`: the nearest enclosing opt-in sub-graph, qualified."
         }
       ],
+      "extendsNames": [],
+      "values": [],
+      "refs": [],
+      "unresolved": [],
+      "external": [],
+      "exported": true
+    },
+    {
+      "id": "cat-harness-tools/schemas/kg/opt-in-subgraphs.ts#OptInRequires",
+      "name": "OptInRequires",
+      "module": "cat-harness-tools/schemas/kg/opt-in-subgraphs.ts",
+      "kind": "type-alias",
+      "doc": "What each opt-in sub-graph requires, by qualified id.",
+      "fields": [],
       "extendsNames": [],
       "values": [],
       "refs": [],

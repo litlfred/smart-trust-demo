@@ -8450,6 +8450,25 @@
       "skos:note": "candidate"
     },
     {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/cat-harness.contentdirectory.requires",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ContentDirectory.requires"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Opt-in only: the other opt-in sub-graphs this one requires, qualified; switching it on switches them on. See the schema field and `opt-in-subgraphs.ts`."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/kg/cat-harness.ts#ContentDirectory.requires",
+      "skos:note": "candidate"
+    },
+    {
       "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/cat-harness.contentdirectory.source",
       "@type": "skos:Concept",
       "skos:inScheme": {
@@ -8732,6 +8751,25 @@
         }
       ],
       "dcterms:source": "cat-harness-tools/schemas/kg/cat-harness.ts#ContentDirectoryShape.readOnlyBasis",
+      "skos:note": "candidate"
+    },
+    {
+      "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields/cat-harness.contentdirectoryshape.requires",
+      "@type": "skos:Concept",
+      "skos:inScheme": {
+        "@id": "https://litlfred.github.io/folio-assistant/cat-harness-tools/ns/glossary/kg-schema-fields"
+      },
+      "skos:prefLabel": [
+        {
+          "@value": "ContentDirectoryShape.requires"
+        }
+      ],
+      "skos:definition": [
+        {
+          "@value": "Opt-in entries only: the other opt-in sub-graphs this one cannot work without, each qualified `<instance>.<directory id>` — of this layer or its `needs` closure (owner, 2026-11-13: cat-harness's `sdlc` requires `cat-harness.work-plan`, whose skills and processes it uses). IMPLIED: wherever this sub-graph is switched on, everything it requires is switched on too, transitively, and a reference from inside it into one it requires is not dangling (`check:optin-refs`). Top-level entries only. Checked by `check:declaration-resolution` (`requiresProblems`)."
+        }
+      ],
+      "dcterms:source": "cat-harness-tools/schemas/kg/cat-harness.ts#ContentDirectoryShape.requires",
       "skos:note": "candidate"
     },
     {
