@@ -89,7 +89,7 @@
   "statusSrc":"../../../assets/translation-status/index.json"
 }</script><script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/smart-trust-demo/","jsonld":"https://litlfred.github.io/folio-assistant/smart-trust-demo/smart-trust-demo.jsonld","source":"https://github.com/litlfred/smart-trust-demo"}</script><meta name="fa-site-index-src" content="../../../assets/harness/site.json">
 <meta name="fa-todo-src" content="../../../assets/todos/index.json"><meta name="fa-todo-graph" content="../../../todos.jsonld"><meta name="fa-zoom-src" content="../../../assets/semantic-zoom.json"><meta name="fa-tiles" content="" data-fa-src="harness-data">
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;processes&quot;]"><meta name="fa-baseurl" content="../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
 <meta name="fa-beans-src" content="../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../build.json"><link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
 <link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=1eebbbe844d9"><link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../assets/css/work-plan.css?v=63b259829c69"><link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919"><script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script><script src="../../../assets/js/harness-data.js" defer></script>
@@ -281,6 +281,7 @@
 <div class="pt-diagram" data-panel="j1-birth-dose-dvc.tasks.json">
 <img src="../../../assets/img/workflows/j1-birth-dose-dvc.svg" alt="BPMN diagram: J1 Issue the newborn's birth-dose DVCs in Country A" />
 <div class="pt-layer">
+<a class="pt-go" href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/questionnaire-data-capture.html" style="left:22.94%;top:42.75%;width:1.52%;height:3.48%" aria-label="Open subprocess: Give Hep B and BCG birth doses and record them" title="Open subprocess: Give Hep B and BCG birth doses and record them"></a>
 <button type="button" class="pt-mark" data-task="Task_Vaccinate" style="left:27.53%;top:28.99%" aria-expanded="false" aria-label="About step: Give Hep B and BCG birth doses and record them" title="About: Give Hep B and BCG birth doses and record them">i</button>
 <button type="button" class="pt-mark" data-task="Task_Payload" style="left:38.61%;top:53.62%" aria-expanded="false" aria-label="About step: Build one DVCMinPreQual payload per dose" title="About: Build one DVCMinPreQual payload per dose">i</button>
 <button type="button" class="pt-mark" data-task="Task_Prepare" style="left:49.68%;top:53.62%" aria-expanded="false" aria-label="About step: Prepare: CWT claims and the COSE Sig_structure" title="About: Prepare: CWT claims and the COSE Sig_structure">i</button>
@@ -506,7 +507,7 @@
 
 <ul>
   <li><strong>Called by:</strong> no call activity names this process</li>
-  <li><strong>Calls:</strong> <code class="language-plaintext highlighter-rouge">Process_QuestionnaireDataCapture</code> (not loadable here)</li>
+  <li><strong>Calls:</strong> <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/questionnaire-data-capture.html">Capture data with an SDC questionnaire</a></li>
   <li><strong>Presented on:</strong> no docs page section shows this diagram</li>
   <li><strong>Running instances:</strong> none recorded</li>
 </ul>
@@ -574,7 +575,7 @@
     <tr>
       <td><a id="step-Task_Vaccinate"></a><strong>Give Hep B and BCG birth doses and record them</strong><br /><code class="language-plaintext highlighter-rouge">Task_Vaccinate</code></td>
       <td>Birth clinic vaccinator</td>
-      <td>calls <code class="language-plaintext highlighter-rouge">Process_QuestionnaireDataCapture</code></td>
+      <td>calls <a href="https://litlfred.github.io/folio-assistant/en/cat-harness/processes/questionnaire-data-capture.html">Capture data with an SDC questionnaire</a></td>
       <td>The vaccinator records each dose (vaccine product, date, batch) in the hospital system, on its dose form, through smart-base’s reusable SDC data-capture process: complete-sdc-questionnaire, then extract-questionnaire-response, which writes the Immunization each DVC is built from.</td>
     </tr>
     <tr>

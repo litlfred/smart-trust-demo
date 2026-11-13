@@ -89,7 +89,7 @@
   "statusSrc":"../../../assets/translation-status/index.json"
 }</script><script type="application/json" id="fa-navbar-row" data-fa-row-src="harness-data"></script><script type="application/json" id="fa-site-links">{"kg":"https://litlfred.github.io/folio-assistant/smart-trust-demo/","jsonld":"https://litlfred.github.io/folio-assistant/smart-trust-demo/smart-trust-demo.jsonld","source":"https://github.com/litlfred/smart-trust-demo"}</script><meta name="fa-site-index-src" content="../../../assets/harness/site.json">
 <meta name="fa-todo-src" content="../../../assets/todos/index.json"><meta name="fa-todo-graph" content="../../../todos.jsonld"><meta name="fa-zoom-src" content="../../../assets/semantic-zoom.json"><meta name="fa-tiles" content="" data-fa-src="harness-data">
-<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;]"><meta name="fa-baseurl" content="../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
+<meta name="fa-glass-strip" content="[&quot;glass-todos&quot;,&quot;glass-settings&quot;,&quot;processes&quot;]"><meta name="fa-baseurl" content="../../.."><meta name="fa-staging" content=""><meta name="fa-search-index" content="">
 
 <meta name="fa-beans-src" content="../../../assets/beans/index.json"><meta name="fa-processes-src" content="../../../subgraph/index.jsonld"><meta name="fa-build-src" content="../../../build.json"><link rel="stylesheet" href="../../../assets/css/navbar-row.css?v=7d7d00921e0f">
 <link rel="stylesheet" href="../../../assets/css/docs-ui.css?v=1eebbbe844d9"><link rel="stylesheet" href="../../../assets/css/narrow-viewport.css?v=173ef819dbf2"><link rel="stylesheet" href="../../../assets/css/work-plan.css?v=63b259829c69"><link rel="stylesheet" href="../../../assets/css/themes.css?v=37c8ab192a5f"><link rel="stylesheet" href="../../../assets/css/uml.css?v=e677f91cbf66"><link rel="stylesheet" href="../../../assets/css/avatars.css?v=045ae9db3919"><script type="application/json" id="fa-declared-kinds">["archimate","beans","building-blocks","code","code-list","device-screen","fhir-artifact-index","glossary","memory","processes","qa","scenarios","skills","translation-sources","user-scenario","workshop"]</script><script src="../../../assets/js/harness-data.js" defer></script>
@@ -599,7 +599,7 @@
     <tr>
       <td><a id="step-Task_Unverified"></a><strong>Not verified: treat records as paper</strong><br /><code class="language-plaintext highlighter-rouge">Task_Unverified</code></td>
       <td>Point-of-care provider</td>
-      <td><code class="language-plaintext highlighter-rouge">review-client-history</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/review-client-history.html"><code class="language-plaintext highlighter-rouge">review-client-history</code></a></td>
       <td>No digital verification: treat the records like paper. The HCERT failed verification. The typed result names the step and the reason (STT-VER-008), for example a DSC missing from the cached trust list (STT-VER-006). Nothing is digitally verified, so the VHL is not followed and no manifest is requested. Whatever the family can show, such as the paper DVCs or a QR read unverified (STT-VER-011), carries the same weight as a paper record: the clinician decides on it by clinical judgement and local policy, and records why it was not verified.</td>
     </tr>
     <tr>
@@ -623,7 +623,7 @@
     <tr>
       <td><a id="step-Task_Review"></a><strong>Review history, allergies and vaccinations</strong><br /><code class="language-plaintext highlighter-rouge">Task_Review</code></td>
       <td>Point-of-care provider</td>
-      <td><code class="language-plaintext highlighter-rouge">review-client-history</code></td>
+      <td><a href="../../../en/cat-harness/processes/skills/review-client-history.html"><code class="language-plaintext highlighter-rouge">review-client-history</code></a></td>
       <td>—</td>
     </tr>
   </tbody>
