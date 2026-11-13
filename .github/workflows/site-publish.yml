@@ -34,6 +34,6 @@ permissions:
 
 jobs:
   publish:
-    uses: litlfred/cat-harness-tools/.github/workflows/folio-site-publish.yml@fb1e702c8ff004a46b6b6a7a2c077f04be85cfc3 # index.lock.json
+    uses: litlfred/cat-harness-tools/.github/workflows/folio-site-publish.yml@e149ff46aa916fb5ec9d7b58d1f466ac4696c6e2 # index.lock.json
     with:
       plan: ${{ inputs.plan == true }}
