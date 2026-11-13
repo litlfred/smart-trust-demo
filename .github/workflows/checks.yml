@@ -24,12 +24,13 @@ jobs:
           git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" smart-trust-tools
           git -C smart-trust-tools sparse-checkout set skills
           git -C smart-trust-tools checkout -q "$ref"
-      - name: smart-base's skills at the pinned commit (index.lock.json)
+      - name: smart-base's skills, its layer subgraphs' included, at the pinned commit (index.lock.json)
         # The instance is the smart-base/ directory of that repository.
         run: |
           read -r repo ref < <(python3 -c "import json;m=next(m for m in json.load(open('index.lock.json'))['mounts'] if m['harness']=='smart-base');print(m['repository'],m['ref'])")
           git clone -q --filter=blob:none --no-checkout "https://github.com/$repo" smart-base-repo
-          git -C smart-base-repo sparse-checkout set smart-base/skills
+          # skills/ and each layer subgraph's skills/ (L1/skills/ .. L4/skills/).
+          git -C smart-base-repo sparse-checkout set --no-cone '/smart-base/skills/' '/smart-base/L*/skills/'
           git -C smart-base-repo checkout -q "$ref"
       - name: Actions pinned, JSON parses, memory front matter; the journeys, their skills and their requirements hang together
         run: python3 tools/repo-checks/repo_checks.py --smart-trust-tools smart-trust-tools --smart-base smart-base-repo/smart-base
