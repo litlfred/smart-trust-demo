@@ -104,7 +104,11 @@ def main():
             errors.append(f"{md.relative_to(ROOT)}: missing folio-memory/v1 front matter with id {md.stem}")
     stt = pathlib.Path(_arg("--smart-trust-tools") or ROOT / "smart-trust-tools")
     sb = pathlib.Path(_arg("--smart-base") or ROOT / "smart-base")
-    upstream = upstream_skills(stt / "skills", sb / "skills")
+    # smart-base keeps each knowledge-graph layer's skills in its own opt-in
+    # subgraph (L1/skills/ .. L4/skills/; smart-base 234fb073, 2026-11-13),
+    # beside the stack-wide skills/; this instance enables L4 in its
+    # enableSubgraphs.
+    upstream = upstream_skills(stt / "skills", sb / "skills", *sorted(sb.glob("L*/skills")))
     errors += journey_errors(upstream)
     errors += requirement_errors(stt / "skills" / "requirements")
     errors += binding_errors(upstream)
