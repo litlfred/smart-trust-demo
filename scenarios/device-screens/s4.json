@@ -95,7 +95,8 @@
       "badge": {
         "text": "Decoded: HC1:6BFOXN...",
         "tone": "success"
-      }
+      },
+      "id": "scan"
     },
     {
       "type": "statusBadge",
@@ -114,7 +115,8 @@
           "mono": true
         }
       ],
-      "detail": "Header Validated • Certificate Within DSC Validity Window. Action: Attaches FHIR Provenance referencing DVC entity & updates Immunization.primarySource to true."
+      "detail": "Header Validated • Certificate Within DSC Validity Window. Action: Attaches FHIR Provenance referencing DVC entity & updates Immunization.primarySource to true.",
+      "id": "verdict"
     },
     {
       "type": "actions",
@@ -124,10 +126,65 @@
           "style": "primary"
         }
       ],
-      "caption": "Status: Cryptographic trust verified via GDHCN DEV network"
+      "caption": "Status: Cryptographic trust verified via GDHCN DEV network",
+      "id": "actions"
     }
   ],
-  "try": "Ask the room what a tampered card would show here: the signature fails, and the doses stay unverified",
+  "try": "Switch to Tampered card: the signature fails, the doses stay unverified, and the screen names the reason",
+  "stateLabel": "Valid card",
+  "states": [
+    {
+      "id": "tampered",
+      "label": "Tampered card",
+      "blocks": [
+        {
+          "type": "qr",
+          "column": "side",
+          "mode": "scan",
+          "payload": "HC1:6BFOXN%TSMAHN-H8/N2S$K980F2A.0K.136D/S6A5$P*Q0*3YF3$G4*43-C3XED9/D:98$H:836XDXK7/93.3%J9$6K90K:98-H$H83-D:837W6V5R254G59$6-C66O4442*96/3DF98%HN-HM/G$07*G7-G4$C4*D3*K3%J47/D%HN-H/8E/N2$Q9.0K8E%J9*K9$6-C6604%J9$6-C6604-A7*G4%J9*K9$6-C6604*E3*K3%J47/D8HN",
+          "label": "Optical Camera Feed • Live Frame",
+          "badge": {
+            "text": "CBOR Decoded (Signature Mismatch)",
+            "tone": "danger"
+          },
+          "id": "scan"
+        },
+        {
+          "type": "statusBadge",
+          "id": "verdict",
+          "column": "side",
+          "status": "failed",
+          "text": "SIGNATURE VERIFICATION FAILED — INVALID COSE_Sign1",
+          "verdict": "FAIL",
+          "fields": [
+            {
+              "label": "Trust Resolution",
+              "value": "Untrusted / Altered Card"
+            },
+            {
+              "label": "Diagnostic Code",
+              "value": "ERR_CRYPTO_SIG_MISMATCH",
+              "mono": true
+            }
+          ],
+          "detail": "The signature on this paper certificate does not match the hash of its vaccination payload. The record stays primarySource: false; nothing is upgraded."
+        },
+        {
+          "type": "actions",
+          "id": "actions",
+          "buttons": [
+            {
+              "label": "Confirm Verification & Proceed to Schedule Evaluation",
+              "style": "secondary",
+              "icon": "lock"
+            }
+          ],
+          "caption": "Status: Signature rejected • Adjudication blocked • The nurse decides by national catch-up policy"
+        }
+      ],
+      "try": "Same card, one changed byte: ask the room what the nurse tells the family now"
+    }
+  ],
   "client": {
     "name": "OHS Facility Client",
     "version": "2.4.1",

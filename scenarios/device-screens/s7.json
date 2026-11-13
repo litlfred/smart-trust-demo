@@ -21,26 +21,29 @@
         "text": "Cycle (1/3)",
         "tone": "neutral",
         "icon": "users"
-      }
+      },
+      "id": "header"
     },
     {
       "type": "qr",
       "title": "IHE ITI Verifiable Health Link (VHL)",
       "label": "Somsak Sengmany",
-      "payload": "https://portal.moh.gov.la/vhl/manifest/vhl-onesa-somsak-2026?token=e4a899bc01&exp=1797292800#key=f91b7c3d2e5a8812",
+      "payload": "https://portal.moh.onesa.example/vhl/manifest/vhl-onesa-somsak-2026?token=e4a899bc01&exp=1797292800#key=f91b7c3d2e5a8812",
       "badge": {
         "text": "Signed VHL Manifest • Onesan National Portal",
         "tone": "success",
         "icon": "shield-check"
       },
-      "caption": "QR contains secure token link & key only. Patient data stays in Onesa. Host: sovereign-fhir.moh.gov.la (HTTPS)"
+      "caption": "QR contains secure token link & key only. Patient data stays in Onesa. Host: sovereign-fhir.moh.onesa.example (HTTPS)",
+      "id": "vhl"
     },
     {
       "type": "passcode",
       "label": "Passcode Protection (Required at PoC) — Father's Verbal Passcode",
       "digits": "4829",
       "shown": false,
-      "note": "ACTIVE • Reveal to read it out to the clinician"
+      "note": "ACTIVE • Reveal to read it out to the clinician",
+      "id": "passcode"
     },
     {
       "type": "fields",
@@ -69,7 +72,110 @@
           "style": "primary"
         }
       ],
-      "caption": "Father presents Somsak's VHL QR & verbal code 4829"
+      "caption": "Father presents Somsak's VHL QR & verbal code 4829",
+      "id": "actions"
+    }
+  ],
+  "stateLabel": "Somsak (1 of 3)",
+  "states": [
+    {
+      "id": "passcode-shown",
+      "label": "Passcode shown",
+      "blocks": [
+        {
+          "type": "passcode",
+          "label": "Passcode Protection (Required at PoC) — Father's Verbal Passcode",
+          "digits": "4829",
+          "shown": true,
+          "note": "ACTIVE • Read it out to the clinician; never printed in the QR",
+          "id": "passcode"
+        }
+      ],
+      "try": "The passcode is spoken, not scanned: ask what a stolen photo of this QR gives a stranger"
+    },
+    {
+      "id": "bounmy",
+      "label": "Bounmy (2 of 3)",
+      "blocks": [
+        {
+          "type": "header",
+          "app": "Travel Credential — Bounmy Sengmany",
+          "subtitle": "Traveller 2 of 3 • Father (29y)",
+          "icon": "qr",
+          "status": {
+            "text": "Cycle (2/3)",
+            "tone": "neutral",
+            "icon": "users"
+          },
+          "id": "header"
+        },
+        {
+          "type": "qr",
+          "title": "IHE ITI Verifiable Health Link (VHL)",
+          "label": "Bounmy Sengmany",
+          "payload": "https://portal.moh.onesa.example/vhl/manifest/vhl-onesa-bounmy-2026?token=e4a899bc01&exp=1797292800#key=f91b7c3d2e5a8812",
+          "badge": {
+            "text": "Signed VHL Manifest • Onesan National Portal",
+            "tone": "success",
+            "icon": "shield-check"
+          },
+          "caption": "QR contains secure token link & key only. Patient data stays in Onesa. Host: sovereign-fhir.moh.onesa.example (HTTPS)",
+          "id": "vhl"
+        },
+        {
+          "type": "actions",
+          "buttons": [
+            {
+              "label": "Show Passcode to Clinician in Taifafeki (J4.1)",
+              "style": "primary"
+            }
+          ],
+          "caption": "Father presents Bounmy's VHL QR & verbal code 4829",
+          "id": "actions"
+        }
+      ]
+    },
+    {
+      "id": "khamla",
+      "label": "Khamla (3 of 3)",
+      "blocks": [
+        {
+          "type": "header",
+          "app": "Travel Credential — Khamla Sengmany",
+          "subtitle": "Traveller 3 of 3 • Mother (26y)",
+          "icon": "qr",
+          "status": {
+            "text": "Cycle (3/3)",
+            "tone": "neutral",
+            "icon": "users"
+          },
+          "id": "header"
+        },
+        {
+          "type": "qr",
+          "title": "IHE ITI Verifiable Health Link (VHL)",
+          "label": "Khamla Sengmany",
+          "payload": "https://portal.moh.onesa.example/vhl/manifest/vhl-onesa-khamla-2026?token=e4a899bc01&exp=1797292800#key=f91b7c3d2e5a8812",
+          "badge": {
+            "text": "Signed VHL Manifest • Onesan National Portal",
+            "tone": "success",
+            "icon": "shield-check"
+          },
+          "caption": "QR contains secure token link & key only. Patient data stays in Onesa. Host: sovereign-fhir.moh.onesa.example (HTTPS)",
+          "id": "vhl"
+        },
+        {
+          "type": "actions",
+          "buttons": [
+            {
+              "label": "Show Passcode to Clinician in Taifafeki (J4.1)",
+              "style": "primary"
+            }
+          ],
+          "caption": "Father presents Khamla's VHL QR & verbal code 4829",
+          "id": "actions"
+        }
+      ]
     }
   ]
 }

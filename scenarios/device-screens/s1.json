@@ -124,6 +124,17 @@
       "example": "Immunization/TrustDemoJ1Bcg"
     },
     {
+      "type": "note",
+      "id": "raw-payload",
+      "column": "side",
+      "mono": true,
+      "icon": "file",
+      "text": "DVCMinPreQual CBOR · ES256 (alg -7) · {\"header\":{\"alg\":-7,\"kid\":\"916ffa567c0f44a2\",\"iss\":\"XXR\"},\"hcert\":{\"v\":[{\"tg\":\"840534001\",\"vp\":\"vp-hepb-peds-monovalent\",\"lot\":\"XXR-4821\",\"dt\":\"2025-10-28\",\"co\":\"XXR\"}],\"nam\":{\"fn\":\"Sengmany\",\"gn\":\"Somsak\"},\"dob\":\"2025-10-28\"}}",
+      "only": [
+        "raw-payload"
+      ]
+    },
+    {
       "type": "actions",
       "buttons": [
         {
@@ -140,10 +151,46 @@
           "label": "Proceed to J2a (Return to Onesa)",
           "style": "primary"
         }
-      ]
+      ],
+      "id": "actions"
     }
   ],
   "try": "Ask who signed the cards, and what an Onesan health worker can check without a network",
+  "stateLabel": "Cards ready",
+  "states": [
+    {
+      "id": "raw-payload",
+      "label": "Raw CBOR payload",
+      "try": "Point at what the card carries: a WHO PreQual product code, a lot and a date, signed by Taifafeki's key (kid 916ffa567c0f44a2)"
+    },
+    {
+      "id": "printed",
+      "label": "Cards printed",
+      "blocks": [
+        {
+          "type": "actions",
+          "buttons": [
+            {
+              "label": "Inspect Raw DVCMinPreQual & CBOR",
+              "style": "secondary",
+              "icon": "file"
+            },
+            {
+              "label": "✓ 2 DVC Cards Printed",
+              "style": "success",
+              "icon": "check"
+            },
+            {
+              "label": "Proceed to J2a (Return to Onesa)",
+              "style": "primary"
+            }
+          ],
+          "id": "actions"
+        }
+      ],
+      "try": "The family leaves with two paper cards: no app, no account, no network needed to carry them home"
+    }
+  ],
   "client": {
     "name": "OHS Facility Client",
     "version": "2.4.1",

@@ -79,7 +79,8 @@
           "mono": true
         }
       ],
-      "detail": "Equivalence Confirmed & Dual-Coding Active"
+      "detail": "Equivalence Confirmed & Dual-Coding Active",
+      "id": "adjudication"
     },
     {
       "type": "recordList",
@@ -150,7 +151,8 @@
           "label": "FHIR Task / Appointment",
           "value": "✓ Appointment Booked"
         }
-      ]
+      ],
+      "id": "appointment"
     },
     {
       "type": "actions",
@@ -165,8 +167,85 @@
           "style": "primary"
         }
       ],
-      "caption": "Dual coding saved in local OHS FHIR database • Ready to sync to national EPI"
+      "caption": "Dual coding saved in local OHS FHIR database • Ready to sync to national EPI",
+      "id": "actions"
     }
   ],
-  "try": "Walk through the 3-layer match on this screen"
+  "try": "Walk through the 3-layer match on this screen",
+  "stateLabel": "Confirmed",
+  "states": [
+    {
+      "id": "before",
+      "label": "Before the nurse confirms",
+      "blocks": [
+        {
+          "type": "statusBadge",
+          "status": "unverified",
+          "text": "Clinician Adjudication & Equivalence Confirmation",
+          "fields": [
+            {
+              "label": "Proposed Onesan EPI Match",
+              "value": "Onesan EPI: HepB-BD (Birth Dose Monovalent)"
+            },
+            {
+              "label": "Code",
+              "value": "XXK-EPI-HEPB-BD",
+              "mono": true
+            }
+          ],
+          "detail": "Not confirmed yet: press Confirm Equivalence & Add Second Coding",
+          "id": "adjudication"
+        },
+        {
+          "type": "fields",
+          "column": "side",
+          "title": "Book Next Routine EPI Appointment",
+          "icon": "clock",
+          "rows": [
+            {
+              "label": "Recommended date",
+              "value": "2 Weeks from today for Pentavalent-1 & OPV-1 catchup"
+            },
+            {
+              "label": "Date",
+              "value": "2025-11-25",
+              "mono": true
+            },
+            {
+              "label": "FHIR Task / Appointment",
+              "value": "Not booked: Confirm Date"
+            }
+          ],
+          "id": "appointment"
+        },
+        {
+          "type": "actions",
+          "id": "actions",
+          "buttons": [
+            {
+              "label": "Confirm Equivalence & Add Second Coding",
+              "style": "primary",
+              "icon": "check"
+            }
+          ],
+          "caption": "The foreign code is kept as issued; the national code is added beside it, never in its place"
+        }
+      ],
+      "try": "No automatic match: ask who should own the national ConceptMap, and who may confirm an equivalence"
+    },
+    {
+      "id": "dual-coding",
+      "label": "Dual-coding array",
+      "blocks": [
+        {
+          "type": "note",
+          "id": "adjudication",
+          "mono": true,
+          "icon": "file",
+          "text": "Immunization.vaccineCode.coding[] = [{\"system\":\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct\",\"code\":\"vp-hepb-peds-monovalent\",\"display\":\"Hepatitis B vaccine, paediatric, monovalent\"},{\"system\":\"http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule\",\"code\":\"XXK-EPI-HEPB-BD\",\"display\":\"Hepatitis B birth dose\"}]"
+        }
+      ],
+      "try": "Both codes travel together: the source code as issued, the national code beside it"
+    }
+  ]
 }
