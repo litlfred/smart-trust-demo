@@ -493,3 +493,36 @@ Description: "ملحق باللغة العربية (ar) لنظام الرموز 
 * #wrong-passcode "رمز مرور خاطئ" "رمز المرور المُقدَّم لا يطابق الرمز الذي حدّده الحامل."
   * ^designation[0].language = #ar
   * ^designation[0].value = "رمز مرور خاطئ"
+
+CodeSystem: TrustDemoTrustDomainAr
+Id: TrustDemoTrustDomain-ar
+Title: "نطاقات الثقة في الرحلات (توضيحية)"
+Description: "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoTrustDomain: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية. Unofficial agent translation."
+* ^status = #draft
+* ^experimental = true
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoTrustDomain)
+* ^language = #ar
+* ^caseSensitive = true
+* ^count = 2
+* #DEMO-DVC "عرض توضيحي: شهادة التطعيم الرقمية" "شهادات DVC للتمنيع الروتيني (HCERT) يوقّعها نظام عيادة الولادة لكل جرعة، ويتحقق منها السجل الصحي الإلكتروني (EHR) في عيادة البلد الأم (J1، J3)."
+  * ^designation[0].language = #ar
+  * ^designation[0].value = "عرض توضيحي: شهادة التطعيم الرقمية"
+* #DEMO-VHL "عرض توضيحي: الرابط الصحي القابل للتحقق" "روابط صحية قابلة للتحقق (HCERT) إلى ملخص المريض، تُنشأ على البوابة الوطنية وتُحَلّ في نقطة تقديم الرعاية في الخارج (J4.0، J4.1). وشروط استخدامه هي TrustDemoVhlTermsOfUse."
+  * ^designation[0].language = #ar
+  * ^designation[0].value = "عرض توضيحي: الرابط الصحي القابل للتحقق"
+
+CodeSystem: TrustDemoVhlConsentAr
+Id: TrustDemoVhlConsent-ar
+Title: "موافقات نطاق الثقة VHL في العرض التوضيحي (توضيحية)"
+Description: "ملحق باللغة العربية (ar) لنظام الرموز TrustDemoVhlConsent: تسميات كل مفهوم. ترجمة غير رسمية أعدّها وكيل آلي، دون مراجعة بشرية. Unofficial agent translation."
+* ^status = #draft
+* ^experimental = true
+* ^content = #supplement
+* ^supplements = Canonical(TrustDemoVhlConsent)
+* ^language = #ar
+* ^caseSensitive = true
+* ^count = 1
+* #CONSENT-VHL-TREATMENT "الموافقة على قراءة الملخص لأغراض العلاج" "يجوز لأي شخص يعطيه الحامل رمز QR الخاص بالرابط VHL ورمز المرور الخاص به أن يقرأ ملخص المريض الذي يقف خلفه، لأغراض العلاج، حتى انتهاء صلاحية الرابط. وتسجّل البوابة المُصدِرة كل وصول."
+  * ^designation[0].language = #ar
+  * ^designation[0].value = "الموافقة على قراءة الملخص لأغراض العلاج"

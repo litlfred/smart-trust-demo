@@ -95,11 +95,6 @@ msgstr "Agente comunitario de salud"
 msgid "Decide who sees my child's record, and for how long"
 msgstr "Decidir quién ve el registro de mi hijo, y durante cuánto tiempo"
 
-#: input/pagecontent/scenarios.md:26
-#, python-brace-format
-msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
-msgstr "Cada paso indica los requisitos de <a0>smart-trust-tools</a0> que pone a prueba y los ejemplos FHIR de esta guía que produce. Las historias están en <a1>{code0}</a1>. Cada momento termina con su punto crítico, lo que lo hace posible y el punto de política que expone, tal como los presenta el recorrido guiado de VaxLink."
-
 #: input/pagecontent/scenarios.md:6
 msgid "Each story traces to the smart-trust-tools requirements that serve it (scenarios/story-requirements.json); where the HCERT library does not serve a story, the note says what does."
 msgstr "Cada historia remite a los requisitos de smart-trust-tools que la atienden (scenarios/story-requirements.json); cuando la biblioteca HCERT no atiende una historia, la nota indica qué la atiende."
@@ -250,10 +245,6 @@ msgstr "Conservar el código extranjero de la vacuna y añadir a su lado el cód
 #: input/pagecontent/scenarios.md:39
 msgid "Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial Hospital, away from home. He has no Taifafeki identity number. Dr Anan gives the Hep B and BCG birth doses and records them with their WHO PreQual product codes. For each dose, the hospital system does three things:"
 msgstr "Khamla da a luz a Somsak el 2025-10-28 en el Hospital Provincial de Kesaro, lejos de casa. El bebé no tiene número de identidad de Taifafeki. El Dr. Anan le administra las dosis al nacer contra la Hep B y la BCG y las registra con sus códigos de producto de la precalificación (PreQual) de la OMS. Para cada dosis, el sistema del hospital hace tres cosas:"
-
-#: input/pagecontent/scenarios.md:48
-msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
-msgstr "Khamla se va con dos DVC en papel. En la demostración: las pruebas de la biblioteca usan las dos cadenas HC1 firmadas de la propia guía de la OMS (<a0>QR Code Generation §12</a0>), que se verifican con la lista de confianza DEV en vivo bajo la misma clave de XXR. Las cargas útiles de los DVC de Somsak son ilustrativas, como en VaxLink. La emisión en vivo en la aplicación usa una clave TEST-ONLY (<a1>STT-ISS-003</a1>), cuyo DSC no figura en la lista de la GDHCN, por lo que sus DVC no se verifican en J3."
 
 #: input/pagecontent/scenarios.md:21
 msgid "Know the record I read abroad came from the child's home country and was not altered"
@@ -437,3 +428,19 @@ msgstr "la verificación la haga alguien que pueda hacerla"
 #: input/pagecontent/scenarios.md:20
 msgid "without installing anything or calling another country"
 msgstr "sin instalar nada ni llamar a otro país"
+
+#: input/pagecontent/scenarios.md:26
+#, python-brace-format
+msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the journeys walkthrough presents them."
+msgstr "Cada paso indica los requisitos de <a0>smart-trust-tools</a0> que pone a prueba y los ejemplos FHIR de esta guía que produce. Las historias están en <a1>{code0}</a1>. Cada momento termina con su punto crítico, lo que lo hace posible y el punto de política que expone, tal como los presenta la visita guiada de los recorridos."
+
+#: input/pagecontent/scenarios.md:48
+msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+msgstr "Khamla se va con dos DVC en papel. En la demostración: las pruebas de la biblioteca usan las dos cadenas HC1 firmadas de la propia guía de la OMS (<a0>QR Code Generation §12</a0>), que se verifican con la lista de confianza DEV en vivo bajo la misma clave de XXR. Las cargas útiles de los DVC de Somsak son ilustrativas. La emisión en vivo en la aplicación usa una clave TEST-ONLY (<a1>STT-ISS-003</a1>), cuyo DSC no figura en la lista de la GDHCN, por lo que sus DVC no se verifican en J3."
+
+#~ #, python-brace-format
+#~ msgid "Each step names the requirements of <a0>smart-trust-tools</a0> it exercises, and the FHIR examples of this guide it produces. The stories are in <a1>{code0}</a1>. Each moment ends with its pain point, what enables it, and the policy point it makes, as the VaxLink walkthrough presents them."
+#~ msgstr "Cada paso indica los requisitos de <a0>smart-trust-tools</a0> que pone a prueba y los ejemplos FHIR de esta guía que produce. Las historias están en <a1>{code0}</a1>. Cada momento termina con su punto crítico, lo que lo hace posible y el punto de política que expone, tal como los presenta el recorrido guiado de VaxLink."
+
+#~ msgid "Khamla leaves with two paper DVCs. In the demo: the library tests use the WHO guide's own two signed HC1 strings (<a0>QR Code Generation §12</a0>), which verify against the live DEV trust list under the same XXR key. Somsak's DVC payloads are illustrative, as in VaxLink. Live issuance in the app uses a TEST-ONLY key (<a1>STT-ISS-003</a1>), whose DSC is not on the GDHCN list, so its DVCs do not verify in J3."
+#~ msgstr "Khamla se va con dos DVC en papel. En la demostración: las pruebas de la biblioteca usan las dos cadenas HC1 firmadas de la propia guía de la OMS (<a0>QR Code Generation §12</a0>), que se verifican con la lista de confianza DEV en vivo bajo la misma clave de XXR. Las cargas útiles de los DVC de Somsak son ilustrativas, como en VaxLink. La emisión en vivo en la aplicación usa una clave TEST-ONLY (<a1>STT-ISS-003</a1>), cuyo DSC no figura en la lista de la GDHCN, por lo que sus DVC no se verifican en J3."

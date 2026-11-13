@@ -71,9 +71,9 @@ Usage: #example
 * entry[=].resource = TrustDemoJ4Consent
 
 Instance: TrustDemoJ4Consent
-InstanceOf: Consent
+InstanceOf: PHWExplicitConsent
 Title: "J4.0b Bounmy's consent to share Somsak's summary for 14 days"
-Description: "Recorded when Bounmy creates Somsak's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN) that adds this permission to the opt-in default, the IHE PCF implicit policy Policy-deny, with Bounmy's own act on the family wallet as the evidence. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Onesan portal enforces the copy in its own record."
+Description: "Recorded when Bounmy creates Somsak's VHL (IHE Privacy Consent on FHIR): anyone he gives the QR and the spoken passcode to may read the summary for treatment, for 14 days. The passcode itself is never stored in the record. An explicit consent in the sense of the Personal Health Wallet guide (http://smart.who.int/trust-phw/consent.html): an opt-in (HL7 ActConsentDirective OPTIN) that adds this permission to the opt-in default, the IHE PCF implicit policy Policy-deny, with Bounmy's own act on the family wallet as the evidence. Consent.policyRule names the consent he agreed to, CONSENT-VHL-TREATMENT of the DEMO-VHL trust domain's terms of use (TrustDemoVhlTermsOfUse), with the version of its text he was shown. The IPS carries it as a consent entry, listed in its Advance Directives section; the copy in the IPS is evidence for the clinic, and the Onesan portal enforces the copy in its own record."
 Usage: #example
 * status = #active
 * scope = http://terminology.hl7.org/CodeSystem/consentscope#patient-privacy "Privacy Consent"
@@ -85,14 +85,13 @@ Usage: #example
 * organization = Reference(TrustDemoOnesaPortalOrg)
 * sourceAttachment.contentType = #application/json
 * sourceAttachment.title = "Bounmy's confirmation on the family wallet when he created Somsak's VHL (explicit consent)"
-* policy.uri = "https://profiles.ihe.net/ITI/PCF/Policy-deny"
+* policyRule = TrustDemoVhlConsent|0.1.0#CONSENT-VHL-TREATMENT "Consent to read the summary for treatment"
 * provision.type = #permit
 * provision.period.start = "2026-10-26"
 * provision.period.end = "2026-11-09"
-* provision.action = http://terminology.hl7.org/CodeSystem/consentaction#access "Access"
 * provision.purpose = http://terminology.hl7.org/CodeSystem/v3-ActReason#TREAT "treatment"
-* provision.data[+].meaning = #instance
-* provision.data[=].reference = Reference(TrustDemoJ4Ips)
+* provision.data[iData].meaning = #instance
+* provision.data[iData].reference = Reference(TrustDemoJ4Ips)
 
 Instance: TrustDemoJ41Received
 InstanceOf: TrustDemoTaifafekiVhlReceipt

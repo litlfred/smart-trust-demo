@@ -3,9 +3,6 @@
 
 One business process per journey. Each lane is a role on the [personas](personas.html) page; each task names the skill that performs it. The BPMN source of each process is in `processes/content/`, copied into the guide as `input/business-processes/`. Select a step's title to open it, or open a process in the [process viewer](cat-harness/processes/), which lists each task and the skill that performs it.
 
-<link rel="stylesheet" href="en/cat-harness/processes/task-panel.css" />
-<script src="en/cat-harness/processes/task-panel.js" defer></script>
-
 | Process | Lanes | BPMN |
 |---|---|---|
 | [J1 Issue the newborn's birth-dose DVCs in Country A](#j1-issue-the-newborns-birth-dose-dvcs-in-country-a) | Caregiver, Birth clinic vaccinator, Birth clinic issuing system, Issuer signing key | [j1-birth-dose-dvc.bpmn](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j1-birth-dose-dvc.bpmn) |
@@ -43,7 +40,7 @@ Task checklist: [j2-chw-discovery-referral.checklist.md](https://github.com/litl
 
 Process id `Process_J3ClinicVerification`. [Open in the process viewer](cat-harness/processes/j3-clinic-verification-schedule.html).
 
-J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, retrieves (smart-trust-phw retrieve-pki-material). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the [STT-VER-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001) order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them.
+J3, Clinic verification and schedule generation, in Country B. The clinic EHR (Receiver in SMART Trust and smart-trust-phw, VHL Receiver side in IHE ITI VHL) holds a copy of the GDHCN trust list, which the trust anchor (Trust Network Anchor; IHE Trust Anchor) distributes and Country B, a Trust Network Participant, [retrieves (smart-trust-phw retrieve-pki-material)](https://litlfred.github.io/smart-trust-phw/artifact/Requirements-retrieve-pki-material.html). Loading the DID documents is a PRECONDITION of this visit, not a step in it: the clinic may be offline throughout, so the list it verifies against is the one it last refreshed, about weekly, when the CHW visits the base clinic or district health office. It verifies each foreign DVC in the [STT-VER-001](https://litlfred.github.io/smart-trust-tools/viewers/requirements.html#stt-ver-001) order against XXR's DSC DID document, imports the verified doses with provenance, adds the national schedule code beside each foreign vaccine code (ConceptMap; the nurse decides any product with no mapping) and evaluates the national schedule, which finds the 6-week doses due and books them.
 
 Task checklist: [j3-clinic-verification-schedule.checklist.md](https://github.com/litlfred/smart-trust-demo/blob/main/processes/content/j3-clinic-verification-schedule.checklist.md).
 

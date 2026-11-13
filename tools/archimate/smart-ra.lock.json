@@ -2,6 +2,8 @@
   "_comment": "The smart-ra files this overlay is built from, pinned by commit and sha256 (AGENTS.md: every dependency pinned and verified). build.py fetches them at this commit and refuses any file whose sha256 differs. Bumping smart-ra is an edit here plus `python3 tools/archimate/build.py`.",
   "repository": "litlfred/smart-ra",
   "commit": "8257473ee8fc4a57d7e139a80d76e38f73a81b40",
+  "iri": "https://litlfred.github.io/smart-ra/archimate/0.3.0-draft.1",
+  "_iri": "The IRI smart-ra publishes the model at (its iriBase, its archimate directory, the model id). build.py tags every element and relationship it copies with overlay:base = <iri>/element/<id> or <iri>/relationship/<id>, so the site's page for a copy links back to smart-ra's own (cat-harness-tools#1949).",
   "files": {
     "model": {
       "path": "archimate/0.3.0-draft.1/WHOBaseFile.archimate",

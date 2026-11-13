@@ -184,6 +184,83 @@
           "label": "The cost of not doing it once"
         }
       ]
+    },
+    {
+      "id": "readiness",
+      "title": "Readiness check",
+      "description": "Has your country completed any of these? The rows DPI-H Lab’s readiness step shows (CC BY 4.0).",
+      "rows": [
+        {
+          "id": "strategy",
+          "label": "National digital health strategy",
+          "group": "Strategy & investment"
+        },
+        {
+          "id": "blueprint",
+          "label": "National architecture / blueprint",
+          "group": "Strategy & investment"
+        },
+        {
+          "id": "costed-plan",
+          "label": "Costed plan with a budget line",
+          "group": "Strategy & investment"
+        },
+        {
+          "id": "steering-body",
+          "label": "Steering body",
+          "group": "Governance"
+        },
+        {
+          "id": "twg",
+          "label": "Technical Working Group (TWG)",
+          "group": "Governance"
+        },
+        {
+          "id": "named-authority",
+          "label": "Named authority for architecture & standards",
+          "group": "Governance"
+        },
+        {
+          "id": "data-protection",
+          "label": "Health data protection & consent",
+          "group": "Legal & policy"
+        },
+        {
+          "id": "standards-mandated",
+          "label": "Standards mandated in policy",
+          "group": "Legal & policy"
+        },
+        {
+          "id": "open-procurement",
+          "label": "Procurement requires open standards",
+          "group": "Legal & policy"
+        },
+        {
+          "id": "interop-framework",
+          "label": "National interoperability framework",
+          "group": "Standards & interoperability"
+        },
+        {
+          "id": "core-data-set",
+          "label": "National core data set",
+          "group": "Standards & interoperability"
+        },
+        {
+          "id": "core-fhir-ig",
+          "label": "National core FHIR implementation guide",
+          "group": "Standards & interoperability"
+        },
+        {
+          "id": "release-centre",
+          "label": "National Release Centre operating",
+          "group": "Terminology & testing"
+        },
+        {
+          "id": "trained-team",
+          "label": "Trained national team",
+          "group": "Capacity & sustainability"
+        }
+      ]
     }
   ],
   "steps": [
@@ -932,5 +1009,221 @@
     "cover": {
       "table": "patterns"
     }
+  },
+  "lab": {
+    "name": "The table’s eight steps",
+    "intro": "One country per table, the delegation plus buddies. Work through the steps in order; each has a timer and a prompt to read aloud. What the table writes stays in this browser and is gathered on one page in step 7.",
+    "credit": "The eight steps, their timers and DISCUSS prompts, the use-case cards and the readiness rows are adapted from DPI-H Lab, created by Umer Nisar (CSIRO), in collaboration with Rumanusina Maua (SPC) and Jordi Piera Jimenez, under CC BY 4.0 (creativecommons.org/licenses/by/4.0). Changes: more than one use case may be ticked, the use case starts from the journeys, the journeys’ questions and tables are woven into the steps, and steps 3 to 7 are written for this workshop. DPI-H Lab is informed by the WHO/ITU DPI-H Reference Architecture, Draft V1.0, and is not produced or endorsed by WHO or ITU.",
+    "creditHref": "https://dpih.fhirlab.net/",
+    "creditLabel": "DPI-H Lab",
+    "useCases": [
+      {
+        "id": "ips",
+        "label": "International Patient Summary",
+        "description": "An internationally agreed minimum summary of a person’s health (problems, medicines, allergies and more) designed to be read in any system or country."
+      },
+      {
+        "id": "immunisation",
+        "label": "Immunisation",
+        "description": "Every vaccination is recorded once and available wherever the person is seen next, so schedules, coverage and outbreaks can be tracked.",
+        "journey": true
+      },
+      {
+        "id": "data-foundations",
+        "label": "Trusted data foundations",
+        "description": "Core health data is captured once and reused reliably across programmes, services and levels of care."
+      },
+      {
+        "id": "workforce",
+        "label": "Capable, well-distributed workforce",
+        "description": "Health workers are identifiable and verifiable, deployed where they are needed, paid reliably and supported to keep their skills current."
+      },
+      {
+        "id": "continuity",
+        "label": "Quality & continuity of care",
+        "description": "Care that draws on a person’s full history, follows current evidence at the point of care and is coordinated across providers."
+      },
+      {
+        "id": "personal-records",
+        "label": "Trusted personal health records",
+        "description": "Every person has a verifiable digital health record they can see and control, and that authorised providers can trust.",
+        "journey": true
+      },
+      {
+        "id": "climate-epidemic",
+        "label": "Climate & epidemic resilience",
+        "description": "Detect epidemic and climate-related health threats early enough to act, and coordinate the response."
+      },
+      {
+        "id": "other",
+        "label": "Other: your own use case",
+        "description": "A priority use case the team chooses that is not one of the listed options."
+      }
+    ],
+    "useCaseText": "A child vaccinated in Taifafeki should be able to have every dose counted at home in Onesa, and shown back to a Taifafeki clinician a year later.",
+    "scale": {
+      "id": "readiness",
+      "label": "Readiness",
+      "options": [
+        {
+          "id": "done",
+          "label": "Done"
+        },
+        {
+          "id": "in-progress",
+          "label": "In progress"
+        },
+        {
+          "id": "not-yet",
+          "label": "Not yet"
+        }
+      ]
+    },
+    "steps": [
+      {
+        "id": "team",
+        "label": "Team",
+        "title": "Who is part of the working team?",
+        "lede": "Work as one team: the country delegation plus buddies. The country decides; buddies ask questions and explain.",
+        "minutes": 2,
+        "fields": [
+          {
+            "id": "country",
+            "label": "Our country",
+            "lines": 1
+          },
+          {
+            "id": "members",
+            "label": "Team members",
+            "hint": "Names and roles only. No email addresses, phone numbers or other personal details.",
+            "lines": 3
+          },
+          {
+            "id": "buddies",
+            "label": "Buddies",
+            "hint": "Name and organisation only. No email addresses or phone numbers.",
+            "lines": 1
+          }
+        ],
+        "note": "Don’t enter personal health information."
+      },
+      {
+        "id": "use-case",
+        "label": "Use case",
+        "title": "Which use cases or health goals?",
+        "minutes": 5,
+        "discuss": "Go round the table: each person names the use case that matters most to their ministry right now. Then agree together, and tick every one that applies.",
+        "useCases": true,
+        "modules": [
+          "M1"
+        ]
+      },
+      {
+        "id": "readiness",
+        "label": "Readiness",
+        "title": "Has your country completed any of these?",
+        "lede": "Readiness check",
+        "minutes": 10,
+        "discuss": "Don’t tick alone. Talk each row through. If people disagree on “Done”, it probably isn’t done yet.",
+        "rate": [
+          "readiness"
+        ]
+      },
+      {
+        "id": "who-decides",
+        "label": "Who decides",
+        "title": "Who holds each decision today?",
+        "minutes": 10,
+        "discuss": "Name who holds it; do not decide it here. If nobody does, write “nobody yet”: that is a finding.",
+        "holders": [
+          "decision-rights",
+          "legal-bases"
+        ],
+        "modules": [
+          "M4",
+          "M5"
+        ]
+      },
+      {
+        "id": "components",
+        "label": "Components",
+        "title": "What does each moment need, and where do you stand?",
+        "lede": "Each moment of the journey needs building blocks of the DPI-H reference architecture. Rate each one for your country.",
+        "minutes": 15,
+        "discuss": "Rate each together. “Absent” is a finding, not a failure; ask only whether it blocks your use case.",
+        "capabilities": true,
+        "modules": [
+          "M2"
+        ],
+        "resources": [
+          "dpi-h-ra"
+        ]
+      },
+      {
+        "id": "mapping",
+        "label": "Mapping",
+        "title": "Which standards and codes do you adopt, and who maps them?",
+        "minutes": 10,
+        "discuss": "For each gap, ask first whether you can borrow it. Adopt before you author.",
+        "fields": [
+          {
+            "id": "adopt",
+            "label": "Standards and specifications we adopt rather than author",
+            "lines": 3
+          }
+        ],
+        "pick": [
+          "patterns"
+        ],
+        "modules": [
+          "M3"
+        ],
+        "resources": [
+          "smart-trust",
+          "ihe-vhl"
+        ]
+      },
+      {
+        "id": "pathway",
+        "label": "Pathway",
+        "title": "What is our first move in twelve months?",
+        "minutes": 10,
+        "discuss": "Be realistic with the people and money you have. Name an owner, not a committee.",
+        "fields": [
+          {
+            "id": "first-move",
+            "label": "Our first move in twelve months",
+            "lines": 3
+          },
+          {
+            "id": "owner",
+            "label": "Named owner",
+            "lines": 1
+          },
+          {
+            "id": "ask",
+            "label": "What we ask of partners",
+            "lines": 3
+          }
+        ],
+        "pick": [
+          "cost-drivers"
+        ],
+        "modules": [
+          "M6",
+          "M7"
+        ]
+      },
+      {
+        "id": "summary",
+        "label": "Summary",
+        "title": "Our table’s summary",
+        "lede": "Answer the four closing questions in a line each, then read the summary aloud.",
+        "minutes": 5,
+        "discuss": "Read the summary aloud. Does everyone at the table agree with it? Change it here until they do.",
+        "discussion": true,
+        "summary": true
+      }
+    ]
   }
 }
