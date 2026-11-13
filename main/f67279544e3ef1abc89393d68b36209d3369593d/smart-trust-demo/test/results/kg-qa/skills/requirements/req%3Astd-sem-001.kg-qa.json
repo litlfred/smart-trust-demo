@@ -1,0 +1,51 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "requirement",
+    "id": "req:std-sem-001",
+    "path": "skills/requirements/std-sem-001.json"
+  },
+  "source_hash": "sha256:8a9ea7c4fc7d28307561ce78d4cd0ec32906c557688012167b04c2329268b2b1",
+  "criteria": {
+    "requirement-statement-satisfied": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "req:std-sem-001/map",
+          "detail": "no skill or capability declares `satisfies: req:std-sem-001#map` — nothing is recorded as discharging this statement."
+        },
+        {
+          "where": "req:std-sem-001/unmapped",
+          "detail": "no skill or capability declares `satisfies: req:std-sem-001#unmapped` — nothing is recorded as discharging this statement."
+        }
+      ]
+    },
+    "requirement-actors-resolve": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "req:std-sem-001",
+          "detail": "binds actor \"home-clinic-provider\", which the registry does not declare."
+        },
+        {
+          "where": "req:std-sem-001",
+          "detail": "binds actor \"home-clinic-ehr\", which the registry does not declare."
+        }
+      ]
+    },
+    "requirement-derived-from-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "requirement-statements-graded": {
+      "result": "pass",
+      "findings": []
+    }
+  },
+  "totals": {
+    "pass": 1,
+    "fail": 2,
+    "n/a": 1,
+    "unknown": 0
+  }
+}
