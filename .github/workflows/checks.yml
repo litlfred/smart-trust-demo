@@ -64,10 +64,12 @@ jobs:
       - name: The translation templates are current (translations/)
         # One extraction for every translator: BPMN by the harness's
         # translate-bpmn, the pages by tools/translation/pages-pot.ts (the
-        # harness's pot-extract over docs/ and input/pagecontent/).
+        # harness's pot-extract over docs/ and input/pagecontent/), the navbar's
+        # labels by tools/translation/navbar-pot.ts.
         run: |
           bun run cat translate-bpmn:check -- --instance .
           bun tools/translation/pages-pot.ts --check
+          bun tools/translation/navbar-pot.ts --check
           bun run cat translate-user-scenarios:check -- --instance .
           bun run cat kg:locale:check -- --instance .
           bun run cat check:translation-officiality
