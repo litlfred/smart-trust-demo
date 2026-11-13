@@ -66,6 +66,11 @@ Generators that write below a mounted layer (for example `bpmn:checklist`,
 which also writes into `cat-harness/`) leave that mount "modified"; re-lay it
 with `rm -rf <layer>` and the clone line above, then `mount:lock`. Publish
 gh-pages with `bun cat-harness-tools/scripts/stage-local.ts --repo . --publisher ig`.
+Publishing the main site needs history: the AST's validity check names the
+last commit that touched the IG's inputs, and a `--depth 1` clone cannot find
+it, so a valid cache reads as `stale-inputs` and the publish is refused. Run
+`git fetch --depth=1000 origin main` first; `bun run
+fhir-harness/scripts/ig-ast.ts validity output-ast --ig .` should say `valid`.
 The VaxLink app that used to live in `web/` and at `vaxlink/` was retired on
 2026-11-11 (issue #111); the journeys viewer replaces it.
 
