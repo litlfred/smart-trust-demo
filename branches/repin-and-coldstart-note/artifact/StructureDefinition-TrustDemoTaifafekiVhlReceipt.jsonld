@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "StructureDefinition-TrustDemoTaifafekiVhlReceipt",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/TrustDemoTaifafekiVhlReceipt",
+  "schema:name": "TrustDemoTaifafekiVhlReceipt",
+  "dcterms:title": "Taifafeki: record of a summary read through a VHL",
+  "dcterms:description": "How it is used: J4.1. The Kesaro clinic viewer keeps this record when it opens Somsak's patient summary through the Verifiable Health Link that his father shows.\n\nWhy: the Taifafeki clinic views the Onesan record and does not copy it into a Taifafeki registry. So the clinic keeps a note of what it saw, where it came from, and how it was verified: the VHL's signature against Onesa's key on the GDHCN trust list, the manifest fetch, and the passcode. The Onesan side keeps its own log of the same access (the Onesan audit profile).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Resource Profiles",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoTaifafekiVhlReceipt"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../StructureDefinition-TrustDemoTaifafekiVhlReceipt.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/resources/StructureDefinition/TrustDemoTaifafekiVhlReceipt.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "378a7e5e748b9e0906598b117d6247bd30bd6efd"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

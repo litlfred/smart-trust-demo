@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.FamilyPhone",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.FamilyPhone",
+  "schema:name": "FamilyPhone",
+  "dcterms:title": "Family phone",
+  "dcterms:description": "The one smartphone the family shares, holding one VHL QR per member (J4); holds links, not keys to anyone's records beyond what each link grants.\n\n**Persona**: A shared Android phone, sometimes offline; whoever holds it can show any member's QR, the passcode protects the records.\n\n**Also known as**: Personal health wallet\n\n**Played in the journeys by** (fictional):\n\n- The family's shared phone\n\n**In the user scenarios**:\n\n- [J4.0 — Crossing back: one family, one phone](scenarios.html#j40--crossing-back-one-family-one-phone-onesa-12-months-later): J4.0b Dad creates a link to share at the clinic\n- [J4.1 — Crossing back: a Taifafeki doctor sees the full history](scenarios.html#j41--crossing-back-a-taifafeki-doctor-sees-the-full-history-kesaro-12-months-later): J4.1 A Taifafeki doctor sees the full history\n\n**On the device screens**: [S7 VHL QR Display & Passcode Protection (Bounmy's phone)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S7/); [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)\n\n**Discussed in the workshop modules**: [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/); [M6 Doing it once, together](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m6/); [M7 Our first move, what it costs, and what we ask for](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m7/)\n\n**Lanes and tasks in the business processes**:\n\n- [J4.0 Issue the family's records to one phone as VHLs](business-processes.html#j40-issue-the-familys-records-to-one-phone-as-vhls): Store each member's VHL QR on the phone\n- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Show the child's VHL QR",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.FamilyPhone"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ActorDefinition-TrustDemo.Role.FamilyPhone.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/resources/ActorDefinition/TrustDemo.Role.FamilyPhone.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "378a7e5e748b9e0906598b117d6247bd30bd6efd"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

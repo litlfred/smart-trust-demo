@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.BirthClinicSystem",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.BirthClinicSystem",
+  "schema:name": "BirthClinicSystem",
+  "dcterms:title": "Birth clinic issuing system",
+  "dcterms:description": "The hospital system abroad that issues a DVC per dose with the HCERT library: the HCERT issuing system (smart-trust-tools) of a trust network participant (XXR).\n\n**Persona**: Software that calls the library once per dose and never holds the private key; signs only with a DSC its country's CSCA issued and has already shared with the GDHCN.\n\n**Also known as**: Issuer of the birth-dose DVCs (SMART Trust Issuer)\n\n**Played in the journeys by** (fictional):\n\n- Kesaro Provincial Hospital system, Taifafeki (Country A, XXR)\n\n**In the user scenarios**:\n\n- [J1 — Born abroad](scenarios.html#j1--born-abroad-taifafeki-birth-day): J1 An Onesan baby is born in Taifafeki\n\n**On the device screens**: [S1 Birth Abroad & Printed DVC QR Cards (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S1/)\n\n**Discussed in the workshop modules**: [M1 From journey to capabilities](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m1/); [M4 Trust, credentials and wallets](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m4/); [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/)\n\n**Lanes and tasks in the business processes**:\n\n- [J1 Issue the newborn's birth-dose DVCs in Country A](business-processes.html#j1-issue-the-newborns-birth-dose-dvcs-in-country-a): Build one DVCMinPreQual payload per dose; Prepare: CWT claims and the COSE Sig_structure; Finish: COSE_Sign1, deflate, Base45, HC1:\n\n**Data sets its tasks record or read**: [TD.J1 Birth-dose DVC](dictionary.html#tdj1-birth-dose-dvc)",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.BirthClinicSystem"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ActorDefinition-TrustDemo.Role.BirthClinicSystem.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/resources/ActorDefinition/TrustDemo.Role.BirthClinicSystem.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "378a7e5e748b9e0906598b117d6247bd30bd6efd"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

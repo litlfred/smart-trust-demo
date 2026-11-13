@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "ActorDefinition-TrustDemo.Role.PocReceiver",
+  "@type": "fhir:ActorDefinition",
+  "dcterms:identifier": "ActorDefinition/TrustDemo.Role.PocReceiver",
+  "schema:name": "PocReceiver",
+  "dcterms:title": "Point-of-care receiver",
+  "dcterms:description": "The clinic system abroad that scans a VHL, verifies it, fetches the manifest (ITI-YY5) and decrypts the documents (J4.1): the VHL Receiver.\n\n**Persona**: A hospital system on a trust network with its own receiver key; its DID trust list is a cache refreshed nightly or hourly, loaded before a visit, so it verifies without being online.\n\n**Also known as**: VHL Receiver (IHE ITI VHL); Receiver of the family's VHLs (SMART Trust Receiver)\n\n**Played in the journeys by** (fictional):\n\n- Kesaro primary care clinic viewer, Taifafeki (J4.1)\n\n**In the user scenarios**:\n\n- [J4.1 — Crossing back: a Taifafeki doctor sees the full history](scenarios.html#j41--crossing-back-a-taifafeki-doctor-sees-the-full-history-kesaro-12-months-later): J4.1 A Taifafeki doctor sees the full history\n\n**On the device screens**: [S8 Foreign Clinic VHL Viewer & Audit Trace (Dr. Anan's tablet)](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/demo/S8/)\n\n**Discussed in the workshop modules**: [M5 Governance, decision rights and the legal basis](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m5/); [M6 Doing it once, together](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m6/); [M7 Our first move, what it costs, and what we ask for](en/smart-trust-demo/journeys/smart-trust-demo/workshops/dpi-h-policy-track/m7/)\n\n**Lanes and tasks in the business processes**:\n\n- [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad): Verify the HCERT and read the VHL at key 5; Request the manifest (ITI-YY5), signed; Decrypt the IPS and DVCs\n\n**Decisions it makes**:\n\n- Decision table [TD.DT.06 Does the receiver follow the VHL?](decision-logic.html#tddt06-does-the-receiver-follow-the-vhl), in: Verify the HCERT and read the VHL at key 5; HCERT verified?; Request the manifest (ITI-YY5), signed\n- Gateway \"HCERT verified?\" in [J4.1 Read a family member's records at the point of care abroad](business-processes.html#j41-read-a-family-members-records-at-the-point-of-care-abroad)\n\n**Data sets its tasks record or read**: [TD.J41 Access to a shared link](dictionary.html#tdj41-access-to-a-shared-link)",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Requirements: Actor Definitions",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/ActorDefinition/TrustDemo.Role.PocReceiver"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../ActorDefinition-TrustDemo.Role.PocReceiver.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/resources/ActorDefinition/TrustDemo.Role.PocReceiver.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "378a7e5e748b9e0906598b117d6247bd30bd6efd"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "fhir": "http://hl7.org/fhir/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "$schema": "folio-ig-artifact-jsonld/v1",
+  "@id": "StructureDefinition-TrustDemoTaifafekiImmunization",
+  "@type": "fhir:StructureDefinition",
+  "dcterms:identifier": "StructureDefinition/TrustDemoTaifafekiImmunization",
+  "schema:name": "TrustDemoTaifafekiImmunization",
+  "dcterms:title": "Taifafeki: dose given at the birth hospital (DVC source)",
+  "dcterms:description": "How it is used: J1. Each birth dose (Hep B, BCG) that Dr Anan gives is recorded here first. The hospital then packs it into a Digital Vaccination Certificate (HCERT, signed with XXR's key) and prints it as a QR card.\n\nWhy: the DVC can only carry what this record holds. The vaccine product, date, lot, dose number and the administering organization are exactly the fields the HCERT certificate needs. They are required here so every printed card is complete. The product is coded from the WHO PreQual-style product list, because that is the code Onesa will later map to its own schedule (J3).",
+  "schema:version": "0.1.0",
+  "dcterms:type": "Structures: Resource Profiles",
+  "schema:sameAs": {
+    "@id": "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoTaifafekiImmunization"
+  },
+  "schema:creativeWorkStatus": "materialized",
+  "schema:encoding": [
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "../StructureDefinition-TrustDemoTaifafekiImmunization.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "local"
+    },
+    {
+      "@type": "schema:MediaObject",
+      "schema:contentUrl": {
+        "@id": "https://raw.githubusercontent.com/litlfred/smart-trust-demo/3798138187964d1df66e07c3fc221ced2f1cd604/resources/StructureDefinition/TrustDemoTaifafekiImmunization.json"
+      },
+      "schema:encodingFormat": "application/fhir+json",
+      "dcterms:source": "mirror"
+    }
+  ],
+  "prov:wasGeneratedBy": {
+    "@type": "prov:Activity",
+    "schema:instrument": "ig-publisher 3.0.0 / core 7.0.1",
+    "prov:used": "378a7e5e748b9e0906598b117d6247bd30bd6efd"
+  },
+  "dcterms:isPartOf": {
+    "@type": "fhir:ImplementationGuide",
+    "dcterms:identifier": "smart.who.int.trust-demo",
+    "schema:version": "0.1.0",
+    "schema:sameAs": {
+      "@id": "http://smart.who.int/trust-demo"
+    }
+  }
+}
