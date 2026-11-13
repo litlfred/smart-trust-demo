@@ -68,21 +68,21 @@ The countries' instances of the RA blocks, the parts' realizations of them,
 and the RA's own blocks are in the model and drawn in each journey's view,
 which keeps this one narrow and its lines few.
 
-[![Systems on the DPI-H Integrated View](archimate/0.1.0/views/id-249a1002c32e50199e27a502ef0ec3d8.svg)](en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-on-the-dpi-h-integrated-view/)
+[![Systems on the DPI-H Integrated View](archimate/0.1.0/view/id-249a1002c32e50199e27a502ef0ec3d8.svg)](en/smart-trust-demo/archimate/0.1.0/view/smart-trust-demo-on-the-dpi-h-integrated-view/)
 
 ## Journeys (use cases)
 
-[![Journeys, people and capabilities](archimate/0.1.0/views/id-c6cae81c85da5fc197ab58547274a481.svg)](en/smart-trust-demo/archimate/0.1.0/views/smart-trust-demo-journeys-use-cases/)
+[![Journeys, people and capabilities](archimate/0.1.0/view/id-c6cae81c85da5fc197ab58547274a481.svg)](en/smart-trust-demo/archimate/0.1.0/view/smart-trust-demo-journeys-use-cases/)
 
 ## One view per journey
 
 | Journey | View |
 |---|---|
-| J1 Issue the birth-dose DVCs | [J1 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/views/j1-on-the-dpi-h-ra/) |
-| J2 Discover and refer the infant | [J2 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/views/j2-on-the-dpi-h-ra/) |
-| J3 Verify, import and schedule | [J3 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/views/j3-on-the-dpi-h-ra/) |
-| J4.0 Issue the family's VHLs | [J4.0 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/views/j4-0-on-the-dpi-h-ra/) |
-| J4.1 Read records at the point of care | [J4.1 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/views/j4-1-on-the-dpi-h-ra/) |
+| J1 Issue the birth-dose DVCs | [J1 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/view/j1-on-the-dpi-h-ra/) |
+| J2 Discover and refer the infant | [J2 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/view/j2-on-the-dpi-h-ra/) |
+| J3 Verify, import and schedule | [J3 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/view/j3-on-the-dpi-h-ra/) |
+| J4.0 Issue the family's VHLs | [J4.0 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/view/j4-0-on-the-dpi-h-ra/) |
+| J4.1 Read records at the point of care | [J4.1 on the DPI-H RA](en/smart-trust-demo/archimate/0.1.0/view/j4-1-on-the-dpi-h-ra/) |
 
 ## How it is made
 
