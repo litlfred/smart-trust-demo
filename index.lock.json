@@ -107,6 +107,44 @@
       }
     },
     {
+      "instance": "cat-harness",
+      "repository": "litlfred/cat-harness",
+      "sha": "aceb4c70af19ba69234768b7b061c54ff0031010",
+      "upstreamRoot": "",
+      "path": "cat-harness",
+      "via": "cat-harness",
+      "pinnedBy": "declared",
+      "declaration": {
+        "file": "cat-harness.json",
+        "sha256": "d51d814e013878f78e74fba7a168ab678c54f39de6e344208e8268f7fdc51d03"
+      },
+      "directories": [
+        {
+          "id": "*",
+          "path": "cat-harness",
+          "upstreamPath": ".",
+          "treeDigest": "ae164311b9779fb3f1beb6e6c734d64ac9129f6b90bf8346aca4af804d363290",
+          "files": 2923,
+          "except": [
+            "docs/proposals",
+            "docs/wireframes",
+            "editorial",
+            "integrations",
+            "kg-ops",
+            "library/corpus",
+            "research"
+          ]
+        }
+      ],
+      "trust": {
+        "basis": "consent",
+        "by": "litlfred",
+        "on": "2026-11-14",
+        "ref": "aceb4c70af19ba69234768b7b061c54ff0031010",
+        "approver": "declared"
+      }
+    },
+    {
       "instance": "cat-harness-tools",
       "repository": "litlfred/cat-harness-tools",
       "sha": "b43c49dd87f527c1572efff7d98afb4350004ead",
@@ -260,18 +298,36 @@
         "ref": "5143e093f774235a40fcef0592c7d0828e0b895c",
         "approver": "declared"
       }
-    }
-  ],
-  "unmounted": [
-    {
-      "instance": "cat-harness",
-      "state": "missing",
-      "detail": "`cat-harness/` already exists, no lock says this mount put it there, and it is not the pinned bytes (differ: `cat-harness/docs/source/concepts-knowledge-graph/nodes/overview.jsonld`; absent: `cat-harness/.agents/rules/agent-memory.md`, `cat-harness/.agents/skills/ci-health-watcher-memory/SKILL.md`, `cat-harness/.agents/skills/platform-boundary-guard-memory/SKILL.md`, `cat-harness/.claude/agent-memory/ci-health-watcher/MEMORY.md`, `cat-harness/.claude/agent-memory/ci-health-watcher/detail/derive-the-gate-list-from-the-workflow.md` and 519 more) — refused, nothing changed. Move the edits upstream to the fork, or delete or rename the directory, then re-mount"
     },
     {
       "instance": "who-iris",
-      "state": "could-not-determine",
-      "detail": "mounting threw: git sparse-checkout set --no-cone /who-iris.json /* failed: fatal: write error: No space left on device\nfatal: fetch-pack: invalid index-pack output\nfatal: could not fetch 3c9dad05e75d248d8c9d42f5bb0df8dec10e98f8 from promisor remote"
+      "repository": "litlfred/who-iris",
+      "sha": "80e69124a0046cf8a61d6441dab18c241be4f65f",
+      "upstreamRoot": "",
+      "path": "who-iris",
+      "via": "who-iris",
+      "pinnedBy": "declared",
+      "declaration": {
+        "file": "who-iris.json",
+        "sha256": "5a7f9c690241b0142b01192aa11acd6c43b8d8be8b4050c4d710b21d61110d15"
+      },
+      "directories": [
+        {
+          "id": "*",
+          "path": "who-iris",
+          "upstreamPath": ".",
+          "treeDigest": "67f9d940816901dfb78d4bcbac10a6b6b5892757d3c52d89f2d41d448d2fc04a",
+          "files": 43761
+        }
+      ],
+      "trust": {
+        "basis": "consent",
+        "by": "litlfred",
+        "on": "2026-11-14",
+        "ref": "80e69124a0046cf8a61d6441dab18c241be4f65f",
+        "approver": "declared"
+      }
     }
-  ]
+  ],
+  "unmounted": []
 }
