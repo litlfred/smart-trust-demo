@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J3 — Made official — user-scenario</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fdfdfb; --muted:#5b5b5b; --line:#d6d6d0; --link:#0b5cad; --panel:#f3f4f2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; } }
+  :root[data-fa-scheme="dark"] { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+  body { margin:0; font:1rem/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:80rem; margin:0 auto; padding:1.5rem 1.5rem 4rem; min-width:0; overflow-wrap:anywhere; }
+  h1 { font-size:1.35rem; margin:0 0 .25rem; } h2 { font-size:1.05rem; margin:1.5rem 0 .5rem; }
+  a { color:var(--link); } a:focus-visible, select:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  .m { color:var(--muted); font-size:.9rem; }
+  .tiles { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; padding:0; list-style:none; }
+  .tiles li { border:1px solid var(--line); border-radius:.4rem; padding:.35rem .7rem; }
+  .tiles b { font-size:1.2rem; margin-right:.3rem; }
+  .clip { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; vertical-align:top; padding:.35rem .5rem; border-bottom:1px solid var(--line); }
+  th { background:var(--panel); white-space:nowrap; }
+  /* Only the node's path and long text may break mid-word; a status or a date
+     broken across lines ("in_pr ogres s") is unreadable. */
+  td { overflow-wrap:normal; } td.p, td.t { overflow-wrap:anywhere; } td.s { white-space:nowrap; }
+  dl { display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:.25rem 1rem; }
+  dt { font-weight:600; } dd { margin:0; }
+  pre { background:var(--panel); padding:.75rem; overflow-x:auto; font-size:.85rem; }
+  label { margin-right:1rem; }
+  @media (max-width:40rem) { dl { grid-template-columns:1fr; } }
+</style>
+<link rel="stylesheet" href="../../../../../../../assets/css/navbar.css"><script src="../../../../../../../assets/navbar/rail-a873u7lqey.js" defer></script><script src="../../../../../../../assets/js/navbar.js" defer></script><style data-folio-narrow-viewport>
+/* Narrow viewports: nothing may widen the PAGE — bean `2r2n`.
+ *
+ * At 390 px, 105 of 249 built pages scrolled sideways (measured 2026-09-24).
+ * The rule here is the bean's: wide content scrolls INSIDE ITS OWN BOX with a
+ * visible cue, and the page itself never pans.
+ *
+ * ONE FILE, TWO WAYS IN. Themed pages link it from `_includes/head_custom.html`.
+ * The standalone viewer pages carry no theme stylesheet at all, so
+ * `withViewerNav` in `scripts/viewer-page.ts` inlines this same file when it
+ * adds the rail. A copy of these rules in each place would be two answers to
+ * "what does a table do at 390 px", free to drift apart.
+ *
+ * Every selector here is written to be safe on both kinds of page: no
+ * `.main-content` scope (a standalone page has none), the navbar excluded by
+ * name, and the theme's own `.table-wrapper` left alone, since it already does
+ * this job for Markdown tables. */
+
+@media (max-width: 799.98px) {
+  /* A table the theme did not wrap: raw HTML from a generator, or one built at
+   * runtime. `display: block` makes the table its own scroll box. Its cells
+   * still lay out as a table inside the anonymous table box. */
+  table:not(.table-wrapper > table):not(.fa-nav table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* THE CUE: the edge that has more content past it fades out. The fade is a
+   * MASK over the table's own pixels, driven by its own scroll position, so
+   * it needs no knowledge of the page's background. A painted cover (the
+   * usual `background-attachment: local` trick) does: the first version used
+   * `Canvas`, and on a page that is dark under a LIGHT scheme it laid a white
+   * band over the first column.
+   *
+   * A table that does not overflow has an inactive scroll timeline, so the
+   * animation has no effect and both fades stay at their initial 0: no cue
+   * where there is nothing to scroll to. A browser without scroll-driven
+   * animations shows no fade, and the table still scrolls. */
+  @supports (animation-timeline: scroll()) {
+    table:not(.table-wrapper > table):not(.fa-nav table) {
+      mask-image: linear-gradient(to right,
+        transparent 0, #000 var(--fa-cue-l),
+        #000 calc(100% - var(--fa-cue-r)), transparent 100%);
+      animation: fa-scroll-cue linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  /* A code block scrolls in its own box, which is what `pre` is for. Mermaid
+   * SOURCE sits in a `pre` until the renderer replaces it, and at 390 px a
+   * diagram's source line is longer than the screen. */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prose that has no break opportunity: a long path in inline code, or a
+   * glossary definition naming one. Breaking the string is better than
+   * widening the page it sits on. */
+  :not(pre) > code,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+@property --fa-cue-l { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fa-cue-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@keyframes fa-scroll-cue {
+  0%   { --fa-cue-l: 0px;    --fa-cue-r: 2.5rem; }
+  12%  { --fa-cue-l: 2.5rem; }
+  88%  { --fa-cue-r: 2.5rem; }
+  100% { --fa-cue-l: 2.5rem; --fa-cue-r: 0px; }
+}
+
+</style>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../../assets/ig-artifact.css"></head>
+<body data-fa-node-kind-page>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header><script type="application/json" id="fa-rail" data-fa-root="../../../../../../.." data-fa-to-root="../../../../../../..">{"data":"rail-a873u7lqey","here":"/en/cat-harness-tools/user-scenario/smart-trust-demo/scenarios/user-scenarios/j3-made-official/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../../../">folio-assistant</a></nav>
+<main>
+<h1 id="nk-title">J3 — Made official</h1>
+<p class="m">A <a href="../../../../">user-scenario</a> node held by <a href="../../../">smart-trust-demo</a>, at <code>scenarios/user-scenarios/j3-made-official.json</code>.</p>
+
+<h2 id="fields">Fields</h2>
+<dl>
+<dt>$schema</dt><dd>user-scenario/0.3.0</dd>
+<dt>id</dt><dd>j3-made-official</dd>
+<dt>title</dt><dd>J3 — Made official</dd>
+<dt>description</dt><dd>A nurse verifies the cards are genuine and fits the Taifafeki doses into the Onesan schedule.</dd>
+<dt>personas</dt><dd><pre>[
+  &quot;chanthason&quot;,
+  &quot;khamla-sengmany&quot;
+]</pre></dd>
+<dt>follows</dt><dd>j2-found-at-home</dd>
+<dt>when</dt><dd>4 weeks later</dd>
+<dt>where</dt><dd>Lomaru District Health Center</dd>
+<dt>country</dt><dd>Onesa</dd>
+<dt>trustLadder</dt><dd>record-trust</dd>
+<dt>steps</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;J3a&quot;,
+    &quot;title&quot;: &quot;The clinic confirms the cards are genuine&quot;,
+    &quot;headline&quot;: &quot;Nurse Chanthason scans the card, and her tablet checks Taifafeki’s digital signature against the WHO trust list — without contacting Taifafeki.&quot;,
+    &quot;when&quot;: &quot;T0 + 4 weeks&quot;,
+    &quot;where&quot;: &quot;Lomaru District Health Center&quot;,
+    &quot;touchpoint&quot;: &quot;Clinic tablet (verification)&quot;,
+    &quot;preconditions&quot;: [
+      {
+        &quot;title&quot;: &quot;The DID documents are already loaded&quot;,
+        &quot;description&quot;: &quot;**Precondition: the DID documents are already loaded.** Loading them is not a step of this visit. The clinic may be offline all day, so the EHR fetches nothing during it: its trust store holds the GDHCN DEV trust list as it was last refreshed, including XXR&#39;s DSC DID document (STT-TRU-001, STT-TRU-002, STT-TRU-005). A clinic with no connection of its own refreshes it about weekly, when the CHW visits the base clinic or district health office, where Country B retrieves the list the GDHCN trust anchor distributes. A DSC published after that refresh is not in the clinic&#39;s copy, so its DVC fails the trust-list check (STT-VER-006) until the next refresh.&quot;,
+        &quot;requirements&quot;: [
+          &quot;STT-TRU-001&quot;,
+          &quot;STT-TRU-002&quot;,
+          &quot;STT-TRU-005&quot;,
+          &quot;STT-VER-006&quot;
+        ]
+      }
+    ],
+    &quot;narrative&quot;: &quot;Nurse Chanthason opens the referral and scans the QRs. The EHR\n**verifies** each DVC offline against that copy (STT-VER-001…009,\nSTT-KID-002), without contacting Taifafeki. Both verify, so it imports them as\nFHIR `Immunization`s (`TrustDemoJ3HepB`, `TrustDemoJ3Bcg`) with provenance\n(`TrustDemoJ3Verification`; STT-VER-007, STT-VER-008), replacing the reported\ndoses of J2. If a DVC fails (a tampered card, say), the EHR names the step and\nthe reason, the doses stay unverified, and the nurse decides by national\ncatch-up policy.&quot;,
+    &quot;lead&quot;: &quot;chanthason&quot;,
+    &quot;experiences&quot;: [
+      {
+        &quot;actor&quot;: &quot;chanthason&quot;,
+        &quot;doing&quot;: &quot;Scans the card; the tablet confirms the Taifafeki signature and marks the doses verified.&quot;,
+        &quot;feeling&quot;: &quot;“A green tick — I can trust a hospital I’ve never heard of.”&quot;,
+        &quot;emotion&quot;: 2
+      },
+      {
+        &quot;actor&quot;: &quot;khamla-sengmany&quot;,
+        &quot;doing&quot;: &quot;Brings Somsak in for the referral visit.&quot;,
+        &quot;feeling&quot;: &quot;“They believe the Taifafeki papers!”&quot;,
+        &quot;emotion&quot;: 1
+      }
+    ],
+    &quot;painPoint&quot;: &quot;Clinicians either distrust foreign paper and re-vaccinate, or trust it blindly.&quot;,
+    &quot;enabler&quot;: &quot;Taifafeki’s signing key is on the shared WHO trust list, so any clinic can check it locally.&quot;,
+    &quot;policy&quot;: &quot;Trust is decentralized: an Onesan clinic verifies a Taifafeki signature itself, without contacting Taifafeki.&quot;,
+    &quot;record&quot;: {
+      &quot;state&quot;: &quot;verified&quot;,
+      &quot;description&quot;: &quot;Doses verified; Taifafeki recorded as the source&quot;,
+      &quot;heldWhere&quot;: &quot;District clinic records&quot;
+    },
+    &quot;handoff&quot;: {
+      &quot;summary&quot;: &quot;Verified doses, ready to schedule&quot;,
+      &quot;carrier&quot;: &quot;Camera scan + local trust-list check&quot;,
+      &quot;payload&quot;: &quot;Verified DVC → Immunization updated&quot;,
+      &quot;offline&quot;: true,
+      &quot;from&quot;: &quot;Paper card&quot;,
+      &quot;to&quot;: &quot;Clinic tablet&quot;
+    },
+    &quot;whatIf&quot;: [
+      {
+        &quot;scenario&quot;: &quot;The card has been tampered with.&quot;,
+        &quot;outcome&quot;: &quot;The signature check fails, the doses stay unverified and the nurse follows the local catch-up policy.&quot;
+      }
+    ],
+    &quot;stories&quot;: [
+      &quot;home-clinic-provider-1&quot;,
+      &quot;caregiver-1&quot;
+    ],
+    &quot;realisedBy&quot;: [
+      {
+        &quot;process&quot;: &quot;processes/content/j3-clinic-verification-schedule.bpmn&quot;,
+        &quot;tasks&quot;: [
+          &quot;Task_Scan&quot;,
+          &quot;Task_Verify&quot;,
+          &quot;Gateway_Verified&quot;,
+          &quot;Task_Unverified&quot;,
+          &quot;Task_Import&quot;
+        ]
+      }
+    ],
+    &quot;technicalSummary&quot;: &quot;The clinic checks Taifafeki’s signature against WHO’s trust list, stored locally. One check turns a foreign paper card into trusted clinical data, with no call to Taifafeki.&quot;,
+    &quot;uses&quot;: [
+      {
+        &quot;block&quot;: &quot;ohs-fhir-sdk&quot;,
+        &quot;role&quot;: &quot;Clinic tablet app; caches the trust list&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-info-gateway&quot;,
+        &quot;role&quot;: &quot;Delivers the CHW’s referral to this clinic; the nurse can only see patients referred to her facility&quot;
+      },
+      {
+        &quot;block&quot;: &quot;gdhcn&quot;,
+        &quot;role&quot;: &quot;Supplies Taifafeki’s public key (downloaded in advance)&quot;
+      },
+      {
+        &quot;block&quot;: &quot;dvc&quot;,
+        &quot;role&quot;: &quot;COSE_Sign1 signature verified (ES256)&quot;
+      },
+      {
+        &quot;block&quot;: &quot;provenance&quot;,
+        &quot;role&quot;: &quot;Records that Taifafeki authored and Onesa verified the doses&quot;
+      }
+    ],
+    &quot;requirements&quot;: [
+      &quot;STT-VER-001&quot;,
+      &quot;STT-VER-002&quot;,
+      &quot;STT-VER-003&quot;,
+      &quot;STT-VER-004&quot;,
+      &quot;STT-VER-005&quot;,
+      &quot;STT-VER-006&quot;,
+      &quot;STT-VER-007&quot;,
+      &quot;STT-VER-008&quot;,
+      &quot;STT-VER-009&quot;,
+      &quot;STT-KID-002&quot;
+    ],
+    &quot;examples&quot;: [
+      &quot;Immunization/TrustDemoJ3HepB&quot;,
+      &quot;Immunization/TrustDemoJ3Bcg&quot;,
+      &quot;Provenance/TrustDemoJ3Verification&quot;
+    ],
+    &quot;illustration&quot;: {
+      &quot;src&quot;: &quot;docs/images/moment-j3-made-official.jpg&quot;,
+      &quot;alt&quot;: &quot;At the district health centre, Nurse Chanthason checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsak&quot;
+    },
+    &quot;fhirChanges&quot;: [
+      {
+        &quot;resource&quot;: &quot;Immunization ×2&quot;,
+        &quot;change&quot;: &quot;primarySource flipped to true&quot;,
+        &quot;why&quot;: &quot;A verified DVC is the signing hospital’s own record, so the dose now counts; the Taifafeki record it came from is unchanged.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaImmunization&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;Immunization/TrustDemoJ3HepB&quot;,
+          &quot;Immunization/TrustDemoJ1HepB&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/immunization.html&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;Provenance&quot;,
+        &quot;change&quot;: &quot;Created: author = Taifafeki MOPH, verifier = nurse&quot;,
+        &quot;why&quot;: &quot;Anyone who later doubts a dose can follow it back to the signed certificate and Taifafeki’s key.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaDvcVerification&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;Provenance/TrustDemoJ3Verification&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/provenance.html&quot;
+      }
+    ],
+    &quot;dak&quot;: [
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdChwReferral&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      },
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdDvcVerification&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      },
+      {
+        &quot;key&quot;: &quot;PlanDefinition/TrustDemoDT01&quot;,
+        &quot;rel&quot;: &quot;decides&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND01&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND03&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND04&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;J3b&quot;,
+    &quot;title&quot;: &quot;Taifafeki vaccines are fitted to the Onesan schedule&quot;,
+    &quot;headline&quot;: &quot;The Taifafeki Hep B product doesn’t match anything on the Onesan schedule. Chanthason makes the clinical call, and the system works out what’s due next.&quot;,
+    &quot;when&quot;: &quot;T0 + 4 weeks&quot;,
+    &quot;where&quot;: &quot;Lomaru District Health Center&quot;,
+    &quot;touchpoint&quot;: &quot;Clinic tablet (vaccine matching + schedule)&quot;,
+    &quot;narrative&quot;: &quot;The Taifafeki Hep B product matches nothing on the national schedule.\nThe EHR keeps Taifafeki&#39;s product coding and adds the schedule coding beside\nit, from the national map (`TrustDemoProductToOnesaEpi`). For the Hep B product\nthe map has no entry, so Nurse Chanthason makes the clinical call that it is\nthe schedule&#39;s birth dose (`TrustDemoJ3Adjudication`), and her decision is\nadded to the map for the next clinic. The schedule (`TrustDemoOnesaInfantSchedule`)\nthen runs: the birth doses count, and pentavalent 1, bOPV 1 and PCV 1 are due\nat 6 weeks (`TrustDemoJ3Recommendation`). Khamla leaves with the date\n(`TrustDemoJ3Reminder`). Over the year Somsak gets those doses and\nmeasles-rubella at 9 months, in Onesa.&quot;,
+    &quot;lead&quot;: &quot;chanthason&quot;,
+    &quot;experiences&quot;: [
+      {
+        &quot;actor&quot;: &quot;chanthason&quot;,
+        &quot;doing&quot;: &quot;Confirms the Taifafeki product equals the Onesan birth dose; the system books the 6-week vaccines.&quot;,
+        &quot;feeling&quot;: &quot;“Different name, same vaccine — I can make that call.”&quot;,
+        &quot;emotion&quot;: 1
+      },
+      {
+        &quot;actor&quot;: &quot;khamla-sengmany&quot;,
+        &quot;doing&quot;: &quot;Leaves with a date for Somsak’s next vaccines.&quot;,
+        &quot;feeling&quot;: &quot;“Now I know exactly when to come back.”&quot;,
+        &quot;emotion&quot;: 2
+      }
+    ],
+    &quot;painPoint&quot;: &quot;Countries name and package vaccines differently, so doses get missed or repeated.&quot;,
+    &quot;enabler&quot;: &quot;Taifafeki’s original code is kept and the Onesan code is added alongside; the schedule engine calculates what’s due.&quot;,
+    &quot;policy&quot;: &quot;Never overwrite another country’s record: keep the original coding alongside the national one.&quot;,
+    &quot;record&quot;: {
+      &quot;state&quot;: &quot;scheduled&quot;,
+      &quot;description&quot;: &quot;Birth doses count; next appointment booked&quot;,
+      &quot;heldWhere&quot;: &quot;Onesan national health records&quot;
+    },
+    &quot;handoff&quot;: {
+      &quot;summary&quot;: &quot;Somsak continues on the Onesan schedule for a year&quot;,
+      &quot;carrier&quot;: &quot;FHIR API via Info Gateway&quot;,
+      &quot;payload&quot;: &quot;Dual-coded Immunization + next-dose Task&quot;,
+      &quot;offline&quot;: false,
+      &quot;from&quot;: &quot;Clinic tablet&quot;,
+      &quot;to&quot;: &quot;Onesan national FHIR server&quot;
+    },
+    &quot;whatIf&quot;: [
+      {
+        &quot;scenario&quot;: &quot;There is no automatic match for the foreign vaccine.&quot;,
+        &quot;outcome&quot;: &quot;That is exactly this step. The nurse decides — and her decision could be shared so the next nurse doesn’t have to.&quot;
+      }
+    ],
+    &quot;stories&quot;: [
+      &quot;home-clinic-provider-2&quot;,
+      &quot;home-clinic-provider-3&quot;,
+      &quot;caregiver-1&quot;
+    ],
+    &quot;realisedBy&quot;: [
+      {
+        &quot;process&quot;: &quot;processes/content/j3-clinic-verification-schedule.bpmn&quot;,
+        &quot;tasks&quot;: [
+          &quot;Task_Map&quot;,
+          &quot;Task_Schedule&quot;,
+          &quot;Task_Plan&quot;
+        ]
+      }
+    ],
+    &quot;technicalSummary&quot;: &quot;Shared WHO codes and a FHIR ConceptMap translate Taifafeki vaccines into the Onesan schedule. Computable schedule logic then works out what’s due next.&quot;,
+    &quot;uses&quot;: [
+      {
+        &quot;block&quot;: &quot;smart-imm&quot;,
+        &quot;role&quot;: &quot;Common PreQual codes make the mapping possible&quot;
+      },
+      {
+        &quot;block&quot;: &quot;conceptmap&quot;,
+        &quot;role&quot;: &quot;PreQual product → WHO vaccine type → Onesan EPI code&quot;
+      },
+      {
+        &quot;block&quot;: &quot;plandefinition&quot;,
+        &quot;role&quot;: &quot;Onesan schedule logic calculates the 6-week doses&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-fhir-sdk&quot;,
+        &quot;role&quot;: &quot;Saves dual-coded record and syncs it to the national server&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-info-gateway&quot;,
+        &quot;role&quot;: &quot;Checks the nurse’s role and facility before accepting the update&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-data-pipes&quot;,
+        &quot;role&quot;: &quot;Verified Taifafeki doses, with their Provenance, count toward Onesan coverage reports&quot;
+      },
+      {
+        &quot;block&quot;: &quot;national-fhir&quot;,
+        &quot;role&quot;: &quot;Receives the verified, mapped record&quot;
+      }
+    ],
+    &quot;examples&quot;: [
+      &quot;Immunization/TrustDemoOnesaPenta1&quot;,
+      &quot;Immunization/TrustDemoOnesaBopv1&quot;,
+      &quot;Immunization/TrustDemoOnesaPcv1&quot;,
+      &quot;Immunization/TrustDemoOnesaMr1&quot;,
+      &quot;ConceptMap/TrustDemoProductToOnesaEpi&quot;,
+      &quot;Provenance/TrustDemoJ3Adjudication&quot;,
+      &quot;PlanDefinition/TrustDemoOnesaInfantSchedule&quot;,
+      &quot;ImmunizationRecommendation/TrustDemoJ3Recommendation&quot;,
+      &quot;Task/TrustDemoJ3Reminder&quot;
+    ],
+    &quot;illustration&quot;: {
+      &quot;src&quot;: &quot;docs/images/moment-j3-made-official.jpg&quot;,
+      &quot;alt&quot;: &quot;At the district health centre, Nurse Chanthason checks the cards on a tablet: signature verified, on the Onesan schedule; Khamla and Bounmy hold Somsak&quot;
+    },
+    &quot;fhirChanges&quot;: [
+      {
+        &quot;resource&quot;: &quot;Immunization.vaccineCode&quot;,
+        &quot;change&quot;: &quot;Onesan EPI code added; PreQual code kept&quot;,
+        &quot;why&quot;: &quot;The Onesan schedule runs on Onesan EPI codes, so one is required; the Taifafeki product code stays beside it, never overwritten.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaImmunization&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;Immunization/TrustDemoJ3HepB&quot;,
+          &quot;Immunization/TrustDemoJ1HepB&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/immunization.html&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;ConceptMap&quot;,
+        &quot;change&quot;: &quot;Nurse’s mapping decision recorded&quot;,
+        &quot;why&quot;: &quot;Onesa’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.&quot;,
+        &quot;examples&quot;: [
+          &quot;ConceptMap/TrustDemoProductToOnesaEpi&quot;,
+          &quot;Provenance/TrustDemoJ3Adjudication&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/conceptmap.html&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;Task / Appointment&quot;,
+        &quot;change&quot;: &quot;6-week pentavalent booked&quot;,
+        &quot;why&quot;: &quot;The Onesan schedule (PlanDefinition) finds the 6-week doses due; the reminder brings him back.&quot;,
+        &quot;examples&quot;: [
+          &quot;PlanDefinition/TrustDemoOnesaInfantSchedule&quot;,
+          &quot;Task/TrustDemoJ3Reminder&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/plandefinition.html&quot;
+      }
+    ],
+    &quot;dak&quot;: [
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdImportedDose&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      },
+      {
+        &quot;key&quot;: &quot;PlanDefinition/TrustDemoDT02&quot;,
+        &quot;rel&quot;: &quot;decides&quot;
+      },
+      {
+        &quot;key&quot;: &quot;PlanDefinition/TrustDemoDT03&quot;,
+        &quot;rel&quot;: &quot;decides&quot;
+      },
+      {
+        &quot;key&quot;: &quot;PlanDefinition/TrustDemoDT04&quot;,
+        &quot;rel&quot;: &quot;decides&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND01&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND03&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND04&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      }
+    ]
+  }
+]</pre></dd>
+<dt>scene</dt><dd><pre>[
+  {
+    &quot;icon&quot;: &quot;tablet&quot;,
+    &quot;label&quot;: &quot;Clinic tablet&quot;
+  },
+  {
+    &quot;icon&quot;: &quot;shield-check&quot;,
+    &quot;label&quot;: &quot;Signature verified&quot;
+  },
+  {
+    &quot;icon&quot;: &quot;calendar-check&quot;,
+    &quot;label&quot;: &quot;On the Onesan schedule&quot;
+  }
+]</pre></dd>
+<dt>references</dt><dd><pre>[
+  {
+    &quot;label&quot;: &quot;User scenario in the IG&quot;,
+    &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/journeys.html#j3--made-official-lomaru-district-health-center-4-weeks-later&quot;,
+    &quot;rel&quot;: &quot;scenario&quot;
+  }
+]</pre></dd>
+<dt>views</dt><dd><pre>[
+  {
+    &quot;model&quot;: &quot;0.1.0&quot;,
+    &quot;view&quot;: &quot;id-c1154579a67d5815921b72f71587df50&quot;,
+    &quot;label&quot;: &quot;J3&quot;
+  }
+]</pre></dd>
+</dl>
+</main>
+<script src="../../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>

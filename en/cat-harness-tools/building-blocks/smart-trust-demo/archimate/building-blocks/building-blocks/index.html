@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>archimate/building-blocks/building-blocks — building-blocks</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fdfdfb; --muted:#5b5b5b; --line:#d6d6d0; --link:#0b5cad; --panel:#f3f4f2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; } }
+  :root[data-fa-scheme="dark"] { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+  body { margin:0; font:1rem/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:80rem; margin:0 auto; padding:1.5rem 1.5rem 4rem; min-width:0; overflow-wrap:anywhere; }
+  h1 { font-size:1.35rem; margin:0 0 .25rem; } h2 { font-size:1.05rem; margin:1.5rem 0 .5rem; }
+  a { color:var(--link); } a:focus-visible, select:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  .m { color:var(--muted); font-size:.9rem; }
+  .tiles { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; padding:0; list-style:none; }
+  .tiles li { border:1px solid var(--line); border-radius:.4rem; padding:.35rem .7rem; }
+  .tiles b { font-size:1.2rem; margin-right:.3rem; }
+  .clip { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; vertical-align:top; padding:.35rem .5rem; border-bottom:1px solid var(--line); }
+  th { background:var(--panel); white-space:nowrap; }
+  /* Only the node's path and long text may break mid-word; a status or a date
+     broken across lines ("in_pr ogres s") is unreadable. */
+  td { overflow-wrap:normal; } td.p, td.t { overflow-wrap:anywhere; } td.s { white-space:nowrap; }
+  dl { display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:.25rem 1rem; }
+  dt { font-weight:600; } dd { margin:0; }
+  pre { background:var(--panel); padding:.75rem; overflow-x:auto; font-size:.85rem; }
+  label { margin-right:1rem; }
+  @media (max-width:40rem) { dl { grid-template-columns:1fr; } }
+</style>
+<link rel="stylesheet" href="../../../../../../../assets/css/navbar.css"><script src="../../../../../../../assets/navbar/rail-18zzyru6kic.js" defer></script><script src="../../../../../../../assets/js/navbar.js" defer></script><style data-folio-narrow-viewport>
+/* Narrow viewports: nothing may widen the PAGE — bean `2r2n`.
+ *
+ * At 390 px, 105 of 249 built pages scrolled sideways (measured 2026-09-24).
+ * The rule here is the bean's: wide content scrolls INSIDE ITS OWN BOX with a
+ * visible cue, and the page itself never pans.
+ *
+ * ONE FILE, TWO WAYS IN. Themed pages link it from `_includes/head_custom.html`.
+ * The standalone viewer pages carry no theme stylesheet at all, so
+ * `withViewerNav` in `scripts/viewer-page.ts` inlines this same file when it
+ * adds the rail. A copy of these rules in each place would be two answers to
+ * "what does a table do at 390 px", free to drift apart.
+ *
+ * Every selector here is written to be safe on both kinds of page: no
+ * `.main-content` scope (a standalone page has none), the navbar excluded by
+ * name, and the theme's own `.table-wrapper` left alone, since it already does
+ * this job for Markdown tables. */
+
+@media (max-width: 799.98px) {
+  /* A table the theme did not wrap: raw HTML from a generator, or one built at
+   * runtime. `display: block` makes the table its own scroll box. Its cells
+   * still lay out as a table inside the anonymous table box. */
+  table:not(.table-wrapper > table):not(.fa-nav table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* THE CUE: the edge that has more content past it fades out. The fade is a
+   * MASK over the table's own pixels, driven by its own scroll position, so
+   * it needs no knowledge of the page's background. A painted cover (the
+   * usual `background-attachment: local` trick) does: the first version used
+   * `Canvas`, and on a page that is dark under a LIGHT scheme it laid a white
+   * band over the first column.
+   *
+   * A table that does not overflow has an inactive scroll timeline, so the
+   * animation has no effect and both fades stay at their initial 0: no cue
+   * where there is nothing to scroll to. A browser without scroll-driven
+   * animations shows no fade, and the table still scrolls. */
+  @supports (animation-timeline: scroll()) {
+    table:not(.table-wrapper > table):not(.fa-nav table) {
+      mask-image: linear-gradient(to right,
+        transparent 0, #000 var(--fa-cue-l),
+        #000 calc(100% - var(--fa-cue-r)), transparent 100%);
+      animation: fa-scroll-cue linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  /* A code block scrolls in its own box, which is what `pre` is for. Mermaid
+   * SOURCE sits in a `pre` until the renderer replaces it, and at 390 px a
+   * diagram's source line is longer than the screen. */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prose that has no break opportunity: a long path in inline code, or a
+   * glossary definition naming one. Breaking the string is better than
+   * widening the page it sits on. */
+  :not(pre) > code,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+@property --fa-cue-l { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fa-cue-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@keyframes fa-scroll-cue {
+  0%   { --fa-cue-l: 0px;    --fa-cue-r: 2.5rem; }
+  12%  { --fa-cue-l: 2.5rem; }
+  88%  { --fa-cue-r: 2.5rem; }
+  100% { --fa-cue-l: 2.5rem; --fa-cue-r: 0px; }
+}
+
+</style>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../../assets/ig-artifact.css"></head>
+<body data-fa-node-kind-page>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header><script type="application/json" id="fa-rail" data-fa-root="../../../../../../.." data-fa-to-root="../../../../../../..">{"data":"rail-18zzyru6kic","here":"/en/cat-harness-tools/building-blocks/smart-trust-demo/archimate/building-blocks/building-blocks/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../../../">folio-assistant</a></nav>
+<main>
+<h1 id="nk-title">archimate/building-blocks/building-blocks</h1>
+<p class="m">A <a href="../../../../">building-blocks</a> node held by <a href="../../../">smart-trust-demo</a>, at <code>archimate/building-blocks/building-blocks.json</code>.</p>
+
+<h2 id="fields">Fields</h2>
+<dl>
+<dt>$schema</dt><dd>building-blocks/0.1.0</dd>
+<dt>layers</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;apps&quot;,
+    &quot;label&quot;: &quot;Tools &amp; apps&quot;,
+    &quot;question&quot;: &quot;What software is in people’s hands?&quot;
+  },
+  {
+    &quot;id&quot;: &quot;data&quot;,
+    &quot;label&quot;: &quot;Data standards&quot;,
+    &quot;question&quot;: &quot;How is the information structured so others can read it?&quot;
+  },
+  {
+    &quot;id&quot;: &quot;trust&quot;,
+    &quot;label&quot;: &quot;Trust &amp; exchange&quot;,
+    &quot;question&quot;: &quot;How is it signed, shared, consented and audited?&quot;
+  }
+]</pre></dd>
+<dt>blocks</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;thai-his&quot;,
+    &quot;name&quot;: &quot;Taifafeki hospital system + DVC issuing service&quot;,
+    &quot;short&quot;: &quot;Taifafeki hospital system&quot;,
+    &quot;kind&quot;: &quot;system&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;Taifafeki&quot;,
+    &quot;owner&quot;: &quot;Taifafeki MOPH&quot;,
+    &quot;what&quot;: &quot;The hospital’s own information system records the birth doses and calls a national signing service to print Digital Vaccine Certificates.&quot;,
+    &quot;soWhat&quot;: &quot;Taifafeki doesn’t need to change its hospital systems. It only needs to be able to sign certificates in the agreed format.&quot;,
+    &quot;components&quot;: [
+      &quot;xxr-birth-ehr&quot;,
+      &quot;xxr-immunization-record&quot;,
+      &quot;xxr-dvc-signer&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;DVC issuing: WHO SMART Trust&quot;,
+        &quot;url&quot;: &quot;https://smart.who.int/trust/&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;ohs-fhir-sdk&quot;,
+    &quot;name&quot;: &quot;OHS FHIR SDK (FHIR Engine)&quot;,
+    &quot;short&quot;: &quot;OHS FHIR SDK&quot;,
+    &quot;kind&quot;: &quot;tool&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;Open Health Stack (open source)&quot;,
+    &quot;what&quot;: &quot;An open-source, multiplatform library for building apps that store FHIR data on the device, work fully offline and sync later.&quot;,
+    &quot;soWhat&quot;: &quot;The CHW phone, clinic tablet and family wallet are all built on the same open building block, so data is FHIR from the first tap. No conversion step, no vendor lock-in.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;OHS Android FHIR SDK&quot;,
+        &quot;url&quot;: &quot;https://github.com/google/android-fhir&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;ohs-sdc&quot;,
+    &quot;name&quot;: &quot;OHS Structured Data Capture library&quot;,
+    &quot;short&quot;: &quot;SDC library&quot;,
+    &quot;kind&quot;: &quot;tool&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;Open Health Stack (open source)&quot;,
+    &quot;what&quot;: &quot;Renders FHIR Questionnaires as forms on the device and turns the answers into FHIR resources (extraction).&quot;,
+    &quot;soWhat&quot;: &quot;The Ministry can change a registration form by publishing a new Questionnaire, without rebuilding the app.&quot;,
+    &quot;components&quot;: [
+      &quot;xxk-chw-app&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;HL7 FHIR SDC&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/uv/sdc/&quot;
+      },
+      {
+        &quot;label&quot;: &quot;FHIR Questionnaire&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/questionnaire.html&quot;
+      },
+      {
+        &quot;label&quot;: &quot;This journey’s form (IG)&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/artifact/Questionnaire-TrustDemoHouseholdRegistration.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;ohs-info-gateway&quot;,
+    &quot;name&quot;: &quot;OHS FHIR Info Gateway&quot;,
+    &quot;short&quot;: &quot;Info Gateway (AuthZ)&quot;,
+    &quot;kind&quot;: &quot;tool&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;Open Health Stack (open source)&quot;,
+    &quot;what&quot;: &quot;The authorization (AuthZ) layer in front of the national FHIR server. It checks the caller’s access token from the identity provider, applies access rules (role, facility, household, consent) to every request, and records each access.&quot;,
+    &quot;soWhat&quot;: &quot;Every app, from the CHW phone to the Taifafeki clinic viewer, goes through one front door. Onesa keeps the records at home and decides who can read or write what, including requests from abroad.&quot;,
+    &quot;components&quot;: [
+      &quot;xxk-info-gateway&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;OHS FHIR Info Gateway&quot;,
+        &quot;url&quot;: &quot;https://github.com/google/fhir-gateway&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;national-fhir&quot;,
+    &quot;name&quot;: &quot;Onesan national FHIR repository&quot;,
+    &quot;short&quot;: &quot;National FHIR server&quot;,
+    &quot;kind&quot;: &quot;system&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;Onesa&quot;,
+    &quot;owner&quot;: &quot;Onesa MOH&quot;,
+    &quot;what&quot;: &quot;The national store of immunization and health summary data, using the FHIR standard API.&quot;,
+    &quot;soWhat&quot;: &quot;It is the one source of truth that the family wallet, clinics and VHL links all point back to.&quot;,
+    &quot;components&quot;: [
+      &quot;xxk-national-fhir&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;HL7 FHIR&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;ohs-data-pipes&quot;,
+    &quot;name&quot;: &quot;OHS FHIR Data Pipes (analytics)&quot;,
+    &quot;short&quot;: &quot;FHIR Data Pipes&quot;,
+    &quot;kind&quot;: &quot;tool&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;Open Health Stack (open source)&quot;,
+    &quot;what&quot;: &quot;Open-source pipelines that copy FHIR data from the national server, including Provenance and AuditEvent, into analytics-ready tables for reports and dashboards.&quot;,
+    &quot;soWhat&quot;: &quot;The Ministry sees patterns, not just single records: how many foreign certificates were verified, how often records are opened abroad, and any unusual access.&quot;,
+    &quot;components&quot;: [
+      &quot;xxk-data-pipes&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;OHS FHIR Data Pipes&quot;,
+        &quot;url&quot;: &quot;https://github.com/google/fhir-data-pipes&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;family-wallet&quot;,
+    &quot;name&quot;: &quot;Family wallet app&quot;,
+    &quot;short&quot;: &quot;Family wallet&quot;,
+    &quot;kind&quot;: &quot;system&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;Onesa&quot;,
+    &quot;owner&quot;: &quot;Onesa MOH (built on OHS)&quot;,
+    &quot;what&quot;: &quot;A phone app that holds health summaries for several household members and can create shareable links.&quot;,
+    &quot;soWhat&quot;: &quot;It puts the family in control of sharing, on a device they already own.&quot;,
+    &quot;components&quot;: [
+      &quot;xxk-family-wallet&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;IHE ITI VHL (Holder)&quot;,
+        &quot;url&quot;: &quot;https://profiles.ihe.net/ITI/VHL/volume-1.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;vhl-viewer&quot;,
+    &quot;name&quot;: &quot;VHL viewer&quot;,
+    &quot;short&quot;: &quot;VHL viewer&quot;,
+    &quot;kind&quot;: &quot;system&quot;,
+    &quot;layer&quot;: &quot;apps&quot;,
+    &quot;jurisdiction&quot;: &quot;Taifafeki&quot;,
+    &quot;owner&quot;: &quot;Any conformant vendor (Taifafeki)&quot;,
+    &quot;what&quot;: &quot;A web or tablet app that scans a VHL QR, takes the passcode, fetches the record and displays it.&quot;,
+    &quot;soWhat&quot;: &quot;The Taifafeki clinic needs no account in the Onesan system. Any viewer that follows the VHL standard works.&quot;,
+    &quot;components&quot;: [
+      &quot;xxr-vhl-viewer&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;IHE ITI VHL (Receiver)&quot;,
+        &quot;url&quot;: &quot;https://profiles.ihe.net/ITI/VHL/volume-1.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;fhir-r4&quot;,
+    &quot;name&quot;: &quot;HL7 FHIR R4&quot;,
+    &quot;short&quot;: &quot;FHIR R4&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;data&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;HL7 International&quot;,
+    &quot;what&quot;: &quot;The global standard for representing and exchanging health data as resources (Patient, Immunization, …) over a web API.&quot;,
+    &quot;soWhat&quot;: &quot;It is the common language. Every system in this story reads and writes the same resource shapes.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;HL7 FHIR R4&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/R4/&quot;
+      },
+      {
+        &quot;label&quot;: &quot;This journey as a FHIR IG&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;smart-imm&quot;,
+    &quot;name&quot;: &quot;WHO SMART Guidelines: Immunizations&quot;,
+    &quot;short&quot;: &quot;WHO SMART Immunizations&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;data&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;WHO&quot;,
+    &quot;what&quot;: &quot;WHO’s machine-readable immunization guidance: data dictionary, FHIR profiles, PreQual vaccine product codes and schedule logic.&quot;,
+    &quot;soWhat&quot;: &quot;Both countries use the same WHO vaccine codes and profiles, so a dose recorded in Taifafeki means the same thing in Onesa.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;WHO SMART Immunizations&quot;,
+        &quot;url&quot;: &quot;https://smart.who.int/immunizations/&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;ips&quot;,
+    &quot;name&quot;: &quot;HL7 International Patient Summary (IPS)&quot;,
+    &quot;short&quot;: &quot;IPS&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;data&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;HL7 / ISO 27269&quot;,
+    &quot;what&quot;: &quot;A standard, minimal health summary (immunizations, allergies, medications, problems) designed for care across borders.&quot;,
+    &quot;soWhat&quot;: &quot;The Taifafeki doctor gets a predictable summary they know how to read, not a dump of another country’s records.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;HL7 IPS&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/uv/ips/&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Somsak’s IPS (IG)&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/artifact/Bundle-TrustDemoJ4Ips.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;conceptmap&quot;,
+    &quot;name&quot;: &quot;FHIR ConceptMap (terminology mapping)&quot;,
+    &quot;short&quot;: &quot;ConceptMap&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;data&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;HL7 FHIR&quot;,
+    &quot;what&quot;: &quot;A FHIR resource that records how a code in one system maps to a code in another, including who decided and how confident they are.&quot;,
+    &quot;soWhat&quot;: &quot;Foreign vaccines are translated without overwriting them. The original Taifafeki code stays alongside the Onesan one.&quot;,
+    &quot;components&quot;: [
+      &quot;xxk-conceptmap&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;FHIR ConceptMap&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/conceptmap.html&quot;
+      },
+      {
+        &quot;label&quot;: &quot;The map in this journey (IG)&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/artifact/ConceptMap-TrustDemoProductToOnesaEpi.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;plandefinition&quot;,
+    &quot;name&quot;: &quot;FHIR PlanDefinition + CQL (schedule logic)&quot;,
+    &quot;short&quot;: &quot;PlanDefinition / CQL&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;data&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;HL7 FHIR / WHO SMART&quot;,
+    &quot;what&quot;: &quot;Computable rules for the national schedule that work out which doses are due next.&quot;,
+    &quot;soWhat&quot;: &quot;Once foreign doses are mapped, they automatically count toward the Onesan schedule. No mental arithmetic for the nurse.&quot;,
+    &quot;components&quot;: [
+      &quot;xxk-schedule&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;FHIR PlanDefinition&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/plandefinition.html&quot;
+      },
+      {
+        &quot;label&quot;: &quot;CQL&quot;,
+        &quot;url&quot;: &quot;https://cql.hl7.org/&quot;
+      },
+      {
+        &quot;label&quot;: &quot;The schedule (IG)&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/artifact/PlanDefinition-TrustDemoOnesaInfantSchedule.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;provenance&quot;,
+    &quot;name&quot;: &quot;FHIR Provenance&quot;,
+    &quot;short&quot;: &quot;Provenance&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;data&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;HL7 FHIR&quot;,
+    &quot;what&quot;: &quot;Records where a piece of data came from, who verified it and how.&quot;,
+    &quot;soWhat&quot;: &quot;Anyone can see later that a dose was issued by Taifafeki and verified in Onesa. Trust is visible, not assumed.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;FHIR Provenance&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/provenance.html&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Verification provenance (IG)&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/artifact/Provenance-TrustDemoJ3Verification.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;dvc&quot;,
+    &quot;name&quot;: &quot;WHO Digital Vaccine Certificate (signed QR)&quot;,
+    &quot;short&quot;: &quot;Digital Vaccine Certificate&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;trust&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;WHO SMART Trust&quot;,
+    &quot;what&quot;: &quot;A compact vaccination record (CBOR) digitally signed by the issuing country (COSE) and encoded in a QR code. It can be printed on paper.&quot;,
+    &quot;soWhat&quot;: &quot;Proof travels with the person and can be checked anywhere, even offline and even on paper.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;WHO SMART Trust (HCERT)&quot;,
+        &quot;url&quot;: &quot;https://smart.who.int/trust/&quot;
+      },
+      {
+        &quot;label&quot;: &quot;HCERT QR code generation&quot;,
+        &quot;url&quot;: &quot;https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;gdhcn&quot;,
+    &quot;name&quot;: &quot;WHO Global Digital Health Certification Network&quot;,
+    &quot;short&quot;: &quot;WHO GDHCN&quot;,
+    &quot;kind&quot;: &quot;network&quot;,
+    &quot;layer&quot;: &quot;trust&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;WHO&quot;,
+    &quot;what&quot;: &quot;A WHO-run network where countries publish the public keys used to sign their health documents, as a shared trust list.&quot;,
+    &quot;soWhat&quot;: &quot;Onesa can verify a Taifafeki signature without a bilateral agreement or a live call to Taifafeki. Trust is set up once and works between all members.&quot;,
+    &quot;components&quot;: [
+      &quot;gdhcn&quot;
+    ],
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;WHO GDHCN&quot;,
+        &quot;url&quot;: &quot;https://www.who.int/initiatives/global-digital-health-certification-network&quot;
+      },
+      {
+        &quot;label&quot;: &quot;WHO SMART Trust&quot;,
+        &quot;url&quot;: &quot;https://smart.who.int/trust/&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;vhl&quot;,
+    &quot;name&quot;: &quot;IHE ITI Verifiable Health Links (VHL)&quot;,
+    &quot;short&quot;: &quot;Verifiable Health Link&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;trust&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;IHE&quot;,
+    &quot;what&quot;: &quot;A signed QR that holds a link and decryption key, not the data itself. The record is fetched from its home only when the link is used.&quot;,
+    &quot;soWhat&quot;: &quot;Data stays in the home country until someone the family chooses opens it. The QR alone reveals nothing.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;IHE ITI Verifiable Health Links&quot;,
+        &quot;url&quot;: &quot;https://profiles.ihe.net/ITI/VHL/volume-1.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;pcf&quot;,
+    &quot;name&quot;: &quot;IHE Privacy Consent on FHIR (PCF)&quot;,
+    &quot;short&quot;: &quot;Consent (PCF)&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;trust&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;IHE&quot;,
+    &quot;what&quot;: &quot;Records the family’s sharing decision (who, what, how long) as a FHIR Consent that the gateway enforces.&quot;,
+    &quot;soWhat&quot;: &quot;Consent is machine-enforced: when the 14 days are up, the link stops working.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;IHE Privacy Consent on FHIR&quot;,
+        &quot;url&quot;: &quot;https://profiles.ihe.net/ITI/PCF/&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Bounmy’s consent (IG)&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/artifact/Consent-TrustDemoJ4Consent.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;audit&quot;,
+    &quot;name&quot;: &quot;FHIR AuditEvent (IHE BALP)&quot;,
+    &quot;short&quot;: &quot;Audit log&quot;,
+    &quot;kind&quot;: &quot;standard&quot;,
+    &quot;layer&quot;: &quot;trust&quot;,
+    &quot;jurisdiction&quot;: &quot;International&quot;,
+    &quot;owner&quot;: &quot;HL7 FHIR / IHE&quot;,
+    &quot;what&quot;: &quot;A standard record of who accessed which data, when, and with what result.&quot;,
+    &quot;soWhat&quot;: &quot;Every cross-border view is logged at home, which supports accountability and family notification.&quot;,
+    &quot;links&quot;: [
+      {
+        &quot;label&quot;: &quot;IHE BALP&quot;,
+        &quot;url&quot;: &quot;https://profiles.ihe.net/ITI/BALP/&quot;
+      },
+      {
+        &quot;label&quot;: &quot;FHIR AuditEvent&quot;,
+        &quot;url&quot;: &quot;https://hl7.org/fhir/auditevent.html&quot;
+      },
+      {
+        &quot;label&quot;: &quot;The access log entry (IG)&quot;,
+        &quot;url&quot;: &quot;https://litlfred.github.io/smart-trust-demo/artifact/AuditEvent-TrustDemoJ41Access.html&quot;
+      }
+    ]
+  }
+]</pre></dd>
+<dt>ideas</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;same-language&quot;,
+    &quot;title&quot;: &quot;Speak the same language&quot;,
+    &quot;text&quot;: &quot;FHIR and WHO SMART Guidelines mean a dose recorded in Taifafeki has the same structure and codes in Onesa.&quot;,
+    &quot;blocks&quot;: [
+      &quot;fhir-r4&quot;,
+      &quot;smart-imm&quot;,
+      &quot;conceptmap&quot;,
+      &quot;ips&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;trust-without-phoning-home&quot;,
+    &quot;title&quot;: &quot;Trust without phoning home&quot;,
+    &quot;text&quot;: &quot;Countries sign records and publish their keys on WHO GDHCN, so anyone can verify a certificate, even offline.&quot;,
+    &quot;blocks&quot;: [
+      &quot;dvc&quot;,
+      &quot;gdhcn&quot;,
+      &quot;provenance&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;share-without-copying&quot;,
+    &quot;title&quot;: &quot;Share without copying&quot;,
+    &quot;text&quot;: &quot;Data stays in its home country. The family hands out a time-limited key, and every access is logged at home.&quot;,
+    &quot;blocks&quot;: [
+      &quot;vhl&quot;,
+      &quot;pcf&quot;,
+      &quot;ohs-info-gateway&quot;,
+      &quot;audit&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;open-tools-offline-first&quot;,
+    &quot;title&quot;: &quot;Open tools, offline first&quot;,
+    &quot;text&quot;: &quot;Open Health Stack gives every app offline FHIR storage and configurable forms, one secure front door to the national server, and analytics on top.&quot;,
+    &quot;blocks&quot;: [
+      &quot;ohs-fhir-sdk&quot;,
+      &quot;ohs-sdc&quot;,
+      &quot;ohs-info-gateway&quot;,
+      &quot;ohs-data-pipes&quot;
+    ]
+  }
+]</pre></dd>
+</dl>
+</main>
+<script src="../../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>

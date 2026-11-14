@@ -1,0 +1,1353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verifiable immunization records across borders: the policy-maker track — workshop</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fdfdfb; --muted:#5b5b5b; --line:#d6d6d0; --link:#0b5cad; --panel:#f3f4f2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; } }
+  :root[data-fa-scheme="dark"] { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+  body { margin:0; font:1rem/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:80rem; margin:0 auto; padding:1.5rem 1.5rem 4rem; min-width:0; overflow-wrap:anywhere; }
+  h1 { font-size:1.35rem; margin:0 0 .25rem; } h2 { font-size:1.05rem; margin:1.5rem 0 .5rem; }
+  a { color:var(--link); } a:focus-visible, select:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  .m { color:var(--muted); font-size:.9rem; }
+  .tiles { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; padding:0; list-style:none; }
+  .tiles li { border:1px solid var(--line); border-radius:.4rem; padding:.35rem .7rem; }
+  .tiles b { font-size:1.2rem; margin-right:.3rem; }
+  .clip { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; vertical-align:top; padding:.35rem .5rem; border-bottom:1px solid var(--line); }
+  th { background:var(--panel); white-space:nowrap; }
+  /* Only the node's path and long text may break mid-word; a status or a date
+     broken across lines ("in_pr ogres s") is unreadable. */
+  td { overflow-wrap:normal; } td.p, td.t { overflow-wrap:anywhere; } td.s { white-space:nowrap; }
+  dl { display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:.25rem 1rem; }
+  dt { font-weight:600; } dd { margin:0; }
+  pre { background:var(--panel); padding:.75rem; overflow-x:auto; font-size:.85rem; }
+  label { margin-right:1rem; }
+  @media (max-width:40rem) { dl { grid-template-columns:1fr; } }
+</style>
+<link rel="stylesheet" href="../../../../../../assets/css/navbar.css"><script src="../../../../../../assets/navbar/rail-1c3gtsffyas.js" defer></script><script src="../../../../../../assets/js/navbar.js" defer></script><style data-folio-narrow-viewport>
+/* Narrow viewports: nothing may widen the PAGE — bean `2r2n`.
+ *
+ * At 390 px, 105 of 249 built pages scrolled sideways (measured 2026-09-24).
+ * The rule here is the bean's: wide content scrolls INSIDE ITS OWN BOX with a
+ * visible cue, and the page itself never pans.
+ *
+ * ONE FILE, TWO WAYS IN. Themed pages link it from `_includes/head_custom.html`.
+ * The standalone viewer pages carry no theme stylesheet at all, so
+ * `withViewerNav` in `scripts/viewer-page.ts` inlines this same file when it
+ * adds the rail. A copy of these rules in each place would be two answers to
+ * "what does a table do at 390 px", free to drift apart.
+ *
+ * Every selector here is written to be safe on both kinds of page: no
+ * `.main-content` scope (a standalone page has none), the navbar excluded by
+ * name, and the theme's own `.table-wrapper` left alone, since it already does
+ * this job for Markdown tables. */
+
+@media (max-width: 799.98px) {
+  /* A table the theme did not wrap: raw HTML from a generator, or one built at
+   * runtime. `display: block` makes the table its own scroll box. Its cells
+   * still lay out as a table inside the anonymous table box. */
+  table:not(.table-wrapper > table):not(.fa-nav table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* THE CUE: the edge that has more content past it fades out. The fade is a
+   * MASK over the table's own pixels, driven by its own scroll position, so
+   * it needs no knowledge of the page's background. A painted cover (the
+   * usual `background-attachment: local` trick) does: the first version used
+   * `Canvas`, and on a page that is dark under a LIGHT scheme it laid a white
+   * band over the first column.
+   *
+   * A table that does not overflow has an inactive scroll timeline, so the
+   * animation has no effect and both fades stay at their initial 0: no cue
+   * where there is nothing to scroll to. A browser without scroll-driven
+   * animations shows no fade, and the table still scrolls. */
+  @supports (animation-timeline: scroll()) {
+    table:not(.table-wrapper > table):not(.fa-nav table) {
+      mask-image: linear-gradient(to right,
+        transparent 0, #000 var(--fa-cue-l),
+        #000 calc(100% - var(--fa-cue-r)), transparent 100%);
+      animation: fa-scroll-cue linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  /* A code block scrolls in its own box, which is what `pre` is for. Mermaid
+   * SOURCE sits in a `pre` until the renderer replaces it, and at 390 px a
+   * diagram's source line is longer than the screen. */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prose that has no break opportunity: a long path in inline code, or a
+   * glossary definition naming one. Breaking the string is better than
+   * widening the page it sits on. */
+  :not(pre) > code,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+@property --fa-cue-l { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fa-cue-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@keyframes fa-scroll-cue {
+  0%   { --fa-cue-l: 0px;    --fa-cue-r: 2.5rem; }
+  12%  { --fa-cue-l: 2.5rem; }
+  88%  { --fa-cue-r: 2.5rem; }
+  100% { --fa-cue-l: 2.5rem; --fa-cue-r: 0px; }
+}
+
+</style>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../assets/ig-artifact.css"></head>
+<body data-fa-node-kind-page>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header><script type="application/json" id="fa-rail" data-fa-root="../../../../../.." data-fa-to-root="../../../../../..">{"data":"rail-1c3gtsffyas","here":"/en/cat-harness-tools/workshop/smart-trust-demo/workshops/dpi-h-policy-track.workshop/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../../">folio-assistant</a></nav>
+<main>
+<h1 id="nk-title">Verifiable immunization records across borders: the policy-maker track</h1>
+<p class="m">A <a href="../../../">workshop</a> node held by <a href="../../">smart-trust-demo</a>, at <code>workshops/dpi-h-policy-track.workshop.json</code>.</p>
+
+<h2 id="fields">Fields</h2>
+<dl>
+<dt>$schema</dt><dd>workshop/0.1.0</dd>
+<dt>id</dt><dd>dpi-h-policy-track</dd>
+<dt>title</dt><dd>Verifiable immunization records across borders: the policy-maker track</dd>
+<dt>description</dt><dd>The seven modules (M1 to M7) of the DPI-H workshop&#39;s policy-maker track, taught from the journeys J1 to J4.1 of one cross-border family: domestic and cross-border verifiable immunization records as the entry point to a personal health record.</dd>
+<dt>audience</dt><dd>Ministry of Health policy makers and digital health leads, at tables of one country each</dd>
+<dt>promise</dt><dd>You will not leave with an assessment or a plan. You will leave knowing what each consists of, where your country stands on its first page, and who you would do the rest with.</dd>
+<dt>useCaseStatement</dt><dd>A child vaccinated in ___ should be able to ___ in ___.</dd>
+<dt>scenarios</dt><dd><pre>[
+  &quot;j1-born-abroad&quot;,
+  &quot;j2-found-at-home&quot;,
+  &quot;j3-made-official&quot;,
+  &quot;j4-0-one-family-one-phone&quot;,
+  &quot;j4-1-full-history-abroad&quot;
+]</pre></dd>
+<dt>modules</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;M1&quot;,
+    &quot;title&quot;: &quot;From journey to capabilities&quot;,
+    &quot;day&quot;: 1,
+    &quot;carries&quot;: &quot;What had to exist for this moment to work — and where does our version of the journey break?&quot;,
+    &quot;sheet&quot;: &quot;sheet-1&quot;,
+    &quot;tables&quot;: [
+      &quot;patterns&quot;
+    ],
+    &quot;objectives&quot;: [
+      &quot;Name the capabilities each moment of the journey needs&quot;,
+      &quot;Say where your country&#39;s version of the journey breaks&quot;,
+      &quot;Choose a substitution pattern that gets you moving&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;M2&quot;,
+    &quot;title&quot;: &quot;The reference architecture and where you stand&quot;,
+    &quot;day&quot;: 1,
+    &quot;carries&quot;: &quot;Which system do we use today for each block — and is it there, partly there, or absent?&quot;,
+    &quot;sheet&quot;: &quot;sheet-2&quot;
+  },
+  {
+    &quot;id&quot;: &quot;M3&quot;,
+    &quot;title&quot;: &quot;Standards, specifications and the core data set&quot;,
+    &quot;day&quot;: 1,
+    &quot;carries&quot;: &quot;Which standards do we adopt rather than author — and who owns the national core data set?&quot;,
+    &quot;sheet&quot;: &quot;sheet-3&quot;
+  },
+  {
+    &quot;id&quot;: &quot;M4&quot;,
+    &quot;title&quot;: &quot;Trust, credentials and wallets&quot;,
+    &quot;day&quot;: 2,
+    &quot;carries&quot;: &quot;Who signs, who verifies, and who would hold the national trust anchor? Name it; do not decide it.&quot;,
+    &quot;sheet&quot;: &quot;sheet-4&quot;
+  },
+  {
+    &quot;id&quot;: &quot;M5&quot;,
+    &quot;title&quot;: &quot;Governance, decision rights and the legal basis&quot;,
+    &quot;day&quot;: 2,
+    &quot;carries&quot;: &quot;Who holds each decision — and what legal basis lets the record cross a border and be shared for a child?&quot;,
+    &quot;sheet&quot;: &quot;sheet-4&quot;,
+    &quot;tables&quot;: [
+      &quot;decision-rights&quot;,
+      &quot;legal-bases&quot;
+    ],
+    &quot;objectives&quot;: [
+      &quot;Name who holds each of the four decision rights today&quot;,
+      &quot;Name the legal basis that lets a record cross a border and be shared for a child&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;M6&quot;,
+    &quot;title&quot;: &quot;Doing it once, together&quot;,
+    &quot;day&quot;: 2,
+    &quot;carries&quot;: &quot;Would your neighbour need this too? If yes, why would you each build it?&quot;,
+    &quot;sheet&quot;: &quot;sheet-5&quot;
+  },
+  {
+    &quot;id&quot;: &quot;M7&quot;,
+    &quot;title&quot;: &quot;Our first move, what it costs, and what we ask for&quot;,
+    &quot;day&quot;: 2,
+    &quot;carries&quot;: &quot;What is realistic in twelve months with the people and money we have — and who owns it?&quot;,
+    &quot;sheet&quot;: &quot;sheet-6&quot;,
+    &quot;tables&quot;: [
+      &quot;cost-drivers&quot;
+    ],
+    &quot;objectives&quot;: [
+      &quot;Write a realistic twelve-month first move with a named owner&quot;,
+      &quot;Name the cost driver that dominates it&quot;
+    ]
+  }
+]</pre></dd>
+<dt>tables</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;decision-rights&quot;,
+    &quot;title&quot;: &quot;Decision rights&quot;,
+    &quot;module&quot;: &quot;M5&quot;,
+    &quot;description&quot;: &quot;The four decision rights the use case forces.&quot;,
+    &quot;rows&quot;: [
+      {
+        &quot;id&quot;: &quot;architecture&quot;,
+        &quot;label&quot;: &quot;Architecture authority&quot;,
+        &quot;question&quot;: &quot;Who decides which national systems play which part, and that they must connect?&quot;
+      },
+      {
+        &quot;id&quot;: &quot;standards&quot;,
+        &quot;label&quot;: &quot;Standards mandate&quot;,
+        &quot;question&quot;: &quot;Who can require suppliers to conform to the national implementation guide — in a tender, for example?&quot;
+      },
+      {
+        &quot;id&quot;: &quot;core-data-set&quot;,
+        &quot;label&quot;: &quot;Core data set custodian&quot;,
+        &quot;question&quot;: &quot;Who owns the national core data set, its codes and its mappings to other countries’ codes?&quot;
+      },
+      {
+        &quot;id&quot;: &quot;trust-anchor&quot;,
+        &quot;label&quot;: &quot;Trust anchor&quot;,
+        &quot;question&quot;: &quot;Which institution signs on behalf of the health sector, and who accepts a foreign signature?&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;legal-bases&quot;,
+    &quot;title&quot;: &quot;Legal basis&quot;,
+    &quot;module&quot;: &quot;M5&quot;,
+    &quot;rows&quot;: [
+      {
+        &quot;id&quot;: &quot;cross-border&quot;,
+        &quot;label&quot;: &quot;Legal basis for cross-border sharing&quot;
+      },
+      {
+        &quot;id&quot;: &quot;consent-dependants&quot;,
+        &quot;label&quot;: &quot;Consent, including for minors and dependants&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;patterns&quot;,
+    &quot;title&quot;: &quot;Substitution patterns&quot;,
+    &quot;module&quot;: &quot;M1&quot;,
+    &quot;description&quot;: &quot;Taught at the end of M1 and reused all workshop.&quot;,
+    &quot;rows&quot;: [
+      {
+        &quot;id&quot;: &quot;narrow&quot;,
+        &quot;label&quot;: &quot;Start narrow&quot;,
+        &quot;what&quot;: &quot;One population, one credential, one facility type.&quot;,
+        &quot;example&quot;: &quot;Malaysia’s Hajj Health Card&quot;
+      },
+      {
+        &quot;id&quot;: &quot;shared&quot;,
+        &quot;label&quot;: &quot;Start shared&quot;,
+        &quot;what&quot;: &quot;Build the foundation once for several programmes, not once for immunization.&quot;,
+        &quot;example&quot;: &quot;Taifafeki’s registry shared across parts of government&quot;
+      },
+      {
+        &quot;id&quot;: &quot;borrowed&quot;,
+        &quot;label&quot;: &quot;Start borrowed&quot;,
+        &quot;what&quot;: &quot;Adopt a regional or international artefact rather than authoring your own.&quot;,
+        &quot;example&quot;: &quot;The ICVP IG, the IPS, a SNOMED subset&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;cost-drivers&quot;,
+    &quot;title&quot;: &quot;Cost drivers&quot;,
+    &quot;module&quot;: &quot;M7&quot;,
+    &quot;description&quot;: &quot;Drivers, not unit costs.&quot;,
+    &quot;rows&quot;: [
+      {
+        &quot;id&quot;: &quot;integration&quot;,
+        &quot;label&quot;: &quot;Integration effort&quot;
+      },
+      {
+        &quot;id&quot;: &quot;licensing&quot;,
+        &quot;label&quot;: &quot;Terminology licensing&quot;
+      },
+      {
+        &quot;id&quot;: &quot;devices&quot;,
+        &quot;label&quot;: &quot;Devices and connectivity at the point of care&quot;
+      },
+      {
+        &quot;id&quot;: &quot;recurrent&quot;,
+        &quot;label&quot;: &quot;Recurrent cost of running shared infrastructure&quot;
+      },
+      {
+        &quot;id&quot;: &quot;not-once&quot;,
+        &quot;label&quot;: &quot;The cost of not doing it once&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;readiness&quot;,
+    &quot;title&quot;: &quot;Readiness check&quot;,
+    &quot;description&quot;: &quot;Has your country completed any of these? The rows DPI-H Lab’s readiness step shows (CC BY 4.0).&quot;,
+    &quot;rows&quot;: [
+      {
+        &quot;id&quot;: &quot;strategy&quot;,
+        &quot;label&quot;: &quot;National digital health strategy&quot;,
+        &quot;group&quot;: &quot;Strategy &amp; investment&quot;
+      },
+      {
+        &quot;id&quot;: &quot;blueprint&quot;,
+        &quot;label&quot;: &quot;National architecture / blueprint&quot;,
+        &quot;group&quot;: &quot;Strategy &amp; investment&quot;
+      },
+      {
+        &quot;id&quot;: &quot;costed-plan&quot;,
+        &quot;label&quot;: &quot;Costed plan with a budget line&quot;,
+        &quot;group&quot;: &quot;Strategy &amp; investment&quot;
+      },
+      {
+        &quot;id&quot;: &quot;steering-body&quot;,
+        &quot;label&quot;: &quot;Steering body&quot;,
+        &quot;group&quot;: &quot;Governance&quot;
+      },
+      {
+        &quot;id&quot;: &quot;twg&quot;,
+        &quot;label&quot;: &quot;Technical Working Group (TWG)&quot;,
+        &quot;group&quot;: &quot;Governance&quot;
+      },
+      {
+        &quot;id&quot;: &quot;named-authority&quot;,
+        &quot;label&quot;: &quot;Named authority for architecture &amp; standards&quot;,
+        &quot;group&quot;: &quot;Governance&quot;
+      },
+      {
+        &quot;id&quot;: &quot;data-protection&quot;,
+        &quot;label&quot;: &quot;Health data protection &amp; consent&quot;,
+        &quot;group&quot;: &quot;Legal &amp; policy&quot;
+      },
+      {
+        &quot;id&quot;: &quot;standards-mandated&quot;,
+        &quot;label&quot;: &quot;Standards mandated in policy&quot;,
+        &quot;group&quot;: &quot;Legal &amp; policy&quot;
+      },
+      {
+        &quot;id&quot;: &quot;open-procurement&quot;,
+        &quot;label&quot;: &quot;Procurement requires open standards&quot;,
+        &quot;group&quot;: &quot;Legal &amp; policy&quot;
+      },
+      {
+        &quot;id&quot;: &quot;interop-framework&quot;,
+        &quot;label&quot;: &quot;National interoperability framework&quot;,
+        &quot;group&quot;: &quot;Standards &amp; interoperability&quot;
+      },
+      {
+        &quot;id&quot;: &quot;core-data-set&quot;,
+        &quot;label&quot;: &quot;National core data set&quot;,
+        &quot;group&quot;: &quot;Standards &amp; interoperability&quot;
+      },
+      {
+        &quot;id&quot;: &quot;core-fhir-ig&quot;,
+        &quot;label&quot;: &quot;National core FHIR implementation guide&quot;,
+        &quot;group&quot;: &quot;Standards &amp; interoperability&quot;
+      },
+      {
+        &quot;id&quot;: &quot;release-centre&quot;,
+        &quot;label&quot;: &quot;National Release Centre operating&quot;,
+        &quot;group&quot;: &quot;Terminology &amp; testing&quot;
+      },
+      {
+        &quot;id&quot;: &quot;trained-team&quot;,
+        &quot;label&quot;: &quot;Trained national team&quot;,
+        &quot;group&quot;: &quot;Capacity &amp; sustainability&quot;
+      }
+    ]
+  }
+]</pre></dd>
+<dt>steps</dt><dd><pre>[
+  {
+    &quot;scenario&quot;: &quot;j1-born-abroad&quot;,
+    &quot;step&quot;: &quot;J1&quot;,
+    &quot;askTheRoom&quot;: &quot;What is the minimum a family should leave hospital with when their baby has no national ID?&quot;,
+    &quot;facilitatorCue&quot;: &quot;Start with Khamla, not the technology. Hold up a paper card: this is the only thing that crosses the border.&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M1&quot;,
+        &quot;text&quot;: &quot;Write your country’s use-case statement: “A child vaccinated in ___ should be able to ___ in ___.”&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M4&quot;,
+        &quot;text&quot;: &quot;Who in your government would sign this card on behalf of the health sector: the hospital, the ministry, or a national trust service?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M5&quot;,
+        &quot;text&quot;: &quot;Does your law let a facility issue a health credential to a child who is not a citizen and has no national ID?&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;issuer-signing&quot;,
+        &quot;label&quot;: &quot;A national service that signs vaccination certificates&quot;
+      },
+      {
+        &quot;id&quot;: &quot;facility-immz-record&quot;,
+        &quot;label&quot;: &quot;An immunization record at the birth facility&quot;
+      },
+      {
+        &quot;id&quot;: &quot;product-codes&quot;,
+        &quot;label&quot;: &quot;Vaccine product codes&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;trust-anchor&quot;
+      },
+      {
+        &quot;table&quot;: &quot;legal-bases&quot;,
+        &quot;row&quot;: &quot;consent-dependants&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;integration&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;borrowed&quot;,
+        &quot;why&quot;: &quot;Issue to the WHO digital certificate specification rather than design a national card.&quot;
+      }
+    ]
+  },
+  {
+    &quot;scenario&quot;: &quot;j2-found-at-home&quot;,
+    &quot;step&quot;: &quot;J2a&quot;,
+    &quot;askTheRoom&quot;: &quot;Is an “unverified but recorded” vaccine useful to the next clinician — or a risk?&quot;,
+    &quot;facilitatorCue&quot;: &quot;This is the key trust boundary in the story. Pause and make sure everyone sees why the CHW does not verify.&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M3&quot;,
+        &quot;text&quot;: &quot;Does your national core data set tell a dose the family reported from one that was verified? Who defines that element?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M4&quot;,
+        &quot;text&quot;: &quot;Who is allowed to verify a foreign credential: a health worker’s phone, a clinic, or only a national service?&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;reported-vs-verified&quot;,
+        &quot;label&quot;: &quot;A core data set that marks a dose as reported or verified&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;core-data-set&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;integration&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;borrowed&quot;,
+        &quot;why&quot;: &quot;Take the element from the WHO immunization core data dictionary rather than define it nationally.&quot;
+      }
+    ]
+  },
+  {
+    &quot;scenario&quot;: &quot;j2-found-at-home&quot;,
+    &quot;step&quot;: &quot;J2b&quot;,
+    &quot;askTheRoom&quot;: &quot;Who should be allowed to create a health identity for a newborn — and how early?&quot;,
+    &quot;facilitatorCue&quot;: &quot;Ask who in the room has worked with CHWs. What does “offline” really mean in their context?&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M2&quot;,
+        &quot;text&quot;: &quot;Which block gives this child his first identifier in your country: birth registration, the national ID, or the health client registry? Exists, partial or absent?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M2&quot;,
+        &quot;text&quot;: &quot;When a birth happened abroad and is not registered at home, how does the child enter your registries — and your coverage denominator?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M5&quot;,
+        &quot;text&quot;: &quot;Who may create a health identity for a newborn at a home visit, and on whose consent?&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;client-registry&quot;,
+        &quot;label&quot;: &quot;A client registry that can hold a child with no birth record&quot;
+      },
+      {
+        &quot;id&quot;: &quot;crvs-link&quot;,
+        &quot;label&quot;: &quot;A link from birth registration (CRVS) to the health registries&quot;
+      },
+      {
+        &quot;id&quot;: &quot;chw-offline-app&quot;,
+        &quot;label&quot;: &quot;An offline app for community health workers&quot;
+      },
+      {
+        &quot;id&quot;: &quot;referral&quot;,
+        &quot;label&quot;: &quot;A referral from the community to a facility&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;architecture&quot;
+      },
+      {
+        &quot;table&quot;: &quot;legal-bases&quot;,
+        &quot;row&quot;: &quot;consent-dependants&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;devices&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;narrow&quot;,
+        &quot;why&quot;: &quot;One population first: newborns found in border districts.&quot;
+      }
+    ]
+  },
+  {
+    &quot;scenario&quot;: &quot;j3-made-official&quot;,
+    &quot;step&quot;: &quot;J3a&quot;,
+    &quot;askTheRoom&quot;: &quot;When verification fails, what should the nurse do — and how is it explained to the family?&quot;,
+    &quot;facilitatorCue&quot;: &quot;Open screen S4 (See what Nurse Chanthason sees) and switch it from Valid card to Tampered card live. The contrast lands better than any explanation.&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M1&quot;,
+        &quot;text&quot;: &quot;What must be true for this nurse to trust a record she did not create?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M4&quot;,
+        &quot;text&quot;: &quot;Who would hold your national trust anchor, and who accepts a foreign signature on behalf of your health sector?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M4&quot;,
+        &quot;text&quot;: &quot;What must your country have, and what must it decide, before it can verify a neighbour’s card offline? Name it; do not decide it here.&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;trust-list&quot;,
+        &quot;label&quot;: &quot;Membership of a trust network, its list cached for offline use&quot;
+      },
+      {
+        &quot;id&quot;: &quot;clinic-verification&quot;,
+        &quot;label&quot;: &quot;Verification inside the clinic’s system&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;trust-anchor&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;recurrent&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;shared&quot;,
+        &quot;why&quot;: &quot;The trust network is built once, for every programme that signs credentials, not for immunization alone.&quot;
+      }
+    ]
+  },
+  {
+    &quot;scenario&quot;: &quot;j3-made-official&quot;,
+    &quot;step&quot;: &quot;J3b&quot;,
+    &quot;askTheRoom&quot;: &quot;Who should own the mapping between countries’ vaccine codes — WHO, each country, or each clinic?&quot;,
+    &quot;facilitatorCue&quot;: &quot;Emphasize: the Taifafeki record is never overwritten. Both codes live side by side.&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M3&quot;,
+        &quot;text&quot;: &quot;Who owns the national core data set and the mapping between other countries’ vaccine codes and yours?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M3&quot;,
+        &quot;text&quot;: &quot;Which code systems do you use for vaccine products, and is the licence question settled?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M6&quot;,
+        &quot;text&quot;: &quot;Would your neighbour need this mapping too? If yes, why would you each build it?&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;terminology-service&quot;,
+        &quot;label&quot;: &quot;A terminology service holding vaccine codes and mappings&quot;
+      },
+      {
+        &quot;id&quot;: &quot;schedule-logic&quot;,
+        &quot;label&quot;: &quot;The national schedule as computable decision logic&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;core-data-set&quot;
+      },
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;standards&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;licensing&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;borrowed&quot;,
+        &quot;why&quot;: &quot;Map to a shared regional or international code set rather than one country at a time.&quot;
+      }
+    ]
+  },
+  {
+    &quot;scenario&quot;: &quot;j4-0-one-family-one-phone&quot;,
+    &quot;step&quot;: &quot;J4.0a&quot;,
+    &quot;askTheRoom&quot;: &quot;How do we design for shared phones without compromising each person’s privacy?&quot;,
+    &quot;facilitatorCue&quot;: &quot;Notice Khamla’s mood dips here. Ask the room why — this is the equity tension in the story.&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M4&quot;,
+        &quot;text&quot;: &quot;Is a family wallet a national service, a private app, or both — and who decides which apps may hold a record?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M5&quot;,
+        &quot;text&quot;: &quot;Who may hold and share a child’s record: either parent, a guardian, the child from what age? What does your law say about dependants?&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;family-wallet&quot;,
+        &quot;label&quot;: &quot;A wallet or citizen app that holds a family’s records&quot;
+      },
+      {
+        &quot;id&quot;: &quot;dependant-consent&quot;,
+        &quot;label&quot;: &quot;Rules for a parent holding a child’s record&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;standards&quot;
+      },
+      {
+        &quot;table&quot;: &quot;legal-bases&quot;,
+        &quot;row&quot;: &quot;consent-dependants&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;devices&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;narrow&quot;,
+        &quot;why&quot;: &quot;One credential first: the child’s vaccination record, on the phone the family already has.&quot;
+      }
+    ]
+  },
+  {
+    &quot;scenario&quot;: &quot;j4-0-one-family-one-phone&quot;,
+    &quot;step&quot;: &quot;J4.0b&quot;,
+    &quot;askTheRoom&quot;: &quot;Is a 4-digit spoken passcode the right balance of security and ease for this family?&quot;,
+    &quot;facilitatorCue&quot;: &quot;Ask: what is inside this QR? (Answer: not the health data — just a pointer and a key.)&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M5&quot;,
+        &quot;text&quot;: &quot;What legal basis lets a record held at home be opened by a clinician abroad, on the family’s consent?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M5&quot;,
+        &quot;text&quot;: &quot;Would one clause in your procurement — conformance to the national IG — be enough for your portal to issue this link?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M5&quot;,
+        &quot;text&quot;: &quot;Who sets how a shared link is protected — the passcode, how long it lasts, who may open it: a national rule, or the family’s choice?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M6&quot;,
+        &quot;text&quot;: &quot;Should the part of the record that crosses borders (IPS plus an immunization core) be profiled once for the region, with national extensions left sovereign?&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;national-record&quot;,
+        &quot;label&quot;: &quot;A national health record the family’s link points to&quot;
+      },
+      {
+        &quot;id&quot;: &quot;share-link&quot;,
+        &quot;label&quot;: &quot;A service that issues time-limited links on the family’s consent&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;architecture&quot;
+      },
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;standards&quot;
+      },
+      {
+        &quot;table&quot;: &quot;legal-bases&quot;,
+        &quot;row&quot;: &quot;cross-border&quot;
+      },
+      {
+        &quot;table&quot;: &quot;legal-bases&quot;,
+        &quot;row&quot;: &quot;consent-dependants&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;recurrent&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;borrowed&quot;,
+        &quot;why&quot;: &quot;Adopt the IPS and an existing link specification rather than author a national format.&quot;
+      }
+    ]
+  },
+  {
+    &quot;scenario&quot;: &quot;j4-1-full-history-abroad&quot;,
+    &quot;step&quot;: &quot;J4.1&quot;,
+    &quot;askTheRoom&quot;: &quot;Should the family be notified every time their child’s record is viewed abroad?&quot;,
+    &quot;facilitatorCue&quot;: &quot;Close the loop: the story started and ends in Taifafeki. Ask what changed for each persona since step 1.&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;module&quot;: &quot;M5&quot;,
+        &quot;text&quot;: &quot;What agreement makes every view abroad leave an entry in the home country’s log — and who reads it?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M6&quot;,
+        &quot;text&quot;: &quot;What would your country send to a regional connectathon within twelve months to prove this moment works?&quot;
+      },
+      {
+        &quot;module&quot;: &quot;M7&quot;,
+        &quot;text&quot;: &quot;What is a realistic twelve-month first move toward this moment, with a named owner — and which cost driver dominates it?&quot;
+      }
+    ],
+    &quot;capabilities&quot;: [
+      {
+        &quot;id&quot;: &quot;poc-viewer&quot;,
+        &quot;label&quot;: &quot;A point-of-care viewer that accepts a foreign link&quot;
+      },
+      {
+        &quot;id&quot;: &quot;access-log&quot;,
+        &quot;label&quot;: &quot;An access log kept in the home country&quot;
+      }
+    ],
+    &quot;tags&quot;: [
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;trust-anchor&quot;
+      },
+      {
+        &quot;table&quot;: &quot;decision-rights&quot;,
+        &quot;row&quot;: &quot;architecture&quot;
+      },
+      {
+        &quot;table&quot;: &quot;legal-bases&quot;,
+        &quot;row&quot;: &quot;cross-border&quot;
+      },
+      {
+        &quot;table&quot;: &quot;cost-drivers&quot;,
+        &quot;row&quot;: &quot;not-once&quot;
+      },
+      {
+        &quot;table&quot;: &quot;patterns&quot;,
+        &quot;row&quot;: &quot;shared&quot;,
+        &quot;why&quot;: &quot;Shared testing and one regional data model, rather than each pair of countries agreeing its own.&quot;
+      }
+    ]
+  }
+]</pre></dd>
+<dt>assessment</dt><dd><pre>{
+  &quot;standingLine&quot;: &quot;“Absent” is a finding, not a failure — the question is only whether it blocks this use case.&quot;,
+  &quot;scales&quot;: [
+    {
+      &quot;id&quot;: &quot;status&quot;,
+      &quot;label&quot;: &quot;Where we stand&quot;,
+      &quot;options&quot;: [
+        {
+          &quot;id&quot;: &quot;exists&quot;,
+          &quot;label&quot;: &quot;Exists&quot;
+        },
+        {
+          &quot;id&quot;: &quot;partial&quot;,
+          &quot;label&quot;: &quot;Partial&quot;
+        },
+        {
+          &quot;id&quot;: &quot;absent&quot;,
+          &quot;label&quot;: &quot;Absent&quot;
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;urgency&quot;,
+      &quot;label&quot;: &quot;How urgent&quot;,
+      &quot;options&quot;: [
+        {
+          &quot;id&quot;: &quot;now&quot;,
+          &quot;label&quot;: &quot;Blocks us now&quot;
+        },
+        {
+          &quot;id&quot;: &quot;12m&quot;,
+          &quot;label&quot;: &quot;Needed within 12 months&quot;
+        },
+        {
+          &quot;id&quot;: &quot;wait&quot;,
+          &quot;label&quot;: &quot;Can wait&quot;
+        }
+      ]
+    }
+  ]
+}</pre></dd>
+<dt>discussion</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;q1&quot;,
+    &quot;module&quot;: &quot;M2&quot;,
+    &quot;theme&quot;: &quot;Identity for babies born abroad&quot;,
+    &quot;question&quot;: &quot;How should national immunization systems handle temporary IDs for cross-border infants before civil registration is complete?&quot;,
+    &quot;steps&quot;: [
+      &quot;j1-born-abroad#J1&quot;,
+      &quot;j2-found-at-home#J2b&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;q2&quot;,
+    &quot;module&quot;: &quot;M4&quot;,
+    &quot;theme&quot;: &quot;Where trust begins&quot;,
+    &quot;question&quot;: &quot;Why should offline CHW devices store foreign cards as “reported, not verified” rather than trying to verify them in the field?&quot;,
+    &quot;steps&quot;: [
+      &quot;j2-found-at-home#J2a&quot;,
+      &quot;j3-made-official#J3a&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;q3&quot;,
+    &quot;module&quot;: &quot;M3&quot;,
+    &quot;theme&quot;: &quot;Matching vaccines across countries&quot;,
+    &quot;question&quot;: &quot;When a monovalent vaccine is given abroad but the home schedule uses a combination (e.g. pentavalent), how should schedule rules calculate the doses still due?&quot;,
+    &quot;steps&quot;: [
+      &quot;j3-made-official#J3b&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;q4&quot;,
+    &quot;module&quot;: &quot;M5&quot;,
+    &quot;theme&quot;: &quot;Cross-border access and audit&quot;,
+    &quot;question&quot;: &quot;What agreements do countries need so that a clinician viewing a record abroad triggers an audit entry back in the patient’s home country?&quot;,
+    &quot;steps&quot;: [
+      &quot;j4-0-one-family-one-phone#J4.0b&quot;,
+      &quot;j4-1-full-history-abroad#J4.1&quot;
+    ]
+  }
+]</pre></dd>
+<dt>sheets</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;sheet-1&quot;,
+    &quot;label&quot;: &quot;Sheet 1&quot;,
+    &quot;title&quot;: &quot;Our journey and where it breaks&quot;,
+    &quot;size&quot;: &quot;A3&quot;,
+    &quot;modules&quot;: [
+      &quot;M1&quot;
+    ],
+    &quot;assessmentStrip&quot;: true
+  },
+  {
+    &quot;id&quot;: &quot;sheet-2&quot;,
+    &quot;label&quot;: &quot;Sheet 2&quot;,
+    &quot;title&quot;: &quot;Our architecture today&quot;,
+    &quot;size&quot;: &quot;A3&quot;,
+    &quot;modules&quot;: [
+      &quot;M2&quot;
+    ],
+    &quot;assessmentStrip&quot;: true
+  },
+  {
+    &quot;id&quot;: &quot;sheet-3&quot;,
+    &quot;label&quot;: &quot;Sheet 3&quot;,
+    &quot;title&quot;: &quot;Core data set, terminology and specifications&quot;,
+    &quot;size&quot;: &quot;A3&quot;,
+    &quot;modules&quot;: [
+      &quot;M3&quot;
+    ],
+    &quot;assessmentStrip&quot;: true
+  },
+  {
+    &quot;id&quot;: &quot;sheet-4&quot;,
+    &quot;label&quot;: &quot;Sheet 4&quot;,
+    &quot;title&quot;: &quot;Trust, and who decides&quot;,
+    &quot;size&quot;: &quot;A3&quot;,
+    &quot;modules&quot;: [
+      &quot;M4&quot;,
+      &quot;M5&quot;
+    ],
+    &quot;assessmentStrip&quot;: true
+  },
+  {
+    &quot;id&quot;: &quot;sheet-5&quot;,
+    &quot;label&quot;: &quot;Sheet 5&quot;,
+    &quot;title&quot;: &quot;Doing it once, together: our nomination&quot;,
+    &quot;size&quot;: &quot;A3&quot;,
+    &quot;modules&quot;: [
+      &quot;M6&quot;
+    ],
+    &quot;assessmentStrip&quot;: true
+  },
+  {
+    &quot;id&quot;: &quot;sheet-6&quot;,
+    &quot;label&quot;: &quot;Sheet 6&quot;,
+    &quot;title&quot;: &quot;Our first move and our ask&quot;,
+    &quot;size&quot;: &quot;A3&quot;,
+    &quot;modules&quot;: [
+      &quot;M7&quot;
+    ],
+    &quot;assessmentStrip&quot;: true,
+    &quot;fields&quot;: [
+      {
+        &quot;label&quot;: &quot;Our first move in twelve months&quot;,
+        &quot;lines&quot;: 3
+      },
+      {
+        &quot;label&quot;: &quot;Named owner&quot;,
+        &quot;lines&quot;: 1
+      },
+      {
+        &quot;label&quot;: &quot;What we ask of partners&quot;,
+        &quot;lines&quot;: 3
+      }
+    ]
+  }
+]</pre></dd>
+<dt>resources</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;facilitator-card-j4-1&quot;,
+    &quot;title&quot;: &quot;Facilitator card: J4.1, crossing back&quot;,
+    &quot;kind&quot;: &quot;job-aid&quot;,
+    &quot;steps&quot;: [
+      &quot;j4-1-full-history-abroad#J4.1&quot;
+    ],
+    &quot;modules&quot;: [
+      &quot;M5&quot;,
+      &quot;M6&quot;,
+      &quot;M7&quot;
+    ],
+    &quot;body&quot;: &quot;1. Show the QR on the family phone; say the passcode aloud.\n2. Ask: *what is inside this QR?* (a pointer and a key, not the health data).\n3. Open screen S8 and switch to Wrong passcode: the attempt is still logged in Onesa. Switch on to the third try to show the link revoked.\n4. Close the loop: ask what changed for each persona since J1.&quot;
+  },
+  {
+    &quot;id&quot;: &quot;dpi-h-ra&quot;,
+    &quot;title&quot;: &quot;DPI-H Reference Architecture&quot;,
+    &quot;kind&quot;: &quot;reading&quot;,
+    &quot;href&quot;: &quot;https://litlfred.github.io/smart-ra/en/dpi-h-ra/index.html&quot;,
+    &quot;modules&quot;: [
+      &quot;M2&quot;
+    ],
+    &quot;description&quot;: &quot;The reference architecture each table maps its systems onto.&quot;
+  },
+  {
+    &quot;id&quot;: &quot;smart-trust&quot;,
+    &quot;title&quot;: &quot;WHO SMART Trust&quot;,
+    &quot;kind&quot;: &quot;reading&quot;,
+    &quot;href&quot;: &quot;https://smart.who.int/trust/&quot;,
+    &quot;modules&quot;: [
+      &quot;M4&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;ihe-vhl&quot;,
+    &quot;title&quot;: &quot;IHE ITI Verified Health Link (VHL)&quot;,
+    &quot;kind&quot;: &quot;reading&quot;,
+    &quot;href&quot;: &quot;https://profiles.ihe.net/ITI/VHL/volume-1.html&quot;,
+    &quot;modules&quot;: [
+      &quot;M4&quot;,
+      &quot;M5&quot;
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;a3-canvas&quot;,
+    &quot;title&quot;: &quot;The table canvas, Sheets 1 to 6 (A3)&quot;,
+    &quot;kind&quot;: &quot;handout&quot;,
+    &quot;href&quot;: &quot;sheets/&quot;,
+    &quot;description&quot;: &quot;Print one set per table, A3 landscape.&quot;
+  }
+]</pre></dd>
+<dt>presentation</dt><dd><pre>{
+  &quot;name&quot;: &quot;Journeys&quot;,
+  &quot;badge&quot;: &quot;Interactive Spec&quot;,
+  &quot;tagline&quot;: &quot;Open Health Stack (OHS) • WHO GDHCN • Verifiable Health Links (VHL)&quot;,
+  &quot;occasion&quot;: &quot;WHO Pre-GDHF Vignette&quot;,
+  &quot;subject&quot;: &quot;Cross-Border Digital Immunization Portability&quot;,
+  &quot;scope&quot;: &quot;Taifafeki ⇄ Onesa&quot;,
+  &quot;status&quot;: &quot;GDHCN DEV Trust List: XXR Active&quot;,
+  &quot;story&quot;: &quot;Somsak is born in Taifafeki, grows up in Onesa, and one year later a Taifafeki doctor can see every vaccine he has ever had — without a single record being copied across the border.&quot;,
+  &quot;lede&quot;: &quot;A baby and five people around him, four moments, twelve months. Follow the people first; the technology is what makes each hand-off possible.&quot;,
+  &quot;recordOf&quot;: &quot;somsak-sengmany&quot;,
+  &quot;cast&quot;: [
+    &quot;somsak-sengmany&quot;,
+    &quot;khamla-sengmany&quot;,
+    &quot;bounmy-sengmany&quot;,
+    &quot;vilay&quot;,
+    &quot;chanthason&quot;,
+    &quot;anan&quot;
+  ],
+  &quot;chapterTitles&quot;: {
+    &quot;j4-family-records-abroad&quot;: &quot;Crossing back&quot;
+  },
+  &quot;tagRows&quot;: [
+    {
+      &quot;label&quot;: &quot;Forces&quot;,
+      &quot;icon&quot;: &quot;scale&quot;,
+      &quot;tables&quot;: [
+        &quot;decision-rights&quot;,
+        &quot;legal-bases&quot;
+      ]
+    },
+    {
+      &quot;label&quot;: &quot;Cost driver&quot;,
+      &quot;icon&quot;: &quot;coins&quot;,
+      &quot;tables&quot;: [
+        &quot;cost-drivers&quot;
+      ]
+    },
+    {
+      &quot;label&quot;: &quot;If it is missing&quot;,
+      &quot;icon&quot;: &quot;shuffle&quot;,
+      &quot;tables&quot;: [
+        &quot;patterns&quot;
+      ]
+    }
+  ],
+  &quot;presenterNote&quot;: &quot;Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \&quot;what does that look like?\&quot;&quot;,
+  &quot;about&quot;: {
+    &quot;title&quot;: &quot;This walkthrough is the demo of a FHIR implementation guide&quot;,
+    &quot;text&quot;: &quot;The same journey is documented as a WHO SMART Guidelines DAK and FHIR IG: personas, business processes (BPMN), requirements, and every payload shown here as a published FHIR example.&quot;
+  },
+  &quot;links&quot;: [
+    {
+      &quot;label&quot;: &quot;The IG&quot;,
+      &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/&quot;,
+      &quot;frame&quot;: &quot;FHIR IG&quot;
+    },
+    {
+      &quot;label&quot;: &quot;Journeys&quot;,
+      &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/journeys.html&quot;
+    },
+    {
+      &quot;label&quot;: &quot;Business processes&quot;,
+      &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/business-processes.html&quot;
+    },
+    {
+      &quot;label&quot;: &quot;FHIR examples&quot;,
+      &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/journey-examples.html&quot;
+    },
+    {
+      &quot;label&quot;: &quot;Source&quot;,
+      &quot;href&quot;: &quot;https://github.com/litlfred/smart-trust-demo&quot;,
+      &quot;frame&quot;: &quot;IG source&quot;
+    }
+  ],
+  &quot;ig&quot;: {
+    &quot;href&quot;: &quot;&quot;,
+    &quot;example&quot;: &quot;artifact/{type}-{id}.html&quot;,
+    &quot;profile&quot;: &quot;artifact/StructureDefinition-{id}.html&quot;,
+    &quot;processes&quot;: &quot;business-processes.html&quot;
+  },
+  &quot;notes&quot;: {
+    &quot;map&quot;: &quot;Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \&quot;what does that look like?\&quot;&quot;,
+    &quot;personas&quot;: &quot;Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \&quot;what does that look like?\&quot;&quot;,
+    &quot;how&quot;: &quot;Use this when the room asks \&quot;how?\&quot;: start from a big idea, then show which moments in the journey depend on it.&quot;,
+    &quot;discuss&quot;: &quot;Close the session: take one question per table, and use the moment links to revisit the story.&quot;,
+    &quot;sheets&quot;: &quot;Lead with people, not screens: introduce the cast, walk the four moments, then drop into a screen only when the room asks \&quot;what does that look like?\&quot;&quot;
+  },
+  &quot;closingQuestion&quot;: &quot;The technology works. What do countries need to agree on to make it real?&quot;,
+  &quot;views&quot;: [
+    {
+      &quot;model&quot;: &quot;0.1.0&quot;,
+      &quot;view&quot;: &quot;id-249a1002c32e50199e27a502ef0ec3d8&quot;,
+      &quot;label&quot;: &quot;Systems&quot;
+    },
+    {
+      &quot;model&quot;: &quot;0.1.0&quot;,
+      &quot;view&quot;: &quot;id-c6cae81c85da5fc197ab58547274a481&quot;,
+      &quot;label&quot;: &quot;Journeys&quot;
+    }
+  ],
+  &quot;inspector&quot;: {
+    &quot;title&quot;: &quot;FHIR R4 &amp; WHO GDHCN payload inspector&quot;,
+    &quot;key&quot;: &quot;DEV Key: 916ffa567c0f44a2 (XXR)&quot;,
+    &quot;hint&quot;: &quot;Click to inspect raw FHIR / CBOR payload&quot;
+  },
+  &quot;architecture&quot;: {
+    &quot;model&quot;: &quot;0.1.0&quot;,
+    &quot;root&quot;: &quot;id-65795122cc715cc8914ea02ee18f0d2a&quot;,
+    &quot;countries&quot;: [
+      {
+        &quot;group&quot;: &quot;id-f6321e916b0759948c0ee1d2aa09f985&quot;,
+        &quot;label&quot;: &quot;Taifafeki (Kesaro)&quot;,
+        &quot;code&quot;: &quot;XXR&quot;
+      },
+      {
+        &quot;group&quot;: &quot;id-1068df9675a55b61a72544c8fad7b1d3&quot;,
+        &quot;label&quot;: &quot;Onesa (home)&quot;,
+        &quot;code&quot;: &quot;XXK&quot;
+      }
+    ],
+    &quot;shared&quot;: &quot;id-8393ba34788c525da7f5c9a3b6751cc0&quot;,
+    &quot;title&quot;: &quot;Architecture: two countries on one trust foundation&quot;,
+    &quot;intro&quot;: &quot;Each country builds its own stack on the layers of the DPI-H reference architecture. Underneath both is WHO GDHCN: the shared trust list that lets an Onesan clinic believe a Taifafeki certificate, and a Taifafeki clinic believe an Onesan link, with no direct connection between the two.&quot;,
+    &quot;notes&quot;: [
+      &quot;Taifafeki publishes the key it signs certificates with.&quot;,
+      &quot;Onesa caches the list, so its clinics verify Taifafeki cards offline; Taifafeki does the same for Onesan VHLs.&quot;,
+      &quot;Data crosses only as a signed QR the family carries, or a VHL the family shares: never system to system.&quot;
+    ]
+  },
+  &quot;cover&quot;: {
+    &quot;table&quot;: &quot;patterns&quot;
+  }
+}</pre></dd>
+<dt>lab</dt><dd><pre>{
+  &quot;name&quot;: &quot;The table’s eight steps&quot;,
+  &quot;intro&quot;: &quot;One country per table, the delegation plus buddies. Work through the steps in order; each has a timer and a prompt to read aloud. What the table writes stays in this browser and is gathered on one page in step 7.&quot;,
+  &quot;credit&quot;: &quot;The eight steps, their timers and DISCUSS prompts, the use-case cards and the readiness rows are adapted from DPI-H Lab, created by Umer Nisar (CSIRO), in collaboration with Rumanusina Maua (SPC) and Jordi Piera Jimenez, under CC BY 4.0 (creativecommons.org/licenses/by/4.0). Changes: more than one use case may be ticked, the use case starts from the journeys, the journeys’ questions and tables are woven into the steps, and steps 3 to 7 are written for this workshop. DPI-H Lab is informed by the WHO/ITU DPI-H Reference Architecture, Draft V1.0, and is not produced or endorsed by WHO or ITU.&quot;,
+  &quot;creditHref&quot;: &quot;https://dpih.fhirlab.net/&quot;,
+  &quot;creditLabel&quot;: &quot;DPI-H Lab&quot;,
+  &quot;useCases&quot;: [
+    {
+      &quot;id&quot;: &quot;ips&quot;,
+      &quot;label&quot;: &quot;International Patient Summary&quot;,
+      &quot;description&quot;: &quot;An internationally agreed minimum summary of a person’s health (problems, medicines, allergies and more) designed to be read in any system or country.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;immunisation&quot;,
+      &quot;label&quot;: &quot;Immunisation&quot;,
+      &quot;description&quot;: &quot;Every vaccination is recorded once and available wherever the person is seen next, so schedules, coverage and outbreaks can be tracked.&quot;,
+      &quot;journey&quot;: true
+    },
+    {
+      &quot;id&quot;: &quot;data-foundations&quot;,
+      &quot;label&quot;: &quot;Trusted data foundations&quot;,
+      &quot;description&quot;: &quot;Core health data is captured once and reused reliably across programmes, services and levels of care.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;workforce&quot;,
+      &quot;label&quot;: &quot;Capable, well-distributed workforce&quot;,
+      &quot;description&quot;: &quot;Health workers are identifiable and verifiable, deployed where they are needed, paid reliably and supported to keep their skills current.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;continuity&quot;,
+      &quot;label&quot;: &quot;Quality &amp; continuity of care&quot;,
+      &quot;description&quot;: &quot;Care that draws on a person’s full history, follows current evidence at the point of care and is coordinated across providers.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;personal-records&quot;,
+      &quot;label&quot;: &quot;Trusted personal health records&quot;,
+      &quot;description&quot;: &quot;Every person has a verifiable digital health record they can see and control, and that authorised providers can trust.&quot;,
+      &quot;journey&quot;: true
+    },
+    {
+      &quot;id&quot;: &quot;climate-epidemic&quot;,
+      &quot;label&quot;: &quot;Climate &amp; epidemic resilience&quot;,
+      &quot;description&quot;: &quot;Detect epidemic and climate-related health threats early enough to act, and coordinate the response.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;other&quot;,
+      &quot;label&quot;: &quot;Other: your own use case&quot;,
+      &quot;description&quot;: &quot;A priority use case the team chooses that is not one of the listed options.&quot;
+    }
+  ],
+  &quot;useCaseText&quot;: &quot;A child vaccinated in Taifafeki should be able to have every dose counted at home in Onesa, and shown back to a Taifafeki clinician a year later.&quot;,
+  &quot;scale&quot;: {
+    &quot;id&quot;: &quot;readiness&quot;,
+    &quot;label&quot;: &quot;Readiness&quot;,
+    &quot;options&quot;: [
+      {
+        &quot;id&quot;: &quot;done&quot;,
+        &quot;label&quot;: &quot;Done&quot;
+      },
+      {
+        &quot;id&quot;: &quot;in-progress&quot;,
+        &quot;label&quot;: &quot;In progress&quot;
+      },
+      {
+        &quot;id&quot;: &quot;not-yet&quot;,
+        &quot;label&quot;: &quot;Not yet&quot;
+      }
+    ]
+  },
+  &quot;steps&quot;: [
+    {
+      &quot;id&quot;: &quot;team&quot;,
+      &quot;label&quot;: &quot;Team&quot;,
+      &quot;title&quot;: &quot;Who is part of the working team?&quot;,
+      &quot;lede&quot;: &quot;Work as one team: the country delegation plus buddies. The country decides; buddies ask questions and explain.&quot;,
+      &quot;minutes&quot;: 2,
+      &quot;fields&quot;: [
+        {
+          &quot;id&quot;: &quot;country&quot;,
+          &quot;label&quot;: &quot;Our country&quot;,
+          &quot;lines&quot;: 1
+        },
+        {
+          &quot;id&quot;: &quot;members&quot;,
+          &quot;label&quot;: &quot;Team members&quot;,
+          &quot;hint&quot;: &quot;Names and roles only. No email addresses, phone numbers or other personal details.&quot;,
+          &quot;lines&quot;: 3
+        },
+        {
+          &quot;id&quot;: &quot;buddies&quot;,
+          &quot;label&quot;: &quot;Buddies&quot;,
+          &quot;hint&quot;: &quot;Name and organisation only. No email addresses or phone numbers.&quot;,
+          &quot;lines&quot;: 1
+        }
+      ],
+      &quot;note&quot;: &quot;Don’t enter personal health information.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;use-case&quot;,
+      &quot;label&quot;: &quot;Use case&quot;,
+      &quot;title&quot;: &quot;Which use cases or health goals?&quot;,
+      &quot;minutes&quot;: 5,
+      &quot;discuss&quot;: &quot;Go round the table: each person names the use case that matters most to their ministry right now. Then agree together, and tick every one that applies.&quot;,
+      &quot;useCases&quot;: true,
+      &quot;modules&quot;: [
+        &quot;M1&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;readiness&quot;,
+      &quot;label&quot;: &quot;Readiness&quot;,
+      &quot;title&quot;: &quot;Has your country completed any of these?&quot;,
+      &quot;lede&quot;: &quot;Readiness check&quot;,
+      &quot;minutes&quot;: 10,
+      &quot;discuss&quot;: &quot;Don’t tick alone. Talk each row through. If people disagree on “Done”, it probably isn’t done yet.&quot;,
+      &quot;rate&quot;: [
+        &quot;readiness&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;who-decides&quot;,
+      &quot;label&quot;: &quot;Who decides&quot;,
+      &quot;title&quot;: &quot;Who holds each decision today?&quot;,
+      &quot;minutes&quot;: 10,
+      &quot;discuss&quot;: &quot;Name who holds it; do not decide it here. If nobody does, write “nobody yet”: that is a finding.&quot;,
+      &quot;holders&quot;: [
+        &quot;decision-rights&quot;,
+        &quot;legal-bases&quot;
+      ],
+      &quot;modules&quot;: [
+        &quot;M4&quot;,
+        &quot;M5&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;components&quot;,
+      &quot;label&quot;: &quot;Components&quot;,
+      &quot;title&quot;: &quot;What does each moment need, and where do you stand?&quot;,
+      &quot;lede&quot;: &quot;Each moment of the journey needs building blocks of the DPI-H reference architecture. Rate each one for your country.&quot;,
+      &quot;minutes&quot;: 15,
+      &quot;discuss&quot;: &quot;Rate each together. “Absent” is a finding, not a failure; ask only whether it blocks your use case.&quot;,
+      &quot;capabilities&quot;: true,
+      &quot;modules&quot;: [
+        &quot;M2&quot;
+      ],
+      &quot;resources&quot;: [
+        &quot;dpi-h-ra&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;mapping&quot;,
+      &quot;label&quot;: &quot;Mapping&quot;,
+      &quot;title&quot;: &quot;Which standards and codes do you adopt, and who maps them?&quot;,
+      &quot;minutes&quot;: 10,
+      &quot;discuss&quot;: &quot;For each gap, ask first whether you can borrow it. Adopt before you author.&quot;,
+      &quot;fields&quot;: [
+        {
+          &quot;id&quot;: &quot;adopt&quot;,
+          &quot;label&quot;: &quot;Standards and specifications we adopt rather than author&quot;,
+          &quot;lines&quot;: 3
+        }
+      ],
+      &quot;pick&quot;: [
+        &quot;patterns&quot;
+      ],
+      &quot;modules&quot;: [
+        &quot;M3&quot;
+      ],
+      &quot;resources&quot;: [
+        &quot;smart-trust&quot;,
+        &quot;ihe-vhl&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;pathway&quot;,
+      &quot;label&quot;: &quot;Pathway&quot;,
+      &quot;title&quot;: &quot;What is our first move in twelve months?&quot;,
+      &quot;minutes&quot;: 10,
+      &quot;discuss&quot;: &quot;Be realistic with the people and money you have. Name an owner, not a committee.&quot;,
+      &quot;fields&quot;: [
+        {
+          &quot;id&quot;: &quot;first-move&quot;,
+          &quot;label&quot;: &quot;Our first move in twelve months&quot;,
+          &quot;lines&quot;: 3
+        },
+        {
+          &quot;id&quot;: &quot;owner&quot;,
+          &quot;label&quot;: &quot;Named owner&quot;,
+          &quot;lines&quot;: 1
+        },
+        {
+          &quot;id&quot;: &quot;ask&quot;,
+          &quot;label&quot;: &quot;What we ask of partners&quot;,
+          &quot;lines&quot;: 3
+        }
+      ],
+      &quot;pick&quot;: [
+        &quot;cost-drivers&quot;
+      ],
+      &quot;modules&quot;: [
+        &quot;M6&quot;,
+        &quot;M7&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;summary&quot;,
+      &quot;label&quot;: &quot;Summary&quot;,
+      &quot;title&quot;: &quot;Our table’s summary&quot;,
+      &quot;lede&quot;: &quot;Answer the four closing questions in a line each, then read the summary aloud.&quot;,
+      &quot;minutes&quot;: 5,
+      &quot;discuss&quot;: &quot;Read the summary aloud. Does everyone at the table agree with it? Change it here until they do.&quot;,
+      &quot;discussion&quot;: true,
+      &quot;summary&quot;: true
+    }
+  ]
+}</pre></dd>
+</dl>
+</main>
+<script src="../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>

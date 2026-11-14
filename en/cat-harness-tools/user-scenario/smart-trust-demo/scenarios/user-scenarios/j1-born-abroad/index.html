@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J1 — Born abroad — user-scenario</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fdfdfb; --muted:#5b5b5b; --line:#d6d6d0; --link:#0b5cad; --panel:#f3f4f2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; } }
+  :root[data-fa-scheme="dark"] { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+  body { margin:0; font:1rem/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:80rem; margin:0 auto; padding:1.5rem 1.5rem 4rem; min-width:0; overflow-wrap:anywhere; }
+  h1 { font-size:1.35rem; margin:0 0 .25rem; } h2 { font-size:1.05rem; margin:1.5rem 0 .5rem; }
+  a { color:var(--link); } a:focus-visible, select:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  .m { color:var(--muted); font-size:.9rem; }
+  .tiles { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; padding:0; list-style:none; }
+  .tiles li { border:1px solid var(--line); border-radius:.4rem; padding:.35rem .7rem; }
+  .tiles b { font-size:1.2rem; margin-right:.3rem; }
+  .clip { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; vertical-align:top; padding:.35rem .5rem; border-bottom:1px solid var(--line); }
+  th { background:var(--panel); white-space:nowrap; }
+  /* Only the node's path and long text may break mid-word; a status or a date
+     broken across lines ("in_pr ogres s") is unreadable. */
+  td { overflow-wrap:normal; } td.p, td.t { overflow-wrap:anywhere; } td.s { white-space:nowrap; }
+  dl { display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:.25rem 1rem; }
+  dt { font-weight:600; } dd { margin:0; }
+  pre { background:var(--panel); padding:.75rem; overflow-x:auto; font-size:.85rem; }
+  label { margin-right:1rem; }
+  @media (max-width:40rem) { dl { grid-template-columns:1fr; } }
+</style>
+<link rel="stylesheet" href="../../../../../../../assets/css/navbar.css"><script src="../../../../../../../assets/navbar/rail-1lw3jpj967b.js" defer></script><script src="../../../../../../../assets/js/navbar.js" defer></script><style data-folio-narrow-viewport>
+/* Narrow viewports: nothing may widen the PAGE — bean `2r2n`.
+ *
+ * At 390 px, 105 of 249 built pages scrolled sideways (measured 2026-09-24).
+ * The rule here is the bean's: wide content scrolls INSIDE ITS OWN BOX with a
+ * visible cue, and the page itself never pans.
+ *
+ * ONE FILE, TWO WAYS IN. Themed pages link it from `_includes/head_custom.html`.
+ * The standalone viewer pages carry no theme stylesheet at all, so
+ * `withViewerNav` in `scripts/viewer-page.ts` inlines this same file when it
+ * adds the rail. A copy of these rules in each place would be two answers to
+ * "what does a table do at 390 px", free to drift apart.
+ *
+ * Every selector here is written to be safe on both kinds of page: no
+ * `.main-content` scope (a standalone page has none), the navbar excluded by
+ * name, and the theme's own `.table-wrapper` left alone, since it already does
+ * this job for Markdown tables. */
+
+@media (max-width: 799.98px) {
+  /* A table the theme did not wrap: raw HTML from a generator, or one built at
+   * runtime. `display: block` makes the table its own scroll box. Its cells
+   * still lay out as a table inside the anonymous table box. */
+  table:not(.table-wrapper > table):not(.fa-nav table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* THE CUE: the edge that has more content past it fades out. The fade is a
+   * MASK over the table's own pixels, driven by its own scroll position, so
+   * it needs no knowledge of the page's background. A painted cover (the
+   * usual `background-attachment: local` trick) does: the first version used
+   * `Canvas`, and on a page that is dark under a LIGHT scheme it laid a white
+   * band over the first column.
+   *
+   * A table that does not overflow has an inactive scroll timeline, so the
+   * animation has no effect and both fades stay at their initial 0: no cue
+   * where there is nothing to scroll to. A browser without scroll-driven
+   * animations shows no fade, and the table still scrolls. */
+  @supports (animation-timeline: scroll()) {
+    table:not(.table-wrapper > table):not(.fa-nav table) {
+      mask-image: linear-gradient(to right,
+        transparent 0, #000 var(--fa-cue-l),
+        #000 calc(100% - var(--fa-cue-r)), transparent 100%);
+      animation: fa-scroll-cue linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  /* A code block scrolls in its own box, which is what `pre` is for. Mermaid
+   * SOURCE sits in a `pre` until the renderer replaces it, and at 390 px a
+   * diagram's source line is longer than the screen. */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prose that has no break opportunity: a long path in inline code, or a
+   * glossary definition naming one. Breaking the string is better than
+   * widening the page it sits on. */
+  :not(pre) > code,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+@property --fa-cue-l { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fa-cue-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@keyframes fa-scroll-cue {
+  0%   { --fa-cue-l: 0px;    --fa-cue-r: 2.5rem; }
+  12%  { --fa-cue-l: 2.5rem; }
+  88%  { --fa-cue-r: 2.5rem; }
+  100% { --fa-cue-l: 2.5rem; --fa-cue-r: 0px; }
+}
+
+</style>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../../assets/ig-artifact.css"></head>
+<body data-fa-node-kind-page>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header><script type="application/json" id="fa-rail" data-fa-root="../../../../../../.." data-fa-to-root="../../../../../../..">{"data":"rail-1lw3jpj967b","here":"/en/cat-harness-tools/user-scenario/smart-trust-demo/scenarios/user-scenarios/j1-born-abroad/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../../../">folio-assistant</a></nav>
+<main>
+<h1 id="nk-title">J1 — Born abroad</h1>
+<p class="m">A <a href="../../../../">user-scenario</a> node held by <a href="../../../">smart-trust-demo</a>, at <code>scenarios/user-scenarios/j1-born-abroad.json</code>.</p>
+
+<h2 id="fields">Fields</h2>
+<dl>
+<dt>$schema</dt><dd>user-scenario/0.3.0</dd>
+<dt>id</dt><dd>j1-born-abroad</dd>
+<dt>title</dt><dd>J1 — Born abroad</dd>
+<dt>description</dt><dd>An Onesan baby gets his first vaccines in Taifafeki and leaves with signed paper cards.</dd>
+<dt>personas</dt><dd><pre>[
+  &quot;anan&quot;,
+  &quot;somsak-sengmany&quot;,
+  &quot;khamla-sengmany&quot;
+]</pre></dd>
+<dt>when</dt><dd>birth day</dd>
+<dt>where</dt><dd>Taifafeki</dd>
+<dt>country</dt><dd>Taifafeki</dd>
+<dt>trustLadder</dt><dd>record-trust</dd>
+<dt>steps</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;J1&quot;,
+    &quot;title&quot;: &quot;An Onesan baby is born in Taifafeki&quot;,
+    &quot;headline&quot;: &quot;Somsak gets his birth vaccines in a Taifafeki hospital — and the only thing that will cross the border with him is a pair of paper cards.&quot;,
+    &quot;when&quot;: &quot;T0 · Birth day&quot;,
+    &quot;where&quot;: &quot;Kesaro Provincial Hospital&quot;,
+    &quot;touchpoint&quot;: &quot;Hospital records + printed QR cards&quot;,
+    &quot;preconditions&quot;: [
+      {
+        &quot;title&quot;: &quot;The issuer&#39;s DSC is on the trust list&quot;,
+        &quot;description&quot;: &quot;**Precondition: the issuer&#39;s DSC is on the trust list.** XXR&#39;s document signer certificate (DSC), issued under XXR&#39;s Country Signing CA (CSCA), was shared with the GDHCN, the Trust Anchor, before any DVC is signed; the GDHCN publishes it as a DID document. Sharing it is not a step of issuing. A DVC signed with a key whose DSC was never shared fails every receiver&#39;s trust-list check (STT-VER-006).&quot;,
+        &quot;requirements&quot;: [
+          &quot;STT-VER-006&quot;
+        ]
+      }
+    ],
+    &quot;narrative&quot;: &quot;Khamla gives birth to Somsak on 2025-10-28 at Kesaro Provincial\nHospital, away from home. He has no Taifafeki identity number. Dr Anan gives the\nHep B and BCG birth doses and records them with their WHO PreQual product\ncodes. For each dose, the hospital system does three things:\n\n1. It builds a DVCMinPreQual payload: STT-PAY-001…005 and STT-PAY-007, with subclaim −6 (STT-SEL-003). No identity document is needed (STT-PAY-005).\n2. It prepares the CWT and the bytes to sign: STT-CWT-001…005, STT-ISS-004.\n3. It has XXR&#39;s key sign them (STT-COS-002, STT-COS-006), then finishes the HC1 text: STT-COS-001, STT-ZIP-001, STT-B45-001, STT-HC1-001, STT-QR-001.\n\nKhamla leaves with two paper DVCs.\n*In the demo:* the library tests use the WHO guide&#39;s own two signed HC1\nstrings ([QR Code Generation §12](https://smart.who.int/trust/qr_code_generation.html)),\nwhich verify against the live DEV trust list under the same XXR key. Somsak&#39;s\nDVC payloads are illustrative. Live issuance in the app uses a\nTEST-ONLY key (STT-ISS-003), whose DSC is not on the GDHCN list, so its DVCs\ndo not verify in J3.&quot;,
+    &quot;lead&quot;: &quot;anan&quot;,
+    &quot;experiences&quot;: [
+      {
+        &quot;actor&quot;: &quot;anan&quot;,
+        &quot;doing&quot;: &quot;Gives Hep B and BCG birth doses and prints two signed QR vaccine cards.&quot;,
+        &quot;feeling&quot;: &quot;“He isn’t Taifafeki, but he still needs a record he can take home.”&quot;,
+        &quot;emotion&quot;: 1
+      },
+      {
+        &quot;actor&quot;: &quot;somsak-sengmany&quot;,
+        &quot;doing&quot;: &quot;Is born, and gets his Hep B and BCG birth doses within hours.&quot;,
+        &quot;feeling&quot;: &quot;“Two small jabs, and a record that will follow him.”&quot;,
+        &quot;emotion&quot;: 0
+      },
+      {
+        &quot;actor&quot;: &quot;khamla-sengmany&quot;,
+        &quot;doing&quot;: &quot;Gives birth away from home and receives two paper cards at discharge.&quot;,
+        &quot;feeling&quot;: &quot;“Will anyone back home believe these papers?”&quot;,
+        &quot;emotion&quot;: -1
+      }
+    ],
+    &quot;painPoint&quot;: &quot;The baby has no Taifafeki ID number, so his records would normally stay locked inside the Taifafeki hospital’s system.&quot;,
+    &quot;enabler&quot;: &quot;A digitally signed QR card travels with the family — no ID number or database lookup needed.&quot;,
+    &quot;policy&quot;: &quot;Babies born abroad can get a verifiable vaccine record before they have the host country’s civil registration or a national ID — and registering the birth at home still matters.&quot;,
+    &quot;record&quot;: {
+      &quot;state&quot;: &quot;on-paper&quot;,
+      &quot;description&quot;: &quot;2 signed paper cards (Hep B, BCG)&quot;,
+      &quot;heldWhere&quot;: &quot;Khamla’s bag&quot;
+    },
+    &quot;handoff&quot;: {
+      &quot;summary&quot;: &quot;Two paper cards go home with Khamla&quot;,
+      &quot;carrier&quot;: &quot;Printed QR code&quot;,
+      &quot;payload&quot;: &quot;Signed DVC: HC1: prefix → CBOR + COSE_Sign1&quot;,
+      &quot;offline&quot;: true,
+      &quot;from&quot;: &quot;Taifafeki hospital&quot;,
+      &quot;to&quot;: &quot;Family (paper)&quot;
+    },
+    &quot;whatIf&quot;: [
+      {
+        &quot;scenario&quot;: &quot;The cards are lost on the way home.&quot;,
+        &quot;outcome&quot;: &quot;The doses still happened, but no proof travels. Onesan clinicians must re-vaccinate or rely on memory.&quot;
+      }
+    ],
+    &quot;stories&quot;: [
+      &quot;birth-clinic-vaccinator-1&quot;,
+      &quot;caregiver-1&quot;
+    ],
+    &quot;realisedBy&quot;: [
+      {
+        &quot;process&quot;: &quot;processes/content/j1-birth-dose-dvc.bpmn&quot;,
+        &quot;tasks&quot;: [
+          &quot;Task_Vaccinate&quot;,
+          &quot;Task_Payload&quot;,
+          &quot;Task_Prepare&quot;,
+          &quot;Task_Sign&quot;,
+          &quot;Task_Finish&quot;,
+          &quot;Task_Print&quot;
+        ]
+      }
+    ],
+    &quot;technicalSummary&quot;: &quot;Taifafeki signs the record once. From then on, anyone on the WHO trust network can check it, with no database lookup and no national ID.&quot;,
+    &quot;uses&quot;: [
+      {
+        &quot;block&quot;: &quot;thai-his&quot;,
+        &quot;role&quot;: &quot;Records Hep B + BCG and requests the certificates&quot;
+      },
+      {
+        &quot;block&quot;: &quot;smart-imm&quot;,
+        &quot;role&quot;: &quot;Vaccines coded with WHO PreQual product codes&quot;
+      },
+      {
+        &quot;block&quot;: &quot;dvc&quot;,
+        &quot;role&quot;: &quot;Dose data packed into CBOR, signed (COSE, ES256) and printed as a QR&quot;
+      },
+      {
+        &quot;block&quot;: &quot;gdhcn&quot;,
+        &quot;role&quot;: &quot;Taifafeki’s signing key (kid 916ffa…) is published on the trust list&quot;
+      }
+    ],
+    &quot;requirements&quot;: [
+      &quot;STT-PAY-001&quot;,
+      &quot;STT-PAY-002&quot;,
+      &quot;STT-PAY-003&quot;,
+      &quot;STT-PAY-004&quot;,
+      &quot;STT-PAY-005&quot;,
+      &quot;STT-PAY-007&quot;,
+      &quot;STT-SEL-003&quot;,
+      &quot;STT-CWT-001&quot;,
+      &quot;STT-CWT-002&quot;,
+      &quot;STT-CWT-003&quot;,
+      &quot;STT-CWT-004&quot;,
+      &quot;STT-CWT-005&quot;,
+      &quot;STT-ISS-004&quot;,
+      &quot;STT-COS-002&quot;,
+      &quot;STT-COS-006&quot;,
+      &quot;STT-COS-001&quot;,
+      &quot;STT-ZIP-001&quot;,
+      &quot;STT-B45-001&quot;,
+      &quot;STT-HC1-001&quot;,
+      &quot;STT-QR-001&quot;,
+      &quot;STT-ISS-003&quot;
+    ],
+    &quot;examples&quot;: [
+      &quot;Patient/TrustDemoTaifafekiSomsak&quot;,
+      &quot;Immunization/TrustDemoJ1HepB&quot;,
+      &quot;Immunization/TrustDemoJ1Bcg&quot;
+    ],
+    &quot;illustration&quot;: {
+      &quot;src&quot;: &quot;docs/images/moment-j1-born-abroad.jpg&quot;,
+      &quot;alt&quot;: &quot;At Kesaro Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsak&quot;
+    },
+    &quot;fhirChanges&quot;: [
+      {
+        &quot;resource&quot;: &quot;Immunization ×2&quot;,
+        &quot;change&quot;: &quot;Created in the Taifafeki system (Hep B, BCG)&quot;,
+        &quot;why&quot;: &quot;The certificate can only carry what this record holds, so product, date, lot and dose number are required.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoTaifafekiImmunization&quot;,
+        &quot;profileOf&quot;: &quot;XXR&quot;,
+        &quot;examples&quot;: [
+          &quot;Immunization/TrustDemoJ1HepB&quot;,
+          &quot;Immunization/TrustDemoJ1Bcg&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/immunization.html&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;DVC payload&quot;,
+        &quot;change&quot;: &quot;Signed CBOR/COSE certificate&quot;,
+        &quot;why&quot;: &quot;Not FHIR: the HCERT certificate that travels on paper, verifiable offline with Taifafeki’s key from GDHCN.&quot;,
+        &quot;spec&quot;: &quot;https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode&quot;
+      }
+    ],
+    &quot;dak&quot;: [
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdBirthDoseDvc&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      }
+    ]
+  }
+]</pre></dd>
+<dt>scene</dt><dd><pre>[
+  {
+    &quot;icon&quot;: &quot;hospital&quot;,
+    &quot;label&quot;: &quot;Taifafeki hospital&quot;
+  },
+  {
+    &quot;icon&quot;: &quot;baby&quot;,
+    &quot;label&quot;: &quot;Somsak is born&quot;
+  },
+  {
+    &quot;icon&quot;: &quot;qr&quot;,
+    &quot;label&quot;: &quot;Two signed paper QR cards&quot;
+  }
+]</pre></dd>
+<dt>references</dt><dd><pre>[
+  {
+    &quot;label&quot;: &quot;User scenario in the IG&quot;,
+    &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/journeys.html#j1--born-abroad-taifafeki-birth-day&quot;,
+    &quot;rel&quot;: &quot;scenario&quot;
+  }
+]</pre></dd>
+<dt>views</dt><dd><pre>[
+  {
+    &quot;model&quot;: &quot;0.1.0&quot;,
+    &quot;view&quot;: &quot;id-18d2033f445f5b8895f20719cb97bd91&quot;,
+    &quot;label&quot;: &quot;J1&quot;
+  }
+]</pre></dd>
+</dl>
+</main>
+<script src="../../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>

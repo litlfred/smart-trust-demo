@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinic Referral &amp; GDHCN Verification — device-screen</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fdfdfb; --muted:#5b5b5b; --line:#d6d6d0; --link:#0b5cad; --panel:#f3f4f2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; } }
+  :root[data-fa-scheme="dark"] { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+  body { margin:0; font:1rem/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:80rem; margin:0 auto; padding:1.5rem 1.5rem 4rem; min-width:0; overflow-wrap:anywhere; }
+  h1 { font-size:1.35rem; margin:0 0 .25rem; } h2 { font-size:1.05rem; margin:1.5rem 0 .5rem; }
+  a { color:var(--link); } a:focus-visible, select:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  .m { color:var(--muted); font-size:.9rem; }
+  .tiles { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; padding:0; list-style:none; }
+  .tiles li { border:1px solid var(--line); border-radius:.4rem; padding:.35rem .7rem; }
+  .tiles b { font-size:1.2rem; margin-right:.3rem; }
+  .clip { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; vertical-align:top; padding:.35rem .5rem; border-bottom:1px solid var(--line); }
+  th { background:var(--panel); white-space:nowrap; }
+  /* Only the node's path and long text may break mid-word; a status or a date
+     broken across lines ("in_pr ogres s") is unreadable. */
+  td { overflow-wrap:normal; } td.p, td.t { overflow-wrap:anywhere; } td.s { white-space:nowrap; }
+  dl { display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:.25rem 1rem; }
+  dt { font-weight:600; } dd { margin:0; }
+  pre { background:var(--panel); padding:.75rem; overflow-x:auto; font-size:.85rem; }
+  label { margin-right:1rem; }
+  @media (max-width:40rem) { dl { grid-template-columns:1fr; } }
+</style>
+<link rel="stylesheet" href="../../../../../../../assets/css/navbar.css"><script src="../../../../../../../assets/navbar/rail-294lb5x3y53.js" defer></script><script src="../../../../../../../assets/js/navbar.js" defer></script><style data-folio-narrow-viewport>
+/* Narrow viewports: nothing may widen the PAGE — bean `2r2n`.
+ *
+ * At 390 px, 105 of 249 built pages scrolled sideways (measured 2026-09-24).
+ * The rule here is the bean's: wide content scrolls INSIDE ITS OWN BOX with a
+ * visible cue, and the page itself never pans.
+ *
+ * ONE FILE, TWO WAYS IN. Themed pages link it from `_includes/head_custom.html`.
+ * The standalone viewer pages carry no theme stylesheet at all, so
+ * `withViewerNav` in `scripts/viewer-page.ts` inlines this same file when it
+ * adds the rail. A copy of these rules in each place would be two answers to
+ * "what does a table do at 390 px", free to drift apart.
+ *
+ * Every selector here is written to be safe on both kinds of page: no
+ * `.main-content` scope (a standalone page has none), the navbar excluded by
+ * name, and the theme's own `.table-wrapper` left alone, since it already does
+ * this job for Markdown tables. */
+
+@media (max-width: 799.98px) {
+  /* A table the theme did not wrap: raw HTML from a generator, or one built at
+   * runtime. `display: block` makes the table its own scroll box. Its cells
+   * still lay out as a table inside the anonymous table box. */
+  table:not(.table-wrapper > table):not(.fa-nav table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* THE CUE: the edge that has more content past it fades out. The fade is a
+   * MASK over the table's own pixels, driven by its own scroll position, so
+   * it needs no knowledge of the page's background. A painted cover (the
+   * usual `background-attachment: local` trick) does: the first version used
+   * `Canvas`, and on a page that is dark under a LIGHT scheme it laid a white
+   * band over the first column.
+   *
+   * A table that does not overflow has an inactive scroll timeline, so the
+   * animation has no effect and both fades stay at their initial 0: no cue
+   * where there is nothing to scroll to. A browser without scroll-driven
+   * animations shows no fade, and the table still scrolls. */
+  @supports (animation-timeline: scroll()) {
+    table:not(.table-wrapper > table):not(.fa-nav table) {
+      mask-image: linear-gradient(to right,
+        transparent 0, #000 var(--fa-cue-l),
+        #000 calc(100% - var(--fa-cue-r)), transparent 100%);
+      animation: fa-scroll-cue linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  /* A code block scrolls in its own box, which is what `pre` is for. Mermaid
+   * SOURCE sits in a `pre` until the renderer replaces it, and at 390 px a
+   * diagram's source line is longer than the screen. */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prose that has no break opportunity: a long path in inline code, or a
+   * glossary definition naming one. Breaking the string is better than
+   * widening the page it sits on. */
+  :not(pre) > code,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+@property --fa-cue-l { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fa-cue-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@keyframes fa-scroll-cue {
+  0%   { --fa-cue-l: 0px;    --fa-cue-r: 2.5rem; }
+  12%  { --fa-cue-l: 2.5rem; }
+  88%  { --fa-cue-r: 2.5rem; }
+  100% { --fa-cue-l: 2.5rem; --fa-cue-r: 0px; }
+}
+
+</style>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../../assets/ig-artifact.css"></head>
+<body data-fa-node-kind-page>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header><script type="application/json" id="fa-rail" data-fa-root="../../../../../../.." data-fa-to-root="../../../../../../..">{"data":"rail-294lb5x3y53","here":"/en/cat-harness-tools/device-screen/smart-trust-demo/scenarios/device-screens/s4/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../../../">folio-assistant</a></nav>
+<main>
+<h1 id="nk-title">Clinic Referral &amp; GDHCN Verification</h1>
+<p class="m">A <a href="../../../../">device-screen</a> node held by <a href="../../../">smart-trust-demo</a>, at <code>scenarios/device-screens/s4.json</code>.</p>
+
+<h2 id="fields">Fields</h2>
+<dl>
+<dt>$schema</dt><dd>device-screen/0.1.0</dd>
+<dt>id</dt><dd>S4</dd>
+<dt>title</dt><dd>Clinic Referral &amp; GDHCN Verification</dd>
+<dt>description</dt><dd>Nurse Chanthason scans a Taifafeki card: the signature is checked against the GDHCN trust list, and the doses can be recorded as verified.</dd>
+<dt>device</dt><dd>tablet</dd>
+<dt>owner</dt><dd>chanthason</dd>
+<dt>steps</dt><dd><pre>[
+  {
+    &quot;scenario&quot;: &quot;j3-made-official&quot;,
+    &quot;step&quot;: &quot;J3a&quot;
+  }
+]</pre></dd>
+<dt>blocks</dt><dd><pre>[
+  {
+    &quot;type&quot;: &quot;header&quot;,
+    &quot;app&quot;: &quot;Lomaru District Health Center — OHS Player Facility EMR&quot;,
+    &quot;subtitle&quot;: &quot;Practitioner: Nurse Chanthason&quot;,
+    &quot;icon&quot;: &quot;building&quot;,
+    &quot;chips&quot;: [
+      {
+        &quot;text&quot;: &quot;DEV Trust List Cached • Updated 2h ago&quot;,
+        &quot;tone&quot;: &quot;success&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;personCard&quot;,
+    &quot;actor&quot;: &quot;somsak-sengmany&quot;,
+    &quot;name&quot;: &quot;Somsak Sengmany&quot;,
+    &quot;banner&quot;: true,
+    &quot;chips&quot;: [
+      {
+        &quot;text&quot;: &quot;Age: 4 Weeks (T0+4w)&quot;,
+        &quot;tone&quot;: &quot;info&quot;
+      },
+      {
+        &quot;text&quot;: &quot;Referred by CHW Vilay&quot;,
+        &quot;tone&quot;: &quot;warning&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;fields&quot;,
+    &quot;title&quot;: &quot;Incoming CHW Referral&quot;,
+    &quot;icon&quot;: &quot;file&quot;,
+    &quot;rows&quot;: [
+      {
+        &quot;label&quot;: &quot;ServiceRequest&quot;,
+        &quot;value&quot;: &quot;#req-verify-001&quot;,
+        &quot;mono&quot;: true
+      },
+      {
+        &quot;label&quot;: &quot;Reason&quot;,
+        &quot;value&quot;: &quot;Foreign vaccination cards presented at household in Village 04 — require cryptographic signature verification &amp; Onesan EPI schedule check.&quot;
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;recordList&quot;,
+    &quot;title&quot;: &quot;Unverified Records Under Review&quot;,
+    &quot;summary&quot;: {
+      &quot;text&quot;: &quot;2 Pending DVC Doses&quot;,
+      &quot;tone&quot;: &quot;warning&quot;
+    },
+    &quot;rows&quot;: [
+      {
+        &quot;icon&quot;: &quot;syringe&quot;,
+        &quot;label&quot;: &quot;Hepatitis B Pediatric Dose&quot;,
+        &quot;code&quot;: &quot;Code: vp-hepb-peds-monovalent • Lot: XXR-4821&quot;,
+        &quot;detail&quot;: &quot;Origin: Kesaro Provincial Hospital (Taifafeki)&quot;,
+        &quot;status&quot;: {
+          &quot;text&quot;: &quot;primarySource: false&quot;,
+          &quot;tone&quot;: &quot;warning&quot;
+        }
+      },
+      {
+        &quot;icon&quot;: &quot;syringe&quot;,
+        &quot;label&quot;: &quot;BCG Vaccine (Freeze-Dried)&quot;,
+        &quot;code&quot;: &quot;Code: vp-bcg-freeze-dried • Lot: XXR-9012&quot;,
+        &quot;detail&quot;: &quot;Origin: Kesaro Provincial Hospital (Taifafeki)&quot;,
+        &quot;status&quot;: {
+          &quot;text&quot;: &quot;primarySource: false&quot;,
+          &quot;tone&quot;: &quot;warning&quot;
+        }
+      }
+    ]
+  },
+  {
+    &quot;type&quot;: &quot;qr&quot;,
+    &quot;column&quot;: &quot;side&quot;,
+    &quot;mode&quot;: &quot;scan&quot;,
+    &quot;payload&quot;: &quot;HC1:6BFOXN%TSMAHN-H8/N2S$K980F2A.0K.136D/S6A5$P*Q0*3YF3$G4*43-C3XED9/D:98$H:836XDXK7/93.3%J9$6K90K:98-H$H83-D:837W6V5R254G59$6-C66O4442*96/3DF98%HN-HM/G$07*G7-G4$C4*D3*K3%J47/D%HN-H/8E/N2$Q9.0K8E%J9*K9$6-C6604%J9$6-C6604-A7*G4%J9*K9$6-C6604*E3*K3%J47/D8HN&quot;,
+    &quot;label&quot;: &quot;Optical Camera Feed • Live Frame&quot;,
+    &quot;badge&quot;: {
+      &quot;text&quot;: &quot;Decoded: HC1:6BFOXN...&quot;,
+      &quot;tone&quot;: &quot;success&quot;
+    },
+    &quot;id&quot;: &quot;scan&quot;
+  },
+  {
+    &quot;type&quot;: &quot;statusBadge&quot;,
+    &quot;column&quot;: &quot;side&quot;,
+    &quot;status&quot;: &quot;verified&quot;,
+    &quot;text&quot;: &quot;VALID COSE_Sign1 SIGNATURE (ES256)&quot;,
+    &quot;verdict&quot;: &quot;PASS&quot;,
+    &quot;fields&quot;: [
+      {
+        &quot;label&quot;: &quot;Trust Authority&quot;,
+        &quot;value&quot;: &quot;Taifafeki MOPH (DEV Participant XXR)&quot;
+      },
+      {
+        &quot;label&quot;: &quot;Key ID (kid)&quot;,
+        &quot;value&quot;: &quot;916ffa567c0f44a2&quot;,
+        &quot;mono&quot;: true
+      }
+    ],
+    &quot;detail&quot;: &quot;Header Validated • Certificate Within DSC Validity Window. Action: Attaches FHIR Provenance referencing DVC entity &amp; updates Immunization.primarySource to true.&quot;,
+    &quot;id&quot;: &quot;verdict&quot;
+  },
+  {
+    &quot;type&quot;: &quot;actions&quot;,
+    &quot;buttons&quot;: [
+      {
+        &quot;label&quot;: &quot;Confirm Verification &amp; Proceed to Schedule Evaluation&quot;,
+        &quot;style&quot;: &quot;primary&quot;
+      }
+    ],
+    &quot;caption&quot;: &quot;Status: Cryptographic trust verified via GDHCN DEV network&quot;,
+    &quot;id&quot;: &quot;actions&quot;
+  }
+]</pre></dd>
+<dt>try</dt><dd>Switch to Tampered card: the signature fails, the doses stay unverified, and the screen names the reason</dd>
+<dt>stateLabel</dt><dd>Valid card</dd>
+<dt>states</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;tampered&quot;,
+    &quot;label&quot;: &quot;Tampered card&quot;,
+    &quot;blocks&quot;: [
+      {
+        &quot;type&quot;: &quot;qr&quot;,
+        &quot;column&quot;: &quot;side&quot;,
+        &quot;mode&quot;: &quot;scan&quot;,
+        &quot;payload&quot;: &quot;HC1:6BFOXN%TSMAHN-H8/N2S$K980F2A.0K.136D/S6A5$P*Q0*3YF3$G4*43-C3XED9/D:98$H:836XDXK7/93.3%J9$6K90K:98-H$H83-D:837W6V5R254G59$6-C66O4442*96/3DF98%HN-HM/G$07*G7-G4$C4*D3*K3%J47/D%HN-H/8E/N2$Q9.0K8E%J9*K9$6-C6604%J9$6-C6604-A7*G4%J9*K9$6-C6604*E3*K3%J47/D8HN&quot;,
+        &quot;label&quot;: &quot;Optical Camera Feed • Live Frame&quot;,
+        &quot;badge&quot;: {
+          &quot;text&quot;: &quot;CBOR Decoded (Signature Mismatch)&quot;,
+          &quot;tone&quot;: &quot;danger&quot;
+        },
+        &quot;id&quot;: &quot;scan&quot;
+      },
+      {
+        &quot;type&quot;: &quot;statusBadge&quot;,
+        &quot;id&quot;: &quot;verdict&quot;,
+        &quot;column&quot;: &quot;side&quot;,
+        &quot;status&quot;: &quot;failed&quot;,
+        &quot;text&quot;: &quot;SIGNATURE VERIFICATION FAILED — INVALID COSE_Sign1&quot;,
+        &quot;verdict&quot;: &quot;FAIL&quot;,
+        &quot;fields&quot;: [
+          {
+            &quot;label&quot;: &quot;Trust Resolution&quot;,
+            &quot;value&quot;: &quot;Untrusted / Altered Card&quot;
+          },
+          {
+            &quot;label&quot;: &quot;Diagnostic Code&quot;,
+            &quot;value&quot;: &quot;ERR_CRYPTO_SIG_MISMATCH&quot;,
+            &quot;mono&quot;: true
+          }
+        ],
+        &quot;detail&quot;: &quot;The signature on this paper certificate does not match the hash of its vaccination payload. The record stays primarySource: false; nothing is upgraded.&quot;
+      },
+      {
+        &quot;type&quot;: &quot;actions&quot;,
+        &quot;id&quot;: &quot;actions&quot;,
+        &quot;buttons&quot;: [
+          {
+            &quot;label&quot;: &quot;Confirm Verification &amp; Proceed to Schedule Evaluation&quot;,
+            &quot;style&quot;: &quot;secondary&quot;,
+            &quot;icon&quot;: &quot;lock&quot;
+          }
+        ],
+        &quot;caption&quot;: &quot;Status: Signature rejected • Adjudication blocked • The nurse decides by national catch-up policy&quot;
+      }
+    ],
+    &quot;try&quot;: &quot;Same card, one changed byte: ask the room what the nurse tells the family now&quot;
+  }
+]</pre></dd>
+<dt>client</dt><dd><pre>{
+  &quot;name&quot;: &quot;OHS Facility Client&quot;,
+  &quot;version&quot;: &quot;2.4.1&quot;,
+  &quot;time&quot;: &quot;10:14 AM&quot;,
+  &quot;config&quot;: &quot;OHS Player Facility Config (Tablet EMR)&quot;
+}</pre></dd>
+</dl>
+</main>
+<script src="../../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>

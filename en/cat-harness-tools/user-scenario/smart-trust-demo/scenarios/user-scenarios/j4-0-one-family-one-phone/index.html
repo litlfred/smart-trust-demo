@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J4.0 — Crossing back: one family, one phone — user-scenario</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fdfdfb; --muted:#5b5b5b; --line:#d6d6d0; --link:#0b5cad; --panel:#f3f4f2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; } }
+  :root[data-fa-scheme="dark"] { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+  body { margin:0; font:1rem/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:80rem; margin:0 auto; padding:1.5rem 1.5rem 4rem; min-width:0; overflow-wrap:anywhere; }
+  h1 { font-size:1.35rem; margin:0 0 .25rem; } h2 { font-size:1.05rem; margin:1.5rem 0 .5rem; }
+  a { color:var(--link); } a:focus-visible, select:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  .m { color:var(--muted); font-size:.9rem; }
+  .tiles { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; padding:0; list-style:none; }
+  .tiles li { border:1px solid var(--line); border-radius:.4rem; padding:.35rem .7rem; }
+  .tiles b { font-size:1.2rem; margin-right:.3rem; }
+  .clip { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; vertical-align:top; padding:.35rem .5rem; border-bottom:1px solid var(--line); }
+  th { background:var(--panel); white-space:nowrap; }
+  /* Only the node's path and long text may break mid-word; a status or a date
+     broken across lines ("in_pr ogres s") is unreadable. */
+  td { overflow-wrap:normal; } td.p, td.t { overflow-wrap:anywhere; } td.s { white-space:nowrap; }
+  dl { display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:.25rem 1rem; }
+  dt { font-weight:600; } dd { margin:0; }
+  pre { background:var(--panel); padding:.75rem; overflow-x:auto; font-size:.85rem; }
+  label { margin-right:1rem; }
+  @media (max-width:40rem) { dl { grid-template-columns:1fr; } }
+</style>
+<link rel="stylesheet" href="../../../../../../../assets/css/navbar.css"><script src="../../../../../../../assets/navbar/rail-dq16pmo8t8.js" defer></script><script src="../../../../../../../assets/js/navbar.js" defer></script><style data-folio-narrow-viewport>
+/* Narrow viewports: nothing may widen the PAGE — bean `2r2n`.
+ *
+ * At 390 px, 105 of 249 built pages scrolled sideways (measured 2026-09-24).
+ * The rule here is the bean's: wide content scrolls INSIDE ITS OWN BOX with a
+ * visible cue, and the page itself never pans.
+ *
+ * ONE FILE, TWO WAYS IN. Themed pages link it from `_includes/head_custom.html`.
+ * The standalone viewer pages carry no theme stylesheet at all, so
+ * `withViewerNav` in `scripts/viewer-page.ts` inlines this same file when it
+ * adds the rail. A copy of these rules in each place would be two answers to
+ * "what does a table do at 390 px", free to drift apart.
+ *
+ * Every selector here is written to be safe on both kinds of page: no
+ * `.main-content` scope (a standalone page has none), the navbar excluded by
+ * name, and the theme's own `.table-wrapper` left alone, since it already does
+ * this job for Markdown tables. */
+
+@media (max-width: 799.98px) {
+  /* A table the theme did not wrap: raw HTML from a generator, or one built at
+   * runtime. `display: block` makes the table its own scroll box. Its cells
+   * still lay out as a table inside the anonymous table box. */
+  table:not(.table-wrapper > table):not(.fa-nav table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* THE CUE: the edge that has more content past it fades out. The fade is a
+   * MASK over the table's own pixels, driven by its own scroll position, so
+   * it needs no knowledge of the page's background. A painted cover (the
+   * usual `background-attachment: local` trick) does: the first version used
+   * `Canvas`, and on a page that is dark under a LIGHT scheme it laid a white
+   * band over the first column.
+   *
+   * A table that does not overflow has an inactive scroll timeline, so the
+   * animation has no effect and both fades stay at their initial 0: no cue
+   * where there is nothing to scroll to. A browser without scroll-driven
+   * animations shows no fade, and the table still scrolls. */
+  @supports (animation-timeline: scroll()) {
+    table:not(.table-wrapper > table):not(.fa-nav table) {
+      mask-image: linear-gradient(to right,
+        transparent 0, #000 var(--fa-cue-l),
+        #000 calc(100% - var(--fa-cue-r)), transparent 100%);
+      animation: fa-scroll-cue linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  /* A code block scrolls in its own box, which is what `pre` is for. Mermaid
+   * SOURCE sits in a `pre` until the renderer replaces it, and at 390 px a
+   * diagram's source line is longer than the screen. */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prose that has no break opportunity: a long path in inline code, or a
+   * glossary definition naming one. Breaking the string is better than
+   * widening the page it sits on. */
+  :not(pre) > code,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+@property --fa-cue-l { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fa-cue-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@keyframes fa-scroll-cue {
+  0%   { --fa-cue-l: 0px;    --fa-cue-r: 2.5rem; }
+  12%  { --fa-cue-l: 2.5rem; }
+  88%  { --fa-cue-r: 2.5rem; }
+  100% { --fa-cue-l: 2.5rem; --fa-cue-r: 0px; }
+}
+
+</style>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../../assets/ig-artifact.css"></head>
+<body data-fa-node-kind-page>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header><script type="application/json" id="fa-rail" data-fa-root="../../../../../../.." data-fa-to-root="../../../../../../..">{"data":"rail-dq16pmo8t8","here":"/en/cat-harness-tools/user-scenario/smart-trust-demo/scenarios/user-scenarios/j4-0-one-family-one-phone/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../../../">folio-assistant</a></nav>
+<main>
+<h1 id="nk-title">J4.0 — Crossing back: one family, one phone</h1>
+<p class="m">A <a href="../../../../">user-scenario</a> node held by <a href="../../../">smart-trust-demo</a>, at <code>scenarios/user-scenarios/j4-0-one-family-one-phone.json</code>.</p>
+
+<h2 id="fields">Fields</h2>
+<dl>
+<dt>$schema</dt><dd>user-scenario/0.3.0</dd>
+<dt>id</dt><dd>j4-0-one-family-one-phone</dd>
+<dt>title</dt><dd>J4.0 — Crossing back: one family, one phone</dd>
+<dt>description</dt><dd>A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsak’s six verified doses.</dd>
+<dt>personas</dt><dd><pre>[
+  &quot;bounmy-sengmany&quot;,
+  &quot;khamla-sengmany&quot;
+]</pre></dd>
+<dt>when</dt><dd>12 months later</dd>
+<dt>where</dt><dd>Onesa</dd>
+<dt>country</dt><dd>Cross-Border</dd>
+<dt>trustLadder</dt><dd>record-trust</dd>
+<dt>steps</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;J4.0a&quot;,
+    &quot;title&quot;: &quot;One phone holds the whole family’s records&quot;,
+    &quot;headline&quot;: &quot;A year on, the family plans a trip to Taifafeki. Bounmy’s phone holds records for all three of them, including Somsak’s six verified doses.&quot;,
+    &quot;when&quot;: &quot;T0 + 12 months&quot;,
+    &quot;where&quot;: &quot;Lomaru, Onesa&quot;,
+    &quot;touchpoint&quot;: &quot;Family wallet app on Dad’s phone&quot;,
+    &quot;narrative&quot;: &quot;The family plans a trip to Taifafeki. Bounmy&#39;s phone holds the\nfamily wallet, with a profile for each of them. Somsak&#39;s summary\n(`TrustDemoJ4Ips`) shows six doses: two from Taifafeki, four from Onesa.&quot;,
+    &quot;lead&quot;: &quot;bounmy-sengmany&quot;,
+    &quot;experiences&quot;: [
+      {
+        &quot;actor&quot;: &quot;bounmy-sengmany&quot;,
+        &quot;doing&quot;: &quot;Opens the family wallet: profiles for himself, Khamla and Somsak.&quot;,
+        &quot;feeling&quot;: &quot;“One phone, three people — I can manage all of us.”&quot;,
+        &quot;emotion&quot;: 1
+      },
+      {
+        &quot;actor&quot;: &quot;khamla-sengmany&quot;,
+        &quot;doing&quot;: &quot;Relies on Bounmy’s phone for her own and the baby’s records.&quot;,
+        &quot;feeling&quot;: &quot;“It’s on his phone. What if I travel without him?”&quot;,
+        &quot;emotion&quot;: -1
+      }
+    ],
+    &quot;painPoint&quot;: &quot;Many families share one smartphone; one-app-per-person designs leave them out.&quot;,
+    &quot;enabler&quot;: &quot;A household wallet on one phone, with a separate health summary for each person.&quot;,
+    &quot;policy&quot;: &quot;Design for shared devices (“One Family, One Phone”) so families with only one phone aren’t left out.&quot;,
+    &quot;record&quot;: {
+      &quot;state&quot;: &quot;portable&quot;,
+      &quot;description&quot;: &quot;12-month summary: 2 Taifafeki + 4 Onesan doses&quot;,
+      &quot;heldWhere&quot;: &quot;Onesan national records + family wallet&quot;
+    },
+    &quot;handoff&quot;: {
+      &quot;summary&quot;: &quot;Somsak’s summary is ready to share&quot;,
+      &quot;carrier&quot;: &quot;FHIR API (HTTPS) via Info Gateway&quot;,
+      &quot;payload&quot;: &quot;IPS Bundle per family member&quot;,
+      &quot;offline&quot;: false,
+      &quot;from&quot;: &quot;Onesan national FHIR server&quot;,
+      &quot;to&quot;: &quot;Family wallet&quot;
+    },
+    &quot;whatIf&quot;: [
+      {
+        &quot;scenario&quot;: &quot;Khamla travels alone with Somsak.&quot;,
+        &quot;outcome&quot;: &quot;Who can access the baby’s record without Bounmy’s phone? Delegated access within a household is still an open design question.&quot;
+      }
+    ],
+    &quot;stories&quot;: [
+      &quot;caregiver-2&quot;
+    ],
+    &quot;technicalSummary&quot;: &quot;A year of records from two countries is assembled into one International Patient Summary, a format any clinician abroad knows how to read.&quot;,
+    &quot;uses&quot;: [
+      {
+        &quot;block&quot;: &quot;family-wallet&quot;,
+        &quot;role&quot;: &quot;Holds 3 household profiles on one phone&quot;
+      },
+      {
+        &quot;block&quot;: &quot;national-fhir&quot;,
+        &quot;role&quot;: &quot;Source of truth for all 6 doses&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-info-gateway&quot;,
+        &quot;role&quot;: &quot;Lets Bounmy’s wallet read only his own household’s records&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ips&quot;,
+        &quot;role&quot;: &quot;Somsak’s summary packaged as an IPS Bundle&quot;
+      },
+      {
+        &quot;block&quot;: &quot;provenance&quot;,
+        &quot;role&quot;: &quot;Taifafeki origin of birth doses still visible&quot;
+      }
+    ],
+    &quot;examples&quot;: [
+      &quot;Bundle/TrustDemoJ4Ips&quot;
+    ],
+    &quot;illustration&quot;: {
+      &quot;src&quot;: &quot;docs/images/moment-j4-crossing-back.jpg&quot;,
+      &quot;alt&quot;: &quot;Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsak’s vaccine history; Khamla and toddler Somsak are beside them&quot;
+    },
+    &quot;fhirChanges&quot;: [
+      {
+        &quot;resource&quot;: &quot;Bundle (IPS)&quot;,
+        &quot;change&quot;: &quot;Generated: 2 Taifafeki + 4 Onesan doses&quot;,
+        &quot;why&quot;: &quot;An International Patient Summary is what any country’s clinic can read, whatever its own system.&quot;,
+        &quot;examples&quot;: [
+          &quot;Bundle/TrustDemoJ4Ips&quot;,
+          &quot;Immunization/TrustDemoOnesaPenta1&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/uv/ips/&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;Group (household)&quot;,
+        &quot;change&quot;: &quot;Drives the profile switcher&quot;,
+        &quot;why&quot;: &quot;One shared phone, three family members: the household decides whose records the wallet shows.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaHousehold&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;Group/TrustDemoHousehold&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/group.html&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;J4.0b&quot;,
+    &quot;title&quot;: &quot;Dad creates a link to share at the clinic&quot;,
+    &quot;headline&quot;: &quot;Before the trip, Bounmy creates a QR link for Somsak’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Onesa.&quot;,
+    &quot;when&quot;: &quot;T0 + 12 months&quot;,
+    &quot;where&quot;: &quot;Onesan–Taifafeki Friendship Bridge&quot;,
+    &quot;touchpoint&quot;: &quot;Family wallet app (share link)&quot;,
+    &quot;preconditions&quot;: [
+      {
+        &quot;title&quot;: &quot;Country B&#39;s DSC is shared with the trust anchor&quot;,
+        &quot;description&quot;: &quot;**Precondition, as in J1:** Country B&#39;s DSC, under Country B&#39;s CSCA, is already shared with the GDHCN, the Trust Anchor. That is what lets the clinic in Taifafeki verify the link in J4.1.&quot;,
+        &quot;requirements&quot;: []
+      }
+    ],
+    &quot;narrative&quot;: &quot;For Somsak, Bounmy shares his record with a 4-digit passcode he\ncan say aloud, valid for 14 days. The portal records his consent\n(`TrustDemoJ4Consent`), then does three things:\n\n1. It assembles the IPS and Somsak&#39;s DVCs.\n2. It encrypts them (STT-VHL-004, STT-VHL-007) behind a passcode-protected manifest with an expiry (STT-VHL-009).\n3. It issues the link as an HCERT, with the VHL at key 5 (STT-VHL-001, STT-VHL-002), signed with Country B&#39;s DSC.\n\nThe QR holds only a pointer and a key: the record stays in Onesa.&quot;,
+    &quot;lead&quot;: &quot;bounmy-sengmany&quot;,
+    &quot;experiences&quot;: [
+      {
+        &quot;actor&quot;: &quot;bounmy-sengmany&quot;,
+        &quot;doing&quot;: &quot;Creates a passcode-protected QR link for Somsak, valid for 14 days.&quot;,
+        &quot;feeling&quot;: &quot;“I decide who sees it, and for how long.”&quot;,
+        &quot;emotion&quot;: 2
+      }
+    ],
+    &quot;painPoint&quot;: &quot;Sending photos or PDFs of records leaks data and can’t be verified by the receiver.&quot;,
+    &quot;enabler&quot;: &quot;A Verifiable Health Link: the QR holds only a locked pointer; the data stays home until the passcode is given.&quot;,
+    &quot;policy&quot;: &quot;Data sovereignty: the record stays in Onesa until the family authorizes someone to open it.&quot;,
+    &quot;record&quot;: {
+      &quot;state&quot;: &quot;portable&quot;,
+      &quot;description&quot;: &quot;Shareable link created; data stays in Onesa&quot;,
+      &quot;heldWhere&quot;: &quot;Onesan national records (QR is just a pointer)&quot;
+    },
+    &quot;handoff&quot;: {
+      &quot;summary&quot;: &quot;A QR on Dad’s phone + a passcode he can say aloud&quot;,
+      &quot;carrier&quot;: &quot;HTTPS&quot;,
+      &quot;payload&quot;: &quot;VHL manifest + Consent registered&quot;,
+      &quot;offline&quot;: false,
+      &quot;from&quot;: &quot;Family wallet&quot;,
+      &quot;to&quot;: &quot;Onesan national server&quot;
+    },
+    &quot;whatIf&quot;: [
+      {
+        &quot;scenario&quot;: &quot;Bounmy’s phone battery dies at the clinic.&quot;,
+        &quot;outcome&quot;: &quot;The link could be printed in advance, and the original paper cards still prove the birth doses.&quot;
+      }
+    ],
+    &quot;stories&quot;: [
+      &quot;caregiver-2&quot;,
+      &quot;caregiver-3&quot;
+    ],
+    &quot;realisedBy&quot;: [
+      {
+        &quot;process&quot;: &quot;processes/content/j4-0-family-vhl-issuance.bpmn&quot;,
+        &quot;tasks&quot;: [
+          &quot;Task_Request&quot;,
+          &quot;Task_Assemble&quot;,
+          &quot;Task_Share&quot;,
+          &quot;Task_Prepare&quot;,
+          &quot;Task_Sign&quot;,
+          &quot;Task_Finish&quot;,
+          &quot;Task_Store&quot;
+        ]
+      }
+    ],
+    &quot;technicalSummary&quot;: &quot;The QR is a key, not a copy. The record stays on the Onesan server, and the family’s consent (who, how long) is recorded in a standard form and enforced.&quot;,
+    &quot;uses&quot;: [
+      {
+        &quot;block&quot;: &quot;family-wallet&quot;,
+        &quot;role&quot;: &quot;Generates the link and passcode&quot;
+      },
+      {
+        &quot;block&quot;: &quot;vhl&quot;,
+        &quot;role&quot;: &quot;Signed QR holding a manifest URL + decryption key&quot;
+      },
+      {
+        &quot;block&quot;: &quot;pcf&quot;,
+        &quot;role&quot;: &quot;14-day, passcode-protected sharing consent&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-info-gateway&quot;,
+        &quot;role&quot;: &quot;Registers the consent it will enforce when the link is used&quot;
+      }
+    ],
+    &quot;requirements&quot;: [
+      &quot;STT-VHL-004&quot;,
+      &quot;STT-VHL-007&quot;,
+      &quot;STT-VHL-009&quot;,
+      &quot;STT-VHL-001&quot;,
+      &quot;STT-VHL-002&quot;
+    ],
+    &quot;examples&quot;: [
+      &quot;Composition/TrustDemoJ4Composition&quot;,
+      &quot;Consent/TrustDemoJ4Consent&quot;
+    ],
+    &quot;illustration&quot;: {
+      &quot;src&quot;: &quot;docs/images/moment-j4-crossing-back.jpg&quot;,
+      &quot;alt&quot;: &quot;Back in Taifafeki, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsak’s vaccine history; Khamla and toddler Somsak are beside them&quot;
+    },
+    &quot;fhirChanges&quot;: [
+      {
+        &quot;resource&quot;: &quot;Consent (IHE PCF)&quot;,
+        &quot;change&quot;: &quot;Created: scope = IPS, expires in 14 days&quot;,
+        &quot;why&quot;: &quot;Bounmy decides what is shared and for how long; the gateway checks this before releasing anything.&quot;,
+        &quot;examples&quot;: [
+          &quot;Consent/TrustDemoJ4Consent&quot;
+        ],
+        &quot;spec&quot;: &quot;https://profiles.ihe.net/ITI/PCF/&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;VHL manifest&quot;,
+        &quot;change&quot;: &quot;Signed pointer to encrypted IPS&quot;,
+        &quot;why&quot;: &quot;Not a copy of the record: a signed, passcode-protected pointer back to Onesa.&quot;,
+        &quot;spec&quot;: &quot;https://profiles.ihe.net/ITI/VHL/volume-1.html&quot;
+      }
+    ],
+    &quot;dak&quot;: [
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdVhlShare&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      }
+    ]
+  }
+]</pre></dd>
+<dt>references</dt><dd><pre>[
+  {
+    &quot;label&quot;: &quot;User scenario in the IG&quot;,
+    &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/journeys.html#j40--crossing-back-one-family-one-phone-onesa-12-months-later&quot;,
+    &quot;rel&quot;: &quot;scenario&quot;
+  }
+]</pre></dd>
+<dt>views</dt><dd><pre>[
+  {
+    &quot;model&quot;: &quot;0.1.0&quot;,
+    &quot;view&quot;: &quot;id-ae1502fd9fb158c3bcb643bf39006d41&quot;,
+    &quot;label&quot;: &quot;J4.0&quot;
+  }
+]</pre></dd>
+</dl>
+</main>
+<script src="../../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>

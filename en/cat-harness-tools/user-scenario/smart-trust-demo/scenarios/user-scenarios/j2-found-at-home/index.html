@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script data-folio-saved-scheme>(function(){var d=document.documentElement,s=null,c="dark";try{s=localStorage.getItem("fa-color-scheme")}catch(e){}if(s!=="light"&&s!=="dark"){s="light";try{if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)s="dark"}catch(e){}}try{var n=document.getElementById("fa-site-scheme");if(n)c=JSON.parse(n.textContent).scheme==="light"?"light":"dark"}catch(e){}d.setAttribute("data-fa-scheme",s);var j=window.jtd;if(s!==c&&j&&typeof j.setTheme==="function"){try{j.setTheme(s)}catch(e){}}})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J2 — Found at home — user-scenario</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fdfdfb; --muted:#5b5b5b; --line:#d6d6d0; --link:#0b5cad; --panel:#f3f4f2; }
+  @media (prefers-color-scheme: dark) { :root:not([data-fa-scheme="light"]) { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; } }
+  :root[data-fa-scheme="dark"] { --fg:#e8e8e6; --bg:#161616; --muted:#a8a8a4; --line:#3a3a38; --link:#7db4ff; --panel:#1f2124; }
+  :root[data-fa-scheme="light"] { color-scheme: light; } :root[data-fa-scheme="dark"] { color-scheme: dark; }
+  body { margin:0; font:1rem/1.5 system-ui,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:80rem; margin:0 auto; padding:1.5rem 1.5rem 4rem; min-width:0; overflow-wrap:anywhere; }
+  h1 { font-size:1.35rem; margin:0 0 .25rem; } h2 { font-size:1.05rem; margin:1.5rem 0 .5rem; }
+  a { color:var(--link); } a:focus-visible, select:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  .m { color:var(--muted); font-size:.9rem; }
+  .tiles { display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0; padding:0; list-style:none; }
+  .tiles li { border:1px solid var(--line); border-radius:.4rem; padding:.35rem .7rem; }
+  .tiles b { font-size:1.2rem; margin-right:.3rem; }
+  .clip { width:100%; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; vertical-align:top; padding:.35rem .5rem; border-bottom:1px solid var(--line); }
+  th { background:var(--panel); white-space:nowrap; }
+  /* Only the node's path and long text may break mid-word; a status or a date
+     broken across lines ("in_pr ogres s") is unreadable. */
+  td { overflow-wrap:normal; } td.p, td.t { overflow-wrap:anywhere; } td.s { white-space:nowrap; }
+  dl { display:grid; grid-template-columns:minmax(8rem,14rem) 1fr; gap:.25rem 1rem; }
+  dt { font-weight:600; } dd { margin:0; }
+  pre { background:var(--panel); padding:.75rem; overflow-x:auto; font-size:.85rem; }
+  label { margin-right:1rem; }
+  @media (max-width:40rem) { dl { grid-template-columns:1fr; } }
+</style>
+<link rel="stylesheet" href="../../../../../../../assets/css/navbar.css"><script src="../../../../../../../assets/navbar/rail-oq2dfruju9.js" defer></script><script src="../../../../../../../assets/js/navbar.js" defer></script><style data-folio-narrow-viewport>
+/* Narrow viewports: nothing may widen the PAGE — bean `2r2n`.
+ *
+ * At 390 px, 105 of 249 built pages scrolled sideways (measured 2026-09-24).
+ * The rule here is the bean's: wide content scrolls INSIDE ITS OWN BOX with a
+ * visible cue, and the page itself never pans.
+ *
+ * ONE FILE, TWO WAYS IN. Themed pages link it from `_includes/head_custom.html`.
+ * The standalone viewer pages carry no theme stylesheet at all, so
+ * `withViewerNav` in `scripts/viewer-page.ts` inlines this same file when it
+ * adds the rail. A copy of these rules in each place would be two answers to
+ * "what does a table do at 390 px", free to drift apart.
+ *
+ * Every selector here is written to be safe on both kinds of page: no
+ * `.main-content` scope (a standalone page has none), the navbar excluded by
+ * name, and the theme's own `.table-wrapper` left alone, since it already does
+ * this job for Markdown tables. */
+
+@media (max-width: 799.98px) {
+  /* A table the theme did not wrap: raw HTML from a generator, or one built at
+   * runtime. `display: block` makes the table its own scroll box. Its cells
+   * still lay out as a table inside the anonymous table box. */
+  table:not(.table-wrapper > table):not(.fa-nav table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* THE CUE: the edge that has more content past it fades out. The fade is a
+   * MASK over the table's own pixels, driven by its own scroll position, so
+   * it needs no knowledge of the page's background. A painted cover (the
+   * usual `background-attachment: local` trick) does: the first version used
+   * `Canvas`, and on a page that is dark under a LIGHT scheme it laid a white
+   * band over the first column.
+   *
+   * A table that does not overflow has an inactive scroll timeline, so the
+   * animation has no effect and both fades stay at their initial 0: no cue
+   * where there is nothing to scroll to. A browser without scroll-driven
+   * animations shows no fade, and the table still scrolls. */
+  @supports (animation-timeline: scroll()) {
+    table:not(.table-wrapper > table):not(.fa-nav table) {
+      mask-image: linear-gradient(to right,
+        transparent 0, #000 var(--fa-cue-l),
+        #000 calc(100% - var(--fa-cue-r)), transparent 100%);
+      animation: fa-scroll-cue linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  /* A code block scrolls in its own box, which is what `pre` is for. Mermaid
+   * SOURCE sits in a `pre` until the renderer replaces it, and at 390 px a
+   * diagram's source line is longer than the screen. */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prose that has no break opportunity: a long path in inline code, or a
+   * glossary definition naming one. Breaking the string is better than
+   * widening the page it sits on. */
+  :not(pre) > code,
+  dd {
+    overflow-wrap: anywhere;
+  }
+}
+
+@property --fa-cue-l { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fa-cue-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@keyframes fa-scroll-cue {
+  0%   { --fa-cue-l: 0px;    --fa-cue-r: 2.5rem; }
+  12%  { --fa-cue-l: 2.5rem; }
+  88%  { --fa-cue-r: 2.5rem; }
+  100% { --fa-cue-l: 2.5rem; --fa-cue-r: 0px; }
+}
+
+</style>
+<script type="application/json" id="fa-translation-meta">{"lang":"en","translationStatus":"","translationSource":"","supportedLocales":["ar","zh","en","fr","ru","es"],"availableLocales":[]}</script><link rel="stylesheet" href="../../../../../../../assets/page-layout.css" data-fa-page-layout><script src="../../../../../../../assets/page-layout.js" defer data-fa-page-layout></script><link rel="stylesheet" href="../../../../../../../assets/ig-artifact.css"></head>
+<body data-fa-node-kind-page>
+<header class="ig-search-top fa-page-bar"><a class="ig-search-home" href="../../../../../../../index.html">SMART Trust demonstrator: journeys J1 to J4</a><form class="ig-search" role="search" data-ig-search-index="../../../../../../../assets/ig-search.json"><label class="ig-search-label" for="search-input">Search SMART Trust demonstrator: journeys J1 to J4</label><input type="search" id="search-input" class="ig-search-input" placeholder="Search pages and artefacts" autocomplete="off" aria-controls="ig-search-results" aria-expanded="false"><ul id="ig-search-results" class="ig-search-results" hidden></ul></form><span class="ig-locale-slot" data-fa-slot="locale"></span></header><script type="application/json" id="fa-rail" data-fa-root="../../../../../../.." data-fa-to-root="../../../../../../..">{"data":"rail-oq2dfruju9","here":"/en/cat-harness-tools/user-scenario/smart-trust-demo/scenarios/user-scenarios/j2-found-at-home/"}</script><nav class="fa-nav" aria-label="folio-assistant" data-fa-rail="pending"><a href="../../../../../../../">folio-assistant</a></nav>
+<main>
+<h1 id="nk-title">J2 — Found at home</h1>
+<p class="m">A <a href="../../../../">user-scenario</a> node held by <a href="../../../">smart-trust-demo</a>, at <code>scenarios/user-scenarios/j2-found-at-home.json</code>.</p>
+
+<h2 id="fields">Fields</h2>
+<dl>
+<dt>$schema</dt><dd>user-scenario/0.3.0</dd>
+<dt>id</dt><dd>j2-found-at-home</dd>
+<dt>title</dt><dd>J2 — Found at home</dd>
+<dt>description</dt><dd>A health worker registers him offline and records the cards as &quot;reported, not yet verified&quot;.</dd>
+<dt>personas</dt><dd><pre>[
+  &quot;vilay&quot;,
+  &quot;khamla-sengmany&quot;,
+  &quot;somsak-sengmany&quot;,
+  &quot;bounmy-sengmany&quot;
+]</pre></dd>
+<dt>follows</dt><dd>j1-born-abroad</dd>
+<dt>when</dt><dd>3 weeks later</dd>
+<dt>where</dt><dd>Onesa</dd>
+<dt>country</dt><dd>Onesa</dd>
+<dt>trustLadder</dt><dd>record-trust</dd>
+<dt>steps</dt><dd><pre>[
+  {
+    &quot;id&quot;: &quot;J2a&quot;,
+    &quot;title&quot;: &quot;A health worker finds the baby — and reads his cards&quot;,
+    &quot;headline&quot;: &quot;On a routine village visit, Vilay finds a newborn the Onesan system doesn’t know exists. She can read the vaccines on his cards, but she can’t prove they are genuine.&quot;,
+    &quot;when&quot;: &quot;T0 + 3 weeks&quot;,
+    &quot;where&quot;: &quot;Catchment Village 04&quot;,
+    &quot;touchpoint&quot;: &quot;Offline phone app (QR scan)&quot;,
+    &quot;narrative&quot;: &quot;On a routine visit to Village 04, Vilay finds a newborn the Onesan\nsystem does not know exists. Her phone has had no signal for weeks. Khamla\nshows the two cards. The CHW app reads them with **read-unverified**\n(STT-VER-011; STT-B45-002, STT-ZIP-002, STT-CBR-003), which needs no trust\nlist. It shows the doses, but checks no signature and saves nothing yet.&quot;,
+    &quot;lead&quot;: &quot;vilay&quot;,
+    &quot;experiences&quot;: [
+      {
+        &quot;actor&quot;: &quot;khamla-sengmany&quot;,
+        &quot;doing&quot;: &quot;Tells Vilay about the birth in Taifafeki and shows the cards.&quot;,
+        &quot;feeling&quot;: &quot;“I hope we’re not in trouble for giving birth abroad.”&quot;,
+        &quot;emotion&quot;: -1
+      },
+      {
+        &quot;actor&quot;: &quot;vilay&quot;,
+        &quot;doing&quot;: &quot;Scans both QR cards and reads the doses, without checking their signatures.&quot;,
+        &quot;feeling&quot;: &quot;“I can read it, but I can’t prove it’s real out here.”&quot;,
+        &quot;emotion&quot;: 0
+      }
+    ],
+    &quot;painPoint&quot;: &quot;Without a check, a forged or mistyped card could quietly become an official record.&quot;,
+    &quot;enabler&quot;: &quot;The phone reads the card offline, and keeps “what the family told us” clearly separate from “what we have verified”.&quot;,
+    &quot;policy&quot;: &quot;Keep a clear line between what families report and what has been verified, and don’t grant trust too early.&quot;,
+    &quot;record&quot;: {
+      &quot;state&quot;: &quot;on-paper&quot;,
+      &quot;description&quot;: &quot;Doses read from the 2 cards; nothing saved yet&quot;,
+      &quot;heldWhere&quot;: &quot;Paper cards + CHW phone&quot;
+    },
+    &quot;handoff&quot;: {
+      &quot;summary&quot;: &quot;The doses, read but not checked, go into the registration&quot;,
+      &quot;carrier&quot;: &quot;Camera scan&quot;,
+      &quot;payload&quot;: &quot;Decoded dose data (not yet saved)&quot;,
+      &quot;offline&quot;: true,
+      &quot;from&quot;: &quot;Paper card&quot;,
+      &quot;to&quot;: &quot;CHW phone&quot;
+    },
+    &quot;whatIf&quot;: [
+      {
+        &quot;scenario&quot;: &quot;What if the CHW phone could verify signatures offline too?&quot;,
+        &quot;outcome&quot;: &quot;Technically possible with a cached trust list — but who keeps it current on thousands of village phones?&quot;
+      }
+    ],
+    &quot;stories&quot;: [
+      &quot;community-health-worker-1&quot;
+    ],
+    &quot;realisedBy&quot;: [
+      {
+        &quot;process&quot;: &quot;processes/content/j2-chw-discovery-referral.bpmn&quot;,
+        &quot;tasks&quot;: [
+          &quot;Task_Show&quot;,
+          &quot;Task_Scan&quot;,
+          &quot;Task_Read&quot;
+        ]
+      }
+    ],
+    &quot;technicalSummary&quot;: &quot;The phone can read the QR but deliberately doesn’t trust it: it decodes the card offline and checks no signature. Nothing is written yet.&quot;,
+    &quot;uses&quot;: [
+      {
+        &quot;block&quot;: &quot;ohs-fhir-sdk&quot;,
+        &quot;role&quot;: &quot;Decodes the QR offline&quot;
+      },
+      {
+        &quot;block&quot;: &quot;dvc&quot;,
+        &quot;role&quot;: &quot;QR decoded (CBOR) but signature not checked&quot;
+      },
+      {
+        &quot;block&quot;: &quot;smart-imm&quot;,
+        &quot;role&quot;: &quot;PreQual codes read, but not yet mapped to the Onesan schedule&quot;
+      }
+    ],
+    &quot;requirements&quot;: [
+      &quot;STT-VER-011&quot;,
+      &quot;STT-B45-002&quot;,
+      &quot;STT-ZIP-002&quot;,
+      &quot;STT-CBR-003&quot;
+    ],
+    &quot;illustration&quot;: {
+      &quot;src&quot;: &quot;docs/images/moment-j2-found-at-home.jpg&quot;,
+      &quot;alt&quot;: &quot;In an Onesan village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsak and Bounmy looks on&quot;
+    },
+    &quot;dak&quot;: [
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdChwRegistration&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      },
+      {
+        &quot;key&quot;: &quot;PlanDefinition/TrustDemoDT01&quot;,
+        &quot;rel&quot;: &quot;decides&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND03&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;J2b&quot;,
+    &quot;title&quot;: &quot;Registered at home, and referred&quot;,
+    &quot;headline&quot;: &quot;With no signal, Vilay adds Somsak to his household, saves his doses as “reported”, and refers the family to the clinic.&quot;,
+    &quot;when&quot;: &quot;T0 + 3 weeks&quot;,
+    &quot;where&quot;: &quot;Catchment Village 04&quot;,
+    &quot;touchpoint&quot;: &quot;Offline phone app (household form + referral)&quot;,
+    &quot;narrative&quot;: &quot;On the CHW app&#39;s newborn form (structured data capture,\n`TrustDemoHouseholdRegistration`) she adds Somsak to the Sengmany household\n(`TrustDemoHousehold`), with a temporary id. Bounmy confirms the details as\nhead of household. The app saves the doses read from the cards as reported by\nthe family, not verified (`TrustDemoJ2HepBReported`, `TrustDemoJ2BcgReported`:\n`primarySource` false). Vilay refers Somsak to the district health center\n(`TrustDemoJ2Referral`). Everything stays queued on the phone, for 28 days if\nneed be, and syncs when it next reaches a signal.&quot;,
+    &quot;lead&quot;: &quot;vilay&quot;,
+    &quot;experiences&quot;: [
+      {
+        &quot;actor&quot;: &quot;vilay&quot;,
+        &quot;doing&quot;: &quot;Adds Somsak to the Sengmany household, saves the two doses as unverified and books a clinic referral.&quot;,
+        &quot;feeling&quot;: &quot;“No signal for weeks — but I need to register him today.”&quot;,
+        &quot;emotion&quot;: 0
+      },
+      {
+        &quot;actor&quot;: &quot;somsak-sengmany&quot;,
+        &quot;doing&quot;: &quot;Is added to his household: the Onesan health system now knows he exists.&quot;,
+        &quot;feeling&quot;: &quot;“Three weeks old, and now he counts.”&quot;,
+        &quot;emotion&quot;: 1
+      },
+      {
+        &quot;actor&quot;: &quot;bounmy-sengmany&quot;,
+        &quot;doing&quot;: &quot;Confirms household details as head of household.&quot;,
+        &quot;feeling&quot;: &quot;“Good, he’s on our family record now.”&quot;,
+        &quot;emotion&quot;: 0
+      },
+      {
+        &quot;actor&quot;: &quot;khamla-sengmany&quot;,
+        &quot;doing&quot;: &quot;Receives a referral to the District Health Center.&quot;,
+        &quot;feeling&quot;: &quot;“Another trip — but at least they know about his vaccines now.”&quot;,
+        &quot;emotion&quot;: 0
+      }
+    ],
+    &quot;painPoint&quot;: &quot;Babies born abroad are invisible to the home health system until civil registration catches up — sometimes months later.&quot;,
+    &quot;enabler&quot;: &quot;An offline form links the baby to his household immediately; it syncs once the phone finds a signal.&quot;,
+    &quot;policy&quot;: &quot;Newborns can be registered at home, offline, before civil registration or a national ID exists.&quot;,
+    &quot;record&quot;: {
+      &quot;state&quot;: &quot;reported&quot;,
+      &quot;description&quot;: &quot;Baby registered; 2 doses saved as “reported by family”&quot;,
+      &quot;heldWhere&quot;: &quot;CHW phone (waiting to sync)&quot;
+    },
+    &quot;handoff&quot;: {
+      &quot;summary&quot;: &quot;Referral to the District Health Center&quot;,
+      &quot;carrier&quot;: &quot;Offline form (FHIR Questionnaire), then sync via Info Gateway&quot;,
+      &quot;payload&quot;: &quot;Patient + Group + unverified Immunization ×2 + referral&quot;,
+      &quot;offline&quot;: true,
+      &quot;from&quot;: &quot;Khamla (verbal) + the decoded cards&quot;,
+      &quot;to&quot;: &quot;CHW phone → national server (on sync)&quot;
+    },
+    &quot;whatIf&quot;: [
+      {
+        &quot;scenario&quot;: &quot;Vilay’s phone stays offline for 28 days.&quot;,
+        &quot;outcome&quot;: &quot;Everything stays queued safely on the device and syncs when she next reaches the health center.&quot;
+      }
+    ],
+    &quot;stories&quot;: [
+      &quot;community-health-worker-3&quot;,
+      &quot;community-health-worker-2&quot;
+    ],
+    &quot;realisedBy&quot;: [
+      {
+        &quot;process&quot;: &quot;processes/content/j2-chw-discovery-referral.bpmn&quot;,
+        &quot;tasks&quot;: [
+          &quot;Task_Register&quot;,
+          &quot;Task_Refer&quot;,
+          &quot;Task_Slip&quot;
+        ]
+      }
+    ],
+    &quot;technicalSummary&quot;: &quot;The registration form is a FHIR Questionnaire. Its answers become standard FHIR resources on the phone; the doses read from the cards are saved with primarySource=false, apart from verified data, and everything syncs whenever there is signal.&quot;,
+    &quot;uses&quot;: [
+      {
+        &quot;block&quot;: &quot;ohs-fhir-sdk&quot;,
+        &quot;role&quot;: &quot;Stores data on the phone; works 28+ days offline&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-sdc&quot;,
+        &quot;role&quot;: &quot;Renders the household registration form and extracts FHIR from the answers&quot;
+      },
+      {
+        &quot;block&quot;: &quot;fhir-r4&quot;,
+        &quot;role&quot;: &quot;Patient and Group (household); Immunization.primarySource = false; ServiceRequest for referral&quot;
+      },
+      {
+        &quot;block&quot;: &quot;ohs-info-gateway&quot;,
+        &quot;role&quot;: &quot;On sync, checks the CHW’s token and only lets her write to households in her own catchment&quot;
+      }
+    ],
+    &quot;examples&quot;: [
+      &quot;Questionnaire/TrustDemoHouseholdRegistration&quot;,
+      &quot;Group/TrustDemoHousehold&quot;,
+      &quot;Immunization/TrustDemoJ2HepBReported&quot;,
+      &quot;Immunization/TrustDemoJ2BcgReported&quot;,
+      &quot;ServiceRequest/TrustDemoJ2Referral&quot;
+    ],
+    &quot;illustration&quot;: {
+      &quot;src&quot;: &quot;docs/images/moment-j2-found-at-home.jpg&quot;,
+      &quot;alt&quot;: &quot;In an Onesan village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsak and Bounmy looks on&quot;
+    },
+    &quot;fhirChanges&quot;: [
+      {
+        &quot;resource&quot;: &quot;Patient&quot;,
+        &quot;change&quot;: &quot;Created with a temporary Onesan ID&quot;,
+        &quot;why&quot;: &quot;He is not in the Onesan civil registry yet; a temporary id lets the CHW, clinic and portal all mean the same child. Taifafeki only gave him a hospital number.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaPatient&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;Patient/TrustDemoSomsak&quot;,
+          &quot;Patient/TrustDemoTaifafekiSomsak&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/patient.html&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;Group (household)&quot;,
+        &quot;change&quot;: &quot;Somsak added as member&quot;,
+        &quot;why&quot;: &quot;CHW work is organised by household: the roster is how a missing newborn is noticed.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaHousehold&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;Group/TrustDemoHousehold&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/group.html&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;QuestionnaireResponse&quot;,
+        &quot;change&quot;: &quot;The registration form, answered offline (SDC)&quot;,
+        &quot;why&quot;: &quot;The form is configuration, not code; keeping the answers lets every extracted record trace back to what was asked.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaRegistration&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;QuestionnaireResponse/TrustDemoJ2Registration&quot;,
+          &quot;Questionnaire/TrustDemoHouseholdRegistration&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/uv/sdc/&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;Immunization ×2&quot;,
+        &quot;change&quot;: &quot;Created as primarySource = false&quot;,
+        &quot;why&quot;: &quot;Read without checking the signature, so kept as reported: not lost, but not counted by the schedule yet.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaReportedImmunization&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;Immunization/TrustDemoJ2HepBReported&quot;,
+          &quot;Immunization/TrustDemoJ1HepB&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/immunization.html&quot;
+      },
+      {
+        &quot;resource&quot;: &quot;ServiceRequest&quot;,
+        &quot;change&quot;: &quot;Referral to District Health Center&quot;,
+        &quot;why&quot;: &quot;The phone cannot verify a DVC but the clinic can; the referral points at exactly the doses to check.&quot;,
+        &quot;profile&quot;: &quot;TrustDemoOnesaReferral&quot;,
+        &quot;profileOf&quot;: &quot;XXK&quot;,
+        &quot;examples&quot;: [
+          &quot;ServiceRequest/TrustDemoJ2Referral&quot;
+        ],
+        &quot;spec&quot;: &quot;https://hl7.org/fhir/servicerequest.html&quot;
+      }
+    ],
+    &quot;dak&quot;: [
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdChwReferral&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      },
+      {
+        &quot;key&quot;: &quot;StructureDefinition/TrustDemoDdChwRegistration&quot;,
+        &quot;rel&quot;: &quot;data&quot;
+      },
+      {
+        &quot;key&quot;: &quot;PlanDefinition/TrustDemoDT01&quot;,
+        &quot;rel&quot;: &quot;decides&quot;
+      },
+      {
+        &quot;key&quot;: &quot;Measure/TrustDemoIND03&quot;,
+        &quot;rel&quot;: &quot;measures&quot;
+      }
+    ]
+  }
+]</pre></dd>
+<dt>scene</dt><dd><pre>[
+  {
+    &quot;icon&quot;: &quot;home&quot;,
+    &quot;label&quot;: &quot;Home visit, Village 04&quot;
+  },
+  {
+    &quot;icon&quot;: &quot;wifi-off&quot;,
+    &quot;label&quot;: &quot;No signal&quot;
+  },
+  {
+    &quot;icon&quot;: &quot;phone&quot;,
+    &quot;label&quot;: &quot;CHW phone: registered, reported&quot;
+  }
+]</pre></dd>
+<dt>references</dt><dd><pre>[
+  {
+    &quot;label&quot;: &quot;User scenario in the IG&quot;,
+    &quot;href&quot;: &quot;https://litlfred.github.io/smart-trust-demo/journeys.html#j2--found-at-home-onesa-3-weeks-later&quot;,
+    &quot;rel&quot;: &quot;scenario&quot;
+  }
+]</pre></dd>
+<dt>views</dt><dd><pre>[
+  {
+    &quot;model&quot;: &quot;0.1.0&quot;,
+    &quot;view&quot;: &quot;id-099b088dc52f57289c647bfb64e8c4d6&quot;,
+    &quot;label&quot;: &quot;J2&quot;
+  }
+]</pre></dd>
+</dl>
+</main>
+<script src="../../../../../../../assets/ig-search.js" defer></script>
+</body>
+</html>
