@@ -1,0 +1,264 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "process",
+    "id": "Process_J3ClinicVerification",
+    "path": "processes/content/j3-clinic-verification-schedule.bpmn"
+  },
+  "source_hash": "sha256:4002f66bae2bd01eed5e98b460280243a7d0818212f3eb1ddd0f80a9b1b52d03",
+  "criteria": {
+    "raci-role-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "raci-single-accountable": {
+      "result": "n/a",
+      "findings": []
+    },
+    "raci-accountable-not-consulted": {
+      "result": "n/a",
+      "findings": []
+    },
+    "convention-ref-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "skill-ref-resolves": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Task_Scan",
+          "detail": "names skill \"receiver-scan-credential\", which resolves to no skill in this instance or anything it `needs`."
+        },
+        {
+          "where": "Task_Verify",
+          "detail": "names skill \"hcert-verify\", which resolves to no skill in this instance or anything it `needs`."
+        }
+      ]
+    },
+    "skill-servable": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Task_Import",
+          "detail": "names skill \"ehr-import-immunization\", which exists but no local package serves — skill_fetch would answer \"package not found\"."
+        },
+        {
+          "where": "Task_Map",
+          "detail": "names skill \"map-vaccine-codes\", which exists but no local package serves — skill_fetch would answer \"package not found\"."
+        },
+        {
+          "where": "Task_Schedule",
+          "detail": "names skill \"schedule-evaluate\", which exists but no local package serves — skill_fetch would answer \"package not found\"."
+        }
+      ]
+    },
+    "activity-skill-has-tool": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Task_Unverified",
+          "detail": "names skill \"review-decision-support-guidance\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_Import",
+          "detail": "names skill \"ehr-import-immunization\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_Map",
+          "detail": "names skill \"map-vaccine-codes\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_Schedule",
+          "detail": "names skill \"schedule-evaluate\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        },
+        {
+          "where": "Task_Plan",
+          "detail": "names skill \"review-decision-support-guidance\", which no Tool declares `satisfies` for — the step's mechanism is still prose."
+        }
+      ]
+    },
+    "decision-ref-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "role-ref-resolves": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-in-lane": {
+      "result": "pass",
+      "findings": []
+    },
+    "lane-binds-role": {
+      "result": "pass",
+      "findings": []
+    },
+    "variable-performer-declared-alone": {
+      "result": "n/a",
+      "findings": []
+    },
+    "role-carries-activity-skill": {
+      "result": "pass",
+      "findings": []
+    },
+    "lane-role-legacy-binding": {
+      "result": "pass",
+      "findings": []
+    },
+    "task-skill-outside-lane-role": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-names-skill": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-fulfilment-kind": {
+      "result": "pass",
+      "findings": []
+    },
+    "call-activity-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "process-diagram-published": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Process_J3ClinicVerification",
+          "detail": "no rendered diagram at j3-clinic-verification-schedule.svg — run `bun run cat render:bpmn`."
+        }
+      ]
+    },
+    "activity-documented": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Task_Scan",
+          "detail": "\"Scan the QRs and open the referral\" carries no <bpmn:documentation>, so its page shows a name and nothing more."
+        },
+        {
+          "where": "Task_Import",
+          "detail": "\"Import the doses as FHIR Immunization resources\" carries no <bpmn:documentation>, so its page shows a name and nothing more."
+        }
+      ]
+    },
+    "activity-calls-skill-process": {
+      "result": "pass",
+      "findings": []
+    },
+    "gateway-documented": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Gateway_Verified",
+          "detail": "\"Every DVC verified?\" carries no <bpmn:documentation>, so its page shows the question and not what answers it — who decides, from what evidence, and what each branch commits the process to."
+        }
+      ]
+    },
+    "gateway-branches-named": {
+      "result": "pass",
+      "findings": []
+    },
+    "node-reachable": {
+      "result": "pass",
+      "findings": []
+    },
+    "node-has-exit": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-implicit-split": {
+      "result": "pass",
+      "findings": []
+    },
+    "gateway-mixed": {
+      "result": "pass",
+      "findings": []
+    },
+    "process-size": {
+      "result": "pass",
+      "findings": []
+    },
+    "process-decompose": {
+      "result": "pass",
+      "findings": []
+    },
+    "process-single-start": {
+      "result": "pass",
+      "findings": []
+    },
+    "decision-label-question": {
+      "result": "pass",
+      "findings": []
+    },
+    "activity-label-verb-first": {
+      "result": "pass",
+      "findings": []
+    },
+    "edge-rectilinear": {
+      "result": "pass",
+      "findings": []
+    },
+    "edge-crossing": {
+      "result": "pass",
+      "findings": []
+    },
+    "edge-through-node": {
+      "result": "pass",
+      "findings": []
+    },
+    "diagram-too-wide": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "diagram",
+          "detail": "1745 wide, budget 1400: text shows at 11.0px in a 1200px band. Close the gaps between columns, stack steps of different lanes in one column, or split by phase."
+        }
+      ]
+    },
+    "diagram-too-tall": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-overlap": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-on-edge": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-on-shape": {
+      "result": "pass",
+      "findings": []
+    },
+    "label-on-lane-line": {
+      "result": "pass",
+      "findings": []
+    },
+    "shape-overlap": {
+      "result": "pass",
+      "findings": []
+    },
+    "lane-order": {
+      "result": "pass",
+      "findings": []
+    },
+    "prose-reviewed-since-code-changed": {
+      "result": "n/a",
+      "findings": []
+    },
+    "prose-claims-resolve": {
+      "result": "n/a",
+      "findings": []
+    }
+  },
+  "totals": {
+    "pass": 29,
+    "fail": 7,
+    "n/a": 9,
+    "unknown": 0
+  }
+}

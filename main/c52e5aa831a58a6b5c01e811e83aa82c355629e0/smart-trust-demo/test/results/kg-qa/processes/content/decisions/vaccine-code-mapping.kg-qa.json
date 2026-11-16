@@ -1,0 +1,26 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "decision",
+    "id": "vaccine-code-mapping",
+    "path": "processes/content/decisions/vaccine-code-mapping.dmn"
+  },
+  "source_hash": "sha256:d331b8dd344c61639e6fb969931e6b2019a78e8b45987079eea463e515a1b9a4",
+  "criteria": {
+    "decision-outcomes-used": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Decision_VaccineCodeMapping",
+          "detail": "decision \"vaccine-code-mapping.dmn#Decision_VaccineCodeMapping\" is referenced by no gateway in processes/. Either wire it with <cat-harness.processes:decision ref=\"decisions/vaccine-code-mapping.dmn#Decision_VaccineCodeMapping\"/> or delete it."
+        }
+      ]
+    }
+  },
+  "totals": {
+    "pass": 0,
+    "fail": 1,
+    "n/a": 0,
+    "unknown": 0
+  }
+}
