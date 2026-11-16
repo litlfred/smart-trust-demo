@@ -1,0 +1,47 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "requirement",
+    "id": "req:std-sch-001",
+    "path": "skills/requirements/std-sch-001.json"
+  },
+  "source_hash": "sha256:d588d587bd6b2df394d199ce7ad4dcee985c406244d3d023c03fbec1c6c9aa86",
+  "criteria": {
+    "requirement-statement-satisfied": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "req:std-sch-001/count",
+          "detail": "no skill or capability declares `satisfies: req:std-sch-001#count` — nothing is recorded as discharging this statement."
+        }
+      ]
+    },
+    "requirement-actors-resolve": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "req:std-sch-001",
+          "detail": "binds actor \"home-clinic-provider\", which the registry does not declare."
+        },
+        {
+          "where": "req:std-sch-001",
+          "detail": "binds actor \"home-clinic-ehr\", which the registry does not declare."
+        }
+      ]
+    },
+    "requirement-derived-from-resolves": {
+      "result": "n/a",
+      "findings": []
+    },
+    "requirement-statements-graded": {
+      "result": "pass",
+      "findings": []
+    }
+  },
+  "totals": {
+    "pass": 1,
+    "fail": 2,
+    "n/a": 1,
+    "unknown": 0
+  }
+}
