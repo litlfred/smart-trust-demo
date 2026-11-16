@@ -1,0 +1,26 @@
+{
+  "$schema": "kg-qa/v1",
+  "subject": {
+    "kind": "decision",
+    "id": "dvc-record-outcome",
+    "path": "processes/content/decisions/dvc-record-outcome.dmn"
+  },
+  "source_hash": "sha256:7e1a91d3bb704e56300493f7b60df0cba4756462668d4cc88da345c8bd36df44",
+  "criteria": {
+    "decision-outcomes-used": {
+      "result": "fail",
+      "findings": [
+        {
+          "where": "Decision_DvcRecordOutcome",
+          "detail": "decision \"dvc-record-outcome.dmn#Decision_DvcRecordOutcome\" is referenced by no gateway in processes/. Either wire it with <cat-harness.processes:decision ref=\"decisions/dvc-record-outcome.dmn#Decision_DvcRecordOutcome\"/> or delete it."
+        }
+      ]
+    }
+  },
+  "totals": {
+    "pass": 0,
+    "fail": 1,
+    "n/a": 0,
+    "unknown": 0
+  }
+}
