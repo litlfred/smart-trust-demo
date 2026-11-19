@@ -1,0 +1,81 @@
+From 9eeab8cc8fba805dfca419f05e725c1c6a4ceb09 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 19 Nov 2026 12:23:39 +0000
+Subject: [PATCH] journeys viewer: a canvas sheet's modules beside its band;
+ the gap strip fits its sheet
+
+A sheet whose sections carry no title (the Country Canvas's Sheet 6) showed
+no module at all: the sheet's modules now sit beside its band. The gap
+strip's aside and write-in cells were wide enough to push its last column
+past the sheet at 1280 px; they are narrower now, and the strip fits at
+1024, 1280 and 1400 px.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01EucfRoB8Hr2JW51K9uzGtd
+---
+ scripts/journeys/assets/present.css          | 7 +++++--
+ scripts/journeys/canvas-form.ts              | 2 +-
+ scripts/tests/journeys-canvas-layout.test.ts | 2 +-
+ 3 files changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/scripts/journeys/assets/present.css b/scripts/journeys/assets/present.css
+index ede2afb8..656efb86 100644
+--- a/scripts/journeys/assets/present.css
++++ b/scripts/journeys/assets/present.css
+@@ -1156,7 +1156,7 @@ a:hover > .jp-cv-dot { fill: var(--c); }
+ .jp-cv-lay-row > .jp-cv-body { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 6px 24px; }
+ .jp-cv-lay-row > .jp-cv-body > .jp-cv-blanks { flex-basis: 100%; }
+ .jp-cv-caps { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: var(--cv-muted); }
+-.jp-cv-lay-aside { display: grid; grid-template-columns: minmax(200px, 26%) minmax(0, 1fr); border: 1px solid var(--cv-line); }
++.jp-cv-lay-aside { display: grid; grid-template-columns: minmax(160px, 21%) minmax(0, 1fr); border: 1px solid var(--cv-line); }
+ .jp-cv-aside { padding: 10px; border-right: 1px solid var(--cv-line); }
+ .jp-cv-aside .jp-cv-st { font-size: 17px; font-weight: 400; }
+ .jp-cv-main { min-width: 0; }
+@@ -1196,6 +1196,9 @@ a:hover > .jp-cv-dot { fill: var(--c); }
+ .jp-cv-t td.jp-cv-c-label { color: #52606d; }
+ .jp-cv-t .jp-cv-w-narrow { width: 1%; white-space: nowrap; }
+ .jp-cv-t .jp-cv-w-wide { width: 30%; }
++.jp-cv-tone-gap .jp-cv-t thead th { font-size: 12px; padding: 3px 5px; }
++.jp-cv-tone-gap .jp-cv-t td { padding: 3px 5px; }
++.jp-cv-head-l > .jp-cv-mods { margin-left: 6px; vertical-align: middle; }
+ .jp-cv-t .jp-cv-opts { margin: 0; gap: 2px 14px; }
+ .jp-cv-t td.jp-cv-c-choice .jp-cv-opts { flex-wrap: nowrap; }
+ .jp-cv-t td.jp-cv-c-choice .jp-cv-opt, .jp-cv-t td.jp-cv-c-ticks .jp-cv-opt { white-space: nowrap; }
+@@ -1203,7 +1206,7 @@ a:hover > .jp-cv-dot { fill: var(--c); }
+ .jp-cv-t-nohead tbody th { font-weight: 400; white-space: nowrap; }
+ .jp-cv-t-nohead td.jp-cv-c-choice .jp-cv-opts { flex-wrap: wrap; }
+ .jp-cv-grp th { background: #eef4f6; color: var(--cv-head); font-size: 12px; font-weight: 700; text-transform: none; }
+-.jp-cv-cell { width: 100%; min-width: 8em; background: transparent; border: 0; font: inherit; font-size: 13px; padding: 2px 0; }
++.jp-cv-cell { width: 100%; min-width: 4em; background: transparent; border: 0; font: inherit; font-size: 13px; padding: 2px 0; }
+ .jp-cv-cards-cols .jp-cv-cardrow { display: grid; grid-template-columns: repeat(var(--cv-n), minmax(0, 1fr)); border: 1px solid var(--cv-line); }
+ .jp-cv-arrows .jp-cv-cardrow { grid-template-columns: repeat(var(--cv-n), minmax(0, 1fr) auto) ; border: 0; gap: 0 10px; align-items: stretch; }
+ .jp-cv-arrows .jp-cv-cardrow > .jp-cv-card { border: 1px solid var(--cv-line); }
+diff --git a/scripts/journeys/canvas-form.ts b/scripts/journeys/canvas-form.ts
+index 3c04398a..4b76bf6b 100644
+--- a/scripts/journeys/canvas-form.ts
++++ b/scripts/journeys/canvas-form.ts
+@@ -519,7 +519,7 @@ export function canvasFormHtml(
+         .join("");
+       const mast = c.masthead ? `<p class="jp-cv-mast"><b>${e(c.masthead.title)}</b>${c.masthead.subtitle ? `<span>${e(c.masthead.subtitle)}</span>` : ""}</p>` : "";
+       return `<article class="jp-cv-sheet jp-cv-${(c.size ?? "A3").toLowerCase()}" id="canvas-${e(s.id)}" data-jp-cv-sheet="${e(s.id)}"${s.modules?.length ? ` data-jp-cv-modules="${e(s.modules.join(" "))}"` : ""}>
+-<header class="jp-cv-head"><div class="jp-cv-head-l"><span class="jp-cv-kick">${e(kicker)}</span><h3>${e(s.title)}</h3>${s.intro ? `<p>${mdLite(s.intro)}</p>` : ""}</div>${mast || header ? `<div class="jp-cv-head-r">${mast}${header ? `<div class="jp-cv-hdr">${header}</div>` : ""}</div>` : ""}</header>
++<header class="jp-cv-head"><div class="jp-cv-head-l"><span class="jp-cv-kick">${e(kicker)}</span>${s.modules?.length ? ` <span class="jp-cv-mods">${s.modules.map(moduleLink).join("")}</span>` : ""}<h3>${e(s.title)}</h3>${s.intro ? `<p>${mdLite(s.intro)}</p>` : ""}</div>${mast || header ? `<div class="jp-cv-head-r">${mast}${header ? `<div class="jp-cv-hdr">${header}</div>` : ""}</div>` : ""}</header>
+ <div class="jp-cv-secs">${s.sections.map((x) => sectionHtml(d, s, x, moduleLink)).join("")}</div>
+ ${annex.length ? `<section class="jp-cv-annex"><h4>Annex: the journey’s questions for this sheet</h4><ol>${annex.map((q) => `<li>${o.stepLink(q)}<div><span>${e(q.text)}</span>${o.answerBox(q.key, q.text)}</div></li>`).join("")}</ol></section>` : ""}${s.footer ? `\n<footer class="jp-cv-foot">${mdLite(s.footer)}</footer>` : ""}
+ </article>`;
+diff --git a/scripts/tests/journeys-canvas-layout.test.ts b/scripts/tests/journeys-canvas-layout.test.ts
+index 1cb4d025..707b814e 100644
+--- a/scripts/tests/journeys-canvas-layout.test.ts
++++ b/scripts/tests/journeys-canvas-layout.test.ts
+@@ -92,7 +92,7 @@ describe("the canvas as its printed pages", () => {
+   const html = canvasFormHtml("ws", canvas, [], { stepLink: () => "", answerBox: () => "", moduleLink: (id) => `<a class="jp-mod">${id}</a>` });
+ 
+   test("a sheet: its band, title, intro, masthead, header write-ins sharing the cover's key, and footer", () => {
+-    expect(html).toContain('<span class="jp-cv-kick">Day 1 · Module 1 · Sheet 1 of 2</span><h3>Our Journey</h3><p>How it works <b>today</b>.</p>');
++    expect(html).toContain('<span class="jp-cv-kick">Day 1 · Module 1 · Sheet 1 of 2</span> <span class="jp-cv-mods"><a class="jp-mod">M1</a><a class="jp-mod">M2</a></span><h3>Our Journey</h3><p>How it works <b>today</b>.</p>');
+     expect(html).toContain('<p class="jp-cv-mast"><b>A workshop</b><span>Day 1 and Day 2</span></p>');
+     expect(html.match(/name="ws:cv:cover:country"/g)?.length).toBe(2);
+     expect(html).toContain('<footer class="jp-cv-foot">Based on the fixture.</footer>');
+-- 
+2.43.0
+
