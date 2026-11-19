@@ -1,0 +1,685 @@
+From 134ce802942ecec34ecba6fafea154dd28bb6f2a Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 19 Nov 2026 13:05:13 +0000
+Subject: [PATCH] journeys viewer: the canvas PDF appends our systems, the
+ architecture, the ArchiMate views and the BPMN processes, under the table's
+ own names; the summary reads each answer by name
+
+The owner (2026-11-19): "the PDF export should also append the BPMN,
+architecture views. if they labeled them w/ their country systems they
+should use those (they should be able to name their application
+components)".
+
+- After the sheets, the PDF has: "Our systems", every application
+  component How it works lets the table mark, with its "We have it" tick
+  and "Our name", as fields filled in from the same keys; the architecture
+  panel, countries by layer; then a page per ArchiMate view and per
+  business process (BPMN) the taught steps are carried out by. Each drawing
+  is fetched as SVG, every component the table named is redrawn under its
+  own name (an ArchiMate box by the element page it opens, a BPMN label by
+  its words), rasterized to JPEG and embedded (ASCIIHexDecode + DCTDecode,
+  so the file stays ASCII). A drawing that does not load is left out.
+- The process drawings are written beside the discussion
+  (discuss/figures/process-<n>.svg) for the button to fetch; the model
+  carries the appendix (CanvasAppendix, pdfAppendix()).
+- The lab summary names each canvas answer by its section (or card), field,
+  row and column, a choice shows the option chosen (each: true) rather than
+  a count, and ticks gather under their row.
+
+Tests: 122 journeys tests pass (5 new on the appendix and the summary).
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01EucfRoB8Hr2JW51K9uzGtd
+---
+ scripts/journeys/assets/canvas-pdf.js        | 239 +++++++++++++++++--
+ scripts/journeys/assets/present.js           |   5 +
+ scripts/journeys/canvas-form.ts              |  69 ++++--
+ scripts/journeys/present-views.ts            |  69 +++++-
+ scripts/tests/journeys-canvas-layout.test.ts |  56 ++++-
+ 5 files changed, 393 insertions(+), 45 deletions(-)
+
+diff --git a/scripts/journeys/assets/canvas-pdf.js b/scripts/journeys/assets/canvas-pdf.js
+index 1978335c..c41cb304 100644
+--- a/scripts/journeys/assets/canvas-pdf.js
++++ b/scripts/journeys/assets/canvas-pdf.js
+@@ -135,7 +135,7 @@
+    * The canvas as PDF bytes. `get(key)` answers the value kept under `key`
+    * (null when none).
+    */
+-  function build(model, get) {
++  function build(model, get, drawings) {
+     var pdf = new Pdf();
+     var paper = PAPER[model.size] || PAPER.A3;
+     var W = paper[0];
+@@ -172,7 +172,7 @@
+     var page = null;
+ 
+     function newPage(sheet, cont) {
+-      page = { id: pdf.alloc(), ops: [], annots: [], col: 0, y: 0 };
++      page = { id: pdf.alloc(), ops: [], annots: [], col: 0, y: 0, images: {} };
+       pages.push(page);
+       var y = H - MARGIN;
+       text(MARGIN, y - 10, 9, false, model.title + (sheet.label ? " · " + sheet.label : ""), 0.4);
+@@ -392,6 +392,70 @@
+       }
+     });
+ 
++    // The appendix (owner, 2026-11-19): the table's systems, the architecture, then each drawing, with the table's own names.
++    var app = model.appendix;
++    if (app) {
++      // The appendix's tables run the page's full width, in one column.
++      nCols = 1;
++      colW = W - 2 * MARGIN;
++      var named = localNames(app, get);
++      var sheetOf = function (title) {
++        return { label: T("Appendix"), title: title, sections: [] };
++      };
++      if (app.systems && app.systems.length) {
++        var sys = sheetOf(T("Our systems"));
++        newPage(sys, false);
++        field(
++          {
++            label: T("The application components, and our name for each"),
++            heads: [T("We have it"), T("Our name")],
++            rows: app.systems.map(function (x) {
++              return {
++                label: x.name,
++                cells: [
++                  { key: x.have, label: x.name + ": " + T("We have it"), kind: "tick", value: "1" },
++                  { key: x.local, label: x.name + ": " + T("Our name"), kind: "text", lines: 1 },
++                ],
++              };
++            }),
++          },
++          sys,
++        );
++      }
++      if (app.panel) {
++        var pan = sheetOf(app.panel.title);
++        newPage(pan, false);
++        var boxName = function (b) {
++          return (b.slug && named[b.slug]) || b.name;
++        };
++        var prow = app.panel.rows.map(function (r) {
++          return {
++            label: r.layer,
++            cells: r.cells.map(function (c) {
++              return { key: "", label: c.map(boxName).join("; "), kind: "label" };
++            }),
++          };
++        });
++        field({ label: "", heads: app.panel.countries, rows: prow }, pan);
++        if (app.panel.shared) {
++          field({ label: app.panel.shared.group, hint: app.panel.shared.members.map(boxName).join("; "), rows: [] }, pan);
++        }
++      }
++      (drawings || []).forEach(function (d, i) {
++        var sh = sheetOf(d.title);
++        newPage(sh, false);
++        var name = "Im" + (i + 1);
++        page.images[name] = pdf.stream("/Type /XObject /Subtype /Image /Width " + d.w + " /Height " + d.h + " /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter [/ASCIIHexDecode /DCTDecode]", d.hex + ">");
++        var aw = W - 2 * MARGIN;
++        var ah = page.y - MARGIN;
++        var sc = Math.min(aw / d.w, ah / d.h);
++        var dw = d.w * sc;
++        var dh = d.h * sc;
++        page.ops.push("q " + num(dw) + " 0 0 " + num(dh) + " " + num(MARGIN + (aw - dw) / 2) + " " + num(page.y - dh) + " cm /" + name + " Do Q");
++        if (d.note) text(MARGIN, MARGIN - 14, 8, false, d.note, 0.4);
++      });
++    }
++
+     Object.keys(radios).forEach(function (k) {
+       var g = radios[k];
+       pdf.set(g.id, "<< /FT /Btn /Ff 49152 /T " + fieldName(k) + " /TU " + utf16(g.label) + " /V " + (g.value ? pdfName(g.value) : "/Off") + " /Kids [" + g.kids.map(function (id) {
+@@ -400,7 +464,13 @@
+     });
+     pages.forEach(function (p) {
+       var content = pdf.stream("", p.ops.join("\n"));
+-      pdf.set(p.id, "<< /Type /Page /Parent " + pagesId + " 0 R /MediaBox [0 0 " + num(W) + " " + num(H) + "] /Resources " + res + " /Contents " + content + " 0 R" + (p.annots.length ? " /Annots [" + p.annots.map(function (id) {
++      var imgs = Object.keys(p.images);
++      var pres = imgs.length
++        ? "<< /Font << /F1 " + helv + " 0 R /F2 " + bold + " 0 R >> /XObject << " + imgs.map(function (n) {
++            return "/" + n + " " + p.images[n] + " 0 R";
++          }).join(" ") + " >> >>"
++        : res;
++      pdf.set(p.id, "<< /Type /Page /Parent " + pagesId + " 0 R /MediaBox [0 0 " + num(W) + " " + num(H) + "] /Resources " + pres + " /Contents " + content + " 0 R" + (p.annots.length ? " /Annots [" + p.annots.map(function (id) {
+         return id + " 0 R";
+       }).join(" ") + "]" : "") + " >>");
+     });
+@@ -417,6 +487,123 @@
+     return pdf.bytes(catalog, info);
+   }
+ 
++  // The names the table gave its application components (How it works), by element slug.
++  function localNames(app, get) {
++    var out = {};
++    (app.systems || []).forEach(function (x) {
++      var v = (get(x.local) || "").trim();
++      if (v) out[x.slug] = v;
++    });
++    return out;
++  }
++  // The slug of an element page's address, as the viewer keys its marks (`elementSlug`).
++  function hrefSlug(href) {
++    var seg = String(href || "").replace(/\/(index\.html)?$/, "").split("/").pop() || "";
++    return seg.replace(/\.html$/, "").replace(/[^A-Za-z0-9-]+/g, "-").replace(/^-|-$/g, "").toLowerCase();
++  }
++  function norm(s) {
++    return String(s || "").replace(/\s+/g, " ").trim().toLowerCase();
++  }
++  // A drawing with every component the table named under its own name: an ArchiMate box by the element page it opens, any other label (a BPMN lane) by its words.
++  function renameSvg(svgText, app, named) {
++    var doc = new DOMParser().parseFromString(svgText, "image/svg+xml");
++    var svg = doc.documentElement;
++    if (!svg || svg.nodeName.toLowerCase() !== "svg") return svgText;
++    var byName = {};
++    (app.systems || []).forEach(function (x) {
++      if (named[x.slug]) byName[norm(x.name)] = named[x.slug];
++    });
++    function words(t) {
++      var ts = t.getElementsByTagName("tspan");
++      if (!ts.length) return t.textContent;
++      return Array.prototype.map.call(ts, function (x) {
++        return x.textContent;
++      }).join(" ");
++    }
++    function put(t, v) {
++      var ts = t.getElementsByTagName("tspan");
++      if (!ts.length) {
++        t.textContent = v;
++        return;
++      }
++      ts[0].textContent = v;
++      for (var i = ts.length - 1; i > 0; i--) ts[i].parentNode.removeChild(ts[i]);
++    }
++    Array.prototype.forEach.call(svg.getElementsByTagName("a"), function (a) {
++      var v = named[hrefSlug(a.getAttribute("href") || a.getAttributeNS("http://www.w3.org/1999/xlink", "href"))];
++      if (!v) return;
++      var t = Array.prototype.filter.call(a.getElementsByTagName("text"), function (x) {
++        return /(^|\s)av-name(\s|$)/.test(x.getAttribute("class") || "");
++      })[0];
++      if (t) put(t, v);
++    });
++    Array.prototype.forEach.call(svg.getElementsByTagName("text"), function (t) {
++      var v = byName[norm(words(t))];
++      if (v) put(t, v);
++    });
++    // A drawing with no size of its own takes its viewBox's, so it rasterizes at that size.
++    var vb = (svg.getAttribute("viewBox") || "").split(/[\s,]+/).map(Number);
++    if (!svg.getAttribute("width") && vb.length === 4) svg.setAttribute("width", String(vb[2]));
++    if (!svg.getAttribute("height") && vb.length === 4) svg.setAttribute("height", String(vb[3]));
++    return new XMLSerializer().serializeToString(doc);
++  }
++  // A drawing as a JPEG, hex for the PDF's ASCIIHexDecode: at most 3000 px wide, on white.
++  function raster(svgText) {
++    return new Promise(function (resolve, reject) {
++      var url = URL.createObjectURL(new Blob([svgText], { type: "image/svg+xml" }));
++      var img = new Image();
++      img.onload = function () {
++        var w = img.naturalWidth || 1600;
++        var h = img.naturalHeight || 1000;
++        var s = Math.min(2, 3000 / w);
++        var c = document.createElement("canvas");
++        c.width = Math.max(1, Math.round(w * s));
++        c.height = Math.max(1, Math.round(h * s));
++        var g = c.getContext("2d");
++        g.fillStyle = "#fff";
++        g.fillRect(0, 0, c.width, c.height);
++        g.drawImage(img, 0, 0, c.width, c.height);
++        URL.revokeObjectURL(url);
++        var bin = atob(c.toDataURL("image/jpeg", 0.88).split(",")[1]);
++        var hex = "";
++        for (var i = 0; i < bin.length; i++) hex += ("0" + bin.charCodeAt(i).toString(16)).slice(-2);
++        resolve({ w: c.width, h: c.height, hex: hex });
++      };
++      img.onerror = function () {
++        URL.revokeObjectURL(url);
++        reject(new Error("the drawing does not load"));
++      };
++      img.src = url;
++    });
++  }
++  // Every drawing of the appendix, renamed and rasterized; one that does not load is left out and said so on the last.
++  function drawingsOf(app, get) {
++    if (!app || !app.figures || !app.figures.length) return Promise.resolve([]);
++    var named = localNames(app, get);
++    var kind = { archimate: T("ArchiMate view"), bpmn: T("Business process (BPMN)") };
++    return Promise.all(
++      app.figures.map(function (f) {
++        return fetch(f.src)
++          .then(function (r) {
++            if (!r.ok) throw new Error(String(r.status));
++            return r.text();
++          })
++          .then(function (t) {
++            return raster(renameSvg(t, app, named));
++          })
++          .then(function (d) {
++            d.title = (kind[f.kind] || "") + ": " + f.title;
++            return d;
++          })
++          .catch(function () {
++            return null;
++          });
++      }),
++    ).then(function (ds) {
++      return ds.filter(Boolean);
++    });
++  }
++
+   function slug(s) {
+     return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "canvas";
+   }
+@@ -429,28 +616,48 @@
+         var src = holder.querySelector("[data-jp-canvas-model]") || document.querySelector("[data-jp-canvas-model]");
+         if (!src) return;
+         var model = JSON.parse(src.textContent);
+-        var bytes = build(model, function (k) {
++        var get = function (k) {
+           try {
+             return window.localStorage.getItem("jv:" + k);
+           } catch (_e) {
+             return null;
+           }
+-        });
+-        var url = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+-        var a = document.createElement("a");
+-        a.href = url;
+-        a.download = slug(model.title) + ".pdf";
+-        document.body.appendChild(a);
+-        a.click();
+-        a.remove();
+-        setTimeout(function () {
+-          URL.revokeObjectURL(url);
+-        }, 1000);
++        };
++        if (b.disabled) return;
++        b.disabled = true;
++        b.setAttribute("aria-busy", "true");
++        drawingsOf(model.appendix, get)
++          .catch(function () {
++            return [];
++          })
++          .then(function (drawings) {
++            var bytes = build(model, get, drawings);
++            var url = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
++            var a = document.createElement("a");
++            a.href = url;
++            a.download = slug(model.title) + ".pdf";
++            document.body.appendChild(a);
++            a.click();
++            a.remove();
++            setTimeout(function () {
++              URL.revokeObjectURL(url);
++            }, 1000);
++          })
++          .then(
++            function () {
++              b.disabled = false;
++              b.removeAttribute("aria-busy");
++            },
++            function () {
++              b.disabled = false;
++              b.removeAttribute("aria-busy");
++            },
++          );
+       });
+     });
+   }
+ 
+-  var api = { build: build };
++  var api = { build: build, localNames: localNames, hrefSlug: hrefSlug, renameSvg: renameSvg };
+   if (typeof module !== "undefined" && module.exports) module.exports = api;
+   else {
+     scope.jpCanvasPdf = api;
+diff --git a/scripts/journeys/assets/present.js b/scripts/journeys/assets/present.js
+index 8aade63e..c3734fb1 100644
+--- a/scripts/journeys/assets/present.js
++++ b/scripts/journeys/assets/present.js
+@@ -786,6 +786,11 @@
+             (ticked[g] = ticked[g] || []).push(it.label);
+             return;
+           }
++          if (it.type === "choice" && it.each) {
++            dl.appendChild(el("dt", null, it.label));
++            dl.appendChild(el("dd", null, v.text));
++            return;
++          }
+           if (it.type === "choice") {
+             var gname = it.group || sec.label;
+             var c = (counts[gname] = counts[gname] || { opts: it.options, n: {} });
+diff --git a/scripts/journeys/canvas-form.ts b/scripts/journeys/canvas-form.ts
+index 4b76bf6b..b52c8391 100644
+--- a/scripts/journeys/canvas-form.ts
++++ b/scripts/journeys/canvas-form.ts
+@@ -77,6 +77,26 @@ export interface CanvasModel {
+   size: "A3" | "A4";
+   workshop: string;
+   sheets: CanvasModelSheet[];
++  /** What the PDF appends after the sheets (owner, 2026-11-19): the table's systems, the architecture, the views and the processes. */
++  appendix?: CanvasAppendix;
++}
++
++/** A box the appendix draws: its name, and (an application component the table may name) its key's slug. */
++export interface CanvasAppendixBox {
++  name: string;
++  slug?: string;
++}
++/**
++ * The PDF's appendix, after the sheets: the application components the table
++ * marked on How it works (`have` and `local` are the keys of its tick and its
++ * own name), the architecture panel, then each ArchiMate view and BPMN
++ * process as a drawing, fetched from `src` (relative to the page) and drawn
++ * with every component the table named under its own name.
++ */
++export interface CanvasAppendix {
++  systems: { name: string; slug: string; have: string; local: string }[];
++  panel?: { title: string; countries: string[]; rows: { layer: string; cells: CanvasAppendixBox[][] }[]; shared?: { group: string; members: CanvasAppendixBox[] } };
++  figures: { kind: "archimate" | "bpmn"; title: string; src: string }[];
+ }
+ 
+ /** A journey question, with its step and the key its answer is kept under. */
+@@ -280,63 +300,74 @@ export interface CanvasSummaryItem {
+   name: string;
+   type: "text" | "choice" | "check";
+   options?: { id: string; label: string }[];
++  /** A check's heading, its ticks listed after it; a choice's heading when it is counted. */
+   group?: string;
++  /** A choice shown on its own line with the option chosen, not counted with others. */
++  each?: true;
++}
++
++/** A label as the summary reads it: a printed caption in capitals in sentence case, without the page's markup. */
++function readable(s: string | undefined): string {
++  const t = plainLite(s ?? "").trim();
++  return t && t === t.toUpperCase() && /[A-Z]/.test(t) ? t.charAt(0) + t.slice(1).toLowerCase() : t;
+ }
++const joinPath = (...parts: (string | undefined)[]) => parts.map((x) => (x ?? "").trim()).filter(Boolean).join(" · ");
+ 
+-function summaryItems(ws: string, sheet: string, f: WorkshopCanvasField, group: string, scale: readonly { id: string; label: string }[] | undefined, prefix = ""): CanvasSummaryItem[] {
++function summaryItems(ws: string, sheet: string, f: WorkshopCanvasField, ctx: string, scale: readonly { id: string; label: string }[] | undefined): CanvasSummaryItem[] {
+   const at = `${sheet}:${f.id}`;
+   const k = (ref: string) => canvasKey(ws, `${at}${ref}`);
+-  const label = `${prefix}${plainLite(fieldLabel(f))}`;
++  // What the answer is called: its field's caption, or the section (or card) it sits in when it has none.
++  const label = readable(fieldLabel(f)) ? joinPath(ctx.split(" · ").length > 1 ? ctx : undefined, readable(fieldLabel(f))) : ctx;
+   switch (f.type) {
+     case "text":
+-      return f.same ? [] : [{ label, name: k(""), type: "text", group }];
++      return f.same ? [] : [{ label, name: k(""), type: "text" }];
+     case "choice":
+-      return [{ label, name: k(""), type: "choice", options: f.options, group }];
++      return [{ label, name: k(""), type: "choice", options: f.options, each: true }];
+     case "ticks":
+-      return f.options.flatMap((o): CanvasSummaryItem[] => [{ label: `${label}: ${o.label}`, name: k(`:${o.id}`), type: "check", group }, ...(o.write ? [{ label: `${label}: ${o.label}`, name: k(`:${o.id}:text`), type: "text" as const, group }] : [])]);
++      return f.options.flatMap((o): CanvasSummaryItem[] => [{ label: o.label, name: k(`:${o.id}`), type: "check", group: label }, ...(o.write ? [{ label: joinPath(label, o.label), name: k(`:${o.id}:text`), type: "text" as const }] : [])]);
+     case "grid":
+       return f.rows.flatMap((r) => {
++        const row = joinPath(label, readable(r.label));
+         const seen = new Set<string>();
+         return f.columns.flatMap((cl): CanvasSummaryItem[] => {
+-          const where = `${label} · ${plainLite(r.label)} · ${cl.label}`;
+           switch (cl.cell) {
+             case "label":
+               return [];
+             case "tick":
+-              return [{ label: where, name: k(`:${r.id}:${cl.id}`), type: "check", group }];
++              return [{ label: cl.label, name: k(`:${r.id}:${cl.id}`), type: "check", group: row }];
+             case "choice":
+-              return [{ label: where, name: k(`:${r.id}:${cl.id}`), type: "choice", options: [...rowOptions(cl, r)], group }];
++              return [{ label: joinPath(row, f.columns.filter((x) => x.cell !== "label").length > 1 ? cl.label : undefined), name: k(`:${r.id}:${cl.id}`), type: "choice", options: [...rowOptions(cl, r)], each: true }];
+             case "ticks":
+-              return (cl.options ?? []).map((o) => ({ label: `${where}: ${o.label}`, name: k(`:${r.id}:${cl.id}:${o.id}`), type: "check" as const, group }));
++              return (cl.options ?? []).map((o) => ({ label: o.label, name: k(`:${r.id}:${cl.id}:${o.id}`), type: "check" as const, group: joinPath(row, cl.label) }));
+             case "option": {
+               const g = cl.group ?? cl.id;
+               if (seen.has(g)) return [];
+               seen.add(g);
+-              return [{ label: `${label} · ${plainLite(r.label)}`, name: k(`:${r.id}:${g}`), type: "choice", options: f.columns.filter((x) => x.cell === "option" && (x.group ?? x.id) === g).map((x) => ({ id: x.id, label: x.label })), group }];
++              return [{ label: row, name: k(`:${r.id}:${g}`), type: "choice", options: f.columns.filter((x) => x.cell === "option" && (x.group ?? x.id) === g).map((x) => ({ id: x.id, label: x.label })), each: true }];
+             }
+             default:
+-              return [{ label: where, name: k(`:${r.id}:${cl.id}`), type: "text", group }];
++              return [{ label: joinPath(row, cl.label), name: k(`:${r.id}:${cl.id}`), type: "text" }];
+           }
+         });
+       });
+     case "gap":
+-      return f.rows.map((r) => ({ label: `${label} · ${r.label}`, name: k(`:${r.id}`), type: "choice" as const, options: [...gapOptions(f, scale)], group }));
++      return f.rows.map((r) => ({ label: joinPath(label, r.label), name: k(`:${r.id}`), type: "choice" as const, options: [...gapOptions(f, scale)], each: true as const }));
+     case "blanks":
+-      return f.same ? [] : Array.from({ length: canvasBlanks(f.text) }, (_, i) => ({ label: `${label || blankText(f.text)} (${i + 1})`, name: k(`:${i + 1}`), type: "text" as const, group }));
++      return f.same ? [] : Array.from({ length: canvasBlanks(f.text) }, (_, i) => ({ label: `${readable(f.label) || blankText(f.text)} (${i + 1})`, name: k(`:${i + 1}`), type: "text" as const }));
+     case "note":
+     case "table":
+       return [];
+     case "cards":
+-      return f.items.flatMap((c) => (c.fields ?? []).flatMap((x) => summaryItems(ws, `${at}:${c.id}`, x, group, scale, `${[c.badge, plainLite(c.title)].filter(Boolean).join(" ")} · `)));
++      return f.items.flatMap((c) => (c.fields ?? []).flatMap((x) => summaryItems(ws, `${at}:${c.id}`, x, joinPath(ctx, [c.badge, readable(c.title)].filter(Boolean).join(" ")), scale)));
+   }
+ }
+ 
+-/** Every key a canvas keeps, with what the lab's summary calls it. */
++/** Every key a canvas keeps, with what the lab's summary calls it: the section (or card), the field, the row and the column. */
+ export function canvasSummaryItems(ws: string, c: WorkshopCanvas, scale?: readonly { id: string; label: string }[]): { sheet: WorkshopCanvasSheet; items: CanvasSummaryItem[] }[] {
+-  return c.sheets.map((s) => {
+-    const group = s.label ?? s.title;
+-    return { sheet: s, items: [...headerFields(s), ...s.sections.flatMap((x) => x.fields)].flatMap((f) => summaryItems(ws, s.id, f, group, scale)) };
+-  });
++  return c.sheets.map((s) => ({
++    sheet: s,
++    items: [...headerFields(s).flatMap((f) => summaryItems(ws, s.id, f, "", scale)), ...s.sections.flatMap((x) => x.fields.flatMap((f) => summaryItems(ws, s.id, f, readable(x.title), scale)))],
++  }));
+ }
+ 
+ // ── the form ──────────────────────────────────────────────────────────────
+diff --git a/scripts/journeys/present-views.ts b/scripts/journeys/present-views.ts
+index 651b4f62..d085c9dd 100644
+--- a/scripts/journeys/present-views.ts
++++ b/scripts/journeys/present-views.ts
+@@ -27,13 +27,13 @@
+  * what it has and says what it lacks, never a hard-coded stand-in.
+  */
+ import { escHtml } from "../thin-page.ts";
+-import { journeyById, lookup, processName, type JourneyCorpus } from "./read.ts";
++import { journeyById, lookup, processDrawing, processName, type JourneyCorpus } from "./read.ts";
+ import { DAK_ATTR } from "./dak-links.ts";
+ import { canvasDownloads, canvasFiles, canvasHtml, canvasOf, moduleSegment, personaOf, sheetsHtml, sourceHref, TOOL_ID, type ArchimateElementLink, type ArchitecturePanel, type PageFile, type PersonaView, type SiteLinks } from "./render.ts";
+ import { DEVICE_FORM, DEVICE_LABEL, renderDevice, stateSwitch, type DemoScreen, type ScreenContext } from "./screens.ts";
+ import { screenExamples } from "../../schemas/process/device-screen.ts";
+ import { scheduleFor, scheduleGlanceHtml } from "./schedule.ts";
+-import { annexOf, canvasFormHtml, canvasModel, canvasSummaryItems, type AnnexQuestion } from "./canvas-form.ts";
++import { annexOf, canvasFormHtml, canvasModel, canvasSummaryItems, type AnnexQuestion, type CanvasAppendix, type CanvasAppendixBox } from "./canvas-form.ts";
+ import { withRenderedBy } from "../viewer-declarations.ts";
+ import {
+   avatar,
+@@ -494,12 +494,59 @@ function canvasForm(p: Presentation, a: At, ids?: readonly string[]): string {
+   })}</div>`;
+ }
+ 
+-/** The button that writes the canvas out as an editable, pre-filled PDF, and (once a page) the model it writes from. */
+-function canvasPdf(p: Presentation, withModel = true): string {
++/**
++ * What the canvas PDF appends after the sheets (owner, 2026-11-19: "the PDF
++ * export should also append the BPMN, architecture views. if they labeled them
++ * w/ their country systems they should use those"): the application
++ * components How it works lets the table mark and name, the architecture
++ * panel, every ArchiMate view How it works shows, and the drawing of every
++ * process the taught steps are carried out by, written beside the discussion
++ * (`discuss/figures/`) for the button to fetch. The PDF writer swaps in the
++ * table's own names (`assets/canvas-pdf.js`).
++ */
++export function pdfAppendix(corpus: JourneyCorpus, p: Presentation, links: SiteLinks): { data?: CanvasAppendix; files: PageFile[] } {
++  const w = p.w.workshop;
++  if (!w.canvas) return { files: [] };
++  const a = at(1, links);
++  const pr = w.presentation ?? {};
++  const box = (x: ArchimateElementLink): CanvasAppendixBox => ({ name: x.name, ...(x.type === MARKABLE ? { slug: elementSlug(x) } : {}) });
++  const systems = markableElements(p, links).map((x) => ({ name: x.name, slug: elementSlug(x), have: elementKey(w.id, x, "have"), local: elementKey(w.id, x, "name") }));
++  const ap = pr.architecture ? links.archimateArchitecture?.(p.w.instance, pr.architecture) : undefined;
++  const panel = ap
++    ? {
++        title: pr.architecture!.title ?? "Architecture: the countries on one trust foundation",
++        countries: ap.countries.map((c) => c.name),
++        rows: ap.rows.map((r) => ({ layer: r.layer.name, cells: r.cells.map((c) => c.map(box)) })),
++        ...(ap.shared ? { shared: { group: ap.shared.group.name, members: ap.shared.members.map(box) } } : {}),
++      }
++    : undefined;
++  const figures: CanvasAppendix["figures"] = [];
++  const files: PageFile[] = [];
++  for (const v of viewsOf(p)) {
++    const t = links.archimateView?.(v.instance, v.model, v.view);
++    if (t) figures.push({ kind: "archimate", title: v.label ?? t.name, src: a.siteRoot + t.svg });
++  }
++  const seen = new Set<string>();
++  for (const s of p.steps)
++    for (const r of s.step.realisedBy ?? []) {
++      const k = `${s.journey.instance}\0${r.process}`;
++      if (seen.has(k)) continue;
++      seen.add(k);
++      const d = processDrawing(corpus, s.journey.instance, r.process);
++      if (!d) continue;
++      const path = `figures/process-${files.length + 1}.svg`;
++      files.push({ path: `discuss/${path}`, content: d.svg });
++      figures.push({ kind: "bpmn", title: processName(corpus, s.journey.instance, r.process) ?? r.process, src: path });
++    }
++  return { data: { systems, ...(panel ? { panel } : {}), figures }, files };
++}
++
++/** The button that writes the canvas out as an editable, pre-filled PDF, and (once a page) the model it writes from, with its appendix. */
++function canvasPdf(p: Presentation, withModel = true, appendix?: CanvasAppendix): string {
+   const ws = p.w.workshop;
+   if (!ws.canvas) return "";
+-  const model = canvasModel(ws.id, ws.canvas, journeyQuestions(p), ws.assessment?.scales[0]?.options);
+-  return `<div class="jp-cv-pdf jp-noprint"><button type="button" class="jp-btn-dark" data-jp-canvas-pdf>${icon("file")} Download the ${e(ws.canvas.title)} (editable PDF, ${e(ws.canvas.size ?? "A3")})</button><span class="jp-small">Filled in with this browser’s answers; every field stays editable in a PDF reader.</span>${withModel ? `<script type="application/json" data-jp-canvas-model>${jsonInHtml(model)}</script>` : ""}</div>`;
++  const model = { ...canvasModel(ws.id, ws.canvas, journeyQuestions(p), ws.assessment?.scales[0]?.options), ...(appendix ? { appendix } : {}) };
++  return `<div class="jp-cv-pdf jp-noprint"><button type="button" class="jp-btn-dark" data-jp-canvas-pdf>${icon("file")} Download the ${e(ws.canvas.title)} (editable PDF, ${e(ws.canvas.size ?? "A3")})</button><span class="jp-small">Filled in with this browser’s answers; every field stays editable in a PDF reader.${appendix?.figures.length || appendix?.systems.length ? " After the sheets: our systems, the architecture, the ArchiMate views and the business processes, with every application component under the name we gave it on How it works." : ""}</span>${withModel ? `<script type="application/json" data-jp-canvas-model>${jsonInHtml(model)}</script>` : ""}</div>`;
+ }
+ 
+ /** The discussion's head: the gap report's script, the sheets' styles when it carries the Table sheets, and the canvas PDF writer when the workshop has a canvas. */
+@@ -556,7 +603,7 @@ ${cards ? `<div class="jp-dqs">${cards}</div>` : ""}
+ ${ws.promise ? `<section class="jp-promise"><b>The scope promise.</b> ${e(ws.promise)}</section>` : ""}
+ ${byModule ? `<section class="jp-card jp-pad"><h3 class="jp-h">${icon("message", "jp-indigo")} The journey’s questions, module by module</h3><div class="jp-dms">${byModule}</div></section>` : ""}
+ ${tables}
+-${ws.canvas ? `<section class="jp-card jp-pad jp-cv-wrap" id="canvas"><h3 class="jp-h">${icon("clipboard", "jp-indigo")} ${e(ws.canvas.title)}</h3>${ws.canvas.description ? `<p class="jp-small">${e(ws.canvas.description)}</p>` : ""}${canvasPdf(p)}${canvasForm(p, a)}</section>` : ""}
++${ws.canvas ? `<section class="jp-card jp-pad jp-cv-wrap" id="canvas"><h3 class="jp-h">${icon("clipboard", "jp-indigo")} ${e(ws.canvas.title)}</h3>${ws.canvas.description ? `<p class="jp-small">${e(ws.canvas.description)}</p>` : ""}${canvasPdf(p, true, pdfAppendix(corpus, p, links).data)}${canvasForm(p, a)}</section>` : ""}
+ ${gap}
+ ${takeaways.length ? `<section class="jp-card jp-pad"><h3 class="jp-h">${icon("landmark", "jp-indigo")} Every moment’s policy takeaway</h3><ul class="jp-takes">${takeaways.map((s) => `<li>${stepChip(a, s, s.step.id)}<div><b>${e(s.step.title)}</b><p>${e(s.step.policy!)}</p></div></li>`).join("")}</ul></section>` : ""}
+ ${sheetsPanel(corpus, p)}`;
+@@ -577,6 +624,8 @@ export interface LabSummaryItem {
+   value?: string;
+   /** The heading a choice is counted under ("Governance"). */
+   group?: string;
++  /** A choice shown on its own line with the option chosen (a canvas answer), not counted. */
++  each?: true;
+ }
+ export interface LabSummarySection {
+   id: string;
+@@ -627,6 +676,7 @@ function labPage(corpus: JourneyCorpus, p: Presentation, links: SiteLinks, lab:
+   const scales = ws.assessment?.scales ?? [];
+   const summary: LabSummarySection[] = [];
+   const useCaseText = labUseCaseText(p, lab);
++  const appendix = pdfAppendix(corpus, p, links).data;
+   const model = gapReportModel(p, (s) => walkHref(a, s));
+ 
+   const radios = (name: string, options: { id: string; label: string }[], label: string, more = false) =>
+@@ -700,7 +750,7 @@ function labPage(corpus: JourneyCorpus, p: Presentation, links: SiteLinks, lab:
+       for (const g of canvasSummaryItems(ws.id, ws.canvas, scales[0]?.options)) if (st.canvas.includes(g.sheet.id)) items.push(...g.items);
+       const qs = journeyQuestions(p);
+       for (const sh of ws.canvas.sheets.filter((x) => st.canvas!.includes(x.id))) for (const q of annexOf(sh, qs, ws.canvas)) items.push({ label: `${q.step} · ${q.text}`, name: q.key, type: "text" });
+-      out.push(canvasPdf(p, st.id === lab.steps.find((x) => x.canvas?.length)?.id), canvasForm(p, a, st.canvas));
++      out.push(canvasPdf(p, st.id === lab.steps.find((x) => x.canvas?.length)?.id, appendix), canvasForm(p, a, st.canvas));
+     }
+     if (st.matrix) out.push(matrixHtml(corpus, p, a, mod));
+     for (const m of st.modules ?? []) {
+@@ -754,7 +804,7 @@ function labPage(corpus: JourneyCorpus, p: Presentation, links: SiteLinks, lab:
+     });
+   }
+   const takeaways = p.steps.filter((s) => s.step.policy);
+-  const summaryBody = `${canvasPdf(p, !lab.steps.some((x) => x.canvas?.length))}<div class="jp-lab-sum-act jp-noprint"><button type="button" class="jp-btn-line" data-jp-lab-print>${icon("printer")} Print / Save as PDF</button><button type="button" class="jp-btn-line" data-jp-lab-csv>${icon("file")} Download CSV</button></div>
++  const summaryBody = `${canvasPdf(p, !lab.steps.some((x) => x.canvas?.length), appendix)}<div class="jp-lab-sum-act jp-noprint"><button type="button" class="jp-btn-line" data-jp-lab-print>${icon("printer")} Print / Save as PDF</button><button type="button" class="jp-btn-line" data-jp-lab-csv>${icon("file")} Download CSV</button></div>
+ <p class="jp-small">Assembled from every step, <b>in this browser only</b>: nothing is sent anywhere.</p>
+ <script type="application/json" data-jp-lab-model>${jsonInHtml(summary)}</script>
+ <div class="jp-lab-sum" data-jp-lab-summary></div>
+@@ -1093,6 +1143,7 @@ export function renderViewPages(corpus: JourneyCorpus, p: Presentation, links: S
+   const cat = catalogueOf(corpus, p);
+   for (const b of cat?.blocks.keys() ?? []) out.push({ path: `how/${b}/index.html`, content: howPage(corpus, p, links, b) });
+   out.push({ path: "discuss/index.html", content: discussPage(corpus, p, links) });
++  out.push(...pdfAppendix(corpus, p, links).files);
+   if (hasSheets(p)) {
+     // The sheets are a panel of the discussion (owner, 2026-11-17); the old address redirects to it.
+     for (const f of canvasFiles(canvasOf(corpus, p.w))) out.push({ path: `discuss/${f.path}`, content: f.content });
+diff --git a/scripts/tests/journeys-canvas-layout.test.ts b/scripts/tests/journeys-canvas-layout.test.ts
+index 707b814e..e2e2d71b 100644
+--- a/scripts/tests/journeys-canvas-layout.test.ts
++++ b/scripts/tests/journeys-canvas-layout.test.ts
+@@ -14,7 +14,11 @@ import { glanceSlots, moduleSlots, scheduleGlanceHtml } from "../journeys/schedu
+ import type { JourneyCorpus, WorkshopEntry } from "../journeys/read.ts";
+ import { WorkshopCanvasSchema, WorkshopSchema, type Workshop, type WorkshopCanvas } from "../../schemas/process/workshop.ts";
+ 
+-const lib = createRequire(import.meta.url)("../journeys/assets/canvas-pdf.js") as { build: (model: unknown, get: (k: string) => string | null) => Uint8Array };
++const lib = createRequire(import.meta.url)("../journeys/assets/canvas-pdf.js") as {
++  build: (model: unknown, get: (k: string) => string | null, drawings?: { title: string; w: number; h: number; hex: string }[]) => Uint8Array;
++  localNames: (app: unknown, get: (k: string) => string | null) => Record<string, string>;
++  hrefSlug: (href: string) => string;
++};
+ 
+ const canvas: WorkshopCanvas = WorkshopCanvasSchema.parse({
+   title: "Country Canvas",
+@@ -210,3 +214,53 @@ describe("the schedule at a glance", () => {
+     expect(html).toContain("data-jv-glance-now hidden");
+   });
+ });
++
++describe("the summary reads each canvas answer by name (owner, 2026-11-19)", () => {
++  const items = canvasSummaryItems("ws", canvas).flatMap((x) => x.items);
++  test("a choice shows the option chosen, under its section, card and field; ticks gather under their row", () => {
++    expect(items.find((i) => i.name === "ws:cv:s1:tp:t1:rating")).toMatchObject({ label: "The journey · 1 Vaccinated", type: "choice", each: true });
++    expect(items.find((i) => i.name === "ws:cv:s1:tp:t1:today")).toMatchObject({ label: "The journey · 1 Vaccinated · In our country today", type: "text" });
++    expect(items.find((i) => i.name === "ws:cv:s1:blocks:a:epa")).toMatchObject({ label: "Provider systems · E / P / A", each: true });
++    expect(items.find((i) => i.name === "ws:cv:s1:blocks:a:basis:law")).toMatchObject({ label: "Law", type: "check", group: "Provider systems · Formal basis" });
++    expect(items.find((i) => i.name === "ws:cv:s1:blocks:a:urgency")).toMatchObject({ label: "Provider systems", each: true });
++    expect(items.every((i) => !i.label.startsWith(" ·") && !i.label.startsWith("·"))).toBe(true);
++  });
++});
++
++describe("the PDF's appendix: our systems, the architecture, the drawings, under the table's own names (owner, 2026-11-19)", () => {
++  const appendix = {
++    systems: [
++      { name: "Patient record (EHR)", slug: "patient-record-ehr", have: "ws:am:patient-record-ehr:have", local: "ws:am:patient-record-ehr:name" },
++      { name: "VHL viewer", slug: "vhl-viewer", have: "ws:am:vhl-viewer:have", local: "ws:am:vhl-viewer:name" },
++    ],
++    panel: { title: "Architecture", countries: ["Taifafeki", "Onesa"], rows: [{ layer: "Point of service", cells: [[{ name: "Patient record (EHR)", slug: "patient-record-ehr" }], [{ name: "VHL viewer", slug: "vhl-viewer" }]] }] },
++    figures: [{ kind: "archimate", title: "Systems", src: "x.svg" }],
++  };
++  const kept: Record<string, string> = { "ws:am:patient-record-ehr:name": "TaifaCare EHR", "ws:am:patient-record-ehr:have": "1" };
++  const get = (k: string) => kept[k] ?? null;
++  // A 1×1 JPEG, as the browser's canvas writes it.
++  const jpeg = "ffd8ffe000104a46494600010100000100010000ffdb004300080606070605080707070909080a0c140d0c0b0b0c1912130f141d1a1f1e1d1a1c1c20242e2720222c231c1c2837292c30313434341f27393d38323c2e333432ffc0000b080001000101011100ffc4001f0000010501010101010100000000000000000102030405060708090a0bffc400b5100002010303020403050504040000017d01020300041105122131410613516107227114328191a1082342b1c11552d1f02433627282090a161718191a25262728292a3435363738393a434445464748494a535455565758595a636465666768696a737475767778797a838485868788898a92939495969798999aa2a3a4a5a6a7a8a9aab2b3b4b5b6b7b8b9bac2c3c4c5c6c7c8c9cad2d3d4d5d6d7d8d9dae1e2e3e4e5e6e7e8e9eaf1f2f3f4f5f6f7f8f9faffda0008010100003f00fbd3ffd9";
++  const model = { ...canvasModel("ws", canvas, []), appendix };
++  const pdf = new TextDecoder("latin1").decode(lib.build(model, get, [{ title: "ArchiMate view: Systems", w: 1, h: 1, hex: jpeg }]));
++  const hex = (x: string) => `<FEFF${[...x].map((c) => c.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")).join("")}>`;
++
++  test("the table's names, by element; an element page's address gives its slug", () => {
++    expect(lib.localNames(appendix, get)).toEqual({ "patient-record-ehr": "TaifaCare EHR" });
++    expect(lib.hrefSlug("../../../en/x/archimate/0.1.0/element/patient-record-ehr/")).toBe("patient-record-ehr");
++  });
++  test("our systems as fields, filled in: the tick and the name kept under How it works' keys", () => {
++    expect(pdf).toContain("(Our systems) Tj");
++    expect(pdf).toMatch(new RegExp(`/T ${hex("ws:am:patient-record-ehr:name")}[^\n]*/V ${hex("TaifaCare EHR")}`));
++    expect(pdf).toMatch(new RegExp(`/T ${hex("ws:am:patient-record-ehr:have")}[^\n]*/V /Yes`));
++  });
++  test("the architecture panel with the table's name in place of the reference one", () => {
++    expect(pdf).toContain("(TaifaCare EHR) Tj");
++    expect(pdf).toContain("(VHL viewer) Tj");
++  });
++  test("each drawing on a page of its own, as a JPEG image", () => {
++    expect(pdf).toContain("/Subtype /Image /Width 1 /Height 1 /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter [/ASCIIHexDecode /DCTDecode]");
++    expect(pdf).toMatch(/\/XObject << \/Im1 \d+ 0 R >>/);
++    expect(pdf).toContain("/Im1 Do Q");
++    expect(pdf).toContain("(ArchiMate view: Systems) Tj");
++  });
++});
+-- 
+2.43.0
+
