@@ -1,0 +1,1823 @@
+From 5e6ddab1ef4ac062fcffaf7a9b4bfc276c033c8b Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 19 Nov 2026 12:09:32 +0000
+Subject: [PATCH] journeys viewer: the canvas laid out as its printed pages,
+ each part under its module; the schedule at a glance near the top
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The owner (2026-11-19): the interactive canvas sheets should look exactly
+like the source PDF, each part with its module (M1, M2 …), with no
+additional questions; and presenters and participants should see the
+schedule towards the top.
+
+Canvas (schemas/process/workshop.ts, scripts/journeys/canvas-form.ts):
+- a sheet's kicker band, header write-ins (Country, Table; same shares the
+  cover's key), footer, and the canvas's masthead;
+- a section's number badge, minutes, note, DISCUSS and RULES lines, the
+  modules it is worked in (shown as linked chips), layout (stack, columns
+  with an optional split, aside, row) and tone (box, warm, cool, gap);
+- new field types: blanks (a sentence with ___ write-ins), note, table
+  (printed, no answer), cards (side by side with arrows, or one per row,
+  each with its own fields);
+- grid columns of printed words (label), a choice or ticks per cell, and
+  option columns forming one radio per row (the gap strip's urgency), with
+  per-row options and heading rows (group);
+- annex: false, so a sheet carries only its own fields;
+- the PDF model and writer follow (printed words, heading rows, headings
+  alone, write-ins among ticks), and the summary lists every key once.
+
+Schedule (scripts/journeys/schedule.ts): scheduleGlanceHtml, a tab per day
+with this track's sessions and the shared slots, one line each, now and
+next marked by the device's clock; first on the overview and the
+discussion, under the title on the workshop page. A module page says when
+it is taught and lists its canvas parts, linked into the discussion. The
+lab no longer writes its step into the address on arrival, so a plain
+visit opens at the top.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01EucfRoB8Hr2JW51K9uzGtd
+---
+ schemas/process/workshop.ts                  | 242 ++++++++-
+ scripts/journeys/assets/calendar.css         |  41 +-
+ scripts/journeys/assets/canvas-pdf.js        |  48 +-
+ scripts/journeys/assets/present.css          | 147 +++++-
+ scripts/journeys/assets/present.js           |   3 +-
+ scripts/journeys/canvas-form.ts              | 500 +++++++++++++++----
+ scripts/journeys/present-views.ts            |  26 +-
+ scripts/journeys/present.ts                  |   8 +-
+ scripts/journeys/render.ts                   |  28 +-
+ scripts/journeys/schedule.ts                 |  76 +++
+ scripts/tests/journeys-canvas-layout.test.ts | 212 ++++++++
+ scripts/tests/journeys-viz.test.ts           |   2 +-
+ 12 files changed, 1166 insertions(+), 167 deletions(-)
+ create mode 100644 scripts/tests/journeys-canvas-layout.test.ts
+
+diff --git a/schemas/process/workshop.ts b/schemas/process/workshop.ts
+index 9443b294..55eca786 100644
+--- a/schemas/process/workshop.ts
++++ b/schemas/process/workshop.ts
+@@ -481,17 +481,64 @@ export type WorkshopPresentation = z.infer<typeof WorkshopPresentationSchema>;
+  *
+  * | type | what it is | kept under |
+  * |---|---|---|
+- * | `text` | a write-in of `lines` lines | `…:<field>` |
++ * | `text` | a write-in of `lines` lines (`inline`: its label and one line, side by side) | `…:<field>`, or the key of the field `same` names |
+  * | `choice` | one of `options` | `…:<field>` = the option id |
+- * | `ticks` | any of `options` | `…:<field>:<option>` = "1" |
+- * | `grid` | `rows` × `columns`, each cell a write-in, or a tick where the column says so | `…:<field>:<row>:<col>` |
++ * | `ticks` | any of `options`; an option with `write` has a write-in beside it ("Other: ___") | `…:<field>:<option>` = "1", its write-in `…:<field>:<option>:text` |
++ * | `grid` | `rows` × `columns`, each cell by its column's `cell` (below) | `…:<field>:<row>:<col>` |
+  * | `gap` | the gap strip: each of `rows` rated on `options` (the workshop's first assessment scale when absent) | `…:<field>:<row>` = the option id |
++ * | `blanks` | a sentence with blanks, each `___` of `text` a write-in ("A child vaccinated in ___ should be able to ___ in ___.") | `…:<field>:<n>`, n from 1, or the keys of the field `same` names |
++ * | `note` | words printed on the sheet, no answer (a DISCUSS prompt, a rule, a reminder) | nothing |
++ * | `table` | a table printed on the sheet, no answer (the cover's "How the canvas works") | nothing |
++ * | `cards` | cards side by side (`columns`) or one per row (`rows`), each a badge, a title, its words and its own fields | each field as on a sheet, under `…:<field>:<card>:<its field>` |
++ *
++ * A grid column's `cell`: `text` a write-in; `tick` a check box; `label`
++ * the row's printed words (`rows[].values`); `choice` one of the column's (or
++ * the row's) `options`, kept under `…:<row>:<col>`; `ticks` any of them,
++ * under `…:<row>:<col>:<option>`; `option` one radio button, the columns of
++ * one `group` making one choice per row, kept under `…:<row>:<group>` = the
++ * column id (the gap strip's Blocks us now / Needed in 12 months / Can wait).
++ *
++ * Words the sheet prints (`intro`, `note`, `table`, a card's) may carry
++ * `**bold**` and `*italic*`; nothing else is read as markup.
++ *
++ * What the printed page shows around the fields is said by the sheet and its
++ * sections, so the on-screen form looks like the page: a sheet's `kicker`
++ * ("Day 1 · Module 1 · Sheet 1 of 6"), its `header` fields beside the title
++ * (Country, Table) and its `footer`; a section's `number` badge, `minutes`,
++ * `note` ("write, then circle one rating per touchpoint"), `discuss` and
++ * `rules` lines, the `module` it is worked in, its `layout` and `tone`.
+  */
+-const CanvasOptionSchema = z.object({ id: Id, label: Text }).strict();
+-const CanvasRowSchema = z.object({ id: Id, label: Text, hint: Text.optional() }).strict();
+-const CanvasFieldBase = { id: Id, label: Text, hint: Text.optional() };
+-export const WorkshopCanvasFieldSchema = z.discriminatedUnion("type", [
+-  z.object({ ...CanvasFieldBase, type: z.literal("text"), lines: z.number().int().min(1).max(12).default(2) }).strict(),
++const CanvasOptionSchema = z.object({ id: Id, label: Text, write: z.boolean().optional() }).strict();
++const CanvasRowSchema = z
++  .object({
++    id: Id,
++    label: Text,
++    hint: Text.optional(),
++    /** The row's printed words in each `label` column, by column id. */
++    values: z.record(z.string(), Text).optional(),
++    /** The heading rows printed above this one (a layer of the architecture map). */
++    group: z.union([Text, z.array(Text).min(1)]).optional(),
++    /** This row's options for a `choice` column, when they are not the column's. */
++    options: z.array(CanvasOptionSchema).min(2).optional(),
++  })
++  .strict();
++const CanvasColumnSchema = z
++  .object({
++    id: Id,
++    label: Text,
++    cell: z.enum(["text", "tick", "label", "choice", "ticks", "option"]).default("text"),
++    /** A `choice` or `ticks` column's options; a `choice` row may give its own. */
++    options: z.array(CanvasOptionSchema).min(1).optional(),
++    /** The radio group an `option` column belongs to. */
++    group: Id.optional(),
++    /** How wide the column draws. */
++    width: z.enum(["narrow", "wide"]).optional(),
++  })
++  .strict();
++const CanvasFieldBase = { id: Id, label: Text.optional(), hint: Text.optional() };
++const CanvasTone = z.enum(["plain", "box", "warm", "cool", "gap"]);
++const canvasFieldTypes = [
++  z.object({ ...CanvasFieldBase, type: z.literal("text"), lines: z.number().int().min(1).max(12).default(2), inline: z.boolean().optional(), same: Text.optional() }).strict(),
+   z.object({ ...CanvasFieldBase, type: z.literal("choice"), options: z.array(CanvasOptionSchema).min(2) }).strict(),
+   z.object({ ...CanvasFieldBase, type: z.literal("ticks"), options: z.array(CanvasOptionSchema).min(1) }).strict(),
+   z
+@@ -499,24 +546,99 @@ export const WorkshopCanvasFieldSchema = z.discriminatedUnion("type", [
+       ...CanvasFieldBase,
+       type: z.literal("grid"),
+       rows: z.array(CanvasRowSchema).min(1),
+-      columns: z.array(z.object({ id: Id, label: Text, cell: z.enum(["text", "tick"]).default("text") }).strict()).min(1),
++      columns: z.array(CanvasColumnSchema).min(1),
++      /** The head of the row labels' column ("Capability", "#"). */
++      rowHead: Text.optional(),
++      /** false: no row-label column (each row's label is only its name in the summary). */
++      rowLabels: z.boolean().optional(),
++      /** false: no head row (a short list of rows rated Y / P / N). */
++      heads: z.boolean().optional(),
+     })
+     .strict(),
+   z.object({ ...CanvasFieldBase, type: z.literal("gap"), rows: z.array(CanvasRowSchema).min(1), options: z.array(CanvasOptionSchema).min(2).optional() }).strict(),
++  z.object({ id: Id, label: Text.optional(), hint: Text.optional(), type: z.literal("blanks"), text: Text.regex(/___/, "a blanks field has at least one ___"), same: Text.optional() }).strict(),
++  z.object({ id: Id, label: Text.optional(), type: z.literal("note"), text: Text, tone: z.enum(["discuss", "rules", "muted", "plain", "strong"]).optional() }).strict(),
++  z.object({ id: Id, label: Text.optional(), type: z.literal("table"), heads: z.array(Text).min(1), rows: z.array(z.array(Text).min(1)).min(1) }).strict(),
++] as const;
++const CanvasInnerFieldSchema = z.discriminatedUnion("type", [...canvasFieldTypes]);
++export type WorkshopCanvasInnerField = z.infer<typeof CanvasInnerFieldSchema>;
++const CanvasCardSchema = z
++  .object({
++    id: Id,
++    /** The card's badge ("A", "1", "★"). */
++    badge: Text.optional(),
++    title: Text,
++    text: Text.optional(),
++    /** Under the words, in italics ("Must be true: …", "e.g. …"). */
++    note: Text.optional(),
++    /** A prompt above the card's fields ("DISCUSS: …", "FACILITATOR ASKS: …"), Markdown-light. */
++    lead: Text.optional(),
++    tone: CanvasTone.optional(),
++    fields: z.array(CanvasInnerFieldSchema).optional(),
++  })
++  .strict();
++export const WorkshopCanvasFieldSchema = z.discriminatedUnion("type", [
++  ...canvasFieldTypes,
++  z
++    .object({
++      id: Id,
++      label: Text.optional(),
++      hint: Text.optional(),
++      type: z.literal("cards"),
++      /** `columns`: side by side (the journey's touchpoints); `rows`: a table, one card per row (the propositions A to C). */
++      layout: z.enum(["columns", "rows"]).default("columns"),
++      /** An arrow between cards side by side (issuer → credential → verifier). */
++      arrows: z.boolean().optional(),
++      /** A `rows` table's column heads: badge, title, words, fields (those absent from every card are left out). */
++      heads: z.array(Text).optional(),
++      items: z.array(CanvasCardSchema).min(1),
++    })
++    .strict(),
+ ]);
+ export type WorkshopCanvasField = z.infer<typeof WorkshopCanvasFieldSchema>;
+ 
++export const WorkshopCanvasSectionSchema = z
++  .object({
++    id: Id,
++    title: Text.optional(),
++    /** The section's badge, as printed ("1", "★", "!"). */
++    number: Text.optional(),
++    minutes: z.number().int().positive().max(240).optional(),
++    /** Printed after the minutes ("write, then circle one rating per touchpoint"). */
++    note: Text.optional(),
++    /** The DISCUSS line under the title, Markdown-light. */
++    discuss: Text.optional(),
++    /** The RULES line under the title. */
++    rules: Text.optional(),
++    /** The modules the section is worked in; the sheet's when absent. */
++    module: z.array(ModuleId).optional(),
++    /** `stack`: one field under another; `columns`: side by side; `aside`: the first field to the left of the rest; `row`: on one line, wrapping. */
++    layout: z.enum(["stack", "columns", "aside", "row"]).optional(),
++    /** With `columns`: how many fields each column holds, left to right (one field per column when absent). */
++    split: z.array(z.number().int().min(1)).min(2).max(4).optional(),
++    tone: CanvasTone.optional(),
++    fields: z.array(WorkshopCanvasFieldSchema).min(1),
++  })
++  .strict();
++export type WorkshopCanvasSection = z.infer<typeof WorkshopCanvasSectionSchema>;
++
+ export const WorkshopCanvasSheetSchema = z
+   .object({
+     id: Id,
+     /** As the room calls it: "Cover", "Sheet 3". */
+     label: Text.optional(),
++    /** The band above the title, as printed ("Day 1 · Module 1 · Sheet 1 of 6"). */
++    kicker: Text.optional(),
+     title: Text,
+-    /** One line under the title: what the sheet is for. */
++    /** One line under the title: what the sheet is for. Markdown-light. */
+     intro: Text.optional(),
+-    /** The modules whose journey questions are its annex (those not already one of its fields). */
++    /** Write-ins beside the title (Country, Table); `same` shares one key across the sheets. */
++    header: z.array(z.object({ id: Id, label: Text, same: Text.optional() }).strict()).optional(),
++    /** The line at the foot of the page. */
++    footer: Text.optional(),
++    /** The modules the sheet is worked in; with `annex`, whose journey questions are its annex (those not already one of its fields). */
+     modules: z.array(ModuleId).optional(),
+-    sections: z.array(z.object({ id: Id, title: Text.optional(), fields: z.array(WorkshopCanvasFieldSchema).min(1) }).strict()).min(1),
++    sections: z.array(WorkshopCanvasSectionSchema).min(1),
+   })
+   .strict();
+ export type WorkshopCanvasSheet = z.infer<typeof WorkshopCanvasSheetSchema>;
+@@ -528,6 +650,10 @@ export const WorkshopCanvasSchema = z
+     description: Text.optional(),
+     /** The paper of the PDF it is written out to; A3 landscape when absent. */
+     size: z.enum(["A3", "A4"]).default("A3"),
++    /** The words at the top right of every sheet ("DPI-H for Health Workshop" over "Policy-maker track · Day 1 and Day 2"). */
++    masthead: z.object({ title: Text, subtitle: Text.optional() }).strict().optional(),
++    /** false: a sheet carries only its own fields, no annex of the journey's other questions. */
++    annex: z.boolean().optional(),
+     /** The cover first, then the sheets, in order. */
+     sheets: z.array(WorkshopCanvasSheetSchema).min(1),
+   })
+@@ -583,22 +709,57 @@ export const WorkshopScheduleSchema = z
+   .strict();
+ export type WorkshopSchedule = z.infer<typeof WorkshopScheduleSchema>;
+ 
+-/** The keys a canvas field keeps its answer under, after `<workshop>:cv:`: `<sheet>:<field>[:<row>[:<col>]]`. */
++/** The blanks of a `blanks` field's text, in order. */
++export function canvasBlanks(text: string): number {
++  return text.split("___").length - 1;
++}
++
++/**
++ * The keys a canvas field keeps its answer under, after `<workshop>:cv:`:
++ * `<sheet>:<field>[:<row>[:<col>]]`. A field with `same` keeps none of its
++ * own: it shows the keys of the field it names.
++ */
+ export function canvasFieldRefs(sheet: string, f: WorkshopCanvasField): string[] {
+   const at = `${sheet}:${f.id}`;
+   switch (f.type) {
+     case "text":
++      return f.same ? [] : [at];
+     case "choice":
+       return [at];
+     case "ticks":
+-      return f.options.map((o) => `${at}:${o.id}`);
++      return f.options.flatMap((o) => (o.write ? [`${at}:${o.id}`, `${at}:${o.id}:text`] : [`${at}:${o.id}`]));
+     case "grid":
+-      return f.rows.flatMap((r) => f.columns.map((c) => `${at}:${r.id}:${c.id}`));
++      return f.rows.flatMap((r) => {
++        const groups = new Set<string>();
++        return f.columns.flatMap((c) => {
++          if (c.cell === "label") return [];
++          if (c.cell === "ticks") return (c.options ?? []).map((o) => `${at}:${r.id}:${c.id}:${o.id}`);
++          if (c.cell === "option") {
++            const g = c.group ?? c.id;
++            if (groups.has(g)) return [];
++            groups.add(g);
++            return [`${at}:${r.id}:${g}`];
++          }
++          return [`${at}:${r.id}:${c.id}`];
++        });
++      });
+     case "gap":
+       return f.rows.map((r) => `${at}:${r.id}`);
++    case "blanks":
++      return f.same ? [] : Array.from({ length: canvasBlanks(f.text) }, (_, i) => `${at}:${i + 1}`);
++    case "note":
++    case "table":
++      return [];
++    case "cards":
++      return f.items.flatMap((c) => (c.fields ?? []).flatMap((x) => canvasFieldRefs(`${at}:${c.id}`, x)));
+   }
+ }
+ 
++/** Every field of a sheet, a card's fields after its card. */
++export function canvasSheetFields(s: WorkshopCanvasSheet): WorkshopCanvasField[] {
++  return s.sections.flatMap((x) => x.fields);
++}
++
+ /** `workshop/0.1.0`, as a node kind. */
+ export const WorkshopKind = nodeKind(
+   WORKSHOP_V01,
+@@ -680,18 +841,53 @@ export const WorkshopKind = nodeKind(
+       const refs = new Set<string>();
+       for (const s of w.canvas.sheets) {
+         dup(`canvas sheet ${s.id} section`, s.sections.map((x) => x.id));
+-        dup(`canvas sheet ${s.id} field`, s.sections.flatMap((x) => x.fields.map((f) => f.id)));
++        dup(`canvas sheet ${s.id} field`, [...(s.header ?? []).map((h) => h.id), ...s.sections.flatMap((x) => x.fields.map((f) => f.id))]);
+         for (const m of s.modules ?? []) mod(`canvas sheet ${s.id}`, m);
+-        for (const f of s.sections.flatMap((x) => x.fields)) {
+-          if (f.type === "choice" || f.type === "ticks") dup(`canvas field ${s.id}:${f.id} option`, f.options.map((o) => o.id));
+-          if (f.type === "grid" || f.type === "gap") dup(`canvas field ${s.id}:${f.id} row`, f.rows.map((r) => r.id));
+-          if (f.type === "grid") dup(`canvas field ${s.id}:${f.id} column`, f.columns.map((c) => c.id));
+-          if (f.type === "gap" && !f.options && !w.assessment?.scales.length) issue(`canvas field ${s.id}:${f.id} is a gap strip with no options, and the workshop has no assessment scale`);
++        for (const x of s.sections) {
++          for (const m of x.module ?? []) mod(`canvas sheet ${s.id} section ${x.id}`, m);
++          if (x.split && x.split.reduce((n, k) => n + k, 0) !== x.fields.length) issue(`canvas sheet ${s.id} section ${x.id} splits ${x.split.reduce((n, k) => n + k, 0)} fields into columns, but has ${x.fields.length}`);
++          if (x.split && x.layout !== "columns") issue(`canvas sheet ${s.id} section ${x.id} has a split, which only a columns layout reads`);
++        }
++        const check = (at: string, f: WorkshopCanvasField) => {
++          if (f.type === "choice" || f.type === "ticks") dup(`canvas field ${at} option`, f.options.map((o) => o.id));
++          if (f.type === "grid" || f.type === "gap") dup(`canvas field ${at} row`, f.rows.map((r) => r.id));
++          if (f.type === "grid") {
++            dup(`canvas field ${at} column`, f.columns.map((c) => c.id));
++            for (const c of f.columns) {
++              if ((c.cell === "ticks" || c.cell === "choice") && !c.options && !(c.cell === "choice" && f.rows.every((r) => r.options))) issue(`canvas field ${at} column ${c.id} is a ${c.cell} column with no options`);
++              if (c.cell === "option" && f.columns.filter((x) => x.cell === "option" && (x.group ?? x.id) === (c.group ?? c.id)).length < 2) issue(`canvas field ${at} column ${c.id} is an option column alone in its group: give two or more the same group`);
++            }
++          }
++          if (f.type === "cards") {
++            dup(`canvas field ${at} card`, f.items.map((c) => c.id));
++            for (const c of f.items) {
++              dup(`canvas field ${at}:${c.id} field`, (c.fields ?? []).map((x) => x.id));
++              for (const x of c.fields ?? []) check(`${at}:${c.id}:${x.id}`, x);
++            }
++          }
++          if (f.type === "gap" && !f.options && !w.assessment?.scales.length) issue(`canvas field ${at} is a gap strip with no options, and the workshop has no assessment scale`);
+           // A question's write-in may be a text field, or a write-in cell of a grid.
+-          if (f.type === "text") refs.add(`${s.id}:${f.id}`);
+-          if (f.type === "grid") for (const r of f.rows) for (const c of f.columns) if (c.cell !== "tick") refs.add(`${s.id}:${f.id}:${r.id}:${c.id}`);
++          if (f.type === "text" && !f.same) refs.add(at);
++          if (f.type === "grid") for (const r of f.rows) for (const c of f.columns) if (c.cell === "text") refs.add(`${at}:${r.id}:${c.id}`);
++        };
++        for (const f of s.sections.flatMap((x) => x.fields)) check(`${s.id}:${f.id}`, f);
++      }
++      // A field that shows another's answer (`same`) names a field of the canvas with as many keys.
++      const keyed = new Map<string, WorkshopCanvasField>();
++      for (const s of w.canvas.sheets) for (const f of s.sections.flatMap((x) => x.fields)) keyed.set(`${s.id}:${f.id}`, f);
++      for (const s of w.canvas.sheets) {
++        for (const h of s.header ?? []) if (h.same) {
++          const t = keyed.get(h.same);
++          if (!t || t.type !== "text" || t.same) issue(`canvas sheet ${s.id} header ${h.id} shows "${h.same}", which is no text field of the canvas`);
++        }
++        for (const f of s.sections.flatMap((x) => x.fields)) {
++          if ((f.type !== "text" && f.type !== "blanks") || !f.same) continue;
++          const t = keyed.get(f.same);
++          if (!t || t.type !== f.type || ("same" in t && t.same)) issue(`canvas field ${s.id}:${f.id} shows "${f.same}", which is no ${f.type} field of the canvas with keys of its own`);
++          else if (f.type === "blanks" && t.type === "blanks" && canvasBlanks(t.text) !== canvasBlanks(f.text)) issue(`canvas field ${s.id}:${f.id} has ${canvasBlanks(f.text)} blanks, but "${f.same}" has ${canvasBlanks(t.text)}`);
+         }
+       }
++      dup("canvas key", w.canvas.sheets.flatMap((s) => s.sections.flatMap((x) => x.fields.flatMap((f) => canvasFieldRefs(s.id, f)))));
+       for (const st of w.steps ?? []) for (const q of st.questions ?? []) {
+         if (q.canvas !== undefined && !refs.has(q.canvas)) issue(`step ${st.step} question names canvas field "${q.canvas}", which is no write-in of the canvas (a text field, or a grid's write-in cell)`);
+       }
+diff --git a/scripts/journeys/assets/calendar.css b/scripts/journeys/assets/calendar.css
+index 52a5d9be..d145b94e 100644
+--- a/scripts/journeys/assets/calendar.css
++++ b/scripts/journeys/assets/calendar.css
+@@ -5,8 +5,10 @@
+    (journeys.css, light and dark) and on its overview (present.css, the
+    presentation frame's light palette): its own tokens, so it reads in either,
+    dark only where the page itself turns dark. Below 720px each day stacks
+-   into one column in time order, each cell with its own time and track. */
+-.jv-cal {
++   into one column in time order, each cell with its own time and track.
++   The same tokens draw the schedule at a glance (`.jv-glance`), near the
++   top of a page. */
++.jv-cal, .jv-glance {
+   --cal-paper: #ffffff;
+   --cal-ink: #1c1f24;
+   --cal-muted: #5c6370;
+@@ -24,7 +26,7 @@
+   color: var(--cal-ink);
+ }
+ @media (prefers-color-scheme: dark) {
+-  body:not(.jp) .jv-cal {
++  body:not(.jp) .jv-cal, body:not(.jp) .jv-glance {
+     --cal-paper: #1d2024;
+     --cal-ink: #e8e6e1;
+     --cal-muted: #a3a8b1;
+@@ -100,3 +102,36 @@ a.jv-cal-code:focus-visible { outline: 2px solid var(--cal-focus); outline-offse
+   .jv-cal-slot { border: 1px solid CanvasText; }
+   .jv-cal-head { border-bottom-color: CanvasText; }
+ }
++
++/* The schedule at a glance: a day's sessions of this track and the shared slots, one line each; now and next marked by this device's clock. */
++.jv-glance { margin: 16px 0 20px; padding: 12px 14px; background: var(--cal-paper); border: 1px solid var(--cal-line); border-left: 4px solid var(--cal-t0); border-radius: 8px; }
++.jv-glance-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
++.jv-glance-head h2, .jv-glance-head h3 { margin: 0; font-size: 18px; }
++.jv-glance-tabs { display: inline-flex; gap: 4px; }
++.jv-glance-tab { font: inherit; font-size: 14px; padding: 3px 12px; border: 1px solid var(--cal-line); border-radius: 999px; background: transparent; color: var(--cal-ink); cursor: pointer; }
++.jv-glance-tab[aria-pressed="true"] { background: var(--cal-t0); border-color: var(--cal-t0); color: #fff; font-weight: 600; }
++.jv-glance-tab:focus-visible, .jv-glance-full:focus-visible { outline: 2px solid var(--cal-focus); outline-offset: 2px; }
++.jv-glance-full { margin-left: auto; font-size: 14px; color: var(--cal-t0); text-decoration: underline; }
++.jp .jv-glance { margin: 0 0 20px; }
++.jv-glance-now { margin: 8px 0 0; font-weight: 700; color: var(--cal-t0); }
++.jv-glance-day[hidden] { display: none; }
++.jv-glance-day { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; column-gap: 12px; }
++.jv-glance-slot { display: contents; }
++.jv-glance-slot > span { padding: 4px 0; border-top: 1px solid var(--cal-line); font-size: 14px; }
++.jv-glance-time { font-variant-numeric: tabular-nums; color: var(--cal-muted); white-space: nowrap; }
++.jv-glance-where { color: var(--cal-muted); white-space: nowrap; }
++.jv-glance-slot.jv-cal-session .jv-glance-what { font-weight: 600; }
++.jv-glance-slot.jv-cal-break > span, .jv-glance-slot.jv-cal-logistics > span { color: var(--cal-muted); }
++.jv-glance-slot.jv-cal-joint .jv-glance-what { color: var(--cal-joint-ink); }
++.jv-glance-flag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
++.jv-glance-slot.is-now > span { background: var(--cal-t0-soft); }
++.jv-glance-slot.is-now .jv-glance-flag { color: var(--cal-t0); }
++.jv-glance-slot.is-next .jv-glance-flag { color: var(--cal-muted); }
++.jv-glance .jv-cal-code { font-weight: 700; color: var(--cal-t0); margin-right: 2px; }
++@media (max-width: 720px) {
++  .jv-glance-day { grid-template-columns: auto minmax(0, 1fr); }
++  .jv-glance-where { grid-column: 2; padding-top: 0 !important; border-top: 0 !important; font-size: 13px !important; }
++  .jv-glance-flag { grid-column: 2; border-top: 0 !important; padding-top: 0 !important; }
++  .jv-glance-flag:empty { display: none; }
++  .jv-glance-full { margin-left: 0; }
++}
+diff --git a/scripts/journeys/assets/canvas-pdf.js b/scripts/journeys/assets/canvas-pdf.js
+index 42a28c99..1978335c 100644
+--- a/scripts/journeys/assets/canvas-pdf.js
++++ b/scripts/journeys/assets/canvas-pdf.js
+@@ -244,7 +244,7 @@
+     }
+ 
+     function heading(f, w) {
+-      var lines = wrap(f.label, 9.5, w, true);
++      var lines = f.label ? wrap(f.label, 9.5, w, true) : [];
+       var hint = f.hint ? wrap(f.hint, 8, w) : [];
+       return {
+         h: lines.length * 12 + hint.length * 10 + 4,
+@@ -264,12 +264,18 @@
+ 
+     function field(f, sheet) {
+       var hd = heading(f, colW);
++      if (!f.rows.length) {
++        // Words the sheet prints, no answer: the heading alone.
++        room(hd.h + 6, sheet);
++        page.y = hd.draw(x0(), page.y) - 6;
++        return;
++      }
+       if (!f.heads) {
+-        // A write-in, or a list of options one per line.
++        // A write-in, or a list of options one per line (an option's write-in under it).
+         var cells = f.rows[0].cells;
+         var text1 = cells.length === 1 && cells[0].kind === "text";
+         var bodyH = text1 ? (cells[0].lines || 1) * 12 + 6 : cells.reduce(function (n, c) {
+-          return n + wrap(c.label, 9, colW - 16).length * 11 + 3;
++          return n + (c.kind === "text" ? 18 : wrap(c.label, 9, colW - 16).length * 11 + 3);
+         }, 0);
+         room(hd.h + bodyH + 10, sheet);
+         var y = hd.draw(x0(), page.y);
+@@ -278,6 +284,11 @@
+           y -= bodyH;
+         } else {
+           cells.forEach(function (c) {
++            if (c.kind === "text") {
++              textField(c, x0() + 14, y - 16, colW - 14, 15);
++              y -= 18;
++              return;
++            }
+             var ls = wrap(c.label, 9, colW - 16);
+             tickField(c, x0(), y - 10, 9);
+             ls.forEach(function (l, i) {
+@@ -290,7 +301,10 @@
+         return;
+       }
+       // A grid or a gap strip: row labels down the left, a column per head.
+-      var labW = colW * 0.42;
++      // No row-label column when no row has a label (a table whose first column is printed words).
++      var labW = f.rows.some(function (r) {
++        return r.label;
++      }) ? colW * 0.42 : 0;
+       var cw = (colW - labW) / f.heads.length;
+       var headLines = f.heads.map(function (h) {
+         return wrap(h, 7, cw - 4);
+@@ -310,8 +324,29 @@
+       }
+       heads();
+       f.rows.forEach(function (r) {
++        if (r.group !== undefined) {
++          // A heading row (a layer of the architecture map).
++          var gl = wrap(r.group, 8, colW - 4);
++          var gh = gl.length * 9 + 4;
++          if (y - gh < MARGIN) {
++            page.y = y;
++            room(gh + headH + 4, sheet);
++            y = page.y;
++            heads();
++          }
++          gl.forEach(function (l, i) {
++            text(x0(), y - 9 - i * 9, 8, true, l, 0.15);
++          });
++          y -= gh;
++          return;
++        }
+         var ls = wrap(r.label || "", 8, labW - 4);
+-        var rh = Math.max(ls.length * 9 + 4, r.cells[0].kind === "text" ? 16 : 13);
++        var labelLines = r.cells.reduce(function (n, c) {
++          return c.kind === "label" ? Math.max(n, wrap(c.label, 7.5, cw - 4).length) : n;
++        }, 0);
++        var rh = Math.max(ls.length * 9 + 4, labelLines * 8.5 + 4, r.cells.some(function (c) {
++          return c.kind === "text";
++        }) ? 16 : 13);
+         if (y - rh < MARGIN) {
+           page.y = y;
+           room(rh + headH + 4, sheet);
+@@ -324,6 +359,9 @@
+         r.cells.forEach(function (c, i) {
+           var cx = x0() + labW + i * cw;
+           if (c.kind === "text") textField(c, cx + 1, y - rh + 1, cw - 2, rh - 2);
++          else if (c.kind === "label") wrap(c.label, 7.5, cw - 4).forEach(function (l, j) {
++            text(cx + 2, y - 8.5 - j * 8.5, 7.5, false, l, 0.25);
++          });
+           else tickField(c, cx + (cw - 9) / 2, y - rh / 2 - 4.5, 9);
+         });
+         page.ops.push("0.85 G 0.4 w " + num(x0()) + " " + num(y - rh) + " m " + num(x0() + colW) + " " + num(y - rh) + " l S");
+diff --git a/scripts/journeys/assets/present.css b/scripts/journeys/assets/present.css
+index 4a92c7bf..ede2afb8 100644
+--- a/scripts/journeys/assets/present.css
++++ b/scripts/journeys/assets/present.css
+@@ -1124,35 +1124,134 @@ a:hover > .jp-cv-dot { fill: var(--c); }
+ }
+ 
+ /* ── the canvas as an on-screen form (owner, 2026-11-17): a sheet per card, in the canvas's paper styling ── */
+-.jp-cv { display: flex; flex-direction: column; gap: 24px; }
+-.jp-cv-sheet { background: #fffdf7; border: 1px solid #e7e0cf; border-top: 6px solid #3730a3; border-radius: 10px; padding: 20px 24px; box-shadow: var(--shadow-sm); }
+-.jp-cv-head { border-bottom: 1px solid #e7e0cf; padding-bottom: 10px; margin-bottom: 14px; }
+-.jp-cv-kick { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; }
+-.jp-cv-head h3 { font-size: 20px; font-weight: 800; color: var(--ink); margin: 2px 0; }
+-.jp-cv-head p { font-size: 14px; color: var(--s700); }
+-.jp-cv-secs { columns: 3 300px; column-gap: 28px; }
+-.jp-cv-sec { break-inside: avoid-column; margin-bottom: 18px; }
+-.jp-cv-sec h4, .jp-cv-annex h4 { font-size: 14px; font-weight: 700; color: #3730a3; margin: 0 0 8px; }
+-.jp-cv-field { break-inside: avoid; margin-bottom: 14px; }
+-.jp-cv-fh b { display: block; font-size: 13px; color: var(--ink); }
+-.jp-cv-fh small { display: block; font-size: 12px; color: var(--s600); }
+-.jp-cv-in { width: 100%; margin-top: 4px; background: #fff; border: 1px solid #cfc7b3; border-radius: 6px; }
+-.jp-cv-opts { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+-.jp-cv-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--s800); }
+-.jp-cv-scroll { overflow-x: auto; margin-top: 6px; }
+-.jp-cv-t { width: 100%; border-collapse: collapse; font-size: 12px; }
+-.jp-cv-t th, .jp-cv-t td { border-top: 1px solid #e7e0cf; padding: 4px 6px; text-align: left; vertical-align: middle; }
+-.jp-cv-t thead th { border-top: 0; font-size: 11px; color: var(--s600); font-weight: 600; text-align: center; }
+-.jp-cv-t tbody th { font-weight: 500; color: var(--s800); }
+-.jp-cv-t tbody th small { display: block; color: var(--s500); font-weight: 400; }
+-.jp-cv-t td { text-align: center; }
+-.jp-cv-t td .jp-cv-in { margin: 0; min-width: 90px; }
++/* The canvas, laid out as its printed pages (owner, 2026-11-19): the band, the title, the masthead and the header write-ins; numbered sections with their minutes, DISCUSS and RULES; tables with a dark head; the warm gap strip. */
++.jp-cv { --cv-ink: #0e5a72; --cv-head: #0b5a71; --cv-band: #12858a; --cv-line: #c9dde2; --cv-warm: #faf1e0; --cv-warm-line: #e2c48a; --cv-brown: #7a4a12; --cv-cool: #e7f2f4; --cv-muted: #5b6b78; display: flex; flex-direction: column; gap: 24px; }
++.jp-cv-sheet { background: #fff; border: 1px solid #d9e3e7; border-radius: 10px; padding: 22px 26px 16px; box-shadow: var(--shadow-sm); color: #1f2933; }
++.jp-cv-head { display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 12px 24px; border-bottom: 2px solid var(--cv-ink); padding-bottom: 12px; margin-bottom: 14px; }
++.jp-cv-head-l { flex: 1 1 0; min-width: 0; }
++.jp-cv-kick { display: inline-block; background: var(--cv-band); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 1px 10px; }
++.jp-cv-head h3 { font-size: 30px; line-height: 1.15; font-weight: 800; color: var(--cv-ink); margin: 6px 0 4px; text-transform: none; }
++.jp-cv-head p { font-size: 14px; color: #1f2933; max-width: 70em; }
++.jp-cv-head-r { flex: 0 0 auto; max-width: 45%; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
++.jp-cv-mast { display: flex; flex-direction: column; font-size: 13px; color: var(--cv-muted); }
++.jp-cv-mast b { font-size: 15px; color: #1f2933; }
++.jp-cv-hdr { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 14px; }
++.jp-cv-hdr .jp-cv-inline { margin: 0; }
++.jp-cv-secs { display: flex; flex-direction: column; gap: 14px; }
++.jp-cv-sec { min-width: 0; }
++.jp-cv-st { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 18px; font-weight: 700; color: #1f2933; margin: 4px 0 6px; }
++.jp-cv-num { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 4px; background: var(--cv-head); color: #fff; font-size: 15px; font-weight: 700; align-self: center; }
++.jp-cv-meta { font-size: 14px; font-weight: 400; color: var(--cv-muted); }
++.jp-cv-mods { display: inline-flex; gap: 4px; margin-left: auto; align-self: center; }
++.jp-cv-tag { font-size: 14px; margin: 2px 0 6px; display: flex; gap: 8px; align-items: baseline; }
++.jp-cv-tag-discuss, .jp-cv-tag-rules { flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 1px 6px; }
++.jp-cv-tag-discuss { background: #f6e3b3; color: #8a5a00; }
++.jp-cv-tag-rules { background: #d6ecf1; color: var(--cv-head); }
++.jp-cv-tag-rules + span, .jp-cv-note-rules span { font-style: italic; }
++.jp-cv-body { display: flex; flex-direction: column; gap: 10px; }
++.jp-cv-lay-columns > .jp-cv-body { display: grid; grid-template-columns: repeat(var(--cv-cols, 2), minmax(0, 1fr)); gap: 0; border: 1px solid var(--cv-line); }
++.jp-cv-lay-columns > .jp-cv-body > * { padding: 10px; border-left: 1px solid var(--cv-line); margin: 0; }
++.jp-cv-lay-columns > .jp-cv-body > :first-child { border-left: 0; }
++.jp-cv-col { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
++.jp-cv-lay-row > .jp-cv-body { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 6px 24px; }
++.jp-cv-lay-row > .jp-cv-body > .jp-cv-blanks { flex-basis: 100%; }
++.jp-cv-caps { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: var(--cv-muted); }
++.jp-cv-lay-aside { display: grid; grid-template-columns: minmax(200px, 26%) minmax(0, 1fr); border: 1px solid var(--cv-line); }
++.jp-cv-aside { padding: 10px; border-right: 1px solid var(--cv-line); }
++.jp-cv-aside .jp-cv-st { font-size: 17px; font-weight: 400; }
++.jp-cv-main { min-width: 0; }
++.jp-cv-main > .jp-cv-field { margin: 0; }
++.jp-cv-main .jp-cv-scroll { margin: 0; }
++.jp-cv-tone-box > .jp-cv-body { border: 1px solid #94a3ab; padding: 10px; }
++.jp-cv-tone-warm, .jp-cv-tone-warm > .jp-cv-body { background: var(--cv-warm); border-color: var(--cv-warm-line); }
++.jp-cv-tone-cool, .jp-cv-tone-cool > .jp-cv-body { background: var(--cv-cool); }
++.jp-cv-tone-gap { background: var(--cv-warm); border-color: var(--cv-warm-line); }
++.jp-cv-tone-gap .jp-cv-aside { border-color: var(--cv-warm-line); }
++.jp-cv-tone-gap .jp-cv-t thead th { background: var(--cv-brown); }
++.jp-cv-tone-gap .jp-cv-t th, .jp-cv-tone-gap .jp-cv-t td { border-color: var(--cv-warm-line); }
++.jp-cv-field { min-width: 0; margin: 0; }
++.jp-cv-lab { display: block; font-size: 14px; font-weight: 700; color: #1f2933; }
++.jp-cv-lab.jp-cv-caps { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: var(--cv-muted); }
++.jp-cv-hint { display: block; font-size: 13px; color: var(--cv-muted); }
++.jp-cv-in { width: 100%; margin-top: 4px; background: transparent; border: 0; border-bottom: 1px dotted #8aa1ab; border-radius: 0; resize: vertical; font: inherit; font-size: 14px; }
++.jp-cv-line { flex: 1 1 8em; min-width: 6em; background: transparent; border: 0; border-bottom: 1px solid #52606d; border-radius: 0; font: inherit; font-size: 14px; padding: 1px 4px; }
++.jp-cv-blank { width: 12em; flex: none; display: inline-block; }
++.jp-cv-short { width: 7em; flex: none; }
++.jp-cv-in:focus, .jp-cv-line:focus, .jp-cv-cell:focus { outline: 2px solid #f5b94a; outline-offset: 1px; background: #fffbeb; }
++.jp-cv-inline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
++.jp-cv-inline .jp-cv-lab { display: inline; }
++.jp-cv-blanks { font-size: 18px; line-height: 2; }
++.jp-cv-blanks .jp-cv-lab { display: inline; font-size: 14px; }
++.jp-cv-opts { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 4px; }
++.jp-cv-opt { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; color: #1f2933; }
++.jp-cv-optw { display: inline-flex; align-items: center; gap: 4px; }
++.jp-cv-scroll { overflow-x: auto; margin-top: 4px; }
++.jp-cv-t { width: 100%; border-collapse: collapse; font-size: 13px; }
++.jp-cv-t th, .jp-cv-t td { border: 1px solid var(--cv-line); padding: 3px 8px; text-align: left; vertical-align: middle; }
++.jp-cv-t thead th { background: var(--cv-head); color: #fff; font-size: 13px; font-weight: 700; }
++.jp-cv-t thead th.jp-cv-c-tick, .jp-cv-t thead th.jp-cv-c-option, .jp-cv-t thead th.jp-cv-c-label.jp-cv-w-narrow { text-align: center; }
++.jp-cv-t tbody th { font-weight: 700; color: #1f2933; }
++.jp-cv-t tbody th small { display: block; color: var(--cv-muted); font-weight: 400; }
++.jp-cv-t td.jp-cv-c-tick, .jp-cv-t td.jp-cv-c-option { text-align: center; }
++.jp-cv-t td.jp-cv-c-label { color: #52606d; }
++.jp-cv-t .jp-cv-w-narrow { width: 1%; white-space: nowrap; }
++.jp-cv-t .jp-cv-w-wide { width: 30%; }
++.jp-cv-t .jp-cv-opts { margin: 0; gap: 2px 14px; }
++.jp-cv-t td.jp-cv-c-choice .jp-cv-opts { flex-wrap: nowrap; }
++.jp-cv-t td.jp-cv-c-choice .jp-cv-opt, .jp-cv-t td.jp-cv-c-ticks .jp-cv-opt { white-space: nowrap; }
++.jp-cv-t-nohead, .jp-cv-t-nohead th, .jp-cv-t-nohead td { border: 0; padding: 1px 8px 1px 0; }
++.jp-cv-t-nohead tbody th { font-weight: 400; white-space: nowrap; }
++.jp-cv-t-nohead td.jp-cv-c-choice .jp-cv-opts { flex-wrap: wrap; }
++.jp-cv-grp th { background: #eef4f6; color: var(--cv-head); font-size: 12px; font-weight: 700; text-transform: none; }
++.jp-cv-cell { width: 100%; min-width: 8em; background: transparent; border: 0; font: inherit; font-size: 13px; padding: 2px 0; }
++.jp-cv-cards-cols .jp-cv-cardrow { display: grid; grid-template-columns: repeat(var(--cv-n), minmax(0, 1fr)); border: 1px solid var(--cv-line); }
++.jp-cv-arrows .jp-cv-cardrow { grid-template-columns: repeat(var(--cv-n), minmax(0, 1fr) auto) ; border: 0; gap: 0 10px; align-items: stretch; }
++.jp-cv-arrows .jp-cv-cardrow > .jp-cv-card { border: 1px solid var(--cv-line); }
++.jp-cv-arrow { align-self: center; font-size: 22px; color: var(--cv-ink); }
++.jp-cv-arrows .jp-cv-cardrow > .jp-cv-arrow:last-child { display: none; }
++.jp-cv-card { padding: 8px 10px 10px; border-left: 1px solid var(--cv-line); display: flex; flex-direction: column; gap: 6px; min-width: 0; }
++.jp-cv-cards-cols:not(.jp-cv-arrows) .jp-cv-card:first-child { border-left: 0; }
++.jp-cv-card h5 { font-size: 18px; font-weight: 400; color: #1f2933; margin: 0; }
++.jp-cv-card h5 .jp-cv-badge { font-weight: 700; }
++.jp-cv-card-text { font-size: 14px; }
++.jp-cv-card-note { font-size: 14px; font-style: italic; color: var(--cv-muted); }
++.jp-cv-card-lead { font-size: 14px; }
++.jp-cv-card .jp-cv-field { margin-top: auto; }
++.jp-cv-card .jp-cv-choice .jp-cv-opts { gap: 4px 14px; }
++.jp-cv-card .jp-cv-opt { white-space: nowrap; }
++.jp-cv-card .jp-cv-field + .jp-cv-field { margin-top: 6px; }
++.jp-cv-ct tbody th, .jp-cv-ct tbody td { vertical-align: top; padding: 6px 8px; }
++.jp-cv-ct .jp-cv-card-badge { font-size: 22px; text-align: center; vertical-align: middle; color: var(--cv-ink); width: 4em; }
++.jp-cv-ct .jp-cv-card-title { font-weight: 700; vertical-align: middle; }
++.jp-cv-ct .jp-cv-card-title.jp-cv-top { vertical-align: top; width: 28%; }
++.jp-cv-ct td { font-size: 14px; }
++.jp-cv-ct td > .jp-cv-field + .jp-cv-field { margin-top: 6px; display: block; }
++.jp-cv-ct td.jp-cv-tone-warm { background: var(--cv-warm); }
++.jp-cv-note { font-size: 14px; }
++.jp-cv-note-muted { color: var(--cv-muted); font-style: italic; }
++.jp-cv-note-strong { font-weight: 700; }
++.jp-cv-note .jp-cv-lab { display: inline; }
++.jp-cv-foot { border-top: 1px solid #e5eaee; margin-top: 16px; padding-top: 6px; font-size: 12px; color: var(--cv-muted); }
+ .jp-cv-annex { border-top: 1px dashed #cfc7b3; margin-top: 8px; padding-top: 12px; }
++.jp-cv-annex h4 { font-size: 14px; font-weight: 700; color: var(--cv-ink); margin: 0 0 8px; }
+ .jp-cv-annex ol { display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; }
+ .jp-cv-annex li { display: flex; gap: 8px; align-items: flex-start; }
+ .jp-cv-annex li > div { flex: 1; display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+ .jp-cv-pdf { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 8px 0 16px; }
+-@media print { .jp-cv-sheet { break-after: page; box-shadow: none; } .jp-cv-secs { columns: 3; } }
++@media (max-width: 760px) {
++  .jp-cv-sheet { padding: 14px 12px; }
++  .jp-cv-head h3 { font-size: 23px; }
++  .jp-cv-head { flex-wrap: wrap; }
++  .jp-cv-head-r { align-items: flex-start; text-align: left; max-width: none; }
++  .jp-cv-hdr { justify-content: flex-start; }
++  .jp-cv-lay-columns > .jp-cv-body, .jp-cv-lay-row > .jp-cv-body, .jp-cv-cards-cols .jp-cv-cardrow, .jp-cv-arrows .jp-cv-cardrow, .jp-cv-lay-aside { display: flex; flex-direction: column; }
++  .jp-cv-lay-columns > .jp-cv-body > *, .jp-cv-card { border-left: 0; border-top: 1px solid var(--cv-line); }
++  .jp-cv-aside { border-right: 0; border-bottom: 1px solid var(--cv-line); }
++  .jp-cv-arrow { transform: rotate(90deg); align-self: center; }
++  .jp-cv-blanks { font-size: 16px; }
++  .jp-cv-blank { width: 9em; }
++}
++@media print { .jp-cv-sheet { break-after: page; box-shadow: none; border: 0; } }
+ 
+ /* ── "we have this" on an application component, and the room's own country names (owner, 2026-11-17) ── */
+ .jp-have { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 6px; font-size: 12px; color: var(--s700); }
+diff --git a/scripts/journeys/assets/present.js b/scripts/journeys/assets/present.js
+index db912e48..8aade63e 100644
+--- a/scripts/journeys/assets/present.js
++++ b/scripts/journeys/assets/present.js
+@@ -704,7 +704,8 @@
+     var m = /^#lab-(.+)$/.exec(location.hash);
+     var inner = !m && location.hash.length > 1 ? stepOf(decodeURIComponent(location.hash.slice(1))) : null;
+     if (inner) show(inner, false, true);
+-    else show(m ? m[1] : store("jp:lab:" + ws) || steps[0].getAttribute("data-jp-lab-step"), false);
++    // On arrival the address is left as it came, so a plain visit opens at the top of the page (the schedule), not at the step.
++    else show(m ? m[1] : store("jp:lab:" + ws) || steps[0].getAttribute("data-jp-lab-step"), false, true);
+     window.addEventListener("hashchange", function () {
+       var s = stepOf(decodeURIComponent(location.hash.slice(1)));
+       if (s) show(s, false, true);
+diff --git a/scripts/journeys/canvas-form.ts b/scripts/journeys/canvas-form.ts
+index 97e614ea..3c04398a 100644
+--- a/scripts/journeys/canvas-form.ts
++++ b/scripts/journeys/canvas-form.ts
+@@ -7,16 +7,22 @@
+  * @covers workshop
+  *
+  * The canvas (`workshop.canvas`: a cover and its sheets, each of sections of
+- * fields) is drawn in the canvas's own styling, a sheet per card, every field
+- * kept in the browser under `<workshop>:cv:<sheet>:<field>[:<row>[:<col>]]`
+- * by the same script as every other answer (`present.js`). A journey question
+- * that names a field (`questions[].canvas`) is that field, under that key; the
+- * sheet's other journey questions, of the modules it names, follow it as its
+- * annex. `canvasModel` is the same canvas as JSON, every key with its label,
+- * from which `assets/canvas-pdf.js` writes the editable, pre-filled PDF.
++ * fields) is drawn as its printed pages are laid out (owner, 2026-11-19: "look
++ * exactly like source PDF"): a sheet's band, title, masthead and header
++ * write-ins, each section's number, minutes, DISCUSS and RULES lines and the
++ * module it is worked in, then its fields as the page has them: tables with
++ * their printed columns, cards side by side or one per row, sentences with
++ * blanks, the gap strip. Every field is kept in the browser under
++ * `<workshop>:cv:<sheet>:<field>[:<row>[:<col>]]` by the same script as every
++ * other answer (`present.js`). A journey question that names a field
++ * (`questions[].canvas`) is that field, under that key; unless the canvas
++ * says `annex: false`, the sheet's other journey questions, of the modules it
++ * names, follow it as its annex. `canvasModel` is the same canvas as JSON,
++ * every key with its label, from which `assets/canvas-pdf.js` writes the
++ * editable, pre-filled PDF.
+  */
+ import { escHtml } from "../thin-page.ts";
+-import { canvasFieldRefs, type WorkshopCanvas, type WorkshopCanvasField, type WorkshopCanvasSheet } from "../../schemas/process/workshop.ts";
++import { canvasBlanks, canvasFieldRefs, type WorkshopCanvas, type WorkshopCanvasField, type WorkshopCanvasSection, type WorkshopCanvasSheet } from "../../schemas/process/workshop.ts";
+ 
+ const e = escHtml;
+ 
+@@ -25,11 +31,23 @@ export function canvasKey(workshop: string, ref: string): string {
+   return `${workshop}:cv:${ref}`;
+ }
+ 
+-/** One answer the PDF writes: a write-in (`text`) or a tick (`tick`, kept as `value` when ticked). */
++/** Words the sheet prints, with `**bold**` and `*italic*` and nothing else read as markup. */
++export function mdLite(s: string): string {
++  return e(s)
++    .replace(/\n/g, "<br>")
++    .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
++    .replace(/(^|[^*])\*([^*\s][^*]*?)\*(?!\*)/g, "$1<i>$2</i>");
++}
++/** The same words, plain (for the PDF and the summary). */
++export function plainLite(s: string): string {
++  return s.replace(/\*\*(.+?)\*\*/g, "$1").replace(/(^|[^*])\*([^*\s][^*]*?)\*(?!\*)/g, "$1$2");
++}
++
++/** One answer the PDF writes: a write-in (`text`), a tick (`tick`, kept as `value` when ticked), or printed words (`label`). */
+ export interface CanvasModelCell {
+   key: string;
+   label: string;
+-  kind: "text" | "tick";
++  kind: "text" | "tick" | "label";
+   /** A tick's kept value: "1" for a ticks or grid cell, the option's id for a choice or a gap rating. */
+   value?: string;
+   /** One of a group under one key (a choice, a gap strip's row): a radio button, exported as `value`. */
+@@ -42,7 +60,8 @@ export interface CanvasModelField {
+   hint?: string;
+   /** A grid's or gap strip's column heads. */
+   heads?: string[];
+-  rows: { label?: string; cells: CanvasModelCell[] }[];
++  /** A row with `group` is a heading row, and has no cells. */
++  rows: { label?: string; group?: string; cells: CanvasModelCell[] }[];
+ }
+ export interface CanvasModelSheet {
+   id: string;
+@@ -73,54 +92,188 @@ export interface AnnexQuestion {
+   canvas?: string;
+ }
+ 
++type Opt = { id: string; label: string; write?: boolean };
++type Grid = Extract<WorkshopCanvasField, { type: "grid" }>;
++type Col = Grid["columns"][number];
++type Row = Grid["rows"][number];
++
+ const gapOptions = (f: Extract<WorkshopCanvasField, { type: "gap" }>, scale: readonly { id: string; label: string }[] | undefined) => f.options ?? scale ?? [];
++const fieldLabel = (f: WorkshopCanvasField): string => ("label" in f && f.label ? f.label : "");
++const fieldHint = (f: WorkshopCanvasField): string | undefined => ("hint" in f ? f.hint : undefined);
++/** The blanks' words, split at each `___`. */
++const blankParts = (text: string) => text.split("___");
++/** A blanks field's text with its blanks as printed. */
++const blankText = (text: string) => plainLite(text).replace(/___/g, "____");
++/** A row's heading rows, in order. */
++const groupsOf = (r: Row): string[] => (r.group === undefined ? [] : Array.isArray(r.group) ? r.group : [r.group]);
++/** The options a grid's `choice` cell offers in a row. */
++const rowOptions = (c: Col, r: Row): readonly Opt[] => r.options ?? c.options ?? [];
++/** The key prefix a field's answers are kept under: its own, or (`same`) another field's. */
++const keyAt = (sheet: string, f: WorkshopCanvasField): string => ("same" in f && f.same ? f.same : `${sheet}:${f.id}`);
++
++// ── the PDF's model ───────────────────────────────────────────────────────
++
++function gridModel(ws: string, at: string, f: Grid): CanvasModelField[] {
++  const k = (ref: string) => canvasKey(ws, `${at}${ref}`);
++  const base = { label: plainLite(f.label ?? ""), ...(f.hint ? { hint: plainLite(f.hint) } : {}) };
++  // A choice column whose rows offer their own options draws as a choice per row.
++  if (f.columns.some((c) => c.cell === "choice" && f.rows.some((r) => r.options))) {
++    return [
++      ...(base.label || base.hint ? [{ ...base, rows: [] }] : []),
++      ...f.rows.flatMap((r): CanvasModelField[] => {
++        const cells: CanvasModelCell[] = f.columns.flatMap((c): CanvasModelCell[] => {
++          const key = k(`:${r.id}:${c.id}`);
++          const where = `${r.label}: ${c.label}`;
++          switch (c.cell) {
++            case "choice":
++              return rowOptions(c, r).map((o) => ({ key, label: o.label, kind: "tick", value: o.id, radio: true }));
++            case "ticks":
++              return (c.options ?? []).map((o) => ({ key: k(`:${r.id}:${c.id}:${o.id}`), label: o.label, kind: "tick", value: "1" }));
++            case "option":
++              return [{ key: k(`:${r.id}:${c.group ?? c.id}`), label: c.label, kind: "tick", value: c.id, radio: true }];
++            case "tick":
++              return [{ key, label: where, kind: "tick", value: "1" }];
++            case "label":
++              return [];
++            default:
++              return [{ key, label: where, kind: "text", lines: 1 }];
++          }
++        });
++        return [...groupsOf(r).map((g) => ({ label: plainLite(g), rows: [] })), { label: plainLite(r.label), rows: [{ cells }] }];
++      }),
++    ];
++  }
++  const heads: string[] = [];
++  const cellsOf: ((r: Row) => CanvasModelCell[])[] = [];
++  const groups = new Set<string>();
++  for (const c of f.columns) {
++    if (c.cell === "choice" || c.cell === "ticks") {
++      for (const o of c.options ?? []) {
++        heads.push(`${c.label}: ${o.label}`);
++        cellsOf.push((r) => [
++          c.cell === "choice"
++            ? { key: k(`:${r.id}:${c.id}`), label: `${r.label}: ${o.label}`, kind: "tick", value: o.id, radio: true }
++            : { key: k(`:${r.id}:${c.id}:${o.id}`), label: `${r.label}: ${c.label}: ${o.label}`, kind: "tick", value: "1" },
++        ]);
++      }
++    } else if (c.cell === "option") {
++      const g = c.group ?? c.id;
++      groups.add(g);
++      heads.push(c.label);
++      cellsOf.push((r) => [{ key: k(`:${r.id}:${g}`), label: `${r.label}: ${c.label}`, kind: "tick", value: c.id, radio: true }]);
++    } else {
++      heads.push(c.label);
++      cellsOf.push((r) => [
++        c.cell === "label"
++          ? { key: "", label: plainLite(r.values?.[c.id] ?? ""), kind: "label" }
++          : c.cell === "tick"
++            ? { key: k(`:${r.id}:${c.id}`), label: `${r.label}: ${c.label}`, kind: "tick", value: "1" }
++            : { key: k(`:${r.id}:${c.id}`), label: `${r.label}: ${c.label}`, kind: "text", lines: 1 },
++      ]);
++    }
++  }
++  const rows: CanvasModelField["rows"] = [];
++  for (const r of f.rows) {
++    for (const g of groupsOf(r)) rows.push({ group: plainLite(g), cells: [] });
++    rows.push({ label: f.rowLabels === false ? "" : plainLite(r.label), cells: cellsOf.flatMap((fn) => fn(r)) });
++  }
++  return [{ ...base, heads, rows }];
++}
+ 
+-function fieldModel(ws: string, sheet: string, f: WorkshopCanvasField, scale: readonly { id: string; label: string }[] | undefined): CanvasModelField {
+-  const k = (ref: string) => canvasKey(ws, `${sheet}:${f.id}${ref}`);
+-  const base = { label: f.label, ...(f.hint ? { hint: f.hint } : {}) };
++function fieldModel(ws: string, sheet: string, f: WorkshopCanvasField, scale: readonly { id: string; label: string }[] | undefined): CanvasModelField[] {
++  const at = `${sheet}:${f.id}`;
++  const k = (ref: string) => canvasKey(ws, `${at}${ref}`);
++  const label = plainLite(fieldLabel(f));
++  const hint = fieldHint(f);
++  const base = { label, ...(hint ? { hint: plainLite(hint) } : {}) };
+   switch (f.type) {
+     case "text":
+-      return { ...base, rows: [{ cells: [{ key: k(""), label: f.label, kind: "text", lines: f.lines }] }] };
++      // A field showing another's answer is written once, where that one is.
++      return f.same ? [] : [{ ...base, rows: [{ cells: [{ key: k(""), label, kind: "text", lines: f.inline ? 1 : f.lines }] }] }];
+     case "choice":
+-      return { ...base, rows: [{ cells: f.options.map((o) => ({ key: k(""), label: o.label, kind: "tick" as const, value: o.id, radio: true as const })) }] };
++      return [{ ...base, rows: [{ cells: f.options.map((o) => ({ key: k(""), label: o.label, kind: "tick" as const, value: o.id, radio: true as const })) }] }];
+     case "ticks":
+-      return { ...base, rows: [{ cells: f.options.map((o) => ({ key: k(`:${o.id}`), label: o.label, kind: "tick", value: "1" })) }] };
++      return [
++        {
++          ...base,
++          rows: [
++            {
++              cells: f.options.flatMap((o): CanvasModelCell[] => [
++                { key: k(`:${o.id}`), label: o.label, kind: "tick", value: "1" },
++                ...(o.write ? [{ key: k(`:${o.id}:text`), label: `${label}: ${o.label}`, kind: "text" as const, lines: 1 }] : []),
++              ]),
++            },
++          ],
++        },
++      ];
+     case "grid":
+-      return {
+-        ...base,
+-        heads: f.columns.map((c) => c.label),
+-        rows: f.rows.map((r) => ({ label: r.label, cells: f.columns.map((c) => ({ key: k(`:${r.id}:${c.id}`), label: `${r.label}: ${c.label}`, kind: c.cell === "tick" ? "tick" : "text", ...(c.cell === "tick" ? { value: "1" } : { lines: 1 }) })) })),
+-      };
++      return gridModel(ws, at, f);
+     case "gap": {
+       const opts = gapOptions(f, scale);
+-      return { ...base, heads: opts.map((o) => o.label), rows: f.rows.map((r) => ({ label: r.label, cells: opts.map((o) => ({ key: k(`:${r.id}`), label: `${r.label}: ${o.label}`, kind: "tick" as const, value: o.id, radio: true as const })) })) };
++      return [{ ...base, heads: opts.map((o) => o.label), rows: f.rows.map((r) => ({ label: r.label, cells: opts.map((o) => ({ key: k(`:${r.id}`), label: `${r.label}: ${o.label}`, kind: "tick" as const, value: o.id, radio: true as const })) })) }];
+     }
++    case "blanks": {
++      if (f.same) return [];
++      const n = canvasBlanks(f.text);
++      return [{ label: [label, blankText(f.text)].filter(Boolean).join(" "), ...(hint ? { hint: plainLite(hint) } : {}), rows: [{ cells: Array.from({ length: n }, (_, i) => ({ key: k(`:${i + 1}`), label: `${label || blankText(f.text)} (${i + 1})`, kind: "text" as const, lines: 1 })) }] }];
++    }
++    case "note":
++      return [{ label, hint: plainLite(f.text), rows: [] }];
++    case "table":
++      return [{ label, heads: f.heads.slice(1), rows: f.rows.map((r) => ({ label: plainLite(r[0] ?? ""), cells: r.slice(1).map((c) => ({ key: "", label: plainLite(c), kind: "label" as const })) })) }];
++    case "cards":
++      return [
++        ...(label ? [{ label, rows: [] }] : []),
++        ...f.items.flatMap((c) => [
++          { label: [c.badge, plainLite(c.title)].filter(Boolean).join(" "), ...(c.text || c.note || c.lead ? { hint: [c.lead, c.text, c.note].filter(Boolean).map((x) => plainLite(x!)).join(" ") } : {}), rows: [] },
++          ...(c.fields ?? []).flatMap((x) => fieldModel(ws, at + ":" + c.id, x, scale)),
++        ]),
++      ];
+   }
+ }
+ 
+-/** The questions a sheet's annex lists: those of its modules that are no field of the canvas. */
+-export function annexOf(sheet: WorkshopCanvasSheet, questions: readonly AnnexQuestion[]): AnnexQuestion[] {
++/** The questions a sheet's annex lists: those of its modules that are no field of the canvas; none when the canvas has no annex. */
++export function annexOf(sheet: WorkshopCanvasSheet, questions: readonly AnnexQuestion[], canvas?: Pick<WorkshopCanvas, "annex">): AnnexQuestion[] {
++  if (canvas?.annex === false) return [];
+   const mods = new Set(sheet.modules ?? []);
+   return questions.filter((q) => mods.has(q.module) && q.canvas === undefined);
+ }
+ 
++/** A sheet's header write-ins as fields of its own. */
++const headerFields = (s: WorkshopCanvasSheet): WorkshopCanvasField[] => (s.header ?? []).map((h) => ({ type: "text", id: h.id, label: h.label, lines: 1, inline: true, ...(h.same ? { same: h.same } : {}) }));
++
+ /** The canvas as the PDF writer reads it. */
+ export function canvasModel(ws: string, c: WorkshopCanvas, questions: readonly AnnexQuestion[], scale?: readonly { id: string; label: string }[]): CanvasModel {
+   return {
+     title: c.title,
+     size: c.size ?? "A3",
+     workshop: ws,
+-    sheets: c.sheets.map((s) => ({
+-      id: s.id,
+-      ...(s.label ? { label: s.label } : {}),
+-      title: s.title,
+-      ...(s.intro ? { intro: s.intro } : {}),
+-      sections: s.sections.map((x) => ({ ...(x.title ? { title: x.title } : {}), fields: x.fields.map((f) => fieldModel(ws, s.id, f, scale)) })),
+-      annex: annexOf(s, questions).map((q) => ({ step: q.step, label: q.text, key: q.key })),
+-    })),
++    sheets: c.sheets.map((s) => {
++      const head = headerFields(s).flatMap((f) => fieldModel(ws, s.id, f, scale));
++      return {
++        id: s.id,
++        ...(s.label ? { label: s.label } : {}),
++        title: s.title,
++        ...(s.intro ? { intro: plainLite(s.intro) } : {}),
++        sections: [
++          ...(head.length ? [{ fields: head }] : []),
++          ...s.sections.map((x) => ({
++            ...(x.title ? { title: [x.number, plainLite(x.title), x.minutes ? `(${x.minutes} min)` : ""].filter(Boolean).join(" ") } : {}),
++            fields: [
++              ...(x.discuss ? [{ label: "Discuss", hint: plainLite(x.discuss), rows: [] }] : []),
++              ...(x.rules ? [{ label: "Rules", hint: plainLite(x.rules), rows: [] }] : []),
++              ...x.fields.flatMap((f) => fieldModel(ws, s.id, f, scale)),
++            ],
++          })),
++        ],
++        annex: annexOf(s, questions, c).map((q) => ({ step: q.step, label: q.text, key: q.key })),
++      };
++    }),
+   };
+ }
+ 
++// ── the summary ───────────────────────────────────────────────────────────
++
+ /** One answer of the canvas as the lab's summary lists it. */
+ export interface CanvasSummaryItem {
+   label: string;
+@@ -130,95 +283,245 @@ export interface CanvasSummaryItem {
+   group?: string;
+ }
+ 
++function summaryItems(ws: string, sheet: string, f: WorkshopCanvasField, group: string, scale: readonly { id: string; label: string }[] | undefined, prefix = ""): CanvasSummaryItem[] {
++  const at = `${sheet}:${f.id}`;
++  const k = (ref: string) => canvasKey(ws, `${at}${ref}`);
++  const label = `${prefix}${plainLite(fieldLabel(f))}`;
++  switch (f.type) {
++    case "text":
++      return f.same ? [] : [{ label, name: k(""), type: "text", group }];
++    case "choice":
++      return [{ label, name: k(""), type: "choice", options: f.options, group }];
++    case "ticks":
++      return f.options.flatMap((o): CanvasSummaryItem[] => [{ label: `${label}: ${o.label}`, name: k(`:${o.id}`), type: "check", group }, ...(o.write ? [{ label: `${label}: ${o.label}`, name: k(`:${o.id}:text`), type: "text" as const, group }] : [])]);
++    case "grid":
++      return f.rows.flatMap((r) => {
++        const seen = new Set<string>();
++        return f.columns.flatMap((cl): CanvasSummaryItem[] => {
++          const where = `${label} · ${plainLite(r.label)} · ${cl.label}`;
++          switch (cl.cell) {
++            case "label":
++              return [];
++            case "tick":
++              return [{ label: where, name: k(`:${r.id}:${cl.id}`), type: "check", group }];
++            case "choice":
++              return [{ label: where, name: k(`:${r.id}:${cl.id}`), type: "choice", options: [...rowOptions(cl, r)], group }];
++            case "ticks":
++              return (cl.options ?? []).map((o) => ({ label: `${where}: ${o.label}`, name: k(`:${r.id}:${cl.id}:${o.id}`), type: "check" as const, group }));
++            case "option": {
++              const g = cl.group ?? cl.id;
++              if (seen.has(g)) return [];
++              seen.add(g);
++              return [{ label: `${label} · ${plainLite(r.label)}`, name: k(`:${r.id}:${g}`), type: "choice", options: f.columns.filter((x) => x.cell === "option" && (x.group ?? x.id) === g).map((x) => ({ id: x.id, label: x.label })), group }];
++            }
++            default:
++              return [{ label: where, name: k(`:${r.id}:${cl.id}`), type: "text", group }];
++          }
++        });
++      });
++    case "gap":
++      return f.rows.map((r) => ({ label: `${label} · ${r.label}`, name: k(`:${r.id}`), type: "choice" as const, options: [...gapOptions(f, scale)], group }));
++    case "blanks":
++      return f.same ? [] : Array.from({ length: canvasBlanks(f.text) }, (_, i) => ({ label: `${label || blankText(f.text)} (${i + 1})`, name: k(`:${i + 1}`), type: "text" as const, group }));
++    case "note":
++    case "table":
++      return [];
++    case "cards":
++      return f.items.flatMap((c) => (c.fields ?? []).flatMap((x) => summaryItems(ws, `${at}:${c.id}`, x, group, scale, `${[c.badge, plainLite(c.title)].filter(Boolean).join(" ")} · `)));
++  }
++}
++
+ /** Every key a canvas keeps, with what the lab's summary calls it. */
+ export function canvasSummaryItems(ws: string, c: WorkshopCanvas, scale?: readonly { id: string; label: string }[]): { sheet: WorkshopCanvasSheet; items: CanvasSummaryItem[] }[] {
+-  return c.sheets.map((s) => ({
+-    sheet: s,
+-    items: s.sections.flatMap((x) =>
+-      x.fields.flatMap((f): CanvasSummaryItem[] => {
+-        const k = (ref: string) => canvasKey(ws, `${s.id}:${f.id}${ref}`);
+-        const group = s.label ?? s.title;
+-        switch (f.type) {
+-          case "text":
+-            return [{ label: f.label, name: k(""), type: "text" as const, group }];
+-          case "choice":
+-            return [{ label: f.label, name: k(""), type: "choice" as const, options: f.options, group }];
+-          case "ticks":
+-            return f.options.map((o) => ({ label: `${f.label}: ${o.label}`, name: k(`:${o.id}`), type: "check" as const, group }));
+-          case "grid":
+-            return f.rows.flatMap((r) => f.columns.map((cl) => ({ label: `${f.label} · ${r.label} · ${cl.label}`, name: k(`:${r.id}:${cl.id}`), type: cl.cell === "tick" ? ("check" as const) : ("text" as const), group })));
+-          case "gap":
+-            return f.rows.map((r) => ({ label: `${f.label} · ${r.label}`, name: k(`:${r.id}`), type: "choice" as const, options: [...gapOptions(f, scale)], group }));
+-        }
+-      }),
+-    ),
+-  }));
++  return c.sheets.map((s) => {
++    const group = s.label ?? s.title;
++    return { sheet: s, items: [...headerFields(s), ...s.sections.flatMap((x) => x.fields)].flatMap((f) => summaryItems(ws, s.id, f, group, scale)) };
++  });
++}
++
++// ── the form ──────────────────────────────────────────────────────────────
++
++/** A label as printed: in capitals (as the page prints a write-in's caption) small and spaced; otherwise bold. */
++const isCaps = (label: string) => label === label.toUpperCase() && /[A-Z]/.test(label) && !label.startsWith("**");
++const labHtml = (label: string | undefined, hint?: string, tag = "span") =>
++  label ? `<${tag} class="jp-cv-lab${isCaps(label) ? " jp-cv-caps" : ""}">${mdLite(label)}</${tag}>${hint ? `<small class="jp-cv-hint">${mdLite(hint)}</small>` : ""}` : hint ? `<small class="jp-cv-hint">${mdLite(hint)}</small>` : "";
++
++interface Draw {
++  ws: string;
++  scale: readonly { id: string; label: string }[] | undefined;
++  extra: (ref: string) => string;
++}
++
++function radio(name: string, value: string, label: string, aria?: string): string {
++  return `<label class="jp-cv-opt"><input type="radio" name="${e(name)}" value="${e(value)}" data-jv-store${aria ? ` aria-label="${e(aria)}"` : ""}><span>${mdLite(label)}</span></label>`;
++}
++function tick(name: string, label: string, aria?: string): string {
++  return `<label class="jp-cv-opt"><input type="checkbox" name="${e(name)}" data-jv-check${aria ? ` aria-label="${e(aria)}"` : ""}><span>${mdLite(label)}</span></label>`;
++}
++function line(d: Draw, name: string, ref: string, aria: string, cls = "jp-cv-line"): string {
++  return `<input type="text" class="jp-answer ${cls}" name="${e(name)}" data-jv-text${d.extra(ref)} aria-label="${e(aria)}">`;
++}
++
++function gridHtml(d: Draw, at: string, f: Grid): string {
++  const k = (ref: string) => canvasKey(d.ws, `${at}${ref}`);
++  const rowLabels = f.rowLabels !== false;
++  const span = f.columns.length + (rowLabels ? 1 : 0);
++  const head =
++    f.heads === false
++      ? ""
++      : `<thead><tr>${rowLabels ? `<th scope="col" class="jp-cv-rh">${e(f.rowHead ?? "")}</th>` : ""}${f.columns.map((c) => `<th scope="col" class="jp-cv-c-${c.cell ?? "text"}${c.width ? ` jp-cv-w-${c.width}` : ""}">${e(c.label)}</th>`).join("")}</tr></thead>`;
++  const body = f.rows
++    .map((r) => {
++      const rl = plainLite(r.label);
++      const cells = f.columns
++        .map((c) => {
++          const name = k(`:${r.id}:${c.id}`);
++          const ref = `${at}:${r.id}:${c.id}`;
++          const aria = `${rl}: ${c.label}`;
++          switch (c.cell) {
++            case "label":
++              return `<td class="jp-cv-c-label">${mdLite(r.values?.[c.id] ?? "")}</td>`;
++            case "tick":
++              return `<td class="jp-cv-c-tick"><input type="checkbox" name="${e(name)}" data-jv-check aria-label="${e(aria)}"></td>`;
++            case "choice":
++              return `<td class="jp-cv-c-choice"><div class="jp-cv-opts" role="radiogroup" aria-label="${e(aria)}">${rowOptions(c, r).map((o) => radio(name, o.id, o.label)).join("")}</div></td>`;
++            case "ticks":
++              return `<td class="jp-cv-c-ticks"><div class="jp-cv-opts">${(c.options ?? []).map((o) => tick(k(`:${r.id}:${c.id}:${o.id}`), o.label, `${aria}: ${o.label}`)).join("")}</div></td>`;
++            case "option":
++              return `<td class="jp-cv-c-option"><input type="radio" name="${e(k(`:${r.id}:${c.group ?? c.id}`))}" value="${e(c.id)}" data-jv-store aria-label="${e(aria)}"></td>`;
++            default:
++              return `<td class="jp-cv-c-text">${line(d, name, ref, aria, "jp-cv-cell")}</td>`;
++          }
++        })
++        .join("");
++      return `${groupsOf(r).map((g) => `<tr class="jp-cv-grp"><th colspan="${span}" scope="rowgroup">${mdLite(g)}</th></tr>`).join("")}<tr>${rowLabels ? `<th scope="row">${mdLite(r.label)}${r.hint ? `<small>${mdLite(r.hint)}</small>` : ""}</th>` : ""}${cells}</tr>`;
++    })
++    .join("");
++  return `<div class="jp-cv-field jp-cv-grid" data-jp-cv-field="${e(at)}">${labHtml(f.label, f.hint)}<div class="jp-cv-scroll"><table class="jp-cv-t${f.heads === false ? " jp-cv-t-nohead" : ""}">${head}<tbody>${body}</tbody></table></div></div>`;
+ }
+ 
+-function fieldHtml(ws: string, sheet: string, f: WorkshopCanvasField, scale: readonly { id: string; label: string }[] | undefined, extra: (ref: string) => string): string {
+-  const k = (ref: string) => canvasKey(ws, `${sheet}:${f.id}${ref}`);
+-  const head = `<div class="jp-cv-fh"><b>${e(f.label)}</b>${f.hint ? `<small>${e(f.hint)}</small>` : ""}</div>`;
+-  const radios = (name: string, opts: readonly { id: string; label: string }[], label: string) =>
+-    `<div class="jp-cv-opts" role="radiogroup" aria-label="${e(label)}">${opts.map((o) => `<label class="jp-cv-opt"><input type="radio" name="${e(name)}" value="${e(o.id)}" data-jv-store><span>${e(o.label)}</span></label>`).join("")}</div>`;
++function fieldHtml(d: Draw, sheet: string, f: WorkshopCanvasField): string {
++  const at = `${sheet}:${f.id}`;
++  const keys = keyAt(sheet, f);
++  const k = (ref: string) => canvasKey(d.ws, `${keys}${ref}`);
++  const label = fieldLabel(f);
+   switch (f.type) {
+     case "text":
+-      return `<div class="jp-cv-field jp-cv-text" data-jp-cv-field="${e(`${sheet}:${f.id}`)}"><label>${head}<textarea class="jp-answer jp-cv-in" name="${e(k(""))}" rows="${f.lines}" data-jv-text${extra(`${sheet}:${f.id}`)} aria-label="${e(f.label)}"></textarea></label></div>`;
++      if (f.inline) return `<label class="jp-cv-field jp-cv-text jp-cv-inline" data-jp-cv-field="${e(at)}">${labHtml(label)}${line(d, k(""), keys, plainLite(label))}${f.hint ? `<small class="jp-cv-hint">${mdLite(f.hint)}</small>` : ""}</label>`;
++      return `<label class="jp-cv-field jp-cv-text" data-jp-cv-field="${e(at)}">${labHtml(label, f.hint)}<textarea class="jp-answer jp-cv-in" name="${e(k(""))}" rows="${f.lines}" data-jv-text${d.extra(keys)} aria-label="${e(plainLite(label))}"></textarea></label>`;
+     case "choice":
+-      return `<div class="jp-cv-field jp-cv-choice" data-jp-cv-field="${e(`${sheet}:${f.id}`)}">${head}${radios(k(""), f.options, f.label)}</div>`;
++      return `<div class="jp-cv-field jp-cv-choice" data-jp-cv-field="${e(at)}">${labHtml(label, f.hint)}<div class="jp-cv-opts" role="radiogroup" aria-label="${e(plainLite(label))}">${f.options.map((o) => radio(k(""), o.id, o.label)).join("")}</div></div>`;
+     case "ticks":
+-      return `<div class="jp-cv-field jp-cv-ticks" data-jp-cv-field="${e(`${sheet}:${f.id}`)}">${head}<div class="jp-cv-opts">${f.options.map((o) => `<label class="jp-cv-opt"><input type="checkbox" name="${e(k(`:${o.id}`))}" data-jv-check><span>${e(o.label)}</span></label>`).join("")}</div></div>`;
++      return `<div class="jp-cv-field jp-cv-ticks" data-jp-cv-field="${e(at)}">${labHtml(label, f.hint)}<div class="jp-cv-opts">${f.options
++        .map((o) => (o.write ? `<span class="jp-cv-optw">${tick(k(`:${o.id}`), `${o.label}:`)}${line(d, k(`:${o.id}:text`), `${keys}:${o.id}:text`, `${plainLite(label)}: ${o.label}`, "jp-cv-line jp-cv-short")}</span>` : tick(k(`:${o.id}`), o.label)))
++        .join("")}</div></div>`;
+     case "grid":
+-      return `<div class="jp-cv-field jp-cv-grid" data-jp-cv-field="${e(`${sheet}:${f.id}`)}">${head}<div class="jp-cv-scroll"><table class="jp-cv-t"><thead><tr><th></th>${f.columns.map((c) => `<th scope="col">${e(c.label)}</th>`).join("")}</tr></thead><tbody>${f.rows
+-        .map(
+-          (r) =>
+-            `<tr><th scope="row">${e(r.label)}${r.hint ? `<small>${e(r.hint)}</small>` : ""}</th>${f.columns
+-              .map((c) => {
+-                const name = k(`:${r.id}:${c.id}`);
+-                const label = `${r.label}: ${c.label}`;
+-                return `<td>${c.cell === "tick" ? `<input type="checkbox" name="${e(name)}" data-jv-check aria-label="${e(label)}">` : `<textarea class="jp-answer jp-cv-in" name="${e(name)}" rows="1" data-jv-text${extra(`${sheet}:${f.id}:${r.id}:${c.id}`)} aria-label="${e(label)}"></textarea>`}</td>`;
+-              })
+-              .join("")}</tr>`,
+-        )
+-        .join("")}</tbody></table></div></div>`;
++      return gridHtml(d, at, f);
+     case "gap": {
+-      const opts = gapOptions(f, scale);
+-      return `<div class="jp-cv-field jp-cv-gap" data-jp-cv-field="${e(`${sheet}:${f.id}`)}">${head}<div class="jp-cv-scroll"><table class="jp-cv-t jp-cv-gapt"><thead><tr><th></th>${opts.map((o) => `<th scope="col">${e(o.label)}</th>`).join("")}</tr></thead><tbody>${f.rows
+-        .map((r) => {
+-          const name = k(`:${r.id}`);
+-          return `<tr><th scope="row">${e(r.label)}${r.hint ? `<small>${e(r.hint)}</small>` : ""}</th>${opts.map((o) => `<td><input type="radio" name="${e(name)}" value="${e(o.id)}" data-jv-store aria-label="${e(`${r.label}: ${o.label}`)}"></td>`).join("")}</tr>`;
+-        })
++      const opts = gapOptions(f, d.scale);
++      return `<div class="jp-cv-field jp-cv-gap" data-jp-cv-field="${e(at)}">${labHtml(label, f.hint)}<div class="jp-cv-scroll"><table class="jp-cv-t jp-cv-gapt"><thead><tr><th></th>${opts.map((o) => `<th scope="col">${e(o.label)}</th>`).join("")}</tr></thead><tbody>${f.rows
++        .map((r) => `<tr><th scope="row">${e(r.label)}${r.hint ? `<small>${e(r.hint)}</small>` : ""}</th>${opts.map((o) => `<td><input type="radio" name="${e(k(`:${r.id}`))}" value="${e(o.id)}" data-jv-store aria-label="${e(`${r.label}: ${o.label}`)}"></td>`).join("")}</tr>`)
+         .join("")}</tbody></table></div></div>`;
+     }
++    case "blanks": {
++      const parts = blankParts(f.text);
++      const aria = plainLite(label || f.text.replace(/___/g, "…"));
++      return `<p class="jp-cv-field jp-cv-blanks" data-jp-cv-field="${e(at)}">${labHtml(label)} ${parts.map((p, i) => `${mdLite(p)}${i < parts.length - 1 ? line(d, k(`:${i + 1}`), `${keys}:${i + 1}`, `${aria} (${i + 1})`, "jp-cv-line jp-cv-blank") : ""}`).join("")}${f.hint ? `<small class="jp-cv-hint">${mdLite(f.hint)}</small>` : ""}</p>`;
++    }
++    case "note": {
++      const tag = f.tone === "discuss" || f.tone === "rules" ? `<b class="jp-cv-tag-${f.tone}">${e(f.label ?? (f.tone === "discuss" ? "Discuss" : "Rules"))}</b> ` : f.label ? `${labHtml(f.label)} ` : "";
++      return `<p class="jp-cv-field jp-cv-note jp-cv-note-${f.tone ?? "plain"}">${tag}<span>${mdLite(f.text)}</span></p>`;
++    }
++    case "table":
++      return `<div class="jp-cv-field jp-cv-static">${labHtml(f.label)}<div class="jp-cv-scroll"><table class="jp-cv-t"><thead><tr>${f.heads.map((h) => `<th scope="col">${e(h)}</th>`).join("")}</tr></thead><tbody>${f.rows.map((r) => `<tr>${r.map((c, i) => (i === 0 ? `<th scope="row">${mdLite(c)}</th>` : `<td>${mdLite(c)}</td>`)).join("")}</tr>`).join("")}</tbody></table></div></div>`;
++    case "cards":
++      return cardsHtml(d, at, f);
+   }
+ }
+ 
++function cardsHtml(d: Draw, at: string, f: Extract<WorkshopCanvasField, { type: "cards" }>): string {
++  const inner = (c: (typeof f.items)[number]) => (c.fields ?? []).map((x) => fieldHtml(d, `${at}:${c.id}`, x)).join("");
++  const words = (c: (typeof f.items)[number]) => `${c.text ? `<p class="jp-cv-card-text">${mdLite(c.text)}</p>` : ""}${c.note ? `<p class="jp-cv-card-note">${mdLite(c.note)}</p>` : ""}`;
++  const title = (c: (typeof f.items)[number]) => `${c.badge ? `<span class="jp-cv-badge">${e(c.badge)}</span> ` : ""}<span${isCaps(c.title) ? ' class="jp-cv-caps"' : ""}>${mdLite(c.title)}</span>`;
++  const lead = (c: (typeof f.items)[number]) => (c.lead ? `<p class="jp-cv-card-lead">${mdLite(c.lead)}</p>` : "");
++  if (f.layout === "rows") {
++    const n = f.heads?.length ?? 2;
++    const row = (c: (typeof f.items)[number]) => {
++      const tone = c.tone ? ` class="jp-cv-tone-${c.tone}"` : "";
++      if (n >= 4) return `<tr><th scope="row" class="jp-cv-card-badge">${e(c.badge ?? "")}</th><td class="jp-cv-card-title">${mdLite(c.title)}</td><td>${words(c)}</td><td${tone}>${lead(c)}${inner(c)}</td></tr>`;
++      if (n === 3) return `<tr><th scope="row" class="jp-cv-card-title jp-cv-top">${title(c)}</th><td>${words(c)}</td><td${tone}>${lead(c)}${inner(c)}</td></tr>`;
++      return `<tr><th scope="row" class="jp-cv-card-title jp-cv-top">${title(c)}${words(c)}</th><td${tone}>${lead(c)}${inner(c)}</td></tr>`;
++    };
++    return `<div class="jp-cv-field jp-cv-cards jp-cv-cards-rows" data-jp-cv-field="${e(at)}">${labHtml(f.label, f.hint)}<div class="jp-cv-scroll"><table class="jp-cv-t jp-cv-ct">${f.heads ? `<thead><tr>${f.heads.map((h) => `<th scope="col">${e(h)}</th>`).join("")}</tr></thead>` : ""}<tbody>${f.items.map(row).join("")}</tbody></table></div></div>`;
++  }
++  const cards = f.items.map((c) => `<div class="jp-cv-card${c.tone ? ` jp-cv-tone-${c.tone}` : ""}" data-jp-cv-card="${e(c.id)}"><h5>${title(c)}</h5>${words(c)}${lead(c)}${inner(c)}</div>`);
++  return `<div class="jp-cv-field jp-cv-cards jp-cv-cards-cols${f.arrows ? " jp-cv-arrows" : ""}" data-jp-cv-field="${e(at)}" style="--cv-n:${f.items.length}">${labHtml(f.label, f.hint)}<div class="jp-cv-cardrow">${cards.join(f.arrows ? `<span class="jp-cv-arrow" aria-hidden="true">→</span>` : "")}</div></div>`;
++}
++
++function sectionHtml(d: Draw, s: WorkshopCanvasSheet, x: WorkshopCanvasSection, moduleLink: (id: string) => string): string {
++  const mods = x.module ?? s.modules ?? [];
++  const meta = [x.minutes ? `${x.minutes} min` : "", x.note ? mdLite(x.note) : ""].filter(Boolean).join(" · ");
++  const head = x.title
++    ? `<h4 class="jp-cv-st">${x.number ? `<span class="jp-cv-num">${e(x.number)}</span>` : ""}<span class="jp-cv-stt">${mdLite(x.title)}</span>${meta ? ` <span class="jp-cv-meta">${meta}</span>` : ""}${mods.length ? ` <span class="jp-cv-mods">${mods.map(moduleLink).join("")}</span>` : ""}</h4>`
++    : "";
++  const tags = `${x.discuss ? `<p class="jp-cv-tag"><b class="jp-cv-tag-discuss">Discuss</b> <span>${mdLite(x.discuss)}</span></p>` : ""}${x.rules ? `<p class="jp-cv-tag"><b class="jp-cv-tag-rules">Rules</b> <span>${mdLite(x.rules)}</span></p>` : ""}`;
++  const fields = x.fields.map((f) => fieldHtml(d, s.id, f));
++  const lay = x.layout ?? "stack";
++  const cls = `jp-cv-sec jp-cv-lay-${lay}${x.tone ? ` jp-cv-tone-${x.tone}` : ""}`;
++  const data = ` data-jp-cv-sec="${e(x.id)}" id="canvas-${e(s.id)}-${e(x.id)}"${mods.length ? ` data-jp-cv-modules="${e(mods.join(" "))}"` : ""}`;
++  if (lay === "aside") return `<section class="${cls}"${data}><div class="jp-cv-aside">${head}${tags}${fields[0] ?? ""}</div><div class="jp-cv-main">${fields.slice(1).join("")}</div></section>`;
++  if (lay === "columns") {
++    const split = x.split ?? x.fields.map(() => 1);
++    let i = 0;
++    const cols = split.map((n) => `<div class="jp-cv-col">${fields.slice(i, (i += n)).join("")}</div>`);
++    return `<section class="${cls}"${data} style="--cv-cols:${split.length}">${head}${tags}<div class="jp-cv-body">${cols.join("")}</div></section>`;
++  }
++  return `<section class="${cls}"${data}>${head}${tags}<div class="jp-cv-body">${fields.join("")}</div></section>`;
++}
++
+ /**
+  * The canvas sheets `ids` (all when absent) as the on-screen form: a card per
+- * sheet in the canvas's styling, its sections and fields, then its annex of
+- * journey questions, each with a link to its step. `was` names, per field
+- * ref, an earlier key its answer moves from (a journey question's own key,
+- * before it named the field). `stepLink` draws a step's chip.
++ * sheet laid out as its printed page, its sections and fields, then (unless
++ * the canvas has none) its annex of journey questions, each with a link to its
++ * step. `was` names, per field ref, an earlier key its answer moves from (a
++ * journey question's own key, before it named the field). `stepLink` draws a
++ * step's chip; `moduleLink` a module's.
+  */
+ export function canvasFormHtml(
+   ws: string,
+   c: WorkshopCanvas,
+   questions: readonly AnnexQuestion[],
+-  o: { ids?: readonly string[]; scale?: readonly { id: string; label: string }[]; was?: ReadonlyMap<string, string>; stepLink: (q: AnnexQuestion) => string; answerBox: (name: string, label: string) => string },
++  o: {
++    ids?: readonly string[];
++    scale?: readonly { id: string; label: string }[];
++    was?: ReadonlyMap<string, string>;
++    stepLink: (q: AnnexQuestion) => string;
++    answerBox: (name: string, label: string) => string;
++    moduleLink?: (id: string) => string;
++  },
+ ): string {
+   const sheets = c.sheets.filter((s) => !o.ids || o.ids.includes(s.id));
+-  const extra = (ref: string) => {
+-    const w = o.was?.get(ref);
+-    return w ? ` data-jv-was="${e(w)}"` : "";
++  const d: Draw = {
++    ws,
++    scale: o.scale,
++    extra: (ref: string) => {
++      const w = o.was?.get(ref);
++      return w ? ` data-jv-was="${e(w)}"` : "";
++    },
+   };
++  const moduleLink = o.moduleLink ?? ((id: string) => `<span class="jp-mod">${e(id)}</span>`);
+   return sheets
+     .map((s) => {
+-      const annex = annexOf(s, questions);
+-      return `<article class="jp-cv-sheet jp-cv-${(c.size ?? "A3").toLowerCase()}" id="canvas-${e(s.id)}" data-jp-cv-sheet="${e(s.id)}">
+-<header class="jp-cv-head"><span class="jp-cv-kick">${e(c.title)}${s.label ? ` · ${e(s.label)}` : ""}</span><h3>${e(s.title)}</h3>${s.intro ? `<p>${e(s.intro)}</p>` : ""}</header>
+-<div class="jp-cv-secs">${s.sections
+-        .map((x) => `<section class="jp-cv-sec" data-jp-cv-sec="${e(x.id)}">${x.title ? `<h4>${e(x.title)}</h4>` : ""}${x.fields.map((f) => fieldHtml(ws, s.id, f, o.scale, extra)).join("")}</section>`)
+-        .join("")}</div>
+-${annex.length ? `<section class="jp-cv-annex"><h4>Annex: the journey’s questions for this sheet</h4><ol>${annex.map((q) => `<li>${o.stepLink(q)}<div><span>${e(q.text)}</span>${o.answerBox(q.key, q.text)}</div></li>`).join("")}</ol></section>` : ""}
++      const annex = annexOf(s, questions, c);
++      const kicker = s.kicker ?? `${c.title}${s.label ? ` · ${s.label}` : ""}`;
++      const header = headerFields(s)
++        .map((f) => fieldHtml(d, s.id, f))
++        .join("");
++      const mast = c.masthead ? `<p class="jp-cv-mast"><b>${e(c.masthead.title)}</b>${c.masthead.subtitle ? `<span>${e(c.masthead.subtitle)}</span>` : ""}</p>` : "";
++      return `<article class="jp-cv-sheet jp-cv-${(c.size ?? "A3").toLowerCase()}" id="canvas-${e(s.id)}" data-jp-cv-sheet="${e(s.id)}"${s.modules?.length ? ` data-jp-cv-modules="${e(s.modules.join(" "))}"` : ""}>
++<header class="jp-cv-head"><div class="jp-cv-head-l"><span class="jp-cv-kick">${e(kicker)}</span><h3>${e(s.title)}</h3>${s.intro ? `<p>${mdLite(s.intro)}</p>` : ""}</div>${mast || header ? `<div class="jp-cv-head-r">${mast}${header ? `<div class="jp-cv-hdr">${header}</div>` : ""}</div>` : ""}</header>
++<div class="jp-cv-secs">${s.sections.map((x) => sectionHtml(d, s, x, moduleLink)).join("")}</div>
++${annex.length ? `<section class="jp-cv-annex"><h4>Annex: the journey’s questions for this sheet</h4><ol>${annex.map((q) => `<li>${o.stepLink(q)}<div><span>${e(q.text)}</span>${o.answerBox(q.key, q.text)}</div></li>`).join("")}</ol></section>` : ""}${s.footer ? `\n<footer class="jp-cv-foot">${mdLite(s.footer)}</footer>` : ""}
+ </article>`;
+     })
+     .join("\n");
+@@ -226,5 +529,10 @@ ${annex.length ? `<section class="jp-cv-annex"><h4>Annex: the journey’s questi
+ 
+ /** Every canvas key, for a check that two fields never share one. */
+ export function canvasKeys(ws: string, c: WorkshopCanvas): string[] {
+-  return c.sheets.flatMap((s) => s.sections.flatMap((x) => x.fields.flatMap((f) => canvasFieldRefs(s.id, f).map((r) => canvasKey(ws, r)))));
++  return c.sheets.flatMap((s) => [...headerFields(s), ...s.sections.flatMap((x) => x.fields)].flatMap((f) => canvasFieldRefs(s.id, f).map((r) => canvasKey(ws, r))));
++}
++
++/** The sections of the canvas worked in a module, sheet by sheet: a section's own modules, else its sheet's. */
++export function canvasPartsOf(c: WorkshopCanvas, module: string): { sheet: WorkshopCanvasSheet; section: WorkshopCanvasSection }[] {
++  return c.sheets.flatMap((s) => s.sections.filter((x) => (x.module ?? s.modules ?? []).includes(module)).map((section) => ({ sheet: s, section })));
+ }
+diff --git a/scripts/journeys/present-views.ts b/scripts/journeys/present-views.ts
+index 9eff9b89..651b4f62 100644
+--- a/scripts/journeys/present-views.ts
++++ b/scripts/journeys/present-views.ts
+@@ -32,7 +32,8 @@ import { DAK_ATTR } from "./dak-links.ts";
+ import { canvasDownloads, canvasFiles, canvasHtml, canvasOf, moduleSegment, personaOf, sheetsHtml, sourceHref, TOOL_ID, type ArchimateElementLink, type ArchitecturePanel, type PageFile, type PersonaView, type SiteLinks } from "./render.ts";
+ import { DEVICE_FORM, DEVICE_LABEL, renderDevice, stateSwitch, type DemoScreen, type ScreenContext } from "./screens.ts";
+ import { screenExamples } from "../../schemas/process/device-screen.ts";
+-import { canvasFormHtml, canvasModel, canvasSummaryItems, type AnnexQuestion } from "./canvas-form.ts";
++import { scheduleFor, scheduleGlanceHtml } from "./schedule.ts";
++import { annexOf, canvasFormHtml, canvasModel, canvasSummaryItems, type AnnexQuestion } from "./canvas-form.ts";
+ import { withRenderedBy } from "../viewer-declarations.ts";
+ import {
+   avatar,
+@@ -489,6 +490,7 @@ function canvasForm(p: Presentation, a: At, ids?: readonly string[]): string {
+     was: canvasWas(p),
+     stepLink: (q) => stepChip(a, p.steps.find((s) => s.key === q.stepKey), q.step),
+     answerBox: (name, label) => answerBox(name, label, 2),
++    moduleLink: (id) => `<a class="jp-mod" href="${e(`${a.toWorkshop}${moduleSegment(id)}/`)}" title="${e(ws.modules.find((m) => m.id === id)?.title ?? id)}">${e(id)}</a>`,
+   })}</div>`;
+ }
+ 
+@@ -501,11 +503,17 @@ function canvasPdf(p: Presentation, withModel = true): string {
+ }
+ 
+ /** The discussion's head: the gap report's script, the sheets' styles when it carries the Table sheets, and the canvas PDF writer when the workshop has a canvas. */
+-function discussHead(p: Presentation, a: At, gap: boolean): { head?: string } {
+-  const head = [gap ? `<script src="${a.root}assets/gap-report.js" defer></script>` : "", hasSheets(p) ? `<link rel="stylesheet" href="${a.root}assets/journeys.css">` : "", p.w.workshop.canvas ? `<script src="${a.root}assets/canvas-pdf.js" defer></script>` : ""].filter(Boolean).join("\n");
++function discussHead(p: Presentation, a: At, gap: boolean, glance = false): { head?: string } {
++  const head = [glance ? `<link rel="stylesheet" href="${a.root}assets/calendar.css">` : "", gap ? `<script src="${a.root}assets/gap-report.js" defer></script>` : "", hasSheets(p) ? `<link rel="stylesheet" href="${a.root}assets/journeys.css">` : "", p.w.workshop.canvas ? `<script src="${a.root}assets/canvas-pdf.js" defer></script>` : ""].filter(Boolean).join("\n");
+   return head ? { head } : {};
+ }
+ 
++/** The schedule at a glance, at the top of the discussion (owner, 2026-11-19), the full calendar on the workshop's page. */
++function discussGlance(corpus: JourneyCorpus, p: Presentation): string {
++  const sched = scheduleFor(corpus, p.w);
++  return sched ? scheduleGlanceHtml({ corpus, here: p.w, owner: sched.owner, schedule: sched.schedule, toWorkshops: "../../", level: 3, full: "../#the-days" }) : "";
++}
++
+ function discussPage(corpus: JourneyCorpus, p: Presentation, links: SiteLinks): string {
+   if (p.w.workshop.lab) return labPage(corpus, p, links, p.w.workshop.lab);
+   const a = at(1, links);
+@@ -542,7 +550,8 @@ function discussPage(corpus: JourneyCorpus, p: Presentation, links: SiteLinks):
+ <div data-jp-gapreport-body></div><p class="jp-small jp-gap-none" data-jp-gap-none>Nothing marked ${e(scales[0]!.options.slice(1).map((o) => o.label.toLowerCase()).join(" or "))} yet. Open a moment in the walkthrough and use its gap strip.</p></section>`
+     : "";
+   const takeaways = p.steps.filter((s) => s.step.policy);
+-  const body = `<section class="jp-dhero"><span class="jp-kicker">${icon("message")} Questions for the room</span><h2>${e(pr.closingQuestion ?? "Closing discussion")}</h2></section>
++  const glance = discussGlance(corpus, p);
++  const body = `${glance}<section class="jp-dhero"><span class="jp-kicker">${icon("message")} Questions for the room</span><h2>${e(pr.closingQuestion ?? "Closing discussion")}</h2></section>
+ ${cards ? `<div class="jp-dqs">${cards}</div>` : ""}
+ ${ws.promise ? `<section class="jp-promise"><b>The scope promise.</b> ${e(ws.promise)}</section>` : ""}
+ ${byModule ? `<section class="jp-card jp-pad"><h3 class="jp-h">${icon("message", "jp-indigo")} The journey’s questions, module by module</h3><div class="jp-dms">${byModule}</div></section>` : ""}
+@@ -551,7 +560,7 @@ ${ws.canvas ? `<section class="jp-card jp-pad jp-cv-wrap" id="canvas"><h3 class=
+ ${gap}
+ ${takeaways.length ? `<section class="jp-card jp-pad"><h3 class="jp-h">${icon("landmark", "jp-indigo")} Every moment’s policy takeaway</h3><ul class="jp-takes">${takeaways.map((s) => `<li>${stepChip(a, s, s.step.id)}<div><b>${e(s.step.title)}</b><p>${e(s.step.policy!)}</p></div></li>`).join("")}</ul></section>` : ""}
+ ${sheetsPanel(corpus, p)}`;
+-  return frame({ p, root: a.root, toWorkshop: a.toWorkshop, view: "discuss", title: `Discussion — ${presentationName(p)}`, ...note(p, "discuss"), ...discussHead(p, a, Boolean(gap)), prev: `${a.toWorkshop}walkthrough/${p.steps[p.steps.length - 1]!.key}/`, body, foot: drawerOf(corpus, p, a, p.steps, "Discussion") });
++  return frame({ p, root: a.root, toWorkshop: a.toWorkshop, view: "discuss", title: `Discussion — ${presentationName(p)}`, ...note(p, "discuss"), ...discussHead(p, a, Boolean(gap), Boolean(glance)), prev: `${a.toWorkshop}walkthrough/${p.steps[p.steps.length - 1]!.key}/`, body, foot: drawerOf(corpus, p, a, p.steps, "Discussion") });
+ }
+ 
+ // ── the discussion as a lab ──────────────────────────────────────────────
+@@ -690,7 +699,7 @@ function labPage(corpus: JourneyCorpus, p: Presentation, links: SiteLinks, lab:
+     if (st.canvas?.length && ws.canvas) {
+       for (const g of canvasSummaryItems(ws.id, ws.canvas, scales[0]?.options)) if (st.canvas.includes(g.sheet.id)) items.push(...g.items);
+       const qs = journeyQuestions(p);
+-      for (const sh of ws.canvas.sheets.filter((x) => st.canvas!.includes(x.id))) for (const q of qs.filter((x) => x.canvas === undefined && (sh.modules ?? []).includes(x.module))) items.push({ label: `${q.step} · ${q.text}`, name: q.key, type: "text" });
++      for (const sh of ws.canvas.sheets.filter((x) => st.canvas!.includes(x.id))) for (const q of annexOf(sh, qs, ws.canvas)) items.push({ label: `${q.step} · ${q.text}`, name: q.key, type: "text" });
+       out.push(canvasPdf(p, st.id === lab.steps.find((x) => x.canvas?.length)?.id), canvasForm(p, a, st.canvas));
+     }
+     if (st.matrix) out.push(matrixHtml(corpus, p, a, mod));
+@@ -770,12 +779,13 @@ ${next ? `<div class="jp-lab-nav jp-noprint"><a class="jp-btn-dark" href="#lab-$
+     .join("\n");
+   const aside = `<aside class="jp-card jp-lab-aside"><h4>Our use case</h4><p data-jp-usecase-show>${e(useCaseText.split("\n")[0] ?? "")}</p><div class="jp-lab-aside-ucs" data-jp-usecase-ticks></div>${ws.promise ? `<p class="jp-small"><b>The scope promise.</b> ${e(ws.promise)}</p>` : ""}</aside>`;
+   const credit = lab.credit ? `<p class="jp-lab-credit">${lab.creditHref ? `${e(lab.credit)} ${ext(lab.creditHref, lab.creditLabel ?? lab.name ?? "Source")}` : e(lab.credit)}</p>` : "";
+-  const body = `<section class="jp-dhero"><span class="jp-kicker">${icon("message")} ${e(lab.name ?? "Questions for the room")}</span><h2>${e(pr.closingQuestion ?? "Closing discussion")}</h2>${lab.intro ? `<p>${e(lab.intro)}</p>` : ""}</section>
++  const glance = discussGlance(corpus, p);
++  const body = `${glance}<section class="jp-dhero"><span class="jp-kicker">${icon("message")} ${e(lab.name ?? "Questions for the room")}</span><h2>${e(pr.closingQuestion ?? "Closing discussion")}</h2>${lab.intro ? `<p>${e(lab.intro)}</p>` : ""}</section>
+ <nav class="jp-lab-tabs" aria-label="Steps">${tabs}</nav>
+ <div class="jp-lab" data-jp-lab="${e(ws.id)}"><div class="jp-lab-steps">${sections}</div>${aside}</div>
+ ${lab.steps.some((st) => st.summary) ? "" : sheetsPanel(corpus, p)}
+ ${credit}`;
+-  return frame({ p, root: a.root, toWorkshop: a.toWorkshop, view: "discuss", title: `Discussion — ${presentationName(p)}`, ...note(p, "discuss"), ...discussHead(p, a, Boolean(model)), prev: `${a.toWorkshop}walkthrough/${p.steps[p.steps.length - 1]!.key}/`, body, foot: drawerOf(corpus, p, a, p.steps, "Discussion") });
++  return frame({ p, root: a.root, toWorkshop: a.toWorkshop, view: "discuss", title: `Discussion — ${presentationName(p)}`, ...note(p, "discuss"), ...discussHead(p, a, Boolean(model), Boolean(glance)), prev: `${a.toWorkshop}walkthrough/${p.steps[p.steps.length - 1]!.key}/`, body, foot: drawerOf(corpus, p, a, p.steps, "Discussion") });
+ }
+ 
+ // ── the module × journey matrix (JV-05) ───────────────────────────────────
+diff --git a/scripts/journeys/present.ts b/scripts/journeys/present.ts
+index a5e232e0..995e4827 100644
+--- a/scripts/journeys/present.ts
++++ b/scripts/journeys/present.ts
+@@ -35,7 +35,7 @@
+  */
+ import { escHtml } from "../thin-page.ts";
+ import { renderViewPages, VIEW_SEGMENTS } from "./present-views.ts";
+-import { scheduleFor, scheduleHtml } from "./schedule.ts";
++import { scheduleFor, scheduleGlanceHtml, scheduleHtml } from "./schedule.ts";
+ import { demoScreensOf, DEVICE_GLYPH, type DemoScreen, type DemoSource } from "./screens.ts";
+ import { NAVBAR_OPT_OUT } from "../viewer-page.ts";
+ import { withRenderedBy } from "../viewer-declarations.ts";
+@@ -792,7 +792,9 @@ ${pic}
+     : "";
+   const sched = scheduleFor(corpus, p.w);
+   const calendar = sched ? `<div class="jp-card jp-pad jp-cal-wrap">${scheduleHtml({ corpus, here: p.w, owner: sched.owner, schedule: sched.schedule, toWorkshops: "../../", level: 3, md: mdHtml })}</div>` : "";
+-  const body = `<section class="jp-hero">
++  // The schedule at a glance, first on the page (owner, 2026-11-19: "should be towards top"); the full calendar further down.
++  const glance = sched ? scheduleGlanceHtml({ corpus, here: p.w, owner: sched.owner, schedule: sched.schedule, toWorkshops: "../../", level: 3, full: "#the-days" }) : "";
++  const body = `${glance}<section class="jp-hero">
+ <div class="jp-hero-in">
+ <span class="jp-kicker">${icon("route")} The story in one sentence</span>
+ <h2>${e(pr.story ?? storyOf(ws.description))}</h2>
+@@ -816,7 +818,7 @@ ${countriesPanel(p)}`;
+     root,
+     toWorkshop,
+     view: "overview",
+-    ...(calendar ? { head: `<link rel="stylesheet" href="${root}assets/calendar.css">` } : {}),
++    ...(calendar || glance ? { head: `<link rel="stylesheet" href="${root}assets/calendar.css">` } : {}),
+     title: `${pr.name ?? ws.title} — overview`,
+     ...(pr.presenterNote ? { note: pr.presenterNote } : {}),
+     ...(first ? { next: walk(first) } : {}),
+diff --git a/scripts/journeys/render.ts b/scripts/journeys/render.ts
+index e6c9423a..4258a06b 100644
+--- a/scripts/journeys/render.ts
++++ b/scripts/journeys/render.ts
+@@ -58,7 +58,8 @@ import {
+ } from "./read.ts";
+ import { igProcessPage, PRESENT_SEGMENTS, presentationOf, renderPresentationPages } from "./present.ts";
+ import { PRESENT_ASSETS } from "./present-assets.ts";
+-import { scheduleFor, scheduleHtml, scheduleTitle } from "./schedule.ts";
++import { moduleSlots, scheduleFor, scheduleGlanceHtml, scheduleHtml, scheduleTitle } from "./schedule.ts";
++import { canvasPartsOf } from "./canvas-form.ts";
+ import { artifactPage, DAK_ATTR, dakGroups, igOf, linkedProcessDrawing, personaArtifact, type StepPageLinks } from "./dak-links.ts";
+ import { imageSize, type ImageSize } from "./image-size.ts";
+ 
+@@ -373,7 +374,7 @@ function page(o: { title: string; up: string; crumbs: Crumb[]; body: string; kin
+ <link rel="icon" href="${e(DEFAULT_ICON)}">
+ ${IG_BANNER_OPT_OUT}
+ ${NAVBAR_LINKED}
+-<link rel="stylesheet" href="${o.up}assets/journeys.css">${o.body.includes('class="jv-cal"') ? `\n<link rel="stylesheet" href="${o.up}assets/calendar.css">` : ""}
++<link rel="stylesheet" href="${o.up}assets/journeys.css">${o.body.includes('class="jv-cal"') || o.body.includes('class="jv-glance"') ? `\n<link rel="stylesheet" href="${o.up}assets/calendar.css">` : ""}
+ <script src="${o.up}assets/journeys.js" defer></script>
+ ${panelHead(o.body, `${o.up}assets/`)}
+ </head>
+@@ -914,11 +915,13 @@ function workshopPage(corpus: JourneyCorpus, w: WorkshopEntry): string {
+   const scenarios = ws.scenarios.map((id) => journeyById(corpus, w.instance, id));
+   const sched = scheduleFor(corpus, w);
+   const calendar = sched ? scheduleHtml({ corpus, here: w, owner: sched.owner, schedule: sched.schedule, toWorkshops: "../", md: mdHtml }) : "";
++  // The schedule at a glance, under the title (owner, 2026-11-19), the full calendar further down.
++  const glance = sched ? scheduleGlanceHtml({ corpus, here: w, owner: sched.owner, schedule: sched.schedule, toWorkshops: "../", full: "#the-days" }) : "";
+   const body = `<header class="jv-hero">
+ <p class="jv-kicker">Workshop · ${e(instanceTitle(corpus, w.instance))}</p>
+ <h1>${e(ws.title)}</h1>
+ <div class="jv-lede">${mdHtml(ws.description)}</div>
+-${ws.audience ? `<p><b>For:</b> ${e(ws.audience)}</p>` : ""}
++${glance}${ws.audience ? `<p><b>For:</b> ${e(ws.audience)}</p>` : ""}
+ ${ws.promise ? `<p class="jv-promise">${e(ws.promise)}</p>` : ""}
+ ${ws.useCaseStatement ? `<p class="jv-usecase">${e(ws.useCaseStatement)}</p>` : ""}
+ <p><a class="jv-btn" href="overview/">Present it: overview and walkthrough</a>${calendar ? ` <a class="jv-btn" href="#the-days">${e(scheduleTitle(sched!.schedule))}</a>` : ""}${ws.sheetsSource ? ` <a class="jv-btn" href="${sheetsAt(corpus, w)}">${e(ws.sheetsSource.title ?? "Table canvas")}</a>` : ws.sheets?.length ? ` <a class="jv-btn" href="${sheetsAt(corpus, w)}">Printable sheets (${ws.sheets.length})</a>` : ""}</p>
+@@ -958,16 +961,35 @@ function modulePage(corpus: JourneyCorpus, w: WorkshopEntry, moduleId: string):
+   const resources = (ws.resources ?? []).filter((r) => (r.modules ?? []).includes(m.id));
+   const disc = (ws.discussion ?? []).filter((d) => d.module === m.id);
+   const sheet = ws.sheets?.find((s) => s.id === m.sheet);
++  // When the module is taught, from the schedule, and the parts of the canvas worked in it (owner, 2026-11-19).
++  const sched = scheduleFor(corpus, w);
++  const slots = sched ? moduleSlots({ corpus, here: w, owner: sched.owner, schedule: sched.schedule, toWorkshops: "../../" }, m.id) : [];
++  const when = slots.length
++    ? `<p class="jv-when"><b>When:</b> ${slots.map((x) => `Day ${x.day} · <time>${e(x.slot.start)}</time>–<time>${e(x.slot.end)}</time> · ${e(x.where)}`).join("; ")} · <a href="../#the-days-glance">${e(scheduleTitle(sched!.schedule))}</a></p>`
++    : "";
++  const parts = ws.canvas ? canvasPartsOf(ws.canvas, m.id).filter((x) => x.section.title) : [];
++  const partsAt = (anchor: string) => (presentationOf(corpus, w).steps.length && ws.lab ? `../discuss/#${e(anchor)}` : undefined);
++  const partsHtml = parts.length
++    ? `<section class="jv-canvas-parts"><h2>${e(ws.canvas!.title)}: the parts worked in ${e(m.id)}</h2><ul>${parts
++        .map(({ sheet: sh, section: x }) => {
++          const label = `${sh.label ?? sh.title} · ${x.number ? `${x.number} ` : ""}${x.title!.replace(/\*/g, "")}${x.minutes ? ` (${x.minutes} min)` : ""}`;
++          const href = partsAt(`canvas-${sh.id}-${x.id}`);
++          return `<li>${href ? `<a href="${href}">${e(label)}</a>` : e(label)}</li>`;
++        })
++        .join("")}</ul></section>`
++    : "";
+   const prev = ws.modules[i - 1];
+   const next = ws.modules[i + 1];
+   const body = `<header class="jv-hero">
+ <p class="jv-kicker">Module ${e(m.id)}${m.day ? ` · day ${m.day}` : ""}${m.durationMinutes ? ` · ${m.durationMinutes} min` : ""} · <a href="../">${e(ws.title)}</a></p>
+ <h1>${e(m.title)}</h1>
++${when}
+ ${m.carries ? `<p class="jv-carries">${e(m.carries)}</p>` : ""}
+ ${m.description ? `<div class="jv-lede">${mdHtml(m.description)}</div>` : ""}
+ ${m.objectives?.length ? `<h2>By the end, a participant can</h2><ul class="jv-objectives">${m.objectives.map((o) => `<li>${e(o)}</li>`).join("")}</ul>` : ""}
+ ${sheet ? `<p><a class="jv-btn" href="../${sheetsAt(corpus, w, `sheet-${sheet.id}`)}">${e(sheet.label ?? sheet.title)}: ${e(sheet.title)} (${e(sheet.size)})</a></p>` : ""}
+ </header>
++${partsHtml}
+ <section><h2>The questions, along the journey</h2>${qs.length ? `<ol class="jv-modqs">${qs.map((q) => `<li>${stepLink(q, up)}<div><span class="jv-muted">${e(q.ref?.step.title ?? "")}</span><p>${e(q.text)}</p></div></li>`).join("")}</ol>` : `<p class="jv-muted">No step asks a question in this module.</p>`}</section>
+ ${tables.length ? `<section><h2>Tables</h2>${tables.map((t) => tableHtml(t)).join("\n")}</section>` : ""}
+ ${disc.length ? `<section><h2>Discussion</h2><ol class="jv-disc">${disc.map((d) => discussionItem(corpus, w, d, up, "../")).join("")}</ol></section>` : ""}
+diff --git a/scripts/journeys/schedule.ts b/scripts/journeys/schedule.ts
+index 5f195327..de694917 100644
+--- a/scripts/journeys/schedule.ts
++++ b/scripts/journeys/schedule.ts
+@@ -179,3 +179,79 @@ ${sc.intro ? `<div class="jv-cal-intro">${d.md ? d.md(sc.intro) : `<p>${e(sc.int
+ </section>
+ `;
+ }
++
++/** A slot of the schedule this workshop's people sit in: their own track's sessions, and what every track shares. */
++export interface GlanceSlot {
++  day: number;
++  slot: WorkshopScheduleSlot;
++  /** The track's label for a session; the kind's for the rest. */
++  where: string;
++  href?: string;
++}
++
++/** The slots of the days that concern the workshop the page is about, day by day, in time order. */
++export function glanceSlots(d: ScheduleDraw): { day: number; title: string; slots: GlanceSlot[] }[] {
++  const sc = d.schedule;
++  const mine = new Set(sc.tracks.filter((t) => (t.workshop ?? d.owner.workshop.id) === d.here.workshop.id).map((t) => t.id));
++  return sc.days.map((day) => ({
++    day: day.day,
++    title: day.title ?? `Day ${day.day}`,
++    slots: day.slots
++      .filter((x) => x.kind !== "session" || (x.track !== undefined && mine.has(x.track)))
++      .slice()
++      .sort((a, b) => a.start.localeCompare(b.start) || a.end.localeCompare(b.end))
++      .map((x) => {
++        const t = x.track === undefined ? undefined : sc.tracks.find((y) => y.id === x.track);
++        const href = x.module ? moduleHref(d, t?.workshop ?? d.owner.workshop.id, x.module) : undefined;
++        return { day: day.day, slot: x, where: t ? t.label : KIND_LABEL[x.kind], ...(href ? { href } : {}) };
++      }),
++  }));
++}
++
++/** The slots of a module, wherever the schedule places it. */
++export function moduleSlots(d: ScheduleDraw, module: string): GlanceSlot[] {
++  return glanceSlots(d).flatMap((x) => x.slots.filter((s) => s.slot.module === module));
++}
++
++/**
++ * The schedule at a glance, for the top of a page (owner, 2026-11-19: "how do
++ * presenters and participants see schedule? should be towards top"): a tab per
++ * day, the day's sessions of this workshop's track and the shared slots, one
++ * line each (time, module, title, track), and, by this device's clock, the
++ * session on now and the next one marked and named above the list. The full
++ * calendar is linked (`full`). The day shown is the one picked last on this
++ * device, Day 1 until then; the schedule names no dates, so the clock is read
++ * as a time of day only.
++ */
++export function scheduleGlanceHtml(d: ScheduleDraw & { full?: string }): string {
++  const days = glanceSlots(d).filter((x) => x.slots.length);
++  if (!days.length) return "";
++  const id = `${d.id ?? "the-days"}-glance`;
++  const h = d.level ?? 2;
++  const tabs =
++    days.length > 1
++      ? `<div class="jv-glance-tabs" role="group" aria-label="Day">${days.map((x, i) => `<button type="button" class="jv-glance-tab" data-jv-glance-day="${x.day}" aria-pressed="${i === 0 ? "true" : "false"}">${e(x.title)}</button>`).join("")}</div>`
++      : "";
++  const lists = days
++    .map(
++      (x, i) =>
++        `<ol class="jv-glance-day" data-jv-glance-list="${x.day}"${i === 0 ? "" : " hidden"}>${x.slots
++          .map((s) => {
++            const code = s.slot.module ? (s.href ? `<a class="jv-cal-code" href="${e(s.href)}">${e(s.slot.module)}</a> ` : `<span class="jv-cal-code">${e(s.slot.module)}</span> `) : "";
++            return `<li class="jv-glance-slot jv-cal-${s.slot.kind}" data-jv-start="${e(s.slot.start)}" data-jv-end="${e(s.slot.end)}"><span class="jv-glance-time"><time>${e(s.slot.start)}</time>–<time>${e(s.slot.end)}</time></span><span class="jv-glance-what">${code}${e(s.slot.title)}</span><span class="jv-glance-where">${e(s.where)}</span><span class="jv-glance-flag" data-jv-glance-flag></span></li>`;
++          })
++          .join("")}</ol>`,
++    )
++    .join("");
++  const ws = d.here.workshop.id;
++  return `<section class="jv-glance" id="${e(id)}" data-jv-glance="${e(ws)}" aria-labelledby="${e(id)}-h">
++<div class="jv-glance-head"><h${h} id="${e(id)}-h">Schedule</h${h}>${tabs}${d.full ? `<a class="jv-glance-full" href="${e(d.full)}">${e(scheduleTitle(d.schedule))}: full timetable</a>` : ""}</div>
++<p class="jv-glance-now" data-jv-glance-now hidden></p>
++${lists}
++<script>${GLANCE_JS}</script>
++</section>
++`;
++}
++
++/** The glance's day tabs and its now / next marks; the words go through the page's translation table when it has one. */
++const GLANCE_JS = `(function(s){var b=document.currentScript.parentNode,k="jv:glance:"+b.getAttribute("data-jv-glance"),T={};try{var n=document.getElementById("jv-i18n");if(n)T=JSON.parse(n.textContent)}catch(x){}function t(w){return T[w]||w}function d2(n){return(n<10?"0":"")+n}function show(day){[].forEach.call(b.querySelectorAll("[data-jv-glance-list]"),function(l){l.hidden=l.getAttribute("data-jv-glance-list")!==day});[].forEach.call(b.querySelectorAll("[data-jv-glance-day]"),function(x){x.setAttribute("aria-pressed",String(x.getAttribute("data-jv-glance-day")===day))});try{s.setItem(k,day)}catch(x){}mark()}function mark(){var l=b.querySelector("[data-jv-glance-list]:not([hidden])"),out=b.querySelector("[data-jv-glance-now]");if(!l)return;var d=new Date(),now=d2(d.getHours())+":"+d2(d.getMinutes()),on=null,nx=null;[].forEach.call(l.children,function(li){li.classList.remove("is-now","is-next");li.querySelector("[data-jv-glance-flag]").textContent="";var a=li.getAttribute("data-jv-start"),e=li.getAttribute("data-jv-end");if(!on&&a<=now&&now<e)on=li;else if(!nx&&a>now)nx=li});function put(li,w,c){li.classList.add(c);li.querySelector("[data-jv-glance-flag]").textContent=t(w)}if(on)put(on,"Now","is-now");if(nx)put(nx,"Next","is-next");var x=on||nx;if(out){out.hidden=!x;if(x)out.textContent=t(on?"Now":"Next")+": "+x.querySelector(".jv-glance-time").textContent+" · "+x.querySelector(".jv-glance-what").textContent+" · "+x.querySelector(".jv-glance-where").textContent}}[].forEach.call(b.querySelectorAll("[data-jv-glance-day]"),function(x){x.addEventListener("click",function(){show(x.getAttribute("data-jv-glance-day"))})});var p=null;try{p=s.getItem(k)}catch(x){}if(p&&b.querySelector('[data-jv-glance-list="'+p+'"]'))show(p);else mark();setInterval(mark,60000)})(function(){try{return window.localStorage}catch(x){return null}}())`;
+diff --git a/scripts/tests/journeys-canvas-layout.test.ts b/scripts/tests/journeys-canvas-layout.test.ts
+new file mode 100644
+index 00000000..1cb4d025
+--- /dev/null
++++ b/scripts/tests/journeys-canvas-layout.test.ts
+@@ -0,0 +1,212 @@
++/**
++ * The canvas laid out as its printed pages (owner, 2026-11-19: "look exactly
++ * like source PDF … position with M1 M2 as appropriate … no additional
++ * questions"), and the schedule at a glance near the top of a page ("how do
++ * presenters and participants see schedule? should be towards top").
++ *
++ * @module scripts/tests/journeys-canvas-layout
++ */
++import { describe, expect, test } from "bun:test";
++import { createRequire } from "node:module";
++
++import { annexOf, canvasFormHtml, canvasKeys, canvasModel, canvasPartsOf, canvasSummaryItems, mdLite, type AnnexQuestion } from "../journeys/canvas-form.ts";
++import { glanceSlots, moduleSlots, scheduleGlanceHtml } from "../journeys/schedule.ts";
++import type { JourneyCorpus, WorkshopEntry } from "../journeys/read.ts";
++import { WorkshopCanvasSchema, WorkshopSchema, type Workshop, type WorkshopCanvas } from "../../schemas/process/workshop.ts";
++
++const lib = createRequire(import.meta.url)("../journeys/assets/canvas-pdf.js") as { build: (model: unknown, get: (k: string) => string | null) => Uint8Array };
++
++const canvas: WorkshopCanvas = WorkshopCanvasSchema.parse({
++  title: "Country Canvas",
++  masthead: { title: "A workshop", subtitle: "Day 1 and Day 2" },
++  annex: false,
++  sheets: [
++    { id: "cover", title: "Country Canvas", sections: [{ id: "t", fields: [{ id: "country", type: "text", label: "COUNTRY", lines: 1 }] }] },
++    {
++      id: "s1",
++      label: "Sheet 1",
++      kicker: "Day 1 · Module 1 · Sheet 1 of 2",
++      title: "Our Journey",
++      intro: "How it works **today**.",
++      header: [{ id: "country", label: "Country", same: "cover:country" }],
++      footer: "Based on the fixture.",
++      modules: ["M1", "M2"],
++      sections: [
++        { id: "use", number: "1", title: "Our use case", minutes: 8, module: ["M1"], fields: [{ id: "use", type: "blanks", text: "A child vaccinated in ___ should be able to ___." }, { id: "d", type: "note", tone: "discuss", text: "Agree one sentence." }] },
++        {
++          id: "journey",
++          number: "2",
++          title: "The journey",
++          minutes: 25,
++          note: "write, then circle one rating",
++          module: ["M2"],
++          fields: [
++            {
++              id: "tp",
++              type: "cards",
++              items: [
++                { id: "t1", badge: "1", title: "Vaccinated", text: "A child is vaccinated.", note: "Must be true: …", fields: [{ id: "today", type: "text", label: "IN OUR COUNTRY TODAY", lines: 3 }, { id: "rating", type: "choice", options: [{ id: "works", label: "Works" }, { id: "breaks", label: "Breaks" }] }] },
++                { id: "t2", badge: "2", title: "Found", fields: [{ id: "rating", type: "choice", options: [{ id: "works", label: "Works" }, { id: "breaks", label: "Breaks" }] }] },
++              ],
++            },
++          ],
++        },
++        {
++          id: "map",
++          layout: "columns",
++          split: [1, 1],
++          fields: [
++            {
++              id: "blocks",
++              type: "grid",
++              rowLabels: false,
++              rows: [
++                { id: "a", label: "Provider systems", group: ["APPLICATIONS", "Group: CLINIC"], values: { block: "**Provider systems**" } },
++                { id: "b", label: "Registry", values: { block: "**Registry**" }, options: [{ id: "y", label: "Y" }, { id: "n", label: "N" }] },
++              ],
++              columns: [
++                { id: "block", label: "Block", cell: "label" },
++                { id: "system", label: "System we use today" },
++                { id: "epa", label: "E / P / A", cell: "choice", options: [{ id: "e", label: "E" }, { id: "p", label: "P" }, { id: "a", label: "A" }] },
++                { id: "basis", label: "Formal basis", cell: "ticks", options: [{ id: "law", label: "Law" }, { id: "none", label: "None" }] },
++                { id: "now", label: "Blocks us now", cell: "option", group: "urgency" },
++                { id: "wait", label: "Can wait", cell: "option", group: "urgency" },
++              ],
++            },
++            { id: "std", type: "ticks", label: "**STANDARDS**", options: [{ id: "fhir", label: "HL7 FHIR" }, { id: "other", label: "Other", write: true }] },
++          ],
++        },
++      ],
++    },
++    {
++      id: "s2",
++      label: "Sheet 2",
++      title: "First move",
++      modules: ["M2"],
++      sections: [{ id: "who", layout: "row", fields: [{ id: "use", type: "blanks", label: "OUR USE CASE · FROM SHEET 1", text: "A child vaccinated in ___ should be able to ___.", same: "s1:use" }] }],
++    },
++  ],
++});
++
++describe("the canvas as its printed pages", () => {
++  const html = canvasFormHtml("ws", canvas, [], { stepLink: () => "", answerBox: () => "", moduleLink: (id) => `<a class="jp-mod">${id}</a>` });
++
++  test("a sheet: its band, title, intro, masthead, header write-ins sharing the cover's key, and footer", () => {
++    expect(html).toContain('<span class="jp-cv-kick">Day 1 · Module 1 · Sheet 1 of 2</span><h3>Our Journey</h3><p>How it works <b>today</b>.</p>');
++    expect(html).toContain('<p class="jp-cv-mast"><b>A workshop</b><span>Day 1 and Day 2</span></p>');
++    expect(html.match(/name="ws:cv:cover:country"/g)?.length).toBe(2);
++    expect(html).toContain('<footer class="jp-cv-foot">Based on the fixture.</footer>');
++  });
++
++  test("a section: its number, minutes and note, and the module it is worked in, linked", () => {
++    expect(html).toContain('<span class="jp-cv-num">2</span><span class="jp-cv-stt">The journey</span> <span class="jp-cv-meta">25 min · write, then circle one rating</span> <span class="jp-cv-mods"><a class="jp-mod">M2</a></span>');
++    expect(html).toContain('data-jp-cv-sec="use" id="canvas-s1-use" data-jp-cv-modules="M1"');
++    expect(canvasPartsOf(canvas, "M1").map((x) => x.section.id)).toEqual(["use", "map"]);
++    expect(canvasPartsOf(canvas, "M2").map((x) => `${x.sheet.id}:${x.section.id}`)).toEqual(["s1:journey", "s1:map", "s2:who"]);
++  });
++
++  test("blanks, cards with their own fields, a grid's printed, choice, ticks and option cells, group rows", () => {
++    expect(html).toContain('name="ws:cv:s1:use:1"');
++    expect(html).toContain('name="ws:cv:s1:use:2"');
++    // A field showing another's blanks keeps no keys of its own.
++    expect(html).not.toContain('name="ws:cv:s2:use:1"');
++    expect(html.match(/name="ws:cv:s1:use:1"/g)?.length).toBe(2);
++    expect(html).toContain('<textarea class="jp-answer jp-cv-in" name="ws:cv:s1:tp:t1:today" rows="3"');
++    expect(html).toContain('name="ws:cv:s1:tp:t2:rating" value="breaks"');
++    expect(html).toContain('<tr class="jp-cv-grp"><th colspan="6" scope="rowgroup">APPLICATIONS</th></tr><tr class="jp-cv-grp"><th colspan="6" scope="rowgroup">Group: CLINIC</th></tr>');
++    expect(html).toContain('<td class="jp-cv-c-label"><b>Provider systems</b></td>');
++    expect(html).toContain('name="ws:cv:s1:blocks:a:epa" value="p"');
++    expect(html).toContain('name="ws:cv:s1:blocks:b:epa" value="n"');
++    expect(html).toContain('name="ws:cv:s1:blocks:a:basis:law"');
++    expect(html).toContain('<input type="radio" name="ws:cv:s1:blocks:a:urgency" value="wait"');
++    expect(html).toContain('name="ws:cv:s1:std:other:text"');
++    expect(html).toContain('<span class="jp-cv-lab"><b>STANDARDS</b></span>');
++    expect(html).toContain('<span class="jp-cv-lab jp-cv-caps">IN OUR COUNTRY TODAY</span>');
++  });
++
++  test("every key once; the summary and the PDF's model name the same keys", () => {
++    const keys = canvasKeys("ws", canvas);
++    expect(new Set(keys).size).toBe(keys.length);
++    expect(keys).toEqual(expect.arrayContaining(["ws:cv:s1:tp:t1:today", "ws:cv:s1:blocks:a:urgency", "ws:cv:s1:std:other:text", "ws:cv:s1:use:2"]));
++    const summary = canvasSummaryItems("ws", canvas).flatMap((x) => x.items.map((i) => i.name));
++    expect(new Set(summary)).toEqual(new Set(keys));
++    const model = canvasModel("ws", canvas, []);
++    const modelKeys = new Set(JSON.stringify(model).match(/"key":"ws:cv:[^"]+"/g)!.map((k) => k.slice(7, -1)));
++    expect(modelKeys).toEqual(new Set(keys));
++    // The writer draws printed words, heading rows, headings alone and write-ins among ticks.
++    const pdf = new TextDecoder("latin1").decode(lib.build(model, (k) => (k === "ws:cv:s1:blocks:a:urgency" ? "wait" : null)));
++    expect(pdf.startsWith("%PDF-")).toBe(true);
++    expect(pdf).toContain("(Group: CLINIC) Tj");
++    expect(pdf).toContain("(Provider systems) Tj");
++  });
++
++  test("no annex when the canvas says so: nothing but the sheet's own fields", () => {
++    const q: AnnexQuestion[] = [{ step: "J1", stepKey: "J1", module: "M1", text: "An extra question?", key: "ws:q:1" }];
++    expect(annexOf(canvas.sheets[1]!, q, canvas)).toEqual([]);
++    expect(annexOf(canvas.sheets[1]!, q, { ...canvas, annex: undefined })).toHaveLength(1);
++    expect(canvasFormHtml("ws", canvas, q, { stepLink: () => "", answerBox: () => "" })).not.toContain("An extra question?");
++  });
++
++  test("Markdown-light: bold, italics and line breaks, nothing else", () => {
++    expect(mdLite("**Narrow**: one *population*\n<b>x</b>")).toBe("<b>Narrow</b>: one <i>population</i><br>&lt;b&gt;x&lt;/b&gt;");
++  });
++
++  test("the schema refuses a split that does not add up, a lone option column, and a same that names nothing", () => {
++    const base = { $schema: "workshop/0.1.0", id: "w", title: "W", description: "D", scenarios: ["j1"], modules: [{ id: "M1", title: "One" }, { id: "M2", title: "Two" }] };
++    const ok = (c: unknown) => WorkshopSchema.safeParse({ ...base, canvas: c }).success;
++    expect(ok(canvas)).toBe(true);
++    const s1 = canvas.sheets[1]!;
++    const withSection = (i: number, x: object) => ({ ...canvas, sheets: canvas.sheets.map((s) => (s.id === "s1" ? { ...s1, sections: s1.sections.map((y, j) => (j === i ? { ...y, ...x } : y)) } : s)) });
++    expect(ok(withSection(2, { split: [2, 1] }))).toBe(false);
++    expect(ok({ ...canvas, sheets: canvas.sheets.map((s) => (s.id === "s2" ? { ...s, sections: [{ id: "who", fields: [{ id: "use", type: "blanks", text: "___", same: "s1:nothing" }] }] } : s)) })).toBe(false);
++    const lone = { ...canvas, sheets: [{ id: "x", title: "X", sections: [{ id: "x", fields: [{ id: "g", type: "grid", rows: [{ id: "r", label: "R" }], columns: [{ id: "a", label: "A", cell: "option", group: "g" }] }] }] }] };
++    expect(ok(lone)).toBe(false);
++  });
++});
++
++describe("the schedule at a glance", () => {
++  const policy = { $schema: "workshop/0.1.0", id: "policy", title: "Policy", description: "D", scenarios: [], modules: [{ id: "M1", title: "From journey to capabilities" }] } as unknown as Workshop;
++  const tech = {
++    ...policy,
++    id: "tech",
++    title: "Tech",
++    modules: [{ id: "T1", title: "Stack" }],
++    schedule: {
++      tracks: [{ id: "policy", label: "Policy track", workshop: "policy" }, { id: "technical", label: "Technical track" }],
++      days: [
++        {
++          day: 1,
++          slots: [
++            { start: "09:00", end: "10:30", kind: "joint", title: "Welcome" },
++            { start: "11:00", end: "12:30", kind: "session", track: "policy", module: "M1", title: "From journey to capabilities" },
++            { start: "11:00", end: "12:30", kind: "session", track: "technical", module: "T1", title: "Stack" },
++            { start: "10:30", end: "11:00", kind: "break", title: "Coffee" },
++          ],
++        },
++        { day: 2, slots: [{ start: "09:00", end: "10:00", kind: "joint", title: "Recap" }] },
++      ],
++    },
++  } as unknown as Workshop;
++  const entry = (w: Workshop): WorkshopEntry => ({ instance: "top", file: `${w.id}.workshop.json`, dir: "/x", workshop: w });
++  const here = entry(policy);
++  const owner = entry(tech);
++  const corpus = { workshops: [here, owner] } as unknown as JourneyCorpus;
++  const d = { corpus, here, owner, schedule: tech.schedule!, toWorkshops: "../" };
++
++  test("a day's slots of this workshop's own track and the shared ones, in time order; not the other track's", () => {
++    const days = glanceSlots(d);
++    expect(days[0]!.slots.map((s) => s.slot.title)).toEqual(["Welcome", "Coffee", "From journey to capabilities"]);
++    expect(days[0]!.slots[2]).toMatchObject({ where: "Policy track", href: "../policy/m1/" });
++    expect(moduleSlots(d, "M1").map((s) => `${s.day} ${s.slot.start}`)).toEqual(["1 11:00"]);
++  });
++
++  test("a tab per day, the first shown, the rest hidden, a line per slot with its time, module, title and track; the full timetable linked", () => {
++    const html = scheduleGlanceHtml({ ...d, full: "#the-days" });
++    expect(html).toContain('<button type="button" class="jv-glance-tab" data-jv-glance-day="1" aria-pressed="true">Day 1</button>');
++    expect(html).toContain('<ol class="jv-glance-day" data-jv-glance-list="2" hidden>');
++    expect(html).toContain('<li class="jv-glance-slot jv-cal-session" data-jv-start="11:00" data-jv-end="12:30"><span class="jv-glance-time"><time>11:00</time>–<time>12:30</time></span><span class="jv-glance-what"><a class="jv-cal-code" href="../policy/m1/">M1</a> From journey to capabilities</span><span class="jv-glance-where">Policy track</span>');
++    expect(html).not.toContain("Stack");
++    expect(html).toContain('<a class="jv-glance-full" href="#the-days">The two days: full timetable</a>');
++    expect(html).toContain("data-jv-glance-now hidden");
++  });
++});
+diff --git a/scripts/tests/journeys-viz.test.ts b/scripts/tests/journeys-viz.test.ts
+index 7bd17ff5..c0d3a485 100644
+--- a/scripts/tests/journeys-viz.test.ts
++++ b/scripts/tests/journeys-viz.test.ts
+@@ -934,7 +934,7 @@ describe("the presentation views: map, persona lens, how it works, discussion, s
+     expect(discuss).toContain('<input type="radio" name="policy:cv:s1:gap:viewer" value="no" data-jv-store');
+     // The journey question that is a canvas cell keeps its answer there, on the walkthrough too, moving it from its own key and its older one.
+     const was = `data-jv-was="${Q_TRUST} policy:q:P2:0"`;
+-    expect(discuss).toContain(`name="policy:cv:s1:rights:anchor:today" rows="1" data-jv-text ${was}`);
++    expect(discuss).toContain(`name="policy:cv:s1:rights:anchor:today" data-jv-text ${was}`);
+     expect(page("walkthrough/P2/index.html")).toContain(`name="policy:cv:s1:rights:anchor:today" rows="2" data-jv-text ${was}`);
+     expect(page("walkthrough/P2/index.html")).not.toContain(`name="${Q_TRUST}"`);
+     // The sheet's annex: its modules' other journey questions, answered under their own keys.
+-- 
+2.43.0
+
